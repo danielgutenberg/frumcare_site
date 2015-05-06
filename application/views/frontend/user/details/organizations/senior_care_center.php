@@ -50,7 +50,7 @@
     
     <?php $language = explode(',',$language); ?>
         <tr>
-            <td>Languags</td>
+            <td>Languages</td>
             <td>
                 <div ><?php if(in_array("English",$language)){ echo $tick; }else{ echo $cross; }?> English</div>
                 <div ><?php if(in_array("Yiddish",$language)){ echo $tick; }else{ echo $cross; }?> Yiddish</div>

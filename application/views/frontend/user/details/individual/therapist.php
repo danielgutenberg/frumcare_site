@@ -29,7 +29,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
                     }
         ?>
     <tr>
-    	<td >Training / Certification <?php echo $info;?></td>
+    	<td >Certification / License information <?php echo $info;?></td>
     	<td >    		
             <?php echo $certification; ?>  
         </td>
@@ -38,14 +38,14 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
     else{
             ?>
                 <tr>
-                    <td >Training / Certification <?php echo $info;?></td>
+                    <td >Certification / License information <?php echo $info;?></td>
                     <td>N/A</td>
                 </tr>
             <?php
           }
     if(!empty($experience)){?>
     <tr>
-    	<td>Years in Pratice</td>
+    	<td>Years in Practice</td>
     	<td>    		
             <?php echo $experience; ?>  
         </td>
@@ -54,7 +54,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
     else{
             ?>
                 <tr>
-                    <td>Years in Pratice</td>
+                    <td>Years in Practice</td>
                     <td>N/A</td>
                 </tr>
             <?php
