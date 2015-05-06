@@ -17,7 +17,9 @@
             header("Pragma: no-cache");
         ?>
         <title><?php if(isset($title)) echo $title.' - '; ?> FrumCare</title>
-        <?php $seodata = Common_model::getSEODATA();?>
+        <?php 
+        $this->load->model('common_model');
+        $seodata = $this->common_model->getSEODATA();?>
         <meta name="title" content="<?php echo $seodata['meta_title'];?>">
         <meta name="description" content="<?php echo $seodata['meta_desc'];?>">
         <meta name="keywords" content="<?php echo $seodata['meta_keywords'];?>">
