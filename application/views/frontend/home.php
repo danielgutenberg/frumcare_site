@@ -66,7 +66,7 @@
                                 <span class="looking-for-care-job">Looking for a care job?</span><br/>
                                 Find Jobs in your area
                             </h2>
-                            <a href="<?php echo base_url('careseekers') ?>" class="place-ad-link link-block">FIND A JOB</a>
+                            <a href="<?php echo base_url('jobs/all') ?>" class="place-ad-link link-block">FIND A JOB</a>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -155,8 +155,9 @@
                     <div class="col-half border-right">            
 
                         <h2>Safety guide</h2>
-                        <?php 
-                        $safetyposts = Blog_model::getSafetyFirstPosts(22);
+                        <?php
+                        $this->load->model('blog_model');
+                        $safetyposts = $this->blog_model->getSafetyFirstPosts(22);
                         //if(is_array($safetyposts)){
                             //foreach($safetyposts as $key => $safety):
 
@@ -217,7 +218,7 @@
 
                  </div>
                  <?php 
-                 $adviceandtools = Blog_model::getAdvicePosts(21);
+                 $adviceandtools = $this->blog_model->getAdvicePosts(21);
 
                  ?>
                  <div class="col-half padleft">
