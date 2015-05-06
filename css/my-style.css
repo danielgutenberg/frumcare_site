@@ -1,0 +1,105 @@
+.sign-up-form input, .sign-up-form select, .sign-in-form input, .sign-in-form select, .ad-form input, .ad-form select, .ad-form textarea {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    width: 400px;
+}
+
+.ad-form label {
+    display: block;
+    padding-top: 10px;
+}
+
+.sign-up-form input[type="checkbox"], .ad-form input[type="radio"] {
+    display: inline-block!important;
+    margin-top: 10px!important;
+    padding: 0!important;
+    width: auto;
+}
+
+.gender-text {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: -4px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.gender-text:hover {
+    color: #fff;
+    background-color: #0193E8;
+}
+
+.gender {
+    line-height: 40px;
+    border: 1px solid #D1D1D1;
+    border-radius: 4px;
+    width: 400px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.bday select {
+    width: 133px;
+    display: inline-block;
+    margin-right: -4px;
+}
+
+.bday {
+    margin-top: 10px;
+}
+
+.social-sign-in {
+    text-align: center;
+}
+
+.sign-in-form {
+    width: 400px;
+}
+
+.ad-form-left {
+    float: left;
+}
+
+.ad-form-right {
+    float: right;
+    margin-top: 71px;
+    margin-bottom: 30px;
+    padding-left: 20px;
+    border-left: 2px solid #D1D1D1;
+}
+
+/*for page loader*/
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   speak for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.page-loader-modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 )
+    url('../images/loader.gif')
+    50% 50%
+    no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .page-loader-modal {
+    display: block;
+}
+/*for page loader*/

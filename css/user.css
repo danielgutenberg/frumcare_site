@@ -1,0 +1,247 @@
+/*added by sadima*//*login forms style*/
+
+.float-left{
+	float:left;
+}
+
+.float-right{
+	float:right;
+}
+
+.dashboard-left {
+    width: 22%;
+    /*width: 100%;*/
+    margin-bottom: 20px;
+}
+
+.dashboard-right{
+    width: 70%;
+    /*width: 100%;*/
+}
+
+/*.dashboard-nav li:first-child {
+    border-top: 1px solid #555555;
+}*/
+.dashboard-nav ul {
+    border-left: 1px solid #1C75BA;
+    border-top: 1px solid #1C75BA;
+    border-bottom: 1px solid #1C75BA;
+    float: left;
+}
+.dashboard-nav li {
+    
+    /*float: left;*/
+    list-style-type: none;
+    /*width: 8.33%;*/
+}
+
+.dashboard-nav a {
+    background-color: #1C75BA;
+    border-right: 1px solid #27aae0;
+    border-bottom: 1px solid #2892DF;
+    color: #FFF;
+    display: block;
+    font-size: 13px;
+    padding: 10px 5px;    
+    /*min-height: 58px;
+    text-align: center;*/
+}
+.dashboard-nav li:last-child a {
+    border-bottom: none;
+}
+
+.dashboard-nav a:hover, .dashboard-nav a.active {
+    
+    border-right: 1px solid #1C75BA;
+    background-color: #27aae0;
+}
+
+.dashboard-nav > ul {
+    padding: 0;
+    width: 100%;
+}
+
+.top-welcome h2 {
+    color: #000;
+    margin: 0 0 19px;
+}
+
+.profile-status {
+    margin: 0 0 15px;
+    color: #000;
+}
+
+.top-welcome .progress {
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 0;
+    box-shadow: none;
+    height: 15px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.top-welcome .progress-bar {
+    border-right: 1px solid #000;
+    background-color: #669acb;
+}
+
+.profile-block {
+    display: inline-block;
+    margin: 0 18px 30px;
+    text-align: center;
+    vertical-align: top;
+    width: 120px;
+}
+
+.profile-img {
+    /*border: 1px solid #000;*/
+    display: block;
+    padding: 20px;
+    text-align: center;
+    width: 120px;
+}
+
+.dashboard-menu-icons {
+    margin: 0 -20px;
+}
+
+.profie-name {
+    color: #000;
+    display: block;
+    margin: 5px 0 0;
+}
+
+.dashboard-right  .upload-btns{
+	margin:0;
+}
+
+.edit-block {
+    clear: both;
+}
+
+.profile-left {
+    margin: 0 30px 5px 0;
+}
+
+.dashboard-right #output img {
+    border: 2px solid #000;
+    padding: 0;
+}
+
+.dashboard-right #output{
+	margin:0 0 20px 0;
+}
+
+.profile-left .btn.btn-info {
+    margin-top: 15px;
+}
+
+.search-links > a {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+/*.upgrade {
+    color: #000;
+}*/
+
+.upgrade select {
+    margin-left: 35px;
+    background: none repeat scroll 0 0 #f4f4f4;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    height: 38px;
+    padding-left: 12px;
+    width: 330px;
+}
+
+.upgrade .btn.btn-primary {
+    display: block;
+    margin-left: 97px;
+    margin-top: 20px;
+}
+
+#createsearchalert input {
+    margin-right: 10px;
+}
+
+.alert-fields.exp-yr  label,.alert-fields.edu-level label{
+    display: block;
+}
+
+.alert-fields.exp-yr select,.alert-fields.edu-level select {
+     background: none repeat scroll 0 0 #f4f4f4;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    height: 38px;
+    padding-left: 12px;
+    width: 330px;
+}
+
+.alert-fields.exp-yr,.alert-fields.child-no,.alert-fields.edu-level {
+    margin: 20px 0;
+}
+
+.alert-fields.child-no input{
+
+ background: none repeat scroll 0 0 #f4f4f4;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    height: 40px;
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 330px;
+}
+
+.alert-fields.child-no > h4,.alert-fields.exp-yr h4,.alert-fields.edu-level h4 {
+    display: inline-block;
+    margin: 0 20px 0 0;
+    min-width: 200px;
+}
+
+.alert-fields.child-no label.error,.alert-fields.exp-yr label.error,.alert-fields.edu-level   label.error{
+    margin: 10px 0 0 225px;
+}
+
+.check label.error {
+    left: 0;
+    position: absolute;
+    bottom: -33px;
+}
+
+.alert-fields {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+/*.check {
+    position: relative;
+}
+
+.check label.error:after {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #ccc;
+    bottom: -9px;
+    content: "";
+    height: 8px;
+    left: 0;
+    position: absolute;
+    width: 0;
+}*/
+
+.profile-progressbar {
+    float: right;
+}
+.profile_progress {
+    float: right;
+    width: 70% !important; 
+}
+.centeralign {
+    /*text-align: center;*/
+    margin-bottom: 20px;
+}
+.centeralign .sign-up-btn{
+    text-align: left;
+}

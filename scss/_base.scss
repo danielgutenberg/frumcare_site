@@ -1,0 +1,20 @@
+/*
+Base file and includes
+*/
+/* 
+    Created on : Jul 16, 2014, 12:02:49 PM
+    Author     : Access Keys
+*/
+$containerWidth : 1090px;
+
+/*typography variables*/
+$font-size-base : 14px;
+$text-color : #2e2e2e;
+$font-family-base : "Varela Round","Helvetica Neue", Helvetica, Arial, sans-serif;
+$vagrounded : "VAGRoundedStd","Varela Round","Helvetica Neue", Helvetica, Arial, sans-serif;
+$mistral : "Mistral",cursive;
+
+/*normalize css*/
+@import "mixins";
+@import "normalize.min";
+@import "bootstrap";

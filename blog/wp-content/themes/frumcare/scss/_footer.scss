@@ -1,0 +1,148 @@
+/*site footer*/
+.footer{
+    padding: 33px 0 44px;
+    background:{
+        color:#6ca7b8;
+        image:url(../img/footer-bg.jpg);
+        repeat:no-repeat;
+        position:0 -105px;
+    }
+    margin-top:48px;
+    color:#fff;
+    a{
+        color:#fff;
+    }
+    .social-links{
+        text-align:right;
+        & > a{
+            margin-left:6px;
+            &:first-child{
+                margin-left:27px;
+            }
+        }
+        .flip-link-container{
+            display:inline-block;
+            position:relative;
+            width:32px;
+            height:32px;
+            vertical-align:middle;
+            &:hover .flip-link{
+                -webkit-transform: rotateY(180deg);
+                -moz-transform: rotateY(180deg);
+                -ms-transform: rotateY(180deg);
+                -o-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+            }
+        }
+        .flip-link-container:hover .flip-link{
+            -webkit-transform: rotateY(180deg);
+            -moz-transform: rotateY(180deg);
+            -ms-transform: rotateY(180deg);
+            -o-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+        }
+
+        .flip-link{
+            -webkit-transition: 0.6s;
+            -moz-transition: 0.6s;
+            -ms-transition: 0.6s;
+            -o-transition: 0.6s;
+            transition: 0.6s;
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            position:relative;
+        }
+        .front, .back {
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .front{
+            z-index:10;
+        }
+        .back{
+            z-index:11;
+        }
+        .back{
+            -webkit-transform: rotateY(180deg);
+            -moz-transform: rotateY(180deg);
+            -ms-transform: rotateY(180deg);
+            -o-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+        }
+        span{
+            display:block;
+        }
+    }
+    .colophon{
+        margin-top:40px;
+        padding-top:15px;
+        border-top:1px solid #fff;
+    }
+    .copyright-info{
+        line-height:32px;
+        font-size:16px;
+    }
+}
+
+.footer-navigation{
+    ul{
+        @include no-bullet;
+    }
+    li{
+      margin-bottom:1px;
+    }
+    a{
+        font-size:16px;
+    }
+    .nav-title{
+        margin-bottom: 22px;
+        margin-top:0;
+        padding-bottom:10px;
+        border-bottom:1px solid #ffffff;
+        text-transform:uppercase;
+        font-size:19px;
+        line-height:1;
+    }
+    .icon-mobile{
+        margin-top:-5px;
+        width:15px;
+        background-position: -69px -69px;
+    }
+    [class*='icon-']{
+        margin-right:12px;
+    }
+}
+
+/*Block specific grid customization*/
+.footer{
+    .row.navigation-row{
+        margin-left:-10px;
+    }
+    .col-one-fourth{
+        padding-left:10px;
+    }
+} 
+
+/*fallback for flipping animation on older browsers*/
+.no-csstransforms3d{
+    .flip-link-container{
+        .back{
+            display:none;
+        }
+        &:hover{
+            .back{
+                display:block;
+            }
+            .front{
+                display:none;
+            }
+        }
+    }
+}

@@ -1,0 +1,124 @@
+/*icons*/
+[class*='icon-']{
+    display:inline-block;
+    background-image:url(../img/sprite.png);
+    background-repeat:no-repeat;
+    vertical-align:middle;
+    position:relative;
+    *display:block;
+    *zoom:1;
+}
+.icon-login{
+    background-position: -11px -9px;
+    width:9px;
+    height:16px;
+}
+.icon-lock{
+    background-position: -39px -10px;
+    width:11px;
+    height:12px;
+    top:-2px;
+}
+.icon-search{
+    background-position: -67px -10px;
+    width: 15px;
+    height: 12px;
+}
+.icon-facebook-white{
+    background-position:-102px -12px;
+    width:32px;
+    height:32px;
+}
+.icon-twitter-white{
+    background-position: -142px -12px;
+    width: 32px;
+    height: 32px;
+}
+.icon-linkedin-white{
+    background-position: -182px -12px;
+    width: 32px;
+    height: 32px;
+}
+.icon-googleplus-white{
+    background-position: -223px -12px;
+    width: 32px;
+    height: 32px;
+}
+.icon-facebook-color{
+    background-position:-102px -51px;
+    width:32px;
+    height:32px;
+}
+.icon-twitter-color{
+    background-position: -142px -51px;
+    width: 32px;
+    height: 32px;
+}
+.icon-linkedin-color{
+    background-position: -182px -51px;
+    width: 32px;
+    height: 32px;
+}
+.icon-googleplus-color{
+    background-position: -223px -51px;
+    width: 32px;
+    height: 32px;
+}
+.icon-envelope{
+    background-position: -68px -40px;
+    width: 15px;
+    height: 10px;
+}
+.icon-mobile{
+    background-position: -71px -69px;
+    width: 9px;
+    height: 13px;
+}
+/*how it works icons*/
+.icon-caregiver{
+    background-position:-16px -154px;
+    width: 82px;
+    height: 82px;
+}
+.icon-find-job{
+    background-position: -123px -154px;
+    width: 82px;
+    height: 82px;
+}
+.icon-employees{
+    background-position:-214px -154px;
+    width: 82px;
+    height: 82px;
+}
+.icon-search-circle{
+    background-position:-8px -247px;
+    width: 101px;
+    height: 101px;
+}
+.icon-hire{
+    background-position:-129px -249px;
+    height:101px;
+    width:101px;
+}
+
+/*safety-first icons*/
+.icon-crowd{
+    background-position: -13px -46px;
+    width:36px;
+    height:26px;
+}
+.icon-coins{
+    background-position:-13px -102px;
+    width:35px;
+    height:34px;
+}
+.icon-comment{
+    background-position:-74px -104px;
+    width:34px;
+    height:33px;
+}
+.icon-doc{
+    background-position: -137px -100px;
+    width: 26px;
+    height: 36px;
+}

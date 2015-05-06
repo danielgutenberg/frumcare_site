@@ -1,0 +1,47 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+@import 'font-vagrounded';
+@import 'font-mistral';
+@import 'base';
+.browsehappy{
+    background:#555;
+    color:#fff;
+    text-align:center;
+    padding:10px 0;
+}
+.browsehappy a{
+    color:yellowgreen;
+}
+.container{
+    margin:0 auto;
+    width:$containerWidth;
+}
+.row{
+    @include clearfix();
+}
+[class*='col-']{
+    float:left;
+}
+.col-full{
+    float:none !important;
+    display:block !important;
+}
+.col-half{
+    width:50%;
+}
+.col-one-fourth{
+    width:25%;
+}
+
+body{
+    font-family:$font-family-base;
+    font-size:$font-size-base;
+}
+@import "icons";
+@import 'header';
+@import 'index';
+@import 'homebanner';
+@import 'footer';
+
+

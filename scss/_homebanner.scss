@@ -1,0 +1,54 @@
+/*home page banner*/
+.banner{
+    .banner-main{
+        @include no-bullet;
+    }
+    .banner-item{
+        background:{
+            repeat:no-repeat;
+            position:center -100px;
+            attachment:fixed;
+        }
+        height:507px;
+        width:100%;
+        position:relative;
+        overflow:hidden;
+        .container{
+            position:relative;
+            z-index:15;
+        }
+        .banner-text{
+            width:430px;
+            padding-top:66px;
+            float:left;
+        }
+        .banner-images{
+            width: auto;
+            float: right;
+            padding-top: 18px;
+        }
+        .banner-title{
+            font-size:49px;
+            color:#fff;
+            text-align: left;
+            text-shadow: 0px 0px 8px rgb( 92, 98, 0 );
+            font-family:$vagrounded;
+            font-weight:bold;
+            margin-bottom:4px;
+        }
+        .banner-sub-title{
+            font-size:35px;
+            color:#074b68;
+            font-family:$vagrounded;
+            font-weight:bold;
+            line-height: 1.09;
+            text-shadow: 0px 0px 3px rgba( 255, 255, 255,0.3 );
+            text-transform:uppercase;
+        }
+    }
+    .link-block{
+        padding: 6px 16px;
+        font-size: 15px;
+        margin-right: 10px;
+    }
+}

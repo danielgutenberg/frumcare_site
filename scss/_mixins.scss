@@ -1,0 +1,54 @@
+/*mixins*/
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  // IE8 filter
+  $opacity-ie: ($opacity * 100);
+  filter: #{alpha(opacity=$opacity-ie)};
+}
+
+@mixin no-bullet {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+  padding-left:0;
+  margin-bottom:0;
+}
+
+@mixin no-bullets {
+  list-style: none;
+  li {
+    @include no-bullet;
+  }
+}
+
+@mixin inline-list {
+  list-style-type: none;
+  &, & li {
+    margin: 0px;
+    padding: 0px;
+    display: inline;
+  }
+}
+
+@mixin resetBox{
+    margin:0;
+    padding:0;
+}
+@mixin has-layout{
+    *zoom:1;
+}
+@mixin inline-block{
+    display:inline-block;
+    *display:block;
+    @include has-layout;
+}

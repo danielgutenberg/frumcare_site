@@ -1,0 +1,15 @@
+[16-Feb-2015 06:53:20 America/New_York] PHP Fatal error:  Call to undefined method Careseeker_specialneedsfacility_model::count() in /home/frumcare/public_html/dev/application/controllers/careseeker_specialneedsfacility.php on line 104
+[17-Feb-2015 04:44:59 America/New_York] PHP Fatal error:  Call to undefined method Careseeker_specialneedsfacility_model::count() in /home/frumcare/public_html/dev/application/controllers/careseeker_specialneedsfacility.php on line 104
+[17-Feb-2015 04:46:04 America/New_York] PHP Fatal error:  Call to undefined method Careseeker_specialneedsfacility_model::count() in /home/frumcare/public_html/dev/application/controllers/careseeker_specialneedsfacility.php on line 104
+[08-Mar-2015 07:07:53 America/New_York] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/frumcare/public_html/dev/application/libraries/imageupload_lib.php on line 97
+[08-Mar-2015 07:31:10 America/New_York] PHP Parse error:  syntax error, unexpected '(', expecting variable (T_VARIABLE) in /home/frumcare/public_html/dev/application/controllers/user.php on line 302
+[08-Mar-2015 07:32:21 America/New_York] PHP Parse error:  syntax error, unexpected '(', expecting variable (T_VARIABLE) in /home/frumcare/public_html/dev/application/controllers/user.php on line 302
+[18-Mar-2015 05:37:45 America/New_York] PHP Fatal error:  Call to undefined function br() in /home/frumcare/public_html/dev/application/views/frontend/common_profile_list.php on line 80
+[30-Apr-2015 01:54:18 America/New_York] PHP Fatal error:  Call to undefined function have_posts() in /home/frumcare/public_html/dev/application/views/frontend/resources/tipsandtools.php on line 11
+[30-Apr-2015 01:56:59 America/New_York] PHP Fatal error:  Call to undefined function have_posts() in /home/frumcare/public_html/dev/application/views/frontend/resources/tipsandtools.php on line 11
+[30-Apr-2015 01:57:22 America/New_York] PHP Fatal error:  Call to undefined function have_posts() in /home/frumcare/public_html/dev/application/views/frontend/resources/tipsandtools.php on line 11
+[30-Apr-2015 01:57:52 America/New_York] PHP Fatal error:  Call to undefined function have_posts() in /home/frumcare/public_html/dev/application/views/frontend/resources/tipsandtools.php on line 11
+[30-Apr-2015 02:13:01 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/frumcare/public_html/dev/blog' (include_path='.:/usr/local/php55/pear') in /home/frumcare/public_html/dev/application/controllers/routee.php on line 3
+[30-Apr-2015 02:13:18 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/frumcare/public_html/dev/blog/' (include_path='.:/usr/local/php55/pear') in /home/frumcare/public_html/dev/application/controllers/routee.php on line 3
+[30-Apr-2015 03:00:51 America/New_York] PHP Parse error:  syntax error, unexpected 'endforeach' (T_ENDFOREACH) in /home/frumcare/public_html/dev/application/views/frontend/home.php on line 210
+[03-May-2015 05:10:48 America/New_York] PHP Parse error:  syntax error, unexpected '}' in /home/frumcare/public_html/dev/application/views/frontend/user/addprofile.php on line 258

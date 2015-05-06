@@ -1,0 +1,117 @@
+.container {
+    width: auto;
+}
+.error
+{
+    color:red;
+}
+.page-content
+{
+    min-height: 550px;
+    padding: 30px;
+}
+.additional
+{
+    padding: 10px;
+    margin-top: 10px;
+}
+.login-wrapper .box input[type="text"], .login-wrapper .box input[type="password"]
+{
+    margin-bottom: 0;
+}
+.input-group {
+    margin: 0 0 10px;
+}
+.main-content
+{
+    margin-left:5px ;
+}
+.footer
+{
+    display: inline-block;
+    background: black;
+    color: white;
+    font-size: 18px;
+    font-family: Segoe Print;
+    width: 100%;
+}
+.dataTables_filter , .dataTables_paginate
+{
+    float: right;
+}
+.circle{
+    background-color: red;
+    border-radius: 5px;
+    margin-left: -36px;
+    margin-top: -15px;
+    position: absolute;
+    padding: 1px 5px;
+    font-size: 11px;
+    
+}
+.notification-circle{
+    background-color: #ff0000;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 1px 5px;
+    font-size: 11px;
+}
+
+
+.bubble{
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    box-shadow: 0 0 6px #B2B2B2;
+    display: inline-block;
+    padding: 10px 18px;
+    position: relative;
+    vertical-align: top;
+}
+
+.bubble::before {
+    background-color: #F2F2F2;
+    content: "\00a0";
+    display: block;
+    height: 16px;
+    position: absolute;
+    top: 11px;
+    transform:             rotate( 29deg ) skew( -35deg );
+        -moz-transform:    rotate( 29deg ) skew( -35deg );
+        -ms-transform:     rotate( 29deg ) skew( -35deg );
+        -o-transform:      rotate( 29deg ) skew( -35deg );
+        -webkit-transform: rotate( 29deg ) skew( -35deg );
+    width:  20px;
+}
+.you {
+    float: left;   
+    margin: 5px 45px 5px 20px;         
+}
+.you::before {
+    box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
+    left: -9px;           
+}
+.me {
+    float: right;    
+    margin: 5px 20px 5px 45px;         
+}
+.me::before {
+    box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
+    right: -9px;    
+}
+
+.ticket-logs {
+    border: 1px solid #d3d3d3;
+    margin: 20px 0;
+    overflow-x: auto;
+    padding: 20px 0;
+    width: 70%;
+}
+
+#output{
+    padding: 5px;
+    font-size: 12px;
+}
+#output img {
+    border: 1px solid #DDD;
+    padding: 5px;
+}
