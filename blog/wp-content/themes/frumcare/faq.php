@@ -17,19 +17,27 @@ get_header(); ?>
            <div class="resource-wrap clearfix">
 			
 				<div class="left-sidebar-resource">
-					<?php wp_nav_menu( array( 'theme_location' => 'sidebar-menu' ) ); ?> 
-                    <!--
-<ul>
-						<li> <a href="#"> Advice </a> </li>
-						<li class="sub-menu"> <a href="#"> For Family </a> </li>
-						<li class="sub-menu"> <a href="#"> For Caregiver </a> </li>
-						<li class="sub-menu"> <a href="#"> For Employers </a> </li>
-						<li> <a href="#"> Rate Calculator </a> </li>
-						<li> <a href="#"> FAQ </a> </li>
-						<li> <a href="#"> Safety Guide </a> </li>
-						<li> <a href="#"> Background Checks </a> </li>       
+					<?php 
+					//wp_nav_menu( array( 'theme_location' => 'sidebar-menu' ) ); 
+					?>
+                   <ul class="sidebarmenu">
+						<li> <a href="<?php echo $ciurl;?>safety-guide"> Safety Guide </a>
+						    <ul class="submenuleft">
+						        <li style="margin-left: 20px;"> <a href="#"> For Families </a> </li>
+						        <li style="margin-left: 20px;"> <a href="#"> For Caregivers </a> </li>
+						    </ul>
+						 </li>
+						<li> <a href="<?php echo $ciurl;?>tips-and-tools"> Advice and Tips </a>
+						<ul class="submenuleft">
+						    <li style="margin-left: 20px;"> <a href="#"> For Families </a> </li>
+						    <li style="margin-left: 20px;"> <a href="#"> For Caregivers </a> </li>
+						    <li style="margin-left: 20px;"> <a href="#"> For Employers </a> </li>
+						</ul>
+						 </li>
+						<li> <a href="<?php echo $ciurl;?>faq"> FAQ </a> </li>
+						<li> <a href="<?php echo $ciurl;?>rate-calculator"> Rate Calculator </a> </li>						
+						<li> <a href="<?php echo $ciurl;?>background-check"> Background Check </a> </li>       
 					</ul>
--->
 				</div> <!-- left-sidebar-resource end -->
 
 				<div class="right-side-resources">
