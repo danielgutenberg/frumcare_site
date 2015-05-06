@@ -1,7 +1,7 @@
 <div class="container">
     <div class="sign_up_successful">
     <h2>Welcome to the Frumcare Family.</h2> 
-    <p>Your account has been successfully created. We need to verify your email. Please follow the link in the email  to verify your email address.</p>
+    <p>Your account has been successfully created. We need to verify your email. Please press on the link in the email we sent you.</p>
     <p><a href="">Click Here</a> to resend the email.</p>
     <p><?php             
             if(is_array($redirectData)){
