@@ -66,6 +66,7 @@
                                 <span class="looking-for-care-job">Looking for a care job?</span><br/>
                                 Find Jobs in your area
                             </h2>
+                            
                             <a href="<?php echo base_url('jobs/all') ?>" class="place-ad-link link-block">FIND A JOB</a>
                         </div>
                     </div>
