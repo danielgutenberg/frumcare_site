@@ -77,20 +77,20 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
           }
     if(!empty($rate)){?>
     <tr>
-    	<td >Rate</td>
+    	<td >Wage</td>
     	<td >
-            <?php echo '$'.$rate; 
+            <?php echo $rate . '/Hr'; 
             $type = explode(',',$rate_type);
             ?>
-            <div class="details-info"><?php if(in_array('1',$type)){echo $tick; }else{ echo $cross; } ?>  Hourly Rate</div>
-            <div class="details-info"><?php if(in_array('2',$type)){echo $tick; }else{ echo $cross; } ?>  Monthly Rate</div>    
+            <!--<div class="details-info"><?php if(in_array('1',$type)){echo $tick; }else{echo $cross; } ?>  Hourly Rate</div>-->
+            <div class="details-info"><?php if(in_array('2',$type)){echo $tick; }else{echo $cross; } ?>  Monthly Rate Available</div>    
         </td>
     </tr>
     <?php }
     else{
             ?>
                 <tr>
-                    <td >Rate </td>
+                    <td >Wage </td>
                     <td>N/A</td>
                 </tr>
             <?php

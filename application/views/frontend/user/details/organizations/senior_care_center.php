@@ -95,11 +95,11 @@
 		
 		<td>Cost</td>
 		<td>
-			<div><?php echo $rate.' '. $type;?></div>
+			<div><?php echo $rate.' ';?></div>
 		</td>
         <?php }  
                 else{ ?>
-                    <td>Rate</td>
+                    <td>Cost</td>
                     <td>N/A</td>
 		<?php 
 			}
