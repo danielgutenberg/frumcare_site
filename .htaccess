@@ -6,4 +6,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?/$1 [L]
 
-RewriteRule    ^tips-and-tools/?$    http://181.224.137.174/~frumcare/dev/blog/resources/advices/for-family/    [NC,L]
+RewriteRule    ^tips-and-tools/?$    blog/resources/advices/for-family/    [NC,L]
