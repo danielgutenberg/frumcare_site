@@ -61,7 +61,7 @@ if($detail){
     <h2>Edit Job Details</h2>
 </div>
 <div>
-    <label>Name of organization</label>
+    <label>Name of Organization</label>
     <div class="form-field">
         <input type="text" name="organization_name" value="<?php echo isset($organization_name) ? $organization_name : '' ?>" class="required">
     </div>
@@ -115,7 +115,7 @@ if($detail){
                 <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2" <?php if(in_array('2',$rate_type)){?> checked="checked" <?php }?> >Monthly Rate Available</div>
         </div>
 <div>
-                <label>Availability (check one or more)</label>
+                <label>Availability</label>
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" value="Full Time" name="availability[]" <?php if(in_array("Full Time",$trainingtemp)){?> checked="checked"<?php }?>> Full Time</div>
                     <div class="checkbox"><input type="checkbox" value="Part Time" name="availability[]" <?php if(in_array("Part Time",$trainingtemp)){?> checked="checked"<?php }?>> Part Time</div>

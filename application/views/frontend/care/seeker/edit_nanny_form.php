@@ -85,7 +85,7 @@ if($detail){
         </div>
         
         <div>
-            <label>Looking For(check one or more)</label>
+            <label>Looking For</label>
             <div class="form-field">
                 <div class="checkbox"><input type="checkbox" value="Live In" name="looking_to_work[]" <?php if(in_array('Live In',$looking_to_work)){?> checked="checked" <?php } ?>> Live In</div>
                 <div class="checkbox"><input type="checkbox" value="Live Out" name="looking_to_work[]" <?php if(in_array('Live Out',$looking_to_work)){?> checked="checked" <?php } ?>> Live Out</div>
@@ -100,7 +100,7 @@ if($detail){
             </div>    
         </div>
          <div>
-            <label>Neighborhood/ Street</label>
+            <label>Neighborhood / Street</label>
             <div>
             <input type="text" name="neighbour" class="required" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>
             </div>    
@@ -285,7 +285,7 @@ if($detail){
 
         </div>
         <div>
-                <label>Photo of child/ children</label>
+                <label>Photo of child / children</label>
                     <?php
                         $photo_url = site_url("images/plus.png");
                         if(check_user()) {
@@ -301,7 +301,7 @@ if($detail){
                     <button class="btn btn-default" id="upload">Choose File</button>
                     <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
                 </div>
-                <p>Please make sure your photo is appropriate for our site and in line with Jewish Tradition.</p>
+                <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>
             </div>
 
             <br />

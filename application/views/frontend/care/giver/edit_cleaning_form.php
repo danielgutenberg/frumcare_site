@@ -32,7 +32,7 @@ $rate_type = explode(',',$detail[0]['rate_type']);
             </div>
             
             <div>
-                <label>Looking to work in (check one or more)</label>
+                <label>Looking to work in</label>
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" value="Private home" name="looking_to_work[]" <?php if(in_array('Private home',$templookingtowork)){?> checked="checked" <?php }?>> <span>Private home</span></div>
                     <div class="checkbox"><input type="checkbox" value="Business/Office" name="looking_to_work[]" <?php if(in_array('Business/Office',$templookingtowork)){?> checked="checked" <?php }?>> <span>Business/Office</span></div>
@@ -89,7 +89,7 @@ $rate_type = explode(',',$detail[0]['rate_type']);
                 </div>
             </div>
             <div>
-                <label>When you need care (check one or more)</label>
+                <label>When you need care</label>
                 <div class="form-field">                    
                     <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]" <?php if(in_array("Immediate",$time)){?> checked="checked"<?php }?>>Immediate</div>
                     <div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]" <?php if(in_array("Start Date",$time)){?> checked="checked"<?php }?>> Start Date<input type="text" name="start_date" <?php if($date!='0000-00-00'){ echo 'value='.$date;}?> id="textbox1"/></div>

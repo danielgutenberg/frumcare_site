@@ -53,7 +53,7 @@
             </div>
 
             <div>
-                <label>Number of patients/residents</label>
+                <label>Number of patients / residents</label>
                 <div class="form-field">
                 <input type="text" value="<?php echo isset($number_of_children) ? $number_of_children : '' ?>" name="number_of_children" class="required number">
                 </div>

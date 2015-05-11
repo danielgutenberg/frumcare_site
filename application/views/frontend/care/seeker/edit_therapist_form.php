@@ -70,7 +70,7 @@ if($detail){
             </div>    
         </div>
          <div>
-            <label>Neighborhood/ Street</label>
+            <label>Neighborhood / Street</label>
             <div>
             <input type="text" name="neighbour" class="required" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>
             </div>    

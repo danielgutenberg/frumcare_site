@@ -86,7 +86,7 @@ if($detail){
             </div>    
         </div>
          <div>
-            <label>Neighborhood/ Street</label>
+            <label>Neighborhood / Street</label>
             <div>
             <input type="text" name="neighbour" class="required" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>
             </div>    
@@ -135,7 +135,7 @@ if($detail){
         </div>
 
         <div>
-            <label>When you need help (check one or more)</label>
+            <label>When you need help</label>
             <div class="form-field">
                 <div class="checkbox"><input type="checkbox" value="One time" name="availability[]" <?php if(in_array("One time",$temp)){?> checked="checked"<?php }?>> One time</div>
                 <div class="checkbox"><input type="checkbox" value="Occasionally" name="availability[]" <?php if(in_array("Occasionally",$temp)){?> checked="checked"<?php }?>> Occasionally</div>

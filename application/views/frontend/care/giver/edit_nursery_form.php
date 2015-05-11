@@ -39,7 +39,7 @@ if(isset($detail)){
         <div class="ad-form-container float-left">
 
             <div>
-                <label>For (check one or more)</label>
+                <label>For</label>
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" value="Boys" name="looking_to_work[]" <?php if(in_array('Boys',$looking_to_work)){?> checked="checked" <?php } ?>> Boys</div>                    
                     <div class="checkbox"><input type="checkbox" value="Girls" name="looking_to_work[]" <?php if(in_array('Girls',$looking_to_work)){?> checked="checked" <?php } ?>> Girls</div>
@@ -72,7 +72,7 @@ if(isset($detail)){
                 </div>
             </div>
             <div>
-                <label>Training (Check one or more)</label>
+                <label>Training</label>
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" value="CPR" name="training[]" <?php if(in_array('CPR',$trainingtemp)){?> checked="checked"<?php } ?>> CPR</div>
                     <div class="checkbox"><input type="checkbox" value="First Aid" name="training[]" <?php if(in_array('First Aid',$trainingtemp)){?> checked="checked"<?php } ?>> First Aid</div>
@@ -102,7 +102,7 @@ if(isset($detail)){
             </div>
         
              <div>
-                <label>Days/ Hours</label>
+                <label>Days / Hours</label>
                 <div class="form-field">
                  <label style="width:25%">Sun</label><input type="text" name="sunday_from" class="time" style="width:25%" value="<?php echo $detail[0]['sunday_from'];?>"> to  <input type="text" name="sunday_to" class="time" style="width:25%" value="<?php echo $detail[0]['sunday_to'];?>">
                  <br>
@@ -114,7 +114,7 @@ if(isset($detail)){
                  <div class="checkbox"><input type="checkbox" name="extended_hrs_available" value="1" <?php if($detail[0]['extended_hrs'] == 1){?> checked="checked" <?php }?> > Extended Hours Available</div>
                  <div class="checkbox"><input type="checkbox" name="flexible_hours" value="1" <?php if($detail[0]['flexible_hours'] == 1){?> checked="checked" <?php }?>> Flexible Hours</div>
                  <br>
-                 Vacation Days (Please specify vacation days)
+                 <label>Vacation Days (Please specify vacation days)</label>
                  <br>
                  <input type="text" name="vacation_days" value="<?php echo $detail[0]['vacation_days'];?>" placeholder="Vacation Days">
 
