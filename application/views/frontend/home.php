@@ -360,7 +360,7 @@
                     var selected_category = $("input[type='radio'].select:checked").val();
                     if(selected_category == undefined){
                             //alert('Please select the care type');return false;
-                            return $myDialog.dialog('open'); 
+                            window.location= '<?php echo site_url();?>signup';
                         }else{
                             window.location= '<?php echo site_url();?>signup?ac='+selected_category;    
                         }
