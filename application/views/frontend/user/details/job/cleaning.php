@@ -168,14 +168,15 @@
         <?php $rate_type = explode(',',$rate_type)?>
         <tr>
             <td>Wage</td>
-            <td>
-                <div class="details-info"><?php echo $rate; ?></div>
-                <div class="details-info"><?php if(in_array('1',$rate_type)){ echo $tick; }else{ echo $cross; }?> Hourly Rate</div>
-                <div class="details-info"><?php if(in_array('2',$rate_type)){ echo $tick; }else{ echo $cross; }?> Monthly Rate</div>
-            </td>
+            <td >
+            <?php echo $rate . '/Hr'; 
+            $type = explode(',',$rate_type);
+            ?>
+            <!--<div class="details-info"><?php if(in_array('1',$type)){echo $tick; }else{echo $cross; } ?>  Hourly Rate</div>-->
+            <div class="details-info"><?php if(in_array('2',$type)){echo $tick; }else{echo $cross; } ?>  Monthly Rate Available</div>    
+        </td>
         </tr>
-        <?php }
-        else{
+    <?php }else{
             ?>
                 <tr>
                     <td >Wage </td>

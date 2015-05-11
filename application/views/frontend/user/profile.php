@@ -67,7 +67,7 @@ if(check_user()) {
                     <?php
                         if($ac == 3 && $oc == 1){?>
                             <br />
-                            <a href="<?php echo site_url('user/details/'.sha1(check_user()))?>" class="btn btn-info">Edit Organization Details</a>
+                            <a href="<?php echo site_url('user/details/'.sha1(check_user()))?>" class="btn btn-info">Edit Organization Info</a>
                             <?php
                         }
                     ?>

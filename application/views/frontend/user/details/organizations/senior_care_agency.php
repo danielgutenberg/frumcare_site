@@ -82,13 +82,13 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 						$type = 'Per Monthly';
 					?>
 
-					<td>Rate</td>
+					<td>Wage</td>
 					<td>
-						<div class="details-info"><?php echo $rate.' '. $type;?></div>
+						<div class="details-info"><?php echo $rate.' /Hr';?></div>
 					</td>
                     <?php }  
                 else{ ?>
-                    <td>Rate</td>
+                    <td>Wage</td>
                     <td>N/A</td>
 					<?php 
 				}

@@ -4,7 +4,7 @@
 			 $ac = $sessiondata['account_category'];
 			 $oc = $sessiondata['organization_care'];
 			    if($ac == 1 || $ac ==3)
-			        $profile1='My Profile';
+			        $profile1='My Profiles';
 			    if($ac ==2) 
 			        $profile1='My Job';
 			    /*if($ac == 3 && $oc == 1)

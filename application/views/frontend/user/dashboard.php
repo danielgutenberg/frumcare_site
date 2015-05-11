@@ -63,7 +63,7 @@
 					</a>
 					
 					<a href="<?php echo site_url();?>user/profile" class="profie-name">
-						My Profile
+						My Profiles
 					</a>
 			</div>
 

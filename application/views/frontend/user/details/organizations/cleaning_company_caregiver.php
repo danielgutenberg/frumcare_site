@@ -49,7 +49,7 @@
 
    <tr>
     <?php if(isset($days_from) || isset($days_to)) {?>
-    <td>Work hours</td>
+    <td>Days / Hours</td>
     <td>Days  <?php echo $days_from;?> - <?php echo $days_to;?> 
     </td>
     <?php }  
@@ -78,11 +78,11 @@
      else
       $type = "Monthly Rate";
     ?>
-    <td>Rate</td>
-    <td><div class="details-info"><?php echo $rate.' '.$type;?></div></td>
+    <td>Wage</td>
+    <td><div class="details-info"><?php echo $rate.' /Hr ';?></div></td>
     <?php }  
                 else{ ?>
-                    <td>Rate</td>
+                    <td>Wage</td>
                     <td>N/A</td>
     <?php } ?>
   </tr>  
