@@ -43,7 +43,7 @@ $rate_type = explode(',', $detail[0]['rate_type']);
                 <h2 class="step3">Edit Job Details</h2>
             </div>
             <div>
-                <label>Looking to work in (check one or more)</label>
+                <label>Looking to work in</label>
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" value="Patients home" name="looking_to_work[]" <?php if(in_array('Patients home', $templookingtowork)){?> checked="checked" <?php }?>> Patients home</div>
                     <div class="checkbox"><input type="checkbox" value="Caregiving institution" name="looking_to_work[]" <?php if(in_array('Caregiving institution', $templookingtowork)){?> checked="checked" <?php }?>> Caregiving institution</div>
