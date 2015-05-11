@@ -81,7 +81,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             </div>
 
             <div>
-                <label>Number of staff per group</label>
+                <label>Number of staff</label>
                 <div class="form-field">
                 <input type="text" value="" name="number_of_staff" class="required number">
                 </div>
