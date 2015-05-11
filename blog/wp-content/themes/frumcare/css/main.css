@@ -5027,13 +5027,15 @@ body {
 }
 
 
-.sub-menu li{ display:block;}
+
 .primary-nav li:hover > .sub-menu {
   display: block;
 }
 .sub-menu li {
+    display:block;
+    
   width: auto;
-  min-width: 360px;
+  min-width: 220px;
 }
 .sub-menu li a {
   display: block;
