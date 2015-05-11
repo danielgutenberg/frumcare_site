@@ -63,7 +63,7 @@
 					 	<li><?php echo $data['experience'];?> years of paid experience</li>
 
 					 	<?php if($data['number_of_children']){ ?>
-					 		<li>Will Care upto <?php echo $data['number_of_children'];?> children</li>
+					 		<li>Will Care up to <?php echo $data['number_of_children'];?> children</li>
 					 	<?php } ?>
 
 					 	<?php if($data['on_short_notice'] == 1){ ?>
@@ -91,7 +91,7 @@
 					 	<?php }?>
 
 					 	<?php if($data['references'] == 1){?>
-					 			<li>Refrences are available</li>
+					 			<li>References are available</li>
 					 	<?php } ?>
 
 					 	<?php if($data['availability']){ ?>

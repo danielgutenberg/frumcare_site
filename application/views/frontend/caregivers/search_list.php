@@ -139,7 +139,7 @@
 					 	<?php }?>
 
 					 	<?php if($data['number_of_children']){ ?>
-					 		<li>Will Care upto <?php echo $data['number_of_children'];?> children</li>
+					 		<li>Will Care up to <?php echo $data['number_of_children'];?> children</li>
 					 	<?php } ?>
 
 					 	<?php if($data['availability']){ ?>
