@@ -742,7 +742,7 @@ class User_model extends CI_Model
                             'lng'=>isset($p['lng']) ? $p['lng'] : $user_data[0]['lng'],
                         );
                         
-                        print_r($insert_user); exit;
+                        //print_r($insert_user); exit;
                     
                         $this->db->where(array('id'=>$id));
                         $q2 = $this->db->update('tbl_user',$insert_user);                        
