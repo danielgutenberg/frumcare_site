@@ -1080,8 +1080,10 @@ class User extends CI_Controller
         $care_type = $this->uri->segment(4);
         $care_id = array('care_id'=>$care_type);
         $res = $this->user_model->current_user($care_id);
+        $usr = $this->user_model->get_user_info();
         $id = $this->session->userdata('current_user');
         $data['detail'] = $res;
+        $data['usr']=$usr;
        
         if($care_type == 1 && $id == $uid){
             $data['main_content'] = ('frontend/care/giver/edit_babysitter_form');
