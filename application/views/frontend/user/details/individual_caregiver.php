@@ -5,8 +5,8 @@
 
         <h2>
             <?php 
-                $name_array = explode(" ",$name);
-                echo $name_array[0]."'s ";
+                //$name_array = explode(" ",$name);
+                //echo $name_array[0]."'s ";
             ?>
             Personal Details 
         </h2>    
@@ -189,7 +189,7 @@
 </div>
     <div>
         <h2>
-            <?php echo $name_array[0]."'s "; ?>
+            <?php //echo $name_array[0]."'s "; ?>
             Job Details
         </h2>
     </div>    
