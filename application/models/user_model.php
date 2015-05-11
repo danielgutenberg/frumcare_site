@@ -563,6 +563,14 @@ class User_model extends CI_Model
             else
             return false;
         }
+        
+        
+        function get_user_info(){
+             $user_id = $this->session->userdata('current_user');
+        $this->db->where(array('user_id'=>$user_id));
+        $res = $this->db->get('tbl_user');
+        return $res->result_array();
+        }
     
     function current_user($care_id = array())
     {
