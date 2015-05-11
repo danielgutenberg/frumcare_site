@@ -142,7 +142,7 @@ if($care_type==10){
     $this->load->view('frontend/user/details/organizations/daycarecenter',$d);
 }
 else if($care_type==13){
-    $this->load->view('frontend/user/details/organizations/senior_care_agency');
+    $this->load->view('frontend/user/details/organizations/senior_care_agency',$d);
 }
 else if($care_type==14){
     $this->load->view('frontend/user/details/organizations/special_needs_center');
@@ -151,7 +151,7 @@ else if($care_type==15){
     $this->load->view('frontend/user/details/organizations/cleaning_company_caregiver');
 }
 else if($care_type==16){
-    $this->load->view('frontend/user/details/organizations/senior_care_center');    
+    $this->load->view('frontend/user/details/organizations/senior_care_center',$d);    
 }
 else if($care_type==25){
     $this->load->view('frontend/user/details/organizations/child_care_facility');
