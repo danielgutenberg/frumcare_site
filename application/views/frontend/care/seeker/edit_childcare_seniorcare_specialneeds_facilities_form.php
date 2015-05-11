@@ -27,6 +27,7 @@ $(document).ready(function(){
 $user_detail = get_user(check_user());
 if($detail){
     $organiztion_name      = $user_detail['organization_name'];
+    $neighbour              =   $usr['neighbour'];
     $organization_type      = $detail[0]['organization_type'];
     $first_name             = ucfirst($user_detail['name']);
     $job_postion            = explode(',', $detail[0]['job_position']);
