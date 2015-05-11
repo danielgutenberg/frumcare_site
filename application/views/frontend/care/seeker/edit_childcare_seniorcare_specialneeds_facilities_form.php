@@ -164,7 +164,7 @@ if($detail){
                 <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2" <?php if(in_array('2',$rate_type)){?> checked="checked" <?php }?> >Monthly Rate Available</div>
         </div>
             <div>
-                <label>Availability</label>
+                <label>Job Type</label>
                 <div class="form-field">
                         <div class="checkbox"><input type="checkbox" value="Full Time" name="availability[]" <?php if(in_array("Full Time",$temp)){?> checked="checked"<?php }?>> Full Time</div>
                         <div class="checkbox"><input type="checkbox" value="Part Time" name="availability[]" <?php if(in_array("Part Time",$temp)){?> checked="checked"<?php }?>> Part Time</div>
@@ -290,7 +290,7 @@ if($detail){
             </div> */?>
  
                <div>
-                <label>Photo upload of Facility / Organization</label>
+                <label>Upload Photo of Facility / Organization</label>
                     <?php
                         if(!empty($facility)){
                             $profile_picture = base_url('images/profile-picture/thumb/'.$facility);
