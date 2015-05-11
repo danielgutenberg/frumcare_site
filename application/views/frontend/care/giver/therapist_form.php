@@ -97,7 +97,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
             </div>
         </div>
-        <div>
+        <div style="display:none">
             <label>References</label>
             <div class="form-field not-required">
             <div class="radio"><input type="radio" id="ref_check1" value="1" name="references" class="required" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?>/> Yes</div>
