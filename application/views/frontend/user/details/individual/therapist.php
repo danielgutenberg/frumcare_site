@@ -95,22 +95,8 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
                 </tr>
             <?php
           }
-    if($references==1){?>
-    <tr>
-    	<td >References</td>
-    	<td >
-    		<a href="#">Download</a>
-    	</td>
-    </tr>
-    <?php }
-    else{
-            ?>
-                <tr>
-                    <td >References </td>
-                    <td>N/A</td>
-                </tr>
-            <?php
-          } ?> 
+          ?>
+
     <tr>
         <td>Payment Options</td>
         <td><?php echo !empty( $payment_option ) ? $payment_option : 'N/A'; ?></td>
