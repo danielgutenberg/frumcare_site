@@ -4,16 +4,7 @@
 <?php if(!empty($location)){?>
  <div class="table-responsive">
     <table class="table table-striped borderbottom">
-        <?php 
-            if( $care_type == 10 || $care_type == 16 ) { ?>
-                <tr>
-                    <td>Type of Organization</td>
-                    <td>
-                        <?php echo $sub_care ? ucfirst($sub_care) : 'N/A'; ?>
-                    </td>
-                </tr> <?php 
-            }
-        ?>
+        
         <tr>
             <td>Location</td>
             <td id="locationField">
@@ -142,10 +133,13 @@
         <h2>Job Details</h2> <?php 
     }
     else { ?>
-        <h2>Organization Details</h2> <?php
-    }    
+        <h2>Organization Details</h2> 
+            <?php      
+    } 
+    
+    $d=array('care_type'=>$care_type,'sub_care'=>$sub_care);
 if($care_type==10){
-    $this->load->view('frontend/user/details/organizations/daycarecenter');
+    $this->load->view('frontend/user/details/organizations/daycarecenter',$d);
 }
 else if($care_type==13){
     $this->load->view('frontend/user/details/organizations/senior_care_agency');
