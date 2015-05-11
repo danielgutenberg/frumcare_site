@@ -127,7 +127,7 @@
         <?php if(!empty($availability)){ ?>
         <?php $temp = explode(',',$availability); ?>
         <tr id="availability1">
-            <td>Days / Hours</td>
+            <td>Job Hours</td>
             <td>                
                 <div class="details-info"><?php if(in_array("Occassionally",$temp)){ echo $tick; }else{ echo $cross; }?> Occassionally</div>
                 <div class="details-info"><?php if(in_array("Regularly",$temp)){ echo $tick; }else{ echo $cross; }?> Regularly</div>
@@ -146,7 +146,7 @@
         else{
             ?>
                 <tr>
-                    <td >Days / Hours</td>
+                    <td >Job Hours</td>
                     <td>N/A</td>
                 </tr>
             <?php
