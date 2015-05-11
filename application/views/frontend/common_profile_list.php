@@ -157,17 +157,13 @@
                                 <?php echo $data['type_of_therapy']; ?>
                               </li>
                             <?php }
-                            if($data['license_information']) { ?>
+                            if($data['certification']) { ?>
                               <li>
-                                <?php echo $data['license_information']; ?>
+                                <?php echo $data['certification']; ?>
                               </li>
                             <?php }
-                            if($data['experience']) { ?>
-                              <li>
-                                <?php echo $data['experience'].' years in practice'; ?>
-                              </li>
-                            <?php } ?> 
-                        <?php } ?>
+                            
+                         } ?>
                        <?php /*if($data['rate']){?>
 							<li>							
 								<?php echo "$".str_replace("t","-",$data['rate']); ?>
@@ -223,7 +219,15 @@
                     //for caregivers
                     if($data['care_type'] <10 ) { ?>
                     
+                    <?php if($data['care_type'] == 7 && $data['experience']) { ?>
+                              <li>
+                                <?php echo $data['experience'].' years in practice'; ?>
+                              </li>
+                            <?php } ?> 
+                    
                     <?php if(segment(2)!== 'therapists'){ ?>
+                        
+                        
                         <?php if($data['rate']){?>
 							<li>							
 								<?php echo "$".str_replace("t","-",$data['rate']); ?>
@@ -239,9 +243,11 @@
                             if(segment(2)!== 'therapists'){ 
                                 if($data['experience']) { 
                         ?>
-                              <li>
-                                <?php echo $data['experience'].' years in practice'; ?>
-                              </li>
+                              <!--<li>-->
+                                <?php 
+                                    // echo $data['experience'].' years in practice'; 
+                                    ?>
+                              <!--</li>-->
                         <?php
                              }
                          } 

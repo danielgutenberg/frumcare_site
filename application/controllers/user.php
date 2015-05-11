@@ -924,7 +924,7 @@ class User extends CI_Controller
                     'conditions_of_patient' => $conditions,
                     'job_position' => isset($p['job_position'])? $p['job_position'] : '',
                     'organization_type' => isset($p['organization_type'])? $p['organization_type'] : '',
-                    'organization_name' => isset($p['organization_name']) ? $p['organization_name'] : '',
+                    'organiztion_name' => isset($p['organization_name']) ? $p['organization_name'] : '',
                     'start_date' => isset($p['start_date']) ? $p['start_date'] :'0000-00-00',
                     'looking_to_work' => $looking_to_work,
                     'willing_to_work' => $willing_to_work,

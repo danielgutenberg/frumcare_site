@@ -11,7 +11,7 @@
 
 	<div class="help-links">
 		<!--<span class="watch-video"><a href="#" class="btn btn-primary">Watch Video Tutorials</a></span>-->
-		<span class="tickets-modals"><a href='#' id='ticketModal' data-toggle='modal' data-target='#ticketModal' class="btn btn-primary">Submit a Ticket</a></span>
+		<span class="tickets-modals" style="float: left;"><a href='#' id='ticketModal' data-toggle='modal' data-target='#ticketModal' class="btn btn-primary">Submit a Ticket</a></span>
 		<span class="faq-btns"><a href="<?php echo site_url();?>blog/resources/faq" class="btn btn-primary">FAQ's</a></span>
 	</div>
 <div class="clearfix"></div>

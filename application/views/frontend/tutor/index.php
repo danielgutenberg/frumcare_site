@@ -1,4 +1,4 @@
- <div class="container">
+  <div class="container">
  <?php $this->load->view('frontend/tutor/left_navbar.php',$ipdata);?>
 <div class="right-caregivers">
      <?php if(is_array($ipdata)){?>

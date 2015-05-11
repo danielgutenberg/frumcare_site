@@ -188,7 +188,7 @@ $user_detail = get_user(check_user());
         </div>
     </div>
     <div>
-        <label>Languages necessary (Choose one or more)</label>
+        <label>Languages necessary</label>
         <div class="form-field">
             <div class="checkbox"><input type="checkbox" name="language[]" value="English"> English</div>
             <div class="checkbox"><input type="checkbox" name="language[]" value="Yiddish"> Yiddish</div>
