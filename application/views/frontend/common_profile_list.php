@@ -218,12 +218,7 @@
                     
                     //for caregivers
                     if($data['care_type'] <10 ) { ?>
-                    <?php if(segment(2) == 'therapists'){
-                      if($data['experience']) { ?>
-                              <li>
-                                <?php echo $data['experience'].' years in practice'; ?>
-                              </li>
-                            <?php } ?> 
+                    
                     
                     <?php if(segment(2)!== 'therapists'){ ?>
                         
