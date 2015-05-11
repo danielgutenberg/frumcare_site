@@ -683,7 +683,7 @@ class User_model extends CI_Model
                 'bed_children' => isset($p['bed_children']) ? 1 : 0,
                 'references' => isset($p['references']) ? $p['references'] : 0,
                 'photo_of_child' => isset($p['photo_of_child']) ? $p['photo_of_child'] : 0,
-                'organization_name' => isset($p['organization_name']) ? $p['organization_name'] : '', 
+                'organiztion_name' => isset($p['organization_name']) ? $p['organization_name'] : '', 
                 'organization_type' => isset($p['organization_type'])? $p['organization_type'] : '',
                 'smoker' => isset($p['smoker']) ? $p['smoker'] : '',
                 //'contact_number' => isset($p['contact_number'])? $p['contact_number'] : '',//NO
