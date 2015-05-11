@@ -56,22 +56,7 @@
             <?php
           } ?>
         
-        <?php if(!empty($job_description)){ ?>
-        <tr>
-            <td>Job description</td>
-            <td>
-                <?php echo $job_description; ?>
-            </td>
-        </tr>
-        <?php }
-        else{
-            ?>
-                <tr>
-                    <td >Job description </td>
-                    <td>N/A</td>
-                </tr>
-            <?php
-          } ?>
+        
         
         <?php if(!empty($rate)){ ?>    
         <?php $rate_type = explode(',',$rate_type)?>
