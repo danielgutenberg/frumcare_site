@@ -4,6 +4,16 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 ?>
 <div class="table-responsive">
 	<table class="table table-striped">
+            <?php 
+            if( $care_type == 10 || $care_type == 16 ) { ?>
+                <tr>
+                    <td>Type of Organization</td>
+                    <td>
+                        <?php echo $sub_care ? ucfirst($sub_care) : 'N/A'; ?>
+                    </td>
+                </tr> <?php 
+            }
+        ?>
 		<tr>
 			<?php if(!empty($established)){?>
 			<td>Established</td>
