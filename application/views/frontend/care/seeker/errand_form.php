@@ -56,7 +56,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 </div>    
                 </div>
                 <div>
-                    <label>Neighborhood/ Street</label>
+                    <label>Neighborhood / Street</label>
                     <div>
                     <input type="text" name="neighbour" class="required" onFocus="geolocate()" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
                     </div>    
@@ -94,7 +94,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
         </div>
 <div>
-    <label>when you need help (check one or more)</label>
+    <label>When you need help</label>
     <div class="form-field">
         <div class="checkbox"><input type="checkbox" value="One time" name="availability[]">One time</div>
         <div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]">Occassionally</div>
