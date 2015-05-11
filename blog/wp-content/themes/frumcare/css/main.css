@@ -5023,7 +5023,8 @@ body {
   border-radius: 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  min-width:235px;
+ 
+  width:auto;
 }
 
 
@@ -5033,9 +5034,9 @@ body {
 }
 .sub-menu li {
     display:block;
-    
   width: auto;
   min-width: 220px;
+  padding:0 10px;
 }
 .sub-menu li a {
   display: block;
