@@ -5023,14 +5023,14 @@ body {
   border-radius: 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  min-width: 220px;
+  min-width:360px;
 }
 .primary-nav li:hover > .sub-menu {
   display: block;
 }
 .sub-menu li {
   width: auto;
-  min-width: 160px;
+  min-width: 360px;
 }
 .sub-menu li a {
   display: block;
