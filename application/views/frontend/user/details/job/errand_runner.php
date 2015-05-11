@@ -130,7 +130,7 @@
           } ?>
         
         <tr>
-            <td>Gender of caregiver</td>
+            <td>Gender of Helper Wanted</td>
             <td>
                 <?php  
                 if($gender_of_caregiver == 1) echo "Male";
@@ -164,7 +164,7 @@
             </td>
         </tr>
         <tr>
-            <td></td>
+            <td>Ability &amp; Skills</td>
             <td>
                 <div class="details-info"><?php echo isset($driver_license) && $driver_license == 1 ? $tick : $cross?> Drivers license</div>
                 <div class="details-info"><?php echo isset($vehicle) && $vehicle == 1 ? $tick : $cross ?> Vehicle</div>
