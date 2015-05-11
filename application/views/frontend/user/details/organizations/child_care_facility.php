@@ -24,7 +24,7 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
 			</tr>
 
 			<tr>
-				<td>Days / Hours</td>
+				<td>Job Hours</td>
 				<td></td>
 			</tr>
 
