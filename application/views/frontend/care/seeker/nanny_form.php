@@ -49,7 +49,7 @@ $user_detail = get_user(check_user());
 				</div>
 				<?php } ?>
 				<div>
-					<label>Looking For (check one or more)</label>
+					<label>Looking For</label>
 					<div class="form-field">
 						<div class="checkbox"><input type="checkbox" value="Live In" name="looking_to_work[]"> Live In</div>
 						<div class="checkbox"><input type="checkbox" value="Live Out" name="looking_to_work[]"> Live Out</div>
@@ -64,7 +64,7 @@ $user_detail = get_user(check_user());
                     </div>    
                 </div>
                 <div>
-                    <label>Neighborhood/ Street</label>
+                    <label>Neighborhood / Street</label>
                     <div>
                     <input type="text" name="neighbour" class="required" onFocus="geolocate()" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
                     </div>    
@@ -261,7 +261,7 @@ $user_detail = get_user(check_user());
                         <button class="btn btn-default" id="upload">Choose File</button>
                         <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
                     </div>
-                    <p>Please make sure your photo is appropriate for our site and in line with Jewish Tradition.</p>
+                    <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>
                 </div>            
 
                 <div>

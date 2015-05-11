@@ -64,13 +64,13 @@
          </div>
          <?php } ?>
          <div>
-            <label>Name of organization</label>
+            <label>Name of Organization</label>
             <div class="form-field">
-               <input type="text" name="organization_name" value="" class="required">
+               <input type="text" name="organization_name" value="<?php if(isset($fn)) echo $fn;?>" class="required">
             </div>
          </div>
          <div>
-            <label>Type of organization</label>
+            <label>Type of Organization</label>
             <div class="form-field">
                <?php
                   if($care == 25){?>
@@ -112,7 +112,7 @@
          <div>
             <label>Contact name</label>
             <div class="form-field">
-               <input type="text" name="name" placeholder="name" class="required" value="<?php if(isset($fn)) echo $fn;?>"/>
+               <input type="text" name="name" placeholder="name" class="required"/>
             </div>
          </div>
          <div>
@@ -162,12 +162,12 @@
             <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
          </div>
          <div>
-            <label>Job Type(check one or more)</label>
+            <label>Job Type</label>
             <div class="form-field">
                <div class="checkbox"><input type="checkbox" value="Full Time" name="availability[]"> Full Time</div>
                <div class="checkbox"><input type="checkbox" value="Part Time" name="availability[]"> Part Time</div>
                <div class="checkbox"><input type="checkbox" value="Substitute" name="availability[]"> Substitute</div>
-               Job days/ hours
+               <label>Job Days / Hours</label>
                <br>
                <label style="width:25%">Sun</label><input type="text" name="sunday_from" class="time" style="width:25%"> to <input type="text" name="sunday_to" class="time" style="width:25%">
                <br>
@@ -190,7 +190,7 @@
          </div>
          <h2>Additional Requirements</h2>
          <div>
-            <label>Languages necesary</label>
+            <label>Languages necessary</label>
             <div class="form-field">
                <div class="checkbox"><input type="checkbox" name="language[]" value="English"> English</div>
                <div class="checkbox"><input type="checkbox" name="language[]" value="Yiddish"> Yiddish</div>
@@ -201,7 +201,7 @@
             </div>
          </div>
          <div>
-            <label>Must have following training/ certification</label>
+            <label>Must have following Training / Certification</label>
             <div class="form-field">
                <?php
                   if($care==25){ ?>
@@ -282,7 +282,7 @@
                <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> 
                <div class="loader"></div>
             </div>
-            <p>Please make sure your photo is appropriate for our site and in line with Jewish Tradition.</p>
+            <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>
          </div>
          <div>
             <input type="submit" class="btn btn-success" value="Save <?php if($this->uri->segment(2) != 'new_profile'){echo '& Continue';}?>"/>

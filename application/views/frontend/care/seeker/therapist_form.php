@@ -53,7 +53,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 </div>    
 </div>
                 <div>
-                    <label>Neighborhood/ Street</label>
+                    <label>Neighborhood / Street</label>
                     <div>
                     <input type="text" name="neighbour" class="required" onFocus="geolocate()" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
                     </div>    

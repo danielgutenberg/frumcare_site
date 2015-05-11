@@ -63,7 +63,7 @@ $user_detail = get_user(check_user());
 </div>    
 </div>
         <div >
-            <label>Neighborhood/ Street</label>
+            <label>Neighborhood / Street</label>
             <div class="form-field">
             <input type="text" name="neighbour" class="required" onFocus="geolocate()" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
             </div>    
@@ -171,7 +171,7 @@ $user_detail = get_user(check_user());
 		</div>
 
 		<div>
-			<label>Training/ certification required</label>
+			<label>Training / Certification required</label>
 			<div class="form-field">
 				<div class="checkbox"><input type="checkbox" value="CPR" name="training[]"> CPR</div>
 				<div class="checkbox"><input type="checkbox" value="First Aid" name="training[]"> First Aid</div>

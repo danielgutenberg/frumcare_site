@@ -53,15 +53,15 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 				</div>
 				<?php } ?>
 				<div>
-					<label>Name of organization</label>
+					<label>Name of Organization</label>
 					<div class="form-field">
-						<input type="text" name="organization_name" value="" class="required">
+						<input type="text" name="organization_name" value="<?php if(isset($fn)) echo $fn;?>" class="required">
 					</div>
 				</div>
 				<div>
                 <label>Contact name</label>
                 <div class="form-field">
-                <input type="text" name="first_name" placeholder="First name" class="required" value="<?php if(isset($fn)) echo $fn;?>"/>
+                <input type="text" name="first_name" placeholder="First name" class="required"/>
                 <?php /* <input type="text" name="last_name" placeholder="Last name" class="required" value="<?php if(isset($ln)) echo $ln;?>"/> */?>
                 </div>
             </div>
@@ -74,7 +74,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 </div>    
 </div>
              <div>
-            <label>Neighborhood</label>
+            <label>Neighborhood / Street</label>
             <div>
             <input type="text" name="neighbour" class="required" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
             </div>    
@@ -114,7 +114,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         </div>
 
 				<div>
-                <label>Job Type(check one or more)</label>
+                <label>Job Type</label>
                 <div class="form-field">
                 <div class="checkbox"><input type="checkbox" value="Full Time" name="availability[]"> Full Time</div>
                 <div class="checkbox"><input type="checkbox" value="Part Time" name="availability[]"> Part Time</div>
@@ -122,7 +122,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <div class="checkbox"><input type="checkbox" value="Asap" name="availability[]"/> Asap</div>
                 <div class="checkbox"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date
                  <input  type="text" name="start_date" id="textbox1" autocomplete="off"/></div>      
-                Job days/ hours
+                <label>Job Days / Hours</label>
                 <br>
                  <label style="width:25%">Sun</label><input type="text" name="sunday_from" class="time" style="width:25%"> to  <input type="text" name="sunday_to" class="time" style="width:25%">
                  <br>

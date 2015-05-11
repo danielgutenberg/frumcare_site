@@ -289,7 +289,7 @@ if($detail){
                     <button class="btn btn-default" id="upload">Choose File</button>
                     <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
                 </div>
-                <p>Please make sure your photo is appropriate for our site and in line with Jewish Tradition.</p>
+                <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>
             </div>
 
              <br/>
