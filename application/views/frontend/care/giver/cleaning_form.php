@@ -25,7 +25,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             </div>
             <?php } ?>
             <div>
-                <label>Looking to work in (check one or more)</label>
+                <label>Looking to work in</label>
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" value="Private home" name="looking_to_work[]"> <span>Private home</span></div>
                     <div class="checkbox"><input type="checkbox" value="Business/Office" name="looking_to_work[]"> <span>Business/Office</span></div>
@@ -66,7 +66,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
             </div>
             <div>
-                <label>Specialize in</label>
+                <label>Specializes in</label>
                 <div class="form-field">
                      <div class="checkbox"><input type="checkbox" value="Dishes" name="willing_to_work[]"> <span>Dishes</span></div>
                     <div class="checkbox"><input type="checkbox" value="Floors" name="willing_to_work[]"> <span>Floors</span></div>
@@ -82,7 +82,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 </div>
             </div>
             <div>
-                <label>When you need care (check one or more)</label>
+                <label>When you need care</label>
                 <div class="form-field">                    
                     <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]"/> Immediate</div>
                     <div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date <input  type="text" name="start_date" id="textbox1"/></div>
