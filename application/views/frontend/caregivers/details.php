@@ -243,7 +243,7 @@ if(($recordData['care_type'] > 9 && $recordData['care_type'] < 17 ) || ($recordD
 }
 if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 <div>                    
-    <?php //$this->load->view('frontend/user/details/job_posters',$recordData)?>
+    <?php $this->load->view('frontend/user/details/job_posters',$recordData)?>
 </div>
 <?php
 }
