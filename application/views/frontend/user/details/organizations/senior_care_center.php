@@ -63,7 +63,7 @@
         
 	<tr>
 		<?php $willingtowork  = explode(',',$willing_to_work); ?>
-			<td>Specializes in </td>
+			<td>Specialize in </td>
 			<td>
 				<div class="details-info"><?php if(in_array(strtolower('Alz./dementia'),array_map('strtolower',$willingtowork))){ echo $tick; }else{ echo $cross; }?>Alz./dementia</div>
 				<div class="details-info"><?php if(in_array(strtolower('Sight loss'),array_map('strtolower',$willingtowork))){ echo $tick; }else{ echo $cross; }?>Sight loss</div>
