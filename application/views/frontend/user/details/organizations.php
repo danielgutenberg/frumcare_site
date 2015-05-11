@@ -139,7 +139,7 @@
 <?php } ?>
 <?php 
     if ( $care_type > 24 ) { ?>
-        <h2>Jobs Details</h2> <?php 
+        <h2>Job Details</h2> <?php 
     }
     else { ?>
         <h2>Organization Details</h2> <?php
