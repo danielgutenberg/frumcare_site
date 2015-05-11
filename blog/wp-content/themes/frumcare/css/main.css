@@ -5025,6 +5025,9 @@ body {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   min-width:235px;
 }
+
+
+.sub-menu li{ display:block;}
 .primary-nav li:hover > .sub-menu {
   display: block;
 }
