@@ -8,7 +8,7 @@
                         <ul>
                             <li><a href="<?php echo site_url();?>about-us">About Us</a></li>
                             <li><a href="<?php echo site_url();?>help">Contact Us</a></li>
-                            <?php /*<li><a href="<?php echo site_url();?>testimonials">Testimonials</a></li> */?>
+                            
                             <li><a href="<?php echo site_url();?>blog">Blog</a></li>
                             
                         </ul>
