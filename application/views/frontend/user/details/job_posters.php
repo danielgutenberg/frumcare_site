@@ -9,7 +9,7 @@
 </div>    
 <?php
 
-echo $care_type; exit;
+
     if($care_type==17){
         $this->load->view('frontend/user/details/job/babysitter');
     }
