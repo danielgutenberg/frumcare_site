@@ -70,7 +70,7 @@
                 </select>
                 </div>
             </div>
-            <?php 
+             
             <div>
                 <!--<label>Check one or more</label>-->
                 <div class="form-field">
@@ -93,13 +93,13 @@
             ?>                   
                     
                 <div class="upload-photo">
-                    <h2>Upload photo of facility/ organization</h2>
+                    <h2>Upload photo of facility / organization</h2>
                     <input type="hidden" id="file-name" name="facility_pic" value="<?php echo isset($facility)?>">
                     <div id="output"><img src="<?php echo $photo_url?>"></div>
                     <label>Browse your computer to select a file to upload</label>
                     <button class="btn btn-default" id="upload">Choose File</button>
                     <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
-                    <p>Please make sure your photo is appropriate for our site and in line with Jewish Tradition.</p>
+                    <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>
                 </div>
 
 

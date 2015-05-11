@@ -40,7 +40,7 @@ if($detail){
         </div>
 
         <div>
-            <label>Certification/ License information</label>
+            <label>Certification / License information</label>
             <div class="form-field">
             <input type="text" value="<?php echo isset($certification) ? $certification : '' ?>" name="certification" class="required">
             </div>

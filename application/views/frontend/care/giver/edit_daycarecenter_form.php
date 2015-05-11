@@ -37,7 +37,7 @@
                 <h1 class="step3">Edit Organization Details</h1>
             </div>
             <div>
-                <label>For (check one or more)</label>
+                <label>For</label>
                 <div class="form-field">
                 <div class="checkbox"><input type="checkbox" value="Boys" name="looking_to_work[]" <?php if(in_array('Boys',$lookingtowork)){?> checked="checked"<?php }?>> <span>Boys</span></div>
                 <div class="checkbox"><input type="checkbox" value="Girls" name="looking_to_work[]" <?php if(in_array('Girls',$lookingtowork)){?> checked="checked"<?php }?>> <span>Girls</span></div>
@@ -107,7 +107,7 @@
             </div>
         </div>
             <div>
-                <label>Days/ Hours</label>
+                <label>Days / Hours</label>
                 <div class="form-field">
                 <br>
                  <label style="width:25%">Sun</label><input type="text" name="sunday_from" class="time" style="width:25%" value="<?php echo $detail[0]['sunday_from'];?>"> to  <input type="text" name="sunday_to" class="time" style="width:25%" value="<?php echo $detail[0]['sunday_to'];?>">
@@ -121,7 +121,7 @@
                  <div class="checkbox"><input type="checkbox" name="flexible_hours" value="1" <?php if($detail[0]['flexible_hours'] == 1){?> checked="checked" <?php }?>> Flexible Hours</div>
 
                  <br>
-                 Vacation Days (Please specify vacation days)
+                 <label>Vacation Days (Please specify vacation days)</label>
                  <br>
                  <input type="text" name="vacation_days" value="<?php echo $detail[0]['vacation_days'];?>" placeholder="Vacation Days">
 
@@ -153,13 +153,13 @@
             ?>                   
                     
             <div class="upload-photo">
-                <h2>Upload photo of facility/ organization</h2>
+                <h2>Upload photo of facility / organization</h2>
                 <input type="hidden" id="pic-name" name="facility_pic" value="<?php echo $facility; ?>">
                 <div id="output2"><img src="<?php echo $photo_url;?>"></div>
                 <label>Browse your computer to select a file to upload</label>
                 <button class="btn btn-default" id="upload">Choose File</button>
                 <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader2"></div>
-                <p>Please make sure your photo is appropriate for our site and in line with Jewish Tradition.</p>
+                <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>
             </div>
 
 

@@ -76,7 +76,7 @@
         </div>
        
             <div>
-                <label>When you need care (check one or more)</label>
+                <label>When you need care</label>
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]" <?php if(in_array("Immediate",$temp)){?> checked="checked"<?php }?>> Immediate</div>
                     <div class="checkbox full"><input type="checkbox" name="availability[]" id="ckbox1" value="Start Date" <?php if(in_array("Start Date",$time)){?> checked="checked"<?php }?> class="start_date">Start Date <input type="text" name="start_date" <?php if($date!='0000-00-00'){ echo 'value='.$date;}?> id="textbox1"/></div>

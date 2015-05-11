@@ -25,7 +25,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 				</div>
 				<?php } ?>
 				<div>
-					<label>Looking to work in (check one or more)</label>
+					<label>Looking to work in</label>
 					<div class="form-field">
 						<div class="checkbox"><input type="checkbox" value="Patients home" name="looking_to_work[]"> Patients home</div>
 						<div class="checkbox"><input type="checkbox" value="Caregiving institution" name="looking_to_work[]"> Caregiving institution</div>

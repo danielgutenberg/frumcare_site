@@ -68,13 +68,13 @@ if($detail){
                 <h2>Edit Job Details</h2>
             </div>
             <div>
-                <label>Name of organization</label>
+                <label>Name of Organization</label>
                 <div class="form-field">
                     <input type="text" name="organization_name" value="<?php echo isset($organiztion_name) ? $organiztion_name : '' ?>" class="required">
                 </div>
             </div>
             <div>
-                <label>Type of organization</label>
+                <label>Type of Organization</label>
                 <div class="form-field">
                 <?php 
                     if($this->uri->segment(4)==25){?>
@@ -164,7 +164,7 @@ if($detail){
                 <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2" <?php if(in_array('2',$rate_type)){?> checked="checked" <?php }?> >Monthly Rate Available</div>
         </div>
             <div>
-                <label>Availability (check one or more)</label>
+                <label>Availability</label>
                 <div class="form-field">
                         <div class="checkbox"><input type="checkbox" value="Full Time" name="availability[]" <?php if(in_array("Full Time",$temp)){?> checked="checked"<?php }?>> Full Time</div>
                         <div class="checkbox"><input type="checkbox" value="Part Time" name="availability[]" <?php if(in_array("Part Time",$temp)){?> checked="checked"<?php }?>> Part Time</div>
@@ -205,7 +205,7 @@ if($detail){
                 </div>
             </div>
             <div>
-                <label>Must have following training/ certification</label>
+                <label>Must have following Training / Certification</label>
                 <div class="form-field">
                 <?php
                     if($this->uri->segment(4)==25){ ?>
@@ -290,7 +290,7 @@ if($detail){
             </div> */?>
  
                <div>
-                <label>Photo upload of facility / Organization</label>
+                <label>Photo upload of Facility / Organization</label>
                     <?php
                         if(!empty($facility)){
                             $profile_picture = base_url('images/profile-picture/thumb/'.$facility);

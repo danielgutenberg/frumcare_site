@@ -71,7 +71,7 @@ if($detail){
         <h2>Edit Job Details</h2>
     </div>
     <div>
-        <label>Looking to work in (check one or more)</label>
+        <label>Looking to work in</label>
         <div class="form-field">
             <div class="checkbox"><input type="checkbox" value="Live in" name="looking_to_work[]" <?php if(in_array('Live in',$looking_to_work)){?> checked="checked" <?php } ?>> Live in</div>
             <div class="checkbox"><input type="checkbox" value="Live out" name="looking_to_work[]" <?php if(in_array('Live out',$looking_to_work)){?> checked="checked" <?php } ?>> Live out</div>
@@ -86,7 +86,7 @@ if($detail){
             </div>    
         </div>
     <div>
-        <label>Neighborhood/ Street</label>
+        <label>Neighborhood / Street</label>
         <div class="form-field">
         <input type="text" name="neighbour" class="required" onFocus="geolocate()" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
         </div>    
