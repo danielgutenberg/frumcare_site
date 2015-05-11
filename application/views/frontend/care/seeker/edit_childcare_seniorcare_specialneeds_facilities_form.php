@@ -25,7 +25,7 @@ $(document).ready(function(){
 <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
 <?php 
 $user_detail = get_user(check_user());
-print_r($usr);
+//print_r($usr);
 if($detail){
     $organiztion_name      = $user_detail['organization_name'];
     $neighbour              =   $usr['neighbour'];
