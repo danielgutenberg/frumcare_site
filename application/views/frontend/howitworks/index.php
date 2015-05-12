@@ -171,7 +171,7 @@
 								caregiver jobs</a></div>
 							</div><!-- .help-institutions -->
 						</div><!-- .help-institutions-wrapper -->
-						<div class="posts-forums-wrapper">
+						<!--<div class="posts-forums-wrapper">
 							<div class="posts-forums container">
 								<div class="title">
 									Post a new question to the forums.
@@ -179,7 +179,7 @@
 								<div class="btns"><a href="javascript:void(0);" class="community-btn" id="ticket">Ask our community</a>
 								</div>
 							</div><!-- .posts-forums -->
-	</div><!-- .posts-forums-wrapper -->
+	</div>--><!-- .posts-forums-wrapper -->
 
 	<!-- modal starts from here -->
 	   <div class="modal fade help-page" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalLabel" aria-hidden="true">
