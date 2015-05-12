@@ -8,7 +8,7 @@
         <?php if(!empty($looking_to_work)){ ?>
         <?php $lookingtowork = explode(',',$looking_to_work)?>
         <tr>
-            <td>Looking for care in</td>
+            <td>Looking for help in</td>
             <td>
                 <div class="details-info"><?php if(in_array('My home',$lookingtowork)){ echo $tick; }else{echo $cross;} ?> My home</div>
                 <div class="details-info"><?php if(in_array('Office/business',$lookingtowork)){ echo $tick; }else{echo $cross;} ?> Office/business</div>                
@@ -18,7 +18,7 @@
         else{
             ?>
                 <tr>
-                    <td >Looking for care in </td>
+                    <td >Looking for help in </td>
                     <td>N/A</td>
                 </tr>
             <?php
