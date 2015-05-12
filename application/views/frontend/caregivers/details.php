@@ -148,11 +148,11 @@ if($this->uri->segment(4)>16){
     <?php
     if(!empty($recordData['rate'])){ ?>
         <?php $rate_type = $recordData['rate_type']==2?' / Hr':' / Hr'?>
-        <span class="experience-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Wage</span>'; ?></span>
+        <span class="experience-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Rate</span>'; ?></span>
         <?php
     }                                
     else{ ?>
-        <span class="experience-wrap"><?php echo 'N/A'.'<span>Wage</span>'; ?></span>
+        <span class="experience-wrap"><?php echo 'N/A'.'<span>Rate</span>'; ?></span>
         <?php
     }?>
     <div class="clearfix margin-bots"></div>
