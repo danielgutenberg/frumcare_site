@@ -83,7 +83,7 @@ if($detail){
                         <select name="organization_type" class="required">
                             <option value="">Select type of organization</option>
                             <option value="Day Care Center" <?php echo isset($organization_type) && $organization_type == 'Day Care Center' ? 'selected' : '' ?>>Day Care Center</option>
-                            <option value="Nursery/ Kindergarten" <?php echo isset($organization_type) && $organization_type == 'Nursery/ Kindergarten' ? 'selected' : '' ?>>Nursery/ Kindergarten</option>
+                            <option value="Nursery/ Kindergarten" <?php echo isset($organization_type) && $organization_type == 'Nursery/ Kindergarten' ? 'selected' : '' ?>>Nursery / Kindergarten</option>
                             <option value="Day Camp" <?php echo isset($organization_type) && $organization_type == 'Pre School' ? 'selected' : '' ?>>Pre School</option>
                             <option value="Day Camp" <?php echo isset($organization_type) && $organization_type == 'Day Camp' ? 'selected' : '' ?>>Day Camp</option>
                             <option value="Afternoon Activities Center" <?php echo isset($organization_type) && $organization_type == 'Afternoon Activities Center' ? 'selected' : '' ?>>Afternoon Activities Center</option>
@@ -94,9 +94,9 @@ if($detail){
                         <select name="organization_type" class="required">
                             <option value="">Select type of organization</option>
                             <option value="Assisted living residence" <?php echo isset($organization_type) && $organization_type == 'Assisted living residence' ? 'selected' : '' ?>>Assisted living residence</option>
-                            <option value="Senior care center/ nursing home" <?php echo isset($organization_type) && $organization_type == 'Senior care center/ nursing home' ? 'selected' : '' ?>>Senior care center/ nursing home</option>
+                            <option value="Senior care center/ nursing home" <?php echo isset($organization_type) && $organization_type == 'Senior care center/ nursing home' ? 'selected' : '' ?>>Senior care center / nursing home</option>
                             <option value="Senior care agency" <?php echo isset($organization_type) && $organization_type == 'Senior care agency' ? 'selected' : '' ?>>Senior care agency</option>
-                            <option value="Rehab/therapy center" <?php echo isset($organization_type) && $organization_type == 'Rehab/therapy center' ? 'selected' : '' ?>>Rehab/therapy center</option>                            
+                            <option value="Rehab/therapy center" <?php echo isset($organization_type) && $organization_type == 'Rehab/therapy center' ? 'selected' : '' ?>>Rehab / therapy center</option>                            
                             <option value="Other" <?php echo isset($organization_type) && $organization_type == 'Other' ? 'selected' : '' ?>>Other</option>
                         </select><?php
                     }
@@ -171,7 +171,7 @@ if($detail){
                         <div class="checkbox"><input type="checkbox" value="Full Time" name="availability[]" <?php if(in_array("Full Time",$temp)){?> checked="checked"<?php }?>> Full Time</div>
                         <div class="checkbox"><input type="checkbox" value="Part Time" name="availability[]" <?php if(in_array("Part Time",$temp)){?> checked="checked"<?php }?>> Part Time</div>
                         <div class="checkbox"><input type="checkbox" value="Substitute" name="availability[]" <?php if(in_array("Substitute",$temp)){?> checked="checked"<?php }?>> Substitute</div>
-                        Job days/ hours
+                        <label>Job Days / Hours</label>
                         <br>
                          <label style="width:25%">Sun</label><input type="text" name="sunday_from" class="time" style="width:25%" value="<?php echo $detail[0]['sunday_from'];?>"> to  <input type="text" name="sunday_to" class="time" style="width:25%" value="<?php echo $detail[0]['sunday_to'];?>">
                          <br>
@@ -213,7 +213,7 @@ if($detail){
                     if($this->uri->segment(4)==25){ ?>
                         <div class="checkbox"><input type="checkbox" value="CPR" name="training[]" <?php if(in_array('CPR',$trainingtemp)){?> checked="checked"<?php } ?>> CPR</div>
                         <div class="checkbox"><input type="checkbox" value="First Aid" name="training[]" <?php if(in_array('First Aid',$trainingtemp)){?> checked="checked"<?php } ?>> First Aid</div>
-                        <div class="checkbox"><input type="checkbox" value="Nanny/ Babysitter course" name="training[]" <?php if(in_array('Nanny/ Babysitter course',$trainingtemp)){?> checked="checked"<?php } ?>> Nanny/ Babysitter course</div>
+                        <div class="checkbox"><input type="checkbox" value="Nanny/ Babysitter course" name="training[]" <?php if(in_array('Nanny/ Babysitter course',$trainingtemp)){?> checked="checked"<?php } ?>> Nanny / Babysitter course</div>
                         <div class="checkbox"><input type="checkbox" value="Degree" name="training[]" <?php if(in_array('Degree',$trainingtemp)){?> checked="checked"<?php } ?>> Degree</div>
                         <div class="checkbox"><input type="checkbox" value="Not necessary" name="training[]" <?php if(in_array('Not necessary',$trainingtemp)){?> checked="checked"<?php } ?>> Not necessary</div>
                         <?php
@@ -257,8 +257,8 @@ if($detail){
             <div class="form-field">
             <select name="religious_observance">
                 <option value="">Select</option>
-                <option value="Yeshivish/ Chasidish" <?php echo isset($religious_observance) && $religious_observance == 'Yeshivish/ Chasidish' ? 'selected' : '' ?>>Yeshivish/ Chasidish</option>
-                <option value="Orthodox/ Modern Orthodox" <?php echo isset($religious_observance) && $religious_observance == 'Orthodox/ Modern Orthodox' ? 'selected' : '' ?>>Orthodox/ Modern Orthodox</option>
+                <option value="Yeshivish/ Chasidish" <?php echo isset($religious_observance) && $religious_observance == 'Yeshivish/ Chasidish' ? 'selected' : '' ?>>Yeshivish / Chasidish</option>
+                <option value="Orthodox/ Modern Orthodox" <?php echo isset($religious_observance) && $religious_observance == 'Orthodox/ Modern Orthodox' ? 'selected' : '' ?>>Orthodox / Modern Orthodox</option>
                 <option value="Familiar With Jewish Tradition" <?php echo isset($religious_observance) && $religious_observance == 'Familiar With Jewish Tradition' ? 'selected' : '' ?>>Familiar With Jewish Tradition</option>
                 <option value="Not Necessary" <?php echo isset($religious_observance) && $religious_observance == 'Not Necessary' ? 'selected' : '' ?>>Not Necessary</option>
             </select>
@@ -306,7 +306,7 @@ if($detail){
                     <button class="btn btn-default" id="upload1">Choose File</button>
                     <input type="file" name="ImageFile1" id="ImageFile1" style="display: none;"> <div class="loader1"></div>
                 </div>
-                <p>Please make sure your photo is appropriate for our site and in line with Jewish Tradition.</p>
+                <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>
             </div>
 
             <div>

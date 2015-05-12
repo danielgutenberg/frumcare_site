@@ -18,9 +18,17 @@
 			</div>
 		</div>
 		<div>
-			<label>Address/ Location</label>
+<label>Location</label>
+<div id="locationField">
+    <input type="hidden" id="lat" name="lat"/>
+    <input type="hidden" id="lng" name="lng"/> 
+    <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
+</div>    
+</div>
+		<div>
+			<label>Neighborhood / Street</label>
 			<div>
-				<input type="text" name="location" class="required" value=""/>
+				<input type="text" name="location" class="required" value="<?php echo isset($neighbour)? $neighbour:''; ?>"/>
 			</div>    
 		</div>
 		<div>

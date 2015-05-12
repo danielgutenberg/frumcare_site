@@ -77,7 +77,7 @@
                <select name="organization_type" class="required">
                   <option value="">Select type of organization</option>
                   <option value="Day Care Center">Day Care Center</option>
-                  <option value="Nursery/ Kindergarten">Nursery/ Kindergarten</option>
+                  <option value="Nursery/ Kindergarten">Nursery / Kindergarten</option>
                   <option value="Day Camp">Pre School</option>
                   <option value="">Day Camp</option>
                   <option value="Afternoon Activities Center">Afternoon Activities Center</option>
@@ -89,9 +89,9 @@
                <select name="organization_type" class="required">
                   <option value="">Select type of organization</option>
                   <option value="Assisted living residence">Assisted living residence</option>
-                  <option value="Senior care center/ nursing home">Senior care center/ nursing home</option>
+                  <option value="Senior care center/ nursing home">Senior care center / nursing home</option>
                   <option value="Senior care agency">Senior care agency</option>
-                  <option value="Rehab/therapy center">Rehab/therapy center</option>
+                  <option value="Rehab/therapy center">Rehab /therapy center</option>
                   <option value="Other">Other</option>
                </select>
                <?php
@@ -207,7 +207,7 @@
                   if($care==25){ ?>
                <div class="checkbox"><input type="checkbox" value="CPR" name="training[]"> CPR</div>
                <div class="checkbox"><input type="checkbox" value="First Aid" name="training[]"> First Aid</div>
-               <div class="checkbox"><input type="checkbox" value="Nanny/ Babysitter course" name="training[]"> Nanny/ Babysitter course</div>
+               <div class="checkbox"><input type="checkbox" value="Nanny/ Babysitter course" name="training[]"> Nanny / Babysitter course</div>
                <div class="checkbox"><input type="checkbox" value="Degree" name="training[]"> Degree</div>
                <div class="checkbox"><input type="checkbox" value="Not necessary" name="training[]"> Not necessary</div>
                <?php
@@ -268,7 +268,7 @@
             </div>
          </div>
          <div>
-            <label>Upload Photo of Facility/ Organization</label>
+            <label>Upload Photo of Facility / Organization</label>
             <?php
                $photo_url = site_url("images/plus.png");
                if(check_user()) {

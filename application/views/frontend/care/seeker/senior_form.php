@@ -91,7 +91,7 @@ $user_detail = get_user(check_user());
 			<div>
 				<label>Conditions senior suffers from</label>
 				<div class="form-field">						
-					<div class="checkbox"><input type="checkbox" value="Alz./ Dementia" name="willing_to_work[]"> <span>Alz./ Dementia</span></div>
+					<div class="checkbox"><input type="checkbox" value="Alz./ Dementia" name="willing_to_work[]"> <span>Alz. / Dementia</span></div>
 					<div class="checkbox"><input type="checkbox" value="Sight loss" name="willing_to_work[]"> <span>Sight loss</span></div>							
 					<div class="checkbox"><input type="checkbox" value="Hearing loss" name="willing_to_work[]"> <span>Hearing loss</span></div>
 					<div class="checkbox"><input type="checkbox" value="Wheelchair bound" name="willing_to_work[]"> <span>Wheelchair bound</span></div>
@@ -110,7 +110,7 @@ $user_detail = get_user(check_user());
 					<div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]"> <span>Afternoon</span></div>
 					<div class="checkbox"><input type="checkbox" value="Evening" name="availability[]"> <span>Evening</span></div>
 					<div class="checkbox"><input type="checkbox" value="Overnight" name="availability[]"><span>Overnight</span></div>
-					<div class="checkbox"><input type="checkbox" value="Weekends Fri./Sun." name="availability[]"> <span>Weekends Fri./Sun.</span></div>
+					<div class="checkbox"><input type="checkbox" value="Weekends Fri./Sun." name="availability[]"> <span>Weekends Fri. / Sun.</span></div>
 					<div class="checkbox"><input type="checkbox" value="Shabbos" name="availability[]"><span>Shabbos</span></div>
 					<div class="checkbox"><input type="checkbox" value="24 hr care" name="availability[]"> <span>24 hr care</span></div>
                 </div>
@@ -148,8 +148,8 @@ $user_detail = get_user(check_user());
 				<div class="form-field">
 					<select name="religious_observance" class="required">
 						<option value="">Select</option>
-						<option value="Yeshivish/ Chasidish">Yeshivish/ Chasidish</option>
-						<option value="Orthodox/ Modern Orthodox">Orthodox/ Modern orthodox</option>
+						<option value="Yeshivish/ Chasidish">Yeshivish / Chasidish</option>
+						<option value="Orthodox/ Modern Orthodox">Orthodox / Modern orthodox</option>
 						<option value="Familiar With Jewish Tradition">Familiar With Jewish Tradition</option>
 						<option value="Not Jewish">Not necessary</option>
 					</select>
@@ -202,10 +202,10 @@ $user_detail = get_user(check_user());
         			<input type="checkbox" value="1" name="vehicle"> <label>Vehicle</label>
         		</div>
                 <div>
-					<input type="checkbox" value="1" name="cook"> <label>Must be able to cook/ serve meals</label>
+					<input type="checkbox" value="1" name="cook"> <label>Must be able to cook / serve meals</label>
 				</div>
 				<div>
-					<input type="checkbox" value="1" name="basic_housework"> <label>Must be able to do light housework/ cleaning</label>
+					<input type="checkbox" value="1" name="basic_housework"> <label>Must be able to do light housework / cleaning</label>
 				</div>
 				<div>
 					<input type="checkbox" value="1" name="personal_hygiene"> <label>Must be able to deal with personal hygiene of senior</label>

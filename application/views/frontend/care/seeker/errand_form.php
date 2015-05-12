@@ -104,7 +104,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         <div class="checkbox"><input type="checkbox" value="Morning" name="availability[]"> Morning</div>
         <div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]">Afternoon</div>
     	<div class="checkbox"><input type="checkbox" value="Evening" name="availability[]"> Evening</div>
-    	<div class="checkbox"><input type="checkbox" value="Weekends Fri./ Sun." name="availability[]"> Weekends Fri./ Sun.</div>
+    	<div class="checkbox"><input type="checkbox" value="Weekends Fri./ Sun." name="availability[]"> Weekends Fri. / Sun.</div>
         <div class="checkbox"><input type="checkbox" value="Shabbos" name="availability[]">Shabbos</div> 
         </div>
 </div>
@@ -143,8 +143,8 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     <div class="form-field">
     <select name="religious_observance" class="required">
         <option value="">Select</option>
-        <option value="Yeshivish/ Chasidish">Yeshivish/ Chasidish</option>
-        <option value="Orthodox/ Modern Orthodox">Orthodox/ Modern orthodox</option>
+        <option value="Yeshivish/ Chasidish">Yeshivish / Chasidish</option>
+        <option value="Orthodox/ Modern Orthodox">Orthodox / Modern orthodox</option>
         <option value="Familiar With Jewish Tradition">Familiar With Jewish Tradition</option>
         <option value="Not Jewish">Not necessary</option>
     </select>

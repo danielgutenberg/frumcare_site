@@ -116,7 +116,7 @@ $user_detail = get_user(check_user());
                 <div class="checkbox"><input type="checkbox" value="Morning" name="availability[]"> Morning</div>
                 <div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]">Afternoon</div>
         		<div class="checkbox"><input type="checkbox" value="Evening" name="availability[]"> Evening</div>
-    			<div class="checkbox"><input type="checkbox" value="Weekends Fri./ Sun." name="availability[]"> Weekends Fri./ Sun.</div>
+    			<div class="checkbox"><input type="checkbox" value="Weekends Fri./ Sun." name="availability[]"> Weekends Fri. / Sun.</div>
                 <div class="checkbox"><input type="checkbox" value="Shabbos" name="availability[]">Shabbos</div>
     			<div class="checkbox"><input type="checkbox" value="Night Nurse" name="availability[]"> Night Nurse</div>
                 <div class="checkbox"><input type="checkbox" value="Vacation Sitter" name="availability[]">Vacation Sitter</div>
@@ -127,8 +127,8 @@ $user_detail = get_user(check_user());
         		<div class="form-field">
         			<select name="religious_observance" class="required">
         				<option value="">Select</option>
-        				<option value="Yeshivish/ Chasidish">Yeshivish/ Chasidish</option>
-        				<option value="Orthodox/Modern Orthodox">Orthodox/ Modern orthodox</option>
+        				<option value="Yeshivish/ Chasidish">Yeshivish / Chasidish</option>
+        				<option value="Orthodox/Modern Orthodox">Orthodox / Modern orthodox</option>
         				<option value="Familiar With Jewish Tradition">Familiar With Jewish Tradition</option>
         				<option value="Not Necessary">Not necessary</option>
         			</select>
@@ -198,7 +198,7 @@ $user_detail = get_user(check_user());
         		<div class="form-field">
         			<div class="checkbox"><input type="checkbox" value="CPR" name="training[]"> CPR</div>
         			<div class="checkbox"><input type="checkbox" value="First Aid" name="training[]"> First Aid</div>
-        			<div class="checkbox"><input type="checkbox" value="Nanny/ Babysitter course" name="training[]"> Nanny/ Babysitter course</div>
+        			<div class="checkbox"><input type="checkbox" value="Nanny/ Babysitter course" name="training[]"> Nanny / Babysitter course</div>
         			<div class="checkbox"><input type="checkbox" value="Not necessary" name="training[]"> Not necessary</div>
         		</div>
         	</div>
@@ -228,10 +228,10 @@ $user_detail = get_user(check_user());
         			<input type="checkbox" value="1" name="pick_up_child"> <label>Must be able to pick up kids from school</label>
         		</div>
         		<div>
-        			<input type="checkbox" value="1" name="cook"> <label>Must be able to cook/ serve meals</label>
+        			<input type="checkbox" value="1" name="cook"> <label>Must be able to cook / serve meals</label>
         		</div>
         		<div>
-        			<input type="checkbox" value="1" name="basic_housework"> <label>Must be able to do housework/ cleaning</label>
+        			<input type="checkbox" value="1" name="basic_housework"> <label>Must be able to do housework / cleaning</label>
         		</div>
         		<div>
         			<input type="checkbox" value="1" name="homework_help"> <label>Must be able to help with homework</label>
@@ -251,7 +251,7 @@ $user_detail = get_user(check_user());
         	</div>
 
             <div>
-                 <label>Photo of child/ children</label>
+                 <label>Photo of child / children</label>
                     <?php
                         $photo_url = site_url("images/plus.png");
                     ?>
