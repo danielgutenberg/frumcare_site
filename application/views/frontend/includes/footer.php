@@ -34,7 +34,7 @@
                         <ul>
                             <li><a href="<?php echo site_url();?>howitworks">How it works</a></li>
                             <li><a href="<?php echo site_url();?>safety-guide">Safety Guide</a></li>
-                            <li><a href="<?php echo site_url();?>tips-and-tools">Tips and Tools</a></li>
+                            <li><a href="<?php echo site_url();?>advice-and-tips">Advice and Tips</a></li>
                         </ul>
                     </nav>
                 </div>

@@ -223,7 +223,7 @@
 
                  ?>
                  <div class="col-half padleft">
-                    <h2>Tips and tools</h2>
+                    <h2>Advice and Tips</h2>
                     <?php 
                     //if(is_array($adviceandtools)){
                         //foreach($adviceandtools as $key => $advice):

@@ -40,7 +40,7 @@
 
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
-$route['tips-and-tools'] = 'routee/tipsandtools';
+$route['advice-and-tips'] = 'routee/tipsandtools';
 $route['safety-guide'] = 'routee/safetyguide';
 $route['rate-calculator'] = 'routee/ratecalculator';
 $route['faq'] = 'routee/faq';
