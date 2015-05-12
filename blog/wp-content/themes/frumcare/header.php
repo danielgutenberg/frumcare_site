@@ -8,6 +8,14 @@
  * @package frumcare
  */
 ?>
+<?php 
+    $wpurl            = site_url();
+    $trimmed_url    = parse_url($wpurl);
+    $path1           = explode('/', $trimmed_url['path']);	
+    $ciurl       = $trimmed_url['scheme']."://".$trimmed_url['host']."/".$path1[1];
+    if($path1[2] == 'dev')
+     $ciurl .=   "/".$path1[2];
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" <?php language_attributes(); ?>> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" <?php language_attributes(); ?>> <![endif]-->
@@ -26,7 +34,8 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,800italic,800,700italic,700' rel='stylesheet' type='text/css'>
 
 <link rel="shortcut icon" href="<?php echo do_shortcode("[theme_option do='favicon']"); ?>" />
-
+<link rel="shortcut icon" href="<?php echo $ciurl;?>/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="<?php echo $ciurl;?>/img/favicon.ico" type="image/x-icon">
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({publisher: "702e5d05-eb6f-470c-8ccc-fea29bd59c8d", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 <?php wp_head(); ?>
