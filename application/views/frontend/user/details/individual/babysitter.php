@@ -105,7 +105,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
     <?php
     if(!empty($rate)){?>
     <tr>
-    	<td >Rate</td>
+    	<td >Wage</td>
     	<td >
             <?php echo $rate . '/Hr'; 
             $type = explode(',',$rate_type);
@@ -117,7 +117,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
     <?php }
     else{ ?>
             <tr>
-                <td>Rate</td>
+                <td>Wage</td>
                 <td>N/A</td>
             </tr>
         <?php            
