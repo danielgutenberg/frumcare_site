@@ -192,7 +192,7 @@
                         <?php if($data['rate']){?>
 							<li>							
 								<?php echo "$".str_replace("t","-",$data['rate']); ?>
-                                <?php echo $data['rate_type']==1?" per hour":" per month"; ?>						
+                                <?php echo $data['rate_type']==1?" per hour":" per hour"; ?>						
 							</li>
                         <?php  } ?>
                     <?php  } ?>
@@ -231,7 +231,7 @@
                         <?php if($data['rate']){?>
 							<li>							
 								<?php echo "$".str_replace("t","-",$data['rate']); ?>
-                                <?php echo $data['rate_type']==1?" per hour":" per month"; ?>						
+                                <?php echo $data['rate_type']==1?" per hour":" per hour"; ?>						
 							</li>
                         <?php  
                             }
