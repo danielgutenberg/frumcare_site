@@ -9,16 +9,16 @@
 ?>
 
 	</div><!-- #content -->
-         <div class="green-banner"> 
-            <div class="container">
-                <?php if(is_page(array('rate-calculator', 'faq'))){ ?>
-                    <div class="banner-title"> Post a new question to the forums </div>    
-                <?php }else { ?>
-                    <div class="banner-title"> Join our community now </div>    
-                <?php }?>
-                <a href="javascript:void(0);" class="ask"> Ask our community </a>
-            </div>
-         </div>
+         <!--<div class="green-banner"> -->
+         <!--   <div class="container">-->
+         <!--       <?php if(is_page(array('rate-calculator', 'faq'))){ ?>-->
+         <!--           <div class="banner-title"> Post a new question to the forums </div>    -->
+         <!--       <?php }else { ?>-->
+         <!--           <div class="banner-title"> Join our community now </div>    -->
+         <!--       <?php }?>-->
+         <!--       <a href="javascript:void(0);" class="ask"> Ask our community </a>-->
+         <!--   </div>-->
+         <!--</div>-->
 	<footer id="colophon" class="site-footer footer" role="contentinfo">
 			<div class="container">
                     <div class="row navigation-row">
