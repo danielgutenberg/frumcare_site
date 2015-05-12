@@ -57,18 +57,18 @@
           } ?>
     
     <?php if(!empty($zip)){ ?>
-        <tr>
-            <td>Zip</td>
-            <td>
-                <?php echo $zip; ?>
-            </td>
-        </tr>
+        <!--<tr>-->
+        <!--    <td>Zip</td>-->
+        <!--    <td>-->
+        <!--        <?php //echo $zip; ?>-->
+        <!--    </td>-->
+        <!--</tr>-->
     <?php }else{
             ?>
-                <tr>
-                    <td >Zip </td>
-                    <td>N/A</td>
-                </tr>
+                <!--<tr>-->
+                <!--    <td >Zip </td>-->
+                <!--    <td>N/A</td>-->
+                <!--</tr>-->
             <?php
           } ?>
     
