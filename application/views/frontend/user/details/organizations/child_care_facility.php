@@ -18,13 +18,13 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
 				</td>
 				<?php }  
                 else{ ?>
-                    <td>Job Type</td>
+                    <td>Days / Hours</td>
                     <td>N/A</td>
                 <?php } ?>
 			</tr>
 
 			<tr>
-				<td>Job Hours</td>
+				<td>Days / Hours</td>
 				<td></td>
 			</tr>
 

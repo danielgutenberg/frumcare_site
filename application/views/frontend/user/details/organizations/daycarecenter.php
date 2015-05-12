@@ -119,7 +119,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 			</tr>
             
             <tr>
-                <td>Job Hours</td>         
+                <td>Days / Hours/td>         
                 <td>
                    <?php if(!empty($sunday_from) && !empty($sunday_to)) {?>
                    Sun <?php echo $sunday_from; ?> to <?php echo $sunday_to;} ?>
