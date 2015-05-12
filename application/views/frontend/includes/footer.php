@@ -22,7 +22,7 @@
                         <ul>
                             <li><a href="<?php echo site_url();?>caregivers">Find a Caregiver</a></li>
                             <li><a href="<?php echo site_url();?>careseekers">Find a Job</a></li>
-                            <li><a href="<?php echo site_url();?>caregivers ">Find Workers For Your Organization</a></li>
+                            <li><a href="<?php echo site_url();?>caregivers/organization ">Find Workers</a></li>
                         </ul>
                     </nav>
                 </div>
