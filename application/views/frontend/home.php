@@ -155,7 +155,7 @@
                 <div class="row">
                     <div class="col-half border-right">            
 
-                        <h2><a href="safety-guide" style="color:white">Safety-Guide</a></h2>
+                        <h2><a href="safety-guide" style="color:white">Safety Guide</a></h2>
                         <?php
                         $this->load->model('blog_model');
                         $safetyposts = $this->blog_model->getSafetyFirstPosts(22);
