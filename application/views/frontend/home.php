@@ -155,7 +155,7 @@
                 <div class="row">
                     <div class="col-half border-right">            
 
-                        <h2>Safety guide</h2>
+                        <h2><a href="safety-guide" style="color:white">Safety-Guide</a></h2>
                         <?php
                         $this->load->model('blog_model');
                         $safetyposts = $this->blog_model->getSafetyFirstPosts(22);
@@ -223,7 +223,7 @@
 
                  ?>
                  <div class="col-half padleft">
-                    <h2>Advice and Tips</h2>
+                    <h2><a href="advice-and-tips" style="color:white">Advice and Tips</a></h2>
                     <?php 
                     //if(is_array($adviceandtools)){
                         //foreach($adviceandtools as $key => $advice):
