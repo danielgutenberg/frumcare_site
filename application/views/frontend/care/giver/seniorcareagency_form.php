@@ -52,7 +52,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             </div>
 
             <div>
-            <label>Rate/Cost</label>
+            <label>Rate / Cost</label>
             <div class="form-field">
                 <select name="rate" class="required rate">
                     <option value="">Select rate</option>
@@ -84,13 +84,13 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             ?>                   
                     
             <div class="upload-photo">
-                <h2>Upload photo of facility/ organization</h2>
+                <h2>Upload Photo of Facility / Organization</h2>
                 <input type="hidden" id="file-name" name="facility_pic" value="<?php echo isset($profile_picture)?>">
                 <div id="output"><img src="<?php echo $photo_url?>"></div>
                 <label>Browse your computer to select a file to upload</label>
                 <button class="btn btn-default" id="upload">Choose File</button>
                 <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
-                <p>Please make sure your photo is appropriate for our site and in line with Jewish Tradition.</p>
+                <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>
             </div>
 
 

@@ -25,7 +25,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 				</div>
 				<?php } ?>
 				<div>
-					<label>Looking to work as (check one or more)</label>
+					<label>Looking to work as</label>
 					<div class="form-field">
 						<div class="first-block-checkbox">
 							<div class="checkbox"><input type="checkbox" value="Live in" name="looking_to_work[]">Live in</div>
@@ -42,7 +42,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 					</div>
 				</div>
 				<div>
-					<label>Ages of children willing to care for (check one or more)</label>
+					<label>Ages of children willing to care for</label>
 					<div class="form-field">
                         <div class="checkbox"><input type="checkbox" name="age_group[]" value="0-3"> 0-3 months</div>
                         <div class="checkbox"><input type="checkbox" name="age_group[]" value="3-6"> 3-6 months</div>
@@ -67,7 +67,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 					</div>
 				</div>
 				<div>
-					<label>Training (check one or more)</label>
+					<label>Training</label>
 					<div class="form-field">						
 						<div class="checkbox"><input type="checkbox" value="CPR" name="training[]"> <span>CPR</span></div>
 						<div class="checkbox"><input type="checkbox" value="First Aid" name="training[]"> <span>First Aid</span></div>					
@@ -97,7 +97,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                     <div class="checkbox"><input type="checkbox" value="3" name="rate_type[]">Room and Board Available</div>
                 </div>        
 				<div>
-					<label>When you need care (check one or more)</label>
+					<label>When you need care</label>
 					<div class="form-field">
 						<div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]"/> Immediate</div>
 						<div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date <input  type="text" name="start_date" id="textbox1"/></div>

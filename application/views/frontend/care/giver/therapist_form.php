@@ -46,7 +46,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         </div>
 
         <div>
-            <label>Certification/ License information</label>
+            <label>Certification / License information</label>
             <div class="form-field">
             <input type="text" value="" name="certification" class="required">
             </div>

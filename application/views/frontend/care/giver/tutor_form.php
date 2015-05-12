@@ -25,7 +25,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             </div>
             <?php } ?>
             <div>
-                <label>Subject(s) (check one or more)</label>
+                <label>Subject(s)</label>
                 <div class="form-field">
                         <div class="checkbox"><input type="checkbox" value="Elementary school" name="subjects[]">Elementary school</div>
                         <div class="checkbox"><input type="checkbox" value="High school" name="subjects[]">High school</div>
@@ -39,7 +39,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 </div>
             </div>
             <div>
-                <label>When you need care (check one or more)</label>
+                <label>When you need care</label>
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]"/> Immediate</div>
                     <div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]"/>Start Date<input  type="text" name="start_date" id="textbox1"/></div>                    

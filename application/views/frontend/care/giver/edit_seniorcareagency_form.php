@@ -56,7 +56,7 @@
             </div>
 
             <div>
-                <label>Rate/ Cost</label>
+                <label>Rate / Cost</label>
                 <div class="form-field">
                 <select name="rate" class="required">
                     <option value="">Select rate</option>

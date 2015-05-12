@@ -26,7 +26,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             </div>
             <?php } ?>
             <div>
-                <label>For (check one or more)</label>
+                <label>For</label>
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" name="looking_to_work[]" value="Boys"> Boys</div>                
                     <div class="checkbox"><input type="checkbox" name="looking_to_work[]" value="Girls"> Girls</div>
@@ -59,7 +59,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 </div>
             </div>
             <div>
-                <label>Training (check one or more)</label>
+                <label>Training</label>
                 <div class="form-field">                    
                     <div class="checkbox"><input type="checkbox" value="CPR" name="training[]"> <span>CPR</span></div>
                     <div class="checkbox"><input type="checkbox" value="First Aid" name="training[]"> <span>First Aid</span></div>                                        
@@ -88,7 +88,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 </div>
             </div>
             <div>
-                <label>Days/ hours</label>
+                <label>Days / Hours</label>
                 <div class="form-field">
                  <label style="width:25%">Sun</label><input type="text" name="sunday_from" class="time" style="width:25%"> to  <input type="text" name="sunday_to" class="time" style="width:25%">
                  <br>
@@ -101,7 +101,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                  <div class="checkbox"><input type="checkbox" name="flexible_hours" value="1"> Flexible Hours</div>
 
                  <br>
-                 Vacation Days (Please specify vacation days)
+                 <label>Vacation Days (Please specify vacation days)</label>
                  <br>
                  <input type="text" name="vacation_days" value="" placeholder="Vacation Days">
 
