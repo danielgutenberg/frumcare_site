@@ -62,7 +62,7 @@
     </div>
 
     <div>
-        <label>Neighbourhood / Street</label>
+        <label>Neighborhood / Street</label>
         <div>
             <input type="text" name="neighbour" class="required" value=""/>
         </div>    
@@ -81,15 +81,15 @@
     </div>
 
     <div>
-        <label>Name of owner/ operator</label>
+        <label>Name of owner / operator</label>
         <div class="form-field">
         <input type="text" name="name_of_owner" class="required" value=""/>
         </div>
     </div>
 
 
-    <div>
-        <label>Age of owner/ operator</label>
+    <div> 
+        <label>Age of owner / operator</label>
         <div class="form-field">
         <input type="text" name="age" class="required number" value="<?php echo isset($age) ? $age : '' ?>"/>
         </div>
