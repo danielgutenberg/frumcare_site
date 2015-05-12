@@ -42,19 +42,19 @@
 </div>
 	</div>
 </div>
-	<section class="safety-first">
-        <div class="container">
-            <h2 class="title">Post a new question to forum</h2>
-            <div class="row">
-                    <article>
-                        <div class="help-content">
-                        	<a herf="#" class="btn btn-primary btn-lg" id="ticket">Ask Our Community</a>
-                        </div>
-                    </article>
-            </div>
-        </div>
+	<!--<section class="safety-first">-->
+ <!--       <div class="container">-->
+ <!--           <h2 class="title">Post a new question to forum</h2>-->
+ <!--           <div class="row">-->
+ <!--                   <article>-->
+ <!--                       <div class="help-content">-->
+ <!--                       	<a herf="#" class="btn btn-primary btn-lg" id="ticket">Ask Our Community</a>-->
+ <!--                       </div>-->
+ <!--                   </article>-->
+ <!--           </div>-->
+ <!--       </div>-->
         <!--end .container-->
-    </section>
+ <!--   </section>-->
 
     <div class="modal fade help-page" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
