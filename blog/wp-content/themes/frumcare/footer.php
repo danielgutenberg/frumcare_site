@@ -7,6 +7,14 @@
  * @package frumcare
  */
 ?>
+<?php 
+    $wpurl            = site_url();
+    $trimmed_url    = parse_url($wpurl);
+    $path1           = explode('/', $trimmed_url['path']);	
+    $ciurl       = $trimmed_url['scheme']."://".$trimmed_url['host']."/".$path1[1];
+    if($path1[2] == 'dev')
+     $ciurl .=   "/".$path1[2];
+?>
 
 	</div><!-- #content -->
          <!--<div class="green-banner"> -->
@@ -26,16 +34,14 @@
                             <div class="footer-navigation">
                                 <nav>
                                     <p class="nav-title">Navigation</p>
-                                    <?php wp_nav_menu( array( 'theme_location' => 'footer-menu1' ) ); ?>
-                                    <!--<ul>
-                                        <li><a href="#">Jobs</a></li>
-                                        <li><a href="#">Childcare Workers</a></li>
-                                        <li><a href="#">Help</a></li>
-                                        <li><a href="#">Contact Us</a></li>
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Testimonials</a></li>
-                                        <li><a href="#">Blog</a></li>
-                                    </ul>-->
+                                    <?php //wp_nav_menu( array( 'theme_location' => 'footer-menu1' ) ); ?>
+                                    <ul>
+                                        <li><a href="<?php echo $ciurl;?>/about-us">About Us</a></li>
+                                        <li><a href="<?php echo $ciurl;?>/help">Contact Us</a></li>
+                                        
+                                        <li><a href="<?php echo $ciurl;?>/blog">Blog</a></li>
+                                        
+                                    </ul>
                                 </nav>
                             </div>
                         </div>
@@ -144,14 +150,7 @@
         </div>
     </div>
 <!-- modal popup ends -->
-<?php 
-    $wpurl            = site_url();
-    $trimmed_url    = parse_url($wpurl);
-    $path1           = explode('/', $trimmed_url['path']);	
-    $ciurl       = $trimmed_url['scheme']."://".$trimmed_url['host']."/".$path1[1];
-    if($path1[2] == 'dev')
-     $ciurl .=   "/".$path1[2];
-?>
+
 <script src="<?php echo $ciurl;?>/js/jquery.validate.js"></script>
 <script src="<?php echo $ciurl;?>/js/vendor/bootstrap.min.js"></script>
 <script>
