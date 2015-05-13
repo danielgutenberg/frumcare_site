@@ -68,10 +68,10 @@
         </div>    
     </div>
 
-    <div>
-        <label>Zip</label>
-        <div><input type="text" name="zip" class="required" value="" /> </div>
-    </div>
+    <!--<div>-->
+    <!--    <label>Zip</label>-->
+    <!--    <div><input type="text" name="zip" class="required" value="" /> </div>-->
+    <!--</div>-->
 
      <div>
         <label>Phone</label>
