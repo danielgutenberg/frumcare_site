@@ -34,9 +34,12 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 		}
 
 		public function tipsandtools(){
+			$this->breadcrumbs->push('Advice and Tips', '/advice-and-tips');
+			$this->breadcrumbs->unshift('Home', base_url());
+			
 			$data['main_content'] = 'frontend/cms/page';
 			$data['content_data'] = $this->cms_model->getPageDetailBySlug('tips-and-tools');
-			$data['title'] 		  = 'Tips and Tools';
+			$data['title'] 		  = 'Advice and Tips';
 			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}
 	}
