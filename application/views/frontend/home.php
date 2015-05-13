@@ -155,7 +155,7 @@
                 <div class="row">
                     <div class="col-half border-right">            
 
-                        <h2><a href="safety-guide" style="color:white">Safety Guide</a></h2>
+                        <h2><a href="safety-guide/families" style="color:white">Safety Guide</a></h2>
                         <?php
                         $this->load->model('blog_model');
                         $safetyposts = $this->blog_model->getSafetyFirstPosts(22);
@@ -183,7 +183,7 @@
                                         <h3>For Families:</h3>
                                         <p>
                                             <?php echo substr($safetyposts[0]['post_content'],0,180);?>
-                                            <a href="#">Read More</a>
+                                            <a href="safety-guide/families">Read More</a>
                                         </p>
                                     </div>
                                 </article>
@@ -223,7 +223,7 @@
 
                  ?>
                  <div class="col-half padleft">
-                    <h2><a href="advice-and-tips" style="color:white">Advice and Tips</a></h2>
+                    <h2><a href="advice-and-tips/families" style="color:white">Advice and Tips</a></h2>
                     <?php 
                     //if(is_array($adviceandtools)){
                         //foreach($adviceandtools as $key => $advice):
@@ -245,7 +245,7 @@
                                         <h3>For Families:</h3>
                                         <p>
                                             <?php echo substr($adviceandtools[0]['post_content'],0,180);?>
-                                            <a href="#">Read More</a> 
+                                            <a href="advice-and-tips/families">Read More</a> 
                                         </p>
                                     </div>
                                 </article>
