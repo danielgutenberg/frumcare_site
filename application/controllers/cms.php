@@ -26,12 +26,22 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			}
 		}
 
-		public function stayingsafe(){
-			$this->breadcrumbs->push('Safety Guide', '/safety-guide');
+		public function stayingsafefamilies(){
+			$this->breadcrumbs->push('Safety Guide', '/safety-guide/families');
 			$this->breadcrumbs->unshift('Home', base_url());
 			
 			$data['main_content'] = 'frontend/cms/page';
-			$data['content_data'] = $this->cms_model->getPageDetailBySlug('staying-safe');
+			$data['content_data'] = $this->cms_model->getPageDetailBySlug('staying-safe-family');
+			$data['title'] 		  = 'Staying Safe';
+			$this->load->view(FRONTEND_TEMPLATE,$data);
+		}
+		
+		public function stayingsafecaregivers(){
+			$this->breadcrumbs->push('Safety Guide', '/safety-guide/caregivers');
+			$this->breadcrumbs->unshift('Home', base_url());
+			
+			$data['main_content'] = 'frontend/cms/page';
+			$data['content_data'] = $this->cms_model->getPageDetailBySlug('staying-safe-caregivers');
 			$data['title'] 		  = 'Staying Safe';
 			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}
