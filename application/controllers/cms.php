@@ -56,6 +56,16 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}
 		
+		public function tipsandtoolscaregivers(){
+			$this->breadcrumbs->push('Advice and Tips', '/advice-and-tips/caregivers');
+			$this->breadcrumbs->unshift('Home', base_url());
+			
+			$data['main_content'] = 'frontend/cms/page';
+			$data['content_data'] = $this->cms_model->getPageDetailBySlug('tips-and-tools-caregivers');
+			$data['title'] 		  = 'Advice and Tips';
+			$this->load->view(FRONTEND_TEMPLATE,$data);
+		}
+		
 		public function tipsandtoolsemployers(){
 			$this->breadcrumbs->push('Advice and Tips', '/advice-and-tips/employers');
 			$this->breadcrumbs->unshift('Home', base_url());

@@ -42,6 +42,7 @@ $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 $route['advice-and-tips/families'] = 'cms/tipsandtoolsfamilies';
 $route['advice-and-tips/employers'] = 'cms/tipsandtoolsemployers';
+$route['advice-and-tips/caregivers'] = 'cms/tipsandtoolscaregivers';
 $route['safety-guide/families'] = 'cms/stayingsafecaregivers';
 $route['safety-guide/caregivers'] = 'cms/stayingsafefamilies';
 $route['rate-calculator'] = 'cms/ratecalculator';
