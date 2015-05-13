@@ -7,12 +7,12 @@
             <div>
                 <select>
                     <option>Babysitter</option>
-                    <option>Nanny/Au-Pair</option>
-                    <option selected>Nursery/PlayGroup/Drop off/Gan</option>
-                    <option>Tutor/Private lesson</option>
+                    <option>Nanny / Au-Pair</option>
+                    <option selected>Nursery / PlayGroup / Drop off / Gan</option>
+                    <option>Tutor / Private lesson</option>
                     <option>Senior Caregiver</option>
                     <option>Therapist</option>
-                    <option>Cleaning/household help</option>
+                    <option>Cleaning / household help</option>
                     <option>Errand Runner/OddJobs</option>
                 </select>
             </div>
@@ -44,10 +44,10 @@
             </div>
             <div>
                 <label>Level of observance(Check one or more)</label>
-                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Yeshivis/Chasidish"/>Yeshivis/Chasidish</div>
-                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Orthodox/Modern orthodox"/>Orthodox/Modern orthodox</div>
+                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Yeshivis/Chasidish"/>Yeshivish / Chasidish</div>
+                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Orthodox/Modern orthodox"/>Orthodox / Modern orthodox</div>
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Other"/>Other</div>
-                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Not Jewis"/>Not Jewis</div>
+                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Not Jewis"/>Not Jewish</div>
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Any"/>Any</div>
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Familiar with jewish tradition"/>Familiar with jewish tradition</div>
             </div>

@@ -7,14 +7,14 @@
             <div>
                 <select>
                     <option>Babysitter</option>
-                    <option>Nanny/Au-Pair</option>
-                    <option>Nursery/PlayGroup/Drop off/Gan</option>
-                    <option>Tutor/Private lesson</option>
+                    <option>Nanny / Au-Pair</option>
+                    <option>Nursery / PlayGroup / Drop off / Gan</option>
+                    <option>Tutor / Private lesson</option>
                     <option>Senior Caregiver</option>
                     <option>Special Needs Caregiver</option>
                     <option selected>Therapist</option>
-                    <option>Cleaning/household help</option>
-                    <option>Errand Runner/OddJobs</option>
+                    <option>Cleaning / household help</option>
+                    <option>Errand Runner / Odd Jobs</option>
                 </select>
             </div>
             <div>
@@ -45,8 +45,8 @@
             </div>
             <div>
                 <label>Level of observance(Check one or more)</label>
-                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Yeshivis/Chasidish"/>Yeshivish/Chasidish</div>
-                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Orthodox/Modern orthodox"/>Orthodox/Modern orthodox</div>
+                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Yeshivis/Chasidish"/>Yeshivish / Chasidish</div>
+                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Orthodox/Modern orthodox"/>Orthodox / Modern orthodox</div>
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Other"/>Other</div>
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Not Jewish"/>Not Jewish</div>
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Any"/>Any</div>
