@@ -2,9 +2,9 @@
     <?php if($this->uri->segment(2) == 'organizations') { ?>        
         <select name="service" class="care_type_organizations">
             <option value="organizations">--select--</option> 
-            <option value="25" <?php if(segment(3) == 'workers-staff-for-childcare-facility'){?> selected="selected" <?php }?>>Workers/Staff for childcare facility</option>
-            <option value="26" <?php if(segment(3) == 'workers-staff-for-senior-care-facility'){?> selected="selected" <?php }?> >Workers/Staff for senior care facility</option>
-            <option value="27" <?php if(segment(3) == 'workers-staff-for-special-needs-facility'){?> selected="selected" <?php }?>>Workers/Staff for special needs facility</option>
+            <option value="25" <?php if(segment(3) == 'workers-staff-for-childcare-facility'){?> selected="selected" <?php }?>>Workers / Staff for childcare facility</option>
+            <option value="26" <?php if(segment(3) == 'workers-staff-for-senior-care-facility'){?> selected="selected" <?php }?> >Workers / Staff for senior care facility</option>
+            <option value="27" <?php if(segment(3) == 'workers-staff-for-special-needs-facility'){?> selected="selected" <?php }?>>Workers / Staff for special needs facility</option>
             <option value="28" <?php if(segment(3) == 'workers-for-cleaning-company'){?> selected="selected" <?php }?>>Workers for cleaning company</option>
         </select>     
     <?php } 
@@ -12,22 +12,22 @@
         <select name="service" class="care_type">
             <option value="caregivers">--select--</option> 
             <option value="1" <?php if(segment(2) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
-            <option value="2" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny/Au-pair</option>
-            <option value="3" <?php if(segment(2) == 'nursery-playgroup-drop-off-gan'){?> selected="selected" <?php }?>>Nursery/ Playgroup/ Drop off/ Gan</option>
-            <option value="10" <?php if(segment(2) == 'day-care-center-day-camp-afternoon-activities'){?> selected="selected" <?php }?>>Day Care Center/Day Camp/Afternoon Activities</option>
+            <option value="2" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>
+            <option value="3" <?php if(segment(2) == 'nursery-playgroup-drop-off-gan'){?> selected="selected" <?php }?>>Nursery / Playgroup / Drop off / Gan</option>
+            <option value="10" <?php if(segment(2) == 'day-care-center-day-camp-afternoon-activities'){?> selected="selected" <?php }?>>Day Care Center / Day Camp / Afternoon Activities</option>
             <option value="4" <?php if(segment(2) == 'tutor-private-lessons'){?> selected="selected" <?php }?>>Tutor/ Private lessons</option>
             <option value="5" <?php if(segment(2) == 'senior-caregiver'){?> selected="selected" <?php }?> >Senior Caregiver</option>
             <option value="13" <?php if(segment(2) == 'senior-care-agency'){?> selected="selected" <?php }?>>Senior Care Agency</option>                    
-            <option value="16" <?php if(segment(2) == 'assisted-living-senior-care-center-nursing-home'){?> selected="selected" <?php }?>>Assisted living / Senior Care Center/ Nursing Home</option>
+            <option value="16" <?php if(segment(2) == 'assisted-living-senior-care-center-nursing-home'){?> selected="selected" <?php }?>>Assisted living / Senior Care Center / Nursing Home</option>
             <option value="6" <?php if(segment(2) == 'special-needs-caregiver'){?> selected="selected" <?php }?>>Special needs caregiver</option>
             <option value="14" <?php if(segment(2) == 'special-needs-center'){?> selected="selected" <?php }?>>Special needs center</option>
             <option value="7" <?php if(segment(2) == 'therapists'){?> selected="selected" <?php }?>>Therapist</option>
-            <option value="8" <?php if(segment(2) == 'cleaning-household-help'){?> selected="selected" <?php }?>>Cleaning/ household help</option>
-            <option value="15" <?php if(segment(2) == 'cleaning-household-help-company'){?> selected="selected" <?php }?>>Cleaning/ household help company</option>
-            <option value="9" <?php if(segment(2) == 'errand-runner-odd-jobs-personal-assistant-driver'){?> selected="selected" <?php }?>>Errand runner/ odd jobs/ personal assistant/ driver</option>                    																													
-            <option value="25" <?php if(segment(2) == 'workers-staff-for-childcare-facility'){?> selected="selected" <?php }?>>Workers/Staff for childcare facility</option>
-            <option value="26" <?php if(segment(2) == 'workers-staff-for-senior-care-facility'){?> selected="selected" <?php }?> >Workers/Staff for senior care facility</option>
-            <option value="27" <?php if(segment(2) == 'workers-staff-for-special-needs-facility'){?> selected="selected" <?php }?>>Workers/Staff for special needs facility</option>
+            <option value="8" <?php if(segment(2) == 'cleaning-household-help'){?> selected="selected" <?php }?>>Cleaning / household help</option>
+            <option value="15" <?php if(segment(2) == 'cleaning-household-help-company'){?> selected="selected" <?php }?>>Cleaning / household help company</option>
+            <option value="9" <?php if(segment(2) == 'errand-runner-odd-jobs-personal-assistant-driver'){?> selected="selected" <?php }?>>Errand runner / odd jobs / personal assistant / driver</option>                    																													
+            <option value="25" <?php if(segment(2) == 'workers-staff-for-childcare-facility'){?> selected="selected" <?php }?>>Workers / Staff for childcare facility</option>
+            <option value="26" <?php if(segment(2) == 'workers-staff-for-senior-care-facility'){?> selected="selected" <?php }?> >Workers / Staff for senior care facility</option>
+            <option value="27" <?php if(segment(2) == 'workers-staff-for-special-needs-facility'){?> selected="selected" <?php }?>>Workers / Staff for special needs facility</option>
             <option value="28" <?php if(segment(2) == 'workers-for-cleaning-company'){?> selected="selected" <?php }?>>Workers for cleaning company</option>
         </select>
     <?php } ?>
@@ -37,16 +37,16 @@
     <select name="service" class="jobtype">
         <option value="jobs">--select--</option> 
         <option value="17" <?php if(segment(2) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
-    	<option value="18" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny/Au-pair</option>        
-    	<option value="19" <?php if(segment(2) == 'tutor-private-lessons'){?> selected="selected" <?php }?>>Tutor/ Private lessons</option>
+    	<option value="18" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>        
+    	<option value="19" <?php if(segment(2) == 'tutor-private-lessons'){?> selected="selected" <?php }?>>Tutor / Private lessons</option>
     	<option value="20" <?php if(segment(2) == 'senior-caregiver'){?> selected="selected" <?php }?>>Senior Caregiver</option>        
     	<option value="22" <?php if(segment(2) == 'special-needs-caregiver'){?> selected="selected" <?php }?>>Special needs caregiver</option>           
     	<?php /*<option value="23" <?php if(segment(2) == 'therapists'){?> selected="selected" <?php }?>>Therapist</option> */ ?>
-    	<option value="24" <?php if(segment(2) == 'cleaning-household-help'){?> selected="selected" <?php }?>>Cleaning/ household help</option>        
-    	<option value="21" <?php if(segment(2) == 'errand-runner-odd-jobs-personal-assistant-driver'){?> selected="selected" <?php }?>>Errand runner/ odd jobs/ personal assistant/ driver</option>
-        <option value="25" <?php if(segment(2) == 'workers-staff-for-childcare-facility'){?> selected="selected" <?php }?>>Workers/Staff for childcare facility</option>
-        <option value="26" <?php if(segment(2) == 'workers-staff-for-senior-care-facility'){?> selected="selected" <?php }?> >Workers/Staff for senior care facility</option>
-        <option value="27" <?php if(segment(2) == 'workers-staff-for-special-needs-facility'){?> selected="selected" <?php }?>>Workers/Staff for special needs facility</option>
+    	<option value="24" <?php if(segment(2) == 'cleaning-household-help'){?> selected="selected" <?php }?>>Cleaning / household help</option>        
+    	<option value="21" <?php if(segment(2) == 'errand-runner-odd-jobs-personal-assistant-driver'){?> selected="selected" <?php }?>>Errand runner / odd jobs / personal assistant / driver</option>
+        <option value="25" <?php if(segment(2) == 'workers-staff-for-childcare-facility'){?> selected="selected" <?php }?>>Workers / Staff for childcare facility</option>
+        <option value="26" <?php if(segment(2) == 'workers-staff-for-senior-care-facility'){?> selected="selected" <?php }?> >Workers / Staff for senior care facility</option>
+        <option value="27" <?php if(segment(2) == 'workers-staff-for-special-needs-facility'){?> selected="selected" <?php }?>>Workers / Staff for special needs facility</option>
         <option value="28" <?php if(segment(2) == 'cleaning-household-help-company'){?> selected="selected" <?php } ?>>Workers for cleaning company</option>
     </select>
 <?php } ?>
