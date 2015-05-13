@@ -42,9 +42,9 @@ $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 $route['advice-and-tips'] = 'cms/tipsandtools';
 $route['safety-guide'] = 'cms/stayingsafe';
-$route['rate-calculator'] = 'routee/ratecalculator';
-$route['faq'] = 'routee/faq';
-$route['background-check'] = 'routee/backgroundcheck';
+$route['rate-calculator'] = 'cms/ratecalculator';
+$route['faq'] = 'cms/faq';
+$route['background-check'] = 'cms/backgroundcheck';
 
 $route['signup-successful'] = 'signup/success';
 $route['admin'] = "admin/dashboard";

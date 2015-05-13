@@ -27,6 +27,9 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 		}
 
 		public function stayingsafe(){
+			$this->breadcrumbs->push('Safety Guide', '/safety-guide');
+			$this->breadcrumbs->unshift('Home', base_url());
+			
 			$data['main_content'] = 'frontend/cms/page';
 			$data['content_data'] = $this->cms_model->getPageDetailBySlug('staying-safe');
 			$data['title'] 		  = 'Staying Safe';
@@ -42,4 +45,36 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			$data['title'] 		  = 'Advice and Tips';
 			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}
+		
+		public function faq(){
+			$this->breadcrumbs->push('FAQ', '/faq');
+			$this->breadcrumbs->unshift('Home', base_url());
+			
+			$data['main_content'] = 'frontend/cms/page';
+			$data['content_data'] = $this->cms_model->getPageDetailBySlug('faq');
+			$data['title'] 		  = 'Frequently Asked Questions';
+			$this->load->view(FRONTEND_TEMPLATE,$data);
+		}
+		
+		public function ratecalculator(){
+			$this->breadcrumbs->push('Rate Calculator', '/rate-calculator');
+			$this->breadcrumbs->unshift('Home', base_url());
+			
+			$data['main_content'] = 'frontend/cms/page';
+			$data['content_data'] = $this->cms_model->getPageDetailBySlug('rate-calculator');
+			$data['title'] 		  = 'Rate Calculator';
+			$this->load->view(FRONTEND_TEMPLATE,$data);
+		}
+		
+		public function backgroundcheck(){
+			$this->breadcrumbs->push('Background Check', '/background-check');
+			$this->breadcrumbs->unshift('Home', base_url());
+			
+			$data['main_content'] = 'frontend/cms/page';
+			$data['content_data'] = $this->cms_model->getPageDetailBySlug('background-check');
+			$data['title'] 		  = 'Background Check';
+			$this->load->view(FRONTEND_TEMPLATE,$data);
+		}
+		
+		
 	}
