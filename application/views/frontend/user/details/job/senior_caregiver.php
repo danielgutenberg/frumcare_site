@@ -68,11 +68,11 @@
         <?php }
         else{
             ?>
-            //     <tr>
-            //         <td >zip </td>
-            //         <td>N/A</td>
-            //     </tr>
-            // <?php
+            <!--//     <tr>-->
+            <!--//         <td >zip </td>-->
+            <!--//         <td>N/A</td>-->
+            <!--//     </tr>-->
+             <?php
           } ?>
         
         <?php if(!empty($age_group)){ ?>    
