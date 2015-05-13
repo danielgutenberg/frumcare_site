@@ -16,7 +16,7 @@
 		<div class="search-links">
 			 <a href="<?php echo site_url();?>user/createsearchalert">Create Search Alerts</a> 
 			 <a href="<?php echo site_url();?>user/viewhistory">History</a>
-			<a href="<?php echo site_url();?>user/currentsearch">Current Searches</a> -->
+			<a href="<?php echo site_url();?>user/currentsearch">Current Searches</a>
 			<a href="<?php echo site_url();?>user/searchalerts">Search Alerts</a>
 		</div>
 
