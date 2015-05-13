@@ -41,7 +41,7 @@
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 $route['advice-and-tips'] = 'cms/tipsandtools';
-$route['safety-guide'] = 'routee/safetyguide';
+$route['safety-guide'] = 'cms/stayingsafe';
 $route['rate-calculator'] = 'routee/ratecalculator';
 $route['faq'] = 'routee/faq';
 $route['background-check'] = 'routee/backgroundcheck';
@@ -59,7 +59,7 @@ $route['ad/caregiver/(:any)'] = 'ad/index/$1/$2';
 $route['ad/careseeker/(:any)'] = 'ad/index/$1/$2';
 $route['about-us'] = 'cms/aboutus';
 $route['terms-and-conditions'] = 'cms/termsandconditions';
-$route['staying-safe'] = 'cms/stayingsafe';
+// $route['staying-safe'] = 'cms/stayingsafe';
 // $route['tips-and-tools'] = 'cms/tipsandtools';
 $route['user/upgrademembership'] = 'payment/upgrademembership';
 $route['sserddaliameyfirev/(:any)'] = 'user/verifyemailaddress';

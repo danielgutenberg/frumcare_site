@@ -3,22 +3,22 @@
     <?php echo $this->breadcrumbs->show();?>
     <div class="left-sidebar-resource">
         <ul class="sidebarmenu">
-			<li> <a href="http://181.224.137.174/~frumcare/dev/safety-guide"> Safety Guide </a>
+			<li> <a href="<?php echo site_url();?>safety-guide"> Safety Guide </a>
 			    <ul class="submenuleft">
 			        <li style="margin-left: 20px;"> <a href="#"> For Families </a> </li>
 			        <li style="margin-left: 20px;"> <a href="#"> For Caregivers </a> </li>
 			    </ul>
 			 </li>
-			<li> <a href="http://181.224.137.174/~frumcare/dev/tips-and-tools"> Advice and Tips </a>
+			<li> <a href="<?php echo site_url();?>advice-and-tips"> Advice and Tips </a>
 			<ul class="submenuleft">
 			    <li style="margin-left: 20px;"> <a href="#"> For Families </a> </li>
 			    <li style="margin-left: 20px;"> <a href="#"> For Caregivers </a> </li>
 			    <li style="margin-left: 20px;"> <a href="#"> For Employers </a> </li>
 			</ul>
 			 </li>
-			<li> <a href="http://181.224.137.174/~frumcare/dev/faq"> FAQ </a> </li>
-			<li> <a href="http://181.224.137.174/~frumcare/dev/rate-calculator"> Rate Calculator </a> </li>						
-			<li> <a href="http://181.224.137.174/~frumcare/dev/background-check"> Background Check </a> </li>       
+			<li> <a href="<?php echo site_url();?>faq"> FAQ </a> </li>
+			<li> <a href="<?php echo site_url();?>rate-calculator"> Rate Calculator </a> </li>						
+			<li> <a href="<?php echo site_url();?>background-check"> Background Check </a> </li>       
 		</ul>
 	</div>
     <?php if($content_data){?> 
