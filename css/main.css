@@ -5531,3 +5531,83 @@ body {
 .left-sidebar-resource .sub-menu {
     text-indent: 22px;
 }
+
+.right-sidebar {
+    float: right;
+    padding-left: 18px;
+    width: 277px;
+}
+.right-sidebar .recent-posts, .right-sidebar .categories, .right-sidebar .archives {
+    background: none repeat scroll 0 0 #f0f0ec;
+        margin-bottom: 19px;
+        border-radius: 3px;
+}
+.right-sidebar h1 {
+    background: none repeat scroll 0 0 #85bd30;
+    border-radius: 3px 3px 0 0;
+    color: #ffffff;
+    font-size: 22px;
+    height: 44px;
+    line-height: 44px;
+    margin: 0;
+    padding: 0 20px 0 15px;
+    text-align: left;
+    font-family: 'Lato',sans-serif;
+    font-weight: 400;
+}
+.right-sidebar .recent-posts ul, .right-sidebar .categories ul, .right-sidebar .archives ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+.right-sidebar .recent-posts h3,.right-sidebar .categories a,.right-sidebar .archives a {
+    background: url("img/resource-arrow.png") no-repeat scroll 17px 5px;
+    color: #404040;
+    font-family: 'Lato',sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+    padding-left: 30px;
+}
+.right-sidebar .recent-posts li, .right-sidebar .categories li,.right-sidebar .archives li {
+    border-top: 1px solid #cccccc;
+    padding: 13px 20px 13px 0;
+}
+.right-sidebar .recent-posts li:first-child, .right-sidebar .categories li:first-child,.right-sidebar .archives li:first-child{
+    border-top: none;
+} 
+.right-sidebar a:hover{
+    text-decoration: none;
+}
+.recent-posts .post-date{
+    color: #85bd30;
+    font-family: 'Lato',sans-serif;
+    font-weight: 300;
+    padding-left: 30px;
+    padding-top: 3px;
+    font-size: 14px;
+}
+.right-sidebar .recent-posts .all-post {
+    background: none repeat scroll 0 0 #27aae1;
+    border-radius: 2px;
+    color: #ffffff;
+    display: block;
+    float: right;
+    font-size: 11px;
+    font-weight: 400;
+    height: 24px;
+    line-height: 24px;
+    margin: 14px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 84px;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -ms-transition: all 0.5s ease 0s;
+}
+
+.right-sidebar .recent-posts .all-post:hover{
+    background: #E74C34;
+}
