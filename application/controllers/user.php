@@ -1333,7 +1333,7 @@ class User extends CI_Controller
         $user_id    = $this->uri->segment(3);
         $care_type  = $this->uri->segment(4);
         $res = $this->user_model->delete_this_profile($user_id,$care_type);
-        $this->session->set_flashdata('info', 'Profile successfully deleted');
+        $this->session->set_flashdata('info', 'Profile has been archived');
         redirect('user/profile');
       }
 
