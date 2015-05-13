@@ -38,13 +38,13 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
 							<div class="details-info">Mon - Thurs <?php echo $mid_days_from;?> - <?php echo $mid_days_to;?></div>
 		                <?php }  
 		                else{ ?>
-		                    <div>Mon-Thu</div>
+		                    <div>Mon-Thu N/A</div>
 						<?php } ?>
 						<?php if(!empty($friday_from) || !empty($friday_to)){ ?>
 							<div class="details-info">Fri <?php echo $friday_from;?> - <?php echo $friday_to;?></div>
 		                <?php }  
 		                else{ ?>
-		                    <div>Fri</div>
+		                    <div>Fri N/A</div>
 						<?php } ?>
 						<div class="details-info"><?php if($extended_hrs == 1){ echo $tick; }else{echo $cross; }?>  Extended Hours Available</div>
                         <div class="details-info"><?php if($flexible_hours == 1){ echo $tick; }else{echo $cross; }?> Flexible Hours</div> 
