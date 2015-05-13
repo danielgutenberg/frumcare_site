@@ -115,7 +115,7 @@
 
 <div class="header-main">
                     <div class="container">
-			<h1 class="logo"><a href="<?php $ciurl; ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Target-temporaries"/> </a></h1>
+			<h1 class="logo"><a href="<?php echo $ciurl; ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Target-temporaries"/> </a></h1>
 		<div class="navigation">
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<!--<button class="menu-toggle"><?php _e( 'Primary Menu', 'frumcare' ); ?></button> -->
