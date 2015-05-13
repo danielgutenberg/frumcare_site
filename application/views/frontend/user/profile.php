@@ -81,6 +81,7 @@ if(check_user()) {
         <?php
             if(!empty($all_profile)){
             foreach($all_profile as $row){
+                print_r($row);
                 ?>
                 <tr>
                     <td width="35%"><?php echo $row->service_name;?></td>
