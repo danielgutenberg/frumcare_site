@@ -46,6 +46,8 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
 		                else{ ?>
 		                    <div>Fri</div>
 						<?php } ?>
+						<div class="details-info"><?php if($extended_hrs == 1){ echo $tick; }else{echo $cross; }?>  Extended Hours Available</div>
+                        <div class="details-info"><?php if($flexible_hours == 1){ echo $tick; }else{echo $cross; }?> Flexible Hours</div> 
 				</td>
 			</tr>
 
