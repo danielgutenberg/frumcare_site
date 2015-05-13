@@ -106,8 +106,8 @@
 				
 					<a href="<?php echo site_url();?>therapists/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>" style="color:#98C85A">More</a>
 					<br />
-					<h5>Last Signed in:
-							<?php foreach($userlogs as $log):
+					<!--<h5>Last Signed in:-->
+							<?php /*foreach($userlogs as $log):
 								if($data['user_id'] == $log['user_id']){
 									$dbDate = $log['login_time']; // Database date
 		    						$endDate = time();    // current time
@@ -123,8 +123,8 @@
 								    elseif($min > 0) echo $min." minute ago";
 								    else echo "just second ago";
 								}
-							 endforeach;?> 
-					 </h5>
+							 endforeach;*/?> 
+					 <!--</h5>-->
 					<div class="profile-activities">
 
 					 	<li><?php echo $data['experience'];?> years of paid experience</li>
