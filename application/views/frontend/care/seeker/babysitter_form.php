@@ -116,14 +116,14 @@ $user_detail = get_user(check_user());
             <div class="checkbox"><input type="checkbox" value="One Time" name="availability[]">One time</div>
             <div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]">Occassionally</div>
             <div class="checkbox"><input type="checkbox" value="Regularly" name="availability[]">Regularly</div>
-            <div class="checkbox"><input type="checkbox" value="Days/ hours" name="availability[]"> Days/ hours</div>
+            <div class="checkbox"><input type="checkbox" value="Days/ hours" name="availability[]"> Days / hours</div>
             <div class="checkbox"><input type="checkbox" value="Asap" name="availability[]"/> Asap</div>
             <div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date
             <input  type="text" name="start_date" id="textbox1" autocomplete="off"/></div>
             <div class="checkbox"><input type="checkbox" value="Morning" name="availability[]"> Morning</div>
             <div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]"> Afternoon</div>
             <div class="checkbox"><input type="checkbox" value="Evening" name="availability[]"> Evening</div>
-            <div class="checkbox"><input type="checkbox" value="Weekends Fri./ Sun." name="availability[]"> Weekends Fri./ Sun.</div>
+            <div class="checkbox"><input type="checkbox" value="Weekends Fri./ Sun." name="availability[]"> Weekends Fri. / Sun.</div>
             <div class="checkbox"><input type="checkbox" value="Night Nurse" name="availability[]"> Night Nurse</div>
             <div class="checkbox"><input type="checkbox" value="Shabbos" name="availability[]"/>Shabbos</div>            
             <div class="checkbox"><input type="checkbox" value="Vacation Sitter" name="availability[]">Vacation Sitter</div>
@@ -232,10 +232,10 @@ $user_detail = get_user(check_user());
                 <input type="checkbox" value="1" name="pick_up_child">Must be must be able to pick up kids from school
             </div>
             <div class="checkbox">
-                <input type="checkbox" value="1" name="cook">Must be must be able to cook/ serve meals
+                <input type="checkbox" value="1" name="cook">Must be must be able to cook / serve meals
             </div>
             <div class="checkbox">
-                <input type="checkbox" value="1" name="basic_housework">Must be must be able to do light housework/ cleaning
+                <input type="checkbox" value="1" name="basic_housework">Must be must be able to do light housework / cleaning
             </div>
             <div class="checkbox">
                 <input type="checkbox" value="1" name="homework_help">Must be must be able to help with homework

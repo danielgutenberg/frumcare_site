@@ -35,7 +35,7 @@
 			echo $count;
 		?> 
 	</span>
-	 Workers/Staff for Senior Care Facility <?php echo $count>1?"jobs":"job";?> <span id="locationaddress"><?php echo $city;?></span></h3>
+	 Workers / Staff for Senior Care Facility <?php echo $count>1?"jobs":"job";?> <span id="locationaddress"><?php echo $city;?></span></h3>
 <div class="want-top"><p>Want Employers to Contact you?<a href="<?php echo site_url().'signup?ac=2'?>" class="btn btn-primary ml10 btn-xs">Create a Profile for free</a></p></div>
 	<div class="select-relevance">
         <span class="sort-by-relevance">
