@@ -3,17 +3,17 @@
     <?php echo $this->breadcrumbs->show();?>
     <div class="left-sidebar-resource">
         <ul class="sidebarmenu">
-			<li> <a href="<?php echo site_url();?>safety-guide"> Safety Guide </a>
+			<li>Safety Guide
 			    <ul class="submenuleft">
-			        <li style="margin-left: 20px;"> <a href="#"> For Families </a> </li>
-			        <li style="margin-left: 20px;"> <a href="#"> For Caregivers </a> </li>
+			        <li style="margin-left: 20px;"> <a href="<?php echo site_url();?>safety-guide/families"> For Families </a> </li>
+			        <li style="margin-left: 20px;"> <a href="<?php echo site_url();?>advice-and-tips/caregivers"> For Caregivers </a> </li>
 			    </ul>
 			 </li>
-			<li> <a href="<?php echo site_url();?>advice-and-tips"> Advice and Tips </a>
+			<li>Advice and Tips
 			<ul class="submenuleft">
-			    <li style="margin-left: 20px;"> <a href="#"> For Families </a> </li>
-			    <li style="margin-left: 20px;"> <a href="#"> For Caregivers </a> </li>
-			    <li style="margin-left: 20px;"> <a href="#"> For Employers </a> </li>
+			    <li style="margin-left: 20px;"> <a href="<?php echo site_url();?>advice-and-tips/families"> For Families </a> </li>
+			    <li style="margin-left: 20px;"> <a href="<?php echo site_url();?>advice-and-tips/caregivers"> For Caregivers </a> </li>
+			    <li style="margin-left: 20px;"> <a href="<?php echo site_url();?>advice-and-tips/employers"> For Employers </a> </li>
 			</ul>
 			 </li>
 			<li> <a href="<?php echo site_url();?>faq"> FAQ </a> </li>
