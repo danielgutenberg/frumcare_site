@@ -28,7 +28,7 @@
             </tr>
             <?php
             foreach($record as $rec)
-            { print_r($rec);
+            {
             ?>
             <tr>
                 <td><?php echo $rec['searcheddate'];?></td>

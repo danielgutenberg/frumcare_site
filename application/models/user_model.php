@@ -800,10 +800,9 @@ class User_model extends CI_Model
     }
 
     public function getHistory($uid){
-        $sql    = "select * from tbl_searchhistory where user_id = $uid and searcheddate < CURDATE() order by searcheddate desc";
+        $sql    = "select * from tbl_searchhistory where user_id = $uid and searcheddate < NOW() order by searcheddate desc";
         $query  = $this->db->query($sql);
         $res    = $query->result_array();
-        print_r($res);
         if($res)
             return $res;
         else
