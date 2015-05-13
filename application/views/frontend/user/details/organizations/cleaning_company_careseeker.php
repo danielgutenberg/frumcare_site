@@ -25,46 +25,16 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 
 			<tr>
 				<td>Days / Hours</td>
-				<td></td>
-			</tr>
-
-			<tr>
-				<?php if(!empty($sunday_from) || !empty($sunday_to)){ ?>
-				<td>Sun</td>
 				<td>
-					<div class="details-info"><?php echo $sunday_from;?> - <?php echo $sunday_to;?></div>
-				</td>
-				<?php }  
-                else{ ?>
-                    <td>Sun</td>
-                    <td>N/A</td>
-                <?php } ?>
-			</tr>
-
-			<tr>
-				<?php if(!empty($mid_days_from) || !empty($mid_days_to)){ ?>
-				<td>Mon-Thu</td>
-				<td>
-					<div class="details-info"><?php echo $mid_days_from;?> - <?php echo $mid_days_to;?></div>
-				</td>
-				<?php }  
-                else{ ?>
-                    <td>Mon-Thu</td>
-                    <td>N/A</td>
-                <?php } ?>
-			</tr>
-
-			<tr>
-				<?php if(!empty($friday_from) || !empty($friday_to)){ ?>
-				<td>Fri</td>
-				<td>
-					<div class="details-info"><?php echo $friday_from;?> - <?php echo $friday_to;?></div>
-				</td>
-				<?php }  
-                else{ ?>
-                    <td>Fri</td>
-                    <td>N/A</td>
-                <?php } ?>
+                   <?php if(!empty($sunday_from) && !empty($sunday_to)) {?>
+                   Sun <?php echo $sunday_from; ?> to <?php echo $sunday_to;} ?>
+                   <?php if(!empty($mid_days_from) && !empty($mid_days_to)) { ?>
+                   <br/>Mon-Thu <?php echo $mid_days_from; ?> to <?php echo $mid_days_to; }?>
+                   <?php if(!empty($friday_from) && !empty($friday_to)){ ?>
+                   <br/>Fri <?php echo $friday_from; ?> to <?php echo $friday_to; }?>          
+                   <div class="details-info"><?php if($extended_hrs == 1){ echo $tick; }else{echo $cross; }?>  Extended Hours Available</div>
+                   <div class="details-info"><?php if($flexible_hours == 1){ echo $tick; }else{echo $cross; }?> Flexible Hours</div>     
+               </td>
 			</tr>
 
 

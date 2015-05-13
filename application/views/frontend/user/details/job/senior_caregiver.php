@@ -137,7 +137,7 @@
                 <div class="details-info"><?php if(in_array("Afternoon",$temp)){ echo $tick; }else{ echo $cross; }?> Afternoon</div>
                 <div class="details-info"><?php if(in_array("Evening",$temp)){ echo $tick; }else{ echo $cross; }?> Evening</div>
                 <div class="details-info"><?php if(in_array("Overnight",$temp)){ echo $tick; }else{ echo $cross; }?> Overnight</div>
-                <div class="details-info"><?php if(in_array("Weekends Fri./ Sun.",$temp)){ echo $tick; }else{ echo $cross; }?> Weekends Fri./ Sun.</div>                
+                <div class="details-info"><?php if(in_array("Weekends Fri./ Sun.",$temp)){ echo $tick; }else{ echo $cross; }?> Weekends Fri. / Sun.</div>                
                 <div class="details-info"><?php if(in_array("Shabbos",$temp)){ echo $tick; }else{ echo $cross; }?> Shabbos</div>            
                 <div class="details-info"><?php if(in_array("24 hr care",$temp)){ echo $tick; }else{ echo $cross; }?>24 hr care</div>
             </td>
