@@ -116,6 +116,7 @@
 					</a> <?php 
                 } ?>
 			    <br />
+			    <?php if($data['care_type'] != 7) { ?>
 			    <h5>Last Signed in: <?php 
 					$id 		= $data['user_id'];
 					$userlog 	= User_model::getUserLogById($id);
@@ -134,6 +135,7 @@
 						else echo "( just second ago )";
 					} ?> 
 			    </h5>
+			    <?php } ?>
 				<div class="profile-activities"> <?php 
                     
                     //for caregivers
