@@ -1336,6 +1336,14 @@ class User extends CI_Controller
         $this->session->set_flashdata('info', 'Profile has been archived');
         redirect('user/profile');
       }
+      
+      public function unarchive_profile(){
+        $user_id    = $this->uri->segment(3);
+        $care_type  = $this->uri->segment(4);
+        $res = $this->user_model->unarchive_this_profile($user_id,$care_type);
+        $this->session->set_flashdata('info', 'Profile has been unarchived');
+        redirect('user/profile');
+      }
 
       public function upgradepackage(){
 
