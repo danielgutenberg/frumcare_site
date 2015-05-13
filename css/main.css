@@ -5611,3 +5611,42 @@ body {
 .right-sidebar .recent-posts .all-post:hover{
     background: #E74C34;
 }
+
+.right-side-resources {
+  width: calc( 100% - 258px);
+}
+
+.right-side-resources {
+    float: right;
+    width: 795px;
+}
+
+.right-side-resources {
+    border-left: 1px solid #e4e4e4;
+    float: right;
+    padding-left: 17px;
+    width: 812px;
+}
+
+.right-side-resources .load-article {
+    background: none repeat scroll 0 0 #27aae1;
+    border-radius: 2px;
+    color: #ffffff;
+    display: block;
+    font-size: 16px;
+    height: 39px;
+    line-height: 39px;
+    margin-left: 179px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 213px;
+            -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -ms-transition: all 0.5s ease 0s;
+}
+.right-side-resources .load-article:hover{
+      background: #E74C34;
+    text-decoration: none;
+}
