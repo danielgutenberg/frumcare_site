@@ -3,13 +3,13 @@
     <?php echo $this->breadcrumbs->show();?>
     <div class="left-sidebar-resource">
         <ul class="sidebarmenu">
-			<li>Safety Guide
+			<li><a>Safety Guide</a>
 			    <ul class="submenuleft">
 			        <li style="margin-left: 20px;"> <a href="<?php echo site_url();?>safety-guide/families"> For Families </a> </li>
 			        <li style="margin-left: 20px;"> <a href="<?php echo site_url();?>advice-and-tips/caregivers"> For Caregivers </a> </li>
 			    </ul>
 			 </li>
-			<li>Advice and Tips
+			<li><a>Advice and Tips</a>
 			<ul class="submenuleft">
 			    <li style="margin-left: 20px;"> <a href="<?php echo site_url();?>advice-and-tips/families"> For Families </a> </li>
 			    <li style="margin-left: 20px;"> <a href="<?php echo site_url();?>advice-and-tips/caregivers"> For Caregivers </a> </li>
