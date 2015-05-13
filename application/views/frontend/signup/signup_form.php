@@ -62,7 +62,7 @@ if($this->uri->segment(2)!='edit'){
 
                 <div class="form-field organizational_care" <?php echo isset($at) && $at==3?'':'style="display:none"'?>>
                     <div>What would you like to do?</div>
-                    <div class="radio"><input type="radio" name="organization_care" value="1" class="org_caretype required" id="2" <?php echo isset($at) && $at==3?'checked="checked"':''?>>Advertise My Service</div>
+                    <div class="radio"><input type="radio" name="organization_care" value="1" class="org_caretype required" id="2" checked="checked">Advertise My Service</div>
                     <div class="radio"><input type="radio" name="organization_care" value="2" class="org_caretype required" id="2">Find Workers</div>
                 </div>
         <div class="care-type clearfix">Care Type: 
