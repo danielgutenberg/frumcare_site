@@ -22,7 +22,7 @@
 		</ul>
 	</div>
     <?php if($content_data){?> 
-        <div class="left-sidebar-resource">
+        <div class="right-sidebar-resource">
          	<p> <?php echo nl2br($content_data['content']); 
          
     }?></p></div>
