@@ -5500,3 +5500,34 @@ body {
   line-height: 22px;
   text-align: center;
 }
+
+/* resource */
+.left-sidebar-resource ul {
+    background: none repeat scroll 0 0 #f0f0ec;
+    border-radius: 5px;
+    list-style: none outside none;
+    padding: 0;
+}
+.left-sidebar-resource li a {
+    background: url("img/resource-arrow.png") no-repeat scroll 13px 14px;
+    border-top: 1px solid #e4e4e4;
+    color: #404040;
+    display: block;
+    font-family: 'Lato',sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 35px;
+    padding: 0 0 0 31px;
+}
+.left-sidebar-resource li:first-child a{
+    border-top: none;
+}
+
+.left-sidebar-resource {
+    float: left;
+    margin-right: 20px;
+    width: 258px;
+}
+.left-sidebar-resource .sub-menu {
+    text-indent: 22px;
+}
