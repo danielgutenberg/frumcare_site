@@ -52,7 +52,7 @@
                                     <?php //wp_nav_menu( array( 'theme_location' => 'footer-menu2' ) ); ?>
                                     <ul>
                                         <li><a href="<?php echo $ciurl;?>/caregivers">Find a Caregiver</a></li>
-                                        <li><a href="<?php echo $ciurl;?>/careseekers">Find a Job</a></li>
+                                        <li><a href="<?php echo $ciurl;?>/jobs/all">Find a Job</a></li>
                                         <li><a href="<?php echo $ciurl;?>/caregivers/organizations">Find Workers</a></li>
                                     </ul>
                                 </nav>

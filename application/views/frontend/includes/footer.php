@@ -21,7 +21,7 @@
                         <p class="nav-title">I am looking for</p>
                         <ul>
                             <li><a href="<?php echo site_url();?>caregivers">Find a Caregiver</a></li>
-                            <li><a href="<?php echo site_url();?>careseekers">Find a Job</a></li>
+                            <li><a href="<?php echo site_url();?>jobs/all">Find a Job</a></li>
                             <li><a href="<?php echo site_url();?>caregivers/organizations">Find Workers</a></li>
                         </ul>
                     </nav>
