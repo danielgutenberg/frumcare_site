@@ -302,6 +302,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
         
         
         <div class="right-sidebar-details">   
+   <?php if($caregiver['care_type'] != 7) { ?>
    <p> 
     Last Signed in: 
     <?php 
@@ -319,6 +320,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 					else echo "( just second ago )";
 					?>
 				</p>
+				<?php } ?>
 				<?php 
 				if(isset($this->session->userdata['current_user'])){
 					$id = $this->session->userdata['current_user'];
