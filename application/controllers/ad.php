@@ -410,14 +410,13 @@ class Ad extends CI_Controller
                 'monthly_rate'    => isset($p['monthly_rate'])?$p['monthly_rate']:'',
                 'reference_file'  => isset($p['file'])?$p['file']:'',
                 'rate_type'       => isset($rate_type)?$rate_type:'',
-                'extra_field'       => isset($extra_field) ? $extra_field : ''
-            );
-            
-            $insert_new=array(
+                'extra_field'       => isset($extra_field) ? $extra_field : '',
                 'sub_care'                 => isset($p['sub_care']) ? $p['sub_care'] : ''
             );
+            
+            
             if(check_user()) {
-                $q = $this->common_model->update('tbl_user', $insert_new, array('id' => check_user()));
+                //$q = $this->common_model->update('tbl_user', $insert_new, array('id' => check_user()));
                $q = $this->common_model->update('tbl_userprofile', $insert, array('user_id' => check_user()));
             }
             if($q){
