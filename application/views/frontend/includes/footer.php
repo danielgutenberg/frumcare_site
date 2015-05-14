@@ -21,8 +21,8 @@
                         <p class="nav-title">I am looking for</p>
                         <ul>
                             <li><a href="<?php echo site_url();?>caregivers">Find a Caregiver</a></li>
-                            <li><a href="<?php echo site_url();?>careseekers">Find a Job</a></li>
-                            <li><a href="<?php echo site_url();?>caregivers ">Find Workers For Your Organization</a></li>
+                            <li><a href="<?php echo site_url();?>jobs/all">Find a Job</a></li>
+                            <li><a href="<?php echo site_url();?>caregivers/organizations">Find Workers</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -33,8 +33,8 @@
                         <p class="nav-title">Learn More</p>
                         <ul>
                             <li><a href="<?php echo site_url();?>howitworks">How it works</a></li>
-                            <li><a href="<?php echo site_url();?>staying-safe">Safety Guide</a></li>
-                            <li><a href="<?php echo site_url();?>tips-and-tools">Tips and Tools</a></li>
+                            <li><a href="<?php echo site_url();?>safety-guide/families">Safety Guide</a></li>
+                            <li><a href="<?php echo site_url();?>advice-and-tips/families">Advice and Tips</a></li>
                         </ul>
                     </nav>
                 </div>

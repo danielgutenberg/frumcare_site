@@ -1,6 +1,6 @@
 <?php
 $cross = " <img src='".site_url()."img/cross.png'>";
-$tick  = " <img src='".site_url()."img/nut-list.png'>";    
+$tick  = " <img src='".site_url()."img/nut-list.png'>";
 ?>
 <div class="table-responsive">
 	<table class="table table-striped">
@@ -22,50 +22,48 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
                     <td>N/A</td>
                 <?php } ?>
 			</tr>
-
 			<tr>
-				<td>Job Hours</td>
-				<td></td>
-			</tr>
-
-			<tr>
-				<?php if(!empty($sunday_from) || !empty($sunday_to)){ ?>
-				<td>Sun</td>
-				<td>
-					<div class="details-info"><?php echo $sunday_from;?> - <?php echo $sunday_to;?></div>
+					<?php if(!empty($contact)) { ?>
+						<td>Contact Name</td>
+						<td><?php echo $contact ;?></td>
+						<?php }  
+	                else{ ?>
+	                    <td>Contact Name</td>
+	                    <td>N/A</td>
+	                    <?php } ?>
+					
 				</td>
-                <?php }  
-                else{ ?>
-                    <td>Sun</td>
-                    <td>N/A</td>
-				<?php } ?>
+			</tr>
+			
+			<tr>
+				<td>Days / Hours</td>
+				<td>
+					
+					
+						<?php if(!empty($sunday_from) || !empty($sunday_to)){ ?>
+							<div class="details-info">Sun <?php echo $sunday_from;?> - <?php echo $sunday_to;?></div>
+		                <?php }  
+		                else{ ?>
+		                    <div>Sun N/A</div>
+						<?php } ?>
+						<?php if(!empty($mid_days_from) || !empty($mid_days_to)){ ?>
+							<div class="details-info">Mon - Thurs <?php echo $mid_days_from;?> - <?php echo $mid_days_to;?></div>
+		                <?php }  
+		                else{ ?>
+		                    <div>Mon-Thu N/A</div>
+						<?php } ?>
+						<?php if(!empty($friday_from) || !empty($friday_to)){ ?>
+							<div class="details-info">Fri <?php echo $friday_from;?> - <?php echo $friday_to;?></div>
+		                <?php }  
+		                else{ ?>
+		                    <div>Fri N/A</div>
+						<?php } ?>
+						<div class="details-info"><?php if($extended_hrs == 1){ echo $tick; }else{echo $cross; }?>  Extended Hours Available</div>
+                        <div class="details-info"><?php if($flexible_hours == 1){ echo $tick; }else{echo $cross; }?> Flexible Hours</div> 
+				</td>
 			</tr>
 
-			<tr>
-				<?php if(!empty($mid_days_from) || !empty($mid_days_to)){ ?>
-				<td>Mon-Thu</td>
-				<td>
-					<div class="details-info"><?php echo $mid_days_from;?> - <?php echo $mid_days_to;?></div>
-				</td>
-                <?php }  
-                else{ ?>
-                    <td>Mon-Thu</td>
-                    <td>N/A</td>
-				<?php } ?>
-			</tr>
-
-			<tr>
-				<?php if(!empty($friday_from) || !empty($friday_to)){ ?>
-				<td>Fri</td>
-				<td>
-					<div class="details-info"><?php echo $friday_from;?> - <?php echo $friday_to;?></div>
-				</td>
-                <?php }  
-                else{ ?>
-                    <td>Fri</td>
-                    <td>N/A</td>
-				<?php } ?>
-			</tr>
+			
 
 
 			<tr>
@@ -113,11 +111,11 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
 				</tr>
 				<tr>
 					<?php if(!empty($experience)){ ?>
-					<td>Experience</td>
+					<td>Minimum Experience</td>
 					<td><?php echo $experience .' years';?></td>
 					<?php }  
                 else{ ?>
-                    <td>Experience</td>
+                    <td>Minimum Experience</td>
                     <td>N/A</td>
                     <?php } ?>
 				</tr>
@@ -137,6 +135,21 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
                     <td>N/A</td>
 					<?php } ?>
 				</tr>
+				<?php if(!empty($religious_observance)){ ?>    
+        <tr>
+            <td>Level of observance necessary</td>
+            <td>
+                <?php echo $religious_observance; ?>
+            </td>
+        </tr>
+    <?php }else{
+            ?>
+                <tr>
+                    <td >Level of observance necessary </td>
+                    <td>N/A</td>
+                </tr>
+            <?php
+          } ?>
 			<?php /*
 				<tr>
 					<?php

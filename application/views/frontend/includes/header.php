@@ -37,6 +37,8 @@
     <script src="//s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
     <script src="//html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>
     <![endif]-->
+    <link rel="shortcut icon" href="<?php echo site_url("img/favicon.ico")?>" type="image/x-icon">
+    <link rel="icon" href="<?php echo site_url("img/favicon.ico")?>" type="image/x-icon">
     <script src="<?php echo base_url('js/jquery-1.11.1.min.js') ?>"></script>
     <script src="<?php echo base_url('js/jquery.validate.js') ?>"></script>
     <script src="<?php echo base_url('js/vendor/modernizr-2.6.2-respond-1.1.0.min.js') ?>"></script>

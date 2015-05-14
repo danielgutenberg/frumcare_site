@@ -49,12 +49,12 @@
 
    <tr>
     <?php if(isset($days_from) || isset($days_to)) {?>
-    <td>Job Hours</td>
+    <td>Days / Hours</td>
     <td>Days  <?php echo $days_from;?> - <?php echo $days_to;?> 
     </td>
     <?php }  
                 else{ ?>
-                    <td>Work hours</td>
+                    <td>Days / Hours</td>
                     <td>N/A</td>
     <?php }?>
   </tr>  

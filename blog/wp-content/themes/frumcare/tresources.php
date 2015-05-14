@@ -129,12 +129,12 @@ get_header(); ?>
 	</div><!-- #primary -->
 <?php get_footer(); ?>
 <script>
-$(document).ready(function () {
-    $("ul.sidebarmenu li ul").hide();
-    $("ul.sidebarmenu li").hover(function () {
-        $(this).children("ul.submenuleft").slideDown('fast');
-    }, function () {
-        $(this).children("ul.submenuleft").slideUp('slow');
-    });
-});
+// $(document).ready(function () {
+//     $("ul.sidebarmenu li ul").hide();
+//     $("ul.sidebarmenu li").hover(function () {
+//         $(this).children("ul.submenuleft").slideDown('fast');
+//     }, function () {
+//         $(this).children("ul.submenuleft").slideUp('slow');
+//     });
+// });
 </script>

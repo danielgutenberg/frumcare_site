@@ -393,10 +393,10 @@
 			
 
 			<div class="right-sidebar-details">
-				<p> 
-					Last Signed in: 
+				<!--<p> -->
+				<!--	Last Signed in: -->
 					<?php 
-					$dbDate = $userlog['login_time']; // Database date
+					/*$dbDate = $userlog['login_time']; // Database date
 					$endDate = time(); 
 					$diff = $endDate - $dbDate; 
 					$days = floor($diff/86400);
@@ -407,9 +407,9 @@
 					if($days > 0) echo "( " .$days." days ago )";
 					elseif($hours > 0) echo "( " .$hours." hours ago )";
 					elseif($min > 0) echo "( " .$min." minute ago )";
-					else echo "( just second ago )";
+					else echo "( just second ago*/
 				?>
-	</p>
+	<!--</p>-->
 	<?php 
 		if(isset($this->session->userdata['current_user'])){
 			$id = $this->session->userdata['current_user'];

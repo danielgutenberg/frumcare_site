@@ -90,10 +90,17 @@ if(check_user()) {
                             Hide &nbsp;
                         </a>
                     </td>
+                    <?php if ($row->profile_status == 2) { ?>
+                        <td width="15%">
+                            <a href="<?php echo site_url();?>user/unarchive_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $row->care_type;?>" onclick="return confirm('Are you sure you want to activate this profile?')">
+                            Unarchive &nbsp;
+                        </td>
+                    <?php } else { ?>
                     <td width="15%">
-                        <a href="<?php echo site_url();?>user/delete_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $row->care_type;?>" onclick="return confirm('Are you sure to delete?')">
-                        Delete &nbsp;
+                        <a href="<?php echo site_url();?>user/delete_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $row->care_type;?>" onclick="return confirm('Are you sure you want to archive this profile?')">
+                        Archive &nbsp;
                     </td>
+                    <?php } ?>
 
                     <!--<td width="20%">
 

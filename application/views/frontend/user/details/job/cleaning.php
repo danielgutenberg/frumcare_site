@@ -8,7 +8,7 @@
         <?php if(!empty($looking_to_work)){ ?>
         <?php $lookingtowork = explode(',',$looking_to_work)?>
         <tr>
-            <td>Looking for care in</td>
+            <td>Looking for help in</td>
             <td>
                 <div class="details-info"><?php if(in_array('My home',$lookingtowork)){ echo $tick; }else{echo $cross;} ?> My home</div>
                 <div class="details-info"><?php if(in_array('Office/business',$lookingtowork)){ echo $tick; }else{echo $cross;} ?> Office/business</div>                
@@ -18,7 +18,7 @@
         else{
             ?>
                 <tr>
-                    <td >Looking for care in </td>
+                    <td >Looking for help in </td>
                     <td>N/A</td>
                 </tr>
             <?php
@@ -59,19 +59,19 @@
           } ?>
         
         <?php if(!empty($zip)){ ?>
-        <tr>
-            <td>zip</td>
-            <td>
-                <?php echo $zip; ?>
-            </td>
-        </tr>
+        <!--<tr>-->
+        <!--    <td>zip</td>-->
+        <!--    <td>-->
+        <!--        <?php //echo $zip; ?>-->
+        <!--    </td>-->
+        <!--</tr>-->
         <?php }
         else{
             ?>
-                <tr>
-                    <td >zip </td>
-                    <td>N/A</td>
-                </tr>
+                <!--<tr>-->
+                <!--    <td >zip </td>-->
+                <!--    <td>N/A</td>-->
+                <!--</tr>-->
             <?php
           } ?>
         
@@ -140,7 +140,7 @@
         <?php if(!empty($availability)){ ?>
         <?php $temp = explode(',',$availability); ?>
         <tr>
-            <td id="availability1">Job Hours</td>
+            <td id="availability1">Days / Hours</td>
             <td>
                 <div class="details-info"><?php if(in_array("One Time",$temp)){ echo $tick; }else{ echo $cross; }?> One Time</div>
                 <div class="details-info"><?php if(in_array("Occassionally",$temp)){ echo $tick; }else{ echo $cross; }?> Occassionally</div>
@@ -158,7 +158,7 @@
         else{
             ?>
                 <tr>
-                    <td >Job Hours</td>
+                    <td >Days / Hours</td>
                     <td>N/A</td>
                 </tr>
             <?php

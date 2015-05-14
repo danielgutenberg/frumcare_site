@@ -44,7 +44,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             </div>
         </div>
         <div>
-            <label>Ages of children willing to care for(Check one or more)</label>
+            <label>Ages of children willing to care for</label>
             <div class="form-field">
                 <div class="checkbox"><input type="checkbox" name="age_group[]" value="0-3"> 0-3 months</div>                
                 <div class="checkbox"><input type="checkbox" name="age_group[]" value="3-6"> 3-6 months</div>
@@ -168,7 +168,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <input type="checkbox" value="1" name="cook">Able to cook and prepare food
         </div>
         <div class="checkbox">
-            <input type="checkbox" value="1" name="basic_housework">Able to do light housework/ cleaning
+            <input type="checkbox" value="1" name="basic_housework">Able to do light housework / cleaning
         </div>
         <div class="checkbox">
             <input type="checkbox" value="1" name="homework_help">Able to help with homework

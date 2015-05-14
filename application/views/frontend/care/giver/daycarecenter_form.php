@@ -24,7 +24,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             </div>
             <?php } ?>
             <div>
-                <label>For (check one or more)</label>
+                <label>For</label>
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" value="Boys" name="looking_to_work[]"> <span>Boys</span></div>
                     <div class="checkbox"><input type="checkbox" value="Girls" name="looking_to_work[]"> <span>Girls</span></div>
@@ -98,7 +98,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         </div>
        
             <div>
-                <label>Days/ Hours</label>
+                <label>Days / Hours</label>
                 <div class="form-field">
                 <br>
                  <label style="width:25%">Sun</label><input type="text" name="sunday_from" class="time" style="width:25%"> to  <input type="text" name="sunday_to" class="time" style="width:25%">
@@ -111,7 +111,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                  <div class="checkbox"><input type="checkbox" name="extended_hrs_available" value="1"> Extended Hours Available</div>
                  <div class="checkbox"><input type="checkbox" name="flexible_hours" value="1"> Flexible Hours</div>
                  <br>
-                 Vacation Days (Please specify vacation days)
+                 <label>Vacation Days (Please specify vacation days)</label>
                  <br>
                  <input type="text" name="vacation_days" value="" placeholder="Vacation Days">
 
@@ -127,18 +127,18 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             </div>
             <?php $photo_url = site_url("images/plus.png");?>
              <div class="upload-photo"> 
-                <h2>Upload photo of facility/ organization</h2>
+                <h2>Upload photo of facility / organization</h2>
                 <input type="hidden" id="pic-name" name="facility_pic" value="">
                 <div id="output2"><img src="<?php echo $photo_url;?>"></div>
                 <label>Browse your computer to select a file to upload</label>
                 <button class="btn btn-default" id="upload">Choose File</button>
                 <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader2"></div>
-                <p>Please make sure your photo is appropriate for our site and in line with Jewish Tradition.</p>
+                <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>
             </div>
 
             
             <div>
-                <label>Tell us about your organization/facilities/activities</label>
+                <label>Tell us about your organization / facilities / activities</label>
                 <div class="form-field">
                 <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
                 </div>

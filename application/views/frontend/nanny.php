@@ -7,13 +7,13 @@
             <div>
                 <select>
                     <option>Babysitter</option>
-                    <option selected>Nanny/Au-Pair</option>
-                    <option>Nursery/PlayGroup/Drop off/Gan</option>
-                    <option>Tutor/Private lesson</option>
+                    <option selected>Nanny / Au-Pair</option>
+                    <option>Nursery / PlayGroup / Drop off / Gan</option>
+                    <option>Tutor / Private lesson</option>
                     <option>Senior Caregiver</option>
                     <option>Therapist</option>
-                    <option>Cleaning/household help</option>
-                    <option>Errand Runner/OddJobs</option>
+                    <option>Cleaning / household help</option>
+                    <option>Errand Runner / Odd Jobs</option>
                 </select>
             </div>
             <div>
@@ -44,10 +44,10 @@
             </div>
             <div>
                 <label>Level of observance(Check one or more)</label>
-                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Yeshivis/Chasidish"/>Yeshivis/Chasidish</div>
-                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Orthodox/Modern orthodox"/>Orthodox/Modern orthodox</div>
+                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Yeshivis/Chasidish"/>Yeshivish / Chasidish</div>
+                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Orthodox/Modern orthodox"/>Orthodox / Modern orthodox</div>
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Other"/>Other</div>
-                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Not Jewis"/>Not Jewis</div>
+                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Not Jewis"/>Not Jewish</div>
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Any"/>Any</div>
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Familiar with jewish tradition"/>Familiar with jewish tradition</div>
             </div>
@@ -96,14 +96,14 @@
 				</div>  
             </div>
             <div>
-                <label>Training(Check one or more)</label>
+                <label>Training</label>
                 <div class="checkbox"><input type="checkbox" name="training[]" value="CPR"/>CPR</div>
                 <div class="checkbox"><input type="checkbox" name="training[]" value="First Aid"/>First Aid</div>
-                <div class="checkbox"><input type="checkbox" name="training[]" value="Nanny/Babysitter Course"/>Nanny/Babysitter Course</div>
+                <div class="checkbox"><input type="checkbox" name="training[]" value="Nanny/Babysitter Course"/>Nanny / Babysitter Course</div>
                 <div class="checkbox"><input type="checkbox" name="training[]" value="Other"/>Other</div>
             </div>
             <div>
-                <label>Availability(check one or more)</label>
+                <label>Availability</label>
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Immediate"/>Immediate</div>
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Start Date"/>Start Date</div>
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Occasionally"/>Occasionally</div>
@@ -123,7 +123,7 @@
                 <div class="checkbox"><input type="checkbox" value="1" name="vehicle"/>Vechile</div>
                 <div class="checkbox"><input type="checkbox" value="1" name="pick_up_child"/>Able to pick up kids from school</div>
                 <div class="checkbox"><input type="checkbox" value="1" name="cook"/>Able to cook and prepare food</div>
-                <div class="checkbox"><input type="checkbox" value="1" name="basic_housework"/>Able to do housework/cleaning</div>
+                <div class="checkbox"><input type="checkbox" value="1" name="basic_housework"/>Able to do housework / cleaning</div>
                 <div class="checkbox"><input type="checkbox" value="1" name="homework_help"/>Able to help with homework</div>
                 <div class="checkbox"><input type="checkbox" value="1" name="on_short_notice"/>Available on short notice</div>
                 <div class="checkbox"><input type="checkbox" value="1" name="bath_children"/>Able to bathe children</div>

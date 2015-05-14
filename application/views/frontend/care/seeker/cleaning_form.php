@@ -54,7 +54,7 @@ $user_detail = get_user(check_user());
             <label>For</label>
             <div class="form-field">
                 <div class="checkbox"><input type="checkbox" value="Home" name="looking_to_work[]"> Home</div>
-                <div class="checkbox"><input type="checkbox" value="Office/business" name="looking_to_work[]"> Office/business</div>
+                <div class="checkbox"><input type="checkbox" value="Office/business" name="looking_to_work[]"> Office / business</div>
             </div>
         </div>
         <div>
@@ -65,7 +65,7 @@ $user_detail = get_user(check_user());
     <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
 </div> 
                 <div>
-                    <label>Neighborhood/ Street</label>
+                    <label>Neighborhood / Street</label>
                     <div>
                     <input type="text" name="neighbour" class="required" onFocus="geolocate()" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
                     </div>    
@@ -106,8 +106,8 @@ $user_detail = get_user(check_user());
             <div class="checkbox"><input type="checkbox" value="Folding" name="willing_to_work[]"> Folding</div>
             <div class="checkbox"><input type="checkbox" value="Ironing" name="willing_to_work[]"> Ironing</div>
             <div class="checkbox"><input type="checkbox" value="Cleaning and Dusting Furniture" name="willing_to_work[]">Cleaning and Dusting Furniture</div>
-            <div class="checkbox"><input type="checkbox" value="Cleaning Refrigerator/Freezer" name="willing_to_work[]">Cleaning Refrigerator/Freezer</div>
-            <div class="checkbox"><input type="checkbox" value="Cleaning Oven/Stovetop" name="willing_to_work[]">Cleaning Oven/Stovetop</div>
+            <div class="checkbox"><input type="checkbox" value="Cleaning Refrigerator/Freezer" name="willing_to_work[]">Cleaning Refrigerator / Freezer</div>
+            <div class="checkbox"><input type="checkbox" value="Cleaning Oven/Stovetop" name="willing_to_work[]">Cleaning Oven / Stovetop</div>
             <div class="checkbox"><input type="checkbox" value="Pesach Cleaning" name="willing_to_work[]"><span>Pesach Cleaning</span></div>
             <div class="checkbox"><input type="checkbox" name="pick_up_child" value="1"/>Must be able to watch children as well</div> 
             </div>
@@ -124,7 +124,7 @@ $user_detail = get_user(check_user());
                 <div class="checkbox"><input type="checkbox" value="Morning" name="availability[]"> Morning</div>
                 <div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]"> Afternoon</div>
                 <div class="checkbox"><input type="checkbox" value="Evening" name="availability[]"> Evening</div>
-                <div class="checkbox"><input type="checkbox" value="Weekends fri/sun" name="availability[]"> Weekends fri/sun</div>
+                <div class="checkbox"><input type="checkbox" value="Weekends fri/sun" name="availability[]"> Weekends fri / sun</div>
                 <div class="checkbox"><input type="checkbox" value="Saturday" name="availability[]"> Saturday</div>
             </div>
         </div>

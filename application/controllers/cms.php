@@ -26,17 +26,85 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			}
 		}
 
-		public function stayingsafe(){
+		public function stayingsafefamilies(){
+			$this->breadcrumbs->push('Safety Guide', '/safety-guide/families');
+			$this->breadcrumbs->unshift('Home', base_url());
+			
 			$data['main_content'] = 'frontend/cms/page';
-			$data['content_data'] = $this->cms_model->getPageDetailBySlug('staying-safe');
+			$data['content_data'] = $this->cms_model->getPageDetailBySlug('staying-safe-family');
+			$data['title'] 		  = 'Staying Safe';
+			$this->load->view(FRONTEND_TEMPLATE,$data);
+		}
+		
+		public function stayingsafecaregivers(){
+			$this->breadcrumbs->push('Safety Guide', '/safety-guide/caregivers');
+			$this->breadcrumbs->unshift('Home', base_url());
+			
+			$data['main_content'] = 'frontend/cms/page';
+			$data['content_data'] = $this->cms_model->getPageDetailBySlug('staying-safe-caregivers');
 			$data['title'] 		  = 'Staying Safe';
 			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}
 
-		public function tipsandtools(){
+		public function tipsandtoolsfamilies(){
+			$this->breadcrumbs->push('Advice and Tips', '/advice-and-tips/families');
+			$this->breadcrumbs->unshift('Home', base_url());
+			
 			$data['main_content'] = 'frontend/cms/page';
-			$data['content_data'] = $this->cms_model->getPageDetailBySlug('tips-and-tools');
-			$data['title'] 		  = 'Tips and Tools';
+			$data['content_data'] = $this->cms_model->getPageDetailBySlug('tips-and-tools-families');
+			$data['title'] 		  = 'Advice and Tips';
 			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}
+		
+		public function tipsandtoolscaregivers(){
+			$this->breadcrumbs->push('Advice and Tips', '/advice-and-tips/caregivers');
+			$this->breadcrumbs->unshift('Home', base_url());
+			
+			$data['main_content'] = 'frontend/cms/page';
+			$data['content_data'] = $this->cms_model->getPageDetailBySlug('tips-and-tools-caregivers');
+			$data['title'] 		  = 'Advice and Tips';
+			$this->load->view(FRONTEND_TEMPLATE,$data);
+		}
+		
+		public function tipsandtoolsemployers(){
+			$this->breadcrumbs->push('Advice and Tips', '/advice-and-tips/employers');
+			$this->breadcrumbs->unshift('Home', base_url());
+			
+			$data['main_content'] = 'frontend/cms/page';
+			$data['content_data'] = $this->cms_model->getPageDetailBySlug('tips-and-tools-employers');
+			$data['title'] 		  = 'Advice and Tips';
+			$this->load->view(FRONTEND_TEMPLATE,$data);
+		}
+		
+		public function faq(){
+			$this->breadcrumbs->push('FAQ', '/faq');
+			$this->breadcrumbs->unshift('Home', base_url());
+			
+			$data['main_content'] = 'frontend/cms/page';
+			$data['content_data'] = $this->cms_model->getPageDetailBySlug('faqs');
+			$data['title'] 		  = 'Frequently Asked Questions';
+			$this->load->view(FRONTEND_TEMPLATE,$data);
+		}
+		
+		public function ratecalculator(){
+			$this->breadcrumbs->push('Rate Calculator', '/rate-calculator');
+			$this->breadcrumbs->unshift('Home', base_url());
+			
+			$data['main_content'] = 'frontend/cms/page';
+			$data['content_data'] = $this->cms_model->getPageDetailBySlug('rate-calculator');
+			$data['title'] 		  = 'Rate Calculator';
+			$this->load->view(FRONTEND_TEMPLATE,$data);
+		}
+		
+		public function backgroundcheck(){
+			$this->breadcrumbs->push('Background Check', '/background-check');
+			$this->breadcrumbs->unshift('Home', base_url());
+			
+			$data['main_content'] = 'frontend/cms/page';
+			$data['content_data'] = $this->cms_model->getPageDetailBySlug('background-check');
+			$data['title'] 		  = 'Background Check';
+			$this->load->view(FRONTEND_TEMPLATE,$data);
+		}
+		
+		
 	}

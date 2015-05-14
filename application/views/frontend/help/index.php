@@ -11,8 +11,8 @@
 
 	<div class="help-links">
 		<!--<span class="watch-video"><a href="#" class="btn btn-primary">Watch Video Tutorials</a></span>-->
-		<span class="tickets-modals" style="float: left;"><a href='#' id='ticketModal' data-toggle='modal' data-target='#ticketModal' class="btn btn-primary">Submit a Ticket</a></span>
-		<span class="faq-btns"><a href="<?php echo site_url();?>blog/resources/faq" class="btn btn-primary">FAQ's</a></span>
+		<span class="tickets-modals"><a href='#' id='ticketModal' data-toggle='modal' data-target='#ticketModal' class="btn btn-primary">Submit a Ticket</a></span>
+		<span class="tickets-modals"><a href="<?php echo site_url();?>blog/resources/faq" class="btn btn-primary">FAQ's</a></span>
 	</div>
 <div class="clearfix"></div>
 	<div class="help-form clearfix">
@@ -42,19 +42,19 @@
 </div>
 	</div>
 </div>
-	<section class="safety-first">
-        <div class="container">
-            <h2 class="title">Post a new question to forum</h2>
-            <div class="row">
-                    <article>
-                        <div class="help-content">
-                        	<a herf="#" class="btn btn-primary btn-lg" id="ticket">Ask Our Community</a>
-                        </div>
-                    </article>
-            </div>
-        </div>
+	<!--<section class="safety-first">-->
+ <!--       <div class="container">-->
+ <!--           <h2 class="title">Post a new question to forum</h2>-->
+ <!--           <div class="row">-->
+ <!--                   <article>-->
+ <!--                       <div class="help-content">-->
+ <!--                       	<a herf="#" class="btn btn-primary btn-lg" id="ticket">Ask Our Community</a>-->
+ <!--                       </div>-->
+ <!--                   </article>-->
+ <!--           </div>-->
+ <!--       </div>-->
         <!--end .container-->
-    </section>
+ <!--   </section>-->
 
     <div class="modal fade help-page" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalLabel" aria-hidden="true">
 		<div class="modal-dialog">

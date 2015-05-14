@@ -1235,8 +1235,9 @@ class User extends CI_Controller
         $data = array(
             'title'         => 'Create Search Alert',
             'main_content'  => 'frontend/user/createsearchalert',
-            'searchalert'   => $this->user_model->getSearchAlertByUserId($userid)
+            // 'searchalert'   => $this->user_model->getSearchAlertByUserId($userid)
         );
+        print_r($data);
 
         $this->load->view(FRONTEND_TEMPLATE,$data);
       }
@@ -1333,7 +1334,15 @@ class User extends CI_Controller
         $user_id    = $this->uri->segment(3);
         $care_type  = $this->uri->segment(4);
         $res = $this->user_model->delete_this_profile($user_id,$care_type);
-        $this->session->set_flashdata('info', 'Profile successfully deleted');
+        $this->session->set_flashdata('info', 'Profile has been archived');
+        redirect('user/profile');
+      }
+      
+      public function unarchive_profile(){
+        $user_id    = $this->uri->segment(3);
+        $care_type  = $this->uri->segment(4);
+        $res = $this->user_model->unarchive_this_profile($user_id,$care_type);
+        $this->session->set_flashdata('info', 'Profile has been unarchived');
         redirect('user/profile');
       }
 

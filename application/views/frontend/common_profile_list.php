@@ -116,6 +116,7 @@
 					</a> <?php 
                 } ?>
 			    <br />
+			    <?php if($data['care_type'] != 7) { ?>
 			    <h5>Last Signed in: <?php 
 					$id 		= $data['user_id'];
 					$userlog 	= User_model::getUserLogById($id);
@@ -134,6 +135,7 @@
 						else echo "( just second ago )";
 					} ?> 
 			    </h5>
+			    <?php } ?>
 				<div class="profile-activities"> <?php 
                     
                     //for caregivers
@@ -192,7 +194,7 @@
                         <?php if($data['rate']){?>
 							<li>							
 								<?php echo "$".str_replace("t","-",$data['rate']); ?>
-                                <?php echo $data['rate_type']==1?" per hour":" per month"; ?>						
+                                <?php echo $data['rate_type']==1?" per hour":" per hour"; ?>						
 							</li>
                         <?php  } ?>
                     <?php  } ?>
@@ -231,7 +233,7 @@
                         <?php if($data['rate']){?>
 							<li>							
 								<?php echo "$".str_replace("t","-",$data['rate']); ?>
-                                <?php echo $data['rate_type']==1?" per hour":" per month"; ?>						
+                                <?php echo $data['rate_type']==1?" per hour":" per hour"; ?>						
 							</li>
                         <?php  
                             }

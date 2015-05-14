@@ -59,19 +59,20 @@
           } ?>
     
     <?php if(!empty($zip)){ ?>
-        <tr>
-            <td>zip</td>
-            <td>
-                <?php echo $zip; ?>
-            </td>
-        </tr>
+        <!--<tr>-->
+        <!--    <td>zip</td>-->
+        <!--    <td>-->
+                <?php 
+                //echo $zip; ?>
+        <!--    </td>-->
+        <!--</tr>-->
     <?php }
     else{
             ?>
-                <tr>
-                    <td >zip </td>
-                    <td>N/A</td>
-                </tr>
+                <!--<tr>-->
+                <!--    <td >zip </td>-->
+                <!--    <td>N/A</td>-->
+                <!--</tr>-->
             <?php
           } ?>
     
@@ -127,7 +128,7 @@
     <?php if(!empty($availability)){ ?>
         <?php $temp = explode(',',$availability); ?>
         <tr id="availability1">
-            <td>Job Hours</td>
+            <td>Days / Hours</td>
             <td>                
                 <div class="details-info"><?php if(in_array("Occassionally",$temp)){ echo $tick; }else{ echo $cross; }?> Occassionally</div>
                 <div class="details-info"><?php if(in_array("Regularly",$temp)){ echo $tick; }else{ echo $cross; }?> Regularly</div>
@@ -136,7 +137,7 @@
                 <div class="details-info"><?php if(in_array("Morning",$temp)){ echo $tick; }else{ echo $cross; }?> Morning</div>
                 <div class="details-info"><?php if(in_array("Afternoon",$temp)){ echo $tick; }else{ echo $cross; }?> Afternoon</div>
                 <div class="details-info"><?php if(in_array("Evening",$temp)){ echo $tick; }else{ echo $cross; }?> Evening</div>                
-                <div class="details-info"><?php if(in_array("Weekends Fri./ Sun.",$temp)){ echo $tick; }else{ echo $cross; }?> Weekends Fri./ Sun.</div>                
+                <div class="details-info"><?php if(in_array("Weekends Fri./ Sun.",$temp)){ echo $tick; }else{ echo $cross; }?> Weekends Fri. / Sun.</div>                
                 <div class="details-info"><?php if(in_array("Shabbos",$temp)){ echo $tick; }else{ echo $cross; }?> Shabbos</div>            
                 <div class="details-info"><?php if(in_array("24 hr care",$temp)){ echo $tick; }else{ echo $cross; }?>24 hr care</div>
             </td>
@@ -145,7 +146,7 @@
     else{
             ?>
                 <tr>
-                    <td >Job Hours</td>
+                    <td >Days / Hours</td>
                     <td>N/A</td>
                 </tr>
             <?php

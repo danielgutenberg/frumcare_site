@@ -35,7 +35,7 @@
     </div>
 
     <div>
-        <label>Neighborhood/ Street</label>
+        <label>Neighborhood / Street</label>
         <div>
             <input type="text" name="neighbour" class="required" value="" />
         </div>    

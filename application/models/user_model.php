@@ -90,8 +90,8 @@ class User_model extends CI_Model
         else return false;
     }
 
-    public function getJobBySlug($slug){
-        $sql = "select * from tbl_user where uri='$slug'";
+    public function getJobBySlug($slug, $careType){
+        $sql = "select * from tbl_user join tbl_userprofile on tbl_userprofile.user_id = tbl_user.id where uri='$slug' and tbl_userprofile.care_type ='$careType'";
         $query = $this->db->query($sql);
         $res = $query->row_array();
         if($res)return $res;
@@ -800,7 +800,7 @@ class User_model extends CI_Model
     }
 
     public function getHistory($uid){
-        $sql    = "select * from tbl_searchhistory where user_id = $uid and searcheddate < CURDATE() order by searcheddate desc";
+        $sql    = "select * from tbl_searchhistory where user_id = $uid and searcheddate < NOW() order by searcheddate desc";
         $query  = $this->db->query($sql);
         $res    = $query->result_array();
         if($res)
@@ -1014,7 +1014,13 @@ class User_model extends CI_Model
     public function delete_this_profile($user_id,$care_type){
         $this->db->where('user_id',$user_id);
         $this->db->where('care_type',$care_type);
-        $this->db->delete('tbl_userprofile');
+        $this->db->update('tbl_userprofile', array('profile_status' => 2));
+    }
+    
+    public function unarchive_this_profile($user_id,$care_type){
+        $this->db->where('user_id',$user_id);
+        $this->db->where('care_type',$care_type);
+        $this->db->update('tbl_userprofile', array('profile_status' => 1));
     }
 
     public function getProfilePackage($user_id,$care_type){

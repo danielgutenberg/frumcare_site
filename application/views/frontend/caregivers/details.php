@@ -147,12 +147,12 @@ if($this->uri->segment(4)>16){
     </span>
     <?php
     if(!empty($recordData['rate'])){ ?>
-        <?php $rate_type = $recordData['rate_type']==2?'/monthly':'hr'?>
-        <span class="experience-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Wage</span>'; ?></span>
+        <?php $rate_type = $recordData['rate_type']==2?' / Hr':' / Hr'?>
+        <span class="experience-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Rate</span>'; ?></span>
         <?php
     }                                
     else{ ?>
-        <span class="experience-wrap"><?php echo 'N/A'.'<span>Wage</span>'; ?></span>
+        <span class="experience-wrap"><?php echo 'N/A'.'<span>Rate</span>'; ?></span>
         <?php
     }?>
     <div class="clearfix margin-bots"></div>
@@ -302,6 +302,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
         
         
         <div class="right-sidebar-details">   
+   <?php if($caregiver['care_type'] != 7) { ?>
    <p> 
     Last Signed in: 
     <?php 
@@ -319,6 +320,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 					else echo "( just second ago )";
 					?>
 				</p>
+				<?php } ?>
 				<?php 
 				if(isset($this->session->userdata['current_user'])){
 					$id = $this->session->userdata['current_user'];
@@ -420,7 +422,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                 <?php 
             } 										
             if(in_array(strtolower('Nanny/ Babysitter Course'), array_map('strtolower',$training))){?>
-            <li class="bbc" title="Training" >Nanny/ Babysitter Course</li>
+            <li class="bbc" title="Training" >Nanny / Babysitter Course</li>
             <?php 
         }
         if(in_array(strtolower('Senior Care Training'), array_map('strtolower',$training))){?>

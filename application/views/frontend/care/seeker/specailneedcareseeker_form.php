@@ -109,7 +109,7 @@ $user_detail = get_user(check_user());
 					<div class="checkbox"><input type="checkbox" value="Morning" name="availability[]"> <span>Morning</span></div>
 					<div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]"> <span>Afternoon</span></div>
 					<div class="checkbox"><input type="checkbox" value="Evening" name="availability[]"> <span>Evening</span></div>				
-					<div class="checkbox"><input type="checkbox" value="Weekends Fri./Sun." name="availability[]"> <span>Weekends Fri./Sun.</span></div>					
+					<div class="checkbox"><input type="checkbox" value="Weekends Fri./Sun." name="availability[]"> <span>Weekends Fri. / Sun.</span></div>					
 					<div class="checkbox"><input type="checkbox" value="Shabbos" name="availability[]"> <span>Shabbos</span></div>
 					<div class="checkbox"><input type="checkbox" value="24 hr care" name="availability[]"> <span>24 hr care</span></div>
 				</div>
@@ -148,8 +148,8 @@ $user_detail = get_user(check_user());
     		<div class="form-field">
     			<select name="religious_observance" class="required">
     				<option value="">Select</option>
-    				<option value="Yeshivish/ Chasidish">Yeshivish/ Chasidish</option>
-    				<option value="Orthodox/ Modern Orthodox">Orthodox/ Modern orthodox</option>
+    				<option value="Yeshivish/ Chasidish">Yeshivish / Chasidish</option>
+    				<option value="Orthodox/ Modern Orthodox">Orthodox / Modern orthodox</option>
                     <option value="Familiar With Jewish Tradition">Familiar With Jewish Tradition</option>
     				<option value="Not Necessary">Not necessary</option>
     			</select>
@@ -202,10 +202,10 @@ $user_detail = get_user(check_user());
     			<input type="checkbox" value="1" name="vehicle"> Vehicle
     		</div>
         	<div class="checkbox">
-				<input type="checkbox" value="1" name="cook">Must be able to cook and prepare food /serve meals 
+				<input type="checkbox" value="1" name="cook">Must be able to cook and prepare food / serve meals 
 			</div>
 			<div class="checkbox">
-				<input type="checkbox" value="1" name="basic_housework">Must be able to do light housework/ cleaning
+				<input type="checkbox" value="1" name="basic_housework">Must be able to do light housework / cleaning
 			</div>
 			<div class="checkbox">
 				<input type="checkbox" value="1" name="personal_hygiene">Must be able to deal with personal hygiene of patient

@@ -29,7 +29,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
                     }
         ?>
     <tr>
-    	<td >Certification / License information <?php echo $info;?></td>
+    	<td >Certification / License information</td>
     	<td >    		
             <?php echo $certification; ?>  
         </td>
@@ -38,7 +38,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
     else{
             ?>
                 <tr>
-                    <td >Certification / License information <?php echo $info;?></td>
+                    <td >Certification / License information</td>
                     <td>N/A</td>
                 </tr>
             <?php

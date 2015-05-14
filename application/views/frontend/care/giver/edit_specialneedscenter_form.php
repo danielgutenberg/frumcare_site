@@ -140,7 +140,7 @@
             }
         ?>                   
             <div class="upload-photo">
-                <h2>Upload photo of facility/ organization</h2>
+                <h2>Upload Photo of Facility / Organization</h2>
                 <input type="hidden" id="file-name" name="facility_pic" value="<?php echo $facility;?>">
                 <div id="output"><img src="<?php echo $photo_url?>"></div>
                 <label>Browse your computer to select a file to upload</label>

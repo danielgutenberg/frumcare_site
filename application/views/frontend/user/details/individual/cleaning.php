@@ -45,7 +45,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
       <tr>
        <td >Wage</td>
        <td >
-            <?php echo $rate . '/Hr'; 
+            <?php echo $rate . '/ Hr'; 
             $type = explode(',',$rate_type);
             ?>
             <!--<div class="details-info"><?php if(in_array('1',$type)){echo $tick; }else{echo $cross; } ?>  Hourly Rate</div>-->

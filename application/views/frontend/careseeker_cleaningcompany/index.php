@@ -34,7 +34,7 @@
 			echo $count;
 		?>
 	</span>
-	 Works for Cleaning Company <?php echo $count>1?"jobs":"job";?>
+	 Workers for Cleaning Company <?php echo $count>1?"jobs":"job";?>
      <span id="locationaddress"><?php echo $city;?></span>
      </h3>
 

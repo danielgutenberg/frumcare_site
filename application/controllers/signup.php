@@ -37,6 +37,7 @@ class Signup extends CI_Controller
                 'original_password'     => $data['password'],
                 'name'                  => trim($data['name']),
                 'uri'                   => $uri,
+                'status'                => 1
             );
 
                     if($_POST['account_category'] == 1){
@@ -75,7 +76,7 @@ class Signup extends CI_Controller
                       'created_on'            => date('Y-m-d'),
                       'user_id'               => $q,
                       'organization_care'     => isset($data['organization_care'])?$data['organization_care'] :0,
-                      'profile_status'        => 1  
+                      'profile_status'        => 1
                     );
                     
                     $cg_or_ck = array(
@@ -94,16 +95,16 @@ class Signup extends CI_Controller
                     $this->send_confirmation($email,$fname);
 
                     // send confirmation email 
-                    $useradminemails = $this->common_model->getUserAdmiEmails();
-                    if(is_array($useradminemails)){
-                        foreach($useradminemails as $useradminemail):   
-                            $useradmin[] =  $useradminemail['email1'];
-                        endforeach;    
-                    }
+                    // $useradminemails = $this->common_model->getUserAdmiEmails();
+                    // if(is_array($useradminemails)){
+                    //     foreach($useradminemails as $useradminemail):   
+                    //         $useradmin[] =  $useradminemail['email1'];
+                    //     endforeach;    
+                    // }
 
-                    $subject = "User Registered, action required";
-                    $message = $this->load->view('frontend/email/useradminapprovalemail',array('name'=>$fname,'email'=>$email,'hash'=>sha1($q),'account_type'=>$_POST['account_category'],'id'=>$q),true);
-                    $this->common_model->sendemail($useradmin,$subject,$message);
+                    // $subject = "User Registered, action required";
+                    // $message = $this->load->view('frontend/email/useradminapprovalemail',array('name'=>$fname,'email'=>$email,'hash'=>sha1($q),'account_type'=>$_POST['account_category'],'id'=>$q),true);
+                    // $this->common_model->sendemail($useradmin,$subject,$message);
 
 
                 $user_data = getBrowser();

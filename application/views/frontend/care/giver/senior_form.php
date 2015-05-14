@@ -25,7 +25,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 				</div>
 				<?php } ?>
 				<div>
-					<label>Looking to work in (check one or more)</label>
+					<label>Looking to work in</label>
 					<div class="form-field">
 						<div class="checkbox"><input type="checkbox" value="Home of senior" name="looking_to_work[]"> <span>Home of senior</span></div>
 						<div class="checkbox"><input type="checkbox" value="Live In" name="looking_to_work[]"/> <span>Live In</span></div>
@@ -47,7 +47,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 					</div>
 				</div>
 				<div>
-					<label>Training (check one or more)</label>
+					<label>Training</label>
 					<div class="form-field">						
 						<div class="checkbox"><input type="checkbox" value="CPR" name="training[]"> <span>CPR</span></div>
 						<div class="checkbox"><input type="checkbox" value="First Aid" name="training[]"> <span>First Aid</span></div>						
@@ -57,7 +57,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 					</div>
 				</div>
 				<div>
-					<label>Able to work with (check one or more)</label>
+					<label>Able to work with</label>
 					<div class="form-field">
 						<div class="checkbox"><input type="checkbox" value="Alz./ Dementia" name="willing_to_work[]"> <span>Alz./ Dementia</span></div>
 						<div class="checkbox"><input type="checkbox" value="Sight loss" name="willing_to_work[]"> <span>Sight loss</span></div>
@@ -115,7 +115,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 					</div>
 				</div>
 				<div>
-					<label>When you need care (check one or more)</label>
+					<label>When you need care</label>
 					<div class="form-field">
 						<div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]"/>Immediate</div>
 						<div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date <input  type="text" name="start_date" id="textbox1"/></div>

@@ -25,6 +25,17 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 				</div>
 				<?php } ?>
 				<div>
+                <label>Year established</label>
+                <div class="form-field">
+                <select name="established" class="required">
+                    <option value="">Select year established</option>
+                    <?php for($i=1950;$i<=date('Y');$i++):?>
+                    <option value="<?php echo $i?>"><?php echo $i;?></option>
+                    <?php endfor;?>
+                </select>
+                </div>
+            </div>
+				<div>
 					<label>Looking to work in</label>
 					<div class="form-field">
 						<div class="checkbox"><input type="checkbox" value="Patients home" name="looking_to_work[]"> Patients home</div>
@@ -45,7 +56,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 					</div>
 				</div>
 				<div>
-					<label>Training (check one or more)</label>
+					<label>Training</label>
 					<div class="form-field">						
 						<div class="checkbox"><input type="checkbox" value="CPR" name="training[]"> <span>CPR</span></div>
 						<div class="checkbox"><input type="checkbox" value="First Aid" name="training[]"> <span>First Aid</span></div>					
@@ -55,7 +66,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 					</div>
 				</div>
 				<div>
-					<label>Able to work with (check one or more)</label>
+					<label>Able to work with</label>
 					<div class="form-field">						
 						<div class="checkbox"><input type="checkbox" value="Autism" name="willing_to_work[]"> <span>Autism</span></div>
 						<div class="checkbox"><input type="checkbox" value="Down Syndrome" name="willing_to_work[]"> <span>Down Syndrome</span></div>						
@@ -84,7 +95,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                     <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
                 </div>
 				<div>
-					<label>When you need care (check one or more)</label>
+					<label>When you need care</label>
 					<div class="form-field">
 						<div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]"/>Immediate</div>
 						<div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date <input  type="text" name="start_date" id="textbox1" autocomplete="off"/></div>

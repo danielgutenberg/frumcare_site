@@ -64,7 +64,7 @@ $user_detail = get_user(check_user());
             </div>    
         </div>
         <div>
-            <label>Neighborhood/ Street</label>
+            <label>Neighborhood / Street</label>
             <div>
             <input type="text" name="neighbour" class="required" onFocus="geolocate()" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
             </div>    
@@ -99,7 +99,7 @@ $user_detail = get_user(check_user());
             </div>
         </div>
         <div>
-            <label>Ages of children(Check one or more)</label>
+            <label>Ages of children</label>
             <div class="form-field">
                 <div class="checkbox"><input type="checkbox" value="0-3" name="age_group[]"> 0-3 months</div>
                 <div class="checkbox"><input type="checkbox" value="3-6" name="age_group[]"> 3-6 months</div>
@@ -111,19 +111,19 @@ $user_detail = get_user(check_user());
             </div>
         </div>
         <div>
-            <label>When you need care(Check one or more)</label>
+            <label>When you need care</label>
             <div class="form-field">
             <div class="checkbox"><input type="checkbox" value="One Time" name="availability[]">One time</div>
             <div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]">Occassionally</div>
             <div class="checkbox"><input type="checkbox" value="Regularly" name="availability[]">Regularly</div>
-            <div class="checkbox"><input type="checkbox" value="Days/ hours" name="availability[]"> Days/ hours</div>
+            <div class="checkbox"><input type="checkbox" value="Days/ hours" name="availability[]"> Days / hours</div>
             <div class="checkbox"><input type="checkbox" value="Asap" name="availability[]"/> Asap</div>
             <div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date
             <input  type="text" name="start_date" id="textbox1" autocomplete="off"/></div>
             <div class="checkbox"><input type="checkbox" value="Morning" name="availability[]"> Morning</div>
             <div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]"> Afternoon</div>
             <div class="checkbox"><input type="checkbox" value="Evening" name="availability[]"> Evening</div>
-            <div class="checkbox"><input type="checkbox" value="Weekends Fri./ Sun." name="availability[]"> Weekends Fri./ Sun.</div>
+            <div class="checkbox"><input type="checkbox" value="Weekends Fri./ Sun." name="availability[]"> Weekends Fri. / Sun.</div>
             <div class="checkbox"><input type="checkbox" value="Night Nurse" name="availability[]"> Night Nurse</div>
             <div class="checkbox"><input type="checkbox" value="Shabbos" name="availability[]"/>Shabbos</div>            
             <div class="checkbox"><input type="checkbox" value="Vacation Sitter" name="availability[]">Vacation Sitter</div>
@@ -232,10 +232,10 @@ $user_detail = get_user(check_user());
                 <input type="checkbox" value="1" name="pick_up_child">Must be must be able to pick up kids from school
             </div>
             <div class="checkbox">
-                <input type="checkbox" value="1" name="cook">Must be must be able to cook/ serve meals
+                <input type="checkbox" value="1" name="cook">Must be must be able to cook / serve meals
             </div>
             <div class="checkbox">
-                <input type="checkbox" value="1" name="basic_housework">Must be must be able to do light housework/ cleaning
+                <input type="checkbox" value="1" name="basic_housework">Must be must be able to do light housework / cleaning
             </div>
             <div class="checkbox">
                 <input type="checkbox" value="1" name="homework_help">Must be must be able to help with homework
@@ -247,7 +247,7 @@ $user_detail = get_user(check_user());
                 <input type="checkbox" value="1" name="references">Must have references
             </div>
         <div>
-                <label>Photo of child/ children</label>
+                <label>Photo of child / children</label>
                     <?php $photo_url = site_url("images/plus.png");?>
                 <div class="upload-photo">
                     <input type="hidden" id="file-name" name="photo_of_child" value="">
@@ -255,7 +255,7 @@ $user_detail = get_user(check_user());
                     <button class="btn btn-default" id="upload">Choose File</button>
                     <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
                 </div>
-                <p>Please make sure your photo is appropriate for our site and in line with Jewish Tradition.</p>
+                <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>
             </div>
 
         <div>

@@ -97,7 +97,7 @@ $user_detail = get_user(check_user());
             </div>
         </div>
         <div>
-            <label>When you need lessons (check one or more)</label>
+            <label>When you need lessons</label>
             <div class="form-field">                
                 <div class="checkbox"><input type="checkbox" value="Asap" name="availability[]"/> Asap</div>
                 <div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date <input  type="text" name="start_date" id="textbox1"/></div>
@@ -156,8 +156,8 @@ $user_detail = get_user(check_user());
             <div class="form-field">
             <select name="religious_observance">
                 <option value="">Select</option>
-                <option value="Yeshivish/ Chasidish">Yeshivish/ Chasidish</option>
-                <option value="Orthodox/ Modern Orthodox">Orthodox/ Modern orthodox</option>
+                <option value="Yeshivish/ Chasidish">Yeshivish / Chasidish</option>
+                <option value="Orthodox/ Modern Orthodox">Orthodox / Modern orthodox</option>
                 <option value="Familiar With Jewish Tradition">Familiar With Jewish Tradition</option>
                 <option value="Not Jewish">Not necessary</option>
             </select>

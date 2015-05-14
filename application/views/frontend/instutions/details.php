@@ -399,6 +399,7 @@
 			
 
 			<div class="right-sidebar-details">
+				<?php if($caregiver['care_type'] != 7) { ?>
 				<p> 
 					Last Signed in: 
 					<?php 
@@ -416,6 +417,7 @@
 					else echo "( within just second ago)";
 				?>
 	</p>
+	<?php } ?>
 	<?php 
 		if(isset($this->session->userdata['current_user'])){
 			$id = $this->session->userdata['current_user'];

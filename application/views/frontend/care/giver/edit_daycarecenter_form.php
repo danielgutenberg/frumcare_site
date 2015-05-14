@@ -165,7 +165,7 @@
 
 
             <div>
-                <label>Tell us about your organization/ facilities/ activities</label>
+                <label>Tell us about your organization / facilities / activities</label>
                 <div class="form-field">
                 <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
                 </div>
