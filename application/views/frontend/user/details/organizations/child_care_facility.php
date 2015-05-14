@@ -1,7 +1,6 @@
 <?php
 $cross = " <img src='".site_url()."img/cross.png'>";
-$tick  = " <img src='".site_url()."img/nut-list.png'>";   
-print_r('hello' . $data);
+$tick  = " <img src='".site_url()."img/nut-list.png'>";
 ?>
 <div class="table-responsive">
 	<table class="table table-striped">

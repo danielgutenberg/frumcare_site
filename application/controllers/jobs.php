@@ -23,9 +23,10 @@
 
 		public function details($slug){
 			$slug = segment(3);
+			$careType = segment(4);
 			$data['main_content']  = 'frontend/jobs/details';
 			$data['title']         = 'Job Title';
-			$data['jobdetail']	   =  $this->user_model->getJobBySlug($slug);	
+			$data['jobdetail']	   =  $this->user_model->getJobBySlug($slug, $careType);	
 			$data['caretypes']	   =  $this->common_model->getCareType();
 			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}

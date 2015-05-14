@@ -90,8 +90,8 @@ class User_model extends CI_Model
         else return false;
     }
 
-    public function getJobBySlug($slug){
-        $sql = "select * from tbl_user where uri='$slug'";
+    public function getJobBySlug($slug, $careType){
+        $sql = "select * from tbl_user join tbl_userprofile on tbl_userprofile.user_id = tbl_user.id where uri='$slug' and tbl_userprofile.care_type ='$careType'";
         $query = $this->db->query($sql);
         $res = $query->row_array();
         if($res)return $res;

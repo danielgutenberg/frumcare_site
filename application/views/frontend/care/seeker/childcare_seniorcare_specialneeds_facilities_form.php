@@ -102,7 +102,7 @@
                   <option value="Special needs care center">Special needs care center</option>
                   <option value="Special needs activities center">Special needs activities center</option>
                   <option value="Special needs agency">Special needs agency</option>
-                  <option value="Rehab/ therapy center">Rehab/ therapy center</option>
+                  <option value="Rehab/ therapy center">Rehab / therapy center</option>
                   <option value="Other">Other</option>
                </select>
                <?php
