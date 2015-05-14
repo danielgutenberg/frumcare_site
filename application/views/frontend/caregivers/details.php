@@ -422,7 +422,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                 <?php 
             } 										
             if(in_array(strtolower('Nanny/ Babysitter Course'), array_map('strtolower',$training))){?>
-            <li class="bbc" title="Training" >Nanny/ Babysitter Course</li>
+            <li class="bbc" title="Training" >Nanny / Babysitter Course</li>
             <?php 
         }
         if(in_array(strtolower('Senior Care Training'), array_map('strtolower',$training))){?>
