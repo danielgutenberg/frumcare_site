@@ -181,8 +181,8 @@ class Ad extends CI_Controller
                  'education_level'          => isset($p['education_level']) ? $p['education_level'] : '',
                  'educational_institution'  => isset($p['educational_institution']) ? $p['educational_institution'] : '',
                  'shul_membership'          => isset($p['shul_membership']) ? $p['shul_membership'] : '',
-                 'subjects'                 => isset($p['major_subject'])?$p['major_subject']:'',
-                 'sub_care'                 => isset($p['sub_care']) ? $p['sub_care'] : ''
+                 'subjects'                 => isset($p['major_subject'])?$p['major_subject']:''
+                 
              );
 
              $insert_new = array(
