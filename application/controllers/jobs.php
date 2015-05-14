@@ -22,7 +22,7 @@
 		}
 
 		public function details($slug){
-			$slug = segment(3);
+                    	$slug = segment(3);
 			$data['main_content']  = 'frontend/jobs/details';
 			$data['title']         = 'Job Title';
 			$data['jobdetail']	   =  $this->user_model->getJobBySlug($slug);	
