@@ -23,6 +23,35 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <h1 class="step3">Step 3: Organization Details</h1>
             </div>
             <?php } ?>
+            
+            <?php 
+        if( segment(6) == 10 ) { ?>
+            <div>
+                <label>Type of Organization</label>
+                <select name="sub_care">
+                    <option value="day care center">Day Care Center</option>
+                    <option value="day camp">Day Camp</option>
+                    <option value="afternoon activities">Afternoon Activities</option>
+                    <option value="pre school">Pre-School</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <?php
+        }
+        elseif ( segment(6) == 16 ) { ?>            
+            <div>
+                <label>Type of Organization</label>
+                <select name="sub_care">
+                    <option value="assisted living residence">Assisted living residence</option>
+                    <option value="senior care center">Senior care center</option>
+                    <option value="nursing home">Nursing home</option>
+                    <option value="rehab therapy center">Rehab / Therapy Center</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+                <?php
+        }            
+    ?>
             <div>
                 <label>For</label>
                 <div class="form-field">
