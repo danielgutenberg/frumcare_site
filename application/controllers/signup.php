@@ -75,7 +75,8 @@ class Signup extends CI_Controller
                       'created_on'            => date('Y-m-d'),
                       'user_id'               => $q,
                       'organization_care'     => isset($data['organization_care'])?$data['organization_care'] :0,
-                      'profile_status'        => 1  
+                      'profile_status'        => 1,
+                      'status'                => 1
                     );
                     
                     $cg_or_ck = array(
