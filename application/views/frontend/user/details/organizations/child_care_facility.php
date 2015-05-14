@@ -1,7 +1,7 @@
 <?php
 $cross = " <img src='".site_url()."img/cross.png'>";
 $tick  = " <img src='".site_url()."img/nut-list.png'>";   
-print_r($data);
+print_r('hello' . $data);
 ?>
 <div class="table-responsive">
 	<table class="table table-striped">
@@ -23,7 +23,18 @@ print_r($data);
                     <td>N/A</td>
                 <?php } ?>
 			</tr>
-
+			<tr>
+					<?php if(!empty($contact)) { ?>
+						<td>Contact Name</td>
+						<td><?php echo $contact ;?></td>
+						<?php }  
+	                else{ ?>
+	                    <td>Contact Name</td>
+	                    <td>N/A</td>
+	                    <?php } ?>
+					
+				</td>
+			</tr>
 			<tr>
 				<td>Days / Hours</td>
 				<td>
