@@ -25,6 +25,17 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 				</div>
 				<?php } ?>
 				<div>
+                <label>Year established</label>
+                <div class="form-field">
+                <select name="established" class="required">
+                    <option value="">Select year established</option>
+                    <?php for($i=1950;$i<=date('Y');$i++):?>
+                    <option value="<?php echo $i?>"><?php echo $i;?></option>
+                    <?php endfor;?>
+                </select>
+                </div>
+            </div>
+				<div>
 					<label>Looking to work in</label>
 					<div class="form-field">
 						<div class="checkbox"><input type="checkbox" value="Patients home" name="looking_to_work[]"> Patients home</div>
