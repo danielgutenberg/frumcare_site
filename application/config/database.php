@@ -49,10 +49,10 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'ranjana';
+$db['default']['username'] = 'frumcare_ufrumc';
+$db['default']['password'] = 'Q^[M!2&NqwEM';
 $db['default']['database'] = 'frumcare_db_frumcare';
-$db['default']['dbdriver'] = 'mysqli';
+$db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = TRUE;
@@ -67,10 +67,10 @@ $db['default']['stricton'] = FALSE;
 
 // blog database
 $db['wordpress']['hostname'] = 'localhost';
-$db['wordpress']['username'] = 'root';
-$db['wordpress']['password'] = 'ranjana';
+$db['wordpress']['username'] = 'frumcare_ufrumc';
+$db['wordpress']['password'] = 'Q^[M!2&NqwEM';
 $db['wordpress']['database'] = 'frumcare_db_blogfrumcare';
-$db['wordpress']['dbdriver'] = 'mysqli';
+$db['wordpress']['dbdriver'] = 'mysql';
 $db['wordpress']['dbprefix'] = '';
 $db['wordpress']['pconnect'] = TRUE;
 $db['wordpress']['db_debug'] = TRUE;
