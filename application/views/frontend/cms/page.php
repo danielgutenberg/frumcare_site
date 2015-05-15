@@ -5,7 +5,7 @@
     	<br>
     	<br>
     	<br>
-    	<h3 style="text-align:center">This Page is Currently Under Construction</h3>
+    	<h3 style="text-align:center" >This Page is Currently Under Construction</h3>
     <?php } else { ?>
     
     <h2> <?php echo $content_data['title'];?> style="text-align:center"</h2>
