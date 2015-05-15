@@ -83,22 +83,12 @@
                         </div>
 
                         <div class="search">
-                            <?php /* <form>
-                                <div class="dropdown">
-                                    <a data-toggle="dropdown" href="#">Baby Sitters<b class="caret"></b></a>
-                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                                        <li><a href="#">Something</a></li>
-                                        <li><a href="#">Something</a></li>
-                                    </ul>
-                                    <input type="hidden" value="" />
-                                    <button type="submit" class="submit"><i class="icon-search">&nbsp;</i></button>
-                                </div>
-                            </form> */?>
-                            <form method="get" action="<?php echo $ciurl;?>search">
-                            <div class="search-select"><select name="category">
+                        <form method="get" action="<?php echo site_url();?>search">
+                            <div class="search-select">
+                            <select name="category" style="width: 100%">
                                 <option value="all">All</option>
-                                <option value="caregiver" class="selected">Caregiver</option>
-                                <option value="careseeker">Job</option>
+                                <option value="caregiver" class="selected">Caregivers</option>
+                                <option value="careseeker">Jobs</option>
                             </select>
                             </div>
 
@@ -106,10 +96,10 @@
                                 <input type="text" name="search_for" value="" placeholder="Search" data-toggle="dropdown"/>
                                 <input type="hidden" value=""/>
                                 <button type="submit" class="submit"><i class="icon-search">&nbsp;</i></button>
+
                             </div>
                         </form>
-
-                        </div><!--end search-->
+                    </div><!--end search-->
                     </div>
                 </div><!--end top-bar-->
 
