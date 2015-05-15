@@ -42,7 +42,7 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			
 			$data['main_content'] = 'frontend/cms/page';
 			$data['content_data'] = $this->cms_model->getPageDetailBySlug('staying-safe-caregivers');
-			$data['title'] 		  = 'Safety Guide - For Cargivers';
+			$data['title'] 		  = 'Safety Guide - For Caregivers';
 			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}
 
