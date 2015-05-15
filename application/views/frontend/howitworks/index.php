@@ -140,9 +140,8 @@
 				<div class="contents">
 					Maecenas dictum dolor tellus, sodales rutrum odio tempus ac. Duis et interdum urna. Quisque dignissim lorem eget nisi posuere placerat. Pellentesque nisl nulla, sagittis a sodales et, accumsan in ante. Vivamus elementum, leo nec congue tristique, velit dui tempus ipsum, ut lacinia odio turpis quis tortor. Aliquam suscipit erat ac condimentum dignissim. Phasellus ac molestie erat, a facilisis purus. Maecenas a quam convallis, sollicitudin leo quis, pulvinar eros. Praesent sit amet magna sit amet nunc hendrerit adipiscing et non libero. Integer sit amet dignissim diam. Duis ac eros in arcu adipiscing vehicula.
 				</div>
-				<div class="btns"><a href="#" class="caregivers">browse our<br/>
-					list of caregivers</a><a href="#" class="caregiver-job">browse our<br/>
-					caregiver jobs</a></div>
+				<div class="btns"><a href="<?php echo site_url()?>caregivers/all" class="caregivers">Find a caregiver</a>
+				<a href="<?php echo site_url()?>jobs/all" class="caregiver-job">Find a job</a></div>
 
 				</div><!-- .child-senior -->
 			</div><!-- .child-senior-wrapper -->
@@ -154,32 +153,32 @@
 					<div class="contents">
 						Maecenas dictum dolor tellus, sodales rutrum odio tempus ac. Duis et interdum urna. Quisque dignissim lorem eget nisi posuere placerat. Pellentesque nisl nulla, sagittis a sodales et, accumsan in ante. Vivamus elementum, leo nec congue tristique, velit dui tempus ipsum, ut lacinia odio turpis quis tortor. Aliquam suscipit erat ac condimentum dignissim. Phasellus ac molestie erat, a facilisis purus.
 					</div>
-					<div class="btns"><a href="#" class="caregivers">Safety for parents</a>
-						<a href="#" class="caregiver-job">Safety for sitters</a></div>
+					<div class="btns"><a href="<?php echo site_url()?>safety-guide/families" class="caregivers">Safety for families</a>
+						<a href="<?php echo site_url()?>safety-guide/caregivers" class="caregiver-job">Safety for caregivers</a></div>
 						
 					</div><!-- .saftey-security -->
 				</div><!-- .saftey-security-wrapper -->
-				<div class="help-institutions-wrapper">
-					<div class="help-institutions container">
-						<div class="title">
-							We Help Institutions Help You
-						</div>
-						<div class="contents">
-							Maecenas dictum dolor tellus, sodales rutrum odio tempus ac. Duis et interdum urna. Quisque dignissim lorem eget nisi posuere placerat. Pellentesque nisl nulla, sagittis a sodales et, accumsan in ante. Vivamus elementum, leo nec congue tristique, velit dui tempus ipsum, ut lacinia odio turpis quis tortor. Aliquam suscipit erat ac condimentum dignissim. Phasellus ac molestie erat, a facilisis purus. Maecenas a quam convallis, sollicitudin leo quis, pulvinar eros. Praesent sit amet magna sit amet nunc hendrerit adipiscing et non libero. Integer sit amet dignissim diam. Duis ac eros in arcu adipiscing vehicula.</div>
-							<div class="btns"><a href="#" class="caregivers">browse our<br/>
-								list of caregivers</a><a href="#" class="caregiver-job">browse our<br/>
-								caregiver jobs</a></div>
-							</div><!-- .help-institutions -->
-						</div><!-- .help-institutions-wrapper -->
+	<!--			<div class="help-institutions-wrapper">-->
+	<!--				<div class="help-institutions container">-->
+	<!--					<div class="title">-->
+	<!--						We Help Institutions Help You-->
+	<!--					</div>-->
+	<!--					<div class="contents">-->
+	<!--						Maecenas dictum dolor tellus, sodales rutrum odio tempus ac. Duis et interdum urna. Quisque dignissim lorem eget nisi posuere placerat. Pellentesque nisl nulla, sagittis a sodales et, accumsan in ante. Vivamus elementum, leo nec congue tristique, velit dui tempus ipsum, ut lacinia odio turpis quis tortor. Aliquam suscipit erat ac condimentum dignissim. Phasellus ac molestie erat, a facilisis purus. Maecenas a quam convallis, sollicitudin leo quis, pulvinar eros. Praesent sit amet magna sit amet nunc hendrerit adipiscing et non libero. Integer sit amet dignissim diam. Duis ac eros in arcu adipiscing vehicula.</div>-->
+	<!--						<div class="btns"><a href="#" class="caregivers">browse our<br/>-->
+	<!--							list of caregivers</a><a href="#" class="caregiver-job">browse our<br/>-->
+	<!--							caregiver jobs</a></div>-->
+	<!--						</div><!-- .help-institutions -->-->
+	<!--					</div><!-- .help-institutions-wrapper -->-->
 						<!--<div class="posts-forums-wrapper">
-							<div class="posts-forums container">
-								<div class="title">
-									Post a new question to the forums.
-								</div>
-								<div class="btns"><a href="javascript:void(0);" class="community-btn" id="ticket">Ask our community</a>
-								</div>
-							</div><!-- .posts-forums -->
-	</div>--><!-- .posts-forums-wrapper -->
+	<!--						<div class="posts-forums container">-->
+	<!--							<div class="title">-->
+	<!--								Post a new question to the forums.-->
+	<!--							</div>-->
+	<!--							<div class="btns"><a href="javascript:void(0);" class="community-btn" id="ticket">Ask our community</a>-->
+	<!--							</div>-->
+	<!--						</div><!-- .posts-forums -->-->
+	<!--</div>--><!-- .posts-forums-wrapper -->-->
 
 	<!-- modal starts from here -->
 	   <div class="modal fade help-page" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalLabel" aria-hidden="true">
