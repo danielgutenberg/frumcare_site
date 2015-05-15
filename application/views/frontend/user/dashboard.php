@@ -4,6 +4,21 @@
 	<?php 
 	     $user = (get_user(check_user()));
 	?>
+	<?php
+ 	$sessiondata = $this->session->all_userdata();
+ 		if(is_array($sessiondata)){			
+			 $ac = $sessiondata['account_category'];
+			 $oc = $sessiondata['organization_care'];
+			    if($ac == 1 || $ac ==3)
+			        $profile1='My Profiles';
+			    if($ac ==2) 
+			        $profile1='My Jobs';
+			    /*if($ac == 3 && $oc == 1)
+			        $profile1='My Profile';
+				if($oc==2 && $ac == 3 )
+			        $profile1='My Job';*/
+		}
+?>
 	<div class="dashboard-wrappers">
 
 	<div class="dashboard-left float-left">
@@ -24,17 +39,17 @@
 		        }
 		    ?>
 
-		    <div class="profile-progressbar">
+		 <!--   <div class="profile-progressbar">-->
 
-		    <div class="profile-status">Your profile is 60% complete. <a href="#">Click here</a> to complete your profile.</div>
-		    <div class="profile_progress" style="width:50%;">
-					<div class="progress">
-				        <div class="progress-bar" style="width: 60%;">
-				            <span class="sr-only">60% Complete</span>
-				        </div>
-		    		</div>
-			</div>
-			</div>
+		 <!--   <div class="profile-status">Your profile is 60% complete. <a href="#">Click here</a> to complete your profile.</div>-->
+		 <!--   <div class="profile_progress" style="width:50%;">-->
+			<!--		<div class="progress">-->
+			<!--	        <div class="progress-bar" style="width: 60%;">-->
+			<!--	            <span class="sr-only">60% Complete</span>-->
+			<!--	        </div>-->
+		 <!--   		</div>-->
+			<!--</div>-->
+			<!--</div>-->
 		</div>
 
 
@@ -63,7 +78,7 @@
 					</a>
 					
 					<a href="<?php echo site_url();?>user/profile" class="profie-name">
-						My Profiles
+						<?php echo $profile1?>
 					</a>
 			</div>
 

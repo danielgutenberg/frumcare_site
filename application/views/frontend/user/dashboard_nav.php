@@ -6,7 +6,7 @@
 			    if($ac == 1 || $ac ==3)
 			        $profile1='My Profiles';
 			    if($ac ==2) 
-			        $profile1='My Job';
+			        $profile1='My Jobs';
 			    /*if($ac == 3 && $oc == 1)
 			        $profile1='My Profile';
 				if($oc==2 && $ac == 3 )
