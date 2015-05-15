@@ -62,12 +62,13 @@
                             <div class="footer-navigation">
                                 <nav>
                                     <p class="nav-title">Learn More</p>
-                                    <?php wp_nav_menu( array( 'theme_location' => 'footer-menu3' ) ); ?>
-                                    <!--<ul>
-                                        <li><a href="#">How it works</a></li>
-                                        <li><a href="#">Staying Safe</a></li>
-                                        <li><a href="#">Advice and tips</a></li>
-                                    </ul>-->
+                                    <?php //wp_nav_menu( array( 'theme_location' => 'footer-menu3' ) ); ?>
+                                    <ul>
+                                        <li><a href="<?php echo $ciurl;?>howitworks">How it works</a></li>
+                                        <li><a href="<?php echo $ciurl;?>safety-guide/families">Safety Guide</a></li>
+                                        <li><a href="<?php echo $ciurl;?>advice-and-tips/families">Advice and Tips</a></li>
+                                        <li><a href="<?php echo $ciurl;?>faq">FAQs</a></li>
+                                    </ul>
                                 </nav>
                             </div>
                         </div>
