@@ -140,7 +140,7 @@ if($detail){
         </div>
        
         <div>
-            <label>When you need care</label>
+            <label>Availability</label>
             <div class="form-field">
             <div class="checkbox"><input type="checkbox" value="One Time" name="availability[]" <?php if(in_array("One Time",$temp)){?> checked="checked"<?php }?>> One Time</div>
             <div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]" <?php if(in_array("Occassionally",$temp)){?> checked="checked"<?php }?>> Occassionally</div>

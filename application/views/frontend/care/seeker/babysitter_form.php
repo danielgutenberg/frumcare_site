@@ -111,7 +111,7 @@ $user_detail = get_user(check_user());
             </div>
         </div>
         <div>
-            <label>When you need care</label>
+            <label>Availability</label>
             <div class="form-field">
             <div class="checkbox"><input type="checkbox" value="One Time" name="availability[]">One time</div>
             <div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]">Occassionally</div>

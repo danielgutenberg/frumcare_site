@@ -62,20 +62,7 @@
         
         <div>
             
-            <div>
-                <label>Availability</label>
-                <div class="form-field">                    
-                    <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]"/> Immediate</div>
-                    <div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date <input  type="text" name="start_date" id="textbox1"/></div>
-                    <div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]"> <span>Occassionally</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Regularly" name="availability[]"> <span>Regularly</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Morning" name="availability[]"> <span>Morning</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]"> <span>Afternoon</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Evening" name="availability[]"> <span>Evening</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Weekends Fri./ Sun." name="availability[]"> <span>Weekends Fri./ Sun.</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Saturday" name="availability[]"> <span>Saturday</span></div>
-                </div>
-            </div>
+            
             <label>Number of children willing to care for</label>
             <div class="form-field">
                 <input type="text" value="<?php echo isset($number_of_children) ? $number_of_children : '' ?>" name="number_of_children" class="required number" style="width: 240px;"><br />
@@ -143,7 +130,7 @@
          </div>
      
         <div>
-            <label>When you need care</label>
+            <label>Availability</label></label>
             <div class="form-field">
                 <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]" <?php if(in_array("Immediate",$time)){?> checked="checked"<?php }?>>Immediate</div>
                 <div class="checkbox full"><input type="checkbox" id="ckbox1" name="availability[]" value="Start Date" <?php if(in_array("Start Date",$time)){?> checked="checked"<?php }?> class="start_date">Start Date <input type="text" name="start_date" <?php if($date!='0000-00-00'){ echo 'value='.$date;}?> id="textbox1"/></div>
