@@ -1,5 +1,14 @@
 <div class="container">
-    <h2> <?php echo $content_data['title'];?></h2>
+    
+    <?php if ($content_data['title'] == 'Rate Calculator' || $content_data['title'] == 'Background Check') { ?>
+    	<h2 style="text-align:center"> <?php echo $content_data['title'];?> </h2>
+    	<br>
+    	<br>
+    	<br>
+    	<h3 style="text-align:center">This Page is Currently Under Construction</h3>
+    <?php } else { ?>
+    
+    <h2> <?php echo $content_data['title'];?> style="text-align:center"</h2>
     <?php echo $this->breadcrumbs->show();?>
     <div class="left-sidebar-resource">
         <ul class="sidebarmenu">
@@ -26,6 +35,8 @@
          	<p> <?php echo nl2br($content_data['content']); 
          
     }?></p></div>
+    
+    <?php } ?>
     
 
 </div>

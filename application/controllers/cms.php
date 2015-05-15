@@ -32,7 +32,7 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			
 			$data['main_content'] = 'frontend/cms/page';
 			$data['content_data'] = $this->cms_model->getPageDetailBySlug('staying-safe-family');
-			$data['title'] 		  = 'Staying Safe';
+			$data['title'] 		  = 'Safety Guide - For Families';
 			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}
 		
@@ -42,7 +42,7 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			
 			$data['main_content'] = 'frontend/cms/page';
 			$data['content_data'] = $this->cms_model->getPageDetailBySlug('staying-safe-caregivers');
-			$data['title'] 		  = 'Staying Safe';
+			$data['title'] 		  = 'Safety Guide - For Cargivers';
 			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}
 
@@ -52,7 +52,7 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			
 			$data['main_content'] = 'frontend/cms/page';
 			$data['content_data'] = $this->cms_model->getPageDetailBySlug('tips-and-tools-families');
-			$data['title'] 		  = 'Advice and Tips';
+			$data['title'] 		  = 'Advice and Tips - For Families';
 			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}
 		
@@ -62,7 +62,7 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			
 			$data['main_content'] = 'frontend/cms/page';
 			$data['content_data'] = $this->cms_model->getPageDetailBySlug('tips-and-tools-caregivers');
-			$data['title'] 		  = 'Advice and Tips';
+			$data['title'] 		  = 'Advice and Tips - For Caregivers';
 			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}
 		
@@ -72,7 +72,7 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			
 			$data['main_content'] = 'frontend/cms/page';
 			$data['content_data'] = $this->cms_model->getPageDetailBySlug('tips-and-tools-employers');
-			$data['title'] 		  = 'Advice and Tips';
+			$data['title'] 		  = 'Advice and Tips - For Families';
 			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}
 		
