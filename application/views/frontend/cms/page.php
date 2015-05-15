@@ -1,13 +1,5 @@
 <div class="container">
     
-    <?php if ($title == 'Rate Calculator' || $title == 'Background Check') { ?>
-    	<h2 style="text-align:center"> <?php echo $title;?> </h2>
-    	<br>
-    	<br>
-    	<br>
-    	<h3 style="text-align:center" >This Page is Currently Under Construction</h3>
-    <?php } else { ?>
-    
     <h2 style="text-align:center"> <?php echo $title;?> </h2>
     <?php echo $this->breadcrumbs->show();?>
     <div class="left-sidebar-resource">
@@ -30,6 +22,12 @@
 			<li> <a href="<?php echo site_url();?>background-check"> Background Check </a> </li>       
 		</ul>
 	</div>
+    <?php if ($title == 'Rate Calculator' || $title == 'Background Check') { ?>
+    	<div class="right-side-resources">
+    	<h3 style="text-align:center" >This Page is Currently Under Construction</h3>
+    	</div>
+    <?php } else { ?>
+    
     <?php if($content_data){?> 
         <div class="right-side-resources">
          	<p> <?php echo nl2br($content_data['content']); 
