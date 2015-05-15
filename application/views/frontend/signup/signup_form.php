@@ -122,6 +122,10 @@ if($this->uri->segment(2)!='edit'){
 </div>
 
 <script type="text/javascript">
+    function initialize() {
+        getAccountCat(2,1)
+    }
+    
     $(function(){
 
         $('.verifyemail').on('keyup',function(e){
