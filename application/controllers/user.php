@@ -1235,9 +1235,8 @@ class User extends CI_Controller
         $data = array(
             'title'         => 'Create Search Alert',
             'main_content'  => 'frontend/user/createsearchalert',
-            // 'searchalert'   => $this->user_model->getSearchAlertByUserId($userid)
+            'searchalert'   => $this->user_model->getSearchAlertByUserId($userid)
         );
-        print_r($data);
 
         $this->load->view(FRONTEND_TEMPLATE,$data);
       }
