@@ -72,11 +72,8 @@ if(check_user()) {
                         }
                     ?>
                     <br />
-                    <div class="edit-block">   
-                        <?php if ($ac == 3) { ?>
-                        <?php echo anchor('ad/job/organizations/25',"Add New $profile",'class="btn btn-info"');?>
-                        <?php } else { ?>
-           <?php echo anchor('user/addprofile',"Add New $profile",'class="btn btn-info"');}?>
+                    <div class="edit-block">
+           <?php echo anchor('user/addprofile',"Add New $profile",'class="btn btn-info"');?>
         </div>
 		        </div>
         	</div>
