@@ -8,7 +8,7 @@
     	<h3 style="text-align:center" >This Page is Currently Under Construction</h3>
     <?php } else { ?>
     
-    <h2> <?php echo $content_data['title'];?> style="text-align:center"</h2>
+    <h2 style="text-align:center"> <?php echo $content_data['title'];?> </h2>
     <?php echo $this->breadcrumbs->show();?>
     <div class="left-sidebar-resource">
         <ul class="sidebarmenu">
