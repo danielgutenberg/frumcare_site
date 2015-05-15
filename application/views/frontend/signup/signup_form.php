@@ -67,6 +67,22 @@ if($this->uri->segment(2)!='edit'){
                 </div>
         <div class="care-type clearfix">Care Type: 
             <div id="select_options"></div>
+            <select id="care_type" class="required" name="care_type">
+    <option value="" class="msg">Type of care you are seeking</option>            <option value="17_1">
+                    Babysitter            </option>
+                        <option value="18_1">
+                    Nanny / Au-pair            </option>
+                        <option value="19_1">
+                    Tutor / private lessons            </option>
+                        <option value="20_1">
+                    Senior caregiver            </option>
+                        <option value="22_1">
+                    Special needs caregiver            </option>
+                        <option value="24_1">
+                    Cleaning/ household help            </option>
+                        <option value="21_1">
+                    Errand runner / odd jobs / personal assistant / driver            </option>
+            </select>
         </div>
         
         <span class="first-names">
