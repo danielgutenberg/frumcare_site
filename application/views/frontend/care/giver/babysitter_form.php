@@ -36,6 +36,20 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             </div>
         </div>
         <div>
+            <div>
+                <label>Availability</label>
+                <div class="form-field">                    
+                    <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]"/> Immediate</div>
+                    <div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date <input  type="text" name="start_date" id="textbox1"/></div>
+                    <div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]"> <span>Occassionally</span></div>
+                    <div class="checkbox"><input type="checkbox" value="Regularly" name="availability[]"> <span>Regularly</span></div>
+                    <div class="checkbox"><input type="checkbox" value="Morning" name="availability[]"> <span>Morning</span></div>
+                    <div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]"> <span>Afternoon</span></div>
+                    <div class="checkbox"><input type="checkbox" value="Evening" name="availability[]"> <span>Evening</span></div>
+                    <div class="checkbox"><input type="checkbox" value="Weekends Fri./ Sun." name="availability[]"> <span>Weekends Fri./ Sun.</span></div>
+                    <div class="checkbox"><input type="checkbox" value="Saturday" name="availability[]"> <span>Saturday</span></div>
+                </div>
+            </div>
             <label>Number of children willing to care for</label>
             <div class="form-field">
                 <div class="checkbox"><input type="text" value="" name="number_of_children" class="required number"/></div>
