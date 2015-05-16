@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-9 content-box">
         <div class="row main-content">
-            <div class="container">
+            <div class="container" style="width:1025px !important">
                 <div class="panel panel-default">
                 <span class="someinfo"><?php if($this->session->flashdata('info')){echo '<span class="alert-info">'.$this->session->flashdata('info').'</span>';}?></span>
                 <div class="panel-heading">
