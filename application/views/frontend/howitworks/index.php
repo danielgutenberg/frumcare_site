@@ -25,7 +25,7 @@
 					</div>
 					<div class="create-job"><span><a href="#">create a job</a></span></div>
 					<div class="review-profile"><span><a href="#">review profiles</a></span></div>
-					<div class="hire-caregiver"><span><a href="#">hire a caregivers</a></span></div>
+					<div class="hire-caregiver"><span><a href="#">hire a caregiver</a></span></div>
 					<div class="pay-for-care"><span><a href="#">pay for your care coming soon</a></span></div>
 					<div class="find-caregivers"><span><a href="<?php echo site_url()?>signup">Join for free</a></span></div>
 				</div>
