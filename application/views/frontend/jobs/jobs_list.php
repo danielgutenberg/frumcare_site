@@ -33,7 +33,7 @@
 
 							<br />
 							<span class="age-format">Age <?php echo $data['age'];?></span>
-							<span class="hour-rate"><?php echo str_replace("t","-",$data['hourly_rate']); ?> /hr</span>
+							<span class="hour-rate"><?php echo str_replace("t","-",$data['hourly_rate']); ?> / hr</span>
 
 							<span class="exp-format"><?php echo $data['experience'];?> yrs of exp</span>
 							<div class="category-img"></div>

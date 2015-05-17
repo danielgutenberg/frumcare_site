@@ -178,13 +178,13 @@ $(document).on('change','#sort_by_select,#per_page',function(){
 			     $('#sortby').val($(this).val());
                 var pagelink = $(this).find("option:selected").text();
                 
-                if(pagelink == 'Nanny/ Au-pair')
+                if(pagelink == 'Nanny / Au-pair')
                     var locationaddress = 'careseeker_nanny';
                 if(pagelink == 'Babysitter')
                     var locationaddress = 'careseeker_babysitter';
-                if(pagelink == 'Nursery/ Playgroup/ Drop off/ Gan')
+                if(pagelink == 'Nursery / Playgroup / Drop off / Gan')
                     var locationaddress = 'careseeker_nursery';
-                if(pagelink == 'Tutor/ private lessons')
+                if(pagelink == 'Tutor / private lessons')
                     var locationaddress = 'careseeker_tutor';
                  if(pagelink == 'Senior caregiver')
                     var locationaddress = 'careseeker_seniorcaregiver';
@@ -192,9 +192,9 @@ $(document).on('change','#sort_by_select,#per_page',function(){
                     var locationaddress = 'careseeker_specialneedscaregiver';
                 if(pagelink == 'Therapist')
                     var locationaddress = 'careseeker_therapist';
-                if(pagelink == 'Cleaning/ household help')
+                if(pagelink == 'Cleaning / household help')
                     var locationaddress = 'careseeker_cleaninghousehold';
-                 if(pagelink == 'Errand runner/ odd jobs/ personal assistant/ driver')
+                 if(pagelink == 'Errand runner / odd jobs / personal assistant / driver')
                     var locationaddress = 'careseeker_errandrunner';       
                     
                 location.href = '<?php echo site_url();?>'+locationaddress;

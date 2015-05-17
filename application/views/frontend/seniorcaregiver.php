@@ -52,7 +52,7 @@
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Familiar with jewish tradition"/>Familiar with jewish tradition</div>
             </div>
             <div>
-                <label>Care location/type</label>
+                <label>Care location / type</label>
                 <div class="checkbox"><input type="checkbox" name="looking_to_work[]" value="Home of Senior"/>Home of Senior</div>
                 <div class="checkbox"><input type="checkbox" name="looking_to_work[]" value="v"/>Caregiving institution</div>
                 <div class="checkbox"><input type="checkbox" name="looking_to_work[]" value="Live In"/>Live In</div>
@@ -72,7 +72,7 @@
 				</div>  
             </div>
             <div>
-                <label>Training(Check one or more)</label>
+                <label>Training</label>
                 <div class="checkbox"><input type="checkbox" name="training[]" value="CPR"/>CPR</div>
                 <div class="checkbox"><input type="checkbox" name="training[]" value="First Aid"/>First Aid</div>
                 <div class="checkbox"><input type="checkbox" name="training[]" value="Senior Care Training"/>Senior Care Training</div>
@@ -88,7 +88,7 @@
                 <div class="checkbox"><input type="checkbox" name="willing_to_work[]" value="Able to tend to personal hygiene of senior"/>Able to tend to personal hygiene of senior</div>
             </div>
             <div>
-                <label>Availability(check one or more)</label>
+                <label>Availability</label>
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Immediate"/>Immediate</div>
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Start Date"/>Start Date</div>
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Occasionally"/>Occasionally</div>
@@ -103,7 +103,7 @@
             <div>
                 <label>Abilities and skills</label>
                 <div class="checkbox"><input type="checkbox" value="1" name="driver_license"/>Drivers License</div>
-                <div class="checkbox"><input type="checkbox" value="1" name="vehicle"/>Vechile</div>                
+                <div class="checkbox"><input type="checkbox" value="1" name="vehicle"/>Vehicle</div>                
                 <div class="checkbox"><input type="checkbox" value="1" name="on_short_notice"/>Available on short notice</div>                
             </div>
             <div>

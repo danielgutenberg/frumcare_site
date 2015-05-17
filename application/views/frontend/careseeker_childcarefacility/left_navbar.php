@@ -36,7 +36,7 @@
 	 		</div>
 
  			<div class="select-services">
-                <label>Wage</label>
+                <label>Rate</label>
                     <select name="rate" class="rate">
                         <option value="">Select rate</option>
                         <option value="5-10">$5-$10</option>
@@ -49,8 +49,8 @@
                     </select>    
             </div>
             <div>
-                <div class="checkbox"><input type="checkbox" name="rate_type[]" class="rate_type" value="1">Per Hour</div>
-                <div class="checkbox"><input type="checkbox" name="rate_type[]" class="rate_type" value="2">Global Monthly Payment</div>
+                <!--<div class="checkbox"><input type="checkbox" name="rate_type[]" class="rate_type" value="1">Per Hour</div>-->
+                <div class="checkbox"><input type="checkbox" name="rate_type[]" class="rate_type" value="2">Monthly Payment Available</div>
             </div>
 	 		<div>
 		 		<div class="educationss" colspan="2">
@@ -74,11 +74,11 @@ $(function () {
     		$('#care_type').val($(this).val());
             var pagelink = $(this).find("option:selected").text();
 
-            if(pagelink == 'Nanny/Au-pair')
+            if(pagelink == 'Nanny / Au-pair')
                 var locationaddress = 'careseeker_nanny';
             if(pagelink == 'Babysitter')
                 var locationaddress = 'careseeker_babysitter';
-            if(pagelink == 'Tutor/ Private lessons')
+            if(pagelink == 'Tutor / Private lessons')
                 var locationaddress = 'careseeker_tutor';
              if(pagelink == 'Senior Caregiver')
                 var locationaddress = 'careseeker_seniorcaregiver';
@@ -86,19 +86,19 @@ $(function () {
                 var locationaddress = 'careseeker_specialneedscaregiver';
             if(pagelink == 'Therapist')
                 var locationaddress = 'careseeker_therapist';
-            if(pagelink == 'Cleaning/ household help')
+            if(pagelink == 'Cleaning / household help')
                 var locationaddress = 'careseeker_cleaninghousehold';
-            if(pagelink == 'Errand runner/ odd jobs/ personal assistant/ driver')
+            if(pagelink == 'Errand runner / odd jobs / personal assistant / driver')
                 var locationaddress = 'careseeker_errandrunner';
             if(pagelink == '--select--')
                 var locationaddress = 'careseekers';       
             location.href = '<?php echo site_url();?>'+locationaddress;
 
-             if(pagelink == 'Workers/ staff for childcare facility')
+             if(pagelink == 'Workers / staff for childcare facility')
                 location.href = '<?php echo site_url();?>careseeker_childcarefacility';
-            if(pagelink == 'Workers/ staff for senior care facility')
+            if(pagelink == 'Workers / staff for senior care facility')
                 location.href = '<?php echo site_url();?>careseeker_seniorcarefacility';
-            if(pagelink == 'Workers/ staff for special needs facility')
+            if(pagelink == 'Workers / staff for special needs facility')
                 location.href = '<?php echo site_url();?>careseeker_specialneedsfacility';
             if(pagelink == 'Workers for cleaning company')
                 location.href = '<?php echo site_url();?>careseeker_cleaningcompany';

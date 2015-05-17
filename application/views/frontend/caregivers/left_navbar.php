@@ -74,7 +74,7 @@
 	 		<form id="leftnavbar-down" method="post" action="">
 		 		<div class="time-available" colspan="2"><h4>Time available</h4> 
 		 			<div>
-		 		<input type="checkbox" value="Imm/ Start Date" name="time[]" class="required">
+		 		<input type="checkbox" value="Imm / Start Date" name="time[]" class="required">
 		 			<span>Imm/Start Date</span>
 		 		</div>
 
@@ -104,7 +104,7 @@
 		 		</div>
 
 		 		<div>
-		 			<input type="checkbox" value="Weekends/ Shabbos" name="time[]" class="required">
+		 			<input type="checkbox" value="Weekends / Shabbos" name="time[]" class="required">
 		 			<span>Weekends/ Shabbos</span>
 		 		</div>
 
@@ -194,7 +194,7 @@
 	 					<option value="">--select--</option>
 		 				<option value="Elementary">Elementary</option>
 		 				<option value="High school">High school</option>
-		 				<option value="Yeshiva/Seminary">Yeshiva/Seminary</option>
+		 				<option value="Yeshiva/Seminary">Yeshiva / Seminary</option>
 		 				<option value="Degree">Degree</option>
 	 				</select>
 		 		</div>

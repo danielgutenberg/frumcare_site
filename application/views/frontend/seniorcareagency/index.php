@@ -93,15 +93,15 @@
                 $('#sortby').val($(this).val());
                 var pagelink = $(this).find("option:selected").text();
                 
-                if(pagelink == 'Day Care Center/Day Camp/Afternoon Activities')
+                if(pagelink == 'Day Care Center / Day Camp / Afternoon Activities')
                     var locationaddress = 'daycarecenter';
                 if(pagelink == 'Senior Care Agency')
                     var locationaddress = 'seniorcareagency';
                 if(pagelink == 'Special needs center')
                     var locationaddress = 'specialneedscenter';
-                if(pagelink == 'Cleaning/ household help company')
+                if(pagelink == 'Cleaning / household help company')
                     var locationaddress = 'cleaningcompany';
-                 if(pagelink == 'Assisted living/ Senior Care Center/ Nursing Home')
+                 if(pagelink == 'Assisted living / Senior Care Center / Nursing Home')
                     var locationaddress = 'seniorcarecenter';    
                 location.href = '<?php echo site_url();?>'+locationaddress;
 			});

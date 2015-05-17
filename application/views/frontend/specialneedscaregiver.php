@@ -38,8 +38,8 @@
                 
             </div>
             <div>
-                <label>Level of observance(Check one or more)</label>
-                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Yeshivis/Chasidish"/>Yeshivis / Chasidish</div>
+                <label>Level of observance</label>
+                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Yeshivis/Chasidish"/>Yeshivish / Chasidish</div>
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Orthodox/Modern orthodox"/>Orthodox / Modern orthodox</div>
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Other"/>Other</div>
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Not Jewis"/>Not Jewish</div>
@@ -47,7 +47,7 @@
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Familiar with jewish tradition"/>Familiar with jewish tradition</div>
             </div>
             <div>
-                <label>Care location/type</label>
+                <label>Care location / type</label>
                 <div class="checkbox"><input type="checkbox" name="looking_to_work[]" value="Patients Home"/>Patients Home</div>
                 <div class="checkbox"><input type="checkbox" name="looking_to_work[]" value="v"/>Caregiving institution</div>                
             </div>
@@ -96,7 +96,7 @@
             <div>
                 <label>Abilities and skills</label>
                 <div class="checkbox"><input type="checkbox" value="1" name="driver_license"/>Drivers License</div>
-                <div class="checkbox"><input type="checkbox" value="1" name="vehicle"/>Vechile</div>                
+                <div class="checkbox"><input type="checkbox" value="1" name="vehicle"/>Vehicle</div>                
                 <div class="checkbox"><input type="checkbox" value="1" name="on_short_notice"/>Available on short notice</div>                
             </div>
             <div>

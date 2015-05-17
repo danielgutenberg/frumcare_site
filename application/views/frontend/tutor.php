@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
-            <div><h3>Tutor/Private lesson</h3></div>
+            <div><h3>Tutor / Private lesson</h3></div>
             <h4>Refine Result</h4>
             <div>Choose a care type</div>
             <div>

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
-            <div><h3>Cleaning/household help</h3></div>
+            <div><h3>Cleaning / household help</h3></div>
             <h4>Refine Result</h4>
             <div>Choose a care type</div>
             <div>
@@ -44,7 +44,7 @@
                 
             </div>
             <div>
-                <label>Level of observance(Check one or more)</label>
+                <label>Level of observance</label>
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Yeshivis/Chasidish"/>Yeshivish / Chasidish</div>
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Orthodox/Modern orthodox"/>Orthodox / Modern orthodox</div>
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Other"/>Other</div>
@@ -80,7 +80,7 @@
                 <div class="checkbox"><input type="checkbox" value="Folding" name="willing_to_work[]"> Folding</div>                                
                 <div class="checkbox"><input type="checkbox" value="Ironing" name="willing_to_work[]"> Ironing</div>
                 <div class="checkbox"><input type="checkbox" value="Cleaning and Dusting Furniture" name="willing_to_work[]">Cleaning and Dusting Furniture</div>
-                <div class="checkbox"><input type="checkbox" value="Cleaning Refrigerator/Freezer" name="willing_to_work[]">Cleaning Refrigerator/Freezer</div>
+                <div class="checkbox"><input type="checkbox" value="Cleaning Refrigerator/Freezer" name="willing_to_work[]">Cleaning Refrigerator / Freezer</div>
                 <div class="checkbox"><input type="checkbox" value="Cleaning Oven/Stovetop" name="willing_to_work[]">Oven/Stove</div>
                 <div class="checkbox"><input type="checkbox" value="Able to watch children as well" name="willing_to_work[]">Able to watch children as well</div>
             </div>

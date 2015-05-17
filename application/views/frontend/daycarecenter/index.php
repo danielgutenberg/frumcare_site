@@ -32,7 +32,7 @@
 			?> 
 		</span>
 		
-		Day care center/ Day camp/Afternoon activities center <span id="locationaddress"><?php echo $city;?></span>
+		Day care center / Day camp / Afternoon activities center <span id="locationaddress"><?php echo $city;?></span>
 	</h3>
 <div class="want-top"><p>Want Caregivers to Contact you?<a href="<?php echo site_url().'signup?ac=1'?>" class="btn btn-primary ml10 btn-xs">Post a job free</a></p></div>
 	<div class="select-relevance">
@@ -94,15 +94,15 @@
                 $('#sortby').val($(this).val());
                 var pagelink = $(this).find("option:selected").text();
                 
-                if(pagelink == 'Day Care Center/Day Camp/Afternoon Activities')
+                if(pagelink == 'Day Care Center / Day Camp / Afternoon Activities')
                     var locationaddress = 'daycarecenter';
                 if(pagelink == 'Senior Care Agency')
                     var locationaddress = 'seniorcareagency';
                 if(pagelink == 'Special needs center')
                     var locationaddress = 'specialneedscenter';
-                if(pagelink == 'Cleaning/ household help company')
+                if(pagelink == 'Cleaning / household help company')
                     var locationaddress = 'cleaningcompany';
-                 if(pagelink == 'Assisted living/ Senior Care Center/ Nursing Home')
+                 if(pagelink == 'Assisted living / Senior Care Center / Nursing Home')
                     var locationaddress = 'seniorcarecenter';     
                 location.href = '<?php echo site_url();?>'+locationaddress;
 			});

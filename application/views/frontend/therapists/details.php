@@ -238,7 +238,7 @@
 								<img src="<?php echo site_url();?>img/cross.png">
 								<?php } ?>
 
-								Pre-teen/Teenagers (12 years and over)
+								Pre-teen / Teenagers (12 years and over)
 							</li>
 
 						</ul>
@@ -253,7 +253,7 @@
 								<?php }else{ ?>
 								<img src="<?php echo site_url();?>img/cross.png">
 								<?php } ?>
-								Cooking/Meal Preparation
+								Cooking / Meal Preparation
 							</li>
 							<li>
 								<?php if(@$recordData['errands'] == 1){?>

@@ -7,14 +7,14 @@
             <div>
                 <select>
                     <option>Babysitter</option>
-                    <option>Nanny/Au-Pair</option>
-                    <option>Nursery/PlayGroup/Drop off/Gan</option>
-                    <option>Tutor/Private lesson</option>
+                    <option>Nanny / Au-Pair</option>
+                    <option>Nursery / PlayGroup / Drop off / Gan</option>
+                    <option>Tutor / Private lesson</option>
                     <option>Senior Caregiver</option>
                     <option>Special Needs Caregiver</option>
                     <option>Therapist</option>
-                    <option>Cleaning/household help</option>
-                    <option selected>Errand Runner/OddJobs</option>
+                    <option>Cleaning / household help</option>
+                    <option selected>Errand Runner / Odd Jobs</option>
                 </select>
             </div>
             <div>
@@ -44,11 +44,11 @@
                 
             </div>
             <div>
-                <label>Level of observance(Check one or more)</label>
-                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Yeshivis/Chasidish"/>Yeshivis/Chasidish</div>
-                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Orthodox/Modern orthodox"/>Orthodox/Modern orthodox</div>
+                <label>Level of observance</label>
+                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Yeshivis/Chasidish"/>Yeshivish / Chasidish</div>
+                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Orthodox/Modern orthodox"/>Orthodox / Modern orthodox</div>
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Other"/>Other</div>
-                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Not Jewis"/>Not Jewis</div>
+                <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Not Jewis"/>Not Jewish</div>
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Any"/>Any</div>
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Familiar with jewish tradition"/>Familiar with jewish tradition</div>
             </div>
@@ -66,7 +66,7 @@
 				</div>  
             </div>
             <div>
-                <label>Availability(check one or more)</label>
+                <label>Availability</label>
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Immediate"/>Immediate</div>
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Start Date"/>Start Date</div>
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Occasionally"/>Occasionally</div>
@@ -74,7 +74,7 @@
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Morning"/>Morning</div>
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Afternoon"/>Afternoon</div>
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Evening"/>Evening</div>                                
-                <div class="checkbox"><input type="checkbox" name="availability[]" value="Weekends fri/sun."/>Weekends fri/sun.</div>
+                <div class="checkbox"><input type="checkbox" name="availability[]" value="Weekends fri/sun."/>Weekends fri / sun.</div>
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Saturday"/>Saturday</div>    
             </div>
             <div>

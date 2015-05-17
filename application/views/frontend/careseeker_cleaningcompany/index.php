@@ -181,11 +181,11 @@ $(document).on('change','#sort_by_select,#per_page',function(){
 			     $('#sortby').val($(this).val());
                  var pagelink = $(this).find("option:selected").text();
             var pagelink = $(this).find("option:selected").text();
-            if(pagelink == 'Workers/ staff for childcare facility')
+            if(pagelink == 'Workers / staff for childcare facility')
                 var locationaddress = 'careseeker_childcarefacility';
-            if(pagelink == 'Workers/ staff for senior care facility')
+            if(pagelink == 'Workers / staff for senior care facility')
                 var locationaddress = 'careseeker_seniorcarefacility';
-            if(pagelink == 'Workers/ staff for special needs facility')
+            if(pagelink == 'Workers / staff for special needs facility')
                 var locationaddress = 'careseeker_specialneedsfacility';
             if(pagelink == 'Workers for cleaning company')
                 var locationaddress = 'careseeker_cleaningcompany';   

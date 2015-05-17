@@ -12,7 +12,7 @@
 ?>
 
 <h3>
-	<?php echo count($userdatas);?> Instutions <?php echo $city;?>
+	<?php echo count($userdatas);?> Institutions <?php echo $city;?>
 </h3>
 <div class="select-relevance">
 	<span class="sort-by-relevance">

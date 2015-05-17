@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
-            <div><h3>Nursery/PlayGroup</h3></div>
+            <div><h3>Nursery / Playgroup</h3></div>
             <h4>Refine Result</h4>
             <div>Choose a care type</div>
             <div>
@@ -43,7 +43,7 @@
                 
             </div>
             <div>
-                <label>Level of observance(Check one or more)</label>
+                <label>Level of observance</label>
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Yeshivis/Chasidish"/>Yeshivish / Chasidish</div>
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Orthodox/Modern orthodox"/>Orthodox / Modern orthodox</div>
                 <div class="checkbox"><input type="checkbox" name="level_of_observance[]" value="Other"/>Other</div>

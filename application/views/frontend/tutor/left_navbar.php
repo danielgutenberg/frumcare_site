@@ -37,14 +37,14 @@
 	 			<div class="checkbox"><input type="checkbox" name="languages[]" value="Other" class="lang">Other</div>
 	 		</div>
 	 		<div>
-	 			<label>Level of observance (check one or more)</label>
-	 			<div class="checkbox"><input type="checkbox" value="Yeshivish/Chasidish" name="observance[]" class="observance">Yeshivish/Chasidish</div>
-	 			<div class="checkbox"><input type="checkbox" value="Orthodox/Modern orthodox" name="observance[]" class="observance">Orthodox/Modern orthodox</div>	 			
+	 			<label>Level of observance</label>
+	 			<div class="checkbox"><input type="checkbox" value="Yeshivish/Chasidish" name="observance[]" class="observance">Yeshivish / Chasidish</div>
+	 			<div class="checkbox"><input type="checkbox" value="Orthodox/Modern orthodox" name="observance[]" class="observance">Orthodox / Modern orthodox</div>	 			
 	 			<div class="checkbox"><input type="checkbox" value="Familiar with Jewish Tradition" name="observance[]" class="observance">Familiar with Jewish Tradition</div>
 	 			<div class="checkbox"><input type="checkbox" value="Any" name="observance[]" class=" observance">Any</div>	 			
 	 		</div>
 	 		<div>
-	 				<label>Subject(s)(check one or more)</label>
+	 				<label>Subject(s)</label>
 	 				<div class="checkbox"><input type="checkbox" value="Elementary School" name="subjects[]" class="subjects">Elementary School</div>
 	 				<div class="checkbox"><input type="checkbox" value="High School" name="subjects[]" class="subjects">High School</div>
 	 				<div class="checkbox"><input type="checkbox" value="Post High School" name="subjects[]" class="subjects">Post High School</div>
@@ -57,7 +57,7 @@
 	 		</div>
 	 		
 		 	<div>
-		 		<label>When you need lessons (check one or more)</label>
+		 		<label>When you need lessons</label>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Immediate">Immediate</div>
 		 		<div class="checkbox full"><input type="checkbox" id="chkbox1" value="Start Date">Start Date<input type="text" id="textbox1"/></div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Occasionally">Occasionally</div>
@@ -66,7 +66,7 @@
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Afternoon">Afternoon</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Evening">Evening</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Night Nurse">Night Nurse</div>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Weekends Fri/Sun">Weekends Fri/Sun</div>		 		
+		 		<div class="checkbox"><input type="checkbox" class="availability" value="Weekends Fri/Sun">Weekends Fri / Sun</div>		 		
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="By appointment">By appointment</div>
 		 	</div>
 
@@ -106,13 +106,13 @@ $(function () {
 			$('#care_type').val($(this).val());
             var pagelink = $(this).find("option:selected").text();
             
-            if(pagelink == 'Nanny/Au-pair')
+            if(pagelink == 'Nanny / Au-pair')
                 var locationaddress = 'nanny';
             if(pagelink == 'Babysitter')
                 var locationaddress = 'babysitter';
-            if(pagelink == 'Nursery/ Playgroup/ Drop off/ Gan')
+            if(pagelink == 'Nursery / Playgroup / Drop off / Gan')
                 var locationaddress = 'nursery';
-            if(pagelink == 'Tutor/ Private lessons')
+            if(pagelink == 'Tutor / Private lessons')
                 var locationaddress = 'tutor';
              if(pagelink == 'Senior Caregiver')
                 var locationaddress = 'senior_caregiver';
@@ -120,12 +120,12 @@ $(function () {
                 var locationaddress = 'special_needs_caregiver';
             if(pagelink == 'Therapist')
                 var locationaddress = 'therapists';
-            if(pagelink == 'Cleaning/ household help')
+            if(pagelink == 'Cleaning / household help')
                 var locationaddress = 'cleaning';
-            if(pagelink == 'Errand runner/ odd jobs/ personal assistant/ driver')
+            if(pagelink == 'Errand runner / odd jobs / personal assistant / driver')
                 var locationaddress = 'errand_runner';
                             
-            if(pagelink == 'Day Care Center/Day Camp/Afternoon Activities')
+            if(pagelink == 'Day Care Center / Day Camp / Afternoon Activities')
                 var locationaddress = 'daycarecenter';
 
             if(pagelink == 'Senior Care Agency')
@@ -134,16 +134,16 @@ $(function () {
             if(pagelink == 'Special needs center')
                 var locationaddress = 'specialneedscenter';
 
-            if(pagelink == 'Cleaning/ household help company')
+            if(pagelink == 'Cleaning / household help company')
             	var locationaddress = 'cleaninghousehold';
 
-            if(pagelink == 'Assisted living / Senior Care Center/ Nursing Home')
+            if(pagelink == 'Assisted living / Senior Care Center / Nursing Home')
             	var locationaddress = 'seniorcarecenter';
-             if(pagelink == 'Workers/Staff for childcare facility')
+             if(pagelink == 'Workers / Staff for childcare facility')
                 var locationaddress = 'careseeker_childcarefacility';
-            if(pagelink == 'Workers/Staff for senior care facility')
+            if(pagelink == 'Workers / Staff for senior care facility')
                 var locationaddress = 'careseeker_seniorcarefacility';
-            if(pagelink == 'Workers/Staff for special needs facility')
+            if(pagelink == 'Workers / Staff for special needs facility')
                 var locationaddress = 'careseeker_specialneedsfacility';
              if(pagelink == 'Workers for cleaning company')
                 var locationaddress = 'careseeker_cleaningcompany';

@@ -34,7 +34,7 @@
 			echo $count;
 		?> 
 		</span>
-		Tutor/Private-Lesson 
+		Tutor / Private-Lesson 
         <span id="locationaddress"><?php echo $city;?></span>
 	</h3>
 <div class="want-top"><p>Want Caregivers to Contact you?<a href="<?php echo site_url().'signup?ac=1'?>" class="btn btn-primary ml10 btn-xs">Post a job free</a></p></div>
@@ -97,13 +97,13 @@
                 $('#sortby').val($(this).val());
                 var pagelink = $(this).find("option:selected").text();
                 
-                if(pagelink == 'Nanny/Au-pair')
+                if(pagelink == 'Nanny / Au-pair')
                     var locationaddress = 'nanny';
                 if(pagelink == 'Babysitter')
                     var locationaddress = 'babysitter';
-                if(pagelink == 'Nursery/ Playgroup/ Drop off/ Gan')
+                if(pagelink == 'Nursery / Playgroup / Drop off / Gan')
                     var locationaddress = 'nursery';
-                if(pagelink == 'Tutor/ Private lessons')
+                if(pagelink == 'Tutor / Private lessons')
                     var locationaddress = 'tutor';
                  if(pagelink == 'Senior Caregiver')
                     var locationaddress = 'senior_caregiver';
@@ -111,9 +111,9 @@
                     var locationaddress = 'special_needs_caregiver';
                 if(pagelink == 'Therapist')
                     var locationaddress = 'therapist';
-                if(pagelink == 'Cleaning/ household help')
+                if(pagelink == 'Cleaning / household help')
                     var locationaddress = 'cleaning';
-                 if(pagelink == 'Errand runner/ odd jobs/ personal assistant/ driver')
+                 if(pagelink == 'Errand runner / odd jobs / personal assistant / driver')
                     var locationaddress = 'errand_runner';       
                     
                 location.href = '<?php echo site_url();?>'+locationaddress;

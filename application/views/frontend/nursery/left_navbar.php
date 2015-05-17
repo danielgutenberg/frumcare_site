@@ -89,7 +89,7 @@ $(function () {
 
 				var pagelink = $(this).find("option:selected").text();
             
-	            if(pagelink == 'Nanny/Au-pair')
+	            if(pagelink == 'Nanny / Au-pair')
                 var locationaddress = 'nanny';
             if(pagelink == 'Babysitter')
                 var locationaddress = 'babysitter';

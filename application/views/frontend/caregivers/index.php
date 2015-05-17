@@ -109,13 +109,13 @@
 			     $('#sortby').val($(this).val());
                 var pagelink = $(this).find("option:selected").text();
                 
-                if(pagelink == 'Nanny/Au-pair')
+                if(pagelink == 'Nanny / Au-pair')
                     var locationaddress = 'nanny';
                 if(pagelink == 'Babysitter')
                     var locationaddress = 'babysitter';
-                if(pagelink == 'Nursery/ Playgroup/ Drop off/ Gan')
+                if(pagelink == 'Nursery / Playgroup / Drop off / Gan')
                     var locationaddress = 'nursery';
-                if(pagelink == 'Tutor/ Private lessons')
+                if(pagelink == 'Tutor / Private lessons')
                     var locationaddress = 'tutor';
                  if(pagelink == 'Senior Caregiver')
                     var locationaddress = 'senior_caregiver';
@@ -123,19 +123,19 @@
                     var locationaddress = 'special_needs_caregiver';
                 if(pagelink == 'Therapist')
                     var locationaddress = 'therapists';
-                if(pagelink == 'Cleaning/ household help')
+                if(pagelink == 'Cleaning / household help')
                     var locationaddress = 'cleaning';
-                 if(pagelink == 'Errand runner/ odd jobs/ personal assistant/ driver')
+                 if(pagelink == 'Errand runner / odd jobs / personal assistant / driver')
                     var locationaddress = 'errand_runner';
-                if(pagelink == 'Day Care Center/Day Camp/Afternoon Activities')
+                if(pagelink == 'Day Care Center / Day Camp / Afternoon Activities')
                     var locationaddress = 'daycarecenter';
                 if(pagelink == 'Senior Care Agency')
                     var locationaddress = 'seniorcareagency';
                 if(pagelink == 'Special needs center')
                     var locationaddress = 'specialneedscenter';
-                if(pagelink == 'Cleaning/ household help company')
+                if(pagelink == 'Cleaning / household help company')
                     var locationaddress = 'cleaningcompany';
-                if(pagelink == 'Assisted living/ Senior Care Center/ Nursing Home')
+                if(pagelink == 'Assisted living / Senior Care Center / Nursing Home')
                     var locationaddress = 'seniorcarecenter';
                     
                 location.href = '<?php echo site_url();?>'+locationaddress;

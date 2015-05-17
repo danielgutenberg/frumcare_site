@@ -255,11 +255,11 @@ if($pages > 1){
 			     $('#sortby').val($(this).val());
                 var pagelink = $(this).find("option:selected").text();
                 
-                if(pagelink == 'Nanny/ Au-pair')
+                if(pagelink == 'Nanny / Au-pair')
                     var locationaddress = 'careseeker_nanny';
                 if(pagelink == 'Babysitter')
                     var locationaddress = 'careseeker_babysitter';
-                if(pagelink == 'Tutor/ private lessons')
+                if(pagelink == 'Tutor / private lessons')
                     var locationaddress = 'careseeker_tutor';
                  if(pagelink == 'Senior caregiver')
                     var locationaddress = 'careseeker_seniorcaregiver';
@@ -267,15 +267,15 @@ if($pages > 1){
                     var locationaddress = 'careseeker_specialneedscaregiver';
                 if(pagelink == 'Therapist')
                     var locationaddress = 'careseeker_therapist';
-                if(pagelink == 'Cleaning/ household help')
+                if(pagelink == 'Cleaning / household help')
                     var locationaddress = 'careseeker_cleaninghousehold';
-                 if(pagelink == 'Errand runner/ odd jobs/ personal assistant/ driver')
+                 if(pagelink == 'Errand runner / odd jobs / personal assistant / driver')
                     var locationaddress = 'careseeker_errandrunner'; 
-                 if(pagelink == 'Workers/ staff for childcare facility')
+                 if(pagelink == 'Workers / staff for childcare facility')
                  	var locationaddress = 'careseeker_childcarefacility'; 
-                 if(pagelink == 'Workers/ staff for senior care facility')
+                 if(pagelink == 'Workers / staff for senior care facility')
                  	var locationaddress = 'careseeker_seniorcarefacility'; 
-                 if(pagelink == 'Workers/ staff for special needs facility')
+                 if(pagelink == 'Workers / staff for special needs facility')
                  	var locationaddress = 'careseeker_specialneedsfacility'; 
                  if(pagelink == 'Workers for cleaning company')
                  	var locationaddress = 'careseeker_cleaningcompany'; 

@@ -68,7 +68,7 @@
 							</span>
 							<span class="hour-rate">
 							<?php if($data['hourly_rate']){?>
-								<?php echo str_replace("t","-",$data['hourly_rate']); ?> /hr
+								<?php echo str_replace("t","-",$data['hourly_rate']); ?> / hr
 							<?php  } ?>
 							</span>
 							<span class="exp-format">
