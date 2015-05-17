@@ -18,7 +18,7 @@ class Careseeker_tutor extends CI_Controller{
         $option = "distance";
         $account_category = 2;
         $care_type = 19;//blank for careseekers and caregiver
-        $title = "Tutor/ private lessons jobs";        
+        $title = "Tutor / private lessons jobs";        
         $distance = "unlimited";                     
         $this->breadcrumbs->push($title, site_url().'#');
         $this->breadcrumbs->unshift('Home', base_url());

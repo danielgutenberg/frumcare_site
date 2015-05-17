@@ -17,7 +17,7 @@
             $option = "distance";
             $account_category = 1;
             $care_type = 9;//blank for careseekers and caregiver
-            $title = "Errand runner/ odd jobs/ personal assistant/ driver";        
+            $title = "Errand runner / odd jobs / personal assistant / driver";        
             $distance = "unlimited";                     
             $this->breadcrumbs->push($title, site_url().'#');
             $this->breadcrumbs->unshift('Home', base_url());

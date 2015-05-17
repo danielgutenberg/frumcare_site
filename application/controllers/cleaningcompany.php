@@ -17,7 +17,7 @@ class Cleaningcompany extends CI_Controller{
         $option = "distance";
         $account_category = 3;
         $care_type = 15;//blank for careseekers and caregiver
-        $title = "Cleaning/ household help company";        
+        $title = "Cleaning / household help company";        
         $distance = "unlimited";                     
         $this->breadcrumbs->push($title, site_url().'#');
         $this->breadcrumbs->unshift('Home', base_url());
@@ -165,7 +165,7 @@ class Cleaningcompany extends CI_Controller{
 
             $data = array(
                'main_content' => 'frontend/cleaninghousehold/index',
-                'title'        =>  'Cleaning/Household help',
+                'title'        =>  'Cleaning / Household help',
                 'ipdata'       =>   $this->common_model->getIPData($this->ipaddress),
                 'userdatas'    => $userdata,
                 'userlogs'     => $this->user_model->getUserLog()

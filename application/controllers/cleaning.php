@@ -17,7 +17,7 @@
             $option = "distance";
             $account_category = 1;
             $care_type = 8; //blank for careseekers and caregiver
-            $title = "Cleaning/ household helpers";        
+            $title = "Cleaning / household helpers";        
             $distance = "unlimited";                     
             $this->breadcrumbs->push($title, site_url().'#');
             $this->breadcrumbs->unshift('Home', base_url());

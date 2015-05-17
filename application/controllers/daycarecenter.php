@@ -17,7 +17,7 @@
             $option = "distance";
             $account_category = 3;
             $care_type = 10;//blank for careseekers and caregiver
-            $title = "Day Care Center/Day Camp/Afternoon Activities";        
+            $title = "Day Care Center / Day Camp / Afternoon Activities";        
              $distance = "unlimited";                    
             $this->breadcrumbs->push($title, site_url().'#');
             $this->breadcrumbs->unshift('Home', base_url());
@@ -141,7 +141,7 @@
     }
 
     function pages(){
-        $this->breadcrumbs->push('Day care center/ Day camp/Afternoon activities center', site_url().'#');
+        $this->breadcrumbs->push('Day care center / Day camp / Afternoon activities center', site_url().'#');
         $this->breadcrumbs->unshift('Home', base_url());
          if(isset($this->session->userdata['search_limit'])){
             $per_page = $this->session->userdata['search_limit'];
@@ -170,7 +170,7 @@
         $userdata   = $this->daycarecenter->getAllData(@$latitude,@$longitude,$offset,$per_page);
         $data = array(
             'main_content' => 'frontend/daycarecenter/index',
-            'title'        =>  'Day care center/ Day camp/Afternoon activities center',
+            'title'        =>  'Day care center / Day camp /Afternoon activities center',
             'ipdata'       =>   $this->common_model->getIPData($this->ipaddress),
             'userdatas'    => $userdata,
             'userlogs'     => $this->user_model->getUserLog(),

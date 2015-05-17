@@ -18,7 +18,7 @@ class Careseeker_errandrunner extends CI_Controller{
         $option = "distance";
         $account_category = 2;
         $care_type = 21;//blank for careseekers and caregiver
-        $title = "Errand runner/odd jobs/personal assistant/driver jobs";        
+        $title = "Errand runner /odd jobs /personal assistant /driver jobs";        
         $distance = "unlimited";                     
         $this->breadcrumbs->push($title, site_url().'#');
         $this->breadcrumbs->unshift('Home', base_url());

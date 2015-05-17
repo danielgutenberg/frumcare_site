@@ -18,7 +18,7 @@ class Cleaninghousehold extends CI_Controller{
         $option = "distance";
         $account_category = 3;
         $care_type = 15;//blank for careseekers and caregiver
-        $title = "Cleaning/ household help company";        
+        $title = "Cleaning / household help company";        
         $distance = "unlimited";                     
         $this->breadcrumbs->push($title, site_url().'#');
         $this->breadcrumbs->unshift('Home', base_url());

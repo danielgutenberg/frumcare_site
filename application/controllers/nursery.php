@@ -21,7 +21,7 @@ class Nursery extends CI_Controller{
         $option = "distance";
         $account_category = 1;
         $care_type = 3;//blank for careseekers and caregiver
-        $title = "Nursery/ Playgroup/ Drop off/ Gan";        
+        $title = "Nursery / Playgroup / Drop off / Gan";        
         $distance = "unlimited";                     
         $this->breadcrumbs->push($title, site_url().'#');
         $this->breadcrumbs->unshift('Home', base_url());

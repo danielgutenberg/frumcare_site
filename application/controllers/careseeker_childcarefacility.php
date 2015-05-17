@@ -20,7 +20,7 @@ class Careseeker_childcarefacility extends CI_Controller{
         $account_category = 3;
         $care_type = 25;//blank for careseekers and caregiver
         if(segment(1) == 'caregivers') $title = "Workers/ staff for childcare facility";
-        else $title = "Workers/ staff for childcare facility jobs";        
+        else $title = "Workers / staff for childcare facility jobs";        
         $distance = "unlimited";                     
         $this->breadcrumbs->push($title, site_url().'#');
         $this->breadcrumbs->unshift('Home', base_url());

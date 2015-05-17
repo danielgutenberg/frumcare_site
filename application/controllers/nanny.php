@@ -20,7 +20,7 @@
         $option = "distance";
         $account_category = 1;
         $care_type = 2;//blank for careseekers and caregiver
-        $title = "Nanny/Au-pair";        
+        $title = "Nanny / Au-pair";        
         $distance = "unlimited";                     
         $this->breadcrumbs->push($title, site_url().'#');
         $this->breadcrumbs->unshift('Home', base_url());
@@ -186,7 +186,7 @@
     }
 
     function pages(){
-        $this->breadcrumbs->push('Nanny/Au-Pair', site_url().'#');
+        $this->breadcrumbs->push('Nanny / Au-Pair', site_url().'#');
         $this->breadcrumbs->unshift('Home', base_url());
 
          if(isset($this->session->userdata['search_limit'])){
@@ -218,7 +218,7 @@
 
         $data = array(
             'main_content' => 'frontend/nanny/index',
-            'title'        => 'Nanny/Au-Pair',
+            'title'        => 'Nanny / Au-Pair',
             'ipdata'       =>   $this->common_model->getIPData($this->ipaddress),
             'userdatas'    => $userdata,
             'userlogs'     => $this->user_model->getUserLog()

@@ -18,7 +18,7 @@ class Seniorcarecenter extends CI_Controller{
         $option = "distance";
         $account_category = 3;
         $care_type = 16;//blank for careseekers and caregiver
-        $title = "Assisted living/ Senior Care Center/ Nursing Home";        
+        $title = "Assisted living / Senior Care Center / Nursing Home";        
         $distance = "unlimited";                     
         $this->breadcrumbs->push($title, site_url().'#');
         $this->breadcrumbs->unshift('Home', base_url());

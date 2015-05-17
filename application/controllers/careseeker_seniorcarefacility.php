@@ -19,8 +19,8 @@ class Careseeker_seniorcarefacility extends CI_Controller{
         $option = "distance";
         $account_category = 3;
         $care_type = 26;//blank for careseekers and caregiver
-        if(segment(1) == 'caregivers') $title = "Workers/ staff for senior care facility";
-        else $title = "Workers/ staff for senior care facility jobs";        
+        if(segment(1) == 'caregivers') $title = "Workers / staff for senior care facility";
+        else $title = "Workers / staff for senior care facility jobs";        
         $distance = "unlimited";                     
         $this->breadcrumbs->push($title, site_url().'#');
         $this->breadcrumbs->unshift('Home', base_url());

@@ -1,4 +1,4 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+ <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Tutor extends CI_Controller{
     function __construct(){
         parent::__construct();
@@ -17,7 +17,7 @@ class Tutor extends CI_Controller{
         $option = "distance";
         $account_category = 1;
         $care_type = 4;//blank for careseekers and caregiver
-        $title = "Tutor/ Private lessons";        
+        $title = "Tutor / Private lessons";        
         $distance = "unlimited";                     
         $this->breadcrumbs->push($title, site_url().'#');
         $this->breadcrumbs->unshift('Home', base_url());
@@ -149,7 +149,7 @@ class Tutor extends CI_Controller{
     }
 
     function pages(){
-         $this->breadcrumbs->push('Tutor/Private lesson', site_url().'#');
+         $this->breadcrumbs->push('Tutor / Private lesson', site_url().'#');
         $this->breadcrumbs->unshift('Home', base_url());
 
          if(isset($this->session->userdata['search_limit'])){
@@ -181,7 +181,7 @@ class Tutor extends CI_Controller{
 
         $data = array(
             'main_content' => 'frontend/tutor/index',
-            'title'        => 'Tutor/Private lesson',
+            'title'        => 'Tutor / Private lesson',
             'ipdata'       =>   $this->common_model->getIPData($this->ipaddress),
             'userdatas'    => $userdata,
             'userlogs'     => $this->user_model->getUserLog()
