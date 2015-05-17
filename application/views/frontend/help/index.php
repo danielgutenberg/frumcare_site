@@ -10,15 +10,15 @@
 		<strong>How can we help you?</strong>
 	</div>
 
-	
+	<form id="helpsearch" method="get" action="<?php echo site_url();?>search">
 	<div class="help-search">
-		<form id="helpsearch" method="get" action="<?php echo site_url();?>search">
+		
 		<img type="submit" src="<?php echo site_url();?>img/search-help.png" height="42" width="42" style="border-radius:6px; cursor:pointer;">
 		<input name="search_for" type="text" value="" placeholder="What do you need help with?" size="50" style="vertical-align:middle; background:none !important; width:725px !important" />
 		<input type="hidden" name="category" value="All" />
-		</form>
+		
 	</div>
-	
+	</form>
 
 	<div class="help-links">
 		<!--<span class="watch-video"><a href="#" class="btn btn-primary">Watch Video Tutorials</a></span>-->
