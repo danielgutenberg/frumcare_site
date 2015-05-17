@@ -18,16 +18,16 @@ class Organizations extends CI_Controller
             $option = "distance";
             $account_category = 3;
             if( segment(3) == 'workers-staff-for-childcare-facility' ) {
-                $title = "Workers/Staff for childcare facility";
+                $title = "Workers / Staff for childcare facility";
                 $care_type = 25;
             }
             elseif( segment(3) == 'workers-staff-for-senior-care-facility') {
-                $title = "Workers/Staff for senior care facility";
+                $title = "Workers / Staff for senior care facility";
                 $care_type = 26;
             }
             
             elseif( segment(3) == 'workers-staff-for-special-needs-facility') {
-                $title = "workers/Staff for special needs facility";
+                $title = "Workers / Staff for special needs facility";
                 $care_type = 27;
             }
             
