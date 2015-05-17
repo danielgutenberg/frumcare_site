@@ -91,7 +91,7 @@
                   <option value="Assisted living residence">Assisted living residence</option>
                   <option value="Senior care center/ nursing home">Senior care center / nursing home</option>
                   <option value="Senior care agency">Senior care agency</option>
-                  <option value="Rehab/therapy center">Rehab /therapy center</option>
+                  <option value="Rehab/therapy center">Rehab / therapy center</option>
                   <option value="Other">Other</option>
                </select>
                <?php

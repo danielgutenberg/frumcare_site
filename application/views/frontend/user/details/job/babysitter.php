@@ -128,7 +128,7 @@
     <?php if(!empty($availability)){ ?>
         <?php $temp = explode(',',$availability); ?>
         <tr id="availability1">
-            <td>Days / Hours</td>
+            <td>Availability</td>
             <td>
                 <div class="details-info"><?php if(in_array("One Time",$temp)){ echo $tick; }else{ echo $cross; }?> One Time</div>
                 <div class="details-info"><?php if(in_array("Occassionally",$temp)){ echo $tick; }else{ echo $cross; }?> Occassionally</div>
@@ -147,7 +147,7 @@
     <?php }else{
             ?>
                 <tr>
-                    <td >Days / Hours</td>
+                    <td >Availability</td>
                     <td>N/A</td>
                 </tr>
             <?php
@@ -187,7 +187,7 @@
         <tr>
             <td>Wage</td>
             <td >
-            <?php echo $rate . '/Hr'; 
+            <?php echo $rate . ' / Hr'; 
             $type = explode(',',$rate_type);
             ?>
             <!--<div class="details-info"><?php if(in_array('1',$type)){echo $tick; }else{echo $cross; } ?>  Hourly Rate</div>-->

@@ -97,13 +97,13 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <div class="form-field">
                 <select name="rate" class="required rate">
                     <option value="">Select wage</option>
-                    <option value="5-10">$5-$10/Hr</option>
-                    <option value="10-15">$5-$10/Hr</option>
-                    <option value="15-25">$15-$25/Hr</option>
-                    <option value="25-35">$25-$35/Hr</option>
-                    <option value="35-45">$35-$45/Hr</option>
-                    <option value="45-55">$45-$55/Hr</option>
-                    <option value="55+">$55+/Hr</option>
+                    <option value="5-10">$5-$10 / Hr</option>
+                    <option value="10-15">$5-$10 / Hr</option>
+                    <option value="15-25">$15-$25 / Hr</option>
+                    <option value="25-35">$25-$35 / Hr</option>
+                    <option value="35-45">$35-$45 / Hr</option>
+                    <option value="45-55">$45-$55 / Hr</option>
+                    <option value="55+">$55+ / Hr</option>
                 </select>
             </div>
         </div>
