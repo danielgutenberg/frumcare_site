@@ -115,7 +115,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 					</div>
 				</div>
 				<div>
-					<label>When you need care</label>
+					<label>Availability</label>
 					<div class="form-field">
 						<div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]"/>Immediate</div>
 						<div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date <input  type="text" name="start_date" id="textbox1"/></div>
@@ -130,7 +130,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 						<div class="checkbox"><input type="checkbox" value="24 hr care" name="availability[]"> <span>24 hr care</span></div>						
 					</div>
 				</div>	
-				<h2>Abilities (check if yes)</h2>
+				<h2>Abilities</h2>
 				<div class="checkbox-wrap">
 					<div>
 						<input type="checkbox" value="1" name="driver_license"> Drivers license

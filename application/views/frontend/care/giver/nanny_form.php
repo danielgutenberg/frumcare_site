@@ -71,7 +71,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 					<div class="form-field">						
 						<div class="checkbox"><input type="checkbox" value="CPR" name="training[]"> <span>CPR</span></div>
 						<div class="checkbox"><input type="checkbox" value="First Aid" name="training[]"> <span>First Aid</span></div>					
-						<div class="checkbox"><input type="checkbox" value="Nanny/ Babysitter Course" name="training[]"> <span>Nanny/ Babysitter Course</span></div>
+						<div class="checkbox"><input type="checkbox" value="Nanny/ Babysitter Course" name="training[]"> <span>Nanny / Babysitter Course</span></div>
 						<div class="checkbox"><input type="checkbox" value="Other" name="training[]"> <span>Other</span></div>					
 					</div>
 				</div>
@@ -97,7 +97,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                     <div class="checkbox"><input type="checkbox" value="3" name="rate_type[]">Room and Board Available</div>
                 </div>        
 				<div>
-					<label>When you need care</label>
+					<label>Availability</label>
 					<div class="form-field">
 						<div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]"/> Immediate</div>
 						<div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date <input  type="text" name="start_date" id="textbox1"/></div>

@@ -82,7 +82,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 </div>
             </div>
             <div>
-                <label>When you need care</label>
+                <label>Availability</label>
                 <div class="form-field">                    
                     <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]"/> Immediate</div>
                     <div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date <input  type="text" name="start_date" id="textbox1"/></div>
@@ -95,6 +95,20 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                     <div class="checkbox"><input type="checkbox" value="Saturday" name="availability[]"> <span>Saturday</span></div>
                 </div>
             </div>
+            	<div>
+            <label>References</label>
+            <div class="form-field not-required">
+            <div class="radio"><input type="radio" id="ref_check1" value="1" name="references" class="required" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?>/> Yes</div>
+            <div class="radio"><input type="radio" id="ref_check2" value="2" name="references" class="required" <?php echo isset($ref) && $ref == 2 ? 'checked' : '' ?> checked/> No</div>
+            </div>
+        </div>
+        <div class="refrence_file" style="display:none;">
+            <label></label>
+            <input type="hidden" id="file-name" name="file">
+            <button class="btn btn-primary" id="select_file">Select File</button>
+            <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
+            <div id="output" class="loader"></div>
+        </div>
             <br />
             <div>
                 <input type="submit" class="btn btn-success" value="Save <?php if($this->uri->segment(2) != 'new_profile'){echo '& Continue';}?>"/>

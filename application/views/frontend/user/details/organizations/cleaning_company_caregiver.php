@@ -78,11 +78,11 @@
      else
       $type = "Monthly Rate";
     ?>
-    <td>Wage</td>
-    <td><div class="details-info"><?php echo $rate.' /Hr ';?></div></td>
+    <td>Rate</td>
+    <td><div class="details-info"><?php echo $rate.' / Hr ';?></div></td>
     <?php }  
                 else{ ?>
-                    <td>Wage</td>
+                    <td>Rate</td>
                     <td>N/A</td>
     <?php } ?>
   </tr>  

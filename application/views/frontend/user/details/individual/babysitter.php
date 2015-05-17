@@ -164,7 +164,31 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
                 <td>N/A</td>
             </tr>
         <?php            
-        } ?>    
+        } ?> 
+    <?php
+    if($references==1){?>
+    <tr>
+    	<td >References Details</td>
+    	<td >
+    		
+    	</td>
+    </tr>
+    <?php }
+    else{ ?>
+            <tr>
+                <td>References Details</td>
+                <td>N/A</td>
+            </tr>
+        <?php            
+        } ?>
+    
+    <tr>
+    	<td >Agree to Background Check?</td>
+    	<td >
+    		<?php if ($agree_bg_check == 1) { echo 'yes';}
+    		else { echo 'no';} ?>
+    	</td>
+    </tr>
     <tr>
     	<td >Abilities and skills</td>
         <td >
@@ -172,7 +196,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
             <div class="details-info"><?php echo isset($vehicle) && $vehicle == 1 ? $tick : $cross?> I have a vehicle</div>
             <div class="details-info"><?php echo isset($pick_up_child) && $pick_up_child == 1 ? $tick : $cross?>Able to pick up kids from school</div>
             <div class="details-info"><?php echo isset($cook) && $cook == 1 ? $tick : $cross?>Able to cook and prepare food</div>
-            <div class="details-info"><?php echo isset($basic_housework) && $basic_housework == 1 ? $tick : $cross?>Able to do light housework/ cleaning</div>
+            <div class="details-info"><?php echo isset($basic_housework) && $basic_housework == 1 ? $tick : $cross?>Able to do light housework / cleaning</div>
             <div class="details-info"><?php echo isset($homework_help) && $homework_help == 1 ? $tick : $cross?>Able to help with homework</div>
             <div class="details-info"><?php echo isset($sick_child_care) && $sick_child_care == 1 ? $tick : $cross?>Able to care for sick child</div>
             <div class="details-info"><?php echo isset($on_short_notice) && $on_short_notice == 1 ? $tick : $cross?>Available on short notice</div>            

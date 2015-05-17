@@ -88,6 +88,13 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
           }
       
       ?>
+      <tr>
+    	<td >Agree to Background Check?</td>
+    	<td >
+    		<?php if ($agree_bg_check == 1) { echo 'yes';}
+    		else { echo 'no';} ?>
+    	</td>
+    </tr>
       <tr>    
         <td>Abilities</td>
         <td>

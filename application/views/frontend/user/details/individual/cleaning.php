@@ -90,10 +90,27 @@ if(!empty($willing_to_work)){
                     <td>N/A</td>
                 </tr>
             <?php
+            
           }
+         if($references==1){?>
+    <tr>
+    	<td >References</td>
+    	<td >
+    		<a href="#">Download</a>
+    	</td>
+    </tr>
+    <?php }
+    else{ ?>
+            <tr>
+                <td>References</td>
+                <td>N/A</td>
+            </tr>
+        <?php            
+        } ?> 
   if(!empty($availability)){
     $time = explode(',',$availability);
     ?>
+    
     <tr>
        <td id="availability1">Availability </td>
        <td>

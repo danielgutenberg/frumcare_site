@@ -81,7 +81,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 </div>
             </div>
             <div>
-                <label>Languages Spoken</label>
+                <label>Languages</label>
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" name="language[]" value="English"> English</div>
                     <div class="checkbox"><input type="checkbox" name="language[]" value="Yiddish"> Yiddish</div>

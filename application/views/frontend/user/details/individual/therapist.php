@@ -21,6 +21,22 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
                 </tr>
             <?php
           }
+          if(!empty($experience)){?>
+    <tr>
+    	<td>Years in Practice</td>
+    	<td>    		
+            <?php echo $experience; ?>  
+        </td>
+    </tr>
+    <?php }
+    else{
+            ?>
+                <tr>
+                    <td>Years in Practice</td>
+                    <td>N/A</td>
+                </tr>
+            <?php
+          }
                 if(!empty($certification)){
                     if(segment(4)== 7 ){
                         $info = "Information";
@@ -43,22 +59,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
                 </tr>
             <?php
           }
-    if(!empty($experience)){?>
-    <tr>
-    	<td>Years in Practice</td>
-    	<td>    		
-            <?php echo $experience; ?>  
-        </td>
-    </tr>
-    <?php }
-    else{
-            ?>
-                <tr>
-                    <td>Years in Practice</td>
-                    <td>N/A</td>
-                </tr>
-            <?php
-          }
+    
     if(!empty($licence_information)){?>
     <?php /* <tr>
     	<td >Licence information</td>
@@ -98,8 +99,28 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
           ?>
 
     <tr>
+        <td>Accepts Insurance</td>
+        <td><?php if ($accept_insurance == 1) {echo 'yes';} else { echo 'no';}?></td>
+    </tr>
+    <tr>
         <td>Payment Options</td>
         <td><?php echo !empty( $payment_option ) ? $payment_option : 'N/A'; ?></td>
     </tr>
+    <?php
+    if($references==1){?>
+    <tr>
+    	<td >References</td>
+    	<td >
+    		<a href="#">Download</a>
+    	</td>
+    </tr>
+    <?php }
+    else{ ?>
+            <tr>
+                <td>References</td>
+                <td>N/A</td>
+            </tr>
+        <?php            
+        } ?> 
 </table>
 </div>

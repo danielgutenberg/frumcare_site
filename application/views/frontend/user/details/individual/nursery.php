@@ -72,7 +72,28 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
                     <td>N/A</td>
                 </tr>
             <?php
-          }?>
+          }
+          if(!empty($training)){
+        $trainingtemp = explode(',',$training);
+        ?>
+        <tr>
+           <td >Training </td>
+           <td >
+            <div class="details-info"><?php if(in_array('CPR', $trainingtemp)){ echo $tick; }else{echo $cross; } ?>  CPR</div>
+            <div class="details-info"><?php if(in_array('First Aid', $trainingtemp)){ echo $tick; }else{echo $cross; } ?> First Aid</div>
+            <div class="details-info"><?php if(in_array('Nanny/ Babysitter Course', $trainingtemp)){ echo $tick; }else{echo $cross; } ?> Nanny/ Babysitter Course</div>
+            <div class="details-info"><?php if(in_array('Other', $trainingtemp)){ echo $tick; }else{echo $cross; } ?> Other</div>                      
+        </td>	
+    </tr>
+    <?php }
+    else{ ?>
+            <tr>
+                <td>Training</td>
+                <td>N/A</td>
+            </tr>
+        <?php            
+        } ?>
+          
             <?php
             if(!empty($experience)){?>
             <tr>
@@ -140,6 +161,21 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
                 <td>N/A</td>
             </tr>
         <?php
-    } ?>
+    }
+    if($references==1){?>
+    <tr>
+    	<td >References</td>
+    	<td >
+    		<a href="#">Download</a>
+    	</td>
+    </tr>
+    <?php }
+    else{ ?>
+            <tr>
+                <td>References</td>
+                <td>N/A</td>
+            </tr>
+        <?php            
+        } ?> 
 </table>     
 </div>

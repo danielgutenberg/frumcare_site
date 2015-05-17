@@ -211,7 +211,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 				<td>
 					<?php echo $vacation_days;?>
 					<?php if(!empty($pdf)){?>
-					<a href="<?php echo site_url();?>uploads/files/<?php echo $pdf;?>" target="_blank"> Click here to view/Download</a>
+					<a href="<?php echo site_url();?>uploads/files/<?php echo $pdf;?>" target="_blank"> Click here to view / Download</a>
 					<?php } ?>
 				</td>
 				<?php }  
@@ -224,15 +224,15 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 			<tr>
 				<?php if(isset($references)){?>
 				<?php if($references == 1){?>
-				<td>Refrences</td>
+				<td>References</td>
 				<td>
-					<a href="<?php echo site_url();?>uploads/files/<?php echo $reference_file;?>" target="_blank"> Click here to view/Download</a>
+					<a href="<?php echo site_url();?>uploads/files/<?php echo $reference_file;?>" target="_blank"> Click here to view / Download</a>
 				</td>
 				<?php 
 			} ?>
 		<?php }  
                 else{ ?>
-                    <td>Refrences</td>
+                    <td>References</td>
                     <td>N/A</td>
                     <?php } ?>
 	</tr>

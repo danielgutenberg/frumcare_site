@@ -57,7 +57,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                     <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
                 </div>
 		<div>
-			<label>When you need care</label>
+			<label>Availability</label>
 			<div class="form-field">
 				<div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]"/> Immediate</div>
 				<div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]"> <span>Start Date</span> <input type="inbox" id="textbox1" value="" name="start_date"></div>

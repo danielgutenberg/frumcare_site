@@ -16,7 +16,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
         ?>
 		<tr>
 			<?php if(!empty($established)){?>
-			<td>Established</td>
+			<td>Year Established</td>
 			<td><?php echo $established;?></td>
 				<?php }  
                 else{ ?>
@@ -49,7 +49,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 
 			<tr>
 				<?php if(!empty($number_of_staff)){?>
-				<td>Number of staff( per patient)</td>
+				<td>Number of staff</td>
 				<td><?php echo $number_of_staff;?></td>
 					<?php }  
                 else{ ?>
@@ -85,25 +85,25 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 			</tr>
 
 			<tr>
-				<?php if(!empty($rate)){
-					if($rate_type == 1)
-						$type = 'Per Hour';
-					else
-						$type = 'Per Monthly';
-					?>
-
-					<td>Wage</td>
-					<td>
-						<div class="details-info"><?php echo $rate.' /Hr';?></div>
-					</td>
-                    <?php }  
+		<?php if(!empty($rate)){
+			if($rate_type == 1)
+				$type = 'Per Hour';
+			else
+				$type = 'Per Monthly';
+		?>
+		
+		<td>Cost</td>
+		<td>
+			<div><?php echo $rate.' ';?></div>
+		</td>
+        <?php }  
                 else{ ?>
-                    <td>Wage</td>
+                    <td>Cost</td>
                     <td>N/A</td>
-					<?php 
-				}
-				?>
-			</tr>
+		<?php 
+			}
+		?>
+	</tr>
 		
 
 		<tr>
