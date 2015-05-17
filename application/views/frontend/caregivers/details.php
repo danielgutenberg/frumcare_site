@@ -59,15 +59,27 @@
                                <span class="age-wrap"><?php echo 'N/A'. '<span>Age</span>';?></span>
                                <?php
                            }
-                           if(!empty($recordData['rate'])){ ?>                                                        
-                           <?php $rate_type = $recordData['rate_type']==2?'monthly':'hr'?>
-                           <span class="hour-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Rate</span>'; ?></span>
-                           <?php
+                        if($this->uri->segment(4) == 3) {
+                            if(!empty($recordData['rate'])){ ?>                                                        
+                       <?php $rate_type = $recordData['rate_type']==2?' / hr':' / hr'?>
+                       <span class="hour-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Rate</span>'; ?></span>
+                       <?php
                        }
                        else{ ?>
                        <span class="hour-wrap"><?php echo 'N/A'.'<span>Rate</span>'; ?></span>
                        <?php
-                   }
+                   } } else {
+                            
+                            
+                       if(!empty($recordData['rate'])){ ?>                                                        
+                       <?php $rate_type = $recordData['rate_type']==2?' / hr':' / hr'?>
+                       <span class="hour-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Rate</span>'; ?></span>
+                       <?php
+                       }
+                       else{ ?>
+                       <span class="hour-wrap"><?php echo 'N/A'.'<span>Rate</span>'; ?></span>
+                       <?php
+                   }}
                    if(!empty($recordData['experience'])){ ?>               
                    <span class="experience-wrap"><?php echo $recordData['experience']. ' <span>Years Experience</span>';?></span>
                    <?php

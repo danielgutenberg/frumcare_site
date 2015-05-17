@@ -122,7 +122,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <div class="checkbox"><input type="checkbox" value="Asap" name="availability[]"/> Asap</div>
                 <div class="checkbox"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date
                  <input  type="text" name="start_date" id="textbox1" autocomplete="off"/></div>      
-                <label>Job Days / Hours</label>
+                <label>Days / Hours</label>
                 <br>
                  <label style="width:25%">Sun</label><input type="text" name="sunday_from" class="time" style="width:25%"> to  <input type="text" name="sunday_to" class="time" style="width:25%">
                  <br>
