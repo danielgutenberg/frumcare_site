@@ -62,11 +62,11 @@
                         if($this->uri->segment(4) == 3) {
                             if(!empty($recordData['rate'])){ ?>                                                        
                        <?php $rate_type = $recordData['rate_type']==2?' / hr':' / hr'?>
-                       <span class="hour-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Rate</span>'; ?></span>
+                       <span class="hour-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
                        <?php
                        }
                        else{ ?>
-                       <span class="hour-wrap"><?php echo 'N/A'.'<span>Rate</span>'; ?></span>
+                       <span class="hour-wrap"><?php echo 'N/A'.'<span>Cost</span>'; ?></span>
                        <?php
                    } } else {
                             
