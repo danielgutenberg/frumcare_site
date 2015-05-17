@@ -85,10 +85,10 @@
                         <div class="search">
                         <form method="get" action="<?php echo site_url();?>search">
                             <div class="search-select">
-                            <select name="category" style="width: 100%">
-                                <option value="all">All</option>
-                                <option value="caregiver" class="selected">Caregivers</option>
-                                <option value="careseeker">Jobs</option>
+                            <select name="category" style="width: 100%; color: rgb(190, 186, 179);">
+                                <option value="all" style="background-color: white; color: grey;">All</option>
+                                <option value="caregiver" style="background-color: white; color: grey;" class="selected">Caregivers</option>
+                                <option value="careseeker" style="background-color: white; color: grey;">Jobs</option>
                             </select>
                             </div>
 
