@@ -1,3 +1,8 @@
+<script>
+   $('form img').click(function(){
+      $('#helpsearch').submit();
+   });
+</script>
 <div class="container">
 	<?php echo $this->breadcrumbs->show(); ?>
 
@@ -5,10 +10,10 @@
 		<strong>How can we help you?</strong>
 	</div>
 
-	<form method="get" action="<?php echo site_url();?>search">
+	<form id="helpsearch" method="get" action="<?php echo site_url();?>search">
 	<div class="help-search">
-		<img type="submit" src="<?php echo site_url();?>img/search-help.png" height="42" width="42" style="border-radius:6px">
-		<input name="search_for" type="text" placeholder="What do you need help with?" size="50" style="vertical-align:middle; background:none !important; width:725px !important" />
+		<img type="submit" src="<?php echo site_url();?>img/search-help.png" height="42" width="42" style="border-radius:6px; cursor:pointer;">
+		<input name="search_for" type="text" value="" placeholder="What do you need help with?" size="50" style="vertical-align:middle; background:none !important; width:725px !important" />
 		<input type="hidden" name="category" value="All" />
 	</div>
 
