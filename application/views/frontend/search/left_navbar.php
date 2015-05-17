@@ -9,14 +9,14 @@
  				<select name="service" class="service required">
 					<option value="">--select--</option>
 					<option value="1" <?php if(segment(1) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
-					<option value="2" <?php if(segment(1) == 'nanny'){?> selected="selected" <?php }?> >Nanny/Au-pair</option>
-					<option value="3" <?php if(segment(1) == 'nursery'){?> selected="selected" <?php }?>>Nursery/ Playgroup/ Drop off/ Gan</option>
-					<option value="4" <?php if(segment(1) == 'tutor'){?> selected="selected" <?php }?>>Tutor/ Private lessons</option>
+					<option value="2" <?php if(segment(1) == 'nanny'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>
+					<option value="3" <?php if(segment(1) == 'nursery'){?> selected="selected" <?php }?>>Nursery / Playgroup / Drop off / Gan</option>
+					<option value="4" <?php if(segment(1) == 'tutor'){?> selected="selected" <?php }?>>Tutor / Private lessons</option>
 					<option value="5" <?php if(segment(1) == 'senior_caregiver'){?> selected="selected" <?php }?> >Senior Caregiver</option>
 					<option value="6" <?php if(segment(1) == 'special_needs_caregiver'){?> selected="selected" <?php }?>>Special needs caregiver</option>
 					<option value="7" <?php if(segment(1) == 'therapist'){?> selected="selected" <?php }?>>Therapist</option>
-					<option value="8" <?php if(segment(1) == 'cleaning'){?> selected="selected" <?php }?>>Cleaning/ household help</option>
-					<option value="9" <?php if(segment(1) == 'errand_runner'){?> selected="selected" <?php }?>>Errand Runner/Odd Jobs</option>
+					<option value="8" <?php if(segment(1) == 'cleaning'){?> selected="selected" <?php }?>>Cleaning / household help</option>
+					<option value="9" <?php if(segment(1) == 'errand_runner'){?> selected="selected" <?php }?>>Errand Runner / Odd Jobs</option>
  				</select>
 	 		</div>
 
@@ -56,9 +56,9 @@
 	 			<div class="checkbox"><input type="checkbox" name="languages[]" value="Other" class="lang"> Other</div>
 	 		</div>
 	 		<div>
-	 			<label>Level of observance (check one or more)</label>
-	 			<div class="checkbox first"><input type="checkbox" value="Yeshivish/Chasidish" name="observance[]" class="hidefamiliar observance">Yeshivish/Chasidish</div>
-	 			<div class="checkbox"><input type="checkbox" value="Orthodox/Modern orthodox" name="observance[]" class="hidefamiliar observance">Orthodox/Modern orthodox</div>
+	 			<label>Level of observance</label>
+	 			<div class="checkbox first"><input type="checkbox" value="Yeshivish/Chasidish" name="observance[]" class="hidefamiliar observance">Yeshivish / Chasidish</div>
+	 			<div class="checkbox"><input type="checkbox" value="Orthodox/Modern orthodox" name="observance[]" class="hidefamiliar observance">Orthodox / Modern orthodox</div>
 	 			<div class="checkbox"><input type="checkbox" value="Other" name="observance[]" class="show observance">Other</div>
 	 			<div class="checkbox"><input type="checkbox" value="Not Jewish" name="observance[]" class="show observance">Not Jewish</div>
 	 			<div class="checkbox"><input type="checkbox" value="Any" name="observance[]" class="hidefamiliar observance">Any</div>
@@ -97,7 +97,7 @@
 	 		<div>
 	 			<label>Care Location</label>
 	 			<div class="checkbox first"><input type="checkbox" value="Child's home" class="looking_to_work">Child's home</div>
-	 			<div class="checkbox"><input type="checkbox" value="My home" class="looking_to_work">Caregivers home</div>
+	 			<div class="checkbox"><input type="checkbox" value="My home" class="looking_to_work">Caregiver's home</div>
 	 			<div class="checkbox"><input type="checkbox" value="Mother's helper" class="looking_to_work">Mother's helper</div>
 	 		</div>
 
@@ -113,14 +113,14 @@
 		 			</select>
 		 	</div>
 		 	<div>
-		 		<label>Training(check one or more)</label>
+		 		<label>Training</label>
 		 		<div class="checkbox first"><input type="checkbox" class="training" value="CPR">CPR</div>
 		 		<div class="checkbox"><input type="checkbox" class="training" value="First Aid">First Aid</div>
-		 		<div class="checkbox"><input type="checkbox" class="training" value="Nanny/Babysitter Course">Nanny/Babysitter Course</div>
+		 		<div class="checkbox"><input type="checkbox" class="training" value="Nanny/Babysitter Course">Nanny / Babysitter Course</div>
 		 		<div class="checkbox"><input type="checkbox" class="training" value="Other">Other</div>
 		 	</div>
 		 	<div>
-		 		<label>Availability (check one or more)</label>
+		 		<label>Availability</label>
 		 		<div class="checkbox first"><input type="checkbox" class="availability" value="Immediate">Immediate</div>
 		 		<div class="checkbox full"><input type="checkbox" id="chkbox1" value="Start Date">Start Date<input type="text" id="textbox1"/></div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Occasionally">Occasionally</div>
@@ -129,7 +129,7 @@
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Afternoon">Afternoon</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Evening">Evening</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Night Nurse">Night Nurse</div>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Weekends Fri/Sun">Weekends Fri/Sun</div>
+		 		<div class="checkbox"><input type="checkbox" class="availability" value="Weekends Fri/Sun">Weekends Fri / Sun</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Shabbos">Shabbos</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Vacation Sitter">Vacation Sitter</div>
 		 	</div>
@@ -139,7 +139,7 @@
 		 		<div class="checkbox full"><input type="checkbox" class="vehicle" value="1">Vehicle</div>
 		 		<div class="checkbox"><input type="checkbox" class="pick_up_child" value="1">Able to pick up kids from school</div>
 		 		<div class="checkbox"><input type="checkbox" class="cook" value="1">Able to cook and prepare food</div>
-		 		<div class="checkbox"><input type="checkbox" class="basic_housework" value="1">Able to do light housework/ cleaning</div>
+		 		<div class="checkbox"><input type="checkbox" class="basic_housework" value="1">Able to do light housework / cleaning</div>
 		 		<div class="checkbox"><input type="checkbox" class="homework_help" value="1">Able to help with homework</div>
 		 		<div class="checkbox"><input type="checkbox" class="sick_child_care" value="1">Able to care for sick child</div>
 		 		<div class="checkbox"><input type="checkbox" class="on_short_notice" value="1">Available on short notice</div>
@@ -183,13 +183,13 @@
 		$('.service').change(function(){
 			$('#care_type').val($(this).val());
             var pagelink = $(this).find("option:selected").text();         
-            if(pagelink == 'Nanny/Au-pair')
+            if(pagelink == 'Nanny / Au-pair')
                 var locationaddress = 'nanny';
             if(pagelink == 'Babysitter')
                 var locationaddress = 'babysitter';
-            if(pagelink == 'Nursery/ Playgroup/ Drop off/ Gan')
+            if(pagelink == 'Nursery / Playgroup / Drop off / Gan')
                 var locationaddress = 'nursery';
-            if(pagelink == 'Tutor/ Private lessons')
+            if(pagelink == 'Tutor / Private lessons')
                 var locationaddress = 'tutor';
              if(pagelink == 'Senior Caregiver')
                 var locationaddress = 'senior_caregiver';
@@ -197,9 +197,9 @@
                 var locationaddress = 'special_needs_caregiver';
             if(pagelink == 'Therapist')
                 var locationaddress = 'therapist';
-            if(pagelink == 'Cleaning/ household help')
+            if(pagelink == 'Cleaning / household help')
                 var locationaddress = 'cleaning';
-             if(pagelink == 'Errand Runner/Odd Jobs')
+             if(pagelink == 'Errand Runner / Odd Jobs')
                 var locationaddress = 'errand_runner';       
                 
             location.href = '<?php echo site_url();?>'+locationaddress;                

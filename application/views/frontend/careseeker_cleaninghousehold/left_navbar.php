@@ -28,12 +28,12 @@
  			<div>
 	 			<label>Job Type</label>
 	 			<div class="checkbox"><input type="checkbox" value="Home" class="looking_to_work">Home</div>
-	 			<div class="checkbox"><input type="checkbox" value="Office/Business" class="looking_to_work">Office/Business</div>
+	 			<div class="checkbox"><input type="checkbox" value="Office/Business" class="looking_to_work">Office / Business</div>
 	 			<div class="checkbox"><input type="checkbox" value="Any" class="looking_to_work">Any</div>
 	 		</div>
 
 	 		<div>
-		 		<label>Job Hours (check one or more)</label>
+		 		<label>Job Hours</label>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="One Time">One time</div>
                 <div class="checkbox"><input type="checkbox" class="availability" value="Occasionally">Occasionally</div>
                 <div class="checkbox"><input type="checkbox" class="availability" value="Regularly">Regularly</div>
@@ -42,7 +42,7 @@
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Morning">Morning</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Afternoon">Afternoon</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Evening">Evening</div>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Weekends Fri/Sun">Weekends Fri/Sun</div>
+		 		<div class="checkbox"><input type="checkbox" class="availability" value="Weekends Fri/Sun">Weekends Fri / Sun</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Shabbos">Shabbos</div>
 		 	</div>
             <div>
@@ -56,19 +56,18 @@
                 <label>Wage</label>
                 <select name="rate" class="rate">
                     <option value="">Select rate</option>
-                    <option value="5-10">$5-$10</option>
-                    <option value="10-15">$10-$15</option>
-                    <option value="15-25">$15-$25</option>
-                    <option value="25-35">$25-$35</option>
-                    <option value="35-45">$35-$45</option>
-                    <option value="45-55">$45-$55</option>
-                    <option value="55+">$55+</option>
+                    <option value="5-10">$5-$10 / Hr</option>
+                    <option value="10-15">$10-$15 / Hr</option>
+                    <option value="15-25">$15-$25 / Hr</option>
+                    <option value="25-35">$25-$35 / Hr</option>
+                    <option value="35-45">$35-$45 / Hr</option>
+                    <option value="45-55">$45-$55 / Hr</option>
+                    <option value="55+">$55+ / Hr</option>
                 </select>    
         </div>
         <div>
-            <label></label>
-            <div class="checkbox"><input type="checkbox" class="rate_type" value="1" name="rate_type[]">Per Hour</div>
-            <div class="checkbox"><input type="checkbox" class="rate_type" value="2" name="rate_type[]">Global Monthly Payment</div>
+            
+            <div class="checkbox"><input type="checkbox" class="rate_type" value="2" name="rate_type[]">Monthly payment available</div>
         </div>
 
             	<div>
@@ -96,11 +95,11 @@ $(function () {
         $('.service').change(function(){
     		$('#care_type').val($(this).val());
             var pagelink = $(this).find("option:selected").text();
-            if(pagelink == 'Nanny/Au-pair')
+            if(pagelink == 'Nanny / Au-pair')
                 var locationaddress = 'careseeker_nanny';
             if(pagelink == 'Babysitter')
                 var locationaddress = 'careseeker_babysitter';
-            if(pagelink == 'Tutor/ Private lessons')
+            if(pagelink == 'Tutor / Private lessons')
                 var locationaddress = 'careseeker_tutor';
              if(pagelink == 'Senior Caregiver')
                 var locationaddress = 'careseeker_seniorcaregiver';
@@ -108,18 +107,18 @@ $(function () {
                 var locationaddress = 'careseeker_specialneedscaregiver';
             if(pagelink == 'Therapist')
                 var locationaddress = 'careseeker_therapist';
-            if(pagelink == 'Cleaning/ household help')
+            if(pagelink == 'Cleaning / household help')
                 var locationaddress = 'careseeker_cleaninghousehold';
-            if(pagelink == 'Errand runner/ odd jobs/ personal assistant/ driver')
+            if(pagelink == 'Errand runner / odd jobs / personal assistant / driver')
                 var locationaddress = 'careseeker_errandrunner';       
             if(pagelink == '--select--')
                 var locationaddress = 'careseekers'; 
             location.href = '<?php echo site_url();?>'+locationaddress;
-            if(pagelink == 'Workers/ staff for childcare facility')
+            if(pagelink == 'Workers / staff for childcare facility')
                 location.href = '<?php echo site_url();?>careseeker_childcarefacility';
-            if(pagelink == 'Workers/ staff for senior care facility')
+            if(pagelink == 'Workers / staff for senior care facility')
                 location.href = '<?php echo site_url();?>careseeker_seniorcarefacility';
-            if(pagelink == 'Workers/ staff for special needs facility')
+            if(pagelink == 'Workers / staff for special needs facility')
                 location.href = '<?php echo site_url();?>careseeker_specialneedsfacility';
             if(pagelink == 'Workers for cleaning company')
                 location.href = '<?php echo site_url();?>careseeker_cleaningcompany';
