@@ -91,26 +91,7 @@
                 </tr>
             <?php
           } ?>
-         <?php if(!empty($rate)){ ?>    
-        <?php $rate_type = explode(',',$rate_type)?>
-        <tr>
-            <td>Wage</td>
-            <td >
-            <?php echo $rate . ' / Hr'; 
-            $type = explode(',',$rate_type);
-            ?>
-            <!--<div class="details-info"><?php if(in_array('1',$type)){echo $tick; }else{echo $cross; } ?>  Hourly Rate</div>-->
-            <div class="details-info"><?php if(in_array('2',$type)){echo $tick; }else{echo $cross; } ?>  Monthly Rate Available</div>    
-        </td>
-        </tr>
-    <?php }else{
-            ?>
-                <tr>
-                    <td >Wage </td>
-                    <td>N/A</td>
-                </tr>
-            <?php
-          } ?>
+         
         <tr>
             <td>Gender</td>
             <td>
@@ -234,7 +215,26 @@
             } ?>
         </td>
     </tr>
-        
+        <?php if(!empty($rate)){ ?>    
+        <?php $rate_type = explode(',',$rate_type)?>
+        <tr>
+            <td>Wage</td>
+            <td >
+            <?php echo $rate . ' / Hr'; 
+            $type = explode(',',$rate_type);
+            ?>
+            <!--<div class="details-info"><?php if(in_array('1',$type)){echo $tick; }else{echo $cross; } ?>  Hourly Rate</div>-->
+            <div class="details-info"><?php if(in_array('2',$type)){echo $tick; }else{echo $cross; } ?>  Monthly Rate Available</div>    
+        </td>
+        </tr>
+    <?php }else{
+            ?>
+                <tr>
+                    <td >Wage </td>
+                    <td>N/A</td>
+                </tr>
+            <?php
+          } ?>
         <tr>
             <td>Smoker</td>
             <td>
