@@ -200,7 +200,7 @@
         </h2>
         <?php } else { ?>
         <h2>
-            Personal Details 
+            Job Details 
         </h2>   
         <?php } ?>
     </div>    
