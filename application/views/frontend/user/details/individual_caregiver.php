@@ -3,13 +3,19 @@
     $tick  = "<img src='".site_url()."img/nut-list.png'> ";    
 ?>
 
+        <?php if($care_type==7) { ?>
+        <h2>
+            Personal Details 
+        </h2>
+        <?php } else { ?>
         <h2>
             <?php 
-                //$name_array = explode(" ",$name);
-                //echo $name_array[0]."'s ";
+                $name_array = explode(" ",$name);
+                echo $name_array[0]."'s ";
             ?>
             Personal Details 
-        </h2>    
+        </h2>   
+        <?php } ?>
 <div class="table-responsive">
     <table class="table table-striped borderbottom">
     <?php if(!empty($location)){?>    
@@ -188,10 +194,15 @@
 </table>
 </div>
     <div>
+        <?php if($care_type==7) { ?>
         <h2>
-            <?php //echo $name_array[0]."'s "; ?>
-            Job Details
+            Therapy Details 
         </h2>
+        <?php } else { ?>
+        <h2>
+            Personal Details 
+        </h2>   
+        <?php } ?>
     </div>    
     <?php
         if($care_type==1){
