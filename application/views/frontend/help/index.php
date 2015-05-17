@@ -1,8 +1,4 @@
-<script>
-   $('form img').click(function(){
-      $('#helpsearch').submit();
-   });
-</script>
+
 <div class="container">
 	<?php echo $this->breadcrumbs->show(); ?>
 
@@ -176,6 +172,11 @@
         	}
         		
 		});
+		
+
+	   $('form img').on('click', function(){
+	      $('#helpsearch').submit();
+	   });
 
 		// ask our community
 
