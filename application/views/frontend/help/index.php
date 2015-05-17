@@ -14,7 +14,7 @@
 	<div class="help-search">
 		
 		<img type="submit" src="<?php echo site_url();?>img/search-help.png" height="42" width="42" style="border-radius:6px; cursor:pointer;">
-		<input name="search_for" type="text" value="" placeholder="What do you need help with?" size="50" style="vertical-align:middle; background:none !important; width:725px !important" />
+		<input name="search_for" type="text" value="" placeholder="What do you need help with?" size="50" style="vertical-align:middle; background:none !important; width:725px !important; padding-left:10px !important;" />
 		<input type="hidden" name="category" value="All" />
 		
 	</div>
