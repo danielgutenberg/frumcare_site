@@ -7,8 +7,9 @@
 
 	<form method="get" action="<?php echo site_url();?>search">
 	<div class="help-search">
-		<img src="<?php echo site_url();?>img/search-help.png" height="42" width="42">
-		<input name = "search_for" type="text" placeholder="What do you need help with?" size="50"/>
+		<img type="submit" src="<?php echo site_url();?>img/search-help.png" height="42" width="42" style="border-radius:6px">
+		<input name="search_for" type="text" placeholder="What do you need help with?" size="50" style="vertical-align:middle; background:none !important;" />
+		<input name="category" value="All" />
 	</div>
 
 	<div class="help-links">
