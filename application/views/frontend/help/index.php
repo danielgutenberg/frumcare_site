@@ -5,8 +5,10 @@
 		<strong>How can we help you?</strong>
 	</div>
 
+	<form method="get" action="<?php echo site_url();?>search">
 	<div class="help-search">
-		<input type="text" placeholder="What do you need help with?" size="50"/>
+		<img src="<?php echo site_url();?>img/search-help.png" height="42" width="42">
+		<input name = "search_for" type="text" placeholder="What do you need help with?" size="50"/>
 	</div>
 
 	<div class="help-links">
