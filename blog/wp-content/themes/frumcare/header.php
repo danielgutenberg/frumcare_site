@@ -82,7 +82,7 @@
                             <?php } ?>
                         </div>
 
-                        <div class="search">
+                        <div class="search" style="width:300px;">
                         <form method="get" action="<?php echo site_url();?>search">
                             <div class="search-select">
                             <select name="category" style="width: 100%; color: rgb(190, 186, 179);">

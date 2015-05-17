@@ -200,6 +200,8 @@
         </h2>
         <?php } else { ?>
         <h2>
+            <?php $name_array = explode(" ",$name);
+            echo $name_array[0]."'s "; ?>
             Job Details 
         </h2>   
         <?php } ?>
