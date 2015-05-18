@@ -46,6 +46,14 @@ if($detail){
             </div>
             
             <div>
+            <label>Location</label>
+            <div id="locationField">
+                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
+                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
+                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
+            </div>    
+        </div>
+            <div>
                 <label>Subject(s)</label>
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" value="Elementary school" name="subjects[]" <?php if(in_array('Elementary school',$subjects)){?> checked="checked" <?php } ?>> <span>Elementary school</span></div>

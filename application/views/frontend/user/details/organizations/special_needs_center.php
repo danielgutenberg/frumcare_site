@@ -4,6 +4,8 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
 ?>
 <div class="table-responsive">
 	<table class="table table-striped borderbottom">
+		
+		
 		<?php if(!empty($established)){?>
 		<tr>    	
 			<td>Year Established </td>

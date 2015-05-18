@@ -4,6 +4,8 @@
     $cross = "<img src='".site_url()."img/cross.png'>";
     $tick  = "<img src='".site_url()."img/nut-list.png'>";    
     ?>
+    
+    
     <tr>
       <?php if(isset($looking_to_work)){
         $lookingtowork = explode(',', $looking_to_work);

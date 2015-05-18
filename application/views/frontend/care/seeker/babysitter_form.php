@@ -134,8 +134,8 @@ $user_detail = get_user(check_user());
             <div class="form-field">
             <select name="religious_observance" class="religious_observance">
                <option value="">Select</option>
-				<option value="Yeshivish/ Chasidish">Yeshivish/ Chasidish</option>
-				<option value="Orthodox/Modern Orthodox">Orthodox/Modern orthodox</option>
+				<option value="Yeshivish/ Chasidish">Yeshivish / Chasidish</option>
+				<option value="Orthodox/Modern Orthodox">Orthodox / Modern orthodox</option>
                 <option value="Familiar With Jewish Tradition">Familiar With Jewish Tradition</option>
 				<option value="Not Necessary">Not necessary</option>
             </select>
@@ -156,13 +156,13 @@ $user_detail = get_user(check_user());
             <div class="form-field">
                 <select name="rate" class="required rate">
                     <option value="">Select wage</option>
-                    <option value="5-10">$5-$10/Hr</option>
-                    <option value="10-15">$10-$15/Hr</option>
-                    <option value="15-25">$15-$25/Hr</option>
-                    <option value="25-35">$25-$35/Hr</option>
-                    <option value="35-45">$35-$45/Hr</option>
-                    <option value="45-55">$45-$55/Hr</option>
-                    <option value="55+">$55+/Hr</option>
+                    <option value="5-10">$5-$10 / Hr</option>
+                    <option value="10-15">$10-$15 / Hr</option>
+                    <option value="15-25">$15-$25 / Hr</option>
+                    <option value="25-35">$25-$35 / Hr</option>
+                    <option value="35-45">$35-$45 / Hr</option>
+                    <option value="45-55">$45-$55 / Hr</option>
+                    <option value="55+">$55+ / Hr</option>
                 </select>
             </div>
         </div>
@@ -203,7 +203,7 @@ $user_detail = get_user(check_user());
         <div class="form-field">
             <div class="checkbox"><input type="checkbox" value="CPR" name="training[]"> CPR</div>
             <div class="checkbox"><input type="checkbox" value="First Aid" name="training[]"> First Aid</div>
-            <div class="checkbox"><input type="checkbox" value="Nanny/ Babysitter course" name="training[]"> Nanny/ Babysitter course</div>
+            <div class="checkbox"><input type="checkbox" value="Nanny/ Babysitter course" name="training[]"> Nanny / Babysitter course</div>
             <div class="checkbox"><input type="checkbox" value="Not necessary" name="training[]"> Not necessary</div>
         </div>
     </div>

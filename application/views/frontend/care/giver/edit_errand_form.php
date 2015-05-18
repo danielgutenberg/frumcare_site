@@ -40,6 +40,14 @@
                 <h2 class="step3">Edit Job Details</h2>
             </div>
             <div>
+            <label>Location</label>
+            <div id="locationField">
+                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
+                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
+                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
+            </div>    
+        </div>
+            <div>
                 <label>Years of experience</label>
                 <div class="form-field">
                 <select name="experience" class="required">

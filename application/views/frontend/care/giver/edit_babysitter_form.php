@@ -61,6 +61,13 @@
             </div>
         
         <div>
+            <label>Location</label>
+            <div id="locationField">
+                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
+                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
+                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
+            </div>    
+        </div>
             
             
             <label>Number of children willing to care for</label>

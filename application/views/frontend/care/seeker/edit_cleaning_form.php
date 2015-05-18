@@ -74,7 +74,7 @@ if($detail){
             <label>For</label>
             <div class="form-field">
                 <div class="checkbox"><input type="checkbox" value="Home" name="looking_to_work[]" <?php if(in_array('Home',$looking_to_work)){?> checked="checked" <?php } ?>> My home</div>
-                <div class="checkbox"><input type="checkbox" value="Office/business" name="looking_to_work[]" <?php if(in_array('Office/business',$looking_to_work)){?> checked="checked" <?php } ?>> Office/business</div>
+                <div class="checkbox"><input type="checkbox" value="Office/business" name="looking_to_work[]" <?php if(in_array('Office/business',$looking_to_work)){?> checked="checked" <?php } ?>> Office / business</div>
             </div>
         </div>
         <div>
@@ -127,8 +127,8 @@ if($detail){
                 <div class="checkbox"><input type="checkbox" value="Folding" name="willing_to_work[]" <?php if(in_array('Folding',$willing_to_work)){?> checked="checked" <?php } ?>> Folding</div>
                 <div class="checkbox"><input type="checkbox" value="Ironing" name="willing_to_work[]" <?php if(in_array('Ironing',$willing_to_work)){?> checked="checked" <?php } ?>> Ironing</div>                
                 <div class="checkbox"><input type="checkbox" value="Cleaning and Dusting Furniture" name="willing_to_work[]" <?php if(in_array('Cleaning and Dusting Furniture',$willing_to_work)){?> checked="checked" <?php } ?>> Cleaning and Dusting Furniture</div>
-                <div class="checkbox"><input type="checkbox" value="Cleaning Refrigerator/Freezer" name="willing_to_work[]" <?php if(in_array('Cleaning Refrigerator/Freezer',$willing_to_work)){?> checked="checked" <?php } ?>> Cleaning Refrigerator/Freezer</div>
-                <div class="checkbox"><input type="checkbox" value="Cleaning Oven/Stovetop" name="willing_to_work[]" <?php if(in_array('Cleaning Oven/Stovetop',$willing_to_work)){?> checked="checked" <?php } ?>> Cleaning Oven/Stovetop</div>
+                <div class="checkbox"><input type="checkbox" value="Cleaning Refrigerator/Freezer" name="willing_to_work[]" <?php if(in_array('Cleaning Refrigerator/Freezer',$willing_to_work)){?> checked="checked" <?php } ?>> Cleaning Refrigerator / Freezer</div>
+                <div class="checkbox"><input type="checkbox" value="Cleaning Oven/Stovetop" name="willing_to_work[]" <?php if(in_array('Cleaning Oven/Stovetop',$willing_to_work)){?> checked="checked" <?php } ?>> Cleaning Oven / Stovetop</div>
                 <div class="checkbox"><input type="checkbox" value="Pesach Cleaning" name="willing_to_work[]" <?php if(in_array('Pesach Cleaning',$willing_to_work)){?> checked="checked" <?php } ?>><span>Pesach Cleaning</span></div>
                 <div class="checkbox"><input type="checkbox" name="pick_up_child" value="1" <?php echo isset($childcare) && $childcare == '1' ? 'checked':'' ?>/>Must be able to watch children as well</div>
             </div>
@@ -154,13 +154,13 @@ if($detail){
             <div class="form-field">
             <select name="rate" class="required">
                 <option value="">Select rate</option>
-                <option value="5-10" <?php echo isset($rate) && $rate == '5-10' ? 'selected' : '' ?>>$5-$10/Hr</option>
-                <option value="10-15" <?php echo isset($rate) && $rate == '10-15' ? 'selected' : '' ?>>$10-$15/Hr</option>
-                <option value="15-25" <?php echo isset($rate) && $rate == '15-25' ? 'selected' : '' ?>>$15-$25/Hr</option>
-                <option value="25-35" <?php echo isset($rate) && $rate == '25-35' ? 'selected' : '' ?>>$25-$35/Hr</option>
-                <option value="35-45" <?php echo isset($rate) && $rate == '35-45' ? 'selected' : '' ?>>$35-$45/Hr</option>
-                <option value="45-55" <?php echo isset($rate) && $rate == '45-55' ? 'selected' : '' ?>>$45-$55/Hr</option>
-                <option value="55+" <?php echo isset($rate) && $rate == '55+' ? 'selected' : '' ?>>$55+/Hr</option>
+                <option value="5-10" <?php echo isset($rate) && $rate == '5-10' ? 'selected' : '' ?>>$5-$10 / Hr</option>
+                <option value="10-15" <?php echo isset($rate) && $rate == '10-15' ? 'selected' : '' ?>>$10-$15 / Hr</option>
+                <option value="15-25" <?php echo isset($rate) && $rate == '15-25' ? 'selected' : '' ?>>$15-$25 / Hr</option>
+                <option value="25-35" <?php echo isset($rate) && $rate == '25-35' ? 'selected' : '' ?>>$25-$35 / Hr</option>
+                <option value="35-45" <?php echo isset($rate) && $rate == '35-45' ? 'selected' : '' ?>>$35-$45 / Hr</option>
+                <option value="45-55" <?php echo isset($rate) && $rate == '45-55' ? 'selected' : '' ?>>$45-$55 / Hr</option>
+                <option value="55+" <?php echo isset($rate) && $rate == '55+' ? 'selected' : '' ?>>$55+ / Hr</option>
             </select>
             </div>
         </div>

@@ -25,6 +25,14 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         </div>
         <?php } ?>
         <div>
+            <label>Location</label>
+            <div id="locationField">
+                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
+                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
+                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
+            </div>    
+        </div>
+        <div>
             <label>Type of therapy</label>
             <div class="form-field">
                 <input type="text" value="" name="type_of_therapy" class="required">

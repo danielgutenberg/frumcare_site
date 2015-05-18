@@ -181,7 +181,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <select name="religious_observance" class="religious_observance">
                <option value="">Select</option>
 				<option value="Yeshivish/ Chasidish">Yeshivish / Chasidish</option>
-				<option value="Modern Orthodox">Modern orthodox</option>
+				<option value="Modern Orthodox">Orthodox / Modern orthodox</option>
 				<option value="Other">Other</option>
                 <option value="Familiar With Jewish Tradition">Familiar With Jewish Tradition</option>
 				<option value="Not Necessary">Not necessary</option>

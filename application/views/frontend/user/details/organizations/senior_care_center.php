@@ -4,6 +4,8 @@
 ?>
 <div class="table-responsive">
 <table class="table table-striped">
+    
+    
     <?php 
             if( $care_type == 10 || $care_type == 16 ) { ?>
                 <tr>

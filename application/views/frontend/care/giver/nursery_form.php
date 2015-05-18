@@ -26,6 +26,14 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             </div>
             <?php } ?>
             <div>
+            <label>Location</label>
+            <div id="locationField">
+                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
+                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
+                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
+            </div>    
+        </div>
+            <div>
                 <label>For</label>
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" name="looking_to_work[]" value="Boys"> Boys</div>                
@@ -63,7 +71,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <div class="form-field">                    
                     <div class="checkbox"><input type="checkbox" value="CPR" name="training[]"> <span>CPR</span></div>
                     <div class="checkbox"><input type="checkbox" value="First Aid" name="training[]"> <span>First Aid</span></div>                                        
-                    <div class="checkbox"><input type="checkbox" value="Nanny/ Babysitter Course" name="training[]"> <span>Nanny/ Babysitter Course</span></div>
+                    <div class="checkbox"><input type="checkbox" value="Nanny/ Babysitter Course" name="training[]"> <span>Nanny / Babysitter Course</span></div>
                     <div class="checkbox"><input type="checkbox" value="Other" name="training[]"> <span>Other</span></div>                
                 </div>
             </div>

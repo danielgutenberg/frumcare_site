@@ -152,14 +152,14 @@
             <?php
           } */ ?>
         
-        <tr>
-            <td>Must accept insurance</td>
-            <td>
+        <!--<tr>-->
+        <!--    <td>Must accept insurance</td>-->
+        <!--    <td>-->
                 <?php  
-                if($accept_insurance == 1) echo "Yes";                
-                else echo "No";
+                //if($accept_insurance == 1) echo "Yes";                
+                //else echo "No";
                 ?>
-            </td>
-        </tr>
+        <!--    </td>-->
+        <!--</tr>-->
     </table>
 </div>

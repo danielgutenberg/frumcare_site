@@ -4,7 +4,24 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
 ?>
 <div class="table-responsive">
     <table class="table table-striped borderbottom">
+        <?php if(!empty($location)){ ?>
+        <tr>
+            <td>Location</td>
+            <td>
+                <?php echo $location; ?>
+            </td>
+        </tr>
+    <?php }else{
+            ?>
+                <tr>
+                    <td >Location </td>
+                    <td>N/A</td>
+                </tr>
+            <?php
+          } ?>
+        
         <?php 
+        
         if(!empty($type_of_therapy)){?>
         <tr>
            <td >Type of therapy</td>
@@ -98,11 +115,11 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
           }
           ?>
 
-    <tr>
-        <td>Accepts Insurance</td>
-        <td><?php if ($accept_insurance == 1) {echo 'yes';} else { echo 'no';}?></td>
-    </tr>
-    <tr>
+    <!--<tr>-->
+    <!--    <td>Accepts Insurance</td>-->
+    <!--    <td><?php if ($accept_insurance == 1) {echo 'yes';} else { echo 'no';}?></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
         <td>Payment Options</td>
         <td><?php echo !empty( $payment_option ) ? $payment_option : 'N/A'; ?></td>
     </tr>

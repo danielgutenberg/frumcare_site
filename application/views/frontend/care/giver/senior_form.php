@@ -25,6 +25,14 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 				</div>
 				<?php } ?>
 				<div>
+            <label>Location</label>
+            <div id="locationField">
+                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
+                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
+                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
+            </div>    
+        </div>
+				<div>
 					<label>Looking to work in</label>
 					<div class="form-field">
 						<div class="checkbox"><input type="checkbox" value="Home of senior" name="looking_to_work[]"> <span>Home of senior</span></div>
@@ -150,6 +158,15 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 		</form>
 	</div>
     <script>
+    $('#ref_check1').click(function(){
+        $('.refrence_file').show();
+    });
+
+    $('#ref_check2').click(function(){
+        $('.refrence_file').hide();
+        $('#output').text('');
+        $('#file-name').val('');
+    });
      $("#textbox1").ready(function(){        
         $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
      });

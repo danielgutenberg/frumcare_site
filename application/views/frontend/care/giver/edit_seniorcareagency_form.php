@@ -27,6 +27,14 @@
                 <h2 class="step3">Edit Organization Details</h2>
             </div>
             <div>
+            <label>Location</label>
+            <div id="locationField">
+                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
+                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
+                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
+            </div>    
+        </div>
+            <div>
                 <label>Year established</label>
                 <div class="form-field">
                 <select name="established" class="required">
@@ -56,19 +64,10 @@
             </div>
 
             <div>
-                <label>Rate / Cost</label>
+                <label>Cost</label>
                 <div class="form-field">
-                <select name="rate" class="required">
-                    <option value="">Select rate</option>
-                    <option value="5-10" <?php echo isset($rate) && $rate == '5-10' ? 'selected' : '' ?>>$5-$10/Hr</option>
-                        <option value="10-15" <?php echo isset($rate) && $rate == '10-15' ? 'selected' : '' ?>>$10-$15/Hr</option>
-                        <option value="15-25" <?php echo isset($rate) && $rate == '15-25' ? 'selected' : '' ?>>$15-$25/Hr</option>
-                        <option value="25-35" <?php echo isset($rate) && $rate == '25-35' ? 'selected' : '' ?>>$25-$35/Hr</option>
-                        <option value="35-45" <?php echo isset($rate) && $rate == '35-45' ? 'selected' : '' ?>>$35-$45/Hr</option>
-                        <option value="45-55" <?php echo isset($rate) && $rate == '45-55' ? 'selected' : '' ?>>$45-$55/Hr</option>
-                        <option value="55+" <?php echo isset($rate) && $rate == '55+' ? 'selected' : '' ?>>$55+/Hr</option>
-                </select>
-                </div>
+                   <input type="text" name="rate" value="<?php echo $rate;?>">
+                </div> 
             </div>
              
             <div>

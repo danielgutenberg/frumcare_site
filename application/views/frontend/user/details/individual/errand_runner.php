@@ -4,6 +4,22 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
 ?>   
 <div class="table-responsive">
     <table class="table table-striped borderbottom">
+       <?php if(!empty($location)){ ?>
+        <tr>
+            <td>Location</td>
+            <td>
+                <?php echo $location; ?>
+            </td>
+        </tr>
+    <?php }else{
+            ?>
+                <tr>
+                    <td >Location </td>
+                    <td>N/A</td>
+                </tr>
+            <?php
+          } ?>
+       
        <?php
        if(!empty($experience)){?>
        <tr>

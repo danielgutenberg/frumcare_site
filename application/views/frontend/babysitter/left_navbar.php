@@ -100,7 +100,7 @@
 	 			<div class="checkbox"><input type="checkbox" name="languages[]" value="Other" class="lang"> Other</div>
 	 		</div>
 	 		<div>
-	 			<label>Level of observance (check one or more)</label>
+	 			<label>Level of observance</label>
 	 			<div class="checkbox first"><input type="checkbox" value="Yeshivish/Chasidish" name="observance[]" class="hidefamiliar observance">Yeshivish / Chasidish</div>
 	 			<div class="checkbox"><input type="checkbox" value="Orthodox/Modern orthodox" name="observance[]" class="hidefamiliar observance">Orthodox / Modern orthodox</div>
 	 			<div class="checkbox"><input type="checkbox" value="Familiar with Jewish Tradition" name="observance[]" class="show observance">Familiar with Jewish Tradition</div>

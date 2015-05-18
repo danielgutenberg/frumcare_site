@@ -4,6 +4,8 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
 ?>
 <div class="table-responsive">
 	<table class="table table-striped">
+		
+		
 		 <?php if(!empty($rate)){ ?>    
         <?php $rate_type = explode(',',$rate_type)?>
         <tr>

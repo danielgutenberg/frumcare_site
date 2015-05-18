@@ -17,6 +17,21 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
                     <div class="details-info"><?php if(in_array("Any", $lookingtowork)){ echo $tick; }else{echo $cross; }?> Any</div>	
                 </td>
             </tr>
+            <?php if(!empty($location)){ ?>
+        <tr>
+            <td>Location</td>
+            <td>
+                <?php echo $location; ?>
+            </td>
+        </tr>
+    <?php }else{
+            ?>
+                <tr>
+                    <td >Location </td>
+                    <td>N/A</td>
+                </tr>
+            <?php
+          } ?>
         <?php       
         if(!empty($number_of_children)){?>
         <tr>

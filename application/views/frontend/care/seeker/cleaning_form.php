@@ -133,13 +133,13 @@ $user_detail = get_user(check_user());
             <div class="form-field">
                 <select name="rate" class="required rate">
                     <option value="">Select wage</option>
-                    <option value="5-10">$5-$10/Hr</option>
-                    <option value="10-15">$5-$10/Hr</option>
-                    <option value="15-25">$15-$25/Hr</option>
-                    <option value="25-35">$25-$35/Hr</option>
-                    <option value="35-45">$35-$45/Hr</option>
-                    <option value="45-55">$45-$55/Hr</option>
-                    <option value="55+">$55+/Hr</option>
+                    <option value="5-10">$5-$10 / Hr</option>
+                    <option value="10-15">$5-$10 / Hr</option>
+                    <option value="15-25">$15-$25 / Hr</option>
+                    <option value="25-35">$25-$35 / Hr</option>
+                    <option value="35-45">$35-$45 / Hr</option>
+                    <option value="45-55">$45-$55 / Hr</option>
+                    <option value="55+">$55+ / Hr</option>
                 </select>
             </div>
         </div>
@@ -181,8 +181,8 @@ $user_detail = get_user(check_user());
             <div class="form-field">
             <select name="religious_observance" class="required">
                 <option value="">Select</option>
-                <option value="Yeshivish/ Chasidish">Yeshivish/ Chasidish</option>
-                <option value="Orthodox/ Modern Orthodox">Orthodox/ Modern orthodox</option>
+                <option value="Yeshivish/ Chasidish">Yeshivish / Chasidish</option>
+                <option value="Orthodox/ Modern Orthodox">Orthodox / Modern orthodox</option>
                 <option value="Familiar With Jewish Tradition">Familiar With Jewish Tradition</option>
                 <option value="Not Jewish">Not necessary</option>
             </select>

@@ -146,13 +146,13 @@
             <div class="form-field">
                <select name="rate" class="required rate">
                   <option value="">Select wage</option>
-                  <option value="5-10">$5-$10/Hr</option>
-                  <option value="10-15">$5-$10/Hr</option>
-                  <option value="15-25">$15-$25/Hr</option>
-                  <option value="25-35">$25-$35/Hr</option>
-                  <option value="35-45">$35-$45/Hr</option>
-                  <option value="45-55">$45-$55/Hr</option>
-                  <option value="55+">$55+/Hr</option>
+                  <option value="5-10">$5-$10 / Hr</option>
+                  <option value="10-15">$5-$10 / Hr</option>
+                  <option value="15-25">$15-$25 / Hr</option>
+                  <option value="25-35">$25-$35 / Hr</option>
+                  <option value="35-45">$35-$45 / Hr</option>
+                  <option value="45-55">$45-$55 / Hr</option>
+                  <option value="55+">$55+ / Hr</option>
                </select>
             </div>
          </div>
@@ -167,7 +167,7 @@
                <div class="checkbox"><input type="checkbox" value="Full Time" name="availability[]"> Full Time</div>
                <div class="checkbox"><input type="checkbox" value="Part Time" name="availability[]"> Part Time</div>
                <div class="checkbox"><input type="checkbox" value="Substitute" name="availability[]"> Substitute</div>
-               <label>Job Days / Hours</label>
+               <label>Days / Hours</label>
                <br>
                <label style="width:25%">Sun</label><input type="text" name="sunday_from" class="time" style="width:25%"> to <input type="text" name="sunday_to" class="time" style="width:25%">
                <br>
@@ -250,8 +250,8 @@
             <div class="form-field">
                <select name="religious_observance" class="religious_observance">
                   <option value="">Select</option>
-                  <option value="Yeshivish/ Chasidish">Yeshivish/ Chasidish</option>
-                  <option value="Orthodox/ Modern Orthodox">Orthodox/ Modern Orthodox</option>
+                  <option value="Yeshivish/ Chasidish">Yeshivish / Chasidish</option>
+                  <option value="Orthodox/ Modern Orthodox">Orthodox / Modern Orthodox</option>
                   <option value="Familiar With Jewish Tradition">Familiar With Jewish Tradition</option>
                   <option value="Not Necessary">Not necessary</option>
                </select>
