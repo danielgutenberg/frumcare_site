@@ -34,7 +34,7 @@
                 <h2 class="step3">Edit Job Details</h2>
             </div>
             
-            <?php print_r($details);?>
+            <?php //print_r($details);?>
             
             <div>
                 <label>Type of Organization</label>
@@ -53,14 +53,7 @@
             </div>
             
             
-            <div>
-            <label>Location</label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>    
-        </div>
+            
             <div>
                 <label>Year established</label>
                 <div class="form-field">
@@ -114,14 +107,14 @@
                 </div>
             </div>
             
-            <div>
-                <?php $extra_field = explode(',',$detail[0]['extra_field']); ?>
-                <label>Observance in facility</label>
-                <div class="checkbox"><input type="checkbox" value="shul on premises" name="extra_field[]" <?php if(in_array('shul on premises',$extra_field)){?> checked="checked" <?php }?>/>Shul on premises</div>
-                <div class="checkbox"><input type="checkbox" value="kosher kitchen" name="extra_field[]" <?php if(in_array('kosher kitchen',$extra_field)){?> checked="checked" <?php }?>/>Kosher kitchen</div>
-                <div class="checkbox"><input type="checkbox" value="kosher food available" name="extra_field[]" <?php if(in_array('kosher food available',$extra_field)){?> checked="checked" <?php }?>/>Kosher food available</div>
-                <div class="checkbox"><input type="checkbox" value="shabbos observant facility" name="extra_field[]" <?php if(in_array('shabbos observant facility',$extra_field)){?> checked="checked" <?php }?>/>Shabbos observant facility</div>
-            </div>
+            <!--<div>-->
+            <!--    <?php $extra_field = explode(',',$detail[0]['extra_field']); ?>-->
+            <!--    <label>Observance in facility</label>-->
+            <!--    <div class="checkbox"><input type="checkbox" value="shul on premises" name="extra_field[]" <?php if(in_array('shul on premises',$extra_field)){?> checked="checked" <?php }?>/>Shul on premises</div>-->
+            <!--    <div class="checkbox"><input type="checkbox" value="kosher kitchen" name="extra_field[]" <?php if(in_array('kosher kitchen',$extra_field)){?> checked="checked" <?php }?>/>Kosher kitchen</div>-->
+            <!--    <div class="checkbox"><input type="checkbox" value="kosher food available" name="extra_field[]" <?php if(in_array('kosher food available',$extra_field)){?> checked="checked" <?php }?>/>Kosher food available</div>-->
+            <!--    <div class="checkbox"><input type="checkbox" value="shabbos observant facility" name="extra_field[]" <?php if(in_array('shabbos observant facility',$extra_field)){?> checked="checked" <?php }?>/>Shabbos observant facility</div>-->
+            <!--</div>-->
             
             <div>
                 <label>Cost</label>
@@ -143,6 +136,13 @@
                     <div class="radio"><input type="radio" value="2" name="references" class="required" <?php echo isset($ref) && $ref == 2 ? 'checked' : '' ?> /> No </div>
                 </div>
             </div>
+            <div class="refrence_file" <?php echo isset($reference_file) && $ref =='1' ?"":"style='display:none;'" ?>>
+            <label></label>
+            <input type="hidden" id="file-name" name="file" value="<?php echo isset($reference_file)?$reference_file:'' ?>">
+            <button class="btn btn-primary" id="select_file">Select File</button>
+            <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
+            <div id="output" class="loader"><?php echo isset($reference_file)?$reference_file:'' ?></div>
+        </div>
 
             <?php 
                 $photo_url = site_url("images/plus.png");
@@ -183,6 +183,9 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('body').removeAttr('onload');
+    });
+    $('#ref_check1').click(function(){
+        $('.refrence_file').show();
     });
 
     $('#output,#upload').click(function(e){

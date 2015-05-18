@@ -18,11 +18,11 @@
         ?>
 	<tr>
 		<?php if(!empty($established)){?>
-			<td>Established</td>
+			<td>Year Established</td>
 			<td><?php echo $established;?></td>
 		      <?php }  
                 else{ ?>
-                    <td>Established</td>
+                    <td>Year Established</td>
                     <td>N/A</td>
         <?php } ?>
 	</tr>
@@ -40,11 +40,11 @@
 	
     <tr>
 		<?php if(!empty($number_of_children)){?>
-			<td>Number of patients/residents</td>
+			<td>Number of patients / residents</td>
 			<td><?php echo $number_of_children;?></td>
             <?php }  
                 else{ ?>
-                    <td>Number of patients/residents</td>
+                    <td>Number of patients / residents</td>
                     <td>N/A</td>
 		<?php } ?>
 	</tr>
@@ -62,7 +62,7 @@
     
     <?php $language = explode(',',$language); ?>
         <tr>
-            <td>Languages</td>
+            <td>Languages Spoken</td>
             <td>
                 <div ><?php if(in_array("English",$language)){ echo $tick; }else{ echo $cross; }?> English</div>
                 <div ><?php if(in_array("Yiddish",$language)){ echo $tick; }else{ echo $cross; }?> Yiddish</div>
@@ -84,18 +84,18 @@
 			</td>           
 	</tr>
 	
-    <tr>
+    <!--<tr>-->
         <?php 
-            $extra_field = explode(',',$extra_field);
+            // $extra_field = explode(',',$extra_field);
         ?>
-        <td>Observance in facility</td>
-        <td>
-            <div class="details-info"><?php if(in_array('shul on premises', $extra_field)){echo $tick; }else{echo $cross; }?> <span>Shul on premises</span></div>
-            <div class="details-info"><?php if(in_array('kosher kitchen', $extra_field)){echo $tick; }else{echo $cross; }?> <span>Kosher kitchen</span></div>
-            <div class="details-info"><?php if(in_array('kosher food available', $extra_field)){echo $tick; }else{echo $cross; }?> <span>Kosher food available</span></div>
-            <div class="details-info"><?php if(in_array('shabbos observant facility', $extra_field)){echo $tick; }else{echo $cross; }?> <span>Shabbos observant facility</span></div>
-        </td>               
-    </tr>
+    <!--    <td>Observance in facility</td>-->
+    <!--    <td>-->
+    <!--        <div class="details-info"><?php if(in_array('shul on premises', $extra_field)){echo $tick; }else{echo $cross; }?> <span>Shul on premises</span></div>-->
+    <!--        <div class="details-info"><?php if(in_array('kosher kitchen', $extra_field)){echo $tick; }else{echo $cross; }?> <span>Kosher kitchen</span></div>-->
+    <!--        <div class="details-info"><?php if(in_array('kosher food available', $extra_field)){echo $tick; }else{echo $cross; }?> <span>Kosher food available</span></div>-->
+    <!--        <div class="details-info"><?php if(in_array('shabbos observant facility', $extra_field)){echo $tick; }else{echo $cross; }?> <span>Shabbos observant facility</span></div>-->
+    <!--    </td>               -->
+    <!--</tr>-->
 
 	<tr>
 		<?php if(!empty($rate)){
@@ -117,13 +117,18 @@
 			}
 		?>
 	</tr>
-    
+    <tr>
+            <td>Tell us about your organization</td>
+            <td>
+                <div class="details-info"><?php echo isset($desc) ? $desc : '' ?></div>
+            </td>
+        </tr>
     <tr>
 		<?php if(!empty($reference) && $reference == 1 ){?>
 			<td>References</td>
 			<td>
 					
-						<a>Download</a>
+						<a href="#">Download</a>
 					
 			</td>
             <?php }  
@@ -132,7 +137,23 @@
                     <td>N/A</td>
 		<?php } ?>
 	</tr>
-    
+		<tr>
+		<?php 
+			if(!empty($facility_pic)){
+				$img_url 	= site_url().'images/profile-picture/thumb/'.$facility_pic;
+				$fullimage 	= site_url().'images/profile-picture/'.$facility_pic;
+			}else{
+				$img_url	 = site_url().'images/no-image.jpg';
+				$fullimage 	= site_url().'images/no-image.jpg';
+			}
+		?>
+
+		<td>Photo of facility / Organization</td>
+		<td>
+			<a href="javascript:void(0);"  class="fullimage" id="<?php echo $fullimage;?>"><img src="<?php echo $img_url;?>"></a>
+		</td>
+
+	</tr>  ?>
 	<tr>
 		<?php if(!empty($payment_options)){?>
 			<td>Payment Options</td>

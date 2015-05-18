@@ -32,14 +32,7 @@
     <div>
         <h1 class="step3">Edit Organization Details</h1>
     </div>
-    <div>
-            <label>Location</label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>    
-        </div>
+    
     <div>
         <label>Year established</label>
         <div class="form-field">
@@ -96,37 +89,22 @@
     </div>
 
     <div>
-        <label>Number of staff (per patient)</label>
+        <label>Number of staff</label>
         <div class="form-field">
         <input type="text" value="<?php echo isset($number_of_staff) ? $number_of_staff : '' ?>" name="number_of_staff" class="required number">
         </div>
     </div>
 
 
-    <div class="rate-select">
-        <label>Rate</label>
+    <div>
+        <label>Cost</label>
         <div class="form-field">
-            <select name="rate" class="required">
-                <option value="">Select rate</option>
-                        <option value="5-10" <?php echo isset($rate) && $rate == '5-10' ? 'selected' : '' ?>>$5-$10 / Hr</option>
-                        <option value="10-15" <?php echo isset($rate) && $rate == '10-15' ? 'selected' : '' ?>>$10-$15 / Hr</option>
-                        <option value="15-25" <?php echo isset($rate) && $rate == '15-25' ? 'selected' : '' ?>>$15-$25 / Hr</option>
-                        <option value="25-35" <?php echo isset($rate) && $rate == '25-35' ? 'selected' : '' ?>>$25-$35 / Hr</option>
-                        <option value="35-45" <?php echo isset($rate) && $rate == '35-45' ? 'selected' : '' ?>>$35-$45 / Hr</option>
-                        <option value="45-55" <?php echo isset($rate) && $rate == '45-55' ? 'selected' : '' ?>>$45-$55 / Hr</option>
-                        <option value="55+" <?php echo isset($rate) && $rate == '55+' ? 'selected' : '' ?>>$55+ / Hr</option>
-                    </select>                                  
-                </div>
-            </div>
-            <div class="form-field">
-                <!--<label>Check one or more</label>-->
-                <!--<div class="checkbox"><input type="checkbox" value="1" name="rate_type[]" <?php if(in_array('1',$rate_type)){?> checked="checked" <?php } ?>>Hourly Rate</div>-->
-                <div class="checkbox"><input type="checkbox" value="2" name="rate_type[]" <?php if(in_array('2',$rate_type)){?> checked="checked" <?php } ?>>Monthly Rate Available</div>
-                
-            </div>
+           <input type="text" name="rate" value="<?php echo $rate;?>">
+        </div> 
+    </div>
             
             <div>
-        <label>Tell us about your Organization / Facilities / Staff</label>
+        <label>Tell us about your organization / facilities / staff</label>
         <div class="form-field">
         <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
         </div>

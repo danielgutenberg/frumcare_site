@@ -77,7 +77,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 	<?php 
 		$lang = explode(',', $language); 
 		?>
-		<td>Languages</td>
+		<td>Languages Spoken</td>
 		<td>
 			<div class="details-info"><?php if(in_array('English', $lang)){ echo $tick; }else{ echo $cross; }?>English</div>
 			<div class="details-info"><?php if(in_array('Yiddish', $lang)){ echo $tick; }else{ echo $cross; }?>Yiddish</div>
@@ -109,16 +109,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
             <?php }?>
 		</tr>
 
-		<tr>
-			<?php if(!empty($rate)){?>
-			<td>Cost</td>
-			<td><?php echo $rate;?></td>
-            <?php }  
-                else{ ?>
-                    <td>Cost</td>
-                    <td>N/A</td>
-				<?php }?>
-			</tr>
+		
             
             <tr>
                 <td>Days / Hours/td>         
@@ -222,7 +213,12 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
                     <td>N/A</td>
                 <?php } ?>
 			</tr>
-                        			
+             <tr>
+            <td>Tell us about your organization</td>
+            <td>
+                <div class="details-info"><?php echo isset($desc) ? $desc : '' ?></div>
+            </td>
+        </tr>           			
 			<tr>
 				<?php if(isset($references)){?>
 				<?php if($references == 1){?>
@@ -238,6 +234,16 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
                     <td>N/A</td>
                     <?php } ?>
 	</tr>
+	<tr>
+			<?php if(!empty($rate)){?>
+			<td>Cost</td>
+			<td><?php echo $rate;?></td>
+            <?php }  
+                else{ ?>
+                    <td>Cost</td>
+                    <td>N/A</td>
+				<?php }?>
+			</tr>
 <?php /*
 	<tr>
 		<?php 

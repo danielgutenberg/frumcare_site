@@ -79,7 +79,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <!--<div class="checkbox"><input type="checkbox" name="rate_type[]" value="1">Hourly Rate</div>-->
             <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
         </div>
-        <div>
+        <div style="display:none">
             <label>Accepts insurance</label>
             <div class="form-field">
             <div class="radio"><input type="radio" value="1" name="accept_insurance" class="required" <?php echo isset($ins) && $ins == 1 ? 'checked' : '' ?>/> Yes</div>

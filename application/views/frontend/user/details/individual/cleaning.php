@@ -23,22 +23,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
                     <td >Looking to work in </td>
                     <td>N/A</td>
                 </tr>
-                <?php } if(!empty($location)){ ?>
-        <tr>
-            <td>Location</td>
-            <td>
-                <?php echo $location; ?>
-            </td>
-        </tr>
-    <?php }else{
-            ?>
-                <tr>
-                    <td >Location </td>
-                    <td>N/A</td>
-                </tr>
-            <?php
-          } ?>
-            <?php
+                <?php } 
           
           if(!empty($experience)){?>
           <tr>
@@ -83,7 +68,7 @@ if(!empty($willing_to_work)){
     $tempwillingtowork = explode(',',$willing_to_work);
     ?>
     <tr>
-       <td >Specializes in</td>
+       <td >Specialize in</td>
        <td>
           <div ><?php if(in_array('Dishes', $tempwillingtowork)){ echo $tick; }else{echo $cross;  }?> <span>Dishes</span></div>
           <div ><?php if(in_array('Floors', $tempwillingtowork)){ echo $tick; }else{echo $cross;  }?> <span>Floors</span></div>
@@ -106,22 +91,9 @@ if(!empty($willing_to_work)){
                 </tr>
             <?php
             
-          }
-         if($references==1){?>
-    <tr>
-    	<td >References</td>
-    	<td >
-    		<a href="#">Download</a>
-    	</td>
-    </tr>
-    <?php }
-    else{ ?>
-            <tr>
-                <td>References</td>
-                <td>N/A</td>
-            </tr>
-        <?php            
-        }
+          } ?>
+          
+        <?php
   if(!empty($availability)){
     $time = explode(',',$availability);
     ?>
@@ -150,5 +122,21 @@ else{
                 </tr>
             <?php
           }?>
+          <?php
+         if($references==1){?>
+    <tr>
+    	<td >References</td>
+    	<td >
+    		<a href="#">Download</a>
+    	</td>
+    </tr>
+    <?php }
+    else{ ?>
+            <tr>
+                <td>References</td>
+                <td>N/A</td>
+            </tr>
+        <?php            
+        } ?>
 </table>
 </div>

@@ -37,7 +37,7 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
 		<?php if(!empty($language)){ ?>
 		<?php $language = explode(',',$language); ?>
 		<tr>
-			<td>Languages</td>
+			<td>Languages Spoken</td>
 			<td>
 				<div class="details-info"><?php if(in_array("English",$language)){ echo $tick; }else{ echo $cross; }?> English</div>
 				<div class="details-info"><?php if(in_array("Yiddish",$language)){ echo $tick; }else{ echo $cross; }?> Yiddish</div>
@@ -49,7 +49,7 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
 		</tr>
          <?php }  
                 else{ ?>
-                    <td>Languages</td>
+                    <td>Languages Spoken</td>
                     <td>N/A</td>
 		<?php } ?>
 		
@@ -114,9 +114,9 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
 			
 			<?php  if(!empty($rate)){?>
 			<tr>
-				<td >Rate</td>
+				<td >Cost</td>
 				<td >
-					<?php echo $rate . ' / Hr'; 
+					<?php echo $rate . ' '; 
 					$type = explode(',',$rate_type);
 					?>
 					<!--<div class="details-info"><?php if(in_array('1',$type)){echo $tick; }else{echo $cross; } ?>  Hourly Rate</div>-->
@@ -125,7 +125,7 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
 			</tr>
              <?php }  
                 else{ ?>
-                    <td>Rate</td>
+                    <td>Cost</td>
                     <td>N/A</td>
 			<?php } ?>
 			
@@ -156,7 +156,7 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
 			<?php } ?>
 
 			</tr>
-<?php /*
+
 	<tr>
 		<?php 
 			if(!empty($facility_pic)){
@@ -168,12 +168,12 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
 			}
 		?>
 
-		<td>Photo of facility/ Organization</td>
+		<td>Photo of Facility / Organization</td>
 		<td>
 			<a href="javascript:void(0);"  class="fullimage" id="<?php echo $fullimage;?>"><img src="<?php echo $img_url;?>"></a>
 		</td>
 
-	</tr> */ ?>
+	</tr> ?>
 	</table>
 	<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">

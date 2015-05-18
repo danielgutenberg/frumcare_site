@@ -4,22 +4,6 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
 ?>
 <div class="table-responsive">
     <table class="table table-striped borderbottom">
-        <?php if(!empty($location)){ ?>
-        <tr>
-            <td>Location</td>
-            <td>
-                <?php echo $location; ?>
-            </td>
-        </tr>
-    <?php }else{
-            ?>
-                <tr>
-                    <td >Location </td>
-                    <td>N/A</td>
-                </tr>
-            <?php
-          } ?>
-        
         <?php 
         if(!empty($subjects)){
             $subjects = explode(',',$subjects);
@@ -107,7 +91,14 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
                     <td>N/A</td>
                 </tr>
             <?php
-          }
+          } ?>
+         <tr>
+            <td>Tell us about your organization</td>
+            <td>
+                <div class="details-info"><?php echo isset($desc) ? $desc : '' ?></div>
+            </td>
+        </tr> 
+    <?php
     if($references==1){?>
     <tr>
     	<td >References</td>

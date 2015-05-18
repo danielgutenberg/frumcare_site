@@ -64,14 +64,7 @@ if($detail){
                     <div class="checkbox"><input type="checkbox" value="Live out" name="looking_to_work[]" <?php if(in_array('Live out',$looking_to_work)){?> checked="checked" <?php } ?>> <span>Live out</span></div>
                 </div>
             </div>
-            <div>
-            <label>Location</label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>    
-        </div>
+            
             <div>
                 <label>Number of children willing to care for</label>
                 <div class="form-field">
@@ -137,7 +130,7 @@ if($detail){
             </div>
             
             <div>
-                <label>When you need care</label>
+                <label>Availability</label>
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]" <?php if(in_array("Immediate",$time)){?> checked="checked"<?php }?>>Immediate</div>
                     <div class="checkbox full"><input type="checkbox" id="ckbox1" name="availability[]" value="Start Date" <?php if(in_array("Start Date",$time)){?> checked="checked"<?php }?> class="start_date">Start Date <input type="text" name="start_date" <?php if($date!='0000-00-00'){ echo 'value='.$date;}?> id="textbox1"/></div>

@@ -25,23 +25,6 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
             <?php
           }
          ?>
-          
-          <?php if(!empty($location)){ ?>
-        <tr>
-            <td>Location</td>
-            <td>
-                <?php echo $location; ?>
-            </td>
-        </tr>
-    <?php }else{
-            ?>
-                <tr>
-                    <td >Location </td>
-                    <td>N/A</td>
-                </tr>
-            <?php
-          } ?>
-          
     <?php
         if(!empty($experience)){?>
         <tr>
@@ -85,7 +68,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
         $tempwillingtowork = explode(',',$willing_to_work);
         ?>
         <tr>
-           <td >Able to work with to work</td>
+           <td >Able to work with</td>
            <td >
             <div class="details-info"><?php if(in_array('Autism', $tempwillingtowork)){echo $tick; }else{echo $cross; }?> <span>Autism</span></div>
             <div class="details-info"><?php if(in_array('Down Syndrome', $tempwillingtowork)){echo $tick; }else{echo $cross; }?> <span>Down Syndrome</span></div>                    
@@ -148,7 +131,14 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
                     <td>N/A</td>
                 </tr>
             <?php
-          }
+          } ?>
+          <tr>
+            <td>Tell us about yourself</td>
+            <td>
+                <div class="details-info"><?php echo isset($desc) ? $desc : '' ?></div>
+            </td>
+        </tr>
+          <?php
     if($references==1){?>
     <tr>
     	<td >References</td>

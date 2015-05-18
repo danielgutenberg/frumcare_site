@@ -27,21 +27,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
             <?php
           } ?>
           
-          <?php if(!empty($location)){ ?>
-        <tr>
-            <td>Location</td>
-            <td>
-                <?php echo $location; ?>
-            </td>
-        </tr>
-    <?php }else{
-            ?>
-                <tr>
-                    <td >Location </td>
-                    <td>N/A</td>
-                </tr>
-            <?php
-          } ?>
+         
           
     <?php      
     if(!empty($experience)){?>
@@ -122,7 +108,38 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
                     <td>N/A</td>
                 </tr>
             <?php
-          }
+          } ?>
+        <tr>
+            <td>Tell us about your organization</td>
+            <td>
+                <div class="details-info"><?php echo isset($desc) ? $desc : '' ?></div>
+            </td>
+        </tr> 
+          <?php
+    if($references==1){?>
+    <tr>
+    	<td >References</td>
+    	<td >
+    		<a href="#">Download</a>
+    	</td>
+    </tr>
+    <?php } 
+    else{
+            ?>
+                <tr>
+                    <td >References </td>
+                    <td>N/A</td>
+                </tr>
+            <?php
+          }?> 
+     <tr style="display:none;">
+    	<td >Agree to Background Check?</td>
+    	<td >
+    		<?php if ($agree_bg_check == 1) { echo 'yes';}
+    		else { echo 'no';} ?>
+    	</td>
+    </tr>
+     <?php
     if(!empty($availability)){
       $time = explode(',',$availability);
       ?>
@@ -150,30 +167,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
                     <td>N/A</td>
                 </tr>
             <?php
-          }
-    if($references==1){?>
-    <tr>
-    	<td >References</td>
-    	<td >
-    		<a href="#">Download</a>
-    	</td>
-    </tr>
-    <?php } 
-    else{
-            ?>
-                <tr>
-                    <td >References </td>
-                    <td>N/A</td>
-                </tr>
-            <?php
-          }?> 
-     <tr style="display:none;">
-    	<td >Agree to Background Check?</td>
-    	<td >
-    		<?php if ($agree_bg_check == 1) { echo 'yes';}
-    		else { echo 'no';} ?>
-    	</td>
-    </tr>
+          } ?>
     <tr>
     	<td >Abilities</td>
       <td >

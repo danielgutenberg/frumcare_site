@@ -45,7 +45,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <div>
                 <label>Specialize in</label>
                 <div class="form-field">                    
-                    <div class="checkbox"><input type="checkbox" value="Alz./dementia" name="willing_to_work[]"> <span>Alz./dementia.</span></div>
+                    <div class="checkbox"><input type="checkbox" value="Alz./dementia" name="willing_to_work[]"> <span>Alz. / dementia</span></div>
                     <div class="checkbox"><input type="checkbox" value="Sight loss" name="willing_to_work[]"> <span>Sight loss</span></div>                    
                     <div class="checkbox"><input type="checkbox" value="Hearing loss" name="willing_to_work[]"> <span>Hearing loss</span></div>
                     <div class="checkbox"><input type="checkbox" value="Wheelchair bound" name="willing_to_work[]"> <span>Wheelchair bound</span></div>                  
@@ -69,20 +69,20 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
                 </div>
             </div>
-        <!--    <div>-->
-        <!--    <label>References</label>-->
-        <!--    <div class="form-field not-required">-->
-        <!--    <div class="radio"><input type="radio" id="ref_check1" value="1" name="references" class="required" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?>/> Yes</div>-->
-        <!--    <div class="radio"><input type="radio" id="ref_check2" value="2" name="references" class="required" <?php echo isset($ref) && $ref == 2 ? 'checked' : '' ?> checked/> No</div>-->
-        <!--    </div>-->
-        <!--</div>-->
-        <!--<div class="refrence_file" style="display:none;">-->
-        <!--    <label></label>-->
-        <!--    <input type="hidden" id="file-name" name="file">-->
-        <!--    <button class="btn btn-primary" id="select_file">Select File</button>-->
-        <!--    <input type="file" name="file_upload" id="file_upload" style="display: none;"> -->
-        <!--    <div id="output" class="loader"></div>-->
-        <!--</div>-->
+            <div>
+            <label>References</label>
+            <div class="form-field not-required">
+            <div class="radio"><input type="radio" id="ref_check1" value="1" name="references" class="required" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?>/> Yes</div>
+            <div class="radio"><input type="radio" id="ref_check2" value="2" name="references" class="required" <?php echo isset($ref) && $ref == 2 ? 'checked' : '' ?> checked/> No</div>
+            </div>
+        </div>
+        <div class="refrence_file" style="display:none;">
+            <label></label>
+            <input type="hidden" id="file-name" name="file">
+            <button class="btn btn-primary" id="select_file">Select File</button>
+            <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
+            <div id="output" class="loader"></div>
+        </div>
 
 
              <?php 

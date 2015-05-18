@@ -7,12 +7,12 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
             
             <?php 
             if( $care_type == 10 || $care_type == 16 ) { ?>
-                <tr>
-                    <td>Type of Organization</td>
-                    <td>
-                        <?php echo $sub_care ? ucfirst($sub_care) : 'N/A'; ?>
-                    </td>
-                </tr> <?php 
+                <!--<tr>-->
+                <!--    <td>Type of Organization</td>-->
+                <!--    <td>-->
+                <!--        <?php echo $sub_care ? ucfirst($sub_care) : 'N/A'; ?>-->
+                <!--    </td>-->
+                <!--</tr>--> <?php
             }
         ?>
 		<tr>
@@ -36,54 +36,24 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
                     <td>N/A</td>
                     <?php } ?>			
 			</tr>
-
-			<tr>
-				<?php if(!empty($number_of_children)){?>
-				<td>Number of patients/ residents</td>
-				<td><?php echo $number_of_children;?></td>
-					<?php }  
+<tr>
+    <?php if(isset($willing_to_work)){
+      $willingtowork = explode(',', $willing_to_work); ?>
+      <td>Specialize in</td>
+      <td>                    
+       <div class="details-info"><?php if(in_array('Alz./dementia', $willingtowork)){ echo $tick; }else{ echo $cross; }?>Alz. / dementia</div>
+       <div class="details-info"><?php if(in_array('Sight loss', $willingtowork)){ echo $tick; }else{ echo $cross; }?>Sight loss</div>
+       <div class="details-info"><?php if(in_array('Hearing loss', $willingtowork)){ echo $tick; }else{ echo $cross; }?>Hearing loss</div>
+       <div class="details-info"><?php if(in_array('Wheelchair bound', $willingtowork)){ echo $tick; }else{ echo $cross; }?>Wheelchair bound</div>
+       
+     </td>
+     <?php }  
                 else{ ?>
-                    <td>Number of patients/ residents</td>
+                    <td>Specialize in</td>
                     <td>N/A</td>
-                    <?php } ?>				
-			</tr>
-
-			<tr>
-				<?php if(!empty($number_of_staff)){?>
-				<td>Number of staff</td>
-				<td><?php echo $number_of_staff;?></td>
-					<?php }  
-                else{ ?>
-                    <td>Number of staff( per patient)</td>
-                    <td>N/A</td>
-                    <?php } ?>				
-			</tr>
-
-			<tr>
-				<?php if(!empty($language)){
-					$lang = explode(',', $language); 
-					if(is_array($lang)){
-						?>
-
-						<td>Languages</td>
-						<td>
-							<div class="details-info"><?php if(in_array('English', $lang)){ echo $tick; }else{ echo $cross; }?>English</div>
-							<div class="details-info"><?php if(in_array('Yiddish', $lang)){ echo $tick; }else{ echo $cross; }?>Yiddish</div>
-							<div class="details-info"><?php if(in_array('Hebrew', $lang)){ echo $tick; }else{ echo $cross; }?>Hebrew</div>
-							<div class="details-info"><?php if(in_array('Russian', $lang)){ echo $tick; }else{ echo $cross; }?>Russian</div>
-							<div class="details-info"><?php if(in_array('French', $lang)){ echo $tick;}else{echo $cross; }?>French</div>
-							<div class="details-info"><?php if(in_array('French', $lang)){ echo $tick;}else{echo $cross; }?>Other</div>
-						</td>
-						<?php 
-					}
-                     }  
-                else{ ?>
-                    <td>Languages</td>
-                    <td>N/A</td> 
-				<?php
-                }
-				?>
-			</tr>
+     <?php }?>
+   </tr>
+			
 
 			<tr>
 		<?php if(!empty($rate)){
@@ -95,7 +65,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 		
 		<td>Cost</td>
 		<td>
-			<div><?php echo $rate.' ';?></div>
+			<div><?php echo $rate . ' ';?></div>
 		</td>
         <?php }  
                 else{ ?>
@@ -105,7 +75,12 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 			}
 		?>
 	</tr>
-		
+		<tr>
+            <td>Tell us about your organization</td>
+            <td>
+                <div class="details-info"><?php echo isset($desc) ? $desc : '' ?></div>
+            </td>
+        </tr>
 
 		<tr>
 			<?php if(!empty($refrences)){?>

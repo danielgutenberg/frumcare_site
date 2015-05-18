@@ -32,29 +32,15 @@ if($detail){
             <h1 class="step3">Edit Job Details</h1>
         </div>
         
-        <div>
-            <label>Location</label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>    
-        </div>
+        
         <div>
             <label>Type of therapy</label>
             <div class="form-field">
             <input type="text" value="<?php echo isset($type_of_therapy) ? $type_of_therapy : '' ?>" name="type_of_therapy" class="required">
             </div>
         </div>
-
-        <div>
-            <label>Certification / License information</label>
-            <div class="form-field">
-            <input type="text" value="<?php echo isset($certification) ? $certification : '' ?>" name="certification" class="required">
-            </div>
-        </div>
-        <div>
-            <label>Years of experience</label>
+<div>
+            <label>Years in Practice</label>
             <div class="form-field">
             <select name="experience" class="required">
                 <option value="">Select years of experience</option>
@@ -66,6 +52,13 @@ if($detail){
             </select>
             </div>
         </div>
+        <div>
+            <label>Certification / License information</label>
+            <div class="form-field">
+            <input type="text" value="<?php echo isset($certification) ? $certification : '' ?>" name="certification" class="required">
+            </div>
+        </div>
+        
         <?php /*
         <div>
             <label>License information</label>

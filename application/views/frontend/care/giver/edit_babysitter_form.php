@@ -54,20 +54,12 @@
             <label>Looking to work in</label>
             <div class="form-field">
                 <div class="checkbox"><input type="checkbox" value="My home" name="looking_to_work[]" <?php if(in_array('My home', $lookingtowork)){?>checked="checked"<?php }?>>My home</div>
-                <div class="checkbox"><input type="checkbox" value="Childs home" name="looking_to_work[]" <?php if(in_array("Childs home", $lookingtowork)){?>checked="checked"<?php }?>>Child's home</div>
-                <div class="checkbox"><input type="checkbox" value="Caregiving institution" name="looking_to_work[]" <?php if(in_array("Caregiving institution", $lookingtowork)){?>checked="checked"<?php }?>>Caregiving institution</div>                
+                <div class="checkbox"><input type="checkbox" value="Childs home" name="looking_to_work[]" <?php if(in_array("Childs home", $lookingtowork)){?>checked="checked"<?php }?>>Child's home</div>               
                 <div class="checkbox"><input type="checkbox" value="Mothers Helper" name="looking_to_work[]" <?php if(in_array("Mothers Helper", $lookingtowork)){?>checked="checked"<?php }?>>Mother's Helper</div>
             </div>
             </div>
         
-        <div>
-            <label>Location</label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>    
-        </div>
+        
             
             
             <label>Number of children willing to care for</label>

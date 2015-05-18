@@ -39,14 +39,7 @@ $rate_type = explode(',',$detail[0]['rate_type']);
                     <div class="checkbox"><input type="checkbox" value="Cleaning company" name="looking_to_work[]" <?php if(in_array('Cleaning company',$templookingtowork)){?> checked="checked" <?php }?>> <span>Cleaning company</span></div>
                 </div>
             </div>
-            <div>
-            <label>Location</label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>    
-        </div>
+            
             <div>
                 <label>Years of experience</label>
                 <div class="form-field">
@@ -97,7 +90,7 @@ $rate_type = explode(',',$detail[0]['rate_type']);
                 </div>
             </div>
             <div>
-                <label>When you need care</label>
+                <label>Availability</label>
                 <div class="form-field">                    
                     <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]" <?php if(in_array("Immediate",$time)){?> checked="checked"<?php }?>>Immediate</div>
                     <div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]" <?php if(in_array("Start Date",$time)){?> checked="checked"<?php }?>> Start Date<input type="text" name="start_date" <?php if($date!='0000-00-00'){ echo 'value='.$date;}?> id="textbox1"/></div>
@@ -110,6 +103,21 @@ $rate_type = explode(',',$detail[0]['rate_type']);
                     <div class="checkbox"><input type="checkbox" value="Saturday" name="availability[]" <?php if(in_array("Saturday",$time)){?> checked="checked"<?php }?>> <span>Saturday</span></div>               
                 </div>
             </div>
+            <div>
+            <label>References</label>
+            <div class="form-field not-required">
+            <div class="radio"><input type="radio" value="1" id="ref_check1" name="references" class="required" <?php echo isset($reference_file) && $ref =='1'?'checked':''?>/> Yes</div>
+            <div class="radio"><input type="radio" value="2" id="ref_check2" name="references" class="required" <?php echo isset($ref) && $ref != '1' ? 'checked' : '' ?> /> No</div>
+            </div>
+        </div>
+        
+        <div class="refrence_file" <?php echo isset($reference_file) && $ref =='1' ?"":"style='display:none;'" ?>>
+            <label></label>
+            <input type="hidden" id="file-name" name="file" value="<?php echo isset($reference_file)?$reference_file:'' ?>">
+            <button class="btn btn-primary" id="select_file">Select File</button>
+            <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
+            <div id="output" class="loader"><?php echo isset($reference_file)?$reference_file:'' ?></div>
+        </div>
             <br />
             <div>
                 <input type="submit" class="btn btn-success" value="Update"/>
@@ -120,6 +128,22 @@ $rate_type = explode(',',$detail[0]['rate_type']);
 </div>
 
 <script>
+
+$("#ref_check1").click(function(){
+            $(".refrence_file").show();   
+        });
+        $("#ref_check2").click(function(){
+             	$.ajax({
+			         type: "POST",
+			         url: "<?php echo base_url(); ?>user/delete_ref_file",
+			         data: {file_name : $("#output").text()},
+			         success: function(r){
+                        $('#output').html(r);
+			         }
+		          });
+                     $(".refrence_file").hide(); 
+             $('#file-name').val('');   
+        });
 //     $(document).ready(function(){
 //      if($('#ckbox1').is(':checked')){
 //         $("#textbox1").show();

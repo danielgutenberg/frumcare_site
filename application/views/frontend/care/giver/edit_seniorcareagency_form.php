@@ -26,14 +26,7 @@
             <div class="top-welcome">
                 <h2 class="step3">Edit Organization Details</h2>
             </div>
-            <div>
-            <label>Location</label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>    
-        </div>
+            
             <div>
                 <label>Year established</label>
                 <div class="form-field">
@@ -91,7 +84,7 @@
                 } 
             ?>                   
                     
-                <div class="upload-photo">
+                <div class="upload-photo"  style="display:none;">
                     <h2>Upload photo of facility / organization</h2>
                     <input type="hidden" id="file-name" name="facility_pic" value="<?php echo isset($facility)?>">
                     <div id="output"><img src="<?php echo $photo_url?>"></div>

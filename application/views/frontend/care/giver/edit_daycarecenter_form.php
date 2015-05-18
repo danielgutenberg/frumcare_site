@@ -37,6 +37,21 @@
                 <h1 class="step3">Edit Organization Details</h1>
             </div>
             <div>
+                <label>Type of Organization</label>
+                <select name="sub_care">
+                    <option <?php echo $details[0]['sub_care']=='day care center'?'selected="selected"':'';?> value="day care center">Day Care Center</option>
+                    <option <?php echo $details[0]['sub_care']=='day camp'?'selected="selected"':'';?> value="day camp">Day Camp</option>
+                    <option <?php echo $details[0]['sub_care']=='afternoon activities'?'selected="selected"':'';?> value="afternoon activities">Afternoon Activities</option>
+                    <option <?php echo $details[0]['sub_care']=='pre school'?'selected="selected"':'';?> value="pre school">Pre-School</option>
+                    
+                    <option <?php echo $details[0]['sub_care']=='assisted living residence'?'selected="selected"':'';?> value="assisted living residence">Assisted living residence</option>
+                    <option <?php echo $details[0]['sub_care']=='senior care center'?'selected="selected"':'';?> value="senior care center">Senior care center</option>
+                    <option <?php echo $details[0]['sub_care']=='nursing home'?'selected="selected"':'';?> value="nursing home">Nursing home</option>
+                    <option <?php echo $details[0]['sub_care']=='rehab therapy center'?'selected="selected"':'';?> value="rehab therapy center">Rehab / Therapy Center</option>
+                    <option <?php echo $details[0]['sub_care']=='other'?'selected="selected"':'';?> value="other">Other</option>
+                </select>
+            </div>
+            <div>
                 <label>For</label>
                 <div class="form-field">
                 <div class="checkbox"><input type="checkbox" value="Boys" name="looking_to_work[]" <?php if(in_array('Boys',$lookingtowork)){?> checked="checked"<?php }?>> <span>Boys</span></div>
@@ -44,14 +59,6 @@
                 <div class="checkbox"><input type="checkbox" value="Both" name="looking_to_work[]" <?php if(in_array('Both',$lookingtowork)){?> checked="checked"<?php }?>> <span>Both</span></div>
                 </div>
             </div>
-            <div>
-            <label>Location</label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>    
-        </div>
             <div>
                 <label>Year established</label>
                 <div class="form-field">
@@ -83,7 +90,7 @@
                 </div>
             </div>
             <div>
-                <label>Spoken language</label>
+                <label>Languages Spoken</label>
                 <div class="form-field">
                 <div class="checkbox"><input type="checkbox" name="language[]" value="English"<?php if(in_array('English', $lang)){?> checked="checked" <?php }?> >English</div>
                 <div class="checkbox"><input type="checkbox" name="language[]" value="Russian"<?php if(in_array('Russian', $lang)){?> checked="checked" <?php }?>>Russian</div>
@@ -108,12 +115,7 @@
                 </div>
             </div>
           
-            <div>
-            <label>Cost</label>
-            <div class="form-field">
-                <input type="text" value="<?php echo $rate;?>" name="rate">
-            </div>
-        </div>
+            
             <div>
                 <label>Days / Hours</label>
                 <div class="form-field">
@@ -201,7 +203,12 @@
 
                 </div>
         </div>
-
+            <div>
+            <label>Cost</label>
+            <div class="form-field">
+                <input type="text" value="<?php echo $rate;?>" name="rate">
+            </div>
+        </div>
             <div style="display:none">
                 <label>Your references details</label>
                 <div class="form-field">
@@ -219,17 +226,17 @@
 <script>
     $(document).ready(function(){
         $('body').removeAttr("onload");
-         $("#ref_check1").click(function(){
-            if($('#ref_check1').is(':checked')){
-                $('.refrence_file').show();   
-            }
-        });
-        $("#ref_check2").click(function(){
-            if($("#ref_check2").is(':checked')){
-                $('.refrence_file').hide(); 
-                $('#upload_ref').val('');       
-            }
-        });
+        //  $("#ref_check1").click(function(){
+        //     if($('#ref_check1').is(':checked')){
+        //         $('.refrence_file').show();   
+        //     }
+        // });
+        // $("#ref_check2").click(function(){
+        //     if($("#ref_check2").is(':checked')){
+        //         $('.refrence_file').hide(); 
+        //         $('#upload_ref').val('');       
+        //     }
+        // });
         $("#ref_check1").click(function(){
             $(".refrence_file").show();   
         });

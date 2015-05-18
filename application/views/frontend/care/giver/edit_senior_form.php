@@ -44,14 +44,7 @@
                 <h1 class="step3">Edit Job Details</h1>
             </div>
 
-            <div>
-            <label>Location</label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>    
-        </div>
+            
             <div>
                 <label>Looking to work in</label>
                 <div class="form-field">
@@ -86,7 +79,7 @@
                 </div>
             </div>
             <div>
-                <label>Willing to work</label>
+                <label>Able to work with</label>
                 <div class="form-field">                    
                     <div class="checkbox"><input type="checkbox" value="Alz./ Dementia" name="willing_to_work[]" <?php if(in_array('Alz./ Dementia', $tempwillingtowork)){?> checked="checked"<?php }?>> <span>Alz./ Dementia</span></div>
                     <div class="checkbox"><input type="checkbox" value="Sight loss" name="willing_to_work[]" <?php if(in_array('Sight loss', $tempwillingtowork)){?> checked="checked"<?php }?>> <span>Sight loss</span></div>                                        
@@ -115,22 +108,7 @@
                 <!--<div class="checkbox"><input type="checkbox" value="1" name="rate_type[]" <?php if(in_array('1',$rate_type)){?> checked="checked" <?php } ?>>Hourly Rate</div>-->
                 <div class="checkbox"><input type="checkbox" value="2" name="rate_type[]" <?php if(in_array('2',$rate_type)){?> checked="checked" <?php } ?>>Monthly Rate Available</div>                
             </div>
-            <div>
-                <label>When you need care</label>
-                <div class="form-field">
-                    <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]" <?php if(in_array("Immediate",$time)){?> checked="checked"<?php }?>>Immediate</div>
-                    <div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]" <?php if(in_array("Start Date",$time)){?> checked="checked"<?php }?>>Start Date <input type="text" name="start_date" <?php if($date!='0000-00-00'){ echo 'value='.$date;}?> id="textbox1"/></div>
-                    <div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]" <?php if(in_array('Occassionally', $time)){?> checked="checked" <?php }?>> <span>Occassionally</span></div>
-					<div class="checkbox"><input type="checkbox" value="Regularly" name="availability[]" <?php if(in_array('Regularly', $time)){?> checked="checked" <?php }?>> <span>Regularly</span></div>
-					<div class="checkbox"><input type="checkbox" value="Morning" name="availability[]" <?php if(in_array('Morning', $time)){?> checked="checked" <?php }?>> <span>Morning</span></div>
-					<div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]" <?php if(in_array('Afternoon', $time)){?> checked="checked" <?php }?>> <span>Afternoon</span></div>
-					<div class="checkbox"><input type="checkbox" value="Evening" name="availability[]" <?php if(in_array('Evening', $time)){?> checked="checked" <?php }?>> <span>Evening</span></div>
-					<div class="checkbox"><input type="checkbox" value="Overnight" name="availability[]" <?php if(in_array('Overnight', $time)){?> checked="checked" <?php }?>><span>Overnight</span></div>
-					<div class="checkbox"><input type="checkbox" value="Weekends Fri./Sun." name="availability[]" <?php if(in_array('Weekends Fri./Sun.', $time)){?> checked="checked" <?php }?>> <span>Weekends Fri./Sun.</span></div>
-					<div class="checkbox"><input type="checkbox" value="Shabbos" name="availability[]" <?php if(in_array('Shabbos', $time)){?> checked="checked" <?php }?>><span>Shabbos</span></div>
-					<div class="checkbox"><input type="checkbox" value="24 hr care" name="availability[]" <?php if(in_array('24 hr care', $time)){?> checked="checked" <?php }?>> <span>24 hr care</span></div>
-                </div>
-            </div>
+            
             <div>
                 <label>Tell us about yourself</label>
                 <div class="form-field">
@@ -163,6 +141,22 @@
                 <div class="form-field not-required">
                     <div class="radio"><input type="radio" value="1" name="bg_check" class="required" <?php echo isset($bg_check) && $bg_check == 1 ? 'checked' : '' ?>/> Yes</div>
                     <div class="radio"><input type="radio" value="2" name="bg_check" class="required" <?php echo isset($bg_check) && $bg_check == 2 ? 'checked' : '' ?> /> No</div>
+                </div>
+            </div>
+            <div>
+                <label>Availability</label>
+                <div class="form-field">
+                    <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]" <?php if(in_array("Immediate",$time)){?> checked="checked"<?php }?>>Immediate</div>
+                    <div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]" <?php if(in_array("Start Date",$time)){?> checked="checked"<?php }?>>Start Date <input type="text" name="start_date" <?php if($date!='0000-00-00'){ echo 'value='.$date;}?> id="textbox1"/></div>
+                    <div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]" <?php if(in_array('Occassionally', $time)){?> checked="checked" <?php }?>> <span>Occassionally</span></div>
+					<div class="checkbox"><input type="checkbox" value="Regularly" name="availability[]" <?php if(in_array('Regularly', $time)){?> checked="checked" <?php }?>> <span>Regularly</span></div>
+					<div class="checkbox"><input type="checkbox" value="Morning" name="availability[]" <?php if(in_array('Morning', $time)){?> checked="checked" <?php }?>> <span>Morning</span></div>
+					<div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]" <?php if(in_array('Afternoon', $time)){?> checked="checked" <?php }?>> <span>Afternoon</span></div>
+					<div class="checkbox"><input type="checkbox" value="Evening" name="availability[]" <?php if(in_array('Evening', $time)){?> checked="checked" <?php }?>> <span>Evening</span></div>
+					<div class="checkbox"><input type="checkbox" value="Overnight" name="availability[]" <?php if(in_array('Overnight', $time)){?> checked="checked" <?php }?>><span>Overnight</span></div>
+					<div class="checkbox"><input type="checkbox" value="Weekends Fri./Sun." name="availability[]" <?php if(in_array('Weekends Fri./Sun.', $time)){?> checked="checked" <?php }?>> <span>Weekends Fri./Sun.</span></div>
+					<div class="checkbox"><input type="checkbox" value="Shabbos" name="availability[]" <?php if(in_array('Shabbos', $time)){?> checked="checked" <?php }?>><span>Shabbos</span></div>
+					<div class="checkbox"><input type="checkbox" value="24 hr care" name="availability[]" <?php if(in_array('24 hr care', $time)){?> checked="checked" <?php }?>> <span>24 hr care</span></div>
                 </div>
             </div>
 
