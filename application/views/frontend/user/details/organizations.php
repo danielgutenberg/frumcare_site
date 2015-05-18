@@ -48,7 +48,7 @@
 
         if(!empty($name_of_owner)){?>
         <tr>
-            <td>Name of owner/ operator</td>
+            <td>Name of owner / operator</td>
             <td class="form-field">
                 <?php echo $name_of_owner; ?>
             </td>
@@ -56,7 +56,7 @@
         <?php }
         else{ ?>
             <tr>
-            <td>Name of owner/ operator</td>
+            <td>Name of owner / operator</td>
             <td>
                 N/A
             </td>    
@@ -67,7 +67,7 @@
         if(!empty($age)){?>
 
         <tr>
-            <td>Age of owner/ operator</td>
+            <td>Age of owner / operator</td>
             <td class="form-field">
              12 <?php echo $age; ?>    
          </td>
@@ -75,7 +75,7 @@
      <?php }
      else{ ?>
             <tr>
-            <td>Age of owner/ operator</td>
+            <td>Age of owner / operator</td>
             <td>
                 N/A
             </td>    
@@ -119,7 +119,7 @@
         <?php
         } ?>
     <tr>
-        <td>Photo of owner/operator</td>
+        <td>Photo of owner / operator</td>
         <td>
             <?php $photo = !empty($profile_picture_owner)?"images/profile-picture/thumb/".$profile_picture_owner:"images/no-image.jpg"; ?>
             <img  src="<?php echo site_url().$photo; ?>"/>

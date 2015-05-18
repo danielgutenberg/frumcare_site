@@ -24,15 +24,8 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 					<h1 class="step3">Step 3: Job Details</h1>
 				</div>
 				<?php } ?>
-				<div>
-            <label>Location</label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>    
-        </div>
-				<div>
+				
+				<div style="display:none;">
                 <label>Year established</label>
                 <div class="form-field">
                 
@@ -89,13 +82,13 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                     <div class="form-field">
                         <select name="rate" class="required rate">
                             <option value="">Select rate</option>
-                            <option value="5-10">$5-$10/Hr</option>
-                            <option value="10-15">$10-$15/Hr</option>
-                            <option value="15-25">$15-$25/Hr</option>
-                            <option value="25-35">$25-$35/Hr</option>
-                            <option value="35-45">$35-$45/Hr</option>
-                            <option value="45-55">$45-$55/Hr</option>
-                            <option value="55+">$55+/Hr</option>
+                            <option value="5-10">$5-$10 / Hr</option>
+                            <option value="10-15">$10-$15 / Hr</option>
+                            <option value="15-25">$15-$25 / Hr</option>
+                            <option value="25-35">$25-$35 / Hr</option>
+                            <option value="35-45">$35-$45 / Hr</option>
+                            <option value="45-55">$45-$55 / Hr</option>
+                            <option value="55+">$55+ / Hr</option>
                         </select>
                     </div>
                 </div>
@@ -113,7 +106,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                         <div class="checkbox"><input type="checkbox" value="Morning" name="availability[]"> <span>Morning</span></div>
                         <div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]"> <span>Afternoon</span></div>
                         <div class="checkbox"><input type="checkbox" value="Evening" name="availability[]"> <span>Evening</span></div>						
-						<div class="checkbox"><input type="checkbox" value="Weekends Fri./Sun." name="availability[]"> <span>Weekends Fri./Sun.</span></div>						
+						<div class="checkbox"><input type="checkbox" value="Weekends Fri./Sun." name="availability[]"> <span>Weekends Fri. / Sun.</span></div>						
 						<div class="checkbox"><input type="checkbox" value="Shabbos" name="availability[]"> <span>Shabbos</span></div>						
 						<div class="checkbox"><input type="checkbox" value="24 hr care" name="availability[]"> <span>24 hr care</span></div>
 					</div>
@@ -194,7 +187,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         $("#ref_check2").click(function(){
             //  	$.ajax({
 			         // type: "POST",
-			         // url: "<?php echo base_url(); ?>user/delete_ref_file",
+			         // url: "<?php //echo base_url(); ?>user/delete_ref_file",
 			         // data: {file_name : $("#output").text()},
 			         // success: function(r){
             //             $('#output').html(r);

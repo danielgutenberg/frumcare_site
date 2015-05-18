@@ -25,14 +25,6 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 				</div>
 				<?php } ?>
 				<div>
-            <label>Location</label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>    
-        </div>
-				<div>
 					<label>Looking to work in</label>
 					<div class="form-field">
 						<div class="checkbox"><input type="checkbox" value="Home of senior" name="looking_to_work[]"> <span>Home of senior</span></div>
@@ -67,7 +59,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 				<div>
 					<label>Able to work with</label>
 					<div class="form-field">
-						<div class="checkbox"><input type="checkbox" value="Alz./ Dementia" name="willing_to_work[]"> <span>Alz./ Dementia</span></div>
+						<div class="checkbox"><input type="checkbox" value="Alz./ Dementia" name="willing_to_work[]"> <span>Alz. / Dementia</span></div>
 						<div class="checkbox"><input type="checkbox" value="Sight loss" name="willing_to_work[]"> <span>Sight loss</span></div>
 						<div class="checkbox"><input type="checkbox" value="Hearing loss" name="willing_to_work[]"> <span>Hearing loss</span></div>
 						<div class="checkbox"><input type="checkbox" value="Wheelchair bound" name="willing_to_work[]"> <span>Wheelchair bound</span></div>
@@ -79,15 +71,15 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <div class="form-field">
                 <select name="rate" class="required rate">
                     <option value="">Select rate</option>
-                    <option value="5-10">$5-$10/Hr</option>
-		                    <option value="10-15">$5-$10/Hr</option>
-		                    <option value="15-25">$15-$25/Hr</option>
-		                    <option value="25-35">$25-$35/Hr</option>
-		                    <option value="35-45">$35-$45/Hr</option>
-		                    <option value="45-55">$45-$55/Hr</option>
-		                    <option value="55+">$55+/Hr</option>
+                    <option value="5-10">$5-$10 / Hr</option>
+		                    <option value="10-15">$10-$15 / Hr</option>
+		                    <option value="15-25">$15-$25 / Hr</option>
+		                    <option value="25-35">$25-$35 / Hr</option>
+		                    <option value="35-45">$35-$45 / Hr</option>
+		                    <option value="45-55">$45-$55 / Hr</option>
+		                    <option value="55+">$55+ / Hr</option>
                 </select>
-                <br/>
+                <br/> 
                 
                 <!--<div class="checkbox"><input type="checkbox" name="rate_type[]" value="1">Hourly Rate</div>-->
                 <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
@@ -133,7 +125,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                         <div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]"> <span>Afternoon</span></div>
                         <div class="checkbox"><input type="checkbox" value="Evening" name="availability[]"> <span>Evening</span></div>
                         <div class="checkbox"><input type="checkbox" value="Overnight" name="availability[]"><span>Overnight</span></div>						
-						<div class="checkbox"><input type="checkbox" value="Weekends Fri./Sun." name="availability[]"> <span>Weekends Fri./Sun.</span></div>						
+						<div class="checkbox"><input type="checkbox" value="Weekends Fri./Sun." name="availability[]"> <span>Weekends Fri. / Sun.</span></div>						
 						<div class="checkbox"><input type="checkbox" value="Shabbos" name="availability[]"><span>Shabbos</span></div>						
 						<div class="checkbox"><input type="checkbox" value="24 hr care" name="availability[]"> <span>24 hr care</span></div>						
 					</div>

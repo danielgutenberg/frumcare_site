@@ -44,14 +44,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             </div>
             
             
-            <div>
-            <label>Location</label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>    
-        </div>
+            
             <div>
                 <label>Year established</label>
                 <div class="form-field">
@@ -105,13 +98,13 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                     <div class="checkbox"><input type="checkbox" value="Wheelchair bound" name="willing_to_work[]"> <span>Wheelchair bound</span></div>               
                 </div>
             </div>
-            <div>
-                <label>Observance in facility</label>
-                <div class="checkbox"><input type="checkbox" value="shul on premises" name="extra_field[]" />Shul on premises</div>
-                <div class="checkbox"><input type="checkbox" value="kosher kitchen" name="extra_field[]" />Kosher kitchen</div>
-                <div class="checkbox"><input type="checkbox" value="kosher food available" name="extra_field[]" />Kosher food available</div>
-                <div class="checkbox"><input type="checkbox" value="shabbos observant facility" name="extra_field[]" />Shabbos observant facility</div>
-            </div>
+            <!--<div>-->
+            <!--    <label>Observance in facility</label>-->
+            <!--    <div class="checkbox"><input type="checkbox" value="shul on premises" name="extra_field[]" />Shul on premises</div>-->
+            <!--    <div class="checkbox"><input type="checkbox" value="kosher kitchen" name="extra_field[]" />Kosher kitchen</div>-->
+            <!--    <div class="checkbox"><input type="checkbox" value="kosher food available" name="extra_field[]" />Kosher food available</div>-->
+            <!--    <div class="checkbox"><input type="checkbox" value="shabbos observant facility" name="extra_field[]" />Shabbos observant facility</div>-->
+            <!--</div>-->
             <div>
                 <label>Cost</label>
                 <div class="form-field">
@@ -125,26 +118,26 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 </div>
             </div>
 
-        <!--    <div>-->
-        <!--    <label>References</label>-->
-        <!--    <div class="form-field not-required">-->
-        <!--    <div class="radio"><input type="radio" id="ref_check1" value="1" name="references" class="required" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?>/> Yes</div>-->
-        <!--    <div class="radio"><input type="radio" id="ref_check2" value="2" name="references" class="required" <?php echo isset($ref) && $ref == 2 ? 'checked' : '' ?> checked/> No</div>-->
-        <!--    </div>-->
-        <!--</div>-->
-        <!--<div class="refrence_file" style="display:none;">-->
-        <!--    <label></label>-->
-        <!--    <input type="hidden" id="file-name" name="file">-->
-        <!--    <button class="btn btn-primary" id="select_file">Select File</button>-->
-        <!--    <input type="file" name="file_upload" id="file_upload" style="display: none;"> -->
-        <!--    <div id="output" class="loader"></div>-->
-        <!--</div>-->
+            <div>
+            <label>References</label>
+            <div class="form-field not-required">
+            <div class="radio"><input type="radio" id="ref_check1" value="1" name="references" class="required" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?>/> Yes</div>
+            <div class="radio"><input type="radio" id="ref_check2" value="2" name="references" class="required" <?php echo isset($ref) && $ref == 2 ? 'checked' : '' ?> checked/> No</div>
+            </div>
+        </div>
+        <div class="refrence_file" style="display:none;">
+            <label></label>
+            <input type="hidden" id="file-name" name="file">
+            <button class="btn btn-primary" id="select_file">Select File</button>
+            <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
+            <div id="output" class="loader"></div>
+        </div>
 
             <?php 
                 $photo_url = site_url("images/plus.png");
             ?>                   
                     
-            <div class="upload-photo">
+            <div class="upload-photo" style="display:none;">
                 <h2>Upload Photo of Facility / Organization</h2>
                 <input type="hidden" id="file-name" name="facility_pic" value="<?php echo isset($profile_picture)?>">
                 <div id="output"><img src="<?php echo $photo_url?>"></div>
@@ -176,6 +169,10 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 </div>
 
 <script type="text/javascript">
+ $('#ref_check1').click(function(){
+        $('.refrence_file').show();
+    });
+ 
  $('#select_file').click(function(e){
         e.preventDefault();
         $('#file_upload,#output').trigger('click');

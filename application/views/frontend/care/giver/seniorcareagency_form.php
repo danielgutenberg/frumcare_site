@@ -23,14 +23,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <h1 class="step3">Step 3: Organization Details</h1>
             </div>
             <?php } ?>
-            <div>
-            <label>Location</label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>    
-        </div>
+            
             <div>
                 <label>Year established</label>
                 <div class="form-field">
@@ -96,15 +89,15 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 $photo_url = site_url("images/plus.png");
             ?>                   
                     
-            <div class="upload-photo">
-                <h2>Upload Photo of Facility / Organization</h2>
-                <input type="hidden" id="file-name" name="facility_pic" value="<?php echo isset($profile_picture)?>">
-                <div id="output"><img src="<?php echo $photo_url?>"></div>
-                <label>Browse your computer to select a file to upload</label>
-                <button class="btn btn-default" id="upload">Choose File</button>
-                <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
-                <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>
-            </div>
+            <!--<div class="upload-photo">-->
+            <!--    <h2>Upload Photo of Facility / Organization</h2>-->
+            <!--    <input type="hidden" id="file-name" name="facility_pic" value="<?php //echo isset($profile_picture)?>">-->
+            <!--    <div id="output"><img src="<?php //echo $photo_url?>"></div>-->
+            <!--    <label>Browse your computer to select a file to upload</label>-->
+            <!--    <button class="btn btn-default" id="upload">Choose File</button>-->
+            <!--    <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>-->
+            <!--    <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>-->
+            <!--</div>-->
 
 
             <div>
@@ -120,6 +113,10 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     </form>    
 </div>
 <script type="text/javascript">
+$('#ref_check1').click(function(){
+        $('.refrence_file').show();
+    });
+
  $('#select_file,#output').click(function(e){
         e.preventDefault();
         $('#file_upload').trigger('click');

@@ -26,30 +26,23 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         <h1 class="step3">Step 3: Organization Details</h1>
     </div>
     <?php } ?>
-    <div>
-            <label>Location</label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>    
-        </div>
-        <label>Year established</label>
-        <div class="form-field">
-            <select name="established" class="required">
-                <option value="">Select year established</option>
-                <?php for($i=1950;$i<=date('Y');$i++):?>
-                    <option value="<?php echo $i?>"><?php echo $i;?></option>
-                <?php endfor;?>
-            </select>
-        </div>
-    </div>
+    <!--<div>-->
+    <!--    <label>Year established</label>-->
+    <!--    <div class="form-field">-->
+    <!--        <select name="established" class="required">-->
+    <!--            <option value="">Select year established</option>-->
+    <!--            <?php for($i=1950;$i<=date('Y');$i++):?>-->
+    <!--                <option value="<?php //echo $i?>"><?php //echo $i;?></option>-->
+    <!--            <?php endfor;?>-->
+    <!--        </select>-->
+    <!--    </div>-->
+    <!--</div>-->
     <div>
         <label>We clean</label>
         <div class="form-field">
             <div class="first-block-checkbox">
                 <div><input type="checkbox" value="Home" name="looking_to_work[]"> <span>Homes</span></div>
-                <div><input type="checkbox" value="Business" name="looking_to_work[]"> <span>Office/Business</span></div>
+                <div><input type="checkbox" value="Business" name="looking_to_work[]"> <span>Office / Business</span></div>
             </div>
 
         </div>
@@ -64,8 +57,8 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <div class="checkbox"><input type="checkbox" value="Folding" name="willing_to_work[]"> <span>Folding</span></div>
             <div class="checkbox"><input type="checkbox" value="Ironing" name="willing_to_work[]"> <span>Ironing</span></div>                    
             <div class="checkbox"><input type="checkbox" value="Cleaning and Dusting Furniture" name="willing_to_work[]"> <span>Cleaning and Dusting Furniture</span></div>                    
-            <div class="checkbox"><input type="checkbox" value="Cleaning Refrigerator/Freezer" name="willing_to_work[]"><span>Cleaning Refrigerator/Freezer</span></div>                    
-            <div class="checkbox"><input type="checkbox" value="Cleaning Oven/Stove" name="willing_to_work[]"><span>Cleaning Oven/Stove</span></div>                    
+            <div class="checkbox"><input type="checkbox" value="Cleaning Refrigerator/Freezer" name="willing_to_work[]"><span>Cleaning Refrigerator / Freezer</span></div>                    
+            <div class="checkbox"><input type="checkbox" value="Cleaning Oven/Stove" name="willing_to_work[]"><span>Cleaning Oven / Stove</span></div>                    
             <div class="checkbox"><input type="checkbox" value="Pesach Cleaning" name="willing_to_work[]"><span>Pesach Cleaning</span></div>
             <div class="checkbox"><input type="checkbox" value="Able to watch children as well" name="willing_to_work[]"><span>Able to watch children as well</span></div>                    
         </div>            
@@ -90,13 +83,13 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         <div class="form-field">
             <select name="rate" class="required rate">
                 <option value="">Select rate</option>
-                <option value="5-10">$5-$10/Hr</option>
-                <option value="10-15">$5-$10/Hr</option>
-                <option value="15-25">$15-$25/Hr</option>
-                <option value="25-35">$25-$35/Hr</option>
-                <option value="35-45">$35-$45/Hr</option>
-                <option value="45-55">$45-$55/Hr</option>
-                <option value="55+">$55+/Hr</option>
+                <option value="5-10">$5-$10 / Hr</option>
+                <option value="10-15">$5-$10 / Hr</option>
+                <option value="15-25">$15-$25 / Hr</option>
+                <option value="25-35">$25-$35 / Hr</option>
+                <option value="35-45">$35-$45 / Hr</option>
+                <option value="45-55">$45-$55 / Hr</option>
+                <option value="55+">$55+ / Hr</option>
             </select>
         </div>
     </div>
@@ -127,15 +120,15 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     </div>
     <?php   $photo_url = site_url("images/plus.png");  ?>                   
                     
-            <div class="upload-photo">
-                <h2>Upload photo of facility / organization</h2>
-                <input type="hidden" id="file-name" name="profile_picture" value="">
-                <div id="output"><img src="<?php echo $photo_url?>"></div>
-                <label>Browse your computer to select a file to upload</label>
-                <button class="btn btn-default" id="upload">Choose File</button>
-                <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
-                <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>
-            </div>
+            <!--<div class="upload-photo">-->
+            <!--    <h2>Upload photo of facility / organization</h2>-->
+            <!--    <input type="hidden" id="file-name" name="profile_picture" value="">-->
+            <!--    <div id="output"><img src="<?php echo $photo_url?>"></div>-->
+            <!--    <label>Browse your computer to select a file to upload</label>-->
+            <!--    <button class="btn btn-default" id="upload">Choose File</button>-->
+            <!--    <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>-->
+            <!--    <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>-->
+            <!--</div>-->
     <div>
         <input type="submit" class="btn btn-success" value="Save <?php if($this->uri->segment(2) != 'new_profile'){echo '& Continue';}?>"/>
     </div>

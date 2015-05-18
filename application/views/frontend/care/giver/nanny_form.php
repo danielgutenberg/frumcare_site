@@ -24,14 +24,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 					<h1 class="step3">Step 3: Job Details</h1>
 				</div>
 				<?php } ?>
-				<div>
-            <label>Location</label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>    
-        </div>
+				
 				<div>
 					<label>Looking to work as</label>
 					<div class="form-field">
@@ -89,12 +82,12 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 		            <div class="form-field">
 		                <select name="rate" class="required rate">
 		                    <option value="">Select rate</option>
-		                    <option value="5-10">$5-$10/Hr</option>
-		                    <option value="10-15">$10-$15/Hr</option>
-		                    <option value="15-25">$15-$25/Hr</option>
-		                    <option value="25-35">$25-$35/Hr</option>
-		                    <option value="35-45">$35-$45/Hr</option>
-		                    <option value="45-55">$45-$55/Hr</option>
+		                    <option value="5-10">$5-$10 / Hr</option>
+		                    <option value="10-15">$10-$15 / Hr</option>
+		                    <option value="15-25">$15-$25 / Hr</option>
+		                    <option value="25-35">$25-$35 / Hr</option>
+		                    <option value="35-45">$35-$45 / Hr</option>
+		                    <option value="45-55">$45-$55 / Hr</option>
 		                    <option value="55+">$55+/Hr</option>
 		                </select>		      			        		
 		            </div>
@@ -114,7 +107,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                         <div class="checkbox"><input type="checkbox" name="availability[]" value="Morning"> <span>Morning</span></div>
                         <div class="checkbox"><input type="checkbox" name="availability[]" value="Afternoon"> <span>Afternoon</span></div>
                         <div class="checkbox"><input type="checkbox" name="availability[]" value="Evening"> <span>Evening</span></div>
-                        <div class="checkbox"><input type="checkbox" name="availability[]" value="Weekends fri/sun"> <span>Weekends fri/sun</span></div>						
+                        <div class="checkbox"><input type="checkbox" name="availability[]" value="Weekends fri/sun"> <span>Weekends fri / sun</span></div>						
   						<div class="checkbox"><input type="checkbox" name="availability[]" value="Shabbos"> <span>Shabbos</span></div>						
   						<div class="checkbox"><input type="checkbox" name="availability[]" value="Night Nurse"> <span>Night Nurse</span></div>						
             			<div class="checkbox"><input type="checkbox" name="availability[]" value="Vacation Sitter"> <span>Vacation Sitter</span></div>  						
@@ -164,7 +157,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 						<input type="checkbox" value="1" name="cook"> Able to cook and prepare food
 					</div>
 					<div>
-						<input type="checkbox" value="1" name="basic_housework"> Able to do housework/ cleaning
+						<input type="checkbox" value="1" name="basic_housework"> Able to do housework / cleaning
 					</div>
 					<div>
 						<input type="checkbox" value="1" name="homework_help"> Able to help with homework

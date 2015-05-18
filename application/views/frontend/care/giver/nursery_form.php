@@ -25,14 +25,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <h1 class="step3">Step 3: Job Details</h1>
             </div>
             <?php } ?>
-            <div>
-            <label>Location</label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>    
-        </div>
+            
             <div>
                 <label>For</label>
                 <div class="form-field">

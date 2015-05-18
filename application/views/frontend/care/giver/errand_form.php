@@ -24,14 +24,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 					<h1 class="step3">Step 3: Job Details</h1>
 				</div>
 				<?php } ?>
-				<div>
-            <label>Location</label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>    
-        </div>
+				
 				<div>
 					<label>Years of experience</label>
 					<div class="form-field">
@@ -50,13 +43,13 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 		            <div class="form-field">
 		                <select name="rate" class="required rate">
 		                    <option value="">Select rate</option>
-		                    <option value="5-10">$5-$10/Hr</option>
-		                    <option value="10-15">$5-$10/hr</option>
-		                    <option value="15-25">$15-$25/Hr</option>
-		                    <option value="25-35">$25-$35/Hr</option>
-		                    <option value="35-45">$35-$45/Hr</option>
-		                    <option value="45-55">$45-$55/Hr</option>
-		                    <option value="55+">$55+/Hr</option>
+		                    <option value="5-10">$5-$10 / Hr</option>
+		                    <option value="10-15">$10-$15 / Hr</option>
+		                    <option value="15-25">$15-$25 / Hr</option>
+		                    <option value="25-35">$25-$35 / Hr</option>
+		                    <option value="35-45">$35-$45 / Hr</option>
+		                    <option value="45-55">$45-$55 / Hr</option>
+		                    <option value="55+">$55+ / Hr</option>
 		                </select>
                     </div>
         		</div>

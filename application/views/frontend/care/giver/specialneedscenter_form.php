@@ -23,14 +23,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         <h1 class="step3">Step 3: Organization Details</h1>
     </div>
     <?php } ?>
-    <div>
-            <label>Location</label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>    
-        </div>
+    
     <div>
         <label>Year established</label>
         <div class="form-field">
@@ -50,7 +43,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         </div>
     </div>
      <div>
-        <label>Languages</label>
+        <label>Languages Spoken</label>
         <div class="form-field">
             <div class="checkbox"><input type="checkbox" name="language[]" value="English"> English</div>
             <div class="checkbox"><input type="checkbox" name="language[]" value="Yiddish"> Yiddish</div>
@@ -91,21 +84,12 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     </div>
 
 
-    <div class="rate-select">
-        <label>Rate</label>
-        <div class="form-field">
-            <select name="rate" class="required rate">
-                <option value="">Select rate</option>
-                <option value="5-10">$5-$10 / Hr</option>
-                            <option value="10-15">$10-$15 / Hr</option>
-                            <option value="15-25">$15-$25 / Hr</option>
-                            <option value="25-35">$25-$35 / Hr</option>
-                            <option value="35-45">$35-$45 / Hr</option>
-                            <option value="45-55">$45-$55 / Hr</option>
-                            <option value="55+">$55+ / Hr</option>
-            </select>
-        </div>
-    </div>
+    <div>
+                <label>Cost</label>
+                <div class="form-field">
+                    <input type="text" name="rate" value="">
+                </div>
+            </div>
     <div>
         <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
     </div>
@@ -117,24 +101,24 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         </div>
     </div>
 
-    <!--<div>-->
-    <!--        <label>References</label>-->
-    <!--        <div class="form-field not-required">-->
-    <!--        <div class="radio"><input type="radio" id="ref_check1" value="1" name="references" class="required" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?>/> Yes</div>-->
-    <!--        <div class="radio"><input type="radio" id="ref_check2" value="2" name="references" class="required" <?php echo isset($ref) && $ref == 2 ? 'checked' : '' ?> checked/> No</div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--    <div class="refrence_file" style="display:none;">-->
-    <!--        <label></label>-->
-    <!--        <input type="hidden" id="file-name" name="file">-->
-    <!--        <button class="btn btn-primary" id="select_file">Select File</button>-->
-    <!--        <input type="file" name="file_upload" id="file_upload" style="display: none;"> -->
-    <!--        <div id="output" class="loader"></div>-->
-    <!--    </div>-->
+    <div>
+            <label>References</label>
+            <div class="form-field not-required">
+            <div class="radio"><input type="radio" id="ref_check1" value="1" name="references" class="required" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?>/> Yes</div>
+            <div class="radio"><input type="radio" id="ref_check2" value="2" name="references" class="required" <?php echo isset($ref) && $ref == 2 ? 'checked' : '' ?> checked/> No</div>
+            </div>
+        </div>
+        <div class="refrence_file" style="display:none;">
+            <label></label>
+            <input type="hidden" id="file-name" name="file">
+            <button class="btn btn-primary" id="select_file">Select File</button>
+            <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
+            <div id="output" class="loader"></div>
+        </div>
 
     <?php $photo_url = site_url("images/plus.png"); ?>                   
                     
-            <div class="upload-photo">
+            <div class="upload-photo" style="display:none;">
                 <h2>Upload Photo of Facility / Organization</h2>
                 <input type="hidden" id="file-name" name="facility_pic" value="">
                 <div id="output"><img src="<?php echo $photo_url?>"></div>
@@ -169,6 +153,15 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 </div>
 
 <script type="text/javascript">
+ $('#ref_check1').click(function(){
+        $('.refrence_file').show();
+    });
+
+    $('#ref_check2').click(function(){
+        $('.refrence_file').hide();
+        $('#output').text('');
+        $('#file-name').val('');
+    });
  $('#select_file').click(function(e){
         e.preventDefault();
         $('#file_upload,,#output').trigger('click');

@@ -24,14 +24,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <h1 class="step3">Step 3: Job Details</h1>
             </div>
             <?php } ?>
-            <div>
-            <label>Location</label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>    
-        </div>
+            
             <div>
                 <label>Subject(s)</label>
                 <div class="form-field">
@@ -56,7 +49,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                     <div class="checkbox"><input type="checkbox" value="Morning" name="availability[]"> <span>Morning</span></div>
                     <div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]"> <span>Afternoon</span></div>
                     <div class="checkbox"><input type="checkbox" value="Evening" name="availability[]"> <span>Evening</span></div>                    
-                    <div class="checkbox"><input type="checkbox" name="availability[]" value="Weekends fri/sun"> <span>Weekends fri/sun</span></div>
+                    <div class="checkbox"><input type="checkbox" name="availability[]" value="Weekends fri/sun"> <span>Weekends fri / sun</span></div>
                     <div class="checkbox"><input type="checkbox" value="By Appointment" name="availability[]"> <span>By Appointment</span></div>
                 </div>
             </div>
@@ -78,13 +71,13 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <label>Rate</label>
                 <div class="form-field">
                     <select name="rate" class="required rate">
-                        <option value="5-10">$5-$10/Hr</option>
-                            <option value="10-15">$10-$15/Hr</option>
-                            <option value="15-25">$15-$25/Hr</option>
-                            <option value="25-35">$25-$35/Hr</option>
-                            <option value="35-45">$35-$45/Hr</option>
-                            <option value="45-55">$45-$55/Hr</option>
-                            <option value="55+">$55+/Hr</option>
+                        <option value="5-10">$5-$10 / Hr</option>
+                            <option value="10-15">$10-$15 / Hr</option>
+                            <option value="15-25">$15-$25 / Hr</option>
+                            <option value="25-35">$25-$35 / Hr</option>
+                            <option value="35-45">$35-$45 / Hr</option>
+                            <option value="45-55">$45-$55 / Hr</option>
+                            <option value="55+">$55+ / Hr</option>
                     </select>
                 </div>
             </div>
@@ -147,6 +140,15 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     </form>
 </div>
 <script>
+         $('#ref_check1').click(function(){
+            $('.refrence_file').show();
+        });
+
+        $('#ref_check2').click(function(){
+            $('.refrence_file').hide();
+            $('#output').text('');
+            $('#file-name').val('');
+        });
  $("#textbox1").ready(function(){        
         $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
      });

@@ -23,7 +23,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <h1 class="step3">Step 3: Organization Details</h1>
             </div>
             <?php } ?>
-            <div>
+            
                 
                 <div>
                 <label>Type of Organization</label>
@@ -40,14 +40,14 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                     <option value="other">Other</option>
                 </select>
             </div>
-                
-            <label>Location</label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>    
-        </div>
+        <!--    <div>    -->
+        <!--    <label>Location</label>-->
+        <!--    <div id="locationField">-->
+        <!--        <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>-->
+        <!--        <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> -->
+        <!--        <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>-->
+        <!--    </div>    -->
+        <!--</div>-->
             
         
             
@@ -91,7 +91,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 </div>
             </div>
             <div>
-                <label>Languages</label>
+                <label>Languages Spoken</label>
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" name="language[]" value="English"> English</div>
                     <div class="checkbox"><input type="checkbox" name="language[]" value="Yiddish"> Yiddish</div>
@@ -115,16 +115,6 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <input type="text" value="" name="number_of_staff" class="required number">
                 </div>
             </div>
-            
-
-            
-
-            <div>
-            <label>Cost</label>
-            <div class="form-field">
-                <input type="text" name="rate" value="">
-            </div>
-        </div>
        
             <div>
                 <label>Days / Hours</label>
@@ -192,6 +182,12 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
                 <div id="output" class="loader"></div>
             </div>
+            <div>
+            <label>Cost</label>
+            <div class="form-field">
+                <input type="text" name="rate" value="">
+            </div>
+        </div>
 
             <!--<div style="display:none">-->
             <!--    <label>Your references details</label>-->
