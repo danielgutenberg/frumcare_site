@@ -84,8 +84,8 @@
 
                         <div class="search" style="width:300px;">
                         <form method="get" action="<?php echo site_url();?>search">
-                            <div class="search-select" style="background: url('<?php echo $ciurl;?>img/select-btns.png') no-repeat scroll 94% center #363636; ">
-                            <select name="category" style="width: 80%; color: rgb(190, 186, 179); -webkit-appearance: none; -moz-appearance: none;">
+                            <div class="search-select">
+                            <select name="category" style="background: url('<?php echo $ciurl;?>img/select-btns.png') no-repeat scroll 94% center #363636; width: 100%; color: rgb(190, 186, 179); -webkit-appearance: none; -moz-appearance: none;">
                                 <option value="all" style="background-color: white; color: grey;">All</option>
                                 <option value="caregiver" style="background-color: white; color: grey;" class="selected">Caregivers</option>
                                 <option value="careseeker" style="background-color: white; color: grey;">Jobs</option>
