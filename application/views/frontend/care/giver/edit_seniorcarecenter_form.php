@@ -35,7 +35,7 @@
             </div>
             
             <?php
-                print_r($usr); 
+                print_r(detail); 
             ?>
             <div>
                 <label>Type of Organization</label>
