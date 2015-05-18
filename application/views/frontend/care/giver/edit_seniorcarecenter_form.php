@@ -34,6 +34,7 @@
                 <h2 class="step3">Edit Job Details</h2>
             </div>
             
+            <?php print_r($details);?>
             
             <div>
                 <label>Type of Organization</label>
