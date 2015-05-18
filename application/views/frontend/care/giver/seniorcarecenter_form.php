@@ -25,7 +25,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <?php } ?>
             
             
-            <?php print_r($usr); ?>
+            
             
             <div>
                 <label>Type of Organization</label>
