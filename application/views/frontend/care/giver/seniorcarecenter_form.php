@@ -33,7 +33,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                     <option value="pre school">Pre-School</option>
                     
                     <option value="assisted living residence">Assisted living residence</option>
-                    <option value="senior care center" selected="selected">Senior care center</option>
+                    <option value="senior care center">Senior care center</option>
                     <option value="nursing home">Nursing home</option>
                     <option value="rehab therapy center">Rehab / Therapy Center</option>
                     <option value="other">Other</option>
