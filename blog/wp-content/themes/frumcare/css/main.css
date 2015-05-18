@@ -6044,3 +6044,38 @@ ol.progtrckr[data-progtrckr-steps="3"] li {
   width: 280px;
 }
 }
+
+.customStyleSelectBox {
+    width: 48% !important;
+    float: right;
+  }
+  
+.customStyleSelectBox:nth-of-type(2) {
+    float: right;
+  }
+  
+.customStyleSelectBoxInner {
+	background: url("../img/select-btn.png") no-repeat scroll 310px center;
+	cursor: pointer !important;
+	margin-top: 8px;
+	padding-left: 8px;
+	width: 100% !important;
+}
+
+.customStyleSelectBox {
+	background: none repeat scroll 0 0 #f4f4f4;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	height: 38px;
+	width: 100%;
+	max-width: 240px;
+}
+
+.customStyleSelectBoxInner {
+	background: url("../img/select-btns.png") no-repeat scroll 94% center;
+	color: #bfbfbf;
+	cursor: pointer !important;
+	margin-top: 2px;
+	padding-left: 8px;
+	width: 100% !important;
+}
