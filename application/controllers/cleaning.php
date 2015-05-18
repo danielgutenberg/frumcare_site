@@ -152,7 +152,7 @@
     }
 
     function pages(){
-         $this->breadcrumbs->push('Cleaning/Household help', site_url().'#');
+         $this->breadcrumbs->push('Cleaning / Household help', site_url().'#');
          $this->breadcrumbs->unshift('Home', base_url());
 
          if(isset($this->session->userdata['search_limit'])){
@@ -184,7 +184,7 @@
 
         $data = array(
            'main_content' => 'frontend/cleaning/index',
-            'title'        => 'Cleaning/Household help',
+            'title'        => 'Cleaning / Household help',
             'ipdata'       =>   $this->common_model->getIPData($this->ipaddress),
             'userdatas'    => $userdata,
             'userlogs'     => $this->user_model->getUserLog()

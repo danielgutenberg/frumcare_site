@@ -31,7 +31,7 @@
 				echo $count;
 			?> 
 		</span>
-		Cleaning/Household help 
+		Cleaning / Household help 
         <span id="locationaddress"><?php echo $city;?></span>
 	</h3>
 <div class="want-top"><p>Want Caregivers to Contact you?<a href="<?php echo site_url().'signup?ac=1'?>" class="btn btn-primary ml10 btn-xs">Post a job free</a></p></div>

@@ -133,7 +133,7 @@ class Cleaningcompany extends CI_Controller{
         }
 
         function pages(){
-             $this->breadcrumbs->push('Cleaning/Household help', site_url().'#');
+             $this->breadcrumbs->push('Cleaning / Household help', site_url().'#');
              $this->breadcrumbs->unshift('Home', base_url());
 
              if(isset($this->session->userdata['search_limit'])){
