@@ -167,22 +167,22 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
         } ?> 
     <?php
     if($references==1){?>
-    <tr>
-    	<td >References Details</td>
-    	<td >
+    <!--<tr>-->
+    <!--	<td >References Details</td>-->
+    <!--	<td >-->
     		
-    	</td>
-    </tr>
+    <!--	</td>-->
+    <!--</tr>-->
     <?php }
     else{ ?>
-            <tr>
-                <td>References Details</td>
-                <td>N/A</td>
-            </tr>
+            <!--<tr>-->
+            <!--    <td>References Details</td>-->
+            <!--    <td>N/A</td>-->
+            <!--</tr>-->
         <?php            
         } ?>
     
-    <tr>
+    <tr style="display:none">
     	<td >Agree to Background Check?</td>
     	<td >
     		<?php if ($agree_bg_check == 1) { echo 'yes';}

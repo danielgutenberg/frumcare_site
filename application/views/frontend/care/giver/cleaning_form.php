@@ -120,7 +120,17 @@ if(($this->uri->segment(2) != 'new_profile')){?>
  $("#textbox1").ready(function(){        
         $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
      });
-    $(document).ready(function(){        
+    $(document).ready(function(){    
+        
+        $("#ref_check2").click(function(){
+            if($("#ref_check2").is(':checked')){
+                $('.refrence_file').hide(); 
+                $('#upload_ref').val('');       
+            }
+        });
+        $("#ref_check1").click(function(){
+            $(".refrence_file").show();   
+        });
        // if($('#ckbox1').is(':checked')){
        //      $("#textbox1").show();
        // }else{

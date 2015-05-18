@@ -108,18 +108,18 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
     </tr>
     <?php
     if($references==1){?>
-    <tr>
-    	<td >References</td>
-    	<td >
-    		<a href="#">Download</a>
-    	</td>
-    </tr>
+    <!--<tr>-->
+    <!--	<td >References</td>-->
+    <!--	<td >-->
+    <!--		<a href="#">Download</a>-->
+    <!--	</td>-->
+    <!--</tr>-->
     <?php }
     else{ ?>
-            <tr>
-                <td>References</td>
-                <td>N/A</td>
-            </tr>
+            <!--<tr>-->
+            <!--    <td>References</td>-->
+            <!--    <td>N/A</td>-->
+            <!--</tr>-->
         <?php            
         } ?> 
 </table>

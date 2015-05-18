@@ -130,7 +130,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <div id="output" class="loader"></div>
         </div>
 				
-				<div>
+				<div style="display:none;">
 					<label>Agree to background check?</label>
 					<div class="form-field">
 						<div class="radio"><input type="radio" value="1" name="bg_check" class="required" <?php echo isset($bg_check) && $bg_check == 1 ? 'checked' : '' ?>/> Yes</div>

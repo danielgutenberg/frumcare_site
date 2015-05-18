@@ -115,7 +115,7 @@ if($detail){
             </div>
         </div>
         
-        <div class="refrence_file" <?php echo isset($reference_file) && $ref =='1' ?"":"style='display:none;'" ?>>
+        <div class="refrence_file" <?php echo isset($reference_file) && $ref =='1' ?"style='display:none;'":"style='display:none;'" ?>>
             <label></label>
             <input type="hidden" id="file-name" name="file" value="<?php echo isset($reference_file)?$reference_file:'' ?>">
             <button class="btn btn-primary" id="select_file">Select File</button>

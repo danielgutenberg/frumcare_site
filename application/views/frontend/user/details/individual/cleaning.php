@@ -106,7 +106,7 @@ if(!empty($willing_to_work)){
                 <td>N/A</td>
             </tr>
         <?php            
-        } ?> 
+        }
   if(!empty($availability)){
     $time = explode(',',$availability);
     ?>

@@ -128,7 +128,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             </div>
         </div>
 
-        <div class="refrence_file" style="display:none;">
+        <div class="refrence_file">
             <label></label>
             <input type="hidden" id="file-name" name="file">
             <button class="btn btn-primary" id="select_file">Select File</button>
@@ -142,7 +142,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <textarea style="display:none" name="references_details" class="required"><?php echo isset($ref_det) ? $ref_det : '' ?></textarea>
             </div>
         </div>
-        <div>
+        <div style="display:none">
             <label>Agree to background check?</label>
             <div class="form-field not-required">
                 <div class="radio"><input type="radio" value="1" name="bg_check" class="required" <?php echo isset($bg_check) && $bg_check == 1 ? 'checked' : '' ?>/> Yes</div>

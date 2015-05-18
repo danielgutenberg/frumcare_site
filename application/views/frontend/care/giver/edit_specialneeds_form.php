@@ -146,7 +146,7 @@ $rate_type = explode(',', $detail[0]['rate_type']);
                     <textarea style="display:none" name="references_details" class="required"><?php echo isset($ref_det) ? $ref_det : '' ?></textarea>
                 </div>
             </div>
-            <div>
+            <div style="display:none;">
                 <label>Agree to background check?</label>
                 <div class="form-field">
                     <div class="radio"><input type="radio" value="1" name="bg_check" class="required" <?php echo isset($bg_check) && $bg_check == 1 ? 'checked' : '' ?>/> Yes</div>

@@ -179,7 +179,7 @@
                 </div>
             </div>
 
-            <div class="refrence_file" <?php echo isset($reference_file) && $ref =='1' ?"":"style='display:none;'" ?>>
+            <div class="refrence_file" <?php echo isset($reference_file) && $ref =='1' ?"":"" ?>>
             <label></label>
             <input type="hidden" id="file-name" name="file" value="<?php echo isset($reference_file)?$reference_file:'' ?>">
             <button class="btn btn-primary" id="select_file">Select File</button>
@@ -213,12 +213,12 @@
         $('body').removeAttr("onload");
          $("#ref_check1").click(function(){
             if($('#ref_check1').is(':checked')){
-                $("#upload_ref").show();   
+                $('.refrence_file').show();   
             }
         });
         $("#ref_check2").click(function(){
             if($("#ref_check2").is(':checked')){
-                $("#upload_ref").hide(); 
+                $('.refrence_file').hide(); 
                 $('#upload_ref').val('');       
             }
         });

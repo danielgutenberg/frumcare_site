@@ -132,7 +132,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 		            <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
 		            <div id="output" class="loader"></div>
         		</div>
-				<div>
+				<div style="display:none;">
 					<label>Agree to background check?</label>
 					<div class="form-field not-required">
 						<div class="radio"><input type="radio" value="1" name="bg_check" class="required" <?php echo isset($bg_check) && $bg_check == 1 ? 'checked' : '' ?>/> Yes</div>
