@@ -31,17 +31,8 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <div class="form-field">
                 <div class="checkbox"><input type="checkbox" value="My home" name="looking_to_work[]"> <span>My home</span></div>
                 <div class="checkbox"><input type="checkbox" value="Childs home" name="looking_to_work[]"> <span>Childs home</span></div>
-                <div class="checkbox"><input type="checkbox" value="Caregiving institution" name="looking_to_work[]"> <span>Caregiving institution</span></div>
                 <div class="checkbox"><input type="checkbox" value="Mothers Helper" name="looking_to_work[]"> <span>Mothers Helper<span></div>
             </div>
-        </div>
-        <div>
-            <label>Location</label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>    
         </div>
         <div>
             
