@@ -24,6 +24,9 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             </div>
             <?php } ?>
             
+            
+            <?php print_r($usr); ?>
+            
             <div>
                 <label>Type of Organization</label>
                 <select name="sub_care">
