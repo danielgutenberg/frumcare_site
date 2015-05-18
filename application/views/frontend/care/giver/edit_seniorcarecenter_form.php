@@ -34,22 +34,20 @@
                 <h2 class="step3">Edit Job Details</h2>
             </div>
             
-            <?php
-                print_r($detail); 
-            ?>
+            
             <div>
                 <label>Type of Organization</label>
                 <select name="sub_care">
-                    <option value="day care center">Day Care Center</option>
-                    <option value="day camp">Day Camp</option>
-                    <option value="afternoon activities">Afternoon Activities</option>
-                    <option value="pre school">Pre-School</option>
+                    <option <?php echo $details['sub_care']=='day care center'?'selected="selected"':'';?> value="day care center">Day Care Center</option>
+                    <option <?php echo $details['sub_care']=='day camp'?'selected="selected"':'';?> value="day camp">Day Camp</option>
+                    <option <?php echo $details['sub_care']=='afternoon activities'?'selected="selected"':'';?> value="afternoon activities">Afternoon Activities</option>
+                    <option <?php echo $details['sub_care']=='pre school'?'selected="selected"':'';?> value="pre school">Pre-School</option>
                     
-                    <option value="assisted living residence">Assisted living residence</option>
-                    <option value="senior care center">Senior care center</option>
-                    <option value="nursing home">Nursing home</option>
-                    <option value="rehab therapy center">Rehab / Therapy Center</option>
-                    <option value="other">Other</option>
+                    <option <?php echo $details['sub_care']=='assisted living residence'?'selected="selected"':'';?> value="assisted living residence">Assisted living residence</option>
+                    <option <?php echo $details['sub_care']=='senior care center'?'selected="selected"':'';?> value="senior care center">Senior care center</option>
+                    <option <?php echo $details['sub_care']=='nursing home'?'selected="selected"':'';?> value="nursing home">Nursing home</option>
+                    <option <?php echo $details['sub_care']=='rehab therapy center'?'selected="selected"':'';?> value="rehab therapy center">Rehab / Therapy Center</option>
+                    <option <?php echo $details['sub_care']=='other'?'selected="selected"':'';?> value="other">Other</option>
                 </select>
             </div>
             
