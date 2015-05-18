@@ -84,7 +84,8 @@
 
                         <div class="search" style="width:300px;">
                         <form method="get" action="<?php echo site_url();?>search">
-                            <div class="search-select">
+                            <div class="search-select" style="background: url("../img/select-btns.png") no-repeat scroll 94% center #363636; -webkit-appearance: none;
+  -moz-appearance: none;">
                             <select name="category" style="width: 100%; color: rgb(190, 186, 179);">
                                 <option value="all" style="background-color: white; color: grey;">All</option>
                                 <option value="caregiver" style="background-color: white; color: grey;" class="selected">Caregivers</option>
