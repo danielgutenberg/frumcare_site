@@ -33,6 +33,24 @@
             <div class="top-welcome">
                 <h2 class="step3">Edit Job Details</h2>
             </div>
+            
+            <div>
+                <label>Type of Organization</label>
+                <select name="sub_care">
+                    <option value="day care center">Day Care Center</option>
+                    <option value="day camp">Day Camp</option>
+                    <option value="afternoon activities">Afternoon Activities</option>
+                    <option value="pre school">Pre-School</option>
+                    
+                    <option value="assisted living residence">Assisted living residence</option>
+                    <option value="senior care center" selected="selected">Senior care center</option>
+                    <option value="nursing home">Nursing home</option>
+                    <option value="rehab therapy center">Rehab / Therapy Center</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            
+            
             <div>
             <label>Location</label>
             <div id="locationField">
