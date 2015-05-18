@@ -34,6 +34,9 @@
                 <h2 class="step3">Edit Job Details</h2>
             </div>
             
+            <?php
+                print_r($usr); 
+            ?>
             <div>
                 <label>Type of Organization</label>
                 <select name="sub_care">
@@ -43,7 +46,7 @@
                     <option value="pre school">Pre-School</option>
                     
                     <option value="assisted living residence">Assisted living residence</option>
-                    <option value="senior care center" selected="selected">Senior care center</option>
+                    <option value="senior care center">Senior care center</option>
                     <option value="nursing home">Nursing home</option>
                     <option value="rehab therapy center">Rehab / Therapy Center</option>
                     <option value="other">Other</option>
