@@ -123,6 +123,8 @@ if($this->uri->segment(2)!='edit'){
 
 <script type="text/javascript">
     function initialize() {
+        var acc_category = $('input[name=account_category]:checked').val();
+        console.log(acc_category)
         getAccountCat(2,1)
     }
     
