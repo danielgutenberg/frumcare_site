@@ -196,10 +196,10 @@ if($this->uri->segment(2)!='edit'){
 
         $('.acc_cat').click(function(){
             $('.organizational_care').css('display','none');
-            $('.org_caretype').removeAttr("checked");
+            // $('.org_caretype').removeAttr("checked");
         });
 
-        $('.org_caretype').click(function(){
+        $('.org_caretype').change(function(){
             getAccountCat($(this).val(),$(this).attr('id'));
         });
 
