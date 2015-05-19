@@ -13,6 +13,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
                <td >    		
                 <div class="details-info"><?php if(in_array("Elementary school",$subjects)){ echo $tick; }else{ echo $cross; }?> Elementary school</div>
                 <div class="details-info"><?php if(in_array("High school",$subjects)){ echo $tick; }else{ echo $cross; }?> High school</div>
+                <div class="details-info"><?php if(in_array("Post High school",$subjects)){ echo $tick; }else{ echo $cross; }?>Post High school</div>
                 <div class="details-info"><?php if(in_array("limudei kodesh",$subjects)){ echo $tick; }else{ echo $cross; }?> Limudei kodesh</div>                
                 <div class="details-info"><?php if(in_array("general studies",$subjects)){ echo $tick; }else{ echo $cross; }?>General studies</div>
                 <div class="details-info"><?php if(in_array("Special ed",$subjects)){ echo $tick; }else{ echo $cross; }?> Special ed</div>
@@ -118,7 +119,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
     	</td>
     </tr>
     <tr>
-    	<td >Abilities</td>
+    	<td >Abilities and skills</td>
         <td >
          <div class="details-info">
             <?php echo isset($driver_license) && $driver_license == 1 ? $tick : $cross?> Drivers license

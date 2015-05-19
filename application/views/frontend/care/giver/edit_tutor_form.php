@@ -145,7 +145,7 @@ if($detail){
                 </div>
             </div>
 
-            <h2>Abilities</h2>
+            <h2>Abilities and skills</h2>
 
             <div class="checkbox-wrap">
                 <div>
