@@ -129,7 +129,7 @@
 </div>
 <?php } else { ?>
 
-<h2>Organization info</h2>
+<h2>Job Details</h2>
         
          <div class="table-responsive">
         <table class="table table-striped borderbottom">
@@ -209,7 +209,7 @@
 
 <?php }
     if ( $care_type > 24 ) { ?>
-        <h2>Job Details</h2> <?php 
+        <?php 
     }
     else { ?>
         <h2>Organization Details</h2> 

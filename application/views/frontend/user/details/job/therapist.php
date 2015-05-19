@@ -126,7 +126,7 @@
           } ?>
         
         <tr>
-            <td>Gender of therapist</td>
+            <td>Gender of therapist wanted</td>
             <td>
                 <?php  
                 if($gender_of_caregiver == 1) echo "Male";

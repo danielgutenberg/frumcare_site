@@ -63,7 +63,7 @@
 				<div class="clearfix"></div>
 				<br/>
 				<div class="meet-caregivers-clients">
-					<h2> Meet <?php echo $recordData['first_name'];?> <?php echo $recordData['middle_name']?$recordData['middle_name']:'';?> <?php echo $recordData['last_name']?$recordData['last_name']:'';?></h2>
+					<h2> Job Description <?php echo $recordData['first_name'];?> <?php echo $recordData['middle_name']?$recordData['middle_name']:'';?> <?php echo $recordData['last_name']?$recordData['last_name']:'';?></h2>
 					<br />
 					<p>
 						<?php echo nl2br($recordData['profile_description']);?>	

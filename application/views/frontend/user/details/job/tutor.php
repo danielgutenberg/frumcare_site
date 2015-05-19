@@ -113,7 +113,7 @@
         <?php if(!empty($availability)){ ?>
         <?php $temp = explode(',',$availability); ?>
         <tr id="availability1">
-            <td>When you need lessons</td>
+            <td>When lessons needed</td>
             <td>                
                 <div class="details-info"><?php if(in_array("Occassionally",$temp)){ echo $tick; }else{ echo $cross; }?> Occassionally</div>
                 <div class="details-info"><?php if(in_array("Regularly",$temp)){ echo $tick; }else{ echo $cross; }?> Regularly</div>
@@ -129,7 +129,7 @@
         else{
             ?>
                 <tr>
-                    <td >When you need lessons</td>
+                    <td >When lessons needed</td>
                     <td>N/A</td>
                 </tr>
             <?php
@@ -144,7 +144,7 @@
             $type = explode(',',$rate_type);
             ?>
             <!--<div class="details-info"><?php if(in_array('1',$type)){echo $tick; }else{echo $cross; } ?>  Hourly Rate</div>-->
-            <div class="details-info"><?php if(in_array('2',$type)){echo $tick; }else{echo $cross; } ?>  Monthly Rate Available</div>    
+            <div class="details-info"><?php if(in_array('2',$type)){echo $tick; }else{echo $cross; } ?>  Monthly Payment Available</div>    
         </td>
         </tr>
     <?php }else{
@@ -231,7 +231,7 @@
         <tr>
             <td>Minimum years of experience</td>
             <td>
-                <?php echo $experience; ?>
+                <?php echo $experience .' years'; ?>
             </td>
         </tr>
         <?php }

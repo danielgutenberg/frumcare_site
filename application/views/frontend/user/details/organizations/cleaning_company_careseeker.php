@@ -5,7 +5,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 <div class="table-responsive">
 	<table class="table table-striped">
 		 <tr>
-			<td>Position you are looking to fill</td>
+			<td>Position needed</td>
 			<td><?php $position = !empty($job_position) ? $job_position : 'N/A'; echo $position?></td>
 		</tr>
 		 
@@ -18,7 +18,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
             $type = explode(',',$rate_type);
             ?>
             <!--<div class="details-info"><?php if(in_array('1',$type)){echo $tick; }else{echo $cross; } ?>  Hourly Rate</div>-->
-            <div class="details-info"><?php if(in_array('2',$type)){echo $tick; }else{echo $cross; } ?>  Monthly Rate Available</div>    
+            <div class="details-info"><?php if(in_array('2',$type)){echo $tick; }else{echo $cross; } ?>  Monthly Payment Available</div>    
         </td>
         </tr>
     <?php }else{

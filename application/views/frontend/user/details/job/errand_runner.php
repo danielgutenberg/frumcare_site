@@ -67,7 +67,7 @@
             $type = explode(',',$rate_type);
             ?>
             <!--<div class="details-info"><?php if(in_array('1',$type)){echo $tick; }else{echo $cross; } ?>  Hourly Rate</div>-->
-            <div class="details-info"><?php if(in_array('2',$type)){echo $tick; }else{echo $cross; } ?>  Monthly Rate Available</div>    
+            <div class="details-info"><?php if(in_array('2',$type)){echo $tick; }else{echo $cross; } ?>  Monthly Payment Available</div>    
         </td>
         </tr>
     <?php }else{
@@ -82,7 +82,7 @@
         <?php if(!empty($availability)){ ?>
         <?php $temp = explode(',',$availability); ?>
         <tr id="availability1">
-            <td>When you need help</td>
+            <td>When help needed</td>
             <td>
                 <div class="details-info"><?php if(in_array("One Time",$temp)){ echo $tick; }else{ echo $cross; }?> One Time</div>
                 <div class="details-info"><?php if(in_array("Occassionally",$temp)){ echo $tick; }else{ echo $cross; }?> Occassionally</div>
@@ -100,7 +100,7 @@
         else{
             ?>
                 <tr>
-                    <td >When you need help</td>
+                    <td >When help needed</td>
                     <td>N/A</td>
                 </tr>
             <?php
@@ -132,7 +132,7 @@
           } ?>
         
         <tr>
-            <td>Gender wanted</td>
+            <td>Gender or caregiver wanted</td>
             <td>
                 <?php  
                 if($gender_of_caregiver == 1) echo "Male";
@@ -171,7 +171,7 @@
        <tr>
            <td >Minimum experience</td>
            <td >    		
-            <?php echo $experience; ?>  
+            <?php echo $experience .' years'; ?>  
         </td>
     </tr>
     <?php }  else{
