@@ -161,12 +161,12 @@ if($this->uri->segment(2)!='edit'){
         }
             
 
-        var account_id = $('.acc_cat').attr('id');
-        if($('.org_caretype').is(':checked'))
-            getAccountCat(1,2);
-        else {            
-            getAccountCat(account_category,account_id);  //kiran
-        }        
+        // var account_id = $('.acc_cat').attr('id');
+        // if($('.org_caretype').is(':checked'))
+        //     getAccountCat(1,2);
+        // else {            
+        //     getAccountCat(account_category,account_id);  //kiran
+        // }        
         $('.acc_cat').change(function(){
             getAccountCat($(this).val(),$(this).attr('id'));
             $('.name').attr('placeholder', "Name");
