@@ -112,46 +112,37 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
                     <td>N/A</td>
 			<?php } ?>
 			
-			<?php  if(!empty($rate)){?>
 			<tr>
-				<td >Cost</td>
-				<td >
-					<?php echo $rate . ' '; 
-					$type = explode(',',$rate_type);
-					?>
-					<!--<div class="details-info"><?php if(in_array('1',$type)){echo $tick; }else{echo $cross; } ?>  Hourly Rate</div>-->
-					<div class="details-info"><?php if(in_array('2',$type)){echo $tick; }else{echo $cross; } ?>  Monthly Rate Available</div>    
-				</td>
-			</tr>
-             <?php }  
+		<?php if(!empty($rate)){
+			if($rate_type == 1)
+				$type = 'Per Hour';
+			else
+				$type = 'Per Monthly';
+		?>
+		
+		<td>Cost</td>
+		<td>
+			<div><?php echo $rate.' ';?></div>
+		</td>
+        <?php }  
                 else{ ?>
                     <td>Cost</td>
                     <td>N/A</td>
-			<?php } ?>
-			
-			<?php if($references==1){?>
-			<tr>
-				<td >References</td>
-				<td >
-					<a href="#">Download</a>
-				</td>
-			</tr>
-             <?php }  
-                else{ ?>
-                    <td>References</td>
-                    <td>N/A</td>
-			<?php } ?>
+		<?php 
+			}
+		?>
+	</tr>
 			
 			<?php if(!empty($payment_option)){?>
 			<tr>
-				<td >Payment option</td>
+				<td >Payment options</td>
 				<td >
 					<?php echo $payment_option;?>
 				</td>
 			</tr>
              <?php }  
                 else{ ?>
-                    <td>Payment option</td>
+                    <td>Payment options</td>
                     <td>N/A</td>
 			<?php } ?>
 

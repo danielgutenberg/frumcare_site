@@ -67,10 +67,11 @@ $rate_type = explode(',', $detail[0]['rate_type']);
                 <label>Training</label>
                 <div class="form-field">                    
                     <div class="checkbox"><input type="checkbox" value="CPR" name="training[]" <?php if(in_array('CPR', $training)){?> checked="checked" <?php } ?>> <span>CPR</span></div>
-                    <div class="checkbox"><input type="checkbox" value="First Aid" name="training[]" <?php if(in_array('First Aid', $training)){?> checked="checked" <?php } ?>> <span>First Aid</span></div>                    
+                    <div class="checkbox"><input type="checkbox" value="First Aid" name="training[]" <?php if(in_array('First Aid', $training)){?> checked="checked" <?php } ?>> <span>First Aid</span></div>
+                    <div class="checkbox"><input type="checkbox" value="Special Needs Training" name="training[]" <?php if(in_array('Special Needs Training', $training)){?> checked="checked" <?php } ?>> <span>Special Needs Training</span></div>
                     <div class="checkbox"><input type="checkbox" value="Nurse" name="training[]" <?php if(in_array('Nurse', $training)){?> checked="checked" <?php } ?>> <span>Nurse</span></div>
                     <div class="checkbox"><input type="checkbox" value="Other" name="training[]" <?php if(in_array('Other', $training)){?> checked="checked" <?php } ?>> <span>Other</span></div>                                        
-					<div class="checkbox"><input type="checkbox" value="Special Needs Training" name="training[]" <?php if(in_array('Special Needs Training', $training)){?> checked="checked" <?php } ?>> <span>Special Needs Training</span></div>							
+												
                 </div>
             </div>
             <div>

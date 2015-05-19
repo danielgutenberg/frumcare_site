@@ -77,8 +77,9 @@ if(!empty($willing_to_work)){
           <div ><?php if(in_array('Folding', $tempwillingtowork)){ echo $tick; }else{echo $cross;  }?> <span>Folding</span></div>
           <div ><?php if(in_array('Ironing', $tempwillingtowork)){ echo $tick; }else{echo $cross;  }?> <span>Ironing</span></div>
           <div class="details-info"><?php if(in_array('Cleaning and Dusting Furniture', $tempwillingtowork)){ echo $tick; }else{echo $cross;  }?> <span>Cleaning and Dusting Furniture</span></div>
-          <div class="details-info"><?php if(in_array('Cleaning Refrigerator/Freezer', $tempwillingtowork)){ echo $tick; }else{echo $cross;  }?><span>Cleaning Refrigerator/Freezer</span></div>
-          <div class="details-info"><?php if(in_array('Cleaning Oven/Stove', $tempwillingtowork)){ echo $tick; }else{echo $cross;  }?><span>Cleaning Oven/Stove</span></div>
+          <div class="details-info"><?php if(in_array('Cleaning Refrigerator/Freezer', $tempwillingtowork)){ echo $tick; }else{echo $cross;  }?><span>Cleaning Refrigerator / Freezer</span></div>
+          <div class="details-info"><?php if(in_array('Cleaning Oven/Stove', $tempwillingtowork)){ echo $tick; }else{echo $cross;  }?><span>Cleaning Oven / Stove</span></div>
+          <div class="details-info"><?php if(in_array('Pesach cleaning', $tempwillingtowork)){ echo $tick; }else{echo $cross;  }?><span>Pesach Cleaning</span></div>
           <div class="details-info"><?php if(in_array('Able to watch children as well', $tempwillingtowork)){ echo $tick; }else{echo $cross;  }?><span>Able to watch children as well</span></div>
       </td>
   </tr>
@@ -100,8 +101,7 @@ if(!empty($willing_to_work)){
     
     <tr>
        <td id="availability1">Availability </td>
-       <td>
-        <div ><?php if(in_array('One Time', $time)){ echo $tick; }else{echo $cross;  }?> <span>One Time</span></div>        
+       <td>        
         <div class="details-info"><?php if(in_array('Occassionally', $time)){ echo $tick; }else{echo $cross; } ?>Occassionally</div>
         <div class="details-info"><?php if(in_array("Immediate",$time)){echo $tick; }else{echo $cross; } ?> Immediate </div>
         <div class="details-info"><?php if(in_array("Start date",$time)){echo $tick; if($start_date!='0000-00-00'){ echo $start_date;} }else{echo $cross; } ?> Start Date</div>
@@ -138,5 +138,19 @@ else{
             </tr>
         <?php            
         } ?>
+        <tr>
+    	<td >Abilities and skills</td>
+        <td >
+         <div class="details-info">
+            <?php echo isset($driver_license) && $driver_license == 1 ? $tick : $cross?> Drivers license
+        </div>
+        <div class="details-info">
+            <?php echo isset($vehicle) && $vehicle == 1 ? $tick : $cross?> Vehicle
+        </div>
+        <div class="details-info">
+            <?php echo isset($on_short_notice) && $on_short_notice == 1 ? $tick : $cross?> Available on short notice
+        </div>            
+    </td>
+</tr> 
 </table>
 </div>

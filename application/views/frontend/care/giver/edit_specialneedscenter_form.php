@@ -110,20 +110,7 @@
         </div>
     </div>
 
-    <div>
-        <label>References</label>
-        <div class="form-field">
-            <div class="radio"><input type="radio" value="1" name="references" class="required" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?>/> Yes</div>
-            <div class="radio"><input type="radio" value="2" name="references" class="required" <?php echo isset($ref) && $ref == 2 ? 'checked' : '' ?> /> No</div>
-        </div>
-    </div>
-    <div class="refrence_file" <?php echo isset($reference_file) && $ref =='1' ?"":"style='display:none;'" ?>>
-            <label></label>
-            <input type="hidden" id="file-name" name="file" value="<?php echo isset($reference_file)?$reference_file:'' ?>">
-            <button class="btn btn-primary" id="select_file">Select File</button>
-            <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
-            <div id="output" class="loader"><?php echo isset($reference_file)?$reference_file:'' ?></div>
-        </div>
+    
 
         <?php 
             if(!empty($facility)){

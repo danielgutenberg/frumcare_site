@@ -96,7 +96,7 @@ $rate_type = explode(',',$detail[0]['rate_type']);
                 </div>
             </div>
             <div>
-                <label>When you need help</label>
+                <label>Availability</label>
                 <div class="form-field">                    
                     <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]" <?php if(in_array("Immediate",$time)){?> checked="checked"<?php }?>>Immediate</div>
                     <div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]" <?php if(in_array("Start Date",$time)){?> checked="checked"<?php }?>> Start Date<input type="text" name="start_date" <?php if($date!='0000-00-00'){ echo 'value='.$date;}?> id="textbox1"/></div>
@@ -163,6 +163,21 @@ $rate_type = explode(',',$detail[0]['rate_type']);
             </select>
             </div>
         </div>
+        <h2>Abilities and skills</h2>
+
+            <div class="checkbox-wrap">
+                <div>
+                    <input type="checkbox" value="1" name="driver_license" <?php echo isset($driver_license) && $driver_license == 1 ? 'checked' : ''?>> <label>Drivers license</label>
+                </div>
+                <div>
+                    <input type="checkbox" value="1" name="vehicle" <?php echo isset($vehicle) && $vehicle == 1 ? 'checked' : ''?>> <label>Vehicle</label>
+                </div>
+                <div>
+                    <input type="checkbox" value="1" name="on_short_notice" <?php echo isset($on_short_notice) && $on_short_notice == 1 ? 'checked' : ''?>> <label>Available on short notice</label>
+                </div>
+                <div>
+                 <input type="submit" class="btn btn-success" value="Update"/>
+             </div>
         <!--    <div>-->
         <!--    <label>References</label>-->
         <!--    <div class="form-field not-required">-->

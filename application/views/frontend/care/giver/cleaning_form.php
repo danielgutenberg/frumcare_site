@@ -110,6 +110,21 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
             <div id="output" class="loader"></div>
         </div>
+        <h2>Abilities and skill</h2>
+            <div class="checkbox-wrap">
+                <div>
+                    <input type="checkbox" value="1" name="driver_license">Drivers license
+                </div>
+                <div>
+                    <input type="checkbox" value="1" name="vehicle">Vehicle
+                </div>
+                <div>
+                    <input type="checkbox" value="1" name="on_short_notice"> Available on short notice
+                </div>
+                <div>
+                     <input type="submit" class="btn btn-success" value="Save <?php if($this->uri->segment(2) != 'new_profile'){echo '& Continue';}?>"/>
+                </div>
+            </div>
             <br />
             <div>
                 <input type="submit" class="btn btn-success" value="Save <?php if($this->uri->segment(2) != 'new_profile'){echo '& Continue';}?>"/>
