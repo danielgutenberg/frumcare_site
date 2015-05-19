@@ -167,7 +167,7 @@
 
 	 		<div>
 	 			<input type="checkbox" name="feeding">
-	 			<span>Feeding & sepcail diet</span>
+	 			<span>Feeding & sepcial diet</span>
 	 		</div>
 	 		</div>
 

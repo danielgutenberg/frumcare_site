@@ -75,7 +75,7 @@
 		 		<div class="time-available" colspan="2"><h4>Time available</h4> 
 		 			<div>
 		 		<input type="checkbox" value="Imm / Start Date" name="time[]" class="required">
-		 			<span>Imm/Start Date</span>
+		 			<span>Imm / Start Date</span>
 		 		</div>
 
 		 		<div>
@@ -105,7 +105,7 @@
 
 		 		<div>
 		 			<input type="checkbox" value="Weekends / Shabbos" name="time[]" class="required">
-		 			<span>Weekends/ Shabbos</span>
+		 			<span>Weekends / Shabbos</span>
 		 		</div>
 
 		 		<div>

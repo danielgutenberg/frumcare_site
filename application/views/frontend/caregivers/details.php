@@ -61,7 +61,7 @@
                            }
                         if($this->uri->segment(4) == 3) {
                             if(!empty($recordData['rate'])){ ?>                                                        
-                       <?php $rate_type = $recordData['rate_type']==2?' / hr':' / hr'?>
+                       <?php $rate_type = $recordData['rate_type']==2?' / Hr':' / Hr'?>
                        <span class="hour-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
                        <?php
                        }
@@ -72,7 +72,7 @@
                             
                             
                        if(!empty($recordData['rate'])){ ?>                                                        
-                       <?php $rate_type = $recordData['rate_type']==2?' / hr':' / hr'?>
+                       <?php $rate_type = $recordData['rate_type']==2?' / Hr':' / Hr'?>
                        <span class="hour-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Rate</span>'; ?></span>
                        <?php
                        }
@@ -203,7 +203,7 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
     <?php
     }
     if(!empty($recordData['rate'])){ ?>
-    <?php $rate_type = $recordData['rate_type']==2?'/monthy':'/hr'?>
+    <?php $rate_type = $recordData['rate_type']==2?' / month':' / hr'?>
     <span class="experience-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
     <?php
     }                                

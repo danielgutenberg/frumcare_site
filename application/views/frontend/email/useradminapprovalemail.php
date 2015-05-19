@@ -23,7 +23,7 @@
 
 <div style="font-family:Arial, Helvetica, sans-serif; font-size:13px; margin-bottom:15px;">Or to EDIT before approving, login to the admin section.</div>
 
-Thanks you,
+Thank you,
 <br />
 FRUMCARE team
 <br />
