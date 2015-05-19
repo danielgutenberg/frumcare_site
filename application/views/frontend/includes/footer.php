@@ -73,9 +73,9 @@
                         <a href="https://twitter.com/FrumCare" target="_blank" class="twitter flip-link-container"><span class="flip-link"><span class="front"><i
                                         class="icon-twitter-white"></i></span><span class="back"><i
                                         class="icon-twitter-color"></i></span></span></a>
-                        <a href="#" class="linkedin flip-link-container"><span class="flip-link"><span class="front"><i
-                                        class="icon-linkedin-white"></i></span><span class="back"><i
-                                        class="icon-linkedin-color"></i></span></span></a>
+                        <a href="#" class="instagram flip-link-container"><span class="flip-link"><span class="front"><i
+                                        class="icon-instagram-white"></i></span><span class="back"><i
+                                        class="icon-instagram-color"></i></span></span></a>
                         <a href="https://plus.google.com/u/0/b/113342746822002772215/113342746822002772215/about" target="_blank" class="gplus flip-link-container"><span class="flip-link"><span class="front"><i
                                         class="icon-googleplus-white"></i></span><span class="back"><i
                                         class="icon-googleplus-color"></i></span></span></a>
