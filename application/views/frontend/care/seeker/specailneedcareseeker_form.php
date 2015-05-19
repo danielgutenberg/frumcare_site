@@ -1,4 +1,9 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>                
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
+<link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
 <script>
     $("#locationField").ready(function(){        
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {});
