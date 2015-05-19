@@ -112,7 +112,7 @@
          <div>
             <label>Contact name</label>
             <div class="form-field">
-               <input type="text" name="name" placeholder="name" class="required"/>
+               <input type="text" name="name" placeholder="name" class="required" value="<?php echo isset($name)? $name:''; ?>"/>
             </div>
          </div>
          <div>
@@ -147,7 +147,7 @@
                <select name="rate" class="required rate">
                   <option value="">Select wage</option>
                   <option value="5-10">$5-$10 / Hr</option>
-                  <option value="10-15">$5-$10 / Hr</option>
+                  <option value="10-15">$10-$15 / Hr</option>
                   <option value="15-25">$15-$25 / Hr</option>
                   <option value="25-35">$25-$35 / Hr</option>
                   <option value="35-45">$35-$45 / Hr</option>

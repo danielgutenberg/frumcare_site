@@ -101,7 +101,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 <h2>Additional Requirements</h2>
 
 <div>
-    <label>Languages</label>
+    <label>Languages necessary</label>
     <div class="form-field">
     <div class="checkbox"><input type="checkbox" name="language[]" value="English"> English</div>
     <div class="checkbox"><input type="checkbox" name="language[]" value="Yiddish"> Yiddish</div>
@@ -133,13 +133,13 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     </select>
     </div>
 </div> */ ?>
-<div>
-    <label>Must accept insurance</label>
-    <div class="form-field">
-    <div class="radio"><input type="radio" value="1" name="accept_insurance"/> Yes</div>
-    <div class="radio"><input type="radio" value="2" name="accept_insurance" checked/> No</div>
-    </div>
-</div>
+<!--<div>-->
+<!--    <label>Must accept insurance</label>-->
+<!--    <div class="form-field">-->
+<!--    <div class="radio"><input type="radio" value="1" name="accept_insurance"/> Yes</div>-->
+<!--    <div class="radio"><input type="radio" value="2" name="accept_insurance" checked/> No</div>-->
+<!--    </div>-->
+<!--</div>-->
 <div>
     <input type="submit" class="btn btn-success" value="Save <?php if($this->uri->segment(2) != 'new_profile'){echo '& Continue';}?>"/>
 </div>

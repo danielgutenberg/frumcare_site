@@ -71,7 +71,7 @@ if($detail){
         <h2>Edit Job Details</h2>
     </div>
     <div>
-        <label>Looking to work in</label>
+        <label>Looking for</label>
         <div class="form-field">
             <div class="checkbox"><input type="checkbox" value="Live in" name="looking_to_work[]" <?php if(in_array('Live in',$looking_to_work)){?> checked="checked" <?php } ?>> Live in</div>
             <div class="checkbox"><input type="checkbox" value="Live out" name="looking_to_work[]" <?php if(in_array('Live out',$looking_to_work)){?> checked="checked" <?php } ?>> Live out</div>
@@ -176,7 +176,7 @@ if($detail){
         </div>
     </div>
     <div>
-        <label>Caregiver age from</label>
+        <label>Caregiver age</label>
         <div class="form-field">
         <input type="text" name="caregiverage_from" value="<?php echo isset($caregiverage_from)?$caregiverage_from:'';?>" placeholder="Age From" style="width:25%" class="required"> to  <input type="text" name="caregiverage_to" value="<?php echo isset($caregiverage_to)?$caregiverage_to:'';?>" placeholder="Age To" style="width:25%" class="required">
         </div>
@@ -190,7 +190,7 @@ if($detail){
         </div>
     </div>
     <div>
-        <label>Training necessary</label>
+        <label>Training / Certification required</label>
         <div class="form-field">
         <div class="checkbox"><input type="checkbox" value="CPR" name="training[]" <?php if(in_array('CPR',$trainingtemp)){?> checked="checked"<?php } ?>> CPR</div>
         <div class="checkbox"><input type="checkbox" value="First Aid" name="training[]" <?php if(in_array('First Aid',$trainingtemp)){?> checked="checked"<?php } ?>> First Aid</div>

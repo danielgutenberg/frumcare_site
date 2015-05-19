@@ -18,7 +18,7 @@
     else{
             ?>
                 <tr>
-                    <td >Looking for care in </td>
+                    <td >Looking for</td>
                     <td>N/A</td>
                 </tr>
             <?php
@@ -128,7 +128,7 @@
     <?php if(!empty($availability)){ ?>
         <?php $temp = explode(',',$availability); ?>
         <tr id="availability1">
-            <td>Days / Hours</td>
+            <td>When you need care</td>
             <td>                
                 <div class="details-info"><?php if(in_array("Occassionally",$temp)){ echo $tick; }else{ echo $cross; }?> Occassionally</div>
                 <div class="details-info"><?php if(in_array("Regularly",$temp)){ echo $tick; }else{ echo $cross; }?> Regularly</div>
@@ -146,12 +146,15 @@
     else{
             ?>
                 <tr>
-                    <td >Days / Hours</td>
+                    <td >When you need care</td>
                     <td>N/A</td>
                 </tr>
             <?php
           } ?>
-    
+    <tr>
+             <td>Tell us about your needs</td>
+             <td><?php $des = !empty($profile_description) ? $profile_description : 'N/A'; echo $des; ?></td>
+         </tr>
     <tr>
         <td>Gender of caregiver</td>
         <td>
@@ -236,7 +239,7 @@
             <?php
           } ?>
     <tr>
-        <td>Smoker</td>
+        <td>Smoking acceptable</td>
         <td>
             <?php if($smoker==1){echo "Yes";}else{echo "No";} ?>
         </td>
@@ -245,7 +248,7 @@
     <?php if(!empty($training)){ ?>
         <?php $trainingtemp = explode(',',$training); ?>
         <tr>
-            <td>Training necessary</td>
+            <td>Training / Certification required</td>
             <td>
                 <div class="details-info"> <?php if(in_array('CPR',$trainingtemp)){echo $tick; }else{ echo $cross; } ?> CPR</div>
                 <div class="details-info"> <?php if(in_array('First Aid',$trainingtemp)){ echo $tick; }else{ echo $cross; } ?> First Aid</div>
@@ -258,7 +261,7 @@
     else{
             ?>
                 <tr>
-                    <td >Training necessary </td>
+                    <td >Training / Certification required</td>
                     <td>N/A</td>
                 </tr>
             <?php

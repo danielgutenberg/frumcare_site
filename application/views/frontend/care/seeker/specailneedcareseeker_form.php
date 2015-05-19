@@ -156,7 +156,7 @@ $user_detail = get_user(check_user());
     		</div>
     	</div>
         <div>
-            <label>Caregiver age</label>
+            <label>Age of Caregiver wanted</label>
             <div class="form-field">
                 <input type="text" name="caregiverage_from" style="width:25%" placeholder="Age From"> to  <input type="text" name="caregiverage_to" style="width:25%" placeholder="Age To">
             </div>
@@ -202,13 +202,13 @@ $user_detail = get_user(check_user());
     			<input type="checkbox" value="1" name="vehicle"> Vehicle
     		</div>
         	<div class="checkbox">
-				<input type="checkbox" value="1" name="cook">Must be able to cook and prepare food / serve meals 
+				<input type="checkbox" value="1" name="cook">Must be willing to cook and prepare food / serve meals 
 			</div>
 			<div class="checkbox">
-				<input type="checkbox" value="1" name="basic_housework">Must be able to do light housework / cleaning
+				<input type="checkbox" value="1" name="basic_housework">Must be willing to do light housework / cleaning
 			</div>
 			<div class="checkbox">
-				<input type="checkbox" value="1" name="personal_hygiene">Must be able to deal with personal hygiene of patient
+				<input type="checkbox" value="1" name="personal_hygiene">Must be willing to deal with personal hygiene of patient
 			</div>
 
 			<div >

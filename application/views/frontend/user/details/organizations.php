@@ -1,10 +1,10 @@
 <?php 
     if ( $care_type < 24 ) { ?>
-<h2>Organization info</h2>
-<?php if(!empty($location)){?>
- <div class="table-responsive">
-    <table class="table table-striped borderbottom">
+    <h2>Organization info</h2>
         
+         <div class="table-responsive">
+        <table class="table table-striped borderbottom">
+        <?php if(!empty($location)){?>
         <tr>
             <td>Location</td>
             <td id="locationField">
@@ -127,8 +127,87 @@
     </tr>
 </table>
 </div>
-<?php } ?>
-<?php 
+<?php } else { ?>
+
+<h2>Organization info</h2>
+        
+         <div class="table-responsive">
+        <table class="table table-striped borderbottom">
+        
+        <tr>
+                    <td>Name of Organization</td>
+                    <td>
+                        <?php echo $organiztion_name ? ucfirst($organiztion_name) : 'N/A'; ?>
+                    </td>
+                </tr>
+        
+        <tr>
+                    <td>Type of Organization</td>
+                    <td>
+                        <?php echo $organiztion_type ? ucfirst($organiztion_type) : 'N/A'; ?>
+                    </td>
+                </tr>
+        
+        
+        
+        
+        
+        
+        
+        <?php if(!empty($name_of_owner)){?>
+        <tr>
+            <td>Contact name</td>
+            <td class="form-field">
+                <?php echo $name_of_owner; ?>
+            </td>
+        </tr>
+        <?php }
+        else{ ?>
+            <tr>
+            <td>Contact name</td>
+            <td>
+                N/A
+            </td>    
+        </tr>
+        <?php
+        } ?>
+        
+        <?php if(!empty($location)){?>
+        <tr>
+            <td>Location</td>
+            <td id="locationField">
+                <?php echo $location;?>
+            </td>    
+        </tr>
+        <?php }
+        if(!empty($neighbour)){?>
+        <tr>
+            <td>Neighborhood / Street</td>
+            <td>
+                <?php echo $neighbour;?>
+            </td>    
+        </tr>
+        <?php }
+        else{ ?>
+            <tr>
+            <td>Neighborhood / Street</td>
+            <td>
+                N/A
+            </td>    
+        </tr>
+        <?php
+        } ?>
+        
+</table>
+</div>
+
+
+
+
+
+
+
+<?php }
     if ( $care_type > 24 ) { ?>
         <h2>Job Details</h2> <?php 
     }

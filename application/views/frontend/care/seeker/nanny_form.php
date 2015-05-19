@@ -135,7 +135,7 @@ $user_detail = get_user(check_user());
         		</div>
         	</div>
         	<div>
-        		<label>Caregiver age from</label>
+        		<label>Age of Caregiver</label>
         		<div class="form-field">
                     <input type="text" name="caregiverage_from" value="" placeholder="Age From" style="width:25%"> to  <input type="text" name="caregiverage_to" value="" placeholder="Age To" style="width:25%">
         		</div>
@@ -146,13 +146,13 @@ $user_detail = get_user(check_user());
                 <div class="form-field">
                     <select name="rate" class="required rate">
                         <option value="">Select wage</option>
-                        <option value="5-10">$5-$10/Hr</option>
-                        <option value="10-15">$5-$10/Hr</option>
-                        <option value="15-25">$15-$25/Hr</option>
-                        <option value="25-35">$25-$35/Hr</option>
-                        <option value="35-45">$35-$45/Hr</option>
-                        <option value="45-55">$45-$55/Hr</option>
-                        <option value="55+">$55+/Hr</option>
+                        <option value="5-10">$5-$10 / Hr</option>
+                        <option value="10-15">$10-$15 / Hr</option>
+                        <option value="15-25">$15-$25 / Hr</option>
+                        <option value="25-35">$25-$35 / Hr</option>
+                        <option value="35-45">$35-$45 / Hr</option>
+                        <option value="45-55">$45-$55 / Hr</option>
+                        <option value="55+">$55+ / Hr</option>
                     </select>
                 </div>
             </div>

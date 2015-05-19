@@ -132,7 +132,7 @@
         <?php if(!empty($availability)){ ?>
         <?php $temp = explode(',',$availability); ?>
         <tr id="availability1">
-            <td>Days / Hours</td>
+            <td>When you need care</td>
             <td>
                 <div class="details-info"><?php if(in_array("One Time",$temp)){ echo $tick; }else{ echo $cross; }?> One Time</div>
                 <div class="details-info"><?php if(in_array("Occassionally",$temp)){ echo $tick; }else{ echo $cross; }?> Occassionally</div>
@@ -152,7 +152,7 @@
         else{
             ?>
                 <tr>
-                    <td >Days / Hours</td>
+                    <td >When you need care</td>
                     <td>N/A</td>
                 </tr>
             <?php
@@ -193,7 +193,7 @@
         <tr>
             <td>Wage</td>
             <td >
-            <?php echo $rate . '/Hr'; 
+            <?php echo $rate . ' / Hr'; 
             $type = explode(',',$rate_type);
             ?>
             <!--<div class="details-info"><?php if(in_array('1',$type)){echo $tick; }else{echo $cross; } ?>  Hourly Rate</div>-->
@@ -208,7 +208,10 @@
                 </tr>
             <?php
           } ?>
-        
+        <tr>
+             <td>Tell us about your needs</td>
+             <td><?php $des = !empty($profile_description) ? $profile_description : 'N/A'; echo $des; ?></td>
+         </tr>
         <tr>
             <td>Smoker</td>
             <td>
@@ -289,10 +292,10 @@
                     <?php echo isset($pick_up_child) && $pick_up_child == 1 ? $tick : $cross?>Must be able to pick up kids from school
                 </div>
                 <div class="details-info">
-                    <?php echo isset($cook) && $cook == 1 ? $tick : $cross?>Must be able to cook
+                    <?php echo isset($cook) && $cook == 1 ? $tick : $cross?>Must be able to cook / serve meals
                 </div>
                 <div class="details-info">
-                    <?php echo isset($basic_housework) && $basic_housework == 1 ? $tick : $cross?>Must be able to do housework/ cleaning
+                    <?php echo isset($basic_housework) && $basic_housework == 1 ? $tick : $cross?>Must be able to do housework / cleaning
                 </div>
                 <div class="details-info">
                     <?php echo isset($homework_help) && $homework_help == 1 ? $tick : $cross?>Must be able to help with homework

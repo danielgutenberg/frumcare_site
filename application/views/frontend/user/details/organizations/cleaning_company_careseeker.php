@@ -4,7 +4,10 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 ?>
 <div class="table-responsive">
 	<table class="table table-striped">
-		 
+		 <tr>
+			<td>Position you are looking to fill</td>
+			<td><?php $position = !empty($job_position) ? $job_position : 'N/A'; echo $position?></td>
+		</tr>
 		 
 		 <?php if(!empty($rate)){ ?>    
         <?php $rate_type = explode(',',$rate_type)?>
@@ -72,7 +75,10 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
                         <div class="details-info"><?php if($flexible_hours == 1){ echo $tick; }else{echo $cross; }?> Flexible Hours</div> 
 				</td>
 			</tr>
-
+<td>Details</td>
+            <td>
+                <div class="details-info"><?php echo isset($desc) ? $desc : '' ?></div>
+            </td>
 
 			<tr>
 				<?php if(isset($language)){
@@ -80,7 +86,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 					if(is_array($lang)){
 						?>
 						
-						<td>Languages</td>
+						<td>Languages necessary</td>
 						<td>
 							<div class="details-info"><?php if(in_array('English', $lang)){ echo $tick; }else{ echo $cross; }?>English</div>
 							<div class="details-info"><?php if(in_array('Yiddish', $lang)){ echo $tick; }else{ echo $cross; }?>Yiddish</div>
@@ -92,42 +98,39 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 				<?php }
                 }  
                 else{ ?>
-                    <td>Languages</td>
+                    <td>Languages necessary</td>
                     <td>N/A</td>
                 <?php
                 }
 				?>
 			</tr>
-			<tr>
-				<?php 
-				if(!empty($training)){
-					$train = explode(',', $training);
-					?>
-					<td>Training / Certification</td>
-					<td>
-						<div class="details-info"><?php if(in_array('CPR', $train)){ echo $tick; }else{ echo $cross; }?>CPR</div>
-						<div class="details-info"><?php if(in_array('First Aid', $train)){ echo $tick; }else{ echo $cross; }?>First Aid</div>
-						<div class="details-info"><?php if(in_array('Special care training', $train)){ echo $tick; }else{ echo $cross; }?>Senior care training</div>
-						<div class="details-info"><?php if(in_array('Nurse', $train)){ echo $tick; }else{ echo $cross; }?>Nurse</div>
-						<div class="details-info"><?php if(in_array('Other', $train)){ echo $tick; }else{ echo $cross; }?>Other</div>
-						<div class="details-info"><?php if(in_array('Not necessary', $train)){ echo $tick; }else{ echo $cross; }?>Not necessary</div>
-					</td>
-					<?php }  
-                else{ ?>
-                    <td>Training / Certification</td>
-                    <td>N/A</td>
-                    <?php } ?>
-				</tr>
+			
 				<tr>
 					<?php if(!empty($experience)){ ?>
-					<td>Experience</td>
+					<td>Minimum experience</td>
 					<td><?php echo $experience .' years';?></td>
 					<?php }  
                 else{ ?>
-                    <td>Experience</td>
+                    <td>Minimum experience</td>
                     <td>N/A</td>
                     <?php } ?>
 				</tr>
+				
+				<?php if(!empty($religious_observance)){ ?>    
+        <tr>
+            <td>Level of observance necessary</td>
+            <td>
+                <?php echo $religious_observance; ?>
+            </td>
+        </tr>
+    <?php }else{
+            ?>
+                <tr>
+                    <td >Level of observance necessary </td>
+                    <td>N/A</td>
+                </tr>
+            <?php
+          } ?>
 				<tr>
 					<?php if(!empty($smoker)){?>
 					<td>Smoking acceptable</td>

@@ -78,13 +78,13 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <div class="form-field">
                 <select name="rate" class="required rate">
                     <option value="">Select wage</option>
-                    <option value="5-10">$5-$10/Hr</option>
-                    <option value="10-15">$5-$10/Hr</option>
-                    <option value="15-25">$15-$25/Hr</option>
-                    <option value="25-35">$25-$35/Hr</option>
-                    <option value="35-45">$35-$45/Hr</option>
-                    <option value="45-55">$45-$55/Hr</option>
-                    <option value="55+">$55+/Hr</option>
+                    <option value="5-10">$5-$10 / Hr</option>
+                    <option value="10-15">$10-$15 / Hr</option>
+                    <option value="15-25">$15-$25 / Hr</option>
+                    <option value="25-35">$25-$35 / Hr</option>
+                    <option value="35-45">$35-$45 / Hr</option>
+                    <option value="45-55">$45-$55 / Hr</option>
+                    <option value="55+">$55+ / Hr</option>
                 </select>
             </div>
         </div>
@@ -116,9 +116,9 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 </div>
 
 
-<h2>Additional Requirements</h2>
+<h2>Encouraged but not mandatory fields</h2>
 <div>
-    <label>Languages</label>
+    <label>Languages necessary</label>
     <div class="form-field">
         <div class="checkbox"><input type="checkbox" name="language[]" value="English"> English</div>
         <div class="checkbox"><input type="checkbox" name="language[]" value="Yiddish"> Yiddish</div>

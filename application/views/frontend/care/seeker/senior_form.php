@@ -133,7 +133,7 @@ $user_detail = get_user(check_user());
 			</div>
 
 			<div>
-				<label>Languages</label>
+				<label>Languages necessary</label>
 				<div class="form-field">
                     <div class="checkbox"><input type="checkbox" name="language[]" value="English"> English</div>
                     <div class="checkbox"><input type="checkbox" name="language[]" value="Yiddish"> Yiddish</div>
@@ -156,7 +156,7 @@ $user_detail = get_user(check_user());
 				</div>
 			</div>
 			<div>
-				<label>From age to age</label>
+				<label>Age of Caregiver wanted</label>
 				<div class="form-field">
                     <input type="text" name="caregiverage_from" style="width:25%" placeholder="Age From"> to  <input type="text" name="caregiverage_to" style="width:25%" placeholder="Age To">
 				</div>
@@ -171,7 +171,7 @@ $user_detail = get_user(check_user());
 			</div>
 
 			<div>
-				<label>Training(required)</label>
+				<label>Training required</label>
 				<div class="form-field">
 					<div class="checkbox"><input type="checkbox" value="CPR" name="training[]"> CPR</div>
 					<div class="checkbox"><input type="checkbox" value="First Aid" name="training[]"> First Aid</div>

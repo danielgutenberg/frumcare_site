@@ -128,7 +128,7 @@
     <?php if(!empty($availability)){ ?>
         <?php $temp = explode(',',$availability); ?>
         <tr id="availability1">
-            <td>Days / Hours</td>
+            <td>When you need care</td>
             <td>
                 <div class="details-info"><?php if(in_array("One Time",$temp)){ echo $tick; }else{ echo $cross; }?> One Time</div>
                 <div class="details-info"><?php if(in_array("Occassionally",$temp)){ echo $tick; }else{ echo $cross; }?> Occassionally</div>
@@ -147,7 +147,7 @@
     <?php }else{
             ?>
                 <tr>
-                    <td >Availability</td>
+                    <td >When you need care</td>
                     <td>N/A</td>
                 </tr>
             <?php
@@ -170,7 +170,7 @@
           } ?>
     
     <tr>
-        <td>Age of Caregiver wanted</td>
+        <td>Caregiver age</td>
         <td>
             <?php 
             if(!empty($caregiverage_from) && !empty($caregiverage_from)){
@@ -209,6 +209,28 @@
                 <?php if($smoker==1){echo "Yes";}else{echo "No";} ?>
             </td>
         </tr>
+        <?php if(!empty($language)){ ?>
+        <?php $language = explode(',',$language); ?>
+        <tr>
+            <td>Languages necessary</td>
+            <td>
+                <div class="details-info"><?php if(in_array("English",$language)){ echo $tick; }else{ echo $cross; }?> English</div>
+                <div class="details-info"><?php if(in_array("Yiddish",$language)){ echo $tick; }else{ echo $cross; }?> Yiddish</div>
+                <div class="details-info"><?php if(in_array("Hebrew",$language)){ echo $tick; }else{ echo $cross; }?> Hebrew</div>                
+                <div class="details-info"><?php if(in_array("Russian",$language)){ echo $tick; }else{ echo $cross; }?>Russian</div>
+                <div class="details-info"><?php if(in_array("French",$language)){ echo $tick; }else{ echo $cross; }?> French</div>
+                <div class="details-info"><?php if(in_array("Other",$language)){ echo $tick; }else{ echo $cross; }?> Other</div>                                                            
+            </td>
+        </tr>
+        <?php }
+        else{
+            ?>
+                <tr>
+                    <td >Languages necessary </td>
+                    <td>N/A</td>
+                </tr>
+            <?php
+          } ?>
         
     <?php if(!empty($training)){ ?>
         <?php $trainingtemp = explode(',',$training); ?>
@@ -259,5 +281,22 @@
             <div class="details-info"><?php echo isset($references) && $references == 1 ? $tick : $cross?> Must have references</div>
         </td>
     </tr>
+    <tr>
+					<?php
+						if(!empty($photo_of_child) && file_exists(site_url().'images/profile-picture/thumb/'.$photo_of_child)){
+							$img_url 		= site_url().'images/profile-picture/thumb/'.$photo_of_child;
+							$fullimage 		= site_url().'images/profile-picture/'.$photo_of_child;	
+
+						}else{
+								$img_url = site_url().'images/no-image.jpg';	
+								$fullimage = site_url().'images/no-image.jpg';
+						}
+					?>
+						<td>Photo of Child / Children</td>
+						<td>
+							<a href="javascript:void(0);" class="fullimage" id="<?php echo $fullimage;?>"><img src="<?php echo $img_url;?>"></a>
+						</td>
+						
+				</tr>
 </table>            
 </div>

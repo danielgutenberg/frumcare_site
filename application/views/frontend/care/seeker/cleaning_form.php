@@ -114,7 +114,7 @@ $user_detail = get_user(check_user());
         </div>
 
         <div>
-            <label>Availability</label>
+            <label>When you need help</label>
             <div class="form-field">
                 <div class="checkbox"><input type="checkbox" value="One time" name="availability[]"> One time</div>
                 <div class="checkbox"><input type="checkbox" value="Occasionally" name="availability[]"> Occasionally</div>
@@ -134,7 +134,7 @@ $user_detail = get_user(check_user());
                 <select name="rate" class="required rate">
                     <option value="">Select wage</option>
                     <option value="5-10">$5-$10 / Hr</option>
-                    <option value="10-15">$5-$10 / Hr</option>
+                    <option value="10-15">$10-$15 / Hr</option>
                     <option value="15-25">$15-$25 / Hr</option>
                     <option value="25-35">$25-$35 / Hr</option>
                     <option value="35-45">$35-$45 / Hr</option>
@@ -148,16 +148,16 @@ $user_detail = get_user(check_user());
             <div class="checkbox"><input type="checkbox" name="rate_type[]" value="1">Hourly Rate</div>-->
             <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
         </div>
-        <div>
-            <label>Tell us about your needs</label>
-            <div class="form-field">
-            <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
-            </div>
-        </div>
+        <!--<div>-->
+        <!--    <label>Tell us about your needs</label>-->
+        <!--    <div class="form-field">-->
+        <!--    <textarea name="profile_description" class="required"><?php //echo isset($desc) ? $desc : '' ?></textarea>-->
+        <!--    </div>-->
+        <!--</div>-->
 
         <h2>Additional Requirements</h2>
         <div>  
-            <label>Languages</label>
+            <label>Languages necessary</label>
             <div class="form-field">
             <div class="checkbox"><input type="checkbox" name="language[]" value="English"> English</div>
             <div class="checkbox"><input type="checkbox" name="language[]" value="Yiddish"> Yiddish</div>
@@ -172,7 +172,7 @@ $user_detail = get_user(check_user());
             <div class="form-field">
             <div class="radio"><input type="radio" value="1" name="gender_of_caregiver" checked> Male</div>
             <div class="radio"><input type="radio" value="2" name="gender_of_caregiver"> Female</div>
-            <div class="radio"><input type="radio" value="3" name="gender_of_caregiver"> Any</div>
+            <div class="radio"><input type="radio" value="3" name="gender_of_caregiver"> Either</div>
             </div>
         </div>
 
@@ -188,6 +188,12 @@ $user_detail = get_user(check_user());
             </select>
             </div>
         </div>
+        <div class="checkbox-wrap">
+        		<div>
+        			<input type="checkbox" value="1" name="watch_children"> <label>Must be able to watch children as well</label>
+        		</div>
+        		
+        	</div>
         <div>
             <label>Smoking acceptable</label>
             <div class="form-field">

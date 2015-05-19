@@ -11,7 +11,7 @@
 			<h1 class="step2">Step 2: Job Details</h1>
 		</div>
 		<div>
-			<label>Looking to work in</label>
+			<label>Looking for</label>
 			<div class="form-field">
 				<div class="checkbox"><input type="checkbox" value="Live in" name="looking_to_work[]"> Live in</div>
 				<div class="checkbox"><input type="checkbox" value="Live out" name="looking_to_work[]"> Live out</div>
@@ -145,7 +145,7 @@
 			<div class="form-field">
 				<div class="checkbox"><input type="checkbox" value="CPR" name="training[]"> CPR</div>
 				<div class="checkbox"><input type="checkbox" value="First Aid" name="training[]"> First Aid</div>
-				<div class="checkbox"><input type="checkbox" value="Nanny/ Babysitter course" name="training[]"> Nanny/ Babysitter course</div>
+				<div class="checkbox"><input type="checkbox" value="Nanny/ Babysitter course" name="training[]"> Nanny / Babysitter course</div>
 				<div class="checkbox"><input type="checkbox" value="Not necessary" name="training[]"> Not necessary</div>
 			</div>
 		</div>
@@ -167,10 +167,10 @@
 		<div class="checkbox-wrap">
 
 			<div>
-				<input type="checkbox" value="1" name="cook"> <label>Must be willing to cook/ serve meals</label>
+				<input type="checkbox" value="1" name="cook"> <label>Must be willing to cook / serve meals</label>
 			</div>
 			<div>
-				<input type="checkbox" value="1" name="basic_housework"> <label>Must be willing to do light housework/ cleaning</label>
+				<input type="checkbox" value="1" name="basic_housework"> <label>Must be willing to do light housework / cleaning</label>
 			</div>
 			<div>
 				<input type="checkbox" value="1" name="personal_hygiene"> <label>Must be willing to deal with personal hygiene of senior</label>

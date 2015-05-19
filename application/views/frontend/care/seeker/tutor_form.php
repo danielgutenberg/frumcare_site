@@ -109,17 +109,38 @@ $user_detail = get_user(check_user());
                 <div class="checkbox"><input type="checkbox" value="By appointment" name="availability[]">By appointment</div> 
                 </div>
         </div> 
-        <div>
-            <label>Tell us about your needs</label>
+        <div class="rate-select">
+            <label>Wage</label>
             <div class="form-field">
-            <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
+                <select name="rate" class="required rate">
+                    <option value="">Select wage</option>
+                    <option value="5-10">$5-$10 / Hr</option>
+                    <option value="10-15">$10-$15 / Hr</option>
+                    <option value="15-25">$15-$25 / Hr</option>
+                    <option value="25-35">$25-$35 / Hr</option>
+                    <option value="35-45">$35-$45 / Hr</option>
+                    <option value="45-55">$45-$55 / Hr</option>
+                    <option value="55+">$55+ / Hr</option>
+                </select>
             </div>
         </div>
+
+         <div>
+            <!--<label>Check one or more</label>
+            <div class="checkbox"><input type="checkbox" name="rate_type[]" value="1">Hourly Rate</div>-->
+            <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
+        </div>
+        <!--<div>-->
+        <!--    <label>Tell us about your needs</label>-->
+        <!--    <div class="form-field">-->
+        <!--    <textarea name="profile_description" class="required"><?php //echo isset($desc) ? $desc : '' ?></textarea>-->
+        <!--    </div>-->
+        <!--</div>-->
 
         <h2>Additional Requirements</h2>
 
         <div>
-            <label>Languages</label>
+            <label>Languages necessary</label>
             <div class="form-field">
                 <div class="checkbox"><input type="checkbox" name="language[]" value="English"> English</div>
                 <div class="checkbox"><input type="checkbox" name="language[]" value="Yiddish"> Yiddish</div>
@@ -139,7 +160,7 @@ $user_detail = get_user(check_user());
             </div>
         </div>
         <div>
-            <label>From age to age</label>
+            <label>Age of Tutor wanted</label>
             <div class="form-field">
             <input type="text" name="caregiverage_from" value="" placeholder="Age From" style="width:25%"> to  <input type="text" name="caregiverage_to" value="" placeholder="Age To" style="width:25%">
             </div>
@@ -164,7 +185,7 @@ $user_detail = get_user(check_user());
             </div>
         </div>
         <div>
-            <label>Minimum years experience</label>
+            <label>Minimum years of experience</label>
             <div class="form-field">
             <select name="experience" class="required">
                 <option value="">Select</option>

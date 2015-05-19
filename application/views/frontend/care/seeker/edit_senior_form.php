@@ -112,7 +112,7 @@ if($detail){
             </div>
 
             <div>
-                <label>Gender</label>
+                <label>Gender of senior</label>
                 <div class="form-field">
                     <div class="radio"><input type="radio" value="1" name="gender" <?php if(in_array('1',$gender)){?> checked="checked" <?php } ?>> Male</div>
                     <div class="radio"><input type="radio" value="2" name="gender" <?php if(in_array('2',$gender)){?> checked="checked" <?php } ?>> Female</div>
@@ -200,7 +200,7 @@ if($detail){
             </div>
 
             <div>
-                <label>Training(required)</label>
+                <label>Training required</label>
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" value="CPR" name="training[]" <?php if(in_array('CPR',$trainingtemp)){?> checked="checked"<?php } ?>> CPR</div>
                     <div class="checkbox"><input type="checkbox" value="First Aid" name="training[]" <?php if(in_array('First Aid',$trainingtemp)){?> checked="checked"<?php } ?>> First Aid</div>

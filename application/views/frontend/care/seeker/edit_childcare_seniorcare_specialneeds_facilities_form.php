@@ -265,31 +265,12 @@ if($detail){
             </div>
         </div>
             <div>
-                <label>Smoker</label>
+                <label>Smoking acceptable</label>
                 <div class="form-field">
                 <div class="radio"><input type="radio" name="smoker" value="1" <?php if(in_array('1',$smoker)){?> checked="checked" <?php } ?>> Yes</div>
                 <div class="radio"><input type="radio" name="smoker" value="2" <?php if(in_array('2',$smoker)){?> checked="checked" <?php } ?>> No</div>
                 </div>
             </div>
-
-             <?php /* <div>
-                <label>Photo of child/ children</label>
-                    <?php
-                        $photo_url = site_url("images/plus.png");
-                        if(check_user()) {
-                            $current_user = get_user(check_user());
-                            $photo = $photo_of_child;
-                            if($photo!="")
-                                $photo_url = base_url('images/profile-picture/thumb/'.$photo);
-                        }
-            ?>
-                <div class="upload-photo">
-                    <input type="hidden" id="file-name" name="photo_of_child" value="<?php if(isset($photo)) echo $photo;?>">
-                    <div id="output"><img src="<?php echo $photo_url?>"></div>
-                    <button class="btn btn-default" id="upload">Choose File</button>
-                    <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
-                </div>
-            </div> */?>
  
                <div>
                 <label>Upload Photo of Facility / Organization</label>

@@ -140,7 +140,7 @@ if($detail){
         </div>
        
         <div>
-            <label>Availability</label>
+            <label>When you need care</label>
             <div class="form-field">
             <div class="checkbox"><input type="checkbox" value="One Time" name="availability[]" <?php if(in_array("One Time",$temp)){?> checked="checked"<?php }?>> One Time</div>
             <div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]" <?php if(in_array("Occassionally",$temp)){?> checked="checked"<?php }?>> Occassionally</div>
@@ -169,7 +169,7 @@ if($detail){
             </div>
         </div>
         <div>
-            <label>Caregiver age from</label>
+            <label>Caregiver age</label>
             <div class="form-field">
             <input type="text" name="caregiverage_from" value="<?php echo isset($caregiverage_from)?$caregiverage_from:'';?>" placeholder="Age From" style="width:25%" class="required"> to  <input type="text" name="caregiverage_to" value="<?php echo isset($caregiverage_to)?$caregiverage_to:'';?>" placeholder="Age To" style="width:25%" class="required">
             </div>
@@ -242,6 +242,7 @@ if($detail){
         </select>
         </div>
         </div>
+        <h2>Abilities and skills </h2>
         <div class="checkbox-wrap">
             <div>
                 <input type="checkbox" value="1" name="driver_license" <?php echo isset($driver_license) && $driver_license == 1 ? 'checked' : ''?>> <label>Drivers license</label>

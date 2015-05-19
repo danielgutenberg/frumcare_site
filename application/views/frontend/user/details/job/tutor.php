@@ -87,7 +87,7 @@
         <?php if(!empty($subjects)){ ?>
         <?php $subjects = explode(',',$subjects); ?>
         <tr>
-            <td>Looking for help in following Subjects</td>
+            <td>Looking for help in the following Subjects</td>
             <td>
                 <div class="details-info"><?php if(in_array("Elementary school",$subjects)){ echo $tick; }else{ echo $cross; }?> Elementary school</div>
                 <div class="details-info"><?php if(in_array("High school",$subjects)){ echo $tick; }else{ echo $cross; }?> High school</div>
@@ -103,7 +103,7 @@
         else{
             ?>
                 <tr>
-                    <td >Looking for help in following Subjects </td>
+                    <td >Looking for help in the following Subjects </td>
                     <td>N/A</td>
                 </tr>
             <?php
@@ -113,7 +113,7 @@
         <?php if(!empty($availability)){ ?>
         <?php $temp = explode(',',$availability); ?>
         <tr id="availability1">
-            <td>Days / Hours</td>
+            <td>When you need lessons</td>
             <td>                
                 <div class="details-info"><?php if(in_array("Occassionally",$temp)){ echo $tick; }else{ echo $cross; }?> Occassionally</div>
                 <div class="details-info"><?php if(in_array("Regularly",$temp)){ echo $tick; }else{ echo $cross; }?> Regularly</div>
@@ -129,7 +129,28 @@
         else{
             ?>
                 <tr>
-                    <td >Days / Hours</td>
+                    <td >When you need lessons</td>
+                    <td>N/A</td>
+                </tr>
+            <?php
+          } ?>
+          
+          <?php if(!empty($rate)){ ?>    
+        <?php $rate_type = explode(',',$rate_type)?>
+        <tr>
+            <td>Wage</td>
+            <td >
+            <?php echo $rate . ' / Hr'; 
+            $type = explode(',',$rate_type);
+            ?>
+            <!--<div class="details-info"><?php if(in_array('1',$type)){echo $tick; }else{echo $cross; } ?>  Hourly Rate</div>-->
+            <div class="details-info"><?php if(in_array('2',$type)){echo $tick; }else{echo $cross; } ?>  Monthly Rate Available</div>    
+        </td>
+        </tr>
+    <?php }else{
+            ?>
+                <tr>
+                    <td >Wage </td>
                     <td>N/A</td>
                 </tr>
             <?php
@@ -181,26 +202,7 @@
             } ?>
         </td>
     </tr>
-        <?php if(!empty($rate)){ ?>    
-        <?php $rate_type = explode(',',$rate_type)?>
-        <tr>
-            <td>Wage</td>
-            <td >
-            <?php echo $rate . ' / Hr'; 
-            $type = explode(',',$rate_type);
-            ?>
-            <!--<div class="details-info"><?php if(in_array('1',$type)){echo $tick; }else{echo $cross; } ?>  Hourly Rate</div>-->
-            <div class="details-info"><?php if(in_array('2',$type)){echo $tick; }else{echo $cross; } ?>  Monthly Rate Available</div>    
-        </td>
-        </tr>
-    <?php }else{
-            ?>
-                <tr>
-                    <td >Wage </td>
-                    <td>N/A</td>
-                </tr>
-            <?php
-          } ?>
+        
         <tr>
             <td>Smoking Acceptable</td>
             <td>
@@ -227,7 +229,7 @@
         
         <?php if(!empty($experience)){ ?>    
         <tr>
-            <td>Minimum experience</td>
+            <td>Minimum years of experience</td>
             <td>
                 <?php echo $experience; ?>
             </td>
@@ -236,7 +238,7 @@
         else{
             ?>
                 <tr>
-                    <td >Minimum experience </td>
+                    <td >Minimum years of experience</td>
                     <td>N/A</td>
                 </tr>
             <?php
@@ -245,7 +247,7 @@
         <?php if(!empty($training)){ ?>
         <?php $trainingtemp = explode(',',$training); ?>
         <tr>
-            <td>Training necessary</td>
+            <td>Training / Certification required</td>
             <td>
                 <div class="details-info"> <?php if(in_array('CPR',$trainingtemp)){echo $tick; }else{ echo $cross; } ?> CPR</div>
                 <div class="details-info"> <?php if(in_array('First Aid',$trainingtemp)){ echo $tick; }else{ echo $cross; } ?> First Aid</div>
@@ -257,7 +259,7 @@
         else{
             ?>
                 <tr>
-                    <td >Training necessary </td>
+                    <td >Training / Certification required</td>
                     <td>N/A</td>
                 </tr>
             <?php

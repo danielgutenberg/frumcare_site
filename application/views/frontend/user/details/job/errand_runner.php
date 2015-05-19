@@ -82,7 +82,7 @@
         <?php if(!empty($availability)){ ?>
         <?php $temp = explode(',',$availability); ?>
         <tr id="availability1">
-            <td>Days / Hours</td>
+            <td>When you need help</td>
             <td>
                 <div class="details-info"><?php if(in_array("One Time",$temp)){ echo $tick; }else{ echo $cross; }?> One Time</div>
                 <div class="details-info"><?php if(in_array("Occassionally",$temp)){ echo $tick; }else{ echo $cross; }?> Occassionally</div>
@@ -100,11 +100,16 @@
         else{
             ?>
                 <tr>
-                    <td >Days / Hours</td>
+                    <td >When you need help</td>
                     <td>N/A</td>
                 </tr>
             <?php
           } ?>
+          
+         <tr>
+             <td>Tell us about your needs</td>
+             <td><?php $des = !empty($profile_description) ? $profile_description : 'N/A'; echo $des; ?></td>
+         </tr>
         
         <?php if(!empty($language)){ ?>
         <?php $language = explode(',',$language); ?>
@@ -130,7 +135,7 @@
           } ?>
         
         <tr>
-            <td>Gender of Helper Wanted</td>
+            <td>Gender wanted</td>
             <td>
                 <?php  
                 if($gender_of_caregiver == 1) echo "Male";
@@ -158,13 +163,29 @@
           } ?>
         
         <tr>
-            <td>Smoker acceptable</td>
+            <td>Smoking acceptable</td>
             <td>
                 <?php if($smoker==1){echo "Yes";}else{echo "No";} ?>
             </td>
         </tr>
         <tr>
-            <td>Ability &amp; Skills</td>
+            <?php
+       if(!empty($experience)){?>
+       <tr>
+           <td >Minimum experience</td>
+           <td >    		
+            <?php echo $experience; ?>  
+        </td>
+    </tr>
+    <?php }  else{
+            ?>
+                <tr>
+                    <td >Minimum experience</td>
+                    <td>N/A</td>
+                </tr>
+            <?php
+          }?>
+            <td>Abilities and Skills Necessary</td>
             <td>
                 <div class="details-info"><?php echo isset($driver_license) && $driver_license == 1 ? $tick : $cross?> Drivers license</div>
                 <div class="details-info"><?php echo isset($vehicle) && $vehicle == 1 ? $tick : $cross ?> Vehicle</div>

@@ -4,7 +4,10 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 ?>
 <div class="table-responsive">
 	<table class="table table-striped">
-		 
+		<tr>
+			<td>Position you are looking to fill</td>
+			<td><?php $position = !empty($job_position) ? $job_position : 'N/A'; echo $position?></td>
+		</tr> 
 		 
 		 <?php if(!empty($rate)){ ?>    
         <?php $rate_type = explode(',',$rate_type)?>
@@ -67,7 +70,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 					if(is_array($lang)){
 						?>
 						
-						<td>Languages</td>
+						<td>Languages necessary</td>
 						<td>
 							<div class="details-info"><?php if(in_array('English', $lang)){ echo $tick; }else{ echo $cross; }?>English</div>
 							<div class="details-info"><?php if(in_array('Yiddish', $lang)){ echo $tick; }else{ echo $cross; }?>Yiddish</div>
@@ -80,7 +83,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 					}
                 }
                 else{ ?>
-                    <td>Languages</td>
+                    <td>Languages necessary</td>
                     <td>N/A</td> 
 				<?php
                 }
@@ -91,7 +94,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 				if(!empty($training)){
 					$train = explode(',', $training);
 					?>
-					<td>Training / Certification</td>
+					<td>Must have following Training / Certification</td>
 					<td>
 						<div class="details-info"><?php if(in_array('CPR', $train)){ echo $tick; }else{ echo $cross; }?>CPR</div>
 						<div class="details-info"><?php if(in_array('First Aid', $train)){ echo $tick; }else{ echo $cross; }?>First Aid</div>
@@ -102,20 +105,34 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 					</td>
                     <?php }  
                 else{ ?>
-                    <td>Training / Certification</td>
+                    <td>Must have following Training / Certification</td>
                     <td>N/A</td>
 					<?php } ?>
 				</tr>
 				<tr>
 					<?php if(!empty($experience)){ ?>
-					<td>Experience</td>
+					<td>Minimum experience</td>
 					<td><?php echo $experience .' years';?></td>
 					<?php }  
                 else{ ?>
-                    <td>Experience</td>
+                    <td>Minimum experience</td>
                     <td>N/A</td>
                     <?php } ?>
 				</tr>
+				<?php if(!empty($religious_observance)){ ?>    
+        <tr>
+            <td>Level of observance necessary</td>
+            <td>
+                <?php echo $religious_observance; ?>
+            </td>
+        </tr>
+    <?php }else{
+            ?>
+                <tr>
+                    <td >Level of observance necessary </td>
+                    <td>N/A</td>
+                </tr>
+                <?php } ?>
 				<tr>
 					<?php if(!empty($smoker)){?>
 					<td>Smoking acceptable</td>
@@ -131,26 +148,25 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
                     <td>Smoking acceptable</td>
                     <td>N/A</td>
 					<?php } ?>
-				</tr>
-   <?php /*
+				</tr>				
+
 				<tr>
-					<?php if(!empty($facility_pic)){
-						if(file_exists(site_url().'images/profile-picture/thumb/'.$facility_pic)){
-							$img_url 	= site_url().'images/profile-picture/thumb/'.$facility_pic;
-							$fullimage 	= site_url().'images/profile-picture/thumb/'.$facility_pic;
-						}else{
-							$img_url 	= site_url().'images/no-image.jpg';
-							$fullimage 	= site_url().'images/no-image.jpg';
-						}
-						}	
-					?>
-						<td>Photo</td>
-						<td>
-								<a href="javascript:void(0);"  class="fullimage" id="<?php echo $fullimage;?>"><img src="<?php echo $img_url;?>"></a>
-						</td>
-						
-				</tr>
-*/ ?>
+				 	<?php if(!empty($facility_pic)){
+					 	if(file_exists(site_url().'images/profile-picture/thumb/'.$facility_pic)){
+					 		$img_url 		= site_url().'images/profile-picture/thumb/'.$facility_pic;
+					 		$fullimage 		= site_url().'images/profile-picture/'.$facility_pic;
+					 	}else{
+					 			$img_url 	= site_url().'images/no-image.jpg';
+				 				$fullimage 	= site_url().'images/no-image.jpg';
+				 		}
+				 	}
+							
+				 		?>
+				 		<td>Photo of Facility / Organization</td>
+				 		<td>
+				 			<a href="javascript:void(0);"  class="fullimage" id="<?php echo $fullimage;?>"><img src="<?php echo $img_url;?>"></a>
+				 		</td>
+				</tr> ?>
 			</table>
 
 			<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

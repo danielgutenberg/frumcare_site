@@ -93,7 +93,7 @@
           } ?>
          
         <tr>
-            <td>Gender</td>
+            <td>Gender of senior</td>
             <td>
                 <?php  
                 if($gender == 1) echo "Male";
@@ -127,7 +127,7 @@
         <?php if(!empty($availability)){ ?>
         <?php $temp = explode(',',$availability); ?>
         <tr id="availability1">
-            <td>Days / Hours</td>
+            <td>When you need care</td>
             <td>                
                 <div class="details-info"><?php if(in_array("Occassionally",$temp)){ echo $tick; }else{ echo $cross; }?> Occassionally</div>
                 <div class="details-info"><?php if(in_array("Regularly",$temp)){ echo $tick; }else{ echo $cross; }?> Regularly</div>
@@ -146,12 +146,15 @@
         else{
             ?>
                 <tr>
-                    <td >Days / Hours</td>
+                    <td >When you need care</td>
                     <td>N/A</td>
                 </tr>
             <?php
           } ?>
-        
+        <tr>
+             <td>Tell us about your needs</td>
+             <td><?php $des = !empty($profile_description) ? $profile_description : 'N/A'; echo $des; ?></td>
+         </tr>
         <tr>
             <td>Gender of caregiver</td>
             <td>
@@ -245,7 +248,7 @@
         <?php if(!empty($training)){ ?>
         <?php $trainingtemp = explode(',',$training); ?>
         <tr>
-            <td>Training necessary</td>
+            <td>Training required</td>
             <td>
                 <div class="details-info"> <?php if(in_array('CPR',$trainingtemp)){echo $tick; }else{ echo $cross; } ?> CPR</div>
                 <div class="details-info"> <?php if(in_array('First Aid',$trainingtemp)){ echo $tick; }else{ echo $cross; } ?> First Aid</div>
@@ -258,12 +261,27 @@
         else{
             ?>
                 <tr>
-                    <td >Training necessary</td>
+                    <td >Training required</td>
                     <td>N/A</td>
                 </tr>
             <?php
           } ?>
-        
+        <?php if(!empty($experience)){ ?>    
+        <tr>
+            <td>Minimum experience</td>
+            <td>
+                <?php echo $experience; ?>
+            </td>
+        </tr>
+        <?php }
+        else{
+            ?>
+                <tr>
+                    <td >Minimum experience </td>
+                    <td>N/A</td>
+                </tr>
+            <?php
+          } ?>
         <tr>
             <td>Abilities and skills necessary</td>
             <td>
@@ -274,10 +292,10 @@
                     <?php echo isset($vehicle) && $vehicle == 1 ? $tick : $cross?>Vehicle
                 </div>            
                 <div class="details-info">
-                    <?php echo isset($cook) && $cook == 1 ? $tick : $cross?>Must be able to cook and prepare food/serve meals
+                    <?php echo isset($cook) && $cook == 1 ? $tick : $cross?>Must be able to cook and prepare food / serve meals
                 </div>
                 <div class="details-info">
-                    <?php echo isset($basic_housework) && $basic_housework == 1 ? $tick : $cross?>Must be able to do light housework/ cleaning
+                    <?php echo isset($basic_housework) && $basic_housework == 1 ? $tick : $cross?>Must be able to do light housework / cleaning
                 </div>
                 <div class="details-info">
                     <?php echo isset($personal_hygiene) && $personal_hygiene == 1 ? $tick : $cross?>Must be able to deal with personal hygiene of senior

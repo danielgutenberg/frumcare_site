@@ -129,12 +129,12 @@ if($detail){
                 <div class="checkbox"><input type="checkbox" value="By appointment" name="availability[]" <?php if(in_array("By appointment",$temp)){?> checked="checked"<?php }?>>By appointment</div> 
             </div>
         </div>
-        <div>
-            <label>Tell us about your needs</label>
-            <div class="form-field">
-            <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
-            </div>
-        </div>
+        <!--<div>-->
+        <!--    <label>Tell us about your needs</label>-->
+        <!--    <div class="form-field">-->
+        <!--    <textarea name="profile_description" class="required"><?php //echo isset($desc) ? $desc : '' ?></textarea>-->
+        <!--    </div>-->
+        <!--</div>-->
 
         <h2>Additional Requirements</h2>
 
@@ -159,7 +159,7 @@ if($detail){
             </div>
         </div>
         <div>
-            <label>Tutor age from</label>
+            <label>Tutor age</label>
             <div class="form-field">
                 <input type="text" name="caregiverage_from" value="<?php echo isset($caregiverage_from)?$caregiverage_from:'';?>" placeholder="Age From" style="width:25%" class="required"> to  <input type="text" name="caregiverage_to" value="<?php echo isset($caregiverage_to)?$caregiverage_to:'';?>" placeholder="Age To" style="width:25%" class="required">
             </div>
@@ -197,7 +197,7 @@ if($detail){
             </div>
         </div>
         <div>
-            <label>Training necessary</label>
+            <label>Training / Certification required</label>
             <div class="form-field">
             <div class="checkbox"><input type="checkbox" value="CPR" name="training[]" <?php if(in_array('CPR',$trainingtemp)){?> checked="checked"<?php } ?>> CPR</div>
             <div class="checkbox"><input type="checkbox" value="First Aid" name="training[]" <?php if(in_array('First Aid',$trainingtemp)){?> checked="checked"<?php } ?>> First Aid</div>

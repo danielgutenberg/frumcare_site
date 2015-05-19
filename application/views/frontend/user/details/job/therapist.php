@@ -86,7 +86,7 @@
         
         <?php if(!empty($type_of_therapy)){ ?>
         <tr>
-            <td>Type of therapy</td>
+            <td>Type of therapy wanted</td>
             <td>
                 <?php echo $type_of_therapy; ?>
             </td>
@@ -95,12 +95,16 @@
         else{
             ?>
                 <tr>
-                    <td >Type of therapy </td>
+                    <td >Type of therapy wanted</td>
                     <td>N/A</td>
                 </tr>
             <?php
           } ?>
-        
+        <tr>
+             <td>Tell us about your needs</td>
+             <td><?php $des = !empty($profile_description) ? $profile_description : 'N/A'; echo $des; ?></td>
+         </tr>
+        <tr>
         <?php if(!empty($language)){ ?>
         <?php $language = explode(',',$language); ?>
         <tr>
