@@ -44,11 +44,11 @@ $user_detail = get_user(check_user());
 				echo form_hidden('account_type',$record['account_type']);
                 echo form_hidden('organization_care',@$record['organization_care']);
 			}} ?>
-	<div class="ad-form-container">
+	<div class="ad-form-container" style="padding-left:287px;">
 	
 		<?php if($this->uri->segment(2) != 'new_profile'){?> 
 			<div>
-				<h1 class="step2">Step 2: Job Details</h1>
+				<h1 class="step2" style="text-align:left; font-size:36px; width:500px">Step 2: Job Details</h1>
 			</div>
 		<?php } ?>
 
