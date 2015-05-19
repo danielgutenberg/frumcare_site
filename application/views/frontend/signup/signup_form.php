@@ -192,6 +192,8 @@ if($this->uri->segment(2)!='edit'){
             $('.parent').text('Organization Info');
             $('.personal').css('display','none');
             $('.started').text('Organization Details');
+            var careType = $('input[name=organization_care]:checked').val()
+            getAccountCat(2, careType)
         });
 
         $('.acc_cat').click(function(){
