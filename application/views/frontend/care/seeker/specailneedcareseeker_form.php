@@ -44,7 +44,7 @@ $user_detail = get_user(check_user());
 				echo form_hidden('account_type',$record['account_type']);
                 echo form_hidden('organization_care',@$record['organization_care']);
 			}} ?>
-	<div class="ad-form-container" style="padding-left:287px;">
+	<div class="ad-form-container" style="padding-left:700px;">
 	
 		<?php if($this->uri->segment(2) != 'new_profile'){?> 
 			<div>
