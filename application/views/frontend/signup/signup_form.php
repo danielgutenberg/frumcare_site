@@ -124,8 +124,14 @@ if($this->uri->segment(2)!='edit'){
 <script type="text/javascript">
     function initialize() {
         var acc_category = $('input[name=account_category]:checked').val();
+        if (acc_category == 1) {
+            getAccountCat(1,1)
+        }
         if (acc_category == 2) {
             getAccountCat(2,1)
+        }
+        if (acc_category == 3) {
+            getAccountCat(1,2)
         }
         
     }
