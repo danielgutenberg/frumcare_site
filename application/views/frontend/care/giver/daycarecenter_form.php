@@ -163,7 +163,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 </div>
             </div>
             <div>
-                <label>References(Option to Upload)</label>
+                <label>References</label>
                 <div class="form-field">
                 <div class="radio"><input type="radio" value="1" name="references" id="ref_check1" class="required" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?>/> Yes</div>
                 <div class="radio"><input type="radio" value="2" name="references" id="ref_check2" class="required" <?php echo isset($ref) && $ref == 2 ? 'checked' : '' ?> checked/> No</div>
