@@ -106,10 +106,7 @@
             <?php
           } ?>
           
-         <tr>
-             <td>Tell us about your needs</td>
-             <td><?php $des = !empty($profile_description) ? $profile_description : 'N/A'; echo $des; ?></td>
-         </tr>
+         
         
         <?php if(!empty($language)){ ?>
         <?php $language = explode(',',$language); ?>

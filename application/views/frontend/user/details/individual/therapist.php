@@ -109,12 +109,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
         <td>Payment Options</td>
         <td><?php echo !empty( $payment_option ) ? $payment_option : 'N/A'; ?></td>
     </tr>
-    <tr>
-            <td>Tell us about your organization</td>
-            <td>
-                <div class="details-info"><?php echo isset($desc) ? $desc : '' ?></div>
-            </td>
-        </tr>
+    
     <?php
     if($references==1){?>
     <!--<tr>-->

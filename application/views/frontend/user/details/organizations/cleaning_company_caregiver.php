@@ -89,12 +89,7 @@
     <?php } ?>
   </tr>  
   
-        <tr>
-            <td>Tell us about your organization</td>
-            <td>
-                <div class="details-info"><?php echo isset($desc) ? $desc : '' ?></div>
-            </td>
-        </tr>
+       
             
 </table>            
 </div>

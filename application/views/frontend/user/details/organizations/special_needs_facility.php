@@ -150,23 +150,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 					<?php } ?>
 				</tr>				
 
-				<tr>
-				 	<?php if(!empty($facility_pic)){
-					 	if(file_exists(site_url().'images/profile-picture/thumb/'.$facility_pic)){
-					 		$img_url 		= site_url().'images/profile-picture/thumb/'.$facility_pic;
-					 		$fullimage 		= site_url().'images/profile-picture/'.$facility_pic;
-					 	}else{
-					 			$img_url 	= site_url().'images/no-image.jpg';
-				 				$fullimage 	= site_url().'images/no-image.jpg';
-				 		}
-				 	}
-							
-				 		?>
-				 		<td>Photo of Facility / Organization</td>
-				 		<td>
-				 			<a href="javascript:void(0);"  class="fullimage" id="<?php echo $fullimage;?>"><img src="<?php echo $img_url;?>"></a>
-				 		</td>
-				</tr> ?>
+				
 			</table>
 
 			<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

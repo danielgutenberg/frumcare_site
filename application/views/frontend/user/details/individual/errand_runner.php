@@ -87,12 +87,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
             <?php
           }   ?>
           
-          <tr>
-            <td>Tell us about your organization</td>
-            <td>
-                <div class="details-info"><?php echo isset($desc) ? $desc : '' ?></div>
-            </td>
-        </tr>
+          
           <?php
         if($references==1){?>
         <tr>

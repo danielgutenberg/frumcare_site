@@ -117,12 +117,7 @@
 			}
 		?>
 	</tr>
-    <tr>
-            <td>Tell us about your organization</td>
-            <td>
-                <div class="details-info"><?php echo isset($desc) ? $desc : '' ?></div>
-            </td>
-        </tr>
+    
     <tr>
 		<?php if(!empty($reference) && $reference == 1 ){?>
 			<td>References</td>
@@ -137,23 +132,7 @@
                     <td>N/A</td>
 		<?php } ?>
 	</tr>
-		<tr>
-		<?php 
-			if(!empty($facility_pic)){
-				$img_url 	= site_url().'images/profile-picture/thumb/'.$facility_pic;
-				$fullimage 	= site_url().'images/profile-picture/'.$facility_pic;
-			}else{
-				$img_url	 = site_url().'images/no-image.jpg';
-				$fullimage 	= site_url().'images/no-image.jpg';
-			}
-		?>
-
-		<td>Photo of facility / Organization</td>
-		<td>
-			<a href="javascript:void(0);"  class="fullimage" id="<?php echo $fullimage;?>"><img src="<?php echo $img_url;?>"></a>
-		</td>
-
-	</tr>  ?>
+		
 	<tr>
 		<?php if(!empty($payment_options)){?>
 			<td>Payment Options</td>

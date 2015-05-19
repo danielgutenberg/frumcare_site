@@ -281,22 +281,6 @@
             <div class="details-info"><?php echo isset($references) && $references == 1 ? $tick : $cross?> Must have references</div>
         </td>
     </tr>
-    <tr>
-					<?php
-						if(!empty($photo_of_child) && file_exists(site_url().'images/profile-picture/thumb/'.$photo_of_child)){
-							$img_url 		= site_url().'images/profile-picture/thumb/'.$photo_of_child;
-							$fullimage 		= site_url().'images/profile-picture/'.$photo_of_child;	
-
-						}else{
-								$img_url = site_url().'images/no-image.jpg';	
-								$fullimage = site_url().'images/no-image.jpg';
-						}
-					?>
-						<td>Photo of Child / Children</td>
-						<td>
-							<a href="javascript:void(0);" class="fullimage" id="<?php echo $fullimage;?>"><img src="<?php echo $img_url;?>"></a>
-						</td>
-						
-				</tr>
+    
 </table>            
 </div>
