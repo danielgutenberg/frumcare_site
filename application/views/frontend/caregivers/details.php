@@ -19,7 +19,7 @@
 <?php endif;?></div>
 <div class="details-right-caregive">
     <div class="profile-name-details">
-        <span><?php echo $recordData['name'];?> </span>
+        <span style="font-size:30px;"><?php echo $recordData['name'];?> </span>
 
 
     </div>
