@@ -4400,7 +4400,13 @@ body {
   font-family: "Varela Round", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
 }
-
+.icon-instagram {
+  display: inline-block;
+ background-image: url(../img/instagram.png);
+ background-repeat: no-repeat;
+ vertical-align: middle;
+ position: relative;
+}
 /*icons*/
 [class*='icon-'] {
  display: inline-block;
