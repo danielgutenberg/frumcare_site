@@ -112,7 +112,7 @@
 	        $slug 			= urldecode($this->uri->segment(3));
 	        $care_type 		= $this->uri->segment(4);
 	        $details        = $this->user_model->getUserDetailsBySlug($slug,$care_type);
-
+            print_r($details);
 	        $type = Caretype_model::getCareTypeById($details['care_type']);
 
 	        $this->breadcrumbs->push($type[0]['service_name'], '#');
