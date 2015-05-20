@@ -74,6 +74,7 @@ class Signup extends CI_Controller
                       'care_type'             => $care_type,
                       'account_category'      => $_POST['account_category'],
                       'created_on'            => date('Y-m-d'),
+                        'created_time'          =>strtotime('now'),
                       'user_id'               => $q,
                       'organization_care'     => isset($data['organization_care'])?$data['organization_care'] :0,
                       'profile_status'        => 1
