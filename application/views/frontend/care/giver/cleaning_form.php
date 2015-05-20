@@ -121,9 +121,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <div>
                     <input type="checkbox" value="1" name="on_short_notice"> Available on short notice
                 </div>
-                <div>
-                     <input type="submit" class="btn btn-success" value="Save <?php if($this->uri->segment(2) != 'new_profile'){echo '& Continue';}?>"/>
-                </div>
+                
             </div>
             <br />
             <div>
