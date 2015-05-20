@@ -176,7 +176,7 @@ class Ad extends CI_Controller
             if(!empty($insert_user))
                 $p = $this->common_model->update('tbl_user',$insert_user,array('id'=>$_POST['user_id']));
             $this->session->flashdata('success', "Ad Upated Successfully");
-            redirect('admin/ad/detail/'.$id,'refresh');
+            redirect('admin/ad/','refresh');
         }
         $data['main_content'] = 'admin/ad/details';
         $data['detail']       = $this->ad_model->getAllDetails($id);
