@@ -50,6 +50,11 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
     <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
     <link href="<?php echo site_url();?>css/jquery-ui.css" type="text/css" rel="stylesheet">
+    <script>
+        $("#textbox1").ready(function(){        
+            $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
+         });
+    </script>
 </head>
 <body onload="initialize()">
     <div class="page-loader-modal"></div>
