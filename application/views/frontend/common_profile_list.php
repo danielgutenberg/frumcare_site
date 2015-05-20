@@ -51,14 +51,17 @@
     	        </div>
 	        </div>
         	<div class="profile-list-details">
-                <?php print_r($data);?>
-                
-                
-                
+                <?php if ($data['account_category'] == 3) {?>
                 <span class="name">
+					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo $data['organization_name'];?></a>
+				</span>	<?php } else { ?>
+				<span class="name">
 					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo $data['name'];?></a>
-				</span>	<?php 
+				</span>
+				<?php } ?>
                 
+                
+                <?php
                 //for job posters
                 if($data['care_type'] < 17 ){ ?>
                     <!--<div class="review_rating">
