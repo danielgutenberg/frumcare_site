@@ -193,7 +193,7 @@ class Careseeker_babysitter extends CI_Controller{
             $merge['total']       	= $total_rows;
             $merge['pagination']       	= '';  
             echo json_encode($merge);
-            exit();		
+            // exit();		
 	}
     public function searchbylocation(){
         if($_GET){
