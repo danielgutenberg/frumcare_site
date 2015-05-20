@@ -71,7 +71,7 @@
                                         class="icon-facebook-white"></i></span><span class="back"><i
                                         class="icon-facebook-color"></i></span></span></a>
                         <a href="https://twitter.com/FrumCare" target="_blank" class="twitter flip-link-container"><span class="flip-link"><span class="front"><i
-                                        class="icon-instagram"></i></span><span class="back"><i
+                                        class="instagram"></i></span><span class="back"><i
                                         class="icon-twitter-color"></i></span></span></a>
                         <a href="#" class="linkedin flip-link-container"><span class="flip-link"><span class="front"><i
                                         class="icon-linkedin-white"></i></span><span class="back"><i
