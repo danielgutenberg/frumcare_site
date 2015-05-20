@@ -48,6 +48,7 @@
                                    }else{
                                     echo 'Organization';
                                    }
+                                   
                                ?>
                             </td>
                             <td><?php echo $ud['ad_type']==1 ? 'Paid': 'Free';?></td>
