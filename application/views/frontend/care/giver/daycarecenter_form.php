@@ -24,11 +24,17 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             </div>
             <?php } ?>
             
-                
-                <div>
+            <?php if($this->uri->segment(2) == 'new_profile') { ?>
+            <div>
+            <label>Name of Organization</label>
+            <div class="form-field">
+               <input type="text" name="organization_name" value="<?php if(isset($fn)) echo $fn;?>" class="required">
+            </div>
+         </div>
+         <div>
                 <label>Type of Organization</label>
                 <select name="sub_care">
-                    <option value="day care center">Day Care Center</option>
+                    <option value="day care center" selected="selected">Day Care Center</option>
                     <option value="day camp">Day Camp</option>
                     <option value="afternoon activities">Afternoon Activities</option>
                     <option value="pre school">Pre-School</option>
@@ -40,6 +46,53 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                     <option value="other">Other</option>
                 </select>
             </div>
+            <div>
+            <label>Contact name</label>
+            <div class="form-field">
+               <input type="text" name="name" placeholder="name" class="required" value="<?php echo isset($name)? $name:''; ?>"/>
+            </div>
+         </div>
+         <div>
+            <label>Location</label>
+            <div id="locationField">
+               <input type="hidden" id="lat" name="lat"/>
+               <input type="hidden" id="lng" name="lng"/> 
+               <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
+            </div>
+         </div>
+         <div>
+            <label>Neighborhood / Street</label>
+            <div>
+               <input type="text" name="neighbour" class="required" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
+            </div>
+         </div>         
+         <div>
+            <label>Phone</label>
+            <div class="form-field">
+               <input type="text" name="contact_number" class="required" value="<?php echo isset($phone)? $phone:''; ?>"/>
+            </div>
+         </div> <?php } else { ?>
+            
+            
+            
+            <div>
+                <label>Type of Organization</label>
+                <select name="sub_care">
+                    <option value="day care center" selected="selected">Day Care Center</option>
+                    <option value="day camp">Day Camp</option>
+                    <option value="afternoon activities">Afternoon Activities</option>
+                    <option value="pre school">Pre-School</option>
+                    
+                    <option value="assisted living residence">Assisted living residence</option>
+                    <option value="senior care center">Senior care center</option>
+                    <option value="nursing home">Nursing home</option>
+                    <option value="rehab therapy center">Rehab / Therapy Center</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <?php } ?>
+                
+                
         <!--    <div>    -->
         <!--    <label>Location</label>-->
         <!--    <div id="locationField">-->

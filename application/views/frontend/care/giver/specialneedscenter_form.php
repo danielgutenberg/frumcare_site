@@ -24,6 +24,41 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     </div>
     <?php } ?>
     
+    <?php if($this->uri->segment(2) == 'new_profile') { ?>
+            <div>
+            <label>Name of Organization</label>
+            <div class="form-field">
+               <input type="text" name="organization_name" value="<?php if(isset($fn)) echo $fn;?>" class="required">
+            </div>
+         </div>
+         
+            <div>
+            <label>Contact name</label>
+            <div class="form-field">
+               <input type="text" name="name" placeholder="name" class="required" value="<?php echo isset($name)? $name:''; ?>"/>
+            </div>
+         </div>
+         <div>
+            <label>Location</label>
+            <div id="locationField">
+               <input type="hidden" id="lat" name="lat"/>
+               <input type="hidden" id="lng" name="lng"/> 
+               <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
+            </div>
+         </div>
+         <div>
+            <label>Neighborhood / Street</label>
+            <div>
+               <input type="text" name="neighbour" class="required" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
+            </div>
+         </div>         
+         <div>
+            <label>Phone</label>
+            <div class="form-field">
+               <input type="text" name="contact_number" class="required" value="<?php echo isset($phone)? $phone:''; ?>"/>
+            </div>
+         </div> <?php }?>
+    
     <div>
         <label>Year established</label>
         <div class="form-field">
