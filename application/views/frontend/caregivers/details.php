@@ -17,7 +17,6 @@
 <?php else:?>
     <img src="<?php echo site_url("images/no-image.jpg")?>">
 <?php endif;?></div>
-<?php print_r($recordData); ?>
 <div class="details-right-caregive">
     <div class="profile-name-details">
         <span style="font-size:30px;"><?php echo $recordData['name'];?> </span>
@@ -226,7 +225,7 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
 <div class="clearfix"></div>
 <br/>
 <div class="meet-caregivers-clients">
-       <?php if($this->uri->segment(4)<17 || $this->uri->segment(4)>24){ ?>
+       <?php if($this->uri->segment(4) < 10 || ($this->uri->segment(4)>16 && $this->uri->segment(4) < 24)){ ?>
        <h2> Meet 
             <?php echo $recordData['name'];?>
         </h2>
