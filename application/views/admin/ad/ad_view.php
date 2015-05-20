@@ -39,6 +39,7 @@
                            <td><?php echo ($care_type)? $care_type->service_name: '';?></td> 
                             <td><?php echo $ud['name']; ?></td>
                             <td>
+                                
                                <!--  <?php echo $ud['account_category']==1 ? 'Care Giver': 'Care Seeker';?> -->
                                <?php 
                                    if($ud['account_category'] == 1){
