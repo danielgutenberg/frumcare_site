@@ -19,8 +19,11 @@
 <?php endif;?></div>
 <div class="details-right-caregive">
     <div class="profile-name-details">
-        <span style="font-size:30px;"><?php echo $recordData['name'];?> </span>
-
+        <?php if ($recordData['organization_name']) { ?>
+        <span style="font-size:30px;"><?php echo $recordData['organization_name'];?> </span>
+        <?php } else { ?>
+                <span style="font-size:30px;"><?php echo $recordData['organization_name'];?> </span>
+                <?php } ?>
 
     </div>
     <!--div>
