@@ -196,27 +196,30 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
     <?php 
     } 
     if(!empty($recordData['location'])){ ?>
-        <span class="age-wrap"><?php echo $recordData['location'].'<span>Location</span>';?></span>
+        <span class="hour-wrap"><?php echo $recordData['location'].'<span>Location</span>';?></span>
         <?php
     }else{ ?>
-    <span class="age-wrap"><?php echo 'N/A'.'<span>Location</span>';?></span>
+    <span class="hour-wrap"><?php echo 'N/A'.'<span>Location</span>';?></span>
     <?php 
     } 
     if(!empty($recordData['established'])){ ?>
-    <span class="hour-wrap"><?php echo $recordData['established'].'<span>Year Established</span>';?></span>                
+    <span class="experience-wrap"><?php echo $recordData['established'].'<span>Year Established</span>';?></span>                
     <?php
     }
     else{ ?>
-    <span class="hour-wrap"><?php echo 'N/A'.'<span>Year Established</span>';?></span>                
+    <span class="experience-wrap"><?php echo 'N/A'.'<span>Year Established</span>';?></span>                
     <?php
     }
+    ?>
+    <div class="clearfix margin-bots"></div>
+    <?php
     if(!empty($recordData['rate'])){ ?>
     <?php $rate_type = $recordData['rate_type']==2?' / month':' / hr'?>
-    <span class="experience-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
+    <span class="age-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
     <?php
     }                                
     else{ ?>
-    <span class="experience-wrap"><?php echo 'N/A'.'<span>Cost</span>'; ?></span>
+    <span class="age-wrap"><?php echo 'N/A'.'<span>Cost</span>'; ?></span>
     <?php
     }   
 }
