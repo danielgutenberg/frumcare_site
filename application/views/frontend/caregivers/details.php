@@ -187,7 +187,7 @@ if($this->uri->segment(4)>16){
     }
 }
 if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
-    if($this->uri->segment(4) == 10 && $this->uri->segment(4) == 16) {
+    if($this->uri->segment(4) == 10 || $this->uri->segment(4) == 16) {
         if(!empty($recordData['organization_type'])){ ?>
             <span class="age-wrap"><?php echo $recordData['location'].'<span>Type of Organization</span>';?></span>
             <?php
@@ -237,11 +237,11 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         <?php
         }
         else{ ?>
-        <span class="houor-wrap"><?php echo 'N/A'.'<span>Year Established</span>';?></span>                
+        <span class="hour-wrap"><?php echo 'N/A'.'<span>Year Established</span>';?></span>                
         <?php
         }
         ?>
-        <div class="clearfix margin-bots"></div>
+        
         <?php
         if(!empty($recordData['rate'])){ ?>
         <?php $rate_type = $recordData['rate_type']==2?' / month':' / hr'?>
