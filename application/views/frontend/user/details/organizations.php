@@ -118,13 +118,7 @@
         </tr>
         <?php
         } ?>
-    <tr>
-        <td>Photo of owner / operator</td>
-        <td>
-            <?php $photo = !empty($profile_picture_owner)?"images/profile-picture/thumb/".$profile_picture_owner:"images/no-image.jpg"; ?>
-            <img  src="<?php echo site_url().$photo; ?>"/>
-        </td>
-    </tr>
+    
 </table>
 </div>
 <?php } else { ?>
