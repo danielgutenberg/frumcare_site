@@ -51,7 +51,7 @@
     	        </div>
 	        </div>
         	<div class="profile-list-details">
-                <?php print_r($account_type);?>
+                <?php print_r($data['account_type']);?>
                 
                 
                 
