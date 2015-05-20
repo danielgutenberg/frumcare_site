@@ -37,18 +37,7 @@
                     <td>N/A</td>
 		<?php } ?>
 	</tr>
-	<tr>
-                <?php 
-                    $extra_field = explode(',',$extra_field);
-                ?>
-                <td>Observance in facility</td>
-                <td>
-                    <div class="details-info"><?php if(in_array('shul on premises', $extra_field)){echo $tick; }else{echo $cross; }?> <span>Shul on premises</span></div>
-                    <div class="details-info"><?php if(in_array('kosher kitchen', $extra_field)){echo $tick; }else{echo $cross; }?> <span>Kosher kitchen</span></div>
-                    <div class="details-info"><?php if(in_array('kosher food available', $extra_field)){echo $tick; }else{echo $cross; }?> <span>Kosher food available</span></div>
-                    <div class="details-info"><?php if(in_array('shabbos observant facility', $extra_field)){echo $tick; }else{echo $cross; }?> <span>Shabbos observant facility</span></div>
-                </td>               
-            </tr>
+	
     <tr>
 		<?php if(!empty($number_of_children)){?>
 			<td>Number of patients / residents</td>
@@ -94,6 +83,18 @@
 				<div class="details-info"><?php if(in_array(strtolower('Wheelchair bound'),array_map('strtolower',$willingtowork))){ echo $tick; }else{ echo $cross; }?>Wheelchair bound</div>
 			</td>           
 	</tr>
+	<tr>
+                <?php 
+                    $extra_field = explode(',',$extra_field);
+                ?>
+                <td>Observance in facility</td>
+                <td>
+                    <div class="details-info"><?php if(in_array('shul on premises', $extra_field)){echo $tick; }else{echo $cross; }?> <span>Shul on premises</span></div>
+                    <div class="details-info"><?php if(in_array('kosher kitchen', $extra_field)){echo $tick; }else{echo $cross; }?> <span>Kosher kitchen</span></div>
+                    <div class="details-info"><?php if(in_array('kosher food available', $extra_field)){echo $tick; }else{echo $cross; }?> <span>Kosher food available</span></div>
+                    <div class="details-info"><?php if(in_array('shabbos observant facility', $extra_field)){echo $tick; }else{echo $cross; }?> <span>Shabbos observant facility</span></div>
+                </td>               
+            </tr>
 	
     <!--<tr>-->
         <?php 

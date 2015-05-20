@@ -138,7 +138,7 @@
         <tr>
                     <td>Type of Organization</td>
                     <td>
-                        <?php echo $organiztion_type ? ucfirst($organiztion_type) : 'N/A'; ?>
+                        <?php echo $organization_type ? ucfirst($organization_type) : 'N/A'; ?>
                     </td>
                 </tr>
         

@@ -24,38 +24,73 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             </div>
             <?php } ?>
             <?php if($this->uri->segment(2) == 'new_profile') { ?>
-            <div>
-            <label>Name of Organization</label>
-            <div class="form-field">
-               <input type="text" name="organization_name" value="<?php if(isset($fn)) echo $fn;?>" class="required">
-            </div>
-         </div>
-            <div>
-            <label>Contact name</label>
-            <div class="form-field">
-               <input type="text" name="name" placeholder="name" class="required" value="<?php echo isset($name)? $name:''; ?>"/>
-            </div>
-         </div>
-         <div>
-            <label>Location</label>
-            <div id="locationField">
-               <input type="hidden" id="lat" name="lat"/>
-               <input type="hidden" id="lng" name="lng"/> 
-               <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
-            </div>
-         </div>
-         <div>
-            <label>Neighborhood / Street</label>
-            <div>
-               <input type="text" name="neighbour" class="required" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
-            </div>
-         </div>         
-         <div>
-            <label>Phone</label>
-            <div class="form-field">
-               <input type="text" name="contact_number" class="required" value="<?php echo isset($phone)? $phone:''; ?>"/>
-            </div>
-         </div> <?php }?>
+             <h1>Organization Info</h1>
+             <div>
+        <label>Location</label>
+        <div id="locationField">
+            <input type="hidden" id="lat" name="lat"/>
+            <input type="hidden" id="lng" name="lng"/> 
+            <input type="text" name="location" class="required" id="autocomplete" required/>
+        </div>    
+    </div>
+
+    <div>
+        <label>Neighborhood / Street</label>
+        <div>
+            <input type="text" name="neighbour" class="required" value=""/>
+        </div>    
+    </div>
+
+    <!--<div>-->
+    <!--    <label>Zip</label>-->
+    <!--    <div><input type="text" name="zip" class="required" value="" /> </div>-->
+    <!--</div>-->
+
+     <div>
+        <label>Phone</label>
+        <div class="form-field">
+        <input type="text" name="contact_number" class="required" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact"/>
+        </div>
+    </div>
+
+    <div>
+        <label>Name of owner / operator</label>
+        <div class="form-field">
+        <input type="text" name="name_of_owner" class="required" value=""/>
+        </div>
+    </div>
+
+
+    <div> 
+        <label>Age of owner / operator</label>
+        <div class="form-field">
+        <input type="text" name="age" class="required number" value="<?php echo isset($age) ? $age : '' ?>"/>
+        </div>
+    </div>
+
+     <div>
+        <label>Gender</label>
+        <div class="form-field">
+            <div class="radio"><input type="radio" value="1" name="gender" checked> Male</div>
+            <div class="radio"><input type="radio" value="2" name="gender" <?php echo isset($gender) && $gender == 2 ? 'checked' : '' ?>> Female </iv>
+        </div>
+    </div>
+
+    <div> 
+        <label>Level of religious observance</label>
+        <div class="form-field">
+        <select name="religious_observance">
+            <option value="">Select</option>
+            <option value="Yeshivish/ Chasidish">Yeshivish / Chasidish</option>
+            <option value="Orthodox/ Modern Orthodox">Orthodox / Modern Orthodox</option>
+            <option value="Other">Other</option>
+            <option value="Not Jewish">Not Jewish</option>
+        </select>
+        </div>
+    </div>
+    
+    <?php   $this->load->view('frontend/care/photo_upload_owner');  ?> 
+    <h1>Organization Details</h1><?php }?>
             <div>
                 <label>Year established</label>
                 <div class="form-field">

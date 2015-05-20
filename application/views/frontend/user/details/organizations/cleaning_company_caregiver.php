@@ -50,27 +50,32 @@
    </tr>
 
    <tr>
-    <?php if(isset($days_from) || isset($days_to)) {?>
-    <td>Days / Hours</td>
-    <td>Days  <?php echo $days_from;?> - <?php echo $days_to;?> 
-    </td>
-    <?php }  
-                else{ ?>
-                    <td>Days / Hours</td>
-                    <td>N/A</td>
-    <?php }?>
-  </tr>  
-
-  <tr>
-    <?php if(isset($hours_from) || isset($hours_to)){?>
-    <td></td>
-    <td>Hours <?php echo $hours_from;?> - <?php echo $hours_to;?></td>
-    <?php }  
-                else{ ?>
-                    <td>Hours</td>
-                    <td>N/A</td>
-    <?php } ?> 
-  </tr>
+                <td>Days / Hours</td>         
+                <td>
+					
+					
+						<?php if(!empty($sunday_from) || !empty($sunday_to)){ ?>
+							<div class="details-info">Sun <?php echo $sunday_from;?> - <?php echo $sunday_to;?></div>
+		                <?php }  
+		                else{ ?>
+		                    <div>Sun N/A</div>
+						<?php } ?>
+						<?php if(!empty($mid_days_from) || !empty($mid_days_to)){ ?>
+							<div class="details-info">Mon - Thurs <?php echo $mid_days_from;?> - <?php echo $mid_days_to;?></div>
+		                <?php }  
+		                else{ ?>
+		                    <div>Mon-Thu N/A</div>
+						<?php } ?>
+						<?php if(!empty($friday_from) || !empty($friday_to)){ ?>
+							<div class="details-info">Fri <?php echo $friday_from;?> - <?php echo $friday_to;?></div>
+		                <?php }  
+		                else{ ?>
+		                    <div>Fri N/A</div>
+						<?php } ?>
+						<div class="details-info"><?php if($extended_hrs == 1){ echo $tick; }else{echo $cross; }?>  Extended Hours Available</div>
+                        <div class="details-info"><?php if($flexible_hours == 1){ echo $tick; }else{echo $cross; }?> Flexible Hours</div> 
+				</td>
+           </tr>
 
   <tr>
     <?php 

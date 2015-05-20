@@ -24,7 +24,18 @@
         <h1 class="step2">
             Step 2: Organization Info 
         </h1>
-    
+    <!--<div>-->
+    <!--        <label>Name of Organization</label>-->
+    <!--        <div class="form-field">-->
+    <!--           <input type="text" name="organization_name" value="<?php //if(isset($fn)) echo $fn;?>" class="required">-->
+    <!--        </div>-->
+    <!--     </div>-->
+    <!--        <div>-->
+    <!--        <label>Contact name</label>-->
+    <!--        <div class="form-field">-->
+    <!--           <input type="text" name="name" placeholder="name" class="required" value="<?php //echo isset($name)? $name:''; ?>"/>-->
+    <!--        </div>-->
+    <!--     </div>-->
     <div>
         <label>Location</label>
         <div id="locationField">

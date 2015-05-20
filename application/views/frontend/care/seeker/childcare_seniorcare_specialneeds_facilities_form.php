@@ -120,7 +120,7 @@
             <div id="locationField">
                <input type="hidden" id="lat" name="lat"/>
                <input type="hidden" id="lng" name="lng"/> 
-               <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
+               <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
             </div>
          </div>
          <div>
@@ -159,7 +159,7 @@
          <div>
             <!--<label>Check one or more</label>
             <div class="checkbox"><input type="checkbox" name="rate_type[]" value="1">Hourly Rate</div>-->
-            <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
+            <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Payment Available</div>
          </div>
          <div>
             <label>Job Type</label>
@@ -208,7 +208,8 @@
                <div class="checkbox"><input type="checkbox" value="CPR" name="training[]"> CPR</div>
                <div class="checkbox"><input type="checkbox" value="First Aid" name="training[]"> First Aid</div>
                <div class="checkbox"><input type="checkbox" value="Nanny/ Babysitter course" name="training[]"> Nanny / Babysitter course</div>
-               <div class="checkbox"><input type="checkbox" value="Degree" name="training[]"> Degree</div>
+               <div class="checkbox"><input type="checkbox" value="Nurse" name="training[]" <?php if(in_array('Nurse',$trainingtemp)){?> checked="checked"<?php } ?>> Nurse</div>
+               <div class="checkbox"><input type="checkbox" value="Other" name="training[]" <?php if(in_array('Other',$trainingtemp)){?> checked="checked"<?php } ?>> Other</div>
                <div class="checkbox"><input type="checkbox" value="Not necessary" name="training[]"> Not necessary</div>
                <?php
                   }

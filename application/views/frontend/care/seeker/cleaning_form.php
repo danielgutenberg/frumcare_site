@@ -62,7 +62,7 @@ $user_detail = get_user(check_user());
 <div id="locationField">
     <input type="hidden" id="lat" name="lat"/>
     <input type="hidden" id="lng" name="lng"/> 
-    <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
+    <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
 </div> 
                 <div>
                     <label>Neighborhood / Street</label>
