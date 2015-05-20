@@ -16,7 +16,7 @@ class Ad extends CI_Controller
     function index(){
         $data['title'] = 'Ad Manager';
         $data['user_data']    = $this->ad_model->getAdDetails();
-        //print_r($data['user_data']); exit;
+        print_r($data['user_data']); exit;
         $data['main_content'] = 'admin/ad/ad_view';
         $this->load->view(BACKEND_TEMPLATE, $data);
     }
