@@ -211,7 +211,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <!--    <textarea style="display:none" name="references_details" class="required"><?php echo isset($ref_det) ? $ref_det : '' ?></textarea>-->
             <!--</div>-->
 
-            </div>
+            
             <br />
                 <input type="submit" class="btn btn-success" value="Save <?php if($this->uri->segment(2) != 'new_profile'){echo '& Continue';}?>"/>
             </div>        
