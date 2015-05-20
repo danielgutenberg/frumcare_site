@@ -70,7 +70,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 <div id="locationField">
     <input type="hidden" id="lat" name="lat"/>
     <input type="hidden" id="lng" name="lng"/> 
-    <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>
+    <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
 </div>    
 </div>
              <div>

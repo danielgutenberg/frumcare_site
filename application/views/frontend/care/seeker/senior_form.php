@@ -65,7 +65,7 @@ $user_detail = get_user(check_user());
                 <div>
                     <label>Neighborhood / Street</label>
                     <div>
-                    <input type="text" name="neighbour" class="required" onFocus="geolocate()" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
+                    <input type="text" name="neighbour" class="required" onFocus="geolocate()" value="<?php echo isset($neighbour)? $neighbour:''; ?>"  required/>
                     </div>    
                 </div>                 
 				<div>
