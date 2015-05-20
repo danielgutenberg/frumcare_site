@@ -81,28 +81,19 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
 
 
 			<tr>
-				<?php if(!empty($language)){
-					$lang = explode(',', $language); 
-					if(is_array($lang)){
-						?>
-						
-						<td>Languages necessary</td>
-						<td>
-							<div class="details-info"><?php if(in_array('English', $lang)){ echo $tick; }else{ echo $cross; }?>English</div>
-							<div class="details-info"><?php if(in_array('Yiddish', $lang)){ echo $tick; }else{ echo $cross; }?>Yiddish</div>
-							<div class="details-info"><?php if(in_array('Hebrew', $lang)){ echo $tick; }else{ echo $cross; }?>Hebrew</div>
-							<div class="details-info"><?php if(in_array('Russian', $lang)){ echo $tick; }else{ echo $cross; }?>Russian</div>
-							<div class="details-info"><?php if(in_array('French', $lang)){ echo $tick;}else{echo $cross; }?>French</div>
-							<div class="details-info"><?php if(in_array('French', $lang)){ echo $tick;}else{echo $cross; }?>Other</div>
-						</td>
-						<?php 
-					} 
-				}               
-                else{ ?>
-                    <td>Languages necessary</td>
-                    <td>N/A</td>
-				<?php } ?>
-			</tr>
+	<?php 
+		$lang = explode(',', $language); 
+		?>
+		<td>Languages Spoken</td>
+		<td>
+			<div class="details-info"><?php if(in_array('English', $lang)){ echo $tick; }else{ echo $cross; }?>English</div>
+			<div class="details-info"><?php if(in_array('Yiddish', $lang)){ echo $tick; }else{ echo $cross; }?>Yiddish</div>
+			<div class="details-info"><?php if(in_array('Hebrew', $lang)){ echo $tick; }else{ echo $cross; }?>Hebrew</div>
+			<div class="details-info"><?php if(in_array('Russian', $lang)){ echo $tick; }else{ echo $cross; }?>Russian</div>
+			<div class="details-info"><?php if(in_array('French', $lang)){ echo $tick; }else{ echo $cross; }?>French</div>
+			<div class="details-info"><?php if(in_array('Other', $lang)){ echo $tick; }else{ echo $cross; }?>Other</div>
+		</td>        
+</tr>
 			<tr>
 				<?php
 					$train = explode(',', $training);
@@ -112,7 +103,8 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
 						<div class="details-info"><?php if(in_array('CPR', $train)){ echo $tick; }else{ echo $cross; }?>CPR</div>
 						<div class="details-info"><?php if(in_array('First Aid', $train)){ echo $tick; }else{ echo $cross; }?>First Aid</div>
 						<div class="details-info"><?php if(in_array('Nanny/ Babysitter course', $train)){ echo $tick; }else{ echo $cross; }?>Nanny / Babysitter course</div>
-						<div class="details-info"><?php if(in_array('Degree', $train)){ echo $tick; }else{ echo $cross; }?>Degree</div>
+						<div class="details-info"><?php if(in_array('Nurse', $train)){ echo $tick; }else{ echo $cross; }?>Nurse</div>
+						<div class="details-info"><?php if(in_array('Other', $train)){ echo $tick; }else{ echo $cross; }?>Other</div>
 						<div class="details-info"><?php if(in_array('Not necessary', $train)){ echo $tick; }else{ echo $cross; }?>Not necessary</div>
 					</td>
 				</tr>

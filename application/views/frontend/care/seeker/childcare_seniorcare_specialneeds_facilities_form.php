@@ -208,7 +208,8 @@
                <div class="checkbox"><input type="checkbox" value="CPR" name="training[]"> CPR</div>
                <div class="checkbox"><input type="checkbox" value="First Aid" name="training[]"> First Aid</div>
                <div class="checkbox"><input type="checkbox" value="Nanny/ Babysitter course" name="training[]"> Nanny / Babysitter course</div>
-               <div class="checkbox"><input type="checkbox" value="Degree" name="training[]"> Degree</div>
+               <div class="checkbox"><input type="checkbox" value="Nurse" name="training[]" <?php if(in_array('Nurse',$trainingtemp)){?> checked="checked"<?php } ?>> Nurse</div>
+               <div class="checkbox"><input type="checkbox" value="Other" name="training[]" <?php if(in_array('Other',$trainingtemp)){?> checked="checked"<?php } ?>> Other</div>
                <div class="checkbox"><input type="checkbox" value="Not necessary" name="training[]"> Not necessary</div>
                <?php
                   }
