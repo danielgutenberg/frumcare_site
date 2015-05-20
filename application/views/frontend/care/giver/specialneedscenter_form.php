@@ -89,8 +89,9 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         </select>
         </div>
     </div>
-    <h1>Organization Details</h1>
-    <?php   $this->load->view('frontend/care/photo_upload_owner');  ?> <?php }?>
+    
+    <?php   $this->load->view('frontend/care/photo_upload_owner');  ?> 
+    <h1>Organization Details</h1><?php }?>
     
     <div>
         <label>Year established</label>
