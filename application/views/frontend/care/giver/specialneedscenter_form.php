@@ -25,7 +25,8 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     <?php } ?>
     
     <?php if($this->uri->segment(2) == 'new_profile') { ?>
-            <div>
+             <h1>Organization Info</h1>
+             <div>
         <label>Location</label>
         <div id="locationField">
             <input type="hidden" id="lat" name="lat"/>
@@ -88,8 +89,8 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         </select>
         </div>
     </div>
-
-    <?php   $this->load->view('frontend/care/photo_upload_owner');  }?>
+    <h1>Organization Details</h1>
+    <?php   $this->load->view('frontend/care/photo_upload_owner');  ?> <?php }?>
     
     <div>
         <label>Year established</label>
