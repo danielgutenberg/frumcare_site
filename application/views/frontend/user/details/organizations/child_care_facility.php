@@ -111,9 +111,8 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
 					<td>
 						<div class="details-info"><?php if(in_array('CPR', $train)){ echo $tick; }else{ echo $cross; }?>CPR</div>
 						<div class="details-info"><?php if(in_array('First Aid', $train)){ echo $tick; }else{ echo $cross; }?>First Aid</div>
-						<div class="details-info"><?php if(in_array('Special care training', $train)){ echo $tick; }else{ echo $cross; }?>Senior care training</div>
-						<div class="details-info"><?php if(in_array('Nurse', $train)){ echo $tick; }else{ echo $cross; }?>Nurse</div>
-						<div class="details-info"><?php if(in_array('Other', $train)){ echo $tick; }else{ echo $cross; }?>Other</div>
+						<div class="details-info"><?php if(in_array('Nanny/ Babysitter course', $train)){ echo $tick; }else{ echo $cross; }?>Nanny / Babysitter course</div>
+						<div class="details-info"><?php if(in_array('Degree', $train)){ echo $tick; }else{ echo $cross; }?>Degree</div>
 						<div class="details-info"><?php if(in_array('Not necessary', $train)){ echo $tick; }else{ echo $cross; }?>Not necessary</div>
 					</td>
 				</tr>

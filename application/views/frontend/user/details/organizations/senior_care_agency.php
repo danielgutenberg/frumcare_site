@@ -77,28 +77,11 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 	</tr>
 		
 
-		<tr>
-			<?php if(!empty($refrences)){?>
-			<td>References</td>
-			<td>
-				<div class="details-info">
-					<?php if($refrences == 1){ 
-						echo 'Refrences Available';
-					}else{
-						echo 'Refrences Not Available';
-					} ?>
-				</div>
-			</td>
-            <?php }  
-                else{ ?>
-                    <td>References</td>
-                    <td>N/A</td>
-			<?php } ?>
-		</tr>
+		
 
 		<tr>
 			<?php if(!empty($payment_options)){?>
-			<td>Payment Option</td>
+			<td>Payment Options</td>
 			<td>
 				<div class="details-info">
 					<?php echo $payment_options;?>
@@ -106,7 +89,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 			</td>
             <?php }  
                 else{ ?>
-                    <td>Payment Option</td>
+                    <td>Payment Options</td>
                     <td>N/A</td>
 			<?php } ?>
 		</tr>

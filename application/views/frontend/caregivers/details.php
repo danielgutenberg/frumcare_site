@@ -17,6 +17,7 @@
 <?php else:?>
     <img src="<?php echo site_url("images/no-image.jpg")?>">
 <?php endif;?></div>
+<?php print_r($recordData); ?>
 <div class="details-right-caregive">
     <div class="profile-name-details">
         <span style="font-size:30px;"><?php echo $recordData['name'];?> </span>
@@ -187,6 +188,14 @@ if($this->uri->segment(4)>16){
     }
 }
 if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
+    
+    if(!empty($recordData['organization_type'])){ ?>
+        <span class="age-wrap"><?php echo $recordData['location'].'<span>Type of Organization</span>';?></span>
+        <?php
+    }else{ ?>
+    <span class="age-wrap"><?php echo 'N/A'.'<span>Type of Organization</span>';?></span>
+    <?php 
+    } 
     if(!empty($recordData['location'])){ ?>
         <span class="age-wrap"><?php echo $recordData['location'].'<span>Location</span>';?></span>
         <?php

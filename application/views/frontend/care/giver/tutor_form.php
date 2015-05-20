@@ -42,7 +42,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <div>
                 <label>Availability</label>
                 <div class="form-field">
-                    <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]"/> Immediate</div>
+                    <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]"/> Immediately</div>
                     <div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]"/>Start Date<input  type="text" name="start_date" id="textbox1"/></div>                    
                     <div class="checkbox"><input type="checkbox" value="occassionally" name="availability[]"> <span>Occassionally</span></div>
                     <div class="checkbox"><input type="checkbox" value="regularly" name="availability[]"><span>Regularly</span></div>

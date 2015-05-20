@@ -75,10 +75,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
                         <div class="details-info"><?php if($flexible_hours == 1){ echo $tick; }else{echo $cross; }?> Flexible Hours</div> 
 				</td>
 			</tr>
-<td>Details</td>
-            <td>
-                <div class="details-info"><?php echo isset($desc) ? $desc : '' ?></div>
-            </td>
+
 
 			<tr>
 				<?php if(isset($language)){

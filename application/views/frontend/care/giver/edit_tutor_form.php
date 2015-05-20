@@ -63,7 +63,7 @@ if($detail){
             <div>
                 <label>Availability</label>
                 <div class="form-field">
-                    <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]" <?php if(in_array("Immediate",$time)){?> checked="checked"<?php }?>>Immediate</div>
+                    <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]" <?php if(in_array("Immediate",$time)){?> checked="checked"<?php }?>>Immediately</div>
                     <div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]" <?php if(in_array("Start Date",$time)){?> checked="checked"<?php }?> class="check">Start Date <input type="text" name="start_date" <?php if($date!='0000-00-00'){ echo 'value='.$date;}?> id="textbox1" /></div>
                     <div class="checkbox"><input type="checkbox" value="occassionally" name="availability[]" <?php if(in_array('occassionally', $time)){?> checked="checked" <?php }?>> <span>Occassionally</span></div>
                     <div class="checkbox"><input type="checkbox" value="regularly" name="availability[]" <?php if(in_array('regularly', $time)){?> checked="checked" <?php }?>> <span>Regularly</span></div>
