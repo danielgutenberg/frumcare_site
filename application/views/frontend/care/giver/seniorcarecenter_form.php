@@ -22,12 +22,31 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <div>
                 <h1 class="step3">Step 3: Organization Details</h1>
             </div>
+            
+            <?php } ?>
+            
+            <?php if($this->uri->segment(2) == 'new_profile') { ?>
             <div>
             <label>Name of Organization</label>
             <div class="form-field">
                <input type="text" name="organization_name" value="<?php if(isset($fn)) echo $fn;?>" class="required">
             </div>
          </div>
+         <div>
+                <label>Type of Organization</label>
+                <select name="sub_care">
+                    <option value="day care center">Day Care Center</option>
+                    <option value="day camp">Day Camp</option>
+                    <option value="afternoon activities">Afternoon Activities</option>
+                    <option value="pre school">Pre-School</option>
+                    
+                    <option value="assisted living residence">Assisted living residence</option>
+                    <option value="senior care center" selected="selected">Senior care center</option>
+                    <option value="nursing home">Nursing home</option>
+                    <option value="rehab therapy center">Rehab / Therapy Center</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
             <div>
             <label>Contact name</label>
             <div class="form-field">
@@ -53,9 +72,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <div class="form-field">
                <input type="text" name="contact_number" class="required" value="<?php echo isset($phone)? $phone:''; ?>"/>
             </div>
-         </div>
-            <?php } ?>
-            
+         </div> <?php } else { ?>
             
             
             
@@ -74,6 +91,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                     <option value="other">Other</option>
                 </select>
             </div>
+            <?php } ?>
             
             
             
