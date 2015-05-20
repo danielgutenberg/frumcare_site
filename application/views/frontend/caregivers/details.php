@@ -186,8 +186,8 @@ if($this->uri->segment(4)>16){
     <?php
     }
 }
-if($this->uri->segment(4) == 10 || $this->uri->segment(4) == 16){
-    
+if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
+    if($this->uri->segment(4) == 10 && $this->uri->segment(4) == 16) {
     if(!empty($recordData['organization_type'])){ ?>
         <span class="age-wrap"><?php echo $recordData['location'].'<span>Type of Organization</span>';?></span>
         <?php
@@ -221,7 +221,36 @@ if($this->uri->segment(4) == 10 || $this->uri->segment(4) == 16){
     else{ ?>
     <span class="age-wrap"><?php echo 'N/A'.'<span>Cost</span>'; ?></span>
     <?php
-    }   
+    }} else { 
+    
+    if(!empty($recordData['location'])){ ?>
+        <span class="age-wrap"><?php echo $recordData['location'].'<span>Location</span>';?></span>
+        <?php
+    }else{ ?>
+    <span class="age-wrap"><?php echo 'N/A'.'<span>Location</span>';?></span>
+    <?php 
+    } 
+    if(!empty($recordData['established'])){ ?>
+    <span class="hour-wrap"><?php echo $recordData['established'].'<span>Year Established</span>';?></span>                
+    <?php
+    }
+    else{ ?>
+    <span class="houor-wrap"><?php echo 'N/A'.'<span>Year Established</span>';?></span>                
+    <?php
+    }
+    ?>
+    <div class="clearfix margin-bots"></div>
+    <?php
+    if(!empty($recordData['rate'])){ ?>
+    <?php $rate_type = $recordData['rate_type']==2?' / month':' / hr'?>
+    <span class="experience-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
+    <?php
+    }                                
+    else{ ?>
+    <span class="experience-wrap"><?php echo 'N/A'.'<span>Cost</span>'; ?></span>
+    <?php
+    }
+    
 }
 ?>
 </div>
