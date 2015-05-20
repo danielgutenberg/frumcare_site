@@ -14,7 +14,7 @@
 			<ul class="submenuleft">
 			    <li style="margin-left: 20px;"> <a href="<?php echo site_url();?>advice-and-tips/families"> For Families </a> </li>
 			    <li style="margin-left: 20px;"> <a href="<?php echo site_url();?>advice-and-tips/caregivers"> For Caregivers </a> </li>
-			    <li style="margin-left: 20px;"> <a href="<?php echo site_url();?>advice-and-tips/employers"> For Employers </a> </li>
+			    <!--<li style="margin-left: 20px;"> <a href="<?php //echo site_url();?>advice-and-tips/employers"> For Employers </a> </li>-->
 			</ul>
 			 </li>
 			<li> <a href="<?php echo site_url();?>faq"> FAQ </a> </li>
