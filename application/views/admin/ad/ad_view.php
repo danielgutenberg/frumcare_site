@@ -35,7 +35,7 @@
                             $care_type = get_care_type($ud['care_type']);
                         ?>
                         <tr>
-                            <td></td>
+                            <td><?php echo $ud['user_id'];?></td>
                            <td><?php echo ($care_type)? $care_type->service_name: '';?></td> 
                             <td><?php echo $ud['name']; ?></td>
                             <td>
@@ -53,8 +53,8 @@
                                ?>
                             </td>
                             <td><?php echo $ud['ad_type']==1 ? 'Paid': 'Free';?></td>
-                            <td></td>
-                            <td></td>
+                            <td><?php echo $ud['email'];?></td>
+                            <td><?php echo $ud['contact_number'];?></td>
                             <td><?php echo $ud['created_on'];?></td>
                             <td><?php echo $ud['updated_on'];?></td>
                             <td><?php echo $ud['profile_status'] == 1 ? 'Approved':'Pending';?></td>
