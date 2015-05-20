@@ -1226,6 +1226,7 @@ class User extends CI_Controller
                     $this->db->insert('tbl_searchalerts',$alertdata);
                     $this->session->set_flashdata('info', 'Alert Created Successfully');
                     redirect('user/searches',true);
+                    
                 }else{
                     $this->db->where('id',$alert_id);
                     $this->db->update('tbl_searchalerts',$alertdata);
