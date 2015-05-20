@@ -124,6 +124,7 @@ class Ad extends CI_Controller
                 'organization_type'     => $this->input->post('organization_type',true),
                 'start_date'            => $this->input->post('start_date',true),
                 'updated_on'            => date('Y-m-d'),
+                'updated_time'          =>strtotime('now'),
                 'caregiverage_from'     => $this->input->post('agefrom',true),
                 'caregiverage_to'       => $this->input->post('ageto',true),
                 'rate'                  => $this->input->post('rate',true),
