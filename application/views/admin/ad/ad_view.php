@@ -57,7 +57,7 @@
                             <td><?php echo $ud['email'];?></td>
                             <td><?php echo $ud['contact_number'];?></td>
                             <td><?php echo date('Y-m-d H:i:s',$ud['created_time']);?></td>
-                            <td><?php echo $ud['updated_on'];?></td>
+                            <td><?php echo date('Y-m-d H:i:s',$ud['updated_time']);?></td>
                             <td><?php echo $ud['profile_status'] == 1 ? 'Approved':'Pending';?></td>
                             <td>
                                 <a class="btn btn-info" href="<?php echo base_url('admin/ad/detail/'.$ud['id']);?>">Edit</a>
