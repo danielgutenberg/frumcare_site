@@ -1,4 +1,6 @@
 <div class="container">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
 <?php echo $this->breadcrumbs->show();
 $log_id = $this->session->userdata('log_id');
 ?>
