@@ -51,6 +51,10 @@
     	        </div>
 	        </div>
         	<div class="profile-list-details">
+                <?php print_r($account_type);?>
+                
+                
+                
                 <span class="name">
 					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo $data['name'];?></a>
 				</span>	<?php 
