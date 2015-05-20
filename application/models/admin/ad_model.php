@@ -37,11 +37,16 @@ class ad_model extends CI_Model{
 			'account_category' 	=> $this->input->post('account_category',TRUE), 
 			'care_type'			=> $this->input->post('care_type',TRUE),
 			'updated_on'		=> $this->input->post('updated_on',TRUE),
-                        'updated_time'          => strtotime('now'),
+                        
 			'status'			=> $this->input->post('status',TRUE),
 		);
+                
+                $data_new=array(
+                    'updated_time'=>strtotime('now')
+                );
 		$this->db->where('id',$id);
 		$this->db->update('tbl_user',$data);
+                
 	}
 
 
