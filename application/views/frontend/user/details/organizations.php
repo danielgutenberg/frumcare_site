@@ -148,11 +148,11 @@
         
         
         
-        <?php if(!empty($name_of_owner)){?>
+        <?php if(!empty($name)){?>
         <tr>
             <td>Contact name</td>
             <td class="form-field">
-                <?php echo $name_of_owner; ?>
+                <?php echo $name; ?>
             </td>
         </tr>
         <?php }
