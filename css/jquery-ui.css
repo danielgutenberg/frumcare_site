@@ -853,7 +853,7 @@ body .ui-tooltip {
 }
 .ui-widget-header {
 	border: 1px solid #aaaaaa;
-	background: #cccccc url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") 50% 50% repeat-x;
+	background: #cccccc url("https://code.jquery.com/ui/1.11.4/themes/smoothness/images/ui-icons_222222_256x240.png") 50% 50% repeat-x;
 	color: #222222;
 	font-weight: bold;
 }
