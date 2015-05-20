@@ -27,7 +27,6 @@
 			$data['main_content']  = 'frontend/jobs/details';
 			$data['title']         = 'Job Title';
 			$data['jobdetail']	   =  $this->user_model->getJobBySlug($slug, $careType);
-			print_r($data['jobdetail']);
 			$data['caretypes']	   =  $this->common_model->getCareType();
 			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}

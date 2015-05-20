@@ -159,7 +159,7 @@
          <div>
             <!--<label>Check one or more</label>
             <div class="checkbox"><input type="checkbox" name="rate_type[]" value="1">Hourly Rate</div>-->
-            <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
+            <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Payment Available</div>
          </div>
          <div>
             <label>Job Type</label>
