@@ -32,7 +32,7 @@
                             <div class="form-group">
                                 <label class="control-label">Updated on</label>
                                 <div class="ad-manager-input"><?php echo $detail[0]['updated_on'];?></div>
-                                <div class="ad-manager-input"><input type="hidden" name="updated_on" value="<?php echo strtotime('now');?>"></div>
+                                <div class="ad-manager-input"><input type="hidden" name="updated_on" value="<?php echo date('Y-m-d');?>"></div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Category</label>
