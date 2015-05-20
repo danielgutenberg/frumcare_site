@@ -53,6 +53,7 @@ class Ad extends CI_Controller
                             'account_category'  => $_POST['account_category'],
                             'care_type'         => $care_type,
                             'created_on'        => date('Y-m-d'),
+                                'created_time'  => time(),
                             'organization_care' => isset($_POST['organization_care'])?$_POST['organization_care'] :0,
                             'profile_status'    => 0,    
                         );
