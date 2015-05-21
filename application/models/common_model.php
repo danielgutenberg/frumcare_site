@@ -119,8 +119,7 @@ class Common_Model extends CI_Model
         $sql = "select count(*) as num from tbl_user where uri = '$uri'";
         $q = $this->db->query($sql);
         $res = $q->row_array();
-        print_r($res);
-        if($res > 0){
+        if($res['num'] > 0){
            $val = $uri.'-'.$res['num'];
 
            return $val;
