@@ -35,7 +35,7 @@
                 		<?php foreach($user_data as $ud) { 
                             $care_type = get_care_type($ud['care_type']);
                             print_r($ud);
-                            exit();
+                            
                         ?>
                         
                         <tr>
