@@ -68,6 +68,26 @@ class Welcome extends CI_Controller {
     
     
     function smstest(){
+        if($_POST){
+            
+            $params = array(
+            'username' => 'michaelfrumcare', 
+            'password' => 'eMVcNaDZgGdAcK', 
+            'api' => '3494230'
+            );  
+            
+            
+            $msg=$this->input->post('msg');
+            $number=$this->input->post('code');
+            $res = $this->clickatell->send($number,$msg);
+            if($res){
+                $this->session->set_flashdata('success','message sent successfully');
+            }else{
+                $this->session->set_flashdata('error','error sending sms');
+            }
+            
+            redirect('welcome/smstest');
+        }else{
         $this->load->library('breadcrumbs');
         $this->breadcrumbs->push('test sms','');
         $data=array(
@@ -75,6 +95,7 @@ class Welcome extends CI_Controller {
             'title'=>'SMS TEST',
         );
         $this->load->view(FRONTEND_TEMPLATE,$data);
+        }
     }
 }
 
