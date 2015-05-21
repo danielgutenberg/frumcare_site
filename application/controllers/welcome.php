@@ -65,6 +65,17 @@ class Welcome extends CI_Controller {
         $this->load->view(FRONTEND_TEMPLATE,$data);
 
     }
+    
+    
+    function smstest(){
+        $this->load->library('breadcrumbs');
+        $this->breadcrumbs->push('test sms','');
+        $data=array(
+            'main_content'=>'frontend/smstest',
+            'title'=>'SMS TEST',
+        );
+        $this->load->view(FRONTEND_TEMPLATE,$data);
+    }
 }
 
 /* End of file welcome.php */
