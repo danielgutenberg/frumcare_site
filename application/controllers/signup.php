@@ -30,6 +30,7 @@ class Signup extends CI_Controller
             $exp = explode('_', $data['care_type']);
             $care_type = $exp[0]; 
             $account_type = $exp[1]; 
+            $orgName = $_POST['account_category']  == 3 ? trim($data['name']) : '';
             $insert = array(
                 'email'                 => $data['email'],
                 'email_hash'            => sha1($data['email']),
@@ -37,7 +38,8 @@ class Signup extends CI_Controller
                 'original_password'     => $data['password'],
                 'name'                  => trim($data['name']),
                 'uri'                   => $uri,
-                'status'                => 1
+                'status'                => 1,
+                'organization_name'     => $orgName
             );
 
                     if($_POST['account_category'] == 1){
