@@ -36,7 +36,8 @@
                             $care_type = get_care_type($ud['care_type']);
                         ?>
                         <tr>
-                            <td><?php echo $ud['user_id'];?></td>
+                            <?php $nme = $ud['organization_name'] ? $ud['organization_name'] : $ud['user_id']  ;?>
+                            <td><?php echo $nme;?></td>
                            <td><?php echo ($care_type)? $care_type->service_name: '';?></td> 
                             <td><?php echo $ud['name']; ?></td>
                             <td>
