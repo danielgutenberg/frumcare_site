@@ -158,30 +158,30 @@ $(function () {
 
 		$('.neighbour').blur(function(){
     		  $(".searchloader").fadeIn("fast");
-    // 			var neighbour = $('.neighbour').val();
+    			var neighbour = $('.neighbour').val();
                 var number_of_children = $('.number_of_children').val();
                 var morenum = $('.morenum:checked').map(function(_, el) {
     		        return $(el).val();
-    		    }).get() || '';
+    		    }).get();
                 var looking_to_work = $('.looking_to_work:checked').map(function(_, el) {
     		        return $(el).val();
-    		    }).get() || '';
+    		    }).get();
                 var age_group = $('.age_group:checked').map(function(_, el) {
     		        return $(el).val();
-    		    }).get() || '';
+    		    }).get();
                 var availability = $('.availability:checked').map(function(_, el) {
     		        return $(el).val();
-    		    }).get() || '';
+    		    }).get();
                 var rate = $('.rate').val();
                 var rate_type = $('.rate_type:checked').map(function(_, el) {
     		        return $(el).val();
-    		    }).get() || '';
+    		    }).get();
                 //var rate_type = $('.rate_type').val();
                 var start_date = $("#textbox1").val()?$("#textbox1").val():'';               
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_babysitter/search",
-    				data:"rate="+rate+"&rate_type="+rate_type+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&availability="+availability+"&start_date="+start_date,
+    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&availability="+availability+"&start_date="+start_date,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -195,20 +195,20 @@ $(function () {
 		});
         $('.looking_to_work,.age_group,.morenum,.looking_to_work,.availability,.age_group,.rate_type').click(function(){
                 $(".searchloader").fadeIn("fast");
-    // 			var neighbour = $('.neighbour').val();
-    //             var number_of_children = $('.number_of_children:selected').val();
-    //             var morenum = $('.morenum:checked').map(function(_, el) {
-    // 		        return $(el).val();
-    // 		    }).get();
-    //             var looking_to_work = $('.looking_to_work:checked').map(function(_, el) {
-    // 		        return $(el).val();
-    // 		    }).get();
-    //             var age_group = $('.age_group:checked').map(function(_, el) {
-    // 		        return $(el).val();
-    // 		    }).get();
-    //             var availability = $('.availability:checked').map(function(_, el) {
-    // 		        return $(el).val();
-    // 		    }).get();
+    			var neighbour = $('.neighbour').val();
+                var number_of_children = $('.number_of_children:selected').val();
+                var morenum = $('.morenum:checked').map(function(_, el) {
+    		        return $(el).val();
+    		    }).get();
+                var looking_to_work = $('.looking_to_work:checked').map(function(_, el) {
+    		        return $(el).val();
+    		    }).get();
+                var age_group = $('.age_group:checked').map(function(_, el) {
+    		        return $(el).val();
+    		    }).get();
+                var availability = $('.availability:checked').map(function(_, el) {
+    		        return $(el).val();
+    		    }).get();
                 var rate = $('.rate').val();
                 //var rate_type = $('.rate_type').val();
                 var rate_type = $('.rate_type:checked').map(function(_, el) {
@@ -218,7 +218,7 @@ $(function () {
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_babysitter/search",
-    				data:"rate="+rate,
+    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&availability="+availability+"&start_date="+start_date,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -227,10 +227,6 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
-    				},
-    				error: function(message){
-    				    console.log('got here')
-    				    console.log(message)
     				}
     			});         
         });
