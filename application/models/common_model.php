@@ -116,7 +116,7 @@ class Common_Model extends CI_Model
 
         $uri = strtolower($string1);
 
-        $sql = "select count(*) as num from tbl_user where uri LIKE %$uri%";
+        $sql = "select count(*) as num from tbl_user where uri LIKE '%$uri%'";
         $q = $this->db->query($sql);
         $res = $q->row_array();
         if($res['num'] > 0){
