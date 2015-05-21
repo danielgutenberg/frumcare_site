@@ -24,7 +24,7 @@ if(segment(3) != '') {
 
         <span class="first-names">
             <label>Name</label>
-            <input type="text" name="name" placeholder="Name" class="required" value="<?php echo (isset($name)) ? $name : '' ?>"/>
+            <input type="text" name="name" placeholder="Name" class="required" value="<?php $nme = $organzation_name ? $organization_name : $name;  echo (isset($nme)) ? $nme : '' ?>"/>
         </span>
         
         <span class="email-names">
