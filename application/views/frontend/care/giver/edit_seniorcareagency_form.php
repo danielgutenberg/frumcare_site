@@ -69,7 +69,7 @@
                         <!--<div class="checkbox"><input type="checkbox" name="rate_type[]" value="1" <?php if(in_array('1',$rate_type)){?> checked="checked" <?php } ?>>Hourly Rate</div>-->
                         <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2" <?php if(in_array('2',$rate_type)){?> checked="checked" <?php } ?>>Monthly Rate Available</div>
                 </div>
-           </div> ?>
+           </div>
             <div>
                 <label>Tell us about your organization</label>
                 <div class="form-field">
@@ -97,7 +97,7 @@
 
 
              <div>
-                <label> Payment Options(specify)</label>
+                <label> Payment Options (specify)</label>
                 <div class="form-field">
                     <input type="text" name="payment_option" value="<?php echo $detail[0]['payment_option'];?>">
                 </div>
