@@ -170,7 +170,9 @@ class Careseeker_babysitter extends CI_Controller{
                     $location = isset($ipdata['city'])?$ipdata['city']:'your city';
                 }
             }
-          
+            print_r($longitude);
+            print_r($latitude);
+            print_r($location);
 			$postdata['neighbor'] 			= $this->input->get('neighbour',true);
 			$postdata['number_of_children'] = $this->input->get('number_of_children',true);
 			$postdata['morenum']			= $this->input->get('morenum',true);
@@ -193,7 +195,7 @@ class Careseeker_babysitter extends CI_Controller{
             $merge['total']       	= $total_rows;
             $merge['pagination']       	= '';  
             echo json_encode($merge);
-            // exit();		
+            exit();		
 	}
     public function searchbylocation(){
         if($_GET){
