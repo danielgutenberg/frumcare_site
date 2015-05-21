@@ -34,15 +34,13 @@
                 	<tbody>
                 		<?php foreach($user_data as $ud) { 
                             $care_type = get_care_type($ud['care_type']);
-                            print_r($ud);
-                            
                         ?>
                         
                         <tr>
-                            <?php $nme = $ud['organization_name'] ? $ud['organization_name'] : $ud['user_id']  ;?>
-                            <td><?php echo $nme;?></td>
+                            <?php $nme = $ud['organization_name'] ? $ud['organization_name'] : $ud['name']  ;?>
+                            <td><?php echo $ud['user_id'];?></td>
                            <td><?php echo ($care_type)? $care_type->service_name: '';?></td> 
-                            <td><?php echo $ud['name']; ?></td>
+                            <td><?php echo $nme; ?></td>
                             <td>
                                 
                                <!--  <?php echo $ud['account_category']==1 ? 'Care Giver': 'Care Seeker';?> -->
