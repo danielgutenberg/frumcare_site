@@ -31,7 +31,7 @@
 
 		<div class="top-welcome">
 			<h2>
-		        Welcome <?php echo ucfirst($user['name']);?> !
+		        Welcome <?php $nme = $user['organization_name'] ? $user['organization_name'] : $user['name']; echo ucfirst($nme);?> !
 		    </h2>
 		    <?php 
 		        if(user_flash()){
