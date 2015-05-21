@@ -45,7 +45,7 @@
                 <form role="form" id="edituserdetails" action="<?php echo site_url();?>user/account/<?php echo sha1(check_user());?>" method="post">
                     <div class="first-names">
                         <label>Name of Organization</label>
-                        <input type="text" name="organization_name" placeholder="Neighborhood" class="required" value="<?php echo (isset($organization_name)) ? $organization_name : '' ?>"/>
+                        <input type="text" name="organization_name" placeholder="Name of Organization" class="required" value="<?php echo (isset($user_data['organization_name'])) ? $user_data['organization_name'] : '' ?>"/>
                     </div>
                     <?php 
                     if( $user_data['care_type'] == 10 ) { ?>
