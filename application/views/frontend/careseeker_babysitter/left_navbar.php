@@ -162,20 +162,20 @@ $(function () {
                 var number_of_children = $('.number_of_children').val();
                 var morenum = $('.morenum:checked').map(function(_, el) {
     		        return $(el).val();
-    		    }).get();
+    		    }).get() || '';
                 var looking_to_work = $('.looking_to_work:checked').map(function(_, el) {
     		        return $(el).val();
-    		    }).get();
+    		    }).get() || '';
                 var age_group = $('.age_group:checked').map(function(_, el) {
     		        return $(el).val();
-    		    }).get();
+    		    }).get() || '';
                 var availability = $('.availability:checked').map(function(_, el) {
     		        return $(el).val();
-    		    }).get();
+    		    }).get() || '';
                 var rate = $('.rate').val();
                 var rate_type = $('.rate_type:checked').map(function(_, el) {
     		        return $(el).val();
-    		    }).get();
+    		    }).get() || '';
                 //var rate_type = $('.rate_type').val();
                 var start_date = $("#textbox1").val()?$("#textbox1").val():'';               
     			$.ajax({
