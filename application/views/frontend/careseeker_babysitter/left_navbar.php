@@ -227,6 +227,10 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+    				},
+    				error: function(message){
+    				    console.log('got here')
+    				    console.log(message)
     				}
     			});         
         });
