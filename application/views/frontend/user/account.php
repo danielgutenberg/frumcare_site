@@ -43,7 +43,10 @@
             </div>
             <div class="ad-form-container">
                 <form role="form" id="edituserdetails" action="<?php echo site_url();?>user/account/<?php echo sha1(check_user());?>" method="post">
-                    
+                    <div class="first-names">
+                        <label>Name of Organization</label>
+                        <input type="text" name="organization_name" placeholder="Neighborhood" class="required" value="<?php echo (isset($organization_name)) ? $organization_name : '' ?>"/>
+                    </div>
                     <?php 
                     if( $user_data['care_type'] == 10 ) { ?>
                         <div>
@@ -78,7 +81,7 @@
                     
 
                     <div class="first-names">
-                        <label>Neighborhood/ Street</label>
+                        <label>Neighborhood / Street</label>
                         <input type="text" name="neighborhood" placeholder="Neighborhood" class="required" value="<?php echo (isset($neighbourhood)) ? $neighbourhood : '' ?>"/>
                     </div>
 
@@ -96,7 +99,7 @@
 
                     <?php if($this->session->userdata('account_category') == 3){ ?>
                         <div class="first-names">
-                            <label>Name of owner/ operator</label>
+                            <label>Name of owner / operator</label>
                             <input type="text" name="name_of_owner" class="required" value="<?php echo $owner_name; ?>"/>
                         </div>
                         <div class="small-seperator"></div>
