@@ -34,7 +34,10 @@
                 	<tbody>
                 		<?php foreach($user_data as $ud) { 
                             $care_type = get_care_type($ud['care_type']);
+                            print_r($ud);
+                            exit();
                         ?>
+                        
                         <tr>
                             <?php $nme = $ud['organization_name'] ? $ud['organization_name'] : $ud['user_id']  ;?>
                             <td><?php echo $nme;?></td>
