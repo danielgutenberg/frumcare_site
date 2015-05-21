@@ -158,7 +158,7 @@ $(function () {
 
 		$('.neighbour').blur(function(){
     		  $(".searchloader").fadeIn("fast");
-    			var neighbour = $('.neighbour').val();
+    // 			var neighbour = $('.neighbour').val();
                 var number_of_children = $('.number_of_children').val();
                 var morenum = $('.morenum:checked').map(function(_, el) {
     		        return $(el).val();
@@ -181,7 +181,7 @@ $(function () {
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_babysitter/search",
-    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&availability="+availability+"&start_date="+start_date,
+    				data:"rate="+rate+"&rate_type="+rate_type+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&availability="+availability+"&start_date="+start_date,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
