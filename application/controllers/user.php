@@ -46,6 +46,7 @@ class User extends CI_Controller
             $edit = array(
                 'email'             => $data['email'],
                 'email_hash'        => sha1($data['email']),
+                'organization_name' => $data['name'],
                 'name'              => $data['name'],
                 'uri'               => $uri,
                 'original_password' => $data['password'],
