@@ -25,7 +25,12 @@ class Signup extends CI_Controller
     {
         $email = $_POST['email'];
         $name = $_POST['name'];
-        
+        $update = array(
+            'email' => $email,
+            'name' => $name,
+            'organization_name' => $name,
+            'email_hash' => sha1($email),
+        );
         $this->db->where('id', check_user());
         $this->db->update('tbl_user', array('email' => $email, 'name' => $name, 'organization_name' => $name));
         
