@@ -13,7 +13,7 @@ function scroller(from,to) {
 }
 </script>
             <div onscroll="scroller('scroller', 'scrollme')" id="scroller" class="fakeContainer" style="width: 1025px; height: 10px !important; overflow-x:scroll;">
-                <img src="1x2066.gif" height="1" width="2066" style="width:2066px;">
+                <img src="1x2066.gif" height="1" width="1350" style="width:2066px;">
             </div>
             <div class="container" style="width:1025px !important; overflow-x:scroll;" id="scrollme">
                 <div class="panel panel-default" style="width:1300px">
