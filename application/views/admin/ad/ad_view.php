@@ -12,10 +12,10 @@ function scroller(from,to) {
 	arescrolling = 0;
 }
 </script>
-            <div onscroll="scroller('scroller', 'scrollme')" id="scroller" class="fakeContainer" style="width: 1025px; height: 10px !important; overflow:scroll;">
+            <div onscroll="scroller('scroller', 'scrollme')" id="scroller" class="fakeContainer" style="width: 1025px; height: 10px !important; overflow-x:scroll;">
                 <img src="1x2066.gif" height="1" width="2066" style="width:2066px;">
             </div>
-            <div class="container" style="width:1025px !important; overflow:scroll;" id="scrollme">
+            <div class="container" style="width:1025px !important; overflow-x:scroll;" id="scrollme">
                 <div class="panel panel-default" style="width:1300px">
                 <span class="someinfo"><?php if($this->session->flashdata('info')){echo '<span class="alert-info">'.$this->session->flashdata('info').'</span>';}?></span>
                 <div class="panel-heading">
