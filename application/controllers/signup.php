@@ -152,7 +152,7 @@ class Signup extends CI_Controller
 
     function success()
     {
-        $current_user = $this->session->userdata['current_user'];
+        $current_user = $this->session->userdata['email'];
         if($this->session->flashdata('params')){
             $redirectData = $this->session->flashdata('params');
         }else{
