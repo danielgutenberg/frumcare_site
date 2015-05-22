@@ -26,6 +26,9 @@ class Signup extends CI_Controller
         $email = $_POST['email'];
         $name = $_POST['name'];
         
+        $this->db->where('id', check_user());
+        $this->db->update('tbl_user', array('email' => $email));
+        
         $this->send_confirmation($email,$name);
         redirect('signup-successful');
     }
