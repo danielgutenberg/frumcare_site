@@ -42,11 +42,12 @@ if(segment(3) != '') {
         <br>
         <a href="<?php echo base_url('login/get-password/'.sha1($email).'?redirect_uri='.urlencode(current_url())) ?>">Click here</a> to change your password.
         
+    
+    </form>
     <form action="<?php echo site_url();?>signup/resend-verification" method = "post">
         <input id="hiddenName" type="hidden" name="name"/>
         <input id="hiddenEmail" type="hidden" name="email"/>
         <input type="submit" value="Click Here">Click here</input> to resend verification email.
-    </form>
     </form>
 </div>
      
