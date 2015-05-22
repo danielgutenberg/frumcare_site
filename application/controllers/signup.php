@@ -21,7 +21,14 @@ class Signup extends CI_Controller
         $this->load->view(FRONTEND_TEMPLATE, $data);
     }
 
-
+    function resend_verification()
+    {
+        $email = $_POST['email'];
+        $name = $_POST['name'];
+        
+        $this->send_confirmation($email,$name);
+        redirect('signup-successful');
+    }
 
     function save_user($id = ''){
        if($_POST) {
