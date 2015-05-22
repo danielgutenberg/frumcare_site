@@ -47,7 +47,7 @@ if(segment(3) != '') {
     <form action="<?php echo site_url();?>signup/resend-verification" method = "post">
         <input id="hiddenName" type="hidden" name="name"/>
         <input id="hiddenEmail" type="hidden" name="email"/>
-        <input type="submit" value="Click Here">Click here</input> to resend verification email.
+        <input type="submit" value="Click Here"></input> to resend verification email.
     </form>
 </div>
      
