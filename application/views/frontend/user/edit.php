@@ -24,12 +24,12 @@ if(segment(3) != '') {
 
         <span class="first-names">
             <label>Name</label>
-            <input type="text" name="name" placeholder="Name" class="required" value="<?php $nme = $organzation_name ? $organization_name : $name;  echo (isset($nme)) ? $nme : '' ?>"/>
+            <input onchange="copyName()" id="visibleName" type="text" name="name" placeholder="Name" class="required" value="<?php $nme = $organzation_name ? $organization_name : $name;  echo (isset($nme)) ? $nme : '' ?>"/>
         </span>
         
         <span class="email-names">
             <label>Email</label>
-            <input onblur="check_email(this.id)" id="email" type="text" name="email" placeholder="Email" class="required email" value="<?php echo (isset($email)) ? $email : '' ?>"/>
+            <input onchange="copyEmail()" onblur="check_email(this.id)" id="email" type="text" name="email" placeholder="Email" class="required email" value="<?php echo (isset($email)) ? $email : '' ?>"/>
         </span> 
         <span id="email_msg"></span>
 
@@ -41,8 +41,12 @@ if(segment(3) != '') {
         <span class="sign-up-btn"><input id="submit-btn" type="submit" class="btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/></span>
         <br>
         <a href="<?php echo base_url('login/get-password/'.sha1($email).'?redirect_uri='.urlencode(current_url())) ?>">Click here</a> to change your password.
+        
+    <form action="<?php echo site_url();?>signup/resend-verification" method = "post">
+        <input id="hiddenName" type="hidden" name="name"/>
+        <input id="hiddenEmail" type="hidden" name="email"/>
         <a type="submit" href="<?php echo base_url('signup/resend-verification/') ?>">Click here</a> to resend verification email.
-    
+    </form>
     </form>
 </div>
      
@@ -53,6 +57,13 @@ if(segment(3) != '') {
 <script type="text/javascript" src="<?php echo site_url();?>js/jquery.ui.maskinput.js"></script>
 
 <script type="text/javascript">
+    function copyName() {
+        $('#hiddenName').val($('#visibleName').val())
+    }
+     function copyEmail() {
+         $('#hiddenEmail').val($('#email').val())
+     }
+    
     $(function(){
         $('#edituserdetails').validate();
         $('.verifyemail').on('click',function(e){
