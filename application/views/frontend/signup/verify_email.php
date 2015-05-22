@@ -1,3 +1,4 @@
+<?php print_r($user['email']); ?>
 <div class="container">
     <div class="sign_up_successful">
     <h2>Welcome to the Frumcare Family!</h2> 
