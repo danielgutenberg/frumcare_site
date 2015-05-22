@@ -1,7 +1,21 @@
 <div class="row">
     <div class="col-md-9 content-box">
         <div class="row main-content">
-            <div class="container" style="width:1025px !important">
+            <script>
+var arescrolling = 0;
+function scroller(from,to) {
+	if (arescrolling) return; // avoid potential recursion/inefficiency
+	arescrolling = 1;
+	// set the other div's scroll position equal to ours
+	document.getElementById(to).scrollLeft =
+		document.getElementById(from).scrollLeft;
+	arescrolling = 0;
+}
+</script>
+            <div onscroll="scroller('scroller', 'scrollme')" id="scroller" class="fakeContainer" style="width: 1025px; height: 10px !important; overflow:scroll;">
+                <img src="1x2066.gif" height="1" width="2066" style="width:2066px;">
+            </div>
+            <div class="container" style="width:1025px !important; overflow:scroll;" id="scrollme">
                 <div class="panel panel-default">
                 <span class="someinfo"><?php if($this->session->flashdata('info')){echo '<span class="alert-info">'.$this->session->flashdata('info').'</span>';}?></span>
                 <div class="panel-heading">
