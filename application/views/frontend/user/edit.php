@@ -39,9 +39,13 @@ if(segment(3) != '') {
         </span>  -->
 
         <span class="sign-up-btn"><input id="submit-btn" type="submit" class="btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/></span>
+        <br>
+        <a href="<?php echo base_url('login/get-password/'.sha1($email).'?redirect_uri='.urlencode(current_url())) ?>">Click here</a> to change your password.
+        <a type="submit" href="<?php echo base_url('sign-up/resend-verification/') ?>">Click here</a> to resend verification email.
+    
     </form>
 </div>
-     <a href="<?php echo base_url('login/get-password/'.sha1($email).'?redirect_uri='.urlencode(current_url())) ?>">Click here</a> to change your password.
+     
 
 </div>
 </div>
