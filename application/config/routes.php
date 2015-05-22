@@ -48,7 +48,7 @@ $route['safety-guide/caregivers'] = 'cms/stayingsafecaregivers';
 $route['rate-calculator'] = 'cms/ratecalculator';
 $route['faq'] = 'cms/faq';
 $route['background-check'] = 'cms/backgroundcheck';
-
+$route['signup-resend_verification'] = 'signup/resend_verification';
 $route['signup-successful'] = 'signup/success';
 $route['admin'] = "admin/dashboard";
 $route['admin/logout'] = "admin/admin/logout";
