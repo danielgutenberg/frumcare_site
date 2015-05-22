@@ -152,8 +152,9 @@ class Signup extends CI_Controller
 
     function success()
     {
-        // $user = $this->common_model->get_where('tbl_user', array('id' => check))
-        $current_user = $this->session->all_userdata();
+        $current_user = $this->common_model->get_where('tbl_user', array('id' => check_user()));
+        
+        // $current_user = $this->session->all_userdata();
         if($this->session->flashdata('params')){
             $redirectData = $this->session->flashdata('params');
         }else{
