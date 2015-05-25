@@ -439,11 +439,23 @@ class Ad extends CI_Controller
     public function approveAds(){
         $user_id=check_user();
         $user=get_user($user_id);
-        print_rr($user); exit;
+
+
+        /***************** get super user email ***********************/
+        $this->load->model('user_model');
+        $superUser=$this->user_model->getSuperUser();
+
         $param=array(
             'from'=>$user['email'],
-            'from_name'=>$user['name']
+            'from_name'=>$user['name'],
+            'to'=>$superUser->email1,
+            'subject'=>'Advertisement Approval',
+            'message'=>'testing'
         );
+
+
+
+        sendemail($param);
     }
 
   
