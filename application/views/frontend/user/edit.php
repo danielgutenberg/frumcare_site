@@ -61,6 +61,7 @@ if(segment(3) != '') {
     $('#submitForm').click(function(){
         $('#verification').submit()
     })
+    $("submitForm").css({"cursor":"pointer"});
     function copyName() {
         $('#hiddenName').val($('#visibleName').val())
     }
