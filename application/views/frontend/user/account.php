@@ -44,11 +44,13 @@
             <div class="ad-form-container">
                 <form role="form" id="edituserdetails" action="<?php echo site_url();?>user/account/<?php echo sha1(check_user());?>" method="post">
                     <?php print_r($user_data);?>
-                    <div class="first-names">
-                        <label>Name of Organization</label>
-                        <input type="text" name="organization_name" placeholder="Name of Organization" class="required" value="<?php echo (isset($user_data['organization_name'])) ? $user_data['organization_name'] : '' ?>"/>
-                    </div>
-                    <?php 
+                    <?php if($this->session->userdata('account_category') == 3){ ?>
+                        <div class="first-names">
+                            <label>Name of Organization</label>
+                            <input type="text" name="organization_name" placeholder="Name of Organization" class="required" value="<?php echo (isset($user_data['organization_name'])) ? $user_data['organization_name'] : '' ?>"/>
+                        </div>
+                        
+                    <?php } 
                     if( $user_data['care_type'] == 10 ) { ?>
                         <div>
                             <label>Type of Organization</label>
