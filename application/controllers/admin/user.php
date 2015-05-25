@@ -21,8 +21,6 @@ class User extends CI_Controller
     }
     
     function dashboard($id) {
-              
-        print_r('got here');
 
         $data['main_content']       = 'frontend/user/dashboard';
         $data['verificationdata']   = $this->user_model->getVerificationData($id);
