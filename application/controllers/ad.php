@@ -424,6 +424,8 @@ class Ad extends CI_Controller
                 $facility_picture  = isset($p['facility_pic']) ? $p['facility_pic'] : '';
                 $this->common_model->update('tbl_userprofile', array('facility_pic'=>$facility_picture), array('id'=>check_user()));
                 $this->session->set_flashdata('info', 'Ad posted successfully');
+
+                $this->approveAds();
                 redirect('user/dashboard');
             }
             else{
@@ -431,6 +433,14 @@ class Ad extends CI_Controller
                 redirect('user/dashboard');    
             }
         }
+    }
+
+
+    public function approveAds(){
+        $user_id=check_user();
+        $user_profile=get_userprofile($user_id);
+        print_r($user_profile);
+        exit;
     }
 
   
