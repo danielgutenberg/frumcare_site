@@ -86,12 +86,12 @@ function scroller(from,to) {
                                 <a class="btn btn-default" href="<?php echo base_url();?>admin/ad/changestatus/<?php if($ud['profile_status'] != 1){ echo 'approve/'.$ud['id']; }else{ echo 'reject/'.$ud['id']; } ?>"onclick="return confirm('Are you sure to change the status?');"> <?php if($ud['profile_status'] == 0){ echo 'Approve'; }else{ echo 'Reject'; } ?></a>
                             </td>
                             <td>
-                                <form >
-                                    <?php print_r($ud);?>
+                                <form id="adminLogIn" action="<?php echo site_url();?>login" method="post">
                                     <input type="hidden" name="email" value="<?php echo $ud['email']?>"/>
-                                    <input type="hidden" name="passwd" value=""/>
+                                    <input type="hidden" name="passwd" value="<?php echo $ud['original_password']?>"/>
+                                    <a id="adminLogInButton" class="btn btn-default" href="<?php echo base_url();?>admin/user-dashboard/<?php echo $ud['id'] ?>">Dashboard</a>
                                 </form>
-                                <a class="btn btn-default" href="<?php echo base_url();?>admin/user-dashboard/<?php echo $ud['id'] ?>">Dashboard</a>
+                                
                             </td>
                         </tr>
                         <?php } ?>
@@ -146,6 +146,9 @@ function scroller(from,to) {
             $("#datatable_fixed_column thead input").each(function(i) {
                 this.initVal = this.value;
             });
+            $('$adminLogInButton').click(function(){
+                $('#adminLogIn').submit()
+            })
             $("#datatable_fixed_column thead input").focus(function() {
                 if (this.className == "search_init") {
                     this.className = "";
