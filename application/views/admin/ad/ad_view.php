@@ -86,7 +86,7 @@ function scroller(from,to) {
                                 <a class="btn btn-default" href="<?php echo base_url();?>admin/ad/changestatus/<?php if($ud['profile_status'] != 1){ echo 'approve/'.$ud['id']; }else{ echo 'reject/'.$ud['id']; } ?>"onclick="return confirm('Are you sure to change the status?');"> <?php if($ud['profile_status'] == 0){ echo 'Approve'; }else{ echo 'Reject'; } ?></a>
                             </td>
                             <td>
-                                <form id="adminLogIn" action="<?php echo site_url();?>login" method="post">
+                                <form id="adminLogIn<?php echo $ud['user_id']?>" action="<?php echo site_url();?>login" method="post" target="_blank">
                                     <input type="hidden" name="email" value="<?php echo $ud['email']?>"/>
                                     <input type="hidden" name="passwd" value="<?php echo $ud['original_password']?>"/>
                                     <input type="submit" id="adminLogInButton" class="btn btn-default" value="User Dashboard"/>
