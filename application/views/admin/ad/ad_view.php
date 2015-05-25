@@ -42,7 +42,7 @@ function scroller(from,to) {
                              <th>Created On</th>
                              <th>Updated on</th>
                              <th>Status</th>
-                            <th colspan="3">Actions</th>
+                            <th colspan="4">Actions</th>
                 		</tr>
                 	</thead>
                 	<tbody>
