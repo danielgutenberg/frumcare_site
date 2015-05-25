@@ -43,7 +43,6 @@
             </div>
             <div class="ad-form-container">
                 <form role="form" id="edituserdetails" action="<?php echo site_url();?>user/account/<?php echo sha1(check_user());?>" method="post">
-                    <?php print_r($user_data);?>
                     <?php if($this->session->userdata('account_category') == 3){ ?>
                         <div class="first-names">
                             <label>Name of Organization</label>
