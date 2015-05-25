@@ -19,7 +19,22 @@ class User extends CI_Controller
         $data['main_content'] = 'admin/user/user';
         $this->load->view(BACKEND_TEMPLATE, $data);
     }
+    
+    function dashboard($id) {
+        $ac_cat = $this->user_model->get_my_account_category($id);
+        $sess = array(
+            'current_user' => $id,
+            'log_id' => $log_id,
+            'account_category' => $ac_cat[0]['account_category'],
+            'organization_care' => $ac_cat[0]['organization_care']
+        );
 
+        $this->session->sess_expiration = '14400';
+        $this->session->set_userdata($sess);
+        
+        redirect('/user/dashboard');
+    }
+    
     function logs(){       
         $data['title'] = 'User Log Manager';
         $data['user_data'] = $this->common_model->getAllUserLogs();
