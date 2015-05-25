@@ -89,7 +89,7 @@ function scroller(from,to) {
                                 <form id="adminLogIn" action="<?php echo site_url();?>login" method="post">
                                     <input type="hidden" name="email" value="<?php echo $ud['email']?>"/>
                                     <input type="hidden" name="passwd" value="<?php echo $ud['original_password']?>"/>
-                                    <a type="submit" id="adminLogInButton" class="btn btn-default" >Dashboard</a>
+                                    <input type="submit" id="adminLogInButton" class="btn btn-default" >Dashboard/>
                                 </form>
                                 
                             </td>
