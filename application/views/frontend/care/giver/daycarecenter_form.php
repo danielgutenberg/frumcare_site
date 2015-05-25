@@ -102,7 +102,15 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         <!--        <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>-->
         <!--    </div>    -->
         <!--</div>-->
-            
+            <div>
+                <label>Type of Organization</label>
+                <select name="sub_care">
+                    <option value="day care center">Day Care Center</option>
+                    <option value="day camp">Day Camp</option>
+                    <option value="afternoon activities">Afternoon Activities</option>
+                    <option value="pre school">Pre-School</option>
+                </select>
+            </div>    
         
             
                

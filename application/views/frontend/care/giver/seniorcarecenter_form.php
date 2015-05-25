@@ -93,7 +93,17 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     
     <?php   $this->load->view('frontend/care/photo_upload_owner');  ?> 
     <h1>Organization Details</h1><?php }?>
-            
+            <div>
+                <label>Type of Organization</label>
+                <select name="sub_care">
+                    
+                    <option value="assisted living residence">Assisted living residence</option>
+                    <option value="senior care center">Senior care center</option>
+                    <option value="nursing home">Nursing home</option>
+                    <option value="rehab therapy center">Rehab / Therapy Center</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
             
             
             <div>
