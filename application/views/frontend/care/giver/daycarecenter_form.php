@@ -109,6 +109,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                     <option value="day camp">Day Camp</option>
                     <option value="afternoon activities">Afternoon Activities</option>
                     <option value="pre school">Pre-School</option>
+                    <option value="other">Other</option>
                 </select>
             </div>    
         
