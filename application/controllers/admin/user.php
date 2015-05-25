@@ -22,13 +22,13 @@ class User extends CI_Controller
     }
     
     function dashboard($id) {
-        $ac_cat = $this->user_model->get_my_account_category($id);
+        // $ac_cat = $this->user_model->get_my_account_category($id);
         print_r($ac_cat);
         $sess = array(
-            'current_user' => $id,
-            'log_id' => $log_id,
-            'account_category' => $ac_cat[0]['account_category'],
-            'organization_care' => $ac_cat[0]['organization_care']
+            'current_user' => $id
+            // 'log_id' => $log_id
+            // 'account_category' => $ac_cat[0]['account_category'],
+            // 'organization_care' => $ac_cat[0]['organization_care']
         );
 
         $this->session->sess_expiration = '14400';
