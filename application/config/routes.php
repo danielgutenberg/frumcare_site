@@ -53,7 +53,7 @@ $route['signup-successful'] = 'signup/success';
 $route['admin'] = "admin/dashboard";
 $route['admin/logout'] = "admin/admin/logout";
 $route['admin/user/(:num)'] = "admin/user/index";
-$route['admin/user-dashboard/(:id)'] = 'admin/user/dashboard/$1';
+$route['admin/user-dashboard/(:any)'] = 'admin/user/dashboard/$1';
 
 $route['forgot-password'] = 'login/forgot_password';
 $route['changepassword'] = 'login/changepassword';
