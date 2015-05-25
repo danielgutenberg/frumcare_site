@@ -21,6 +21,7 @@ class User extends CI_Controller
     }
     
     function dashboard($id) {
+        print_r($id);
         $ac_cat = $this->user_model->get_my_account_category($id);
         $sess = array(
             'current_user' => $id,
