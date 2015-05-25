@@ -34,7 +34,7 @@ class User extends CI_Controller
         $this->session->sess_expiration = '14400';
         $this->session->set_userdata($sess);
         echo 'got here';
-        redirect('/user/dashboard');
+        redirect('user/dashboard', 'refresh');
     }
     
     function logs(){       
