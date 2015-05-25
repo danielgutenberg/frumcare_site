@@ -10,6 +10,7 @@ class User extends CI_Controller
         }
         $this->load->model('common_model');
         $this->load->model('admin/user_model');
+        $this->load->model('user_model');
     }
 
     function index(){
