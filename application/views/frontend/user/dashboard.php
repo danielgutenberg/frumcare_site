@@ -1,6 +1,6 @@
 <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
 <div class="container">
-<?php echo $this->breadcrumbs->show();?>
+<?php //echo $this->breadcrumbs->show();?>
 	<?php 
 	     $user = (get_user(check_user()));
 	?>
