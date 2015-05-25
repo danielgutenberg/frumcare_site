@@ -438,9 +438,12 @@ class Ad extends CI_Controller
 
     public function approveAds(){
         $user_id=check_user();
-        $user_profile=get_userprofile($user_id);
-        print_r($user_profile);
-        exit;
+        $user=get_user($user_id);
+        print_rr($user); exit;
+        $param=array(
+            'from'=>$user['email'],
+            'from_name'=>$user['name']
+        );
     }
 
   
