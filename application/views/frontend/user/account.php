@@ -173,8 +173,8 @@
                     <div class="first-names">
                         <label>Level of observance </label>
                         <select id="religious_observance" name="religious_observance">
-                            <option value="Yeshivish/ Chasidish" <?php if($religious_observance == 'Yeshivish / Chasidish'){?> selected="selected" <?php }?>>Yeshivish / Chasidish</option>
-                            <option value="Orthodox/ Modern Orthodox" <?php if($religious_observance == 'Orthodox / Modern Orthodox'){?> selected="selected" <?php }?>>Orthodox / Modern Orthodox</option>
+                            <option value="Yeshivish/ Chasidish" <?php if($religious_observance == 'Yeshivish/ Chasidish'){?> selected="selected" <?php }?>>Yeshivish/ Chasidish</option>
+                            <option value="Orthodox/ Modern Orthodox" <?php if($religious_observance == 'Orthodox/ Modern Orthodox'){?> selected="selected" <?php }?>>Orthodox/ Modern Orthodox</option>
                             <option value="Other" <?php if($religious_observance == 'Other'){?> selected="selected" <?php }?>>Other</option>
                             <option value="Not Jewish" <?php if($religious_observance == 'Not Jewish'){?> selected="selected" <?php }?>>Not Jewish</option>
                         </select>
@@ -200,7 +200,7 @@
                             <select name="education">
                                 <option value="Elementary" <?php if($education_level == 'Elementary'){?> selected="selected" <?php }?> >Elementary</option>
                                 <option value="High school" <?php if($education_level == 'High School'){?> selected="selected" <?php }?>>High school</option>
-                                <option  value="Yeshiva/ Seminary" <?php if($education_level == 'Yeshiva / Seminary'){?> selected="selected" <?php }?>>Yeshiva / Seminary</option>
+                                <option  value="Yeshiva/ Seminary" <?php if($education_level == 'Yeshiva/ Seminary'){?> selected="selected" <?php }?>>Yeshiva/ Seminary</option>
                                 <option value="Degree" <?php if($education_level == 'Degree'){?> selected="selected" <?php }?>>Degree</option>
                             </select>
                     </div>
@@ -219,7 +219,7 @@
                     ?>
                     <?php if($this->session->userdata('account_category')==3){ ?>  
                     <div class="upload-photo">
-                        <h2>Upload owner's photo</h2>
+                        <h2>Upload a owner's photo</h2>
                         <input type="hidden" id="file-name1" name="profile_picture_owner" value="<?php echo isset($profile_picture_owner)?>">
                         <div id="output1"><img src="<?php echo $photo_url?>"></div>
                         <label>Browse your computer to select a file to upload</label>
