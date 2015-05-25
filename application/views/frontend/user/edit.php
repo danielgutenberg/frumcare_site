@@ -47,7 +47,7 @@ if(segment(3) != '') {
     <form id="verification" action="<?php echo site_url();?>signup/resend-verification" method = "post">
         <input id="hiddenName" type="hidden" name="name" value="<?php $nme = $organzation_name ? $organization_name : $name;  echo (isset($nme)) ? $nme : '' ?>"/>
         <input id="hiddenEmail" type="hidden" name="email" value="<?php echo (isset($email)) ? $email : '' ?>"/>
-        <a id="submitForm" type="submit" value="Click Here">Click here</a> to resend verification email.
+        <a id="submitForm" type="submit" value="Click Here" style="cursor:pointer;">Click here</a> to resend verification email.
     </form>
 </div>
      
@@ -61,7 +61,6 @@ if(segment(3) != '') {
     $('#submitForm').click(function(){
         $('#verification').submit()
     })
-    $("submitForm").css({"cursor":"pointer"});
     function copyName() {
         $('#hiddenName').val($('#visibleName').val())
     }
