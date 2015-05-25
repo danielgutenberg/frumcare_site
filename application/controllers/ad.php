@@ -448,7 +448,7 @@ class Ad extends CI_Controller
         $param=array(
             'from'=>$user['email'],
             'from_name'=>$user['name'],
-            'to'=>$superUser->email1,
+            'sendto'=>$superUser->email1,
             'subject'=>'Advertisement Approval',
             'message'=>'testing'
         );
@@ -456,6 +456,7 @@ class Ad extends CI_Controller
 
 
         sendemail($param);
+
     }
 
   
