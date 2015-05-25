@@ -1222,4 +1222,9 @@ class User_model extends CI_Model
         else
             return false;
     }
+
+    public function getSuperUser(){
+        $user=$this->db->where('id',1)->get('tbl_admin')->row();
+        return $user;
+    }
 }
