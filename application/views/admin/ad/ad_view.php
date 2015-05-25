@@ -16,7 +16,7 @@ function scroller(from,to) {
                 <img src="1x2066.gif" height="1" width="1350" style="width:1350px;">
             </div>
             <div class="container" style="width:1025px !important; overflow-x:scroll;" id="scrollme">
-                <div class="panel panel-default" style="width:1300px">
+                <div class="panel panel-default" style="width:1350px">
                 <span class="someinfo"><?php if($this->session->flashdata('info')){echo '<span class="alert-info">'.$this->session->flashdata('info').'</span>';}?></span>
                 <div class="panel-heading">
                   <h4>
