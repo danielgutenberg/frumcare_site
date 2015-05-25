@@ -44,10 +44,10 @@ if(segment(3) != '') {
         
     
     </form>
-    <form action="<?php echo site_url();?>signup/resend-verification" method = "post">
+    <form id="verification" action="<?php echo site_url();?>signup/resend-verification" method = "post">
         <input id="hiddenName" type="hidden" name="name" value="<?php $nme = $organzation_name ? $organization_name : $name;  echo (isset($nme)) ? $nme : '' ?>"/>
         <input id="hiddenEmail" type="hidden" name="email" value="<?php echo (isset($email)) ? $email : '' ?>"/>
-        <input type="submit" value="Click Here"></input> to resend verification email.
+        <a id="submitForm" type="submit" value="Click Here">Click here</a> to resend verification email.
     </form>
 </div>
      
@@ -58,6 +58,9 @@ if(segment(3) != '') {
 <script type="text/javascript" src="<?php echo site_url();?>js/jquery.ui.maskinput.js"></script>
 
 <script type="text/javascript">
+    $('#submitForm').click(function(){
+        $('#verification').submit()
+    })
     function copyName() {
         $('#hiddenName').val($('#visibleName').val())
     }
