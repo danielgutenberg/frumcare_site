@@ -21,6 +21,8 @@ class User extends CI_Controller
     }
     
     function dashboard($id) {
+              
+        print_r('got here');
         $this->breadcrumbs->push('Dashboard', site_url().'#');
         $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
 
