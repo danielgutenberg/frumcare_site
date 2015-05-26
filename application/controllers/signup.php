@@ -96,6 +96,7 @@ class Signup extends CI_Controller
                       'organization_care'     => isset($data['organization_care'])?$data['organization_care'] :0,
                       'profile_status'        => 0
                     );
+
                     
                     $cg_or_ck = array(
                             'user_id' =>$q,
