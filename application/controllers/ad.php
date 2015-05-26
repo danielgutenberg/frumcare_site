@@ -523,6 +523,7 @@ class Ad extends CI_Controller
 
         );
 
+
         //print_rr($data); exit;
 
         $param=array(
