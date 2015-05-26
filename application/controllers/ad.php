@@ -424,7 +424,10 @@ class Ad extends CI_Controller
                 $facility_picture  = isset($p['facility_pic']) ? $p['facility_pic'] : '';
                 $this->common_model->update('tbl_userprofile', array('facility_pic'=>$facility_picture), array('id'=>check_user()));
                 $this->session->set_flashdata('info', 'Ad posted successfully');
+                //user notification
+                $this->notifyUser();
 
+                //email sent to admin for approval
                 $this->approveAds();
                 redirect('user/dashboard');
             }
@@ -433,6 +436,29 @@ class Ad extends CI_Controller
                 redirect('user/dashboard');    
             }
         }
+    }
+
+    public function notifyUser(){
+        $user_id=check_user();
+        $user=get_user($user_id);
+
+        /***************** get super user email ***********************/
+        $this->load->model('user_model');
+        $superUser=$this->user_model->getSuperUser();
+
+
+        $sendto=$user['email'];
+        $param=array('subject'=>'Notice from Frumcare','from'=>$superUser->email1,'from_name'=>'Admin Frumcare','sendto'=>$sendto,'message'=>'Your Advertisement has been successfully placed!');
+        sendemail($param);
+    }
+
+    public function approveAd($id){
+
+        $this->db->where('id',$id);
+        $this->db->update('tbl_userprofile',array('profile_status'=>1));
+
+        redirect('ad/success','refresh');
+
     }
 
 
@@ -445,12 +471,66 @@ class Ad extends CI_Controller
         $this->load->model('user_model');
         $superUser=$this->user_model->getSuperUser();
 
+        /********************* get user profile of the current user ******************/
+
+        $user_profile=get_userprofile($user_id);
+        $marital='';
+        if($user['marital_status']==1){
+            $marital='Single';
+        }elseif($user['marital_status']==2){
+            $marital=='Married';
+        }elseif($user['marital_status']==3){
+            $marital=='Divorced';
+        }elseif($user['marital_status']==4){
+            $marital=='Widowed';
+        }
+
+        $smoker='';
+        if($user['smoker']==1){
+            $smoker='No';
+        }elseif($user['smoker']==2){
+            $smoker='Yes';
+        }elseif($user['smoker']==3){
+            $smoker='Yes, but not at work';
+        }
+
+
+        $data=array(
+            'location'=>$user['location'],
+            'neighborhood'=>$user['neighbour'],
+            'phone'=>$user['contact_number'],
+            'age'=>$user['age'],
+            'gender'=>$user['gender']==1?'male':'female',
+            'marital_status'=>$marital,
+            'language_spoken'=>$user['caregiver_language'],
+            'smoker'=>$smoker,
+            'level_of_rel'=>$user['religious_observance'],
+            'level_of_edu'=>$user['education_level'],
+            'educational'=>$user['educational_institution'],
+            'photo'=>$user['profile_picture_owner'],
+            'looking_to_work'=>$user_profile['looking_to_work'],
+            'number_of_children'=>$user_profile['number_of_children'],
+            'age_of_children'=>$user_profile[''],
+            'years_of_exp'=>$user_profile['experience'],
+            'training'=>$user_profile['training'],
+            'rate'=>$user_profile['rate'],
+            'availability'=>$user_profile['availability'],
+            'tell_us_about_yourself'=>$user_profile['profile_description'],
+            'references'=>$user_profile['references']==1?'Yes':'No',
+            'ability_skills'=>$user_profile['driver_license']==1?'Driver License,':''.$user_profile['vehicle']==1?'I have a Vehicle,':''.$user_profile['pick_up_child']==1?'Able to pick up kids from school,':''.$user_profile['cook']?'Able to cook and prepare food,':''.$user_profile['basic_housework']==1?'Able to do light housework / cleaning,':''.$user_profile['homework_help']==1?'Able to help with homework,':''.$user_profile['sick_child_care']==1?'Able to care for sick child,':''.$user_profile['on_short_notice']==1?'Available on short notice,':'',
+            //'ability_skills'=>$user_profile['driver_licence']==1?'Driver Licence':''
+            'id'=>$user_profile['id']
+
+        );
+
+        //print_rr($data); exit;
+
         $param=array(
             'from'=>$user['email'],
             'from_name'=>$user['name'],
             'sendto'=>$superUser->email1,
             'subject'=>'Advertisement Approval',
-            'message'=>'testing'
+            'message'=>$this->load->view('emails/verify/individual',$data,true)
         );
 
 
