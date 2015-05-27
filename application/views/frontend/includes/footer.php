@@ -79,7 +79,8 @@
                         <a href="https://plus.google.com/u/0/b/113342746822002772215/113342746822002772215/about" target="_blank" class="gplus flip-link-container"><span class="flip-link"><span class="front"><i
                                         class="icon-googleplus-white"></i></span><span class="back"><i
                                         class="icon-googleplus-color"></i></span></span></a>
-                        <img src="<?php echo site_url();?>img/instagram.png" alt="Smiley face" height="42" width="42">
+                        <a href="https://www.instagram.com"><img src="<?php echo site_url();?>img/instagram.png" alt="Smiley face" height="42" width="42">
+                        </a>
                     </div>
                 </div>
             </div>
