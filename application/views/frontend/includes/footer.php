@@ -76,10 +76,26 @@
                         <a href="#" class="linkedin flip-link-container"><span class="flip-link"><span class="front"><i
                                         class="icon-linkedin-white"></i></span><span class="back"><i
                                         class="icon-linkedin-color"></i></span></span></a>
-                        <a href="https://plus.google.com/u/0/b/113342746822002772215/113342746822002772215/about" target="_blank" class="gplus flip-link-container"><span class="flip-link"><span class="front"><i
-                                        class="icon-googleplus-white"></i></span><span class="back"><i
-                                        class="icon-googleplus-color"></i></span></span></a>
-                        <a href="https://www.instagram.com" target="_blank"><img src="<?php echo site_url();?>img/instagram.png" alt="Smiley face" height="42" width="42">
+                        <a href="https://plus.google.com/u/0/b/113342746822002772215/113342746822002772215/about" target="_blank" class="gplus flip-link-container">
+                            <span class="flip-link">
+                                <span class="front">
+                                    <i class="icon-googleplus-white"></i>
+                                </span>
+                                <span class="back">
+                                    <i class="icon-googleplus-color"></i>
+                                </span>
+                            </span>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" class="flip-link-container">
+                            <span class="flip-link">
+                                <span class="front">
+                                    <img src="<?php echo site_url();?>img/instagramblue.png" alt="Smiley face" height="32" width="32">
+                                </span>
+                                <span class="back">
+                                    <img src="<?php echo site_url();?>img/instagram.png" alt="Smiley face" height="32" width="32">
+                                </span>
+                            </span>
+                            
                         </a>
                     </div>
                 </div>
