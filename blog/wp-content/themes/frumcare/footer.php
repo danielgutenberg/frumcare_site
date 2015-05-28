@@ -103,6 +103,16 @@
                                     <a href="<?php echo do_shortcode("[theme_option do='twitter-link']");?>" target="_blank" title="Twitter" class="twitter flip-link-container" ><span class="flip-link"><span class="front"><i class="icon-twitter-white"></i></span><span class="back"><i class="icon-twitter-color"></i></span></span></a>
                                     <a href="<?php echo do_shortcode("[theme_option do='linkedin-link']");?>" target="_blank" title="LinkedIn" class="linkedin flip-link-container"><span class="flip-link"><span class="front"><i class="icon-linkedin-white"></i></span><span class="back"><i class="icon-linkedin-color"></i></span></span></a>
                                     <a href="<?php echo do_shortcode("[theme_option do='google-plus-link']");?>" target="_blank" title="Google+" class="gplus flip-link-container"><span class="flip-link"><span class="front"><i class="icon-googleplus-white"></i></span><span class="back"><i class="icon-googleplus-color"></i></span></span></a>
+                                    <a href="https://www.instagram.com" target="_blank" class="flip-link-container">
+                                        <span class="flip-link">
+                                            <span class="front">
+                                                <img src="<?php echo $ciurl;?>img/instagramblue.png" alt="Smiley face" height="32" width="32">
+                                            </span>
+                                            <span class="back">
+                                                <img src="<?php echo $ciurl;?>img/instagram.png" alt="Smiley face" height="32" width="32">
+                                            </span>
+                                        </span>
+                                    </a>
                                 </div>
                             </div>
                         </div>

@@ -95,7 +95,6 @@
                                     <img src="<?php echo site_url();?>img/instagram.png" alt="Smiley face" height="32" width="32">
                                 </span>
                             </span>
-                            
                         </a>
                     </div>
                 </div>
