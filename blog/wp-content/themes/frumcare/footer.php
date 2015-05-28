@@ -64,10 +64,10 @@
                                     <p class="nav-title">Learn More</p>
                                     <?php //wp_nav_menu( array( 'theme_location' => 'footer-menu3' ) ); ?>
                                     <ul>
-                                        <li><a href="<?php echo $ciurl;?>howitworks">How it works</a></li>
-                                        <li><a href="<?php echo $ciurl;?>safety-guide/families">Safety Guide</a></li>
-                                        <li><a href="<?php echo $ciurl;?>advice-and-tips/families">Advice and Tips</a></li>
-                                        <li><a href="<?php echo $ciurl;?>faq">FAQs</a></li>
+                                        <li><a href="<?php echo $ciurl;?>/howitworks">How it works</a></li>
+                                        <li><a href="<?php echo $ciurl;?>/safety-guide/families">Safety Guide</a></li>
+                                        <li><a href="<?php echo $ciurl;?>/advice-and-tips/families">Advice and Tips</a></li>
+                                        <li><a href="<?php echo $ciurl;?>/faq">FAQs</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -106,10 +106,10 @@
                                     <a href="https://www.instagram.com" target="_blank" class="flip-link-container">
                                         <span class="flip-link">
                                             <span class="front">
-                                                <img src="<?php echo $ciurl;?>img/instagramblue.png" alt="Smiley face" height="32" width="32">
+                                                <img src="<?php echo $ciurl;?>/img/instagramblue.png" alt="Smiley face" height="32" width="32">
                                             </span>
                                             <span class="back">
-                                                <img src="<?php echo $ciurl;?>img/instagram.png" alt="Smiley face" height="32" width="32">
+                                                <img src="<?php echo $ciurl;?>/img/instagram.png" alt="Smiley face" height="32" width="32">
                                             </span>
                                         </span>
                                     </a>
