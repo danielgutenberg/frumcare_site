@@ -534,6 +534,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                                       <span class='st_twitter_large' displayText='Tweet'></span>
                                       <span class='st_sharethis_large' displayText='ShareThis'></span>
                                       <span class='st_email_large' displayText='Email'></span>
+                                      <span><img src="<?php echo site_url();?>img/instagramsquare.png" alt="Smiley face" height="32" width="32"></span>
                                   </div>
                               </div> 
                           </div>                                                        
