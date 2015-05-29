@@ -457,6 +457,22 @@ class Ad extends CI_Controller
         $this->db->where('id',$id);
         $this->db->update('tbl_userprofile',array('profile_status'=>1));
 
+        //notify when approved
+
+        $user=get_user($id);
+
+
+        /***************** get super user email ***********************/
+        $this->load->model('user_model');
+        $superUser=$this->user_model->getSuperUser();
+
+
+        $sendto=$user['email'];
+        $param=array('subject'=>'Notification from Frumcare','from'=>$superUser->email1,'from_name'=>'Admin Frumcare','sendto'=>$sendto,'message'=>'Your Advertisement has been successfully approved!');
+        sendemail($param);
+
+
+
         redirect('ad/success','refresh');
 
     }
