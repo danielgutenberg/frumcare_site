@@ -1228,4 +1228,15 @@ class User_model extends CI_Model
         return $user;
 
     }
+
+
+    public function get($id){
+        
+    }
+
+    public function get_by($table,$where){
+        return $this->db->where($where)->get($table)->result();
+
+
+    }
 }
