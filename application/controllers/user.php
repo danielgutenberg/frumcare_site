@@ -226,12 +226,11 @@ class User extends CI_Controller
                             'user_id'           => $uid,
                             'verfication_code'  => $rand
                         );
-                        print_r($data);
 
                         $this->db->insert('tbl_verificationcodes',$data);
 
                         $message = "Your phone number verfication code is ".$rand.".";
-                        print_r($message);
+                        print_r($phone_number[0]['contact_number']);
                         $res = $this->clickatell->send($phone_number[0]['contact_number'],$message);
 
                    echo $res;exit;
