@@ -80,6 +80,7 @@ class Clickatell {
             curl_setopt($ch, CURLOPT_POSTFIELDS,"session_id=" . $this->session_id . "&to=$phone&text=$sendtext");
             curl_setopt($ch, CURLOPT_RETURNTRANSFER  ,1);
             $result= curl_exec ($ch);
+            return $result;
             curl_close ($ch);
 
             
