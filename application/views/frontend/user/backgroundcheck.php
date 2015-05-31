@@ -82,16 +82,15 @@
                 url:'<?php echo site_url();?>user/sendsms/',
                 data:"user_id="+user_id,
                 success:function(done){
-                    if(done == 0){
-                        console.log('got here')
+                    if(done == 1){
                         window.location.href = "<?php echo site_url();?>user/smsverification/<?php echo sha1(check_user());?>";
                     }
                     if(done == 2){
                         $('#smserror').text('Your phone number is already verified.').show();
                     }
-                    // if(done == 0){
-                    //      $('#smserror').text('Sorry sms not sent.').show();
-                    // }
+                    if(done == 0){
+                         $('#smserror').text('Sorry sms not sent.').show();
+                    }
                 }
             });
         });
