@@ -73,7 +73,8 @@ class Clickatell {
     public function send($number,$text){
             $sendtext=urlencode($text);
             $phone=urlencode($number);
-            $phone = 972526255076;
+            $phone = '972' . ltrim ($phone, '0');
+            return $phone;
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL,$this->send_url);
             curl_setopt($ch, CURLOPT_POST, 3);
