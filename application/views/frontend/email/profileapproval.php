@@ -9,19 +9,7 @@
     $tick  = "<img src='".site_url()."img/nut-list.png'> ";    
 ?>
 
-        <?php if($care_type==7) { ?>
-        <h2>
-            Personal Details 
-        </h2>
-        <?php } else { ?>
-        <h2>
-            <?php 
-                $name_array = explode(" ",$name);
-                echo $name_array[0]."'s ";
-            ?>
-            Personal Details 
-        </h2>   
-        <?php } ?>
+       
 <div class="table-responsive">
     <table class="table table-striped borderbottom">
     <?php if(!empty($location)){?>    
@@ -400,16 +388,13 @@
         <?php 
         $navigate = $care_type > 16 ? 'jobs' : 'caregivers';
         if($facility_pic!="" && file_exists('images/profile-picture/'.$facility_pic)):?>
-                    
-    		            <div id="profile_image">
+                    <td >Photo</td>
+    		         <td>   <div id="profile_image">
     		            	<img src="<?php echo site_url("images/profile-picture/{$facility_pic}")?>">
-    		            </div>
+    		            </div></td>
     	           <?php 
                 else:?>
-                    
-			            <div id="profile_image">
-			            	<img src="<?php echo site_url("images/no-image.jpg")?>">
-                        </div>
+                    <td >No photo provided</td>
                     <?php 
                 endif ?>
     </tr>
