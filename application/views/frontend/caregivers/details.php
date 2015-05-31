@@ -420,11 +420,11 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
           <li>Email address - <?php if($recordData['email_status'] == 1) echo 'Verified'; else echo 'Unverified';?></li>
       </ul>
 
-      <ul class="social-unverified">
-          <li class="fb">Facebook - Unverified</li>
-          <li class="twt">Twitter - Unverified</li>
-          <li class="google">Google+ - Unverified</li>
-      </ul>
+      <!--<ul class="social-unverified">-->
+      <!--    <li class="fb">Facebook - Unverified</li>-->
+      <!--    <li class="twt">Twitter - Unverified</li>-->
+      <!--    <li class="google">Google+ - Unverified</li>-->
+      <!--</ul>-->
       <?php if(isset($this->session->userdata['current_user'])){
           $link = site_url().'user/upgrademembership';
       }else{
