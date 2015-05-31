@@ -205,9 +205,10 @@ class User extends CI_Controller
             'api' => '3494230'
         );  
 
-        
+        print_r('got a');
 
         if($this->input->is_ajax_request()){
+            print_r('got b');
             $uid = $_POST['user_id'];
             $stat =  $this->user_model->checkPhoneVerficationStatus($uid);
             if($stat !=  '1'){
@@ -216,6 +217,7 @@ class User extends CI_Controller
                                 die('failed');
                         }
                 if($uid){
+                    print_r('got c');
                     $phone_number = $this->user_model->getPhoneNumber($uid);
                     $seed = str_split('abcdefghijklmnopqrstuvwxyz'
                                          .'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -238,6 +240,7 @@ class User extends CI_Controller
                    echo $res;exit;
                 }
             }else{
+                print_r('got d');
                  echo 2;exit;
             }
         }
