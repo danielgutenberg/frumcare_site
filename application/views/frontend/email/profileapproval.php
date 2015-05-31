@@ -12,98 +12,21 @@
        
 <div class="table-responsive">
     <table class="table table-striped borderbottom">
-    <?php if(!empty($location)){?>    
-    <tr>
-        <td>Location</td>
-        <td id="locationField">
-            <?php echo $location;?>
-        </td>    
-    </tr>
-    <?php }
-    else{
-            ?>
-                <tr>
-                    <td >Location </td>
-                    <td>N/A</td>
-                </tr>
-            <?php
-          }?>
-    <?php if(!empty($neighbour)){?>
-    <tr>
-        <td>Neighborhood / Street</td>
-        <td><?php echo $neighbour;?> </td>
-    </tr>
-    <?php }
-    else{
-            ?>
-                <tr>
-                    <td >Neighborhood / Street </td>
-                    <td>N/A</td>
-                </tr>
-            <?php
-          } ?>    
-                
-    <?php 
-    if($care_type != 7){
-        if(!empty($age)){
-    ?>
         <tr>
-            <td>Age</td>
-            <td ><?php echo $age;?></td>
-        </tr>
-    <?php }else{ ?>
-        <tr>
-            <td >Age </td>
-            <td>N/A</td>
-        </tr>
-    <?php
-        }
-    } 
-    ?>
-          
-    <?php if(!empty($gender)){?>
-    <tr>
-        <td>Gender</td>
-        <td >
-          <?php echo $gender==1?'Male':'Female'?>
-        </td>
-    </tr>
-    <?php }
-    else{
-            ?>
-                <tr>
-                    <td >Gender </td>
-                    <td>N/A</td>
-                </tr>
-            <?php
-          } ?>
-    <?php if(!empty($marital_status) && $care_type != 7){?>
-    <tr>
-        <td>Marital status</td>
-        <td >
-            <?php 
-            if($marital_status==1){
-                echo "Single";
-            }
-            else if($marital_status==2){
-                echo "Married";
-            }
-            else if($marital_status==3){
-                echo "Divorced";
-            }else{
-                echo "Widowed";
-            }?>            
-        </td>
-    </tr>
-    <?php }
-    elseif($care_type != 7){
-            ?>
-                <tr>
-                    <td >Marital status </td>
-                    <td>N/A</td>
-                </tr>
-            <?php
-          } ?>
+        <?php 
+        $navigate = $care_type > 16 ? 'jobs' : 'caregivers';
+        if($facility_pic!="" && file_exists('images/profile-picture/'.$facility_pic)) {?>
+                    <td >Photo</td>
+    		         <td>   <div id="profile_image">
+    		            	<img src="<?php echo site_url("images/profile-picture/{$facility_pic}")?>">
+    		            </div></td>
+    	           <?php }
+                else {?>
+                    <td >No photo provided</td>
+                    <?php 
+                } ?>
+    </tr>  
+    
         
         <?php $language = explode(',',$language); ?>
         <tr>
@@ -384,20 +307,7 @@
             <div class="details-info"><?php echo isset($on_short_notice) && $on_short_notice == 1 ? $tick : $cross?>Available on short notice</div>            
         </td>
     </tr>
-    <tr>
-        <?php 
-        $navigate = $care_type > 16 ? 'jobs' : 'caregivers';
-        if($facility_pic!="" && file_exists('images/profile-picture/'.$facility_pic)):?>
-                    <td >Photo</td>
-    		         <td>   <div id="profile_image">
-    		            	<img src="<?php echo site_url("images/profile-picture/{$facility_pic}")?>">
-    		            </div></td>
-    	           <?php 
-                else:?>
-                    <td >No photo provided</td>
-                    <?php 
-                endif ?>
-    </tr>
+    
 </table>
 </div>
 <div style="font-family:Arial, Helvetica, sans-serif; font-size:15px; margin-bottom:5px;">Approve this submission:</div>
