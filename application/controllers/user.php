@@ -1000,8 +1000,7 @@ class User extends CI_Controller
                     foreach($emails as $e1){
                         $receiveremail .= $e1['email1'].',';                        
                     }
-                    $receiveremail = substr_replace($receiveremail ,"",-1);  //removes comma from last  
-                    $receiveremail = 'dan7bf@gmail.com';
+                    $receiveremail = substr_replace($receiveremail ,"",-1);  //removes comma from last
                     $config = Array(
                           //'protocol' => 'smtp',
                           //'smtp_host' => 'ssl://smtp.googlemail.com',
