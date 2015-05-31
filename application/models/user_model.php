@@ -115,7 +115,7 @@ class User_model extends CI_Model
     }
 
     function checkUserStatus($email){
-        $sql = "select name,email,original_password,status from tbl_user where email_hash = '$email'";
+        $sql = "select name,email,original_password,email_status from tbl_user where email_hash = '$email'";
         $query = $this->db->query($sql);
         $res = $query->row_array();
         if($res) return $res;
