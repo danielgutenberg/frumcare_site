@@ -12,20 +12,30 @@
        
 <div class="table-responsive">
     <table class="table table-striped borderbottom">
-        <tr>
+        
         <?php 
         $navigate = $care_type > 16 ? 'jobs' : 'caregivers';
         if($facility_pic!="" && file_exists('images/profile-picture/'.$facility_pic)) {?>
+        <tr>
                     <td >Photo</td>
     		         <td>   <div id="profile_image">
     		            	<img src="<?php echo site_url("images/profile-picture/{$facility_pic}")?>">
-    		            </div></td>
+    		            </div></td></tr>
     	           <?php }
-                else {?>
+                else {
+                 if($photo_of_child!="" && file_exists('images/profile-picture/'.$photo_of_child)) {?>
+        <tr>
+                    <td >Photo</td>
+    		         <td>   <div id="profile_image">
+    		            	<img src="<?php echo site_url("images/profile-picture/{$$photo_of_child}")?>">
+    		            </div></td></tr> <?php } else { ?>
+                
+                <tr>
                     <td >No photo provided</td>
+                    </tr>
                     <?php 
-                } ?>
-    </tr>  
+                } }?>
+     
     
         
         <?php $language = explode(',',$language); ?>
