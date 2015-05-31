@@ -83,7 +83,6 @@
                 data:"user_id="+user_id,
                 success:function(done){
                     if(done == 1){
-                        console.log('got here')
                         window.location.href = "<?php echo site_url();?>user/smsverification/<?php echo sha1(check_user());?>";
                     }
                     if(done == 2){
