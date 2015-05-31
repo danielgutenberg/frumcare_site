@@ -71,7 +71,6 @@ class Clickatell {
 
 
     public function send($number,$text){
-            print_r($number, $text);
             $sendtext=urlencode($text);
             $phone=urlencode($number);
 
