@@ -208,6 +208,7 @@ class Signup extends CI_Controller
         $email_hash = $this->uri->segment(3);
 
         $ustatus = $this->user_model->checkUserStatus($email_hash);
+        print_r($ustatus);
         if(!empty($ustatus)){
             if($ustatus['status'] == 0){
                 $this->db->where('email_hash',$email_hash);
