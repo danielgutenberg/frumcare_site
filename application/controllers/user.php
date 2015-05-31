@@ -203,12 +203,9 @@ class User extends CI_Controller
             'username' => 'michaelfrumcare', 
             'password' => 'eMVcNaDZgGdAcK', 
             'api' => '3494230'
-        );  
-
-        print_r('got a');
+        ); 
 
         if($this->input->is_ajax_request()){
-            print_r('got b');
             $uid = $_POST['user_id'];
             $stat =  $this->user_model->checkPhoneVerficationStatus($uid);
             if($stat !=  '1'){
@@ -217,7 +214,6 @@ class User extends CI_Controller
                                 die('failed');
                         }
                 if($uid){
-                    print_r('got c');
                     $phone_number = $this->user_model->getPhoneNumber($uid);
                     $seed = str_split('abcdefghijklmnopqrstuvwxyz'
                                          .'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -230,11 +226,11 @@ class User extends CI_Controller
                             'user_id'           => $uid,
                             'verfication_code'  => $rand
                         );
+                        print_r($data);
 
                         $this->db->insert('tbl_verificationcodes',$data);
 
                         $message = "Your phone number verfication code is ".$rand.".";
-                        print_r($phone_number[0]['contact_number'],$message);
                         $res = $this->clickatell->send($phone_number[0]['contact_number'],$message);
 
                    echo $res;exit;
