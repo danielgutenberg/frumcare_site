@@ -230,8 +230,8 @@ class User extends CI_Controller
                         $this->db->insert('tbl_verificationcodes',$data);
 
                         $message = "Your phone number verfication code is ".$rand.".";
-                        print_r($phone_number[0]['contact_number']);
                         $res = $this->clickatell->send($phone_number[0]['contact_number'],$message);
+                        print_r($res);
 
                    echo $res;exit;
                 }
