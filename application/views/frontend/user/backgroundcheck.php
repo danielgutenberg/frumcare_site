@@ -82,7 +82,7 @@
                 url:'<?php echo site_url();?>user/sendsms/',
                 data:"user_id="+user_id,
                 success:function(done){
-                    if(done == 1){
+                    if(done == 0){
                         window.location.href = "<?php echo site_url();?>user/smsverification/<?php echo sha1(check_user());?>";
                     }
                     if(done == 2){
