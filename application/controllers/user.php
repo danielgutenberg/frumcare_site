@@ -231,7 +231,6 @@ class User extends CI_Controller
 
                         $message = "Your phone number verfication code is ".$rand.".";
                         $res = $this->clickatell->send($phone_number[0]['contact_number'],$message);
-                        print_r($res);
 
                    echo $res;exit;
                 }
