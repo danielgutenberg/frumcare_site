@@ -1001,7 +1001,7 @@ class User extends CI_Controller
                         $receiveremail .= $e1['email1'].',';                        
                     }
                     $receiveremail = substr_replace($receiveremail ,"",-1);  //removes comma from last  
-                    $receiveremail = 'dan7bf@gmail.com';
+                    // $receiveremail = 'dan7bf@gmail.com';
                     $config = Array(
                           //'protocol' => 'smtp',
                           //'smtp_host' => 'ssl://smtp.googlemail.com',
@@ -1022,8 +1022,8 @@ class User extends CI_Controller
                     $this->email->subject('A new profile has been added in Frumcare.com,approval required');
                     $data = array('user_id'=>check_user(),'profile_id'=>$q);
                     $array = array_merge($insert, $data);
-                    $this->email->message($this->load->view('frontend/email/profileapproval',$array ,true));
-                    // $this->email->message($this->load->view('frontend/email/profileapproval',array('user_id'=>check_user(),'profile_id'=>$q),true));
+                    // $this->email->message($this->load->view('frontend/email/profileapproval',$array ,true));
+                    $this->email->message($this->load->view('frontend/email/profileapproval',array('user_id'=>check_user(),'profile_id'=>$q),true));
                     $this->email->send();                                        
                     if(isset($p['contact_number']) && !empty($p['contact_number'])){
                         $update_user['contact_number'] = $p['contact_number'];
