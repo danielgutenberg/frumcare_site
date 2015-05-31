@@ -398,7 +398,7 @@
     </tr>
     <tr>
         <?php 
-        $navigate = $data['care_type']>16?'jobs':'caregivers';
+        $navigate = $care_type > 16 ? 'jobs' : 'caregivers';
         if($facility_pic!="" && file_exists('images/profile-picture/'.$facility_pic)):?>
                     
     		            <div id="profile_image">
