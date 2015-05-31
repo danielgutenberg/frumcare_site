@@ -74,14 +74,12 @@ class Clickatell {
             $sendtext=urlencode($text);
             $phone=urlencode($number);
             $phone = '972' . ltrim ($phone, '0');
-            return $phone;
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL,$this->send_url);
             curl_setopt($ch, CURLOPT_POST, 3);
             curl_setopt($ch, CURLOPT_POSTFIELDS,"session_id=" . $this->session_id . "&to=$phone&text=$sendtext");
             curl_setopt($ch, CURLOPT_RETURNTRANSFER  ,1);
             $result= curl_exec ($ch);
-            return $result;
             curl_close ($ch);
 
             
