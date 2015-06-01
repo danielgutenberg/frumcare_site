@@ -451,6 +451,11 @@ class Ad extends CI_Controller
         $user = get_user($user_id);
         $sendto = $user['email'];
         
+        $a = get_account_details();
+        $id = $a->care_type;
+        $details = $this->user_model->getUserDetailsById($user_id,$id);
+        
+        $msg = $this->load->view('frontend/email/adApproved', array('name' => $details['name']), true);
         $param = array(
             'subject'     => 'Ad Placed Successfully',
             'from'        => SITE_EMAIL,
@@ -458,7 +463,7 @@ class Ad extends CI_Controller
             'replyto'     => SITE_REPLY_TO_EMAIL,
             'replytoname' => SITE_NAME,
             'sendto'      => $sendto,
-            'message'     => 'Your Advertisement has been successfully placed!'
+            'message'     => $msg
         );
         sendemail($param);
     }
@@ -467,18 +472,14 @@ class Ad extends CI_Controller
 
         $this->db->where('id',$id);
         $this->db->update('tbl_userprofile',array('profile_status'=>1));
-
-        //notify when approved
-
-        $user=get_user($id);
-
-
-        /***************** get super user email ***********************/
-        $this->load->model('user_model');
-        $superUser=$this->user_model->getSuperUser();
-
-
-        $sendto=$user['email'];
+        $user = get_user($id);
+        $sendto = $user['email'];
+        
+        $a = get_account_details();
+        $id = $a->care_type;
+        $details = $this->user_model->getUserDetailsById($user_id,$id);
+        
+        $msg = $this->load->view('frontend/email/adApproved', array('name' => $details['name']), true);
         $param = array(
             'subject'     => 'Ad Approved',
             'from'        => SITE_EMAIL,
@@ -486,7 +487,8 @@ class Ad extends CI_Controller
             'replyto'     => SITE_REPLY_TO_EMAIL,
             'replytoname' => SITE_NAME,
             'sendto'      => $sendto,
-            'message'     => 'Your Advertisement has been successfully approved!');
+            'message'     => $msg
+        );
         sendemail($param);
 
 
@@ -509,12 +511,6 @@ class Ad extends CI_Controller
         $a = get_account_details();
         //print_rr($a);
         $id = $a->care_type;
-
-
-
-
-
-
 
         /********************* get user profile of the current user ******************/
 
