@@ -69,7 +69,7 @@
         <tr>
             <td>Age of owner / operator</td>
             <td class="form-field">
-             12 <?php echo $age; ?>    
+               <?php echo $age; ?>    
          </td>
      </tr>
      <?php }
