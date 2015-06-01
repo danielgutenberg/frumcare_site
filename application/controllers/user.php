@@ -1027,6 +1027,7 @@ class User extends CI_Controller
                     // $emailMessage = $this->getEmailMessage(check_user(), $p['care_type']);
                     
                     $details      = $this->user_model->getUserDetailsById(check_user(),$p['care_type']);
+                    $details['profile_id'] = $q;
                     $type = Caretype_model::getCareTypeById($details['care_type']);
                     
                     $data['main_content']   = 'frontend/caregivers/details';
@@ -1042,7 +1043,7 @@ class User extends CI_Controller
                     $data['refrences']      = $this->refrence_model->getLatestRefrences($details['id']);
                     $data['care_id'] = $details['id'];
                     
-                    $this->email->message($this->load->view('frontend/caregivers/details', $data, true));
+                    $this->email->message($this->load->view('frontend/email/profileapproval', $data, true));
                     // $this->email->message($this->load->view('frontend/email/profileapproval',$array ,true));
                     // $this->email->message($this->load->view('frontend/email/profileapproval',array('user_id'=>check_user(),'profile_id'=>$q),true));
                     $this->email->send();                                        
