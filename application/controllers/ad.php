@@ -455,10 +455,8 @@ class Ad extends CI_Controller
         
         $a = get_account_details();
         $id = $a->care_type;
-        print_r($user_id);
-        print_r($a);
         $details = $this->user_model->getUserDetailsById($user_id,$id);
-        
+        print_r($details);
         $msg = $this->load->view('frontend/email/adApproved', array('name' => $details['name']), true);
         $param = array(
             'subject'     => 'Ad Placed Successfully',
