@@ -1045,7 +1045,27 @@ class User extends CI_Controller
                     $this->email->message($this->load->view('frontend/email/profileapproval', $data, true));
                     // $this->email->message($this->load->view('frontend/email/profileapproval',$array ,true));
                     // $this->email->message($this->load->view('frontend/email/profileapproval',array('user_id'=>check_user(),'profile_id'=>$q),true));
-                    $this->email->send();                                        
+                    $this->email->send(); 
+                    
+                    $user_id = check_user();
+                    $user = get_user($user_id);
+                    $sendto = $user['email'];
+                    
+                    $a = get_account_details();
+                    $id = $a->care_type;
+                    $details = $this->user_model->getUserDetailsById($user_id,$id);
+                    
+                    $msg = $this->load->view('frontend/email/adApproved', array('name' => $details['name']), true);
+                    $param = array(
+                        'subject'     => 'Ad Placed Successfully',
+                        'from'        => SITE_EMAIL,
+                        'from_name'   => SITE_NAME,
+                        'replyto'     => SITE_REPLY_TO_EMAIL,
+                        'replytoname' => SITE_NAME,
+                        'sendto'      => $sendto,
+                        'message'     => $msg
+                    );
+                    sendemail($param);
                     if(isset($p['contact_number']) && !empty($p['contact_number'])){
                         $update_user['contact_number'] = $p['contact_number'];
                     }
