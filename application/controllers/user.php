@@ -1042,7 +1042,7 @@ class User extends CI_Controller
                     $data['refrences']      = $this->refrence_model->getLatestRefrences($details['id']);
                     $data['care_id'] = $details['id'];
                     
-                    $this->email->message($this->load->view(FRONTEND_TEMPLATE,$data));
+                    $this->email->message($this->load->view('frontend/caregivers/details', $data, true));
                     // $this->email->message($this->load->view('frontend/email/profileapproval',$array ,true));
                     // $this->email->message($this->load->view('frontend/email/profileapproval',array('user_id'=>check_user(),'profile_id'=>$q),true));
                     $this->email->send();                                        
