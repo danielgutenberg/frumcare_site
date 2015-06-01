@@ -110,6 +110,11 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
             <div id="output" class="loader"></div>
         </div>
+
+            <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>
+            <input type="hidden" name="account_type2" value="<?php echo $this->uri->segment(4);?>"/>
+
+
         <h2>Abilities and skill</h2>
             <div class="checkbox-wrap">
                 <div>

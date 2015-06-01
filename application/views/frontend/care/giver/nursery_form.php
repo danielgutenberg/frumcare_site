@@ -140,6 +140,9 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
                 <div id="output" class="loader"></div>
             </div>
+
+            <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>
+            <input type="hidden" name="account_type2" value="<?php echo $this->uri->segment(4);?>"/>
             
             <div>
                 <input type="submit" class="btn btn-success" value="Save <?php if($this->uri->segment(2) != 'new_profile'){echo '& Continue';}?>"/>

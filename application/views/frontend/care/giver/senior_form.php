@@ -100,6 +100,9 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             </div>
         </div>
 
+                <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>
+                <input type="hidden" name="account_type2" value="<?php echo $this->uri->segment(4);?>"/>
+
         <div class="refrence_file" style="display:none;">
             <label></label>
             <input type="hidden" id="file-name" name="file" />

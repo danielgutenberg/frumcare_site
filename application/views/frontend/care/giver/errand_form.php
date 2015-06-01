@@ -98,6 +98,12 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 						<div class="radio"><input type="radio" value="2" name="bg_check" class="required" <?php echo isset($bg_check) && $bg_check == 2 ? 'checked' : '' ?> checked/> No</div>
 					</div>
 				</div>
+
+
+                <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>
+                <input type="hidden" name="account_type2" value="<?php echo $this->uri->segment(4);?>"/>
+
+
 				
 				<h2>Abilities</h2>
 				<div class="checkbox-wrap">
