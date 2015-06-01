@@ -447,16 +447,19 @@ class Ad extends CI_Controller
     }
 
     public function notifyUser(){
-        $user_id=check_user();
-        $user=get_user($user_id);
-
-        /***************** get super user email ***********************/
-        $this->load->model('user_model');
-        $superUser=$this->user_model->getSuperUser();
-
-
-        $sendto=$user['email'];
-        $param=array('subject'=>'Notice from Frumcare','from'=>$superUser->email1,'from_name'=>'Admin Frumcare','sendto'=>$sendto,'message'=>'Your Advertisement has been successfully placed!');
+        $user_id = check_user();
+        $user = get_user($user_id);
+        $sendto = $user['email'];
+        
+        $param = array(
+            'subject'     => 'Ad Placed Successfully',
+            'from'        => SITE_EMAIL,
+            'from_name'   => SITE_NAME,
+            'replyto'     => SITE_REPLY_TO_EMAIL,
+            'replytoname' => SITE_NAME,
+            'sendto'      => $sendto,
+            'message'     => 'Your Advertisement has been successfully placed!'
+        );
         sendemail($param);
     }
 
@@ -476,7 +479,14 @@ class Ad extends CI_Controller
 
 
         $sendto=$user['email'];
-        $param=array('subject'=>'Notification from Frumcare','from'=>$superUser->email1,'from_name'=>'Admin Frumcare','sendto'=>$sendto,'message'=>'Your Advertisement has been successfully approved!');
+        $param = array(
+            'subject'     => 'Notification from Frumcare',
+            'from'        => SITE_EMAIL,
+            'from_name'   => SITE_NAME,
+            'replyto'     => SITE_REPLY_TO_EMAIL,
+            'replytoname' => SITE_NAME,
+            'sendto'      => $sendto,
+            'message'     => 'Your Advertisement has been successfully approved!');
         sendemail($param);
 
 
