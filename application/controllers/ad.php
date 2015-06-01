@@ -9,6 +9,7 @@ class Ad extends CI_Controller
         $this->load->library('breadcrumbs');
         $this->load->library('fileupload_lib');
         $this->load->model('payment_model');
+        $this->load->model('user_model');
         $this->load->model('caretype_model');
         $this->load->model('review_model');
         $this->load->model('common_care_model');
