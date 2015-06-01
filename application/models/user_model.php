@@ -1231,8 +1231,9 @@ class User_model extends CI_Model
     }
 
     public function getSuperUser(){
-        $user=$this->db->where('id',1)->get('tbl_admin')->row();
-        return $user;
+        // $user=$this->db->where('id',1)->get('tbl_admin')->row();
+        // return $user;
+        return 'info@frumcare.com';
 
     }
 
