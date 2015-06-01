@@ -1003,7 +1003,6 @@ class User extends CI_Controller
                         $receiveremail .= $e1['email1'].',';                        
                     }
                     $receiveremail = substr_replace($receiveremail ,"",-1);  //removes comma from last
-                    print_r($receiveremail);
                     $config = Array(
                           //'protocol' => 'smtp',
                           //'smtp_host' => 'ssl://smtp.googlemail.com',
@@ -1098,7 +1097,6 @@ class User extends CI_Controller
        public function getEmailMessage($id, $care_type)
        {
             $details      = $this->user_model->getUserDetailsById($id,$care_type);
-            print_r($details);
             $type = Caretype_model::getCareTypeById($details['care_type']);
             
             $data['main_content']   = 'frontend/caregivers/details';
