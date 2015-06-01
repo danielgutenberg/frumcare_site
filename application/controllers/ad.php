@@ -7,6 +7,13 @@ class Ad extends CI_Controller
         $this->load->library('imageupload_lib');
         $this->load->model('common_model');
         $this->load->library('breadcrumbs');
+        $this->load->library('fileupload_lib');
+        $this->load->model('payment_model');
+        $this->load->model('caretype_model');
+        $this->load->model('review_model');
+        $this->load->model('common_care_model');
+        $this->load->model('email_template_model');
+        $this->load->model('refrence_model');
     }
 
     function index(){
@@ -501,73 +508,56 @@ class Ad extends CI_Controller
 
         /********************* get user profile of the current user ******************/
 
-        $user_profile=get_userprofile($user_id);
-        $marital='';
-        if($user['marital_status']==1){
-            $marital='Single';
-        }elseif($user['marital_status']==2){
-            $marital=='Married';
-        }elseif($user['marital_status']==3){
-            $marital=='Divorced';
-        }elseif($user['marital_status']==4){
-            $marital=='Widowed';
+        $emails = $this->common_model->getAdAdminEmails();                    
+        $receiveremail = '';                    
+        foreach($emails as $e1){
+            $receiveremail .= $e1['email1'].',';                        
         }
+        $receiveremail = substr_replace($receiveremail ,"",-1);  //removes comma from last
+        print_r($receiveremail);
+        $config = Array(
+              //'protocol' => 'smtp',
+              //'smtp_host' => 'ssl://smtp.googlemail.com',
+              //'smtp_port' => 465,
+              //'smtp_user' => 'frumcare2015@gmail.com', //change it to yours
+              //'smtp_pass' => 'frumcare.com', // change it to yours
+              'mailtype' => 'html',
+              'charset' => 'iso-8859-1',
+              'wordwrap' => TRUE
+            ); 
 
-        $smoker='';
-        if($user['smoker']==1){
-            $smoker='No';
-        }elseif($user['smoker']==2){
-            $smoker='Yes';
-        }elseif($user['smoker']==3){
-            $smoker='Yes, but not at work';
-        }
-
-
-        $data=array(
-            'location'=>$user['location'],
-            'neighborhood'=>$user['neighbour'],
-            'phone'=>$user['contact_number'],
-            'age'=>$user['age'],
-            'gender'=>$user['gender']==1?'male':'female',
-            'marital_status'=>$marital,
-            'language_spoken'=>$user['caregiver_language'],
-            'smoker'=>$smoker,
-            'level_of_rel'=>$user['religious_observance'],
-            'level_of_edu'=>$user['education_level'],
-            'educational'=>$user['educational_institution'],
-            'photo'=>$user['profile_picture_owner'],
-            'looking_to_work'=>$user_profile['looking_to_work'],
-            'number_of_children'=>$user_profile['number_of_children'],
-            'age_of_children'=>$user_profile[''],
-            'years_of_exp'=>$user_profile['experience'],
-            'training'=>$user_profile['training'],
-            'rate'=>$user_profile['rate'],
-            'availability'=>$user_profile['availability'],
-            'tell_us_about_yourself'=>$user_profile['profile_description'],
-            'references'=>$user_profile['references']==1?'Yes':'No',
-            'ability_skills'=>$user_profile['driver_license']==1?'Driver License,':''.$user_profile['vehicle']==1?'I have a Vehicle,':''.$user_profile['pick_up_child']==1?'Able to pick up kids from school,':''.$user_profile['cook']?'Able to cook and prepare food,':''.$user_profile['basic_housework']==1?'Able to do light housework / cleaning,':''.$user_profile['homework_help']==1?'Able to help with homework,':''.$user_profile['sick_child_care']==1?'Able to care for sick child,':''.$user_profile['on_short_notice']==1?'Available on short notice,':'',
-            //'ability_skills'=>$user_profile['driver_licence']==1?'Driver Licence':''
-            'id'=>$user_profile['id'],
-            'account_type1'=>$this->input->post('account_type1'),
-            'account_type2'=>$this->input->post('account_type2'),
-            'ids'=>$id
-
-        );
-
-
-        //print_rr($data); exit;
-
-        $param=array(
-            'from'=>$user['email'],
-            'from_name'=>$user['name'],
-            'sendto'=>$superUser->email1,
-            'subject'=>'Advertisement Approval',
-            'message'=>$this->load->view('emails/verify/organization',$data,true)
-        );
-
-
-
-        sendemail($param);
+        $this->load->library('email',$config);
+        $this->email->set_newline("\r\n");
+        $this->email->from('info@frumcare.com', 'FRUMACARE');
+        $this->email->to($receiveremail);
+        //$this->email->to('kiran@access-keys.com,chand@access-keys.com');                    
+        
+        $this->email->subject('A new profile has been added in Frumcare.com,approval required');
+        // $data = array('user_id'=>check_user(),'profile_id'=>$q);
+        // $array = array_merge($insert, $data);
+        // $emailMessage = $this->getEmailMessage(check_user(), $p['care_type']);
+        
+        $details      = $this->user_model->getUserDetailsById($user_id,$id);
+        $details['profile_id'] = $q;
+        $type = Caretype_model::getCareTypeById($details['care_type']);
+        
+        $data['main_content']   = 'frontend/caregivers/details';
+        $data['recordData']     = $details;
+        $data['title']          = 'Caregivers Details';
+        $data['caretypes']      = $this->caretype_model->getAllCareType();
+        $data['availablility']  = $this->user_model->getCurrentUserTimeTable($details['id']);
+        $data['number_reviews'] = $this->review_model->countReviewById($details['id']);
+        $data['userlog']        = $this->user_model->getUserLogById($details['user_id']);
+        $data['reviewdatas']    = $this->review_model->getAllReviews($details['id']);
+        $data['similar_types']  = $this->user_model->getSimilarPersons($details['care_type'],$details['id']);
+        $data['care_type']      = $this->caretype_model->getAllCareType();
+        $data['refrences']      = $this->refrence_model->getLatestRefrences($details['id']);
+        $data['care_id'] = $details['id'];
+        
+        $this->email->message($this->load->view('frontend/email/profileapproval', $data, true));
+        // $this->email->message($this->load->view('frontend/email/profileapproval',$array ,true));
+        // $this->email->message($this->load->view('frontend/email/profileapproval',array('user_id'=>check_user(),'profile_id'=>$q),true));
+        $this->email->send();
 
     }
 
