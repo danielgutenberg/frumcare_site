@@ -492,6 +492,10 @@ class Ad extends CI_Controller
         );
         sendemail($param);
 
+
+
+        redirect('ad/success','refresh');
+
     }
 
 
