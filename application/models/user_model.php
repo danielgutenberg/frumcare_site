@@ -59,8 +59,15 @@ class User_model extends CI_Model
     }
 
 
-      public function getUserDetailsBySlug($slug,$care_type){
+    public function getUserDetailsBySlug($slug,$care_type){
         $sql = "SELECT tbl_user.*,tbl_userprofile.* FROM tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_user.uri = '$slug' and tbl_userprofile.care_type = $care_type and tbl_user.status = 1";
+        $query = $this->db->query($sql);
+        $res = $query->row_array();
+        return $res;   
+    }
+    
+    public function getUserDetailsById($id,$care_type){
+        $sql = "SELECT tbl_user.*,tbl_userprofile.* FROM tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_user.id = '$id' and tbl_userprofile.care_type = $care_type and tbl_user.status = 1";
         $query = $this->db->query($sql);
         $res = $query->row_array();
         return $res;   

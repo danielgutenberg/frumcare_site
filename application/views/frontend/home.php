@@ -6,7 +6,7 @@
                 <div class="container">
                     <div class="banner-text">
                         <h2 class="banner-title">
-                            Connecting <br />Jewish Families <br />with CareGivers
+                            We Connect <br />Jewish Families <br />with CareGivers
                         </h2>                        
                         <div class='banner-sub-title'>
                             <div class="banner-title-small">Choose an option:</div>

@@ -1,4 +1,5 @@
 <div class="container">
+    <?php print_r($recordData);?>
 	<?php echo $this->breadcrumbs->show();
     ?>
     <div class="caregivers-details">
@@ -6,6 +7,7 @@
        <?php 
        $type = Caretype_model::getCareTypeById($recordData['care_type']);
        echo $type[0]['service_name'];
+       
        if($recordData['care_type']>16){
         echo " Job";
     }
