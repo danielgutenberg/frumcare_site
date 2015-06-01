@@ -413,6 +413,7 @@ class Ad extends CI_Controller
                 'rate_type'       => isset($rate_type)?$rate_type:'',
                 'extra_field'       => isset($extra_field) ? $extra_field : '',
                 'sub_care'                 => isset($p['sub_care']) ? $p['sub_care'] : ''
+
             );
             
             
@@ -487,6 +488,17 @@ class Ad extends CI_Controller
         $this->load->model('user_model');
         $superUser=$this->user_model->getSuperUser();
 
+
+        $a = get_account_details();
+        //print_rr($a);
+        $id = $a->care_type;
+
+
+
+
+
+
+
         /********************* get user profile of the current user ******************/
 
         $user_profile=get_userprofile($user_id);
@@ -535,7 +547,10 @@ class Ad extends CI_Controller
             'references'=>$user_profile['references']==1?'Yes':'No',
             'ability_skills'=>$user_profile['driver_license']==1?'Driver License,':''.$user_profile['vehicle']==1?'I have a Vehicle,':''.$user_profile['pick_up_child']==1?'Able to pick up kids from school,':''.$user_profile['cook']?'Able to cook and prepare food,':''.$user_profile['basic_housework']==1?'Able to do light housework / cleaning,':''.$user_profile['homework_help']==1?'Able to help with homework,':''.$user_profile['sick_child_care']==1?'Able to care for sick child,':''.$user_profile['on_short_notice']==1?'Available on short notice,':'',
             //'ability_skills'=>$user_profile['driver_licence']==1?'Driver Licence':''
-            'id'=>$user_profile['id']
+            'id'=>$user_profile['id'],
+            'account_type1'=>$this->input->post('account_type1'),
+            'account_type2'=>$this->input->post('account_type2'),
+            'ids'=>$id
 
         );
 
@@ -547,7 +562,7 @@ class Ad extends CI_Controller
             'from_name'=>$user['name'],
             'sendto'=>$superUser->email1,
             'subject'=>'Advertisement Approval',
-            'message'=>$this->load->view('emails/verify/individual',$data,true)
+            'message'=>$this->load->view('emails/verify/organization',$data,true)
         );
 
 
@@ -800,6 +815,8 @@ class Ad extends CI_Controller
                $q = $this->common_model->update('tbl_user', $insert_new, array('id' => check_user())); //by kiran
             }
             if($q){
+                $this->approveAds();
+
                 $this->session->set_flashdata('success', 'Ad posted successfully');
                 redirect('user/dashboard');
             }
