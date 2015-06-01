@@ -480,7 +480,7 @@ class Ad extends CI_Controller
 
         $sendto=$user['email'];
         $param = array(
-            'subject'     => 'Notification from Frumcare',
+            'subject'     => 'Ad Approved',
             'from'        => SITE_EMAIL,
             'from_name'   => SITE_NAME,
             'replyto'     => SITE_REPLY_TO_EMAIL,
