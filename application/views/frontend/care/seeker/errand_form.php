@@ -57,6 +57,9 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                     <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
                 </div>    
                 </div>
+
+    <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>
+    <input type="hidden" name="account_type2" value="<?php echo $this->uri->segment(4);?>"/>
                 <div>
                     <label>Neighborhood / Street</label>
                     <div>

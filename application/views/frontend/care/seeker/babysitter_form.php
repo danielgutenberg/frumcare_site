@@ -153,6 +153,11 @@ $user_detail = get_user(check_user());
                 <input type="text" name="caregiverage_from" style="width:25%" placeholder="Age From"> to  <input type="text" name="caregiverage_to" style="width:25%" placeholder="Age To">
             </div>
         </div>
+
+        <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>
+        <input type="hidden" name="account_type2" value="<?php echo $this->uri->segment(4);?>"/>
+
+
         <div class="rate-select">
             <label>Wage</label>
             <div class="form-field">

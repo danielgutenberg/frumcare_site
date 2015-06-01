@@ -71,6 +71,11 @@
                <input type="text" name="organization_name" value="<?php if(isset($fn)) echo $fn;?>" class="required">
             </div>
          </div>
+
+          <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>
+          <input type="hidden" name="account_type2" value="<?php echo $this->uri->segment(4);?>"/>
+
+
          <div>
             <label>Type of Organization</label>
             <div class="form-field">

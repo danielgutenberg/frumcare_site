@@ -54,6 +54,11 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 					<h1 class="step2">Step 2: Job Details</h1>
 				</div>
 				<?php } ?>
+
+                <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>
+                <input type="hidden" name="account_type2" value="<?php echo $this->uri->segment(4);?>"/>
+
+
 				<div>
 					<label>Name of Organization</label>
 					<div class="form-field">

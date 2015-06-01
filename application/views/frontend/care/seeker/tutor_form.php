@@ -127,6 +127,11 @@ $user_detail = get_user(check_user());
             </div>
         </div>
 
+        <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>
+        <input type="hidden" name="account_type2" value="<?php echo $this->uri->segment(4);?>"/>
+
+
+
          <div>
             <!--<label>Check one or more</label>
             <div class="checkbox"><input type="checkbox" name="rate_type[]" value="1">Hourly Rate</div>-->
