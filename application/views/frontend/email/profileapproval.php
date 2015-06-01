@@ -4,7 +4,10 @@
         <p style="font-family:Arial, Helvetica, sans-serif; font-size:13px; margin-bottom:20px;">A new profile with following details has been submitted and require your action:</p>
     </div>
 <br />
+<div style="font-family:Arial, Helvetica, sans-serif; font-size:15px; margin-bottom:5px;">Approve this submission:</div>
+<div style="font-family:Arial, Helvetica, sans-serif; font-size:13px; margin-bottom:5px;">To APPROVE: <a href="<?php echo site_url();?>ad/approve/<?php echo $recordData['$user_id'];?>/<?php echo $recordData['profile_id'];?>">Click Here</a></div>
 
+<div style="font-family:Arial, Helvetica, sans-serif; font-size:13px; margin-bottom:15px;">Or to EDIT before approving, login to the admin section.</div>
 
 <div class="container">
     <div class="caregivers-details">
@@ -74,15 +77,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-<div style="font-family:Arial, Helvetica, sans-serif; font-size:15px; margin-bottom:5px;">Approve this submission:</div>
-<div style="font-family:Arial, Helvetica, sans-serif; font-size:13px; margin-bottom:5px;">To APPROVE: <a href="<?php echo site_url();?>ad/approve/<?php echo $recordData['$user_id'];?>/<?php echo $recordData['profile_id'];?>">Click Here</a></div>
-
-<div style="font-family:Arial, Helvetica, sans-serif; font-size:13px; margin-bottom:15px;">Or to EDIT before approving, login to the admin section.</div>
 
 Thanks you,
 <br />
