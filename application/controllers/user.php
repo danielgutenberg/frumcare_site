@@ -1003,7 +1003,6 @@ class User extends CI_Controller
                         $receiveremail .= $e1['email1'].',';                        
                     }
                     $receiveremail = substr_replace($receiveremail ,"",-1);  //removes comma from last
-                    $receiveremail = 'dan7bf@gmail.com';
                     $config = Array(
                           //'protocol' => 'smtp',
                           //'smtp_host' => 'ssl://smtp.googlemail.com',
