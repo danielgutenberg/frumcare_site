@@ -456,7 +456,7 @@ class Ad extends CI_Controller
         $id = $a->care_type;
         $details = $this->user_model->getUserDetailsById($user_id,$id);
         
-        $msg = $this->load->view('emails/adApproved', array('name' => $details['name']), true);
+        $msg = $this->load->view('emails/adPlaced', array('name' => $details['name']), true);
         $param = array(
             'subject'     => 'Ad Placed Successfully',
             'from'        => SITE_EMAIL,
@@ -491,10 +491,6 @@ class Ad extends CI_Controller
             'message'     => $msg
         );
         sendemail($param);
-
-
-
-        redirect('ad/success','refresh');
 
     }
 
