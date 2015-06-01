@@ -46,11 +46,11 @@
         <?php
         } */
 
-        if(!empty($name_of_owner)){?>
+        if(!empty($name)){?>
         <tr>
             <td>Name of owner / operator</td>
             <td class="form-field">
-                <?php echo $name_of_owner; ?>
+                <?php echo $name; ?>
             </td>
         </tr>
         <?php }
