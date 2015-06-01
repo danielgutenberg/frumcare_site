@@ -1082,7 +1082,7 @@ class User extends CI_Controller
             print_r($id, $care_type);
             $details      = $this->user_model->getUserDetailsBySlug($id,$care_type);
             $type = Caretype_model::getCareTypeById($details['care_type']);
-            print_r($details);
+            // print_r($details);
             exit();
             
             $data['main_content']   = 'frontend/caregivers/details';
