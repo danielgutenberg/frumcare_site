@@ -435,11 +435,9 @@ class Ad extends CI_Controller
                 $this->session->set_flashdata('info', 'Ad posted successfully');
                 //user notification
                 $this->notifyUser();
-                print_r('got here2');
 
                 //email sent to admin for approval
                 $this->approveAds();
-                print_r('got here3');
                 redirect('user/dashboard');
             }
             else{
@@ -457,8 +455,8 @@ class Ad extends CI_Controller
         $a = get_account_details();
         $id = $a->care_type;
         $details = $this->user_model->getUserDetailsById($user_id,$id);
-        print_r($details);
-        $msg = $this->load->view('frontend/email/adApproved', array('name' => $details['name']), true);
+        
+        $msg = $this->load->view('frontend/emails/adApproved', array('name' => $details['name']), true);
         $param = array(
             'subject'     => 'Ad Placed Successfully',
             'from'        => SITE_EMAIL,
@@ -482,7 +480,7 @@ class Ad extends CI_Controller
         $id = $a->care_type;
         $details = $this->user_model->getUserDetailsById($user_id,$id);
         
-        $msg = $this->load->view('frontend/email/adApproved', array('name' => $details['name']), true);
+        $msg = $this->load->view('frontend/emails/adApproved', array('name' => $details['name']), true);
         $param = array(
             'subject'     => 'Ad Approved',
             'from'        => SITE_EMAIL,
