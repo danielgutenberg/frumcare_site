@@ -1081,7 +1081,8 @@ class User extends CI_Controller
        {
             $details      = $this->user_model->getUserDetailsBySlug($id,$care_type);
             $type = Caretype_model::getCareTypeById($details['care_type']);
-    
+            print_r($details);
+            exit();
             $this->breadcrumbs->push($type[0]['service_name'], '#');
             $this->breadcrumbs->push($details['name'], '#');
             $this->breadcrumbs->unshift('Home', base_url());
