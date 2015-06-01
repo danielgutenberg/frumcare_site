@@ -431,12 +431,15 @@ class Ad extends CI_Controller
             if($q){
                 $facility_picture  = isset($p['facility_pic']) ? $p['facility_pic'] : '';
                 $this->common_model->update('tbl_userprofile', array('facility_pic'=>$facility_picture), array('id'=>check_user()));
+                print_r('got here');
                 $this->session->set_flashdata('info', 'Ad posted successfully');
                 //user notification
                 $this->notifyUser();
+                print_r('got here2');
 
                 //email sent to admin for approval
                 $this->approveAds();
+                print_r('got here3');
                 redirect('user/dashboard');
             }
             else{
@@ -537,7 +540,7 @@ class Ad extends CI_Controller
         $this->email->to($receiveremail);
         //$this->email->to('kiran@access-keys.com,chand@access-keys.com');                    
         
-        $this->email->subject('A new profile has been added in Frumcare.com,approval required');
+        $this->email->subject('A new profile has been added in Frumcare.com, approval required');
         // $data = array('user_id'=>check_user(),'profile_id'=>$q);
         // $array = array_merge($insert, $data);
         // $emailMessage = $this->getEmailMessage(check_user(), $p['care_type']);
