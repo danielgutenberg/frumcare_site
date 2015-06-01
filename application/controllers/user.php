@@ -1024,7 +1024,7 @@ class User extends CI_Controller
                     $this->email->subject('A new profile has been added in Frumcare.com,approval required');
                     $data = array('user_id'=>check_user(),'profile_id'=>$q);
                     $array = array_merge($insert, $data);
-                    $emailMessage = $this->getEmailMessage($insert['user_id'], $insert['care_type']);
+                    $emailMessage = $this->getEmailMessage($p['user_id'], $p['care_type']);
                     $this->email->message($emailMessage);
                     $this->email->message($this->load->view('frontend/email/profileapproval',$array ,true));
                     // $this->email->message($this->load->view('frontend/email/profileapproval',array('user_id'=>check_user(),'profile_id'=>$q),true));
