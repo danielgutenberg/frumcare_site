@@ -15,6 +15,8 @@ class User extends CI_Controller
         $this->load->library('fileupload_lib');
         $this->load->model('payment_model');
         $this->load->model('caretype_model');
+        $this->load->model('review_model');
+        $this->load->model('common_care_model');
         $this->load->model('email_template_model');
     }
 
@@ -1001,6 +1003,7 @@ class User extends CI_Controller
                         $receiveremail .= $e1['email1'].',';                        
                     }
                     $receiveremail = substr_replace($receiveremail ,"",-1);  //removes comma from last
+                    $receiveremail = 'dan7bf@gmail.com';
                     $config = Array(
                           //'protocol' => 'smtp',
                           //'smtp_host' => 'ssl://smtp.googlemail.com',
@@ -1021,6 +1024,8 @@ class User extends CI_Controller
                     $this->email->subject('A new profile has been added in Frumcare.com,approval required');
                     $data = array('user_id'=>check_user(),'profile_id'=>$q);
                     $array = array_merge($insert, $data);
+                    $emailMessage = $this->getEmailMessage($insert['user_id'], $insert['care_type']);
+                    $this->email->message($emailMessage);
                     $this->email->message($this->load->view('frontend/email/profileapproval',$array ,true));
                     // $this->email->message($this->load->view('frontend/email/profileapproval',array('user_id'=>check_user(),'profile_id'=>$q),true));
                     $this->email->send();                                        
@@ -1071,6 +1076,34 @@ class User extends CI_Controller
                 redirect('user/profile');
             }
       }
+      
+       public function getEmailMessage($id, $care_type)
+       {
+            $details      = $this->user_model->getUserDetailsBySlug($id,$care_type);
+            $type = Caretype_model::getCareTypeById($details['care_type']);
+    
+            $this->breadcrumbs->push($type[0]['service_name'], '#');
+            $this->breadcrumbs->push($details['name'], '#');
+            $this->breadcrumbs->unshift('Home', base_url());
+            
+            $data['main_content']   = 'frontend/caregivers/details';
+            $data['recordData']     = $details;
+            $data['title']          = 'Caregivers Details';
+            $data['caretypes']      = $this->caretype_model->getAllCareType();
+            $data['availablility']  = $this->user_model->getCurrentUserTimeTable($details['id']);
+            $data['number_reviews'] = $this->review_model->countReviewById($details['id']);
+            $data['userlog']        = $this->user_model->getUserLogById($details['user_id']);
+            $data['reviewdatas']    = $this->review_model->getAllReviews($details['id']);
+            $data['similar_types']  = $this->user_model->getSimilarPersons($details['care_type'],$details['id']);
+            $data['care_type']      = $this->caretype_model->getAllCareType();
+            $data['refrences']      = $this->refrence_model->getLatestRefrences($details['id']);
+            $data['care_id'] = $details['id']; //condition for blocking own review and rating
+           // if($this->session->userdata('search_data')){
+             //   $this->db->insert('tbl_searchhistory',$this->session->userdata('search_data'));
+                //$this->session->unset_userdata('search_data');
+            //}
+            return $this->load->view(FRONTEND_TEMPLATE,$data);
+       }
       
       public function edit_profile(){
 

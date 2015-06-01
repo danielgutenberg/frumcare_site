@@ -147,9 +147,6 @@ class Caregivers extends CI_Controller
         $this->load->view(FRONTEND_TEMPLATE, $data);
     }
 
-
-
-
     public function details($slug,$care_type){
         $slug = urldecode($this->uri->segment(3));
         $care_type = $this->uri->segment(4);
