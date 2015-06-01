@@ -1022,11 +1022,28 @@ class User extends CI_Controller
                     //$this->email->to('kiran@access-keys.com,chand@access-keys.com');                    
                     
                     $this->email->subject('A new profile has been added in Frumcare.com,approval required');
-                    $data = array('user_id'=>check_user(),'profile_id'=>$q);
-                    $array = array_merge($insert, $data);
-                    $emailMessage = $this->getEmailMessage(check_user(), $p['care_type']);
-                    $this->email->message($emailMessage);
-                    $this->email->message($this->load->view('frontend/email/profileapproval',$array ,true));
+                    // $data = array('user_id'=>check_user(),'profile_id'=>$q);
+                    // $array = array_merge($insert, $data);
+                    // $emailMessage = $this->getEmailMessage(check_user(), $p['care_type']);
+                    
+                    $details      = $this->user_model->getUserDetailsById(check_user(),$p['care_type']);
+                    $type = Caretype_model::getCareTypeById($details['care_type']);
+                    
+                    $data['main_content']   = 'frontend/caregivers/details';
+                    $data['recordData']     = $details;
+                    $data['title']          = 'Caregivers Details';
+                    $data['caretypes']      = $this->caretype_model->getAllCareType();
+                    $data['availablility']  = $this->user_model->getCurrentUserTimeTable($details['id']);
+                    $data['number_reviews'] = $this->review_model->countReviewById($details['id']);
+                    $data['userlog']        = $this->user_model->getUserLogById($details['user_id']);
+                    $data['reviewdatas']    = $this->review_model->getAllReviews($details['id']);
+                    $data['similar_types']  = $this->user_model->getSimilarPersons($details['care_type'],$details['id']);
+                    $data['care_type']      = $this->caretype_model->getAllCareType();
+                    $data['refrences']      = $this->refrence_model->getLatestRefrences($details['id']);
+                    $data['care_id'] = $details['id'];
+                    
+                    $this->email->message($this->load->view(FRONTEND_TEMPLATE,$data));
+                    // $this->email->message($this->load->view('frontend/email/profileapproval',$array ,true));
                     // $this->email->message($this->load->view('frontend/email/profileapproval',array('user_id'=>check_user(),'profile_id'=>$q),true));
                     $this->email->send();                                        
                     if(isset($p['contact_number']) && !empty($p['contact_number'])){
@@ -1094,11 +1111,7 @@ class User extends CI_Controller
             $data['similar_types']  = $this->user_model->getSimilarPersons($details['care_type'],$details['id']);
             $data['care_type']      = $this->caretype_model->getAllCareType();
             $data['refrences']      = $this->refrence_model->getLatestRefrences($details['id']);
-            $data['care_id'] = $details['id']; //condition for blocking own review and rating
-           // if($this->session->userdata('search_data')){
-             //   $this->db->insert('tbl_searchhistory',$this->session->userdata('search_data'));
-                //$this->session->unset_userdata('search_data');
-            //}
+            $data['care_id'] = $details['id']; 
             return $this->load->view(FRONTEND_TEMPLATE,$data);
        }
       
