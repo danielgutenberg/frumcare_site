@@ -1079,7 +1079,8 @@ class User extends CI_Controller
       
        public function getEmailMessage($id, $care_type)
        {
-            $details      = $this->user_model->getUserDetailsBySlug($id,$care_type);
+            $details      = $this->user_model->getUserDetailsById($id,$care_type);
+            print_r($details);
             $type = Caretype_model::getCareTypeById($details['care_type']);
             
             $data['main_content']   = 'frontend/caregivers/details';
