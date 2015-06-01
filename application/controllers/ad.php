@@ -431,7 +431,6 @@ class Ad extends CI_Controller
             if($q){
                 $facility_picture  = isset($p['facility_pic']) ? $p['facility_pic'] : '';
                 $this->common_model->update('tbl_userprofile', array('facility_pic'=>$facility_picture), array('id'=>check_user()));
-                print_r('got here');
                 $this->session->set_flashdata('info', 'Ad posted successfully');
                 //user notification
                 $this->notifyUser();
@@ -456,6 +455,8 @@ class Ad extends CI_Controller
         
         $a = get_account_details();
         $id = $a->care_type;
+        print_r($user_id);
+        print_r($a);
         $details = $this->user_model->getUserDetailsById($user_id,$id);
         
         $msg = $this->load->view('frontend/email/adApproved', array('name' => $details['name']), true);
