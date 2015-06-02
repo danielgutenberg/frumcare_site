@@ -27,7 +27,7 @@ class ad_model extends CI_Model{
 	}
 
 	public function delete($id){
-		$this->db->delete('tbl_user',array('id'=>$id));
+		$this->db->delete('tbl_userprofile',array('id'=>$id));
 	}
 
 	public function updatedetails($id){
