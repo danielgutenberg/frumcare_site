@@ -972,7 +972,7 @@ class User extends CI_Controller
                     'personal_hygiene' => isset($p['personal_hygiene'])?$p['personal_hygiene']:'',
                     'reference_file' => isset($p['file'])?$p['file']:'',
                     // added on 28 dec 2014 by santosh
-                    'created_time' => date('Y-m-d'),
+                    'created_time' => strtotime('now'),
                     'licence_information' => isset($p['licence_information'])?$p['licence_information']:'',
                     'sunday_from'   => isset($p['sunday_from'])?$p['sunday_from']:'',
                     'sunday_to'     => isset($p['sunday_to'])?$p['sunday_to']:'',
