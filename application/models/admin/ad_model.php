@@ -56,7 +56,7 @@ class ad_model extends CI_Model{
 	}
 
 	public function getAdDetails(){
-		$sql = "select *, tbl_userprofile.id as userProfileId from tbl_userprofile left outer join tbl_user on tbl_user.id = tbl_userprofile.user_id order by tbl_userprofile.created_time desc";	 
+		$sql = "select *, tbl_userprofile.id as userProfileId from tbl_userprofile left outer join tbl_user on tbl_user.id = tbl_userprofile.user_id order by tbl_userprofile.id desc";	 
 		$query = $this->db->query($sql);
 		$res = $query->result_array();
                 
