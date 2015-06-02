@@ -51,6 +51,7 @@ class Ad extends CI_Controller
                     'name'                  => $fname,
                     'email'                 => $email,
                     'email_hash'            => sha1($email),
+                    'created_on'          => strtotime('now'),
                   
             );
             // save to database
@@ -60,8 +61,7 @@ class Ad extends CI_Controller
                             'user_id'           => $q,
                             'account_category'  => $_POST['account_category'],
                             'care_type'         => $care_type,
-                            'created_on'        => date('Y-m-d'),
-                                //'created_time'  => strtotime('now'),
+                            'created_time'        => date('Y-m-d'),
                             'organization_care' => isset($_POST['organization_care'])?$_POST['organization_care'] :0,
                             'profile_status'    => 0,    
                         );
@@ -427,7 +427,7 @@ class Ad extends CI_Controller
                 'extra_field'       => isset($extra_field) ? $extra_field : '',
                 'sub_care'                 => isset($p['sub_care']) ? $p['sub_care'] : '',
                 // added on 28 dec 2014 by santosh
-                'created_on' => date('y-m-d'),
+                'created_time' => date('Y-m-d'),
                 'licence_information' => isset($p['licence_information'])?$p['licence_information']:'',
                 'sunday_from'   => isset($p['sunday_from'])?$p['sunday_from']:'',
                 'sunday_to'     => isset($p['sunday_to'])?$p['sunday_to']:'',
