@@ -77,13 +77,13 @@ function scroller(from,to) {
                             <td><?php echo date('Y-m-d H:i:s',$ud['updated_time']);?></td>
                             <td><?php echo $ud['profile_status'] == 1 ? 'Approved':'Pending';?></td>
                             <td>
-                                <a class="btn btn-info" href="<?php echo base_url('admin/ad/detail/'.$ud['id']);?>">Edit</a>
+                                <a class="btn btn-info" href="<?php echo base_url('admin/ad/detail/'.$ud['userProfileId']);?>">Edit</a>
                             </td>
                             <td>
-                                <a class="btn btn-danger" href="<?php echo base_url('admin/ad/delete/'.$ud['id']);?>" onclick="return confirm('Are sure to delete this advertisement?');">Delete</a>
+                                <a class="btn btn-danger" href="<?php echo base_url('admin/ad/delete/'.$ud['userProfileId']);?>" onclick="return confirm('Are sure to delete this advertisement?');">Delete</a>
                             </td>
                             <td>
-                                <a class="btn btn-default" href="<?php echo base_url();?>admin/ad/changestatus/<?php if($ud['profile_status'] != 1){ echo 'approve/'.$ud['id']; }else{ echo 'reject/'.$ud['id']; } ?>"onclick="return confirm('Are you sure to change the status?');"> <?php if($ud['profile_status'] == 0){ echo 'Approve'; }else{ echo 'Reject'; } ?></a>
+                                <a class="btn btn-default" href="<?php echo base_url();?>admin/ad/changestatus/<?php if($ud['profile_status'] != 1){ echo 'approve/'.$ud['userProfileId']; }else{ echo 'reject/'.$ud['userProfileId']; } ?>"onclick="return confirm('Are you sure to change the status?');"> <?php if($ud['profile_status'] == 0){ echo 'Approve'; }else{ echo 'Reject'; } ?></a>
                             </td>
                             <td>
                                 <form id="adminLogIn<?php echo $ud['user_id']?>" action="<?php echo site_url();?>login" method="post" target="_blank">
