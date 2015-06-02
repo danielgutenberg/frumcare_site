@@ -376,7 +376,12 @@ class Ad extends CI_Controller
             }
             if(isset($p['extra_field'])){
                     $extra_field = join(',',$p['extra_field']);
-            } 
+            }
+            if(isset($p['facility_pic'])){
+                $facility_pic = $p['facility_pic'];
+            }else{
+                $facility_pic = '';
+            }
                 
             $insert = array(
                 'subjects'              => $subjects,
@@ -420,7 +425,29 @@ class Ad extends CI_Controller
                 'reference_file'  => isset($p['file'])?$p['file']:'',
                 'rate_type'       => isset($rate_type)?$rate_type:'',
                 'extra_field'       => isset($extra_field) ? $extra_field : '',
-                'sub_care'                 => isset($p['sub_care']) ? $p['sub_care'] : ''
+                'sub_care'                 => isset($p['sub_care']) ? $p['sub_care'] : '',
+                // added on 28 dec 2014 by santosh
+                'created_on' => date('y-m-d'),
+                'licence_information' => isset($p['licence_information'])?$p['licence_information']:'',
+                'sunday_from'   => isset($p['sunday_from'])?$p['sunday_from']:'',
+                'sunday_to'     => isset($p['sunday_to'])?$p['sunday_to']:'',
+                'mid_days_from' => isset($p['mid_days_from'])?$p['mid_days_from']:'',
+                'mid_days_to'   => isset($p['mid_days_to'])?$p['mid_days_to']:'',
+                'friday_from'   => isset($p['friday_from'])?$p['friday_from']:'',
+                'friday_to'     => isset($p['friday_to'])?$p['friday_to']:'',
+                'vacation_days' => isset($p['vacation_days'])?$p['vacation_days']:'',
+                'pdf'           => isset($p['pdf'])?$p['pdf']:'',
+                'extended_hrs'  => isset($p['extended_hrs_available'])?$p['extended_hrs_available']:'',
+                'flexible_hours'=> isset($p['flexible_hours'])?$p['flexible_hours']:'',
+                'rate' => isset($p['rate']) && isset($p['rate']) ?$p['rate']:'',
+                'rate_type' => isset($rate_type) ? $rate_type:'',
+                'payment_option'    => isset($p['payment_option'])?$p['payment_option']:'',
+                'days_from' => isset($p['days_from'])?$p['days_from']:'',
+                'days_to' => isset($p['days_to'])?$p['days_to']:'',
+                'hours_from'  => isset($p['hours_from'])?$p['hours_from']:'',
+                'hours_to'=> isset($p['hours_to'])?$p['hours_to']:'',
+                'facility_pic' => $facility_pic,
+                'extra_field'       => isset($extra_field) ? $extra_field : ''
 
             );
             
