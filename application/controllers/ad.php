@@ -469,8 +469,10 @@ class Ad extends CI_Controller
         sendemail($param);
     }
 
-    public function approveAd($id){
-
+    public function approveAd($id)
+    {
+        $id = $this->uri->segment(3);
+        $profile_id = $this->uri->segment(4);
         $this->db->where('id',$id);
         $this->db->update('tbl_userprofile',array('profile_status'=>1));
         $user = get_user($id);

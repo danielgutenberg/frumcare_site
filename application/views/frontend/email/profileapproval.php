@@ -5,7 +5,7 @@
     </div>
 <br />
 <div style="font-family:Arial, Helvetica, sans-serif; font-size:15px; margin-bottom:5px;">Approve this submission:</div>
-<div style="font-family:Arial, Helvetica, sans-serif; font-size:13px; margin-bottom:5px;">To APPROVE: <a href="<?php echo site_url();?>ad/approveAd/<?php echo $recordData['user_id'];?>;?>">Click Here</a></div>
+<div style="font-family:Arial, Helvetica, sans-serif; font-size:13px; margin-bottom:5px;">To APPROVE: <a href="<?php echo site_url();?>ad/approveAd/<?php echo $recordData['care_type'];?>/<?php echo $recordData['user_id'];?>">Click Here</a></div>
 
 <div style="font-family:Arial, Helvetica, sans-serif; font-size:13px; margin-bottom:15px;">Or to EDIT before approving, login to the admin section.</div>
 
