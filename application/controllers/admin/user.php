@@ -78,7 +78,7 @@ class User extends CI_Controller
         $del = $this->db->delete('tbl_user',array('id'=>$id));
         if($del){
             $this->session->set_flashdata('success', 'User deleted successfully');
-            redirect('admin/user/profile','refresh');
+            redirect('admin/user','refresh');
         }
 
     }
