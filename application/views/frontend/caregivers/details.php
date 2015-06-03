@@ -1,5 +1,4 @@
 <div class="container">
-    <?php print_r($recordData);?>
 	<?php echo $this->breadcrumbs->show();
     ?>
     <div class="caregivers-details">
