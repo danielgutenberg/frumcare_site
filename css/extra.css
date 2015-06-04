@@ -4026,6 +4026,9 @@ input[type="radio"], input[type="checkbox"] {
     .left-sidebar-resource{ margin-right: 0px;}
 }
 
+
+.help-form .contact-form-help{ float:right;}
+
 /* @added By Santosh */
 .searchloader {
 	position: fixed;
