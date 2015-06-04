@@ -3955,22 +3955,6 @@ input[type="radio"], input[type="checkbox"] {
 		font-family: 'Lato',sans-serif;
 		font-weight: 400;
 	}
-/************************** mobile view *****************************/
-    @media screen and (max-width:360px){
-        .toggle-menu{ }
-        .navigation nav .primary-nav li a{}
-        .dropdown-menu{
-            display: block;
-            text-align: left;
-            padding-left:20px;
-        }
-        ul.primary-nav > li >a, ul.primary-nav a.dropdown-toggle{ text-align: left; display: block;}
-
-        .sign-up-forms .care-type #care_type{ width:100%;}
-        .create-pswrd, .confrim-pswd{ width:100%;}
-        .create-pswrd input, .confirm-pswrd input{ width:100%;}
-    }
-
 
 
 
@@ -4013,6 +3997,33 @@ input[type="radio"], input[type="checkbox"] {
 		background: #a1e13e;
 		width: 280px;
 	}
+}
+
+
+/************************** mobile view *****************************/
+@media screen and (max-width:360px){
+    .toggle-menu{ }
+    .navigation nav .primary-nav li a{}
+    .dropdown-menu{
+        display: block;
+        text-align: left;
+        padding-left:20px;
+    }
+    ul.primary-nav > li >a, ul.primary-nav a.dropdown-toggle{ text-align: left; display: block;}
+
+    .sign-up-forms .care-type #care_type{ width:100%;}
+    .create-pswrd, .confrim-pswd{ width:100%;}
+    .create-pswrd input, .confirm-pswrd input{ width:100%;}
+
+    .left-sidebar-resource{ width:100%; margin-right: 0px;}
+    .right-side-resources{ width:100%; display: block; border-left:0px;}
+}
+
+
+/*************************** big desktop view ******************************************/
+
+@media screen and (max-width: 980px){
+    .left-sidebar-resource{ margin-right: 0px;}
 }
 
 /* @added By Santosh */
