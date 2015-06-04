@@ -498,15 +498,14 @@ class Ad extends CI_Controller
 
     public function approveAd($id)
     {
-        $id = $this->uri->segment(3);
-        $profile_id = $this->uri->segment(4);
+        $user_id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
         $this->db->where('id',$id);
         $this->db->update('tbl_userprofile',array('profile_status'=>1));
-        $user = get_user($id);
+        
+        $user = get_user($user_id);
         $sendto = $user['email'];
         
-        $a = get_account_details();
-        $id = $a->care_type;
         $details = $this->user_model->getUserDetailsById($user_id,$id);
         
         $msg = $this->load->view('emails/adApproved', array('name' => $details['name']), true);
