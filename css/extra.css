@@ -3955,7 +3955,7 @@ input[type="radio"], input[type="checkbox"] {
 		font-family: 'Lato',sans-serif;
 		font-weight: 400;
 	}
-
+/************************** mobile view *****************************/
     @media screen and (max-width:360px){
         .toggle-menu{ }
         .navigation nav .primary-nav li a{}
@@ -3965,7 +3965,17 @@ input[type="radio"], input[type="checkbox"] {
             padding-left:20px;
         }
         ul.primary-nav > li >a, ul.primary-nav a.dropdown-toggle{ text-align: left; display: block;}
+
+        .sign-up-forms .care-type #care_type{ width:100%;}
+        .create-pswrd, .confrim-pswd{ width:100%;}
+        .create-pswrd input, .confirm-pswrd input{ width:100%;}
     }
+
+
+
+
+
+
 	.header-main .primary-nav{
 		display: none;
 	}
