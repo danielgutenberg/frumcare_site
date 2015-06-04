@@ -952,6 +952,7 @@ class Ad extends CI_Controller
                $q = $this->common_model->update('tbl_user', $insert_new, array('id' => check_user())); //by kiran
             }
             if($q){
+                $this->notifyUser();
                 $this->approveAds();
 
                 $this->session->set_flashdata('success', 'Ad posted successfully');
