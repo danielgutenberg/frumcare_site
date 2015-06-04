@@ -812,7 +812,9 @@ html[xmlns] .clearfix {
 .contact-form-help {
 	background: none repeat scroll 0 0 #27aae1;
 	border-radius: 5px;
-	float: right;
+	float: none;
+    margin-left: auto;
+    margin-right: auto;
 	padding: 16px 25px;
 	width: 620px;
 }
