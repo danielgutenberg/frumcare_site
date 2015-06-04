@@ -286,6 +286,7 @@
 
         <section class="client-say">
             <div class="container">
+                <div class="row">
                 <h2 class="title">Like our site? Questions? Comments? We're Listening!</h2>
 
 
@@ -296,7 +297,7 @@
                     <br/>
                     <span class="chats-wrap">Chat</span>
                 </div> */?>
-                <div class="contact-form-help" style="float: left; margin-left:225px;">
+                <div class="contact-form-help" style="">
                   <span>Contact Form </span>
 
                   <form action="<?php echo site_url();?>help/send_message" method="post" name="contact" id="contact-form">
@@ -330,6 +331,7 @@
                             <span class="author"><?php echo $testimonial[1]->testimonial_by;?></span>
                         </p>
                     </article> */ ?>
+                </div>
                 </div>
             </section>
         </main>
