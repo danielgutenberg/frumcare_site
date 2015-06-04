@@ -12,7 +12,7 @@
             <td>
                 <div class="details-info"><?php if(in_array('My home',$lookingtowork)){ echo $tick; }else{echo $cross;} ?> My home</div>
                 <div class="details-info"><?php if(in_array('Caregivers home',$lookingtowork)){ echo $tick; }else{echo $cross;} ?> Caregivers home</div>
-                <div class="details-info"><?php if(in_array('Mothers helper',$lookingtowork)){ echo $tick; }else{echo $cross;} ?>Mother's helper</div>
+                <div class="details-info"><?php if(in_array("Mother's helper",$lookingtowork)){ echo $tick; }else{echo $cross;} ?>Mother's helper</div>
             </td>
         </tr>
     <?php }else{
@@ -134,7 +134,7 @@
                 <div class="details-info"><?php if(in_array("Occassionally",$temp)){ echo $tick; }else{ echo $cross; }?> Occassionally</div>
                 <div class="details-info"><?php if(in_array("Regularly",$temp)){ echo $tick; }else{ echo $cross; }?> Regularly</div>
                 <div class="details-info"><?php if(in_array("Asap",$temp)){ echo $tick; }else{ echo $cross; }?> Asap</div>
-                <div class="details-info"><?php if(in_array("Start date",$temp)){echo $tick; if($start_date!='0000-00-00'){ echo $start_date;} }else{echo $cross; } ?> Start Date</div>
+                <div class="details-info"><?php if(in_array("Start Date",$temp)){echo $tick; if($start_date!='0000-00-00'){ echo $start_date;} }else{echo $cross; } ?> Start Date</div>
                 <div class="details-info"><?php if(in_array("Morning",$temp)){ echo $tick; }else{ echo $cross; }?> Morning</div>
                 <div class="details-info"><?php if(in_array("Afternoon",$temp)){ echo $tick; }else{ echo $cross; }?> Afternoon</div>
                 <div class="details-info"><?php if(in_array("Evening",$temp)){ echo $tick; }else{ echo $cross; }?> Evening</div>

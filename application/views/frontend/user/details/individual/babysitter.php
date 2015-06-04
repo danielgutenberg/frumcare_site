@@ -12,9 +12,9 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
                <td >Looking to work in</td>
                <td >            
                     <div class="details-info"><?php if(in_array('My home', $lookingtowork)){ echo $tick; }else{echo $cross; }?> My home</div>
-                    <div class="details-info"><?php if(in_array("Child's home", $lookingtowork)){ echo $tick; }else{echo $cross;}?> Child's home</div>
+                    <div class="details-info"><?php if(in_array("Childs home", $lookingtowork)){ echo $tick; }else{echo $cross;}?> Child's home</div>
                     <div class="details-info"><?php if(in_array(strtolower("Caregiving institution"), array_map('strtolower',$lookingtowork))){ echo $tick; }else{echo $cross; }?> Caregiving institution</div>
-                    <div class="details-info"><?php if(in_array("Mother's helper", $lookingtowork)){ echo $tick; }else{echo $cross; }?> Mother's helper</div>	
+                    <div class="details-info"><?php if(in_array("Mother's Helper", $lookingtowork)){ echo $tick; }else{echo $cross; }?> Mother's helper</div>	
                 </td>
             </tr>
             
@@ -39,8 +39,8 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
             <tr >    	
                <td></td>
                <td >    		
-                <div class="details-info"><?php if(in_array('Twins',$optionalnumber)){ echo $tick; }else{echo $cross; }?>  Twins</div>
-                <div class="details-info"><?php if(in_array('Triplets',$optionalnumber)){ echo $tick; }else{echo $cross; }?>  Triplets</div>        
+                <div class="details-info"><?php if(in_array('twins',$optionalnumber)){ echo $tick; }else{echo $cross; }?>  Twins</div>
+                <div class="details-info"><?php if(in_array('triplets',$optionalnumber)){ echo $tick; }else{echo $cross; }?>  Triplets</div>        
             </td>
         </tr>
           <?php     
@@ -90,7 +90,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
            <td >
             <div class="details-info"><?php if(in_array('CPR', $trainingtemp)){ echo $tick; }else{echo $cross; } ?>  CPR</div>
             <div class="details-info"><?php if(in_array('First Aid', $trainingtemp)){ echo $tick; }else{echo $cross; } ?> First Aid</div>
-            <div class="details-info"><?php if(in_array('Nanny/ Babysitter Course', $trainingtemp)){ echo $tick; }else{echo $cross; } ?> Nanny/ Babysitter Course</div>
+            <div class="details-info"><?php if(in_array('Nanny/ Babysitter Course', $trainingtemp)){ echo $tick; }else{echo $cross; } ?> Nanny / Babysitter Course</div>
             <div class="details-info"><?php if(in_array('Other', $trainingtemp)){ echo $tick; }else{echo $cross; } ?> Other</div>                      
         </td>	
     </tr>
@@ -132,7 +132,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
            <td >Availability </td>
            <td >
             <div class="details-info"><?php if(in_array("Immediate",$time)){echo $tick; }else{echo $cross; } ?> Immediate </div>
-            <div class="details-info"><?php if(in_array("Start date",$time)){echo $tick; if($start_date!='0000-00-00'){ echo $start_date;} }else{echo $cross; } ?> Start Date</div>
+            <div class="details-info"><?php if(in_array("Start Date",$time)){echo $tick; if($start_date!='0000-00-00'){ echo $start_date;} }else{echo $cross; } ?> Start Date</div>
             <div class="details-info"><?php if(in_array('Occassionally', $time)){ echo $tick; }else{echo $cross; } ?>Occassionally</div>
             <div class="details-info"><?php if(in_array('Regularly', $time)){ echo $tick; }else{echo $cross;} ?>Regularly</div>
             <div class="details-info"><?php if(in_array('Morning', $time)){ echo $tick; }else{echo $cross; }?> Morning</div>

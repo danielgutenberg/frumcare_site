@@ -54,7 +54,7 @@ $user_detail = get_user(check_user());
             <div class="form-field">
             <div class="checkbox"><input type="checkbox" value="My home" name="looking_to_work[]"> My home</div>
             <div class="checkbox"><input type="checkbox" value="Caregivers home" name="looking_to_work[]"> Caregivers home</div>
-            <div class="checkbox"><input type="checkbox" value="Mothers helper" name="looking_to_work[]"/>Mother's helper</div>            
+            <div class="checkbox"><input type="checkbox" value="Mother's helper" name="looking_to_work[]"/>Mother's helper</div>            
             </div>
         </div>
         <div>
