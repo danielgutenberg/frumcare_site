@@ -3955,6 +3955,17 @@ input[type="radio"], input[type="checkbox"] {
 		font-family: 'Lato',sans-serif;
 		font-weight: 400;
 	}
+
+    @media screen and (max-width:360px){
+        .toggle-menu{ }
+        .navigation nav .primary-nav li a{}
+        .dropdown-menu{
+            display: block;
+            text-align: left;
+            padding-left:20px;
+        }
+        ul.primary-nav > li >a, ul.primary-nav a.dropdown-toggle{ text-align: left; display: block;}
+    }
 	.header-main .primary-nav{
 		display: none;
 	}
