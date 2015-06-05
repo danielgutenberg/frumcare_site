@@ -4029,6 +4029,8 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 
+.table-responsive table{ table-layout: inherit;}
+
 .help-form .contact-form-help{ float:right;}
 
 /* @added By Santosh */
