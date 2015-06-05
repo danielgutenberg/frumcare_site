@@ -4022,6 +4022,8 @@ input[type="radio"], input[type="checkbox"] {
     form .ad-form-container input[type=text]{ width:100%;}
     .ad-form-container{ width:100%;}
     .container .dashboard-right,.container .dashboard-left, .dashboard-wrappers .dashboard-left{ width:100%;}
+    .user-profile .profile-left{ width:100%;}
+    .user-profile .profiletable{ width:100%;}
 }
 
 /***************** medium size desktop ****************************************/
