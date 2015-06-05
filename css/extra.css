@@ -4021,7 +4021,7 @@ input[type="radio"], input[type="checkbox"] {
     .profile-list .profile-list-details a.btn-primary{ width:100%; text-align: center;}
     form .ad-form-container input[type=text]{ width:100%;}
     .ad-form-container{ width:100%;}
-    .dashboard-left{ width:100%;}
+    .dashboard-wrappers .dashboard-left{ width:100%;}
 }
 
 
