@@ -4025,7 +4025,7 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 /***************** medium size desktop ****************************************/
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) and (min-width:360px){
     .container .dashboard-left{ width:30%;}
     .container .dashboard-right{ width:70%;  padding-left:5%;}
 }
