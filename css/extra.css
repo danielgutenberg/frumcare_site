@@ -4031,6 +4031,7 @@ input[type="radio"], input[type="checkbox"] {
     .dashboard-right .verifications span{ width:20%;}
     .profile-list .profile-list-details span.name{ text-align: center;}
     .profile-list .profile-list-details .category-img{ text-align: center;}
+    #site-wrapper ol.progtrckr[data-progtrckr-steps="4"] li{ width:100%;}
 }
 
 /***************** medium size desktop ****************************************/
