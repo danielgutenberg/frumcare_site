@@ -4035,6 +4035,8 @@ input[type="radio"], input[type="checkbox"] {
 
 @media screen and (max-width: 980px){
     .left-sidebar-resource{ margin-right: 0px;}
+    .container .dashboard-left{ width:30%;}
+    .container .dashboard-right{ width:70%;  padding-left:5%;}
 }
 
 
