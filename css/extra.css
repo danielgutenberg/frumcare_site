@@ -4024,6 +4024,12 @@ input[type="radio"], input[type="checkbox"] {
     .container .dashboard-right,.container .dashboard-left, .dashboard-wrappers .dashboard-left{ width:100%;}
 }
 
+/***************** medium size desktop ****************************************/
+@media screen and (max-width: 768px){
+    .container .dashboard-left{ width:30%;}
+    .container .dashboard-right{ width:70%;  margin-left:5%;}
+}
+
 
 /*************************** big desktop view ******************************************/
 
