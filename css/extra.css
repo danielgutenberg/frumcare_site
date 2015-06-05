@@ -4019,7 +4019,7 @@ input[type="radio"], input[type="checkbox"] {
     .right-side-resources{ width:100%; display: block; border-left:0px;}
     .right-caregivers > select, .right-caregivers select{ width:100%; margin-bottom: 20px;}
     .profile-list .profile-list-details a.btn-primary{ width:100%; text-align: center;}
-    form input[type=text]#autocomplete{ width:100%;}
+    form .ad-form-container input[type=text]{ width:100%;}
 }
 
 
