@@ -4027,6 +4027,8 @@ input[type="radio"], input[type="checkbox"] {
 
     .dashboard-right .search-links a{ width:100%;}
     .dashboard-right .verifications ul{ width:100%;}
+    .dashboard-right .verifications ul li label{ width:70%; padding:0px;}
+    .dashboard-right .verifications span{ width:20%;}
 }
 
 /***************** medium size desktop ****************************************/
