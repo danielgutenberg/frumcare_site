@@ -4049,7 +4049,7 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 
-.table-responsive table{ table-layout: inherit;}
+.table-responsive table{ table-layout: fixed;}
 
 .help-form .contact-form-help{ float:right;}
 
