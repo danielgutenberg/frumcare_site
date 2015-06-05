@@ -4033,7 +4033,7 @@ input[type="radio"], input[type="checkbox"] {
 
 /*************************** big desktop view ******************************************/
 
-@media screen and (max-width: 980px){
+@media screen and (max-width: 980px) and (min-width:769px){
     .left-sidebar-resource{ margin-right: 0px;}
     .container .dashboard-left{ width:30%;}
     .container .dashboard-right{ width:70%;  padding-left:5%;}
