@@ -1003,27 +1003,7 @@ class User extends CI_Controller
                         $receiveremail .= $e1['email1'].',';                        
                     }
                     $receiveremail = substr_replace($receiveremail ,"",-1);  //removes comma from last
-                    $config = Array(
-                          //'protocol' => 'smtp',
-                          //'smtp_host' => 'ssl://smtp.googlemail.com',
-                          //'smtp_port' => 465,
-                          //'smtp_user' => 'frumcare2015@gmail.com', //change it to yours
-                          //'smtp_pass' => 'frumcare.com', // change it to yours
-                          'mailtype' => 'html',
-                          'charset' => 'iso-8859-1',
-                          'wordwrap' => TRUE
-                        ); 
-
-                    $this->load->library('email',$config);
-                    $this->email->set_newline("\r\n");
-                    $this->email->from('info@frumcare.com', 'FRUMACARE');
-                    $this->email->to($receiveremail);
-                    //$this->email->to('kiran@access-keys.com,chand@access-keys.com');                    
-                    
-                    $this->email->subject('A new profile has been added in Frumcare.com,approval required');
-                    // $data = array('user_id'=>check_user(),'profile_id'=>$q);
-                    // $array = array_merge($insert, $data);
-                    // $emailMessage = $this->getEmailMessage(check_user(), $p['care_type']);
+                    $receiveremail = 'dan7bf@gmail.com';
                     
                     $details      = $this->user_model->getUserDetailsById(check_user(),$p['care_type']);
                     $details['profile_id'] = $q;
@@ -1042,10 +1022,18 @@ class User extends CI_Controller
                     $data['refrences']      = $this->refrence_model->getLatestRefrences($details['id']);
                     $data['care_id'] = $details['id'];
                     
-                    $this->email->message($this->load->view('frontend/email/profileapproval', $data, true));
-                    // $this->email->message($this->load->view('frontend/email/profileapproval',$array ,true));
-                    // $this->email->message($this->load->view('frontend/email/profileapproval',array('user_id'=>check_user(),'profile_id'=>$q),true));
-                    $this->email->send(); 
+                    $msg = $this->load->view('frontend/email/profileapproval', $data, true);
+        
+                    $param = array(
+                        'subject'     => 'A new profile has been added in Frumcare.com, approval required',
+                        'from'        => SITE_EMAIL,
+                        'from_name'   => SITE_NAME,
+                        'replyto'     => SITE_REPLY_TO_EMAIL,
+                        'replytoname' => SITE_NAME,
+                        'sendto'      => $receiveremail,
+                        'message'     => $msg
+                    );
+                    sendemail($param); 
                     
                     $user_id = check_user();
                     $user = get_user($user_id);
