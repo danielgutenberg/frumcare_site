@@ -111,7 +111,7 @@
             <?php
           } ?>
         
-        <?php $language = explode(',',$language); ?>
+        <?php $language = explode(',',$caregiver_language); ?>
         <tr>
             <td>Languages</td>
             <td>
