@@ -556,8 +556,6 @@ class Ad extends CI_Controller
         $this->db->update('tbl_userprofile',array('profile_status'=>1));
         
         $user = get_user($user_id);
-        print_r($user);
-        exit();
         $sendto = $user['email'];
         
         $details = $this->user_model->getUserDetailsById($user_id,$id);
