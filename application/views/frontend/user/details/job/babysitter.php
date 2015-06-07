@@ -209,8 +209,9 @@
                 <?php if($smoker==1){echo "Yes";}else{echo "No";} ?>
             </td>
         </tr>
-        <?php if(!empty($language)){ ?>
+        <?php print_r($language); if(!empty($language)){ ?>
         <?php $language = explode(',',$language); ?>
+        
         <tr>
             <td>Languages necessary</td>
             <td>

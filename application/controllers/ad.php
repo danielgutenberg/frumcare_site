@@ -349,8 +349,8 @@ class Ad extends CI_Controller
             if(isset($p['subjects'])) {
                 $subjects = join(',', $p['subjects']);
             }
-            if(isset($p['language'])) {
-                $language = join(',', $p['language']);
+            if(isset($p['language[]'])) {
+                $language = join(',', $p['language[]']);
             }
             if(isset($p['looking_to_work'])) {
                 $looking_to_work = join(',', $p['looking_to_work']);
