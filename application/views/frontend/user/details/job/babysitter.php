@@ -209,8 +209,8 @@
                 <?php if($smoker==1){echo "Yes";}else{echo "No";} ?>
             </td>
         </tr>
-        <?php if(!empty($caregiver_language)){ ?>
-        <?php $language = explode(',',$caregiver_language); ?>
+        <?php if(!empty($language)){ ?>
+        <?php $language = explode(',',$language); ?>
         
         <tr>
             <td>Languages necessary</td>
