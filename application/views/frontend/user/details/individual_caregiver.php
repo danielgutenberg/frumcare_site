@@ -123,7 +123,8 @@
                 <div ><?php if(in_array("Other",$language)){ echo $tick; }else{ echo $cross; }?> Other</div>                                                            
             </td>
         </tr>    
-    <?php if(($smoker==1 || $smoker==3) && $care_type != 7){?>
+        
+    <?php print_r($smoker); if(($smoker==1 || $smoker==3) && $care_type != 7){?>
     <tr>
         <td>Smoker</td>
         <td >        
