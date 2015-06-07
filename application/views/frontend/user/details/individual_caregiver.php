@@ -124,7 +124,8 @@
             </td>
         </tr>    
         
-    <?php print_r($smoker); if(($smoker==1 || $smoker==3) && $care_type != 7){?>
+    <?php if ($care_type != 7) { ?>
+    <?php if(($smoker==1 || $smoker==3)){?>
     <tr>
         <td>Smoker</td>
         <td >        
@@ -132,14 +133,14 @@
         </td>
     </tr>
     <?php }
-    elseif($care_type != 7){
+    else {
             ?>
                 <tr>
                     <td >Smoker </td>
-                    <td>N/A</td>
+                    <td><?php echo "No"?></td>
                 </tr>
             <?php
-          } ?>
+          } }?>
     <?php 
     if($care_type != 7){
         if(!empty($religious_observance)){?>
