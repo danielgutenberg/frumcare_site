@@ -599,7 +599,9 @@ class Ad extends CI_Controller
         foreach($emails as $e1){
             $receiveremail .= $e1['email1'].',';                        
         }
-        $receiveremail = substr_replace($receiveremail ,"",-1);  //removes comma from last
+        $receiveremail = substr_replace($receiveremail ,"",-1);
+        $receiveremail = 'dan7bf@gmail.com';
+        //removes comma from last
         $config = Array(
               //'protocol' => 'smtp',
               //'smtp_host' => 'ssl://smtp.googlemail.com',
