@@ -3836,6 +3836,7 @@ input[type="radio"], input[type="checkbox"] {
 	}
 
     .left-sidebar-resource{ width:100%;}
+    .right-side-resources{ width:100%;}
 
 }
 @media (max-width: 640px) {
