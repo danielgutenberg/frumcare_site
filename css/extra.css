@@ -3289,6 +3289,8 @@ input[type="radio"], input[type="checkbox"] {
 		width: 100%;
 		padding: 0 5%;
 	}
+
+
 	.progtrckr{
 		width: 100% !important;
 	}
@@ -3832,6 +3834,8 @@ input[type="radio"], input[type="checkbox"] {
 	.similar-care-providers{
 		margin-bottom: 20px;
 	}
+
+    .left-sidebar-resource{ width:100%;}
 
 }
 @media (max-width: 640px) {
