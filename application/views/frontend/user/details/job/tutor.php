@@ -91,7 +91,7 @@
             <td>
                 <div class="details-info"><?php if(in_array("Elementary school",$subjects)){ echo $tick; }else{ echo $cross; }?> Elementary school</div>
                 <div class="details-info"><?php if(in_array("High school",$subjects)){ echo $tick; }else{ echo $cross; }?> High school</div>
-                <div class="details-info"><?php if(in_array("Post High school",$subjects)){ echo $tick; }else{ echo $cross; }?>Post High school</div>
+                <div class="details-info"><?php if(in_array("Post high school",$subjects)){ echo $tick; }else{ echo $cross; }?>Post High school</div>
                 <div class="details-info"><?php if(in_array("limudei kodesh",$subjects)){ echo $tick; }else{ echo $cross; }?> Limudei kodesh</div>                
                 <div class="details-info"><?php if(in_array("general studies",$subjects)){ echo $tick; }else{ echo $cross; }?>General studies</div>
                 <div class="details-info"><?php if(in_array("Special ed",$subjects)){ echo $tick; }else{ echo $cross; }?> Special ed</div>

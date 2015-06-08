@@ -211,6 +211,7 @@
         </tr>
         <?php if(!empty($language)){ ?>
         <?php $language = explode(',',$language); ?>
+        
         <tr>
             <td>Languages necessary</td>
             <td>

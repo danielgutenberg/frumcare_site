@@ -207,7 +207,8 @@ class Ad extends CI_Controller
                 'lng'                   => isset($p['lng'])?$p['lng']:'',
                 'neighbour'             => isset($p['neighbour'])?$p['neighbour']:'',
                 'name_of_owner'         => isset($p['name_of_owner'])?$p['name_of_owner']:'',
-                'profile_picture_owner' => isset($p['profile_picture_owner'])?$p['profile_picture_owner']:''
+                'profile_picture_owner' => isset($p['profile_picture_owner'])?$p['profile_picture_owner']:'',
+                'smoker'                => isset($p['smoker']) ? $p['smoker'] : '',
             );
             /*
                  $response =  $this->getLongitudeAndLatitude($p['location']);
@@ -349,8 +350,8 @@ class Ad extends CI_Controller
             if(isset($p['subjects'])) {
                 $subjects = join(',', $p['subjects']);
             }
-            if(isset($p['language'])) {
-                $language = join(',', $p['language']);
+            if(isset($p['language[]'])) {
+                $language = join(',', $p['language[]']);
             }
             if(isset($p['looking_to_work'])) {
                 $looking_to_work = join(',', $p['looking_to_work']);
@@ -599,28 +600,8 @@ class Ad extends CI_Controller
         foreach($emails as $e1){
             $receiveremail .= $e1['email1'].',';                        
         }
-        $receiveremail = substr_replace($receiveremail ,"",-1);  //removes comma from last
-        $config = Array(
-              //'protocol' => 'smtp',
-              //'smtp_host' => 'ssl://smtp.googlemail.com',
-              //'smtp_port' => 465,
-              //'smtp_user' => 'frumcare2015@gmail.com', //change it to yours
-              //'smtp_pass' => 'frumcare.com', // change it to yours
-              'mailtype' => 'html',
-              'charset' => 'iso-8859-1',
-              'wordwrap' => TRUE
-            ); 
-
-        $this->load->library('email',$config);
-        $this->email->set_newline("\r\n");
-        $this->email->from('info@frumcare.com', 'FRUMACARE');
-        $this->email->to($receiveremail);
-        //$this->email->to('kiran@access-keys.com,chand@access-keys.com');                    
-        
-        $this->email->subject('A new profile has been added in Frumcare.com, approval required');
-        // $data = array('user_id'=>check_user(),'profile_id'=>$q);
-        // $array = array_merge($insert, $data);
-        // $emailMessage = $this->getEmailMessage(check_user(), $p['care_type']);
+        $receiveremail = substr_replace($receiveremail ,"",-1);
+        $receiveremail = 'dan7bf@gmail.com';
         
         $details      = $this->user_model->getUserDetailsById($user_id,$id);
         $details['profile_id'] = $q;
@@ -639,10 +620,18 @@ class Ad extends CI_Controller
         $data['refrences']      = $this->refrence_model->getLatestRefrences($details['id']);
         $data['care_id'] = $details['id'];
         
-        $this->email->message($this->load->view('frontend/email/profileapproval', $data, true));
-        // $this->email->message($this->load->view('frontend/email/profileapproval',$array ,true));
-        // $this->email->message($this->load->view('frontend/email/profileapproval',array('user_id'=>check_user(),'profile_id'=>$q),true));
-        $this->email->send();
+        $msg = $this->load->view('frontend/email/profileapproval', $data, true);
+        
+        $param = array(
+            'subject'     => 'A new profile has been added in Frumcare.com, approval required',
+            'from'        => SITE_EMAIL,
+            'from_name'   => SITE_NAME,
+            'replyto'     => SITE_REPLY_TO_EMAIL,
+            'replytoname' => SITE_NAME,
+            'sendto'      => $receiveremail,
+            'message'     => $msg
+        );
+        sendemail($param);
 
     }
 

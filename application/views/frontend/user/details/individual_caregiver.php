@@ -111,7 +111,7 @@
             <?php
           } ?>
         
-        <?php $language = explode(',',$language); ?>
+        <?php $language = explode(',',$caregiver_language); ?>
         <tr>
             <td>Languages</td>
             <td>
@@ -123,7 +123,9 @@
                 <div ><?php if(in_array("Other",$language)){ echo $tick; }else{ echo $cross; }?> Other</div>                                                            
             </td>
         </tr>    
-    <?php if(($smoker==1 || $smoker==3) && $care_type != 7){?>
+        
+    <?php if ($care_type != 7) { ?>
+    <?php if(($smoker==1 || $smoker==3)){?>
     <tr>
         <td>Smoker</td>
         <td >        
@@ -131,14 +133,14 @@
         </td>
     </tr>
     <?php }
-    elseif($care_type != 7){
+    else {
             ?>
                 <tr>
                     <td >Smoker </td>
-                    <td>N/A</td>
+                    <td><?php echo "No"?></td>
                 </tr>
             <?php
-          } ?>
+          } }?>
     <?php 
     if($care_type != 7){
         if(!empty($religious_observance)){?>
