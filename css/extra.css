@@ -3278,7 +3278,7 @@ input[type="radio"], input[type="checkbox"] {
 		width: 30.6% !important;
 	}
 	.right-side-resources{
-		width: calc( 100% - 258px);
+		width: 70%;
 	}
 
 
