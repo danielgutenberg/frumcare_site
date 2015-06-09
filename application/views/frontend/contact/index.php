@@ -31,7 +31,7 @@
                 </div>
                 
                 <?php
-                if($user['contact_type'] > 24  && $user['contact_type'] < 29){?>
+                if($user['care_type'] > 24  && $user['care_type'] < 29){?>
 
                 <div class="contact-profile">
                     <label for='uploaded_file'>Upload Resume</label>
