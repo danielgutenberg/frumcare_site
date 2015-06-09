@@ -31,6 +31,7 @@
                 </div>
                 
                 <?php
+                print_r($user);
                 if($care_type == 25){?>
 
                 <div class="contact-profile">
