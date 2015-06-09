@@ -205,8 +205,8 @@ if($detail){
     <div>
         <label>Smoker</label>
         <div class="form-field">
-        <div class="radio-half"><input type="radio" name="smoker" value="1" <?php if(in_array('1',$smoker)){?> checked="checked" <?php } ?>> Yes</div>
-        <div class="radio-half"><input type="radio" name="smoker" value="2" <?php if(in_array('2',$smoker)){?> checked="checked" <?php } ?>> No</div>
+        <div class="radio-half"><input type="radio" name="smoker" value="1" <?php if($smoker == 1){?> checked="checked" <?php } ?>> Yes</div>
+        <div class="radio-half"><input type="radio" name="smoker" value="2" <?php if($smoker == 2){?> checked="checked" <?php } ?>> No</div>
         </div>
     </div>
     <div>
