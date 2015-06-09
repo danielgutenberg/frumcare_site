@@ -31,8 +31,7 @@
                 </div>
                 
                 <?php
-                print_r($user);
-                if($category == 'careseekers'){?>
+                if($care_type == 25){?>
 
                 <div class="contact-profile">
                     <label for='uploaded_file'>Upload Resume</label>
