@@ -4,13 +4,14 @@
 		public function __construct(){
 			parent::__construct();
 			$this->load->model('common_model');
+			$this->load->model('user_model');
 		}
 
 		public function profile($id = ''){
 			$category = $this->uri->segment(3);
 			$slug 	  = $this->uri->segment(4);
 			if($slug){
-				$user  = $this->common_model->getEmailAddressById($slug);
+				$user  = $this->user_model->getUserDetailsBySlug($slug);
 			}                        
 			if(isset($_POST['contact'])){			 
 				$name 			= $this->input->post('name',true);

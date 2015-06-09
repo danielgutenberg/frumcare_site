@@ -667,10 +667,11 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
      var id = $(this).attr('id');
      var category = '<?php echo $this->uri->segment(1);?>';
      var slug = '<?php echo $this->uri->segment(3);?>';
+     var type = '<?php echo $this->uri->segment(4);?>';
      if(id ==''){
       window.location.href="<?php echo site_url();?>login";
   }else{
-      window.location.href = "<?php echo site_url();?>contactprofile/profile/"+category+"/"+slug;
+      window.location.href = "<?php echo site_url();?>contactprofile/profile/"+category+"/"+slug+"/"+type;
   }
 });
 
