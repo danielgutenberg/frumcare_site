@@ -31,6 +31,7 @@
                 </div>
                 
                 <?php
+                print_r($user);
                 if($category == 'careseekers'){?>
 
                 <div class="contact-profile">
