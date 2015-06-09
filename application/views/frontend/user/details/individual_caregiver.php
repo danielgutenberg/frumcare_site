@@ -153,7 +153,7 @@
             ?>
         <tr>
             <td >Level of religious observance </td>
-            <td>No</td>
+            <td>N/A</td>
         </tr>
             <?php
         } 

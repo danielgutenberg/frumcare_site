@@ -1081,6 +1081,9 @@ class User extends CI_Controller
                     if(isset($p['zip']) && !empty($p['zip'])){
                         $update_user['zip'] = $p['zip'];
                     }
+                    if(isset($p['religious_observance']) && !empty($p['religious_observance'])){
+                        $update_user['religious_observance'] = $p['religious_observance'];
+                    }
                    
                     if(isset($update_user)){
                         $this->common_model->update('tbl_user',$update_user,array('id' => $this->session->userdata('current_user')));
