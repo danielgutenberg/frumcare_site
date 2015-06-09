@@ -143,8 +143,6 @@
           } }?>
     <?php 
     if($care_type != 7){
-        print_r($religious_observance);
-        echo 'hello';
         if(!empty($religious_observance)){?>
         <tr>
             <td>Level of religious observance</td>
@@ -155,7 +153,7 @@
             ?>
         <tr>
             <td >Level of religious observance </td>
-            <td>N/A</td>
+            <td>No</td>
         </tr>
             <?php
         } 
