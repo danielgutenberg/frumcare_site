@@ -905,13 +905,11 @@ class Ad extends CI_Controller
                             'contact_number' => isset($p['contact_number'])? $p['contact_number'] : '',
                             'age' => isset($p['age'])? $p['age'] : '',
                             'gender' => isset($p['gender'])? $p['gender'] : '',
-                            'contact_number' => isset($p['contact_number'])? $p['contact_number'] : '',
-                            'age' => isset($p['age'])? $p['age'] : '',
-                            'gender' => isset($p['gender'])? $p['gender'] : '',
                             'familartojewish' => isset($p['familarwithjewish'])?$p['familarwithjewish']:'',
                             'zip'               => isset($p['zip'])?$p['zip']:'',
                             'neighbour'         => isset($p['neighbour'])?$p['neighbour']:'',
                             'religious_observance' => isset($p['religious_observance']) ? $p['religious_observance'] : '',
+                            'smoker' => isset($p['smoker']) ? $p['smoker'] : '',
                             );
             if(isset($p['name'])){
                 $uri = $this->common_model->create_slug($p['name']);
