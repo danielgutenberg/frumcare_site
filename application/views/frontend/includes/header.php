@@ -127,10 +127,10 @@
                             <li>
                                 <div class="dropdown">
                                   <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                                    Parents
+                                    Caregivers
                                 </a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>signup" id="2" class="postjob">Post a Job</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>signup">Create a Profile</a></li>
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>caregivers/all">Find a Caregiver</a></li>
                                 </ul>
                             </div>
@@ -139,10 +139,10 @@
                         <li>
                            <div class="dropdown">
                               <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                                Caregivers
+                                Jobs
                             </a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>signup">Create a Profile</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>signup" id="2" class="postjob">Post a Job</a></li>
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>jobs/all">Find a Job</a></li>
                             </ul>
                         </div>
