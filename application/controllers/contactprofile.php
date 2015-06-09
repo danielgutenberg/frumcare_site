@@ -10,8 +10,9 @@
 		public function profile($id = ''){
 			$category = $this->uri->segment(3);
 			$slug 	  = $this->uri->segment(4);
+			$careType = $this->uri->segment(5);
 			if($slug){
-				$user  = $this->user_model->getUserDetailsBySlug($slug);
+				$user  = $this->user_model->getUserDetailsBySlug($slug, $careType);
 			}                        
 			if(isset($_POST['contact'])){			 
 				$name 			= $this->input->post('name',true);
