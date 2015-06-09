@@ -601,7 +601,6 @@ class Ad extends CI_Controller
             $receiveremail .= $e1['email1'].',';                        
         }
         $receiveremail = substr_replace($receiveremail ,"",-1);
-        $receiveremail = 'dan7bf@gmail.com';
         
         $details      = $this->user_model->getUserDetailsById($user_id,$id);
         $details['profile_id'] = $q;
@@ -912,6 +911,7 @@ class Ad extends CI_Controller
                             'familartojewish' => isset($p['familarwithjewish'])?$p['familarwithjewish']:'',
                             'zip'               => isset($p['zip'])?$p['zip']:'',
                             'neighbour'         => isset($p['neighbour'])?$p['neighbour']:'',
+                            'religious_observance' => isset($p['religious_observance']) ? $p['religious_observance'] : '',
                             );
             if(isset($p['name'])){
                 $uri = $this->common_model->create_slug($p['name']);

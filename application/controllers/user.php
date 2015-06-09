@@ -1003,7 +1003,6 @@ class User extends CI_Controller
                         $receiveremail .= $e1['email1'].',';                        
                     }
                     $receiveremail = substr_replace($receiveremail ,"",-1);  //removes comma from last
-                    $receiveremail = 'dan7bf@gmail.com';
                     
                     $details      = $this->user_model->getUserDetailsById(check_user(),$p['care_type']);
                     $details['profile_id'] = $q;
