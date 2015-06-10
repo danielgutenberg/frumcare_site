@@ -3267,11 +3267,10 @@ input[type="radio"], input[type="checkbox"] {
 		margin-right: 7px;
 	}
 	.banner .banner-item .banner-title{
-		font-size: 40px;
-		line-height: 40px;
-	}
+		font-size: 45px;
+		}
 	.banner .banner-item .banner-sub-title{
-		font-size: 22px;
+		font-size: 31px;
 	}
 	ol.progtrckr[data-progtrckr-steps="3"] li {
 		margin-right: 15px;
