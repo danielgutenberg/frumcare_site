@@ -57,11 +57,11 @@ function scroller(from,to) {
                             <td><?php echo $nme; ?></td>
                             <td>
                                 
-                               <!--  <?php echo $ud['account_category']==1 ? 'Care Giver': 'Care Seeker';?> -->
+                               
                                <?php 
-                                   if($ud['account_category'] == 1){
+                                   if($ud['accountCategory'] == 1){
                                         echo 'Caregiver';
-                                   }elseif($ud['account_category'] == 2){
+                                   }elseif($ud['accountCategory'] == 2){
                                     echo 'Parent';
                                    }else{
                                     echo 'Organization';
