@@ -552,7 +552,7 @@ class Ad extends CI_Controller
     {
         $user_id = $this->uri->segment(3);
         $id = $this->uri->segment(4);
-        $this->db->where('id',$id);
+        $this->db->where(array('user_id' => $user_id, 'care_type' => $id));
         $this->db->update('tbl_userprofile', array('profile_status'=>1));
         
         $user = get_user($user_id);
