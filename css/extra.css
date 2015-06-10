@@ -3286,8 +3286,9 @@ input[type="radio"], input[type="checkbox"] {
 
 
 /********************** medium size desktop *************************/
-@media (max-width:1200px) and (min-width:980px){
-    .how-it-works .how-it-works-display .item{ width:24%;}
+@media (max-width:1200px) and (min-width:768px){
+    ol.how-it-works-display{ background:url(../images/howitworks.png) no-repeat !important; background-size:100% !important;}
+    ol.how-it-works-display li{ display:none;}
 }
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 769px) and (max-width: 980px) {
