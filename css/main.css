@@ -4784,7 +4784,7 @@ body {
   padding-top: 105px;
 }
 
-.how-it-works .how-it-works-display li{ display:block;}
+
 .how-it-works .how-it-works-display:before, .how-it-works .how-it-works-display:after {
   content: " ";
   display: table;
