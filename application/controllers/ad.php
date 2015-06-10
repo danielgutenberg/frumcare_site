@@ -601,7 +601,6 @@ class Ad extends CI_Controller
             $receiveremail .= $e1['email1'].',';                        
         }
         $receiveremail = substr_replace($receiveremail ,"",-1);
-        $receiveremail = 'dan7bf@gmail.com';
         
         $details      = $this->user_model->getUserDetailsById($user_id,$id);
         $details['profile_id'] = $q;
