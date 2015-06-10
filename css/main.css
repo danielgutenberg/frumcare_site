@@ -4620,6 +4620,7 @@ body {
   display: inline-block;
   *display: block;
   *zoom: 1;
+    float:right;
 }
 .header-main .primary-nav {
   list-style-image: none;
