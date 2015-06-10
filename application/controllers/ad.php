@@ -553,7 +553,7 @@ class Ad extends CI_Controller
         $user_id = $this->uri->segment(3);
         $id = $this->uri->segment(4);
         $this->db->where('id',$id);
-        $this->db->update('tbl_userprofile',array('profile_status'=>1));
+        $this->db->update('tbl_userprofile', array('profile_status'=>1));
         
         $user = get_user($user_id);
         $sendto = $user['email'];
@@ -601,6 +601,7 @@ class Ad extends CI_Controller
             $receiveremail .= $e1['email1'].',';                        
         }
         $receiveremail = substr_replace($receiveremail ,"",-1);
+        $receiveremail = 'dan7bf@gmail.com';
         
         $details      = $this->user_model->getUserDetailsById($user_id,$id);
         $details['profile_id'] = $q;
