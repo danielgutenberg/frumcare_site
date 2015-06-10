@@ -51,7 +51,7 @@ function scroller(from,to) {
                         ?>
                         
                         <tr>
-                            <?php print_r($ud);$nme = $ud['organiztion_name'] ? $ud['organiztion_name'] : $ud['name']  ;?>
+                            <?php $nme = $ud['organiztion_name'] ? $ud['organiztion_name'] : $ud['name']  ;?>
                             <td><?php echo $ud['user_id'];?></td>
                            <td><?php echo ($care_type)? $care_type->service_name: '';?></td> 
                             <td><?php echo $nme; ?></td>
