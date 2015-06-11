@@ -31,7 +31,7 @@
             {
             ?>
             <tr>
-                <td><?php echo $rec; echo $rec['searcheddate'];?></td>
+                <td><?php print_r($rec); echo $rec['searcheddate'];?></td>
                 <td>
                 	<?php  echo $rec['subject']; ?>
                     <?php //echo $rec['year_experience'].' years experience';?>,
