@@ -256,8 +256,8 @@ html[xmlns] .clearfix {
 
 
 .profile-list-details {
-	float: right;
-	width: 607px;
+	/*float: right;
+	width: 607px;*/
 }
 .profile-img-wrap {
 	/*float: left;
