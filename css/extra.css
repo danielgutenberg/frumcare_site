@@ -260,8 +260,8 @@ html[xmlns] .clearfix {
 	width: 607px;
 }
 .profile-img-wrap {
-	float: left;
-	width: 177px;
+	/*float: left;
+	width: 177px;*/
 }
 #profile_image > img {
 	border: 1px solid #e7e7e7;
