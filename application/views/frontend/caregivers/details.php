@@ -57,7 +57,7 @@
                 if($this->uri->segment(4)>0 && $this->uri->segment(4)<10){
                    if($recordData['care_type'] != 7){ 
                        if(!empty($recordData['age'])){ ?>	
-                                   <span class="age-wrap"><?php echo $recordData['age']. '<span>Age</span>';?></span>
+                                   <span class="age-wrap col-md-4 col-sm-4 col-sm-6"><?php echo $recordData['age']. '<span>Age</span>';?></span>
                                    <?php
                                }else{ ?>                    	
                                <span class="age-wrap"><?php echo 'N/A'. '<span>Age</span>';?></span>
@@ -66,43 +66,43 @@
                         if($this->uri->segment(4) == 3) {
                             if(!empty($recordData['rate'])){ ?>                                                        
                        <?php $rate_type = $recordData['rate_type']==2?' / Hr':' / Hr'?>
-                       <span class="hour-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
+                       <span class="hour-wrap col-md-4 col-sm-4 col-sm-6">$<?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
                        <?php
                        }
                        else{ ?>
-                       <span class="hour-wrap"><?php echo 'N/A'.'<span>Cost</span>'; ?></span>
+                       <span class="hour-wrap col-md-4 col-sm-4 col-sm-6"><?php echo 'N/A'.'<span>Cost</span>'; ?></span>
                        <?php
                    } } else {
                             
                             
                        if(!empty($recordData['rate'])){ ?>                                                        
                        <?php $rate_type = $recordData['rate_type']==2?' / Hr':' / Hr'?>
-                       <span class="hour-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Rate</span>'; ?></span>
+                       <span class="hour-wrap col-md-4 col-sm-4 col-sm-6">$<?php echo $recordData['rate'].$rate_type.'<span>Rate</span>'; ?></span>
                        <?php
                        }
                        else{ ?>
-                       <span class="hour-wrap"><?php echo 'N/A'.'<span>Rate</span>'; ?></span>
+                       <span class="hour-wrap col-md-4 col-sm-4 col-sm-6"><?php echo 'N/A'.'<span>Rate</span>'; ?></span>
                        <?php
                    }}
                    if(!empty($recordData['experience'])){ ?>               
-                   <span class="experience-wrap"><?php echo $recordData['experience']. ' <span>Years Experience</span>';?></span>
+                   <span class="experience-wrap col-md-4 col-sm-4 col-sm-6"><?php echo $recordData['experience']. ' <span>Years Experience</span>';?></span>
                    <?php
                 }
                 else{ ?>
-                <span class="experience-wrap"><?php echo 'N/A'. ' <span>Years Experience</span>';?></span>
+                <span class="experience-wrap col-md-4 col-sm-4 col-sm-6"><?php echo 'N/A'. ' <span>Years Experience</span>';?></span>
                 <?php   
                 }                
                 ?>                             	        			    			
-                <div class="clearfix margin-bots"></div>
+
                 <?php
                 if(!empty($recordData['location'])){ ?>
                 <?php $location_array = explode(',',$recordData['location']); ?>
                 <?php $formated_location = (isset($location_array[0])?$location_array[0]:"").', '.(isset($location_array[1])?$location_array[1]:""); ?> 
-                <span class="location-wrap"><?php echo $formated_location.'<span>Location</span>';?></span>
+                <span class="location-wrap col-md-4 col-sm-4 col-sm-6"><?php echo $formated_location.'<span>Location</span>';?></span>
                 <?php
                 }
                 else{ ?>
-                <span class="location-wrap"><?php echo 'N/A'.'<span>Location</span>';?></span>
+                <span class="location-wrap col-md-4 col-sm-4 col-sm-6"><?php echo 'N/A'.'<span>Location</span>';?></span>
                 <?php 
                 }
                 ?>
