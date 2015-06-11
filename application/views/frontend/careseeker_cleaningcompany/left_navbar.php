@@ -1,6 +1,6 @@
 <?php echo $this->breadcrumbs->show();?>
 			<h3><?php echo "Works for Cleaning Company";?></h3>  			
-	  		<div class="left-search-panel col-lg-3 col-md-3 col-sm-4 col-xs-4">
+	  		<div class="left-search-panel">
 	 	<h4>Advanced Search</h4>
 	 	<form method="post" id="left-nav" action="">
 	 		
