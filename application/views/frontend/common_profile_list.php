@@ -20,7 +20,7 @@
 			$reviewData = Review_model::countReviewById($data['id']);
             $navigate = $data['care_type']>16?'jobs':'caregivers'; ?> 	
             <div class="profile-list clearfix usual row">
-            <div class="profile-img-wrap col-md-3"> <?php
+            <div class="profile-img-wrap col-md-3 col-sm-3 col-xs-12"> <?php
                 if($data['profile_picture']!="" && file_exists('images/profile-picture/'.$data['profile_picture'])):?>
                     <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
     		            <div id="profile_image">
@@ -50,7 +50,7 @@
     	        	?>    
     	        </div>
 	        </div>
-        	<div class="profile-list-details col-md-9">
+        	<div class="profile-list-details col-md-9 col-sm-9 col-xs-12">
                 <?php if ($data['account_category'] == 3) {?>
                 <span class="name">
 					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo $data['organization_name'];?></a>
