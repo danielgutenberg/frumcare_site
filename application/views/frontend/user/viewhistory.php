@@ -31,12 +31,13 @@
             {
             ?>
             <tr>
-                <td><?php echo $rec['searcheddate'];?></td>
+                <td><?php; echo $rec['searcheddate'];?></td>
                 <td>
-                	<?php  echo $rec['subject']; ?>
-                    <?php //echo $rec['year_experience'].' years experience';?>,
-                    <?php //echo ucwords($rec['experience']);?>,
-                    <?php// echo $rec['education'];?>
+                	<?php foreach($rec as $key => $value) { 
+                	   if ($value) { 
+                	        echo $key . ' = ' . $value . ', ';
+                	   }
+                	}?>
                 </td>
             </tr>
             <?php
