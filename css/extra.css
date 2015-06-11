@@ -1123,11 +1123,11 @@ html[xmlns] .clearfix {
 	width: 768px;
 }
 .caregivers-details .profile-img {
-	float: left;
+
 	height: 305px;
 	width: 305px;
 	border: 1px solid #CCCCCC;
-	margin-right: 20px;
+
 }
 .caregivers-details .profile-img > img {
 	height: 303px;
