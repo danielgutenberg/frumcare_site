@@ -3268,8 +3268,9 @@ input[type="radio"], input[type="checkbox"] {
 		font-size: 45px;
 		}
 	.banner .banner-item .banner-sub-title{
-		font-size: 31px;
+		font-size: 25px;
 	}
+        .banner-sub-title label{ font-size: 25px;}
 	ol.progtrckr[data-progtrckr-steps="3"] li {
 		margin-right: 15px;
 		width: 30.6% !important;
@@ -3878,7 +3879,8 @@ input[type="radio"], input[type="checkbox"] {
 		width: 100%;
 	}
 	.banner .banner-item .banner-title {
-		text-align: center;
+
+        font-size:30px;
 	}
 	.banner .banner-item{
 		height: auto;
