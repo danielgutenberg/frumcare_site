@@ -3162,8 +3162,8 @@ input[type="radio"], input[type="checkbox"] {
 
 	}
 	.profile-list-details{
-		width: 100%;
-		float: none;
+		/*width: 100%;
+		float: none;*/
 	}
 	.profile-list-details .line {
 		padding-bottom: 25px;
