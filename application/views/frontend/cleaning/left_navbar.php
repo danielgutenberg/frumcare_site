@@ -1,6 +1,6 @@
 <?php echo $this->breadcrumbs->show();?>
 			<h3><?php echo $this->uri->segment(1) == 'caregivers' && $this->uri->segment(2) == 'workers-for-cleaning-company' ? 'Workers for Cleaning Company' : 'Cleaning / household help';?></h3>  			
-	  		<div class="left-search-panel col-lg-3 col-md-3 col-sm-4 col-xs-12">
+	  		<div class="left-search-panel">
 	 	<h4>Advanced Search</h4>
 	 	<form method="post" id="left-nav" action="">
  			<div class="select-services">
