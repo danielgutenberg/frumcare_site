@@ -53,7 +53,7 @@ html[xmlns] .clearfix {
 .right-caregivers {
 	float: right;
 	margin-top: -60px;
-	width: 795px;
+
 	position: relative;
 }
 .left-search-panel {
@@ -3143,7 +3143,7 @@ input[type="radio"], input[type="checkbox"] {
 		width: 220px;
 	}
 	.right-caregivers{
-		width: calc(100% - 260px);
+
 	}
 	.select-services > select, .choose-services > select {
 		width: 100%;
