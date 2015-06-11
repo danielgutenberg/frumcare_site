@@ -1112,8 +1112,7 @@ html[xmlns] .clearfix {
 
 /* css of caregivers details */
 .left-sidebar-details {
-	float: left;
-	width: 790px;
+
 }
 .right-sidebar-details {
 	float: right;
@@ -3177,8 +3176,7 @@ input[type="radio"], input[type="checkbox"] {
 		width: 238px;
 	}
 	.left-sidebar-details {
-		float: left;
-		width: 495px;
+
 	}
 	.caregivers-details .profile-img {
 		float: none;
