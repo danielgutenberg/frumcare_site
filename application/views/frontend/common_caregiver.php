@@ -166,9 +166,9 @@
             $left_navbar='careseeker_cleaningcompany';    
     }
     if(isset($left_navbar)){
-        echo '<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">';
+
         $this->load->view('frontend/'.$left_navbar.'/left_navbar');
-        echo '</div>';
+
     }
     else{
         die('The page you are trying to access doesnt exist anymore');
