@@ -817,7 +817,7 @@ class User_model extends CI_Model
     }
 
     public function getCurrentSearches($uid){
-        $sql = "select * from tbl_searchhistory where user_id = $uid and searcheddate = CURDATE() order by id desc";
+        $sql = "select tbl_searchhistory.*, tbl_care.service_name from tbl_searchhistory, tbl_care where user_id = $uid and tbl_searchhistory.care_type = tbl_care.id and searcheddate = CURDATE() order by id desc";
         $query  = $this->db->query($sql);
         $res    = $query->result_array();
         if($res)
