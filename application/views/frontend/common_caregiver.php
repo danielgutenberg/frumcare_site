@@ -174,7 +174,7 @@
         die('The page you are trying to access doesnt exist anymore');
     }                                                                   
 ?>
-<div class="right-caregivers col-lg-9 col-md-9 col-sm-12 col-xs-12">
+<div class="right-caregivers col-lg-9 col-md-9 col-sm-9 col-xs-12">
     <br />
     <div class="searchloader" style="display:none"></div>		
     Showing results for <br /><a href="javascript:void(0);" class="showgeolocation" id="showgeolocation1"><?php echo $location ?></a>        
