@@ -1160,7 +1160,7 @@ html[xmlns] .clearfix {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	text-align: center;
-	width: 125px;
+	width: 120px;
 	font-size: 20px;
 	line-height: 26px;
 	font-family: 'Lato',sans-serif;
@@ -1175,7 +1175,7 @@ html[xmlns] .clearfix {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	text-align: center;
-	width: 125px;
+	width: 120px;
 	font-size: 20px;
 	line-height: 26px;
 	font-family: 'Lato',sans-serif;
@@ -1190,7 +1190,7 @@ html[xmlns] .clearfix {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	text-align: center;
-	width: 125px;
+	width: 120px;
 	font-size: 20px;
 	line-height: 26px;
 	font-family: 'Lato',sans-serif;
@@ -1205,7 +1205,7 @@ html[xmlns] .clearfix {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	text-align: center;
-	width: 125px;
+	width: 120px;
 	font-size: 20px;
 	line-height: 26px;
 	font-family: 'Lato',sans-serif;
@@ -1228,7 +1228,7 @@ html[xmlns] .clearfix {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	text-align: center;
-	width: 125px;
+	width: 120px;
 }
 .details-right-caregive .hour-wrap, .details-right-caregive .job-type-wrap {
 	background: none repeat scroll 0 0 #f8f8f8;
@@ -1240,12 +1240,12 @@ html[xmlns] .clearfix {
 	font-weight: 400;
 	min-height: 90px;
 	line-height: 26px;
-	margin-left: 32px;
-	margin-right: 32px;
+	margin-left: 20px;
+	margin-right: 20px;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	text-align: center;
-	width: 125px;
+	width: 120px;
 }
 .details-right-caregive .rating-score {
 	display: inline-block;
