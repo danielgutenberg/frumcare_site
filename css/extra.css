@@ -1428,7 +1428,7 @@ html[xmlns] .clearfix {
 }
 .similar-care-providers {
 	display: inline-block;
-	width: 125px;
+
 	vertical-align: top;
 }
 .care-providers1 .imgs {
@@ -1476,7 +1476,7 @@ html[xmlns] .clearfix {
 	font-family: 'Lato',sans-serif;
 }
 .similar-care-providers {
-	margin-left: 28px;
+
 }
 .similiar-care > h2 {
 	border-top: 1px solid #cccccc;
