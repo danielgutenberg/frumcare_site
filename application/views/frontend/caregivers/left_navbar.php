@@ -9,7 +9,7 @@
 	 }
 	 ?>
 		<h3>Category</h3>  			
-	  <div class="left-search-panel">
+	  <div class="left-search-panel col-lg-3 col-md-3 col-sm-3 col-xs-12">
 	 	<h4>Refine Results</h4>
 	 	<form method="post" id="left-nav" action="">
 	 			<div><label>Country</label>
