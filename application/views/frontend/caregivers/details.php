@@ -307,7 +307,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 <?php
 }
 ?>
-    <div class="similiar-care">             
+    <div class="similiar-care col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <h2>
             <?php if($recordData['care_type'] > 16){
                 echo "Similar Jobs";
@@ -321,7 +321,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
         if($similar_types!=''){
             foreach($similar_types as $caregiver){
                 $navigate = $caregiver['care_type']>16?'jobs':'caregivers'; ?>					 							            
-                <div class="similar-care-providers care-providers1">
+                <div class="similar-care-providers care-providers1 col-md-3 col-sm-3 col-xs-2">
                     <a href="<?php echo site_url().$navigate; ?>/details/<?php echo $caregiver['uri'];?>/<?php echo $caregiver['care_type'];?>" >
                         <div class="imgs">
                             <?php if($caregiver['profile_picture']!='' && file_exists('images/profile-picture/'.$caregiver['profile_picture'])){?>
