@@ -166,13 +166,15 @@
             $left_navbar='careseeker_cleaningcompany';    
     }
     if(isset($left_navbar)){
+        echo '<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">';
         $this->load->view('frontend/'.$left_navbar.'/left_navbar');
+        echo '</div>';
     }
     else{
         die('The page you are trying to access doesnt exist anymore');
     }                                                                   
 ?>
-<div class="right-caregivers">	
+<div class="right-caregivers col-lg-9 col-md-9 col-sm-8 col-xs-12">
     <br />
     <div class="searchloader" style="display:none"></div>		
     Showing results for <br /><a href="javascript:void(0);" class="showgeolocation" id="showgeolocation1"><?php echo $location ?></a>        
