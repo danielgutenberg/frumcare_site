@@ -18,7 +18,7 @@
                     echo "Babysitter";
                 } ?>
             </h3>  			
-	  		<div class="left-search-panel">
+	  		<div class="left-search-panel col-lg-3 col-md-3 col-sm-4 col-xs-4">
 	 	<h4>Advanced Search</h4>
 	 	<form method="post" id="left-nav" action="">
 	 		<?php 
