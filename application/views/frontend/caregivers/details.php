@@ -158,7 +158,7 @@ if($this->uri->segment(4)>16){
         <span class="age-wrap col-md-4 col-sm-4 col-sm-6"><?php echo 'N/A'.'<span>Location</span>';?></span>
         <?php 
     } ?>
-    <span class="hour-wrap">
+    <span class="hour-wrap col-md-4 col-sm-4 col-sm-6">
         <?php echo ucwords($type[0]['service_name']).'<span>Job Type</span>'; ?>
     </span>
     <?php
