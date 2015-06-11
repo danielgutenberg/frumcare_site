@@ -12,7 +12,7 @@
     }
     ?>
 </h3>
-<div class="left-sidebar-details col-lg-8 col-md-8 col-sm-12 col-xs-12">
+<div class="left-sidebar-details col-lg-8 col-md-8 col-sm-8 col-xs-12">
    <div class="profile-img col-lg-4 col-md-4 col-sm-4 col-sm-12"><?php if($recordData['profile_picture']!= '' && file_exists('images/profile-picture/'.$recordData['profile_picture'])):?>
     <img src="<?php echo site_url();?>images/profile-picture/<?php echo $recordData['profile_picture'];?>">
 <?php else:?>
@@ -360,7 +360,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 
         
         
-        <div class="right-sidebar-details col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <div class="right-sidebar-details col-lg-4 col-md-4 col-sm-4 col-xs-12">
    <?php if($caregiver['care_type'] != 7) { ?>
    <p> 
     Last Signed in: 
