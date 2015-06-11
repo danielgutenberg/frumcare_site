@@ -7,7 +7,7 @@
                         echo 'Babysitter';
                 ?>
             </h3>  			
-	  		<div class="left-search-panel">
+	  		<div class="left-search-panel ">
 	 	<h4>Advanced Search</h4>
         <?php $cat = $this->uri->segment(2)?$this->uri->segment(2):''; ?>
 	 	<form method="post" id="left-nav" action="">
