@@ -25,6 +25,8 @@
         <meta name="keywords" content="<?php echo $seodata['meta_keywords'];?>">
         <?php echo $seodata['google_analytics'];?>
 
+        <link href="<?php echo site_url();?>css/bootstrap.css" type="text/css" rel="stylesheet">
+
         <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="<?php echo base_url('css/main.css') ?>">
@@ -50,6 +52,7 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
     <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
     <link href="<?php echo site_url();?>css/jquery-ui.css" type="text/css" rel="stylesheet">
+
     <script>
         $("#textbox1").ready(function(){        
             $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
