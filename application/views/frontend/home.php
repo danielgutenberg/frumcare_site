@@ -18,7 +18,7 @@
 
                                 <a href="<?php echo site_url('signup?ac=3')?>">I am a Care Orgainzation</a>
                                 <br /> */?>                                
-                                <p>I am a</p>
+                                <p>I'm a</p>
                                 <div class="amlabel">
                                     <input id="parents" type="radio" name="parent" class="select" value="2"><label for="parents">Parent</label>
                                     <br />
