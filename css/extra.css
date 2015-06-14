@@ -3284,7 +3284,7 @@ input[type="radio"], input[type="checkbox"] {
 
 
 
-@media (max-width:768px) {
+@media screen and (max-width:768px) and (min-width: 365px) {
     .banner .banner-item .banner-title{ font-size:42px !important;}
 }
 
