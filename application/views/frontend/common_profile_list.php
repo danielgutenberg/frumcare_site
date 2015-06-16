@@ -221,8 +221,7 @@
 				 	<li> Will provide homework help</li>
 				 	<?php }?>
                     */ ?>					 	
-				</div>
-				<div class="profile-activities">
+
 					<?php 
                     
                     //for caregivers
