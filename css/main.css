@@ -5660,3 +5660,8 @@ body {
       background: #E74C34;
     text-decoration: none;
 }
+
+#site-wrapper > .container {
+    min-height: 400px;
+    width:368px;
+}
