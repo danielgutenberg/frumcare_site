@@ -121,8 +121,8 @@
 					 	<?php }?>
 
 					 	
-
-
+					</div>
+					<div class="profile-activities">
 						<?php if($data['job_type'] == 1){ ?>
 					 	<li> Available full time</li>
 					 	<?php }?>
@@ -141,9 +141,7 @@
 
 					 	<li>Has Special needs experience</li>
 
-                    </div>
-
-
+					</div>
 
 					 	<a href="<?php echo site_url();?>careseekers/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary">See full Profile</a>
 				</div>
