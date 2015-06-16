@@ -4159,6 +4159,7 @@ input[type="radio"], input[type="checkbox"] {
 }
 #site-wrapper > .container {
 	min-height: 400px;
+    width:368px;
 }
 .table tr td{
 	width: 270px;
