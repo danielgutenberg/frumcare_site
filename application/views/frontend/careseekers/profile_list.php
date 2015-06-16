@@ -121,7 +121,7 @@
 					 	<?php }?>
 
 					 	
-					</div>
+
 
 						<?php if($data['job_type'] == 1){ ?>
 					 	<li> Available full time</li>
@@ -140,6 +140,8 @@
 					 	<?php } ?>
 
 					 	<li>Has Special needs experience</li>
+
+                    </div>
 
 
 
