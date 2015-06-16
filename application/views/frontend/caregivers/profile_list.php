@@ -138,7 +138,8 @@
 					 	<?php }?>
 
 					 	
-
+					</div>
+					<div class="profile-activities">
 						<?php if($data['job_type'] == 1){ ?>
 					 	<li> Available full time</li>
 					 	<?php }?>
