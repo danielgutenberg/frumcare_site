@@ -3441,7 +3441,7 @@ input[type="radio"], input[type="checkbox"] {
 
 }
 
-@media (man-width:800px) {
+@media (min-width:768px) {
     #profile_image > img{ width:100% !important;
     height: auto !important;}
 }
