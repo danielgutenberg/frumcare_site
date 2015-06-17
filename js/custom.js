@@ -16,5 +16,9 @@ $(document).ready(function(){
       $li.addClass("open");
     }
   });
+
+    $('.left-search-panel h4').click(function(){
+        $(this).find(form).toggle('slide');
+    })
   
 });
