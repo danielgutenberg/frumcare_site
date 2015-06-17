@@ -74,7 +74,7 @@ html[xmlns] .clearfix {
 	float: left;
 	margin-bottom: 5px;
 	padding: 20px 12px 20px 15px;
-	width: 262px;
+
 }
 .left-search-panel > h4 {
 	color: #404040;
@@ -3150,9 +3150,7 @@ input[type="radio"], input[type="checkbox"] {
 	.safety-first .col-one-fourth {
 		padding-left: 10px;
 	}
-	.left-search-panel{
-		width: 220px;
-	}
+
 	.right-caregivers{
 
 	}
@@ -3558,7 +3556,7 @@ input[type="radio"], input[type="checkbox"] {
 	.footer{
 		background-repeat: repeat;
 	}
-	.left-search-panel, .left-search-panel select, .left-search-panel input {
+	.left-search-panel select, .left-search-panel input {
 		width: 100%;
 	}
 	.time-available input {
