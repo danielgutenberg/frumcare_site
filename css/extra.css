@@ -3566,9 +3566,7 @@ input[type="radio"], input[type="checkbox"] {
 		width: 10% !important;
 	}
 	.right-caregivers {
-		float: none;
-		margin-top: 0;
-		width: 100%;
+
 	}
 	.left-search-panel{
 		margin-bottom: 30px;
