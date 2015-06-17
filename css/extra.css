@@ -3450,6 +3450,7 @@ input[type="radio"], input[type="checkbox"] {
 @media (max-width: 768px) {
 
     .left-search-panel form{ display: none;}
+    .left-search-panel h4{ cursor: pointer;}
 
 
 	.search-select select {
