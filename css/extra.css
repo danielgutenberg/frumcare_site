@@ -3449,6 +3449,8 @@ input[type="radio"], input[type="checkbox"] {
 /* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
 
+    .left-search-panel form{ display: none;}
+
 
 	.search-select select {
 		width: 34% !important;
