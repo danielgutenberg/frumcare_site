@@ -3441,11 +3441,15 @@ input[type="radio"], input[type="checkbox"] {
 
 }
 
+@media (min-width:768px) {
+    #profile_image > img{ width:100% !important;
+    height: auto !important;}
+}
+
 /* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
 
-    #profile_image > img{ width:100% !important;
-        height: auto !important;}
+
 	.search-select select {
 		width: 34% !important;
 	}
