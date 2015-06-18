@@ -3454,6 +3454,7 @@ input[type="radio"], input[type="checkbox"] {
     .left-search-panel h4{ cursor: pointer;}
 
 
+
 	.search-select select {
 		width: 34% !important;
 	}
@@ -4044,6 +4045,8 @@ input[type="radio"], input[type="checkbox"] {
         text-align: left;
         padding-left:20px;
     }
+
+    .left-search-panel{ margin-bottom: 75px;}
     ul.primary-nav > li >a, ul.primary-nav a.dropdown-toggle{ text-align: left; display: block;}
 
     .sign-up-forms .care-type #care_type{ width:100%;}
