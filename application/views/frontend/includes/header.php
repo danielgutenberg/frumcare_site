@@ -59,7 +59,7 @@
          });
         $('document').ready(function(){
             $('.left-search-panel h4').click(function(){
-               alert('working');
+               $(this).closest('form').toggle();
             });
         });
     </script>
