@@ -246,17 +246,18 @@
 <?php
 $pagination	= '';
 if($pages > 1){	
-	//$pagination	.= '<ul class="paginate">';
+	$pagination .= ' <a href="#" class="paginate_click in-active">previous</a> ';
 	for($i = 1; $i<=$pages; $i++)
 	{
-		$pagination .= ' <a href="#" class="paginate_click in-active">previous</a> ';
+		
 		if($i==1){
             $pagination .= ' <a href="#" class="paginate_click active" id="'.$i.'-page" >'.$i.'</a> ';
         }else{
             $pagination .= ' <a href="#" class="paginate_click in-active" id="'.$i.'-page">'.$i.'</a> ';   
         }
-        $pagination .= ' <a href="#" class="paginate_click in-active">next</a> ';
+        
 	}
+	$pagination .= ' <a href="#" class="paginate_click in-active">next</a> ';
 	//$pagination .= '</ul>';
 } 
 ?>
