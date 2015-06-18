@@ -1378,7 +1378,7 @@ html[xmlns] .clearfix {
 	width: 100%;
 }
 .view-availability-btn {
-	display: inline-block;
+	display: block;
 	margin-top: 10px;
 }
 .view-availability-btn .btn.btn-primary{
@@ -1392,7 +1392,8 @@ html[xmlns] .clearfix {
 	line-height: 20px;
 	padding-bottom: 7px;
 	padding-top: 9px;
-	width: 255px;
+	/*width: 255px;*/
+    width: 100%;
 }
 .sidebar-name-btn .btn.btn-primary:hover, .view-availability-btn .btn.btn-primary:hover{
 	background: #e74c34;
