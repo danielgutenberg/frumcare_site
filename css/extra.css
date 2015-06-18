@@ -3455,7 +3455,7 @@ input[type="radio"], input[type="checkbox"] {
 
     .left-search-panel form{ display: none;}
     .left-search-panel h4{ cursor: pointer;}
-    .left-search-panel{ margin-bottom: 75px;}
+    .left-search-panel{ margin-bottom: 75px !important;}
 
 
 
