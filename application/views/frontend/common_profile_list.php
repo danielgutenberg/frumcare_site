@@ -328,7 +328,8 @@
 
 				 	<li>Has Special needs experience</li>
                     */ ?>
-				</div>                        
+				</div>
+                <div style="clear:both"></div>
 				 	<a href="<?php echo site_url().$navigate; ?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" >See full Profile</a>
 			</div>
 		</div>
