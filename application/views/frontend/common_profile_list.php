@@ -181,6 +181,8 @@
                         <?php  } */?>
                     
                     <?php  } ?>
+
+                    </div><div class="profile-activities">
                                         
                     <?php 
                     
