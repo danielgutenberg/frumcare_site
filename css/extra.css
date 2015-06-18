@@ -1395,6 +1395,7 @@ html[xmlns] .clearfix {
 	/*width: 255px;*/
     width: 100%;
     margin-top:10px;
+    margin-bottom: 10px;
 }
 .sidebar-name-btn .btn.btn-primary:hover, .view-availability-btn .btn.btn-primary:hover{
 	background: #e74c34;
