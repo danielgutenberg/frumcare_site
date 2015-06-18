@@ -3446,6 +3446,7 @@ input[type="radio"], input[type="checkbox"] {
     height: auto !important;}
 }
 
+
 /* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
 
