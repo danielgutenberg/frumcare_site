@@ -3450,8 +3450,7 @@ input[type="radio"], input[type="checkbox"] {
 /* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
 
-    .left-search-panel form{ display: none;}
-    .left-search-panel h4{ cursor: pointer;}
+
 
 
 
@@ -3880,6 +3879,10 @@ input[type="radio"], input[type="checkbox"] {
 
 /* Landscape phones and down */
 @media (max-width: 480px) {
+
+    .left-search-panel form{ display: none;}
+    .left-search-panel h4{ cursor: pointer;}
+    .left-search-panel{ margin-bottom: 75px;}
 	.header-main .primary-nav, .header-main .primary-nav li {
 		display: block;
 		margin: 0;
@@ -4045,8 +4048,9 @@ input[type="radio"], input[type="checkbox"] {
         text-align: left;
         padding-left:20px;
     }
-
+    .left-search-panel form{ display: none;}
     .left-search-panel{ margin-bottom: 75px;}
+
     ul.primary-nav > li >a, ul.primary-nav a.dropdown-toggle{ text-align: left; display: block;}
 
     .sign-up-forms .care-type #care_type{ width:100%;}
