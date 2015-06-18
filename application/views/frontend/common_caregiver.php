@@ -246,7 +246,7 @@
 <?php
 $pagination	= '';
 if($pages > 1){	
-	$pagination .= '<div class="previous" style="float: left; padding-right: 5px"></div>';
+	$pagination .= '<a href="#" class="paginate_click in-active" id="previous">previous</a>';
 	for($i = 1; $i<=$pages; $i++)
 	{
 		
@@ -257,7 +257,7 @@ if($pages > 1){
         }
         
 	}
-	$pagination .= '<div class="next" style="float: right; padding-left: 5px"></div>';
+	$pagination .= '<a href="#" class="paginate_click in-active" id="next">previous</a></div>';
 	//$pagination .= '</ul>';
 } 
 ?>
@@ -331,26 +331,19 @@ if($pages > 1){
                 var next = '<a href="#" class="paginate_click in-active">next</a>'
                 if ($(this).attr("id") == 'previous') {
                     var page_num = parseInt($('.paginate_click.active').attr('id').split('-')[0]) - 1
+                    if (page_num == 0) {
+                        page_num = 1
+                    }
                 } else if ($(this).attr("id") == 'next') {
                     var page_num = parseInt($('.paginate_click.active').attr('id').split('-')[0]) + 1
+                    if (page_num == $('.paginate_click').length - 1) {
+                        page_num = $('.paginate_click').length - 2
+                    }
                 } else {
                     var clicked_id = $(this).attr("id").split("-"); //ID of clicked element, split() to get page number.
         		    var page_num = parseInt(clicked_id[0]); //clicked_id[0] holds the page number we need 
                 }
-                if (page_num == 1) {
-                    console.log('previous no')
-                    $('.previous').html('')    
-                } else {
-                    console.log('previous yes')
-                    $('.previous').html(previous)
-                }
-                if (page_num == $('.paginate_click').length - 2) {
-                    console.log('next no')
-                    $('.next').html('')    
-                } else {
-                    console.log('next yes')
-                    $('.next').html(next)
-                }
+                
         		$('.paginate_click').removeClass('active'); //remove any active class
                 $('.paginate_click').addClass('in-active'); //remove any active class		
                 if(y!=''){
