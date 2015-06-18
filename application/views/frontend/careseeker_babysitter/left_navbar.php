@@ -11,7 +11,7 @@
 	 	<h4>Advanced Search</h4>
         <?php $cat = $this->uri->segment(2)?$this->uri->segment(2):''; ?>
 	 	<form method="post" id="left-nav" action="">
- 			<div class="select-services">
+ 			<div class="service">
 	 			<label>Choose a Job Type</label>
                 <?php $this->load->view('frontend/common/left_nav_title')?>
  				<?php /*
@@ -119,10 +119,10 @@ $(function () {
 </script>
 <script>
 	$(document).ready(function(){
-        var care_type = $( ".select-services option:selected" ).val();
+        var care_type = $( ".service option:selected" ).val();
         $('#care_type').val(care_type);
 
-        $('.select-services').change(function(){
+        $('.service').change(function(){
     		$('#care_type').val($(this).val());
             var pagelink = $(this).find("option:selected").text();
             
