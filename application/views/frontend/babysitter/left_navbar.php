@@ -25,7 +25,7 @@
 	 			$cat = $this->uri->segment(2)?$this->uri->segment(2):'';
 
 	 		?>
- 			<div class="service">
+ 			<div class="select-services">
 	 			<label>Choose a Care Type</label>
                  <?php $this->load->view('frontend/common/left_nav_title')?>                
  				 <?php /* 

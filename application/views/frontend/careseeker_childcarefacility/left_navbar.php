@@ -4,7 +4,7 @@
 	 	<h4>Advanced Search</h4>
 	 	<form method="post" id="left-nav" action="">
 	 		
- 			<div class="service">
+ 			<div class="select-services">
 	 			<label>Choose a Job Type</label>
  				<?php $this->load->view('frontend/common/left_nav_title')?>
                  <?php /*
