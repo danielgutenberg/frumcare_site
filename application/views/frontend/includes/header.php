@@ -57,6 +57,11 @@
         $("#textbox1").ready(function(){        
             $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
          });
+        $('document').ready(function(){
+            $('.left-search-panel h4').click(function(){
+                $(this).find('form').toggle();
+            });
+        });
     </script>
 </head>
 <body onload="initialize()">
