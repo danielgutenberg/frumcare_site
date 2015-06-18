@@ -369,7 +369,7 @@ if($pages > 1){
                         // $('.navigations').html(json.pagination);
             		});
                 }
-                var element = parseInt(page_num) + 1
+                var element = parseInt(page_num)
                 $('.paginate_click').eq(element).removeClass('in-active');
         		$('.paginate_click').eq(element).addClass('active'); //add active class to currently clicked element (style purpose)
         		
