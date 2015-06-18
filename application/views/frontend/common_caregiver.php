@@ -246,24 +246,28 @@
 <?php
 $pagination	= '';
 if($pages > 1){	
-	//$pagination	.= '<ul class="paginate">';
+	$pagination .= '<a href="#" class="paginate_click in-active" id="previous">previous</a>';
 	for($i = 1; $i<=$pages; $i++)
 	{
+		
 		if($i==1){
             $pagination .= ' <a href="#" class="paginate_click active" id="'.$i.'-page" >'.$i.'</a> ';
         }else{
             $pagination .= ' <a href="#" class="paginate_click in-active" id="'.$i.'-page">'.$i.'</a> ';   
-        }        
+        }
+        
 	}
+	$pagination .= '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
 	//$pagination .= '</ul>';
 } 
 ?>
-<div class="navigations"><?php echo $pagination; ?></div>
+
 	<div class="clearfix margin-bot"></div>
 	<div id="list_container" class="">
 	<?php //print_rr($userdatas);?>
     <?php $this->load->view('frontend/common_profile_list', array('userdatas'=>$userdatas,'userlogs'=>$userlogs));?>
-	</div>	
+	</div>
+	<div class="navigations"><?php echo $pagination; ?></div>
 	</div>
 </div> 
 <script type="text/javascript">    
@@ -322,9 +326,24 @@ if($pages > 1){
                 var lng = $('#lng').val();
                 var miles = $("#sort_by_miles").val();
                 var ac = "<?php echo $account_category ?>";
-                var care_type = "<?php echo $care_type ?>";                 		
-        		var clicked_id = $(this).attr("id").split("-"); //ID of clicked element, split() to get page number.
-        		var page_num = parseInt(clicked_id[0]); //clicked_id[0] holds the page number we need 		
+                var care_type = "<?php echo $care_type ?>";
+                var previous = '<a href="#" class="paginate_click in-active">previous</a>'
+                var next = '<a href="#" class="paginate_click in-active">next</a>'
+                if ($(this).attr("id") == 'previous') {
+                    var page_num = parseInt($('.paginate_click.active').attr('id').split('-')[0]) - 1
+                    if (page_num == 0) {
+                        page_num = 1
+                    }
+                } else if ($(this).attr("id") == 'next') {
+                    var page_num = parseInt($('.paginate_click.active').attr('id').split('-')[0]) + 1
+                    if (page_num == $('.paginate_click').length - 1) {
+                        page_num = $('.paginate_click').length - 2
+                    }
+                } else {
+                    var clicked_id = $(this).attr("id").split("-"); //ID of clicked element, split() to get page number.
+        		    var page_num = parseInt(clicked_id[0]); //clicked_id[0] holds the page number we need 
+                }
+                
         		$('.paginate_click').removeClass('active'); //remove any active class
                 $('.paginate_click').addClass('in-active'); //remove any active class		
                 if(y!=''){
@@ -335,7 +354,7 @@ if($pages > 1){
         				var pagedata = json.userdatas;
         				$('#list_container').html(pagedata);
         				$('#total').text(json.total_rows);
-                        $('.navigations').html(json.pagination);
+                        // $('.navigations').html(json.pagination);
             		});
                 }
                 else{
@@ -347,11 +366,12 @@ if($pages > 1){
         				var pagedata = json.userdatas;
         				$('#list_container').html(pagedata);
         				$('#total').text(json.total_rows);
-                        $('.navigations').html(json.pagination);
+                        // $('.navigations').html(json.pagination);
             		});
                 }
-                $(this).removeClass('in-active');
-        		$(this).addClass('active'); //add active class to currently clicked element (style purpose)
+                var element = parseInt(page_num)
+                $('.paginate_click').eq(element).removeClass('in-active');
+        		$('.paginate_click').eq(element).addClass('active'); //add active class to currently clicked element (style purpose)
         		
         		return false; //prevent going to herf link
         	});

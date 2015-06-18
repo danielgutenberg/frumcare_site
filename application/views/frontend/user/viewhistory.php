@@ -27,6 +27,7 @@
                 <th>Searched Keywords</th>
             </tr>
             <?php
+            print_r($record);
             foreach($record as $rec)
             {
             ?>
