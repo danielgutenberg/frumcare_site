@@ -257,7 +257,7 @@ if($pages > 1){
         }
         
 	}
-	$pagination .= '<a href="#" class="paginate_click in-active" id="next">previous</a></div>';
+	$pagination .= '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
 	//$pagination .= '</ul>';
 } 
 ?>
