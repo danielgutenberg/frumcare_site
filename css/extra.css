@@ -333,6 +333,7 @@ html[xmlns] .clearfix {
 	display: inline-block;
 	margin-left: 15px;
 	width: 225px;
+    float:left;
 }
 .profile-activities > li {
 	color: #525252;
