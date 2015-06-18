@@ -214,7 +214,7 @@ $(function () {
 	   var url = $(location).attr('href').split("/").splice(0, 5).join("/");       
 		var care_type = $( ".select-services option:selected" ).val();
 			$('#care_type').val(care_type);
-		$('.service').change(function(){
+		$('.select-services').change(function(){
 			$('#care_type').val($(this).val());
             var pagelink = $(this).find("option:selected").text();         
             if(pagelink == 'Nanny / Au-pair')

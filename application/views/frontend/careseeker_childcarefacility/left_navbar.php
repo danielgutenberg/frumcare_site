@@ -70,7 +70,7 @@ $(function () {
 </script>
 <script>
 	$(document).ready(function(){
-        $('.service').change(function(){
+        $('.select-services').change(function(){
     		$('#care_type').val($(this).val());
             var pagelink = $(this).find("option:selected").text();
 
@@ -184,7 +184,7 @@ $(function () {
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
 <script type="text/javascript">
     $(document).ready(function(){
-        var care_type = $( ".service option:selected" ).val();
+        var care_type = $( ".select-services option:selected" ).val();
         $('#care_type').val(care_type);
 
          var $myDialog = $('<div></div>')
