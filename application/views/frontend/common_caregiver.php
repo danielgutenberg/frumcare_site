@@ -246,7 +246,7 @@
 <?php
 $pagination	= '';
 if($pages > 1){	
-	$pagination .= ' <a href="#" class="paginate_click in-active">previous</a> ';
+	$pagination .= '<div class="previous" style="float: left; padding-right: 5px"></div>';
 	for($i = 1; $i<=$pages; $i++)
 	{
 		
@@ -257,7 +257,7 @@ if($pages > 1){
         }
         
 	}
-	$pagination .= ' <a href="#" class="paginate_click in-active">next</a> ';
+	$pagination .= '<div class="next" style="float: right; padding-left: 5px"></div>';
 	//$pagination .= '</ul>';
 } 
 ?>
@@ -326,9 +326,27 @@ if($pages > 1){
                 var lng = $('#lng').val();
                 var miles = $("#sort_by_miles").val();
                 var ac = "<?php echo $account_category ?>";
-                var care_type = "<?php echo $care_type ?>";                 		
-        		var clicked_id = $(this).attr("id").split("-"); //ID of clicked element, split() to get page number.
-        		var page_num = parseInt(clicked_id[0]); //clicked_id[0] holds the page number we need 		
+                var care_type = "<?php echo $care_type ?>";
+                var previous = '<a href="#" class="paginate_click in-active">previous</a>'
+                var next = '<a href="#" class="paginate_click in-active">next</a>'
+                if ($(this).attr("id") == 'previous') {
+                    var page_num = parseInt($('.paginate_click.active').attr('id').split('-')[0]) - 1
+                } else if ($(this).attr("id") == 'next') {
+                    var page_num = parseInt($('.paginate_click.active').attr('id').split('-')[0]) + 1
+                } else {
+                    var clicked_id = $(this).attr("id").split("-"); //ID of clicked element, split() to get page number.
+        		    var page_num = parseInt(clicked_id[0]); //clicked_id[0] holds the page number we need 
+                }
+                if (page_num == 1) {
+                    $('.previous').html('')    
+                } else {
+                    $('.previous').html(previous)
+                }
+                if (page_num == $('.paginate_click').length - 2) {
+                    $('.next').html('')    
+                } else {
+                    $('.next').html(next)
+                }
         		$('.paginate_click').removeClass('active'); //remove any active class
                 $('.paginate_click').addClass('in-active'); //remove any active class		
                 if(y!=''){
