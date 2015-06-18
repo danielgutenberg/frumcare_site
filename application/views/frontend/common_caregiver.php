@@ -338,13 +338,17 @@ if($pages > 1){
         		    var page_num = parseInt(clicked_id[0]); //clicked_id[0] holds the page number we need 
                 }
                 if (page_num == 1) {
+                    console.log('previous no')
                     $('.previous').html('')    
                 } else {
+                    console.log('previous yes')
                     $('.previous').html(previous)
                 }
                 if (page_num == $('.paginate_click').length - 2) {
+                    console.log('next no')
                     $('.next').html('')    
                 } else {
+                    console.log('next yes')
                     $('.next').html(next)
                 }
         		$('.paginate_click').removeClass('active'); //remove any active class
