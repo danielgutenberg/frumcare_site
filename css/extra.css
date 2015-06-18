@@ -144,7 +144,7 @@ html[xmlns] .clearfix {
 }
 .select-services > label {
 	margin-top: 15px;
-	width: 227px;
+	/*width: 227px;*/
 }
 .select-services > select, .choose-services > select {
 	width: 232px;
