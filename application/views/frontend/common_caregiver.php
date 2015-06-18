@@ -354,7 +354,7 @@ if($pages > 1){
         				var pagedata = json.userdatas;
         				$('#list_container').html(pagedata);
         				$('#total').text(json.total_rows);
-                        $('.navigations').html(json.pagination);
+                        // $('.navigations').html(json.pagination);
             		});
                 }
                 else{
@@ -366,7 +366,7 @@ if($pages > 1){
         				var pagedata = json.userdatas;
         				$('#list_container').html(pagedata);
         				$('#total').text(json.total_rows);
-                        $('.navigations').html(json.pagination);
+                        // $('.navigations').html(json.pagination);
             		});
                 }
                 $(this).removeClass('in-active');
