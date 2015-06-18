@@ -3451,6 +3451,9 @@ input[type="radio"], input[type="checkbox"] {
 @media (max-width: 768px) {
 
 
+    .left-search-panel form{ display: none;}
+    .left-search-panel h4{ cursor: pointer;}
+    .left-search-panel{ margin-bottom: 75px;}
 
 
 
@@ -3880,9 +3883,6 @@ input[type="radio"], input[type="checkbox"] {
 /* Landscape phones and down */
 @media (max-width: 480px) {
 
-    .left-search-panel form{ display: none;}
-    .left-search-panel h4{ cursor: pointer;}
-    .left-search-panel{ margin-bottom: 75px;}
 	.header-main .primary-nav, .header-main .primary-nav li {
 		display: block;
 		margin: 0;
