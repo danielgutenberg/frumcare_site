@@ -39,8 +39,8 @@
                                         <li><a href="<?php echo $ciurl;?>/about-us">About Us</a></li>
                                         <li><a href="<?php echo $ciurl;?>/help">Contact Us</a></li>
                                         <li><a href="<?php echo $ciurl;?>/blog">Blog</a></li>
-                                        <li><a href="<?php echo $ciurl;?>/terms-of-use">Terms of Use</a></li>
-                                        <li><a href="<?php echo $ciurl;?>/privacy-policy">Privacy Policy</a></li>
+                                        <!--<li><a href="<?php echo $ciurl;?>/terms-of-use">Terms of Use</a></li>-->
+                                        <!--<li><a href="<?php echo $ciurl;?>/privacy-policy">Privacy Policy</a></li>-->
                                         
                                     </ul>
                                 </nav>
@@ -94,8 +94,10 @@
                         <div class="row">
                             <div class="col-half">
                                 <p class="copyright-info">
-                                    Copyright&copy; frumcare.com. All rights reserved
+                                    Copyright&copy; frumcare.com All rights reserved
                                 </p>
+                                <a href="<?php echo $ciurl;?>/terms-of-use">Terms of Use</a> |
+                                <a href="<?php echo $ciurl;?>/privacy-policy">Privacy Policy</a>
                             </div>
                             <div class="col-half">
                                 <div class="social-links">
