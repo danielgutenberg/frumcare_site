@@ -182,8 +182,8 @@
                                      <div class="content">
                                         <h3>For Families:</h3>
                                         <p>
-                                            <?php echo substr($safetyposts[0]['post_excerpt'],0,180);?>
-                                            <a href="safety-guide/families">Read More</a>
+                                            <?php echo substr($safetyposts[1]['post_excerpt'],0,180);?>
+                                            <a href="blog/hiring-in-home-help">Read More</a>
                                         </p>
                                     </div>
                                 </article>
@@ -206,8 +206,8 @@
                                      <div class="content">
                                         <h3>For Caregivers:</h3>
                                         <p>
-                                            <?php echo substr($safetyposts[1]['post_excerpt'],0,180);?>
-                                            <a href="#">Read More</a>
+                                            <?php echo substr($safetyposts[0]['post_excerpt'],0,180);?>
+                                            <a href="blog/in-home-care-for-the-elderly-and-ill">Read More</a>
                                         </p>
                                     </div>
                                 </article>
@@ -245,7 +245,7 @@
                                         <h3>For Families:</h3>
                                         <p>
                                             <?php echo substr($adviceandtools[0]['post_excerpt'],0,180);?>
-                                            <a href="advice-and-tips/families">Read More</a> 
+                                            <a href="blog/finding-and-preparing-for-a-new-babysitter">Read More</a> 
                                         </p>
                                     </div>
                                 </article>
@@ -267,7 +267,7 @@
                                         <h3>For Caregivers:</h3>
                                         <p>
                                             <?php echo substr($adviceandtools[1]['post_excerpt'],0,180);?>
-                                            <a href="#">Read More</a>
+                                            <a href="blog/how-to-prevent-caregiver-burnout">Read More</a>
                                         </p>
                                     </div>
                                 </article>
