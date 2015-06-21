@@ -301,6 +301,7 @@ $(function () {
             var caregiverage_from  = $('.caregiverage_from').val();
             var caregiverage_to = $('.caregiverage_to').val();
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
+            var care_type = $( ".select-services option:selected" ).val();
 
         	
 			$(".searchloader").fadeIn("fast");
@@ -322,6 +323,7 @@ $(function () {
         
         $('.number_of_children,.year_experience,.age_group,#textbox1').change(function(){
 		$(".searchloader").fadeIn("fast");
+			var care_type = $( ".select-services option:selected" ).val();
 			var neighbour = $('.neighbour').val();
 			var gender = $('.gender').is(':checked') ? $('input[name=gender_of_caregiver]:checked').val():'';
             var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
@@ -373,6 +375,7 @@ $(function () {
               
 		$('.gender,.smoker,.lang,.observance,.homework_help,.on_short_notice,.sick_child_care,.morenum,.basic_housework,.vehicle,.looking_to_work,.year_experience,.training,.availability,.driver_license,.pick_up_child,.cook').click(function(){
             $(".searchloader").fadeIn("fast");			
+            var care_type = $( ".select-services option:selected" ).val();
             var neighbour = $('.neighbour').val();
 			var gender = $('.gender').is(':checked') ? $('input[name=gender_of_caregiver]:checked').val():'';
             var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
@@ -463,6 +466,7 @@ $(function () {
             var caregiverage_from  = $('.caregiverage_from').val()?$('.caregiverage_from').val():'';
             var caregiverage_to = $('.caregiverage_to').val()?$('.caregiverage_to').val():'';
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
+            var care_type = $( ".select-services option:selected" ).val();
             
 			$.ajax({
 				type:"get",
@@ -553,7 +557,7 @@ $(document).ready(function () {
             var caregiverage_from  = $('.caregiverage_from').val()?$('.caregiverage_from').val():'';
             var caregiverage_to = $('.caregiverage_to').val()?$('.caregiverage_to').val():'';
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
-            var care_type 	=  $('#care_type').val();
+            var care_type = $( ".select-services option:selected" ).val();
 
             $.ajax({
             	type : "post",
