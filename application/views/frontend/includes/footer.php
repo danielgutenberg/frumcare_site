@@ -61,10 +61,8 @@
         <div class="colophon">
             <div class="row">
                 <div class="col-half">
-                    <p class="copyright-info">
                         Copyright&copy; frumcare.com All rights reserved
-                    </p>
-                    <a href="<?php echo site_url();?>terms-of-use">Terms of Use</a> |
+                    <a style="padding-left: 51px;" href="<?php echo site_url();?>terms-of-use">Terms of Use</a> |
                     <a href="<?php echo site_url();?>privacy-policy">Privacy Policy</a>
                 </div>
                 <div class="col-half">
