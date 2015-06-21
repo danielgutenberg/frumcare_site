@@ -1258,7 +1258,7 @@ class User extends CI_Controller
             $this->db->where('id',$id);
             $this->db->insert('tbl_searchhistory', array('createAlert' => 1));
             $this->session->set_flashdata('info', 'Alert Created Successfully');
-            redirect('user/searches',true);
+            // redirect('user/searches',true);
       }
       
       public function removealert($id)
@@ -1268,7 +1268,7 @@ class User extends CI_Controller
             $this->db->where('id',$id);
             $this->db->insert('tbl_searchhistory', array('createAlert' => 0));
             $this->session->set_flashdata('info', 'Alert Cancelled Successfully');
-            redirect('user/searches',true);
+            // redirect('user/searches',true);
       }
       
       public function createsearchalert(){
