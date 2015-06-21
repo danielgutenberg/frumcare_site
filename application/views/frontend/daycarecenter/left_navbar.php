@@ -3,7 +3,7 @@
 	  		<div class="left-search-panel">
 	 	<h4>Advanced Search</h4>
 	 	<form method="post" id="left-nav" action="">
- 			<div class="select-services">
+ 			<div class="select-services careType">
 	 			<label>Choose a Care Type</label>
  				<?php $this->load->view('frontend/common/left_nav_title')?>
 	 		</div>			
@@ -61,7 +61,7 @@ $(function () {
 </script>
 <script>
 	$(document).ready(function(){
-		var care_type = $( ".service option:selected" ).val();
+		var care_type = $( ".careType option:selected" ).val();
 			$('#care_type').val(care_type);
 		$('.service').change(function(){
 			$('#care_type').val($(this).val());
@@ -250,7 +250,7 @@ $(function () {
 		        var lang = $('.lang:checked').map(function(_, el) {
 			        return $(el).val();
 			    }).get();			    
-	            var care_type 	=  $('#care_type').val();
+	            var care_type = $( ".careType option:selected" ).val();
                 var sub_care = $('.sub_care').val();
 	            var age_group = $('.age_group:checked').map(function(_, el) {
 		        return $(el).val();

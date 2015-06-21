@@ -3,7 +3,7 @@
 	  		<div class="left-search-panel">
 	 	<h4>Advanced Search</h4>
 	 	<form method="post" id="left-nav" action="">
- 			<div class="select-services">
+ 			<div class="select-services careType">
 	 			<label>Choose a Care Type</label>
  				<?php $this->load->view('frontend/common/left_nav_title')?>
 	 		</div> 			
@@ -56,7 +56,7 @@ $(function () {
 		});
 
 		$('.service').change(function(){
-			$('#care_type').val($(this).val());
+			var care_type = $( ".careType option:selected" ).val();
             var pagelink = $(this).find("option:selected").text();
             
             if(pagelink == 'Nanny / Au-pair')
@@ -209,6 +209,7 @@ $(function () {
 		    var willing_to_work = $('.willing_to_work:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
+		    var care_type = $( ".careType option:selected" ).val();
 				$.ajax({
 					type:"post",
 					url:"<?php echo site_url();?>seniorcareagency/savesearch",

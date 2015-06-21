@@ -3,7 +3,7 @@
 	  		<div class="left-search-panel col-lg-3 col-md-3 col-sm-3 col-xs-12">
 	 	<h4>Advanced Search</h4>
 	 	<form method="post" id="left-nav" action="">
- 			<div class="select-services">
+ 			<div class="select-services careType">
 	 			<label>Choose a Care Type</label>
  				<?php $this->load->view('frontend/common/left_nav_title')?>
 	 		</div>
@@ -118,7 +118,7 @@ $(function () {
 </script>
 <script>
 	$(document).ready(function(){
-		var care_type = $( ".service option:selected" ).val();
+		var care_type = $( ".careType option:selected" ).val();
 			$('#care_type').val(care_type);
 		$('.service').change(function(){
 			$('#care_type').val($(this).val());
@@ -208,6 +208,7 @@ $(function () {
 		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
 		    var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
 		    var available = $('.available_on_short_notice').is('.checked')?$('.available_on_short_notice').val():'';
+		    var care_type = $( ".careType option:selected" ).val();
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>special_needs_caregiver/search",
@@ -260,6 +261,7 @@ $(function () {
 		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
 		    var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
 		    var available = $('.available_on_short_notice').is('.checked')?$('.available_on_short_notice').val():'';
+		    var care_type = $( ".careType option:selected" ).val();
 
 				$.ajax({
 					type:"get",
@@ -315,6 +317,7 @@ $(function () {
 		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
 		  	var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
 		    var available = $('.available_on_short_notice').is('.checked')?$('.available_on_short_notice').val():'';
+		    var care_type = $( ".careType option:selected" ).val();
 
 				$.ajax({
 					type:"get",
@@ -407,7 +410,7 @@ $(function () {
 		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
 		  	var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
 		    var available = $('.available_on_short_notice').is('.checked')?$('.available_on_short_notice').val():'';
-	    	var care_type = $( "#care_type" ).val();
+	    	var care_type = $( ".careType option:selected" ).val();
 		    	$.ajax({
 			    		type:"post",
 			    		url:"<?php echo site_url();?>special_needs_caregiver/savesearch",

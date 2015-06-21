@@ -4,7 +4,7 @@
 	 	<h4>Advanced Search</h4>
 	 	<form method="post" id="left-nav" action="">
 	 		
- 			<div class="select-services">
+ 			<div class="select-services careType">
 	 			<label>Choose a Care Type</label>
  				<?php $this->load->view('frontend/common/left_nav_title')?>
 	 		</div>
@@ -86,7 +86,7 @@
 		 		<div class="educationss" colspan="2">
 		 		<input type="hidden" name="category" value="" id="care_type">
 			 		<div colspan="2" class="search-btns">
-				 		<input type="submit" class="btn btn-primary searchs" data-toggle="tooltip" data-placement="left" title=""Save your search. Setup email alerts and be the first to see new profiles that have your search criteria." value="Save this Search" name="searchs">
+				 		<input type="submit" class="btn btn-primary searchs" data-toggle="tooltip" data-placement="left" title="Save your search. Setup email alerts and be the first to see new profiles that have your search criteria." value="Save this Search" name="searchs">
 				 	</div>
 
 			</form>
@@ -100,7 +100,7 @@ $(function () {
 </script>
 <script>
 	$(document).ready(function(){
-		var care_type = $( ".service option:selected" ).val();
+		var care_type = $( ".careType option:selected" ).val();
 			$('#care_type').val(care_type);
 		$('.service').change(function(){
 			$('#care_type').val($(this).val());
@@ -180,6 +180,7 @@ $(function () {
 		        return $(el).val();
 		    }).get();
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
+            var care_type = $( ".careType option:selected" ).val();
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>tutor/search",
@@ -221,6 +222,7 @@ $(function () {
 		        return $(el).val();
 		    }).get();
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
+            var care_type = $( ".careType option:selected" ).val();
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>tutor/search",
@@ -261,6 +263,7 @@ $(function () {
 		        return $(el).val();
 		    }).get();
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
+            var care_type = $( ".careType option:selected" ).val();
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>tutor/search",
@@ -307,6 +310,7 @@ $(function () {
 		        return $(el).val();
 		    }).get();
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
+            var care_type = $( ".careType option:selected" ).val();
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>tutor/search",
@@ -383,7 +387,7 @@ $(function () {
 		        return $(el).val();
 		    }).get();
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
-            var care_type = $('#care_type').val();
+            var care_type = $( ".careType option:selected" ).val();
 
             $.ajax({
             	type:"post",

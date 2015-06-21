@@ -4,7 +4,7 @@
 	 	<h4>Advanced Search</h4>
 	 	<form method="post" id="left-nav" action="">
 	 		
- 			<div class="select-services">
+ 			<div class="select-services careType">
 	 			<label>Choose a Job Type</label>
                 <?php $this->load->view('frontend/common/left_nav_title')?>
  				<?php /*
@@ -111,7 +111,7 @@ $(function () {
 </script>
 <script>
 	$(document).ready(function(){
-        var care_type = $( ".service option:selected" ).val();
+        var care_type = $( ".careType option:selected" ).val();
         $('#care_type').val(care_type);
 
         $('.service').change(function(){
@@ -170,7 +170,8 @@ $(function () {
                 var rate_type = $('.rate_type:checked').map(function(_, el) {
     		        return $(el).val();
     		    }).get();
-                 var start_date = $("#textbox1").val()?$("#textbox1").val():'';                
+                 var start_date = $("#textbox1").val()?$("#textbox1").val():'';  
+                 var care_type = $( ".careType option:selected" ).val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_nanny/search",
@@ -206,7 +207,8 @@ $(function () {
                 var rate_type = $('.rate_type:checked').map(function(_, el) {
     		        return $(el).val();
     		    }).get();
-                 var start_date = $("#textbox1").val()?$("#textbox1").val():'';                
+                 var start_date = $("#textbox1").val()?$("#textbox1").val():'';    
+                 var care_type = $( ".careType option:selected" ).val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_nanny/search",
@@ -242,7 +244,8 @@ $(function () {
                 var rate_type = $('.rate_type:checked').map(function(_, el) {
     		        return $(el).val();
     		    }).get();
-                 var start_date = $("#textbox1").val()?$("#textbox1").val():'';                
+                 var start_date = $("#textbox1").val()?$("#textbox1").val():'';    
+                 var care_type = $( ".careType option:selected" ).val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_nanny/search",
@@ -285,7 +288,8 @@ $(function () {
                 var rate_type = $('.rate_type:checked').map(function(_, el) {
     		        return $(el).val();
     		    }).get();
-                 var start_date = $("#textbox1").val()?$("#textbox1").val():'';                
+                 var start_date = $("#textbox1").val()?$("#textbox1").val():'';   
+                 var care_type = $( ".careType option:selected" ).val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_nanny/search",
@@ -333,7 +337,7 @@ $(function () {
                         var rate = $('.rate').val();
                         var rate_type = $('.rate_type').val();
                         var start_date = $("#textbox1").val()?$("#textbox1").val():'';    
-                        var care_type = $('#care_type').val();
+                        var care_type = $( ".careType option:selected" ).val();
                         $.ajax({
                             type : "post",
                             url  : "<?php echo site_url();?>careseeker_nanny/savesearch",

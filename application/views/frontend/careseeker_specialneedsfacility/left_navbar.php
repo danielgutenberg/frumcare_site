@@ -4,7 +4,7 @@
 	 	<h4>Advanced Search</h4>
 	 	<form method="post" id="left-nav" action="">
 	 		
- 			<div class="select-services">
+ 			<div class="select-services careType">
 	 			<label>Choose a Job Type</label>
                 <?php $this->load->view('frontend/common/left_nav_title')?>
  				
@@ -183,7 +183,7 @@ $(function () {
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
 <script type="text/javascript">
     $(document).ready(function(){
-        var care_type = $( ".service option:selected" ).val();
+        var care_type = $( ".careType option:selected" ).val();
         $('#care_type').val(care_type);
 
          var $myDialog = $('<div></div>')
@@ -202,7 +202,7 @@ $(function () {
                     var rate_type = $('.rate_type:checked').map(function(_, el) {
                         return $(el).val();
                     }).get();
-                    var care_type = $('#care_type').val();
+                    var care_type = $( ".careType option:selected" ).val();
                         $.ajax({
                             type : "post",
                             url  : "<?php echo site_url();?>careseeker_specialneedsfacility/savesearch",

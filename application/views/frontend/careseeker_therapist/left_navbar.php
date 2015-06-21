@@ -4,7 +4,7 @@
 	 	<h4>Advanced Search</h4>
 	 	<form method="post" id="left-nav" action="">
 	 		
- 			<div class="select-services">
+ 			<div class="select-services careType">
 	 			<label>Choose a Job Type</label>
                 <?php $this->load->view('frontend/common/left_nav_title')?>
  				<?php /*
@@ -52,7 +52,7 @@ $(function () {
 </script>
 <script>
 	$(document).ready(function(){
-         var care_type = $( ".service option:selected" ).val();
+         var care_type = $( ".careType option:selected" ).val();
           $('#care_type').val(care_type);
 
         $('.service').change(function(){
@@ -137,7 +137,7 @@ $(function () {
                     $(this).dialog("close");
                         var neighbour = $('.neighbour').val();
                         var gender_of_caregiver = $('.gender_of_caregiver').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';                          
-                        var care_type = $('#care_type').val();
+                        var care_type = $( ".careType option:selected" ).val();
                         $.ajax({
                             type : "post",
                             url  : "<?php echo site_url();?>careseeker_specialneedscaregiver/savesearch",

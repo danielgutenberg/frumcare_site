@@ -4,7 +4,7 @@
 	 	<h4>Advanced Search</h4>
 	 	<form method="post" id="left-nav" action="">
 	 		
- 			<div class="select-services">
+ 			<div class="select-services careType">
 	 			<label>Choose a Care Type</label>
  				<?php $this->load->view('frontend/common/left_nav_title')?>
 	 		</div>
@@ -66,7 +66,7 @@
 <script>
 	$(document).ready(function(){
 			// assign care type id
-			$('#care_type').val($( ".service option:selected" ).val());
+			$('#care_type').val($( ".careType option:selected" ).val());
 			// on change assing care  type id 
 			$('.service').change(function(){
 				$('#care_type').val($(this).val());
@@ -138,7 +138,7 @@
 			        	return $(el).val();
 			    	}).get();
 			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
-			    	var care_type = $( ".service option:selected" ).val();
+			    	var care_type = $( ".careType option:selected" ).val()
 
 			    	$.ajax({
 			    		type:"get",
@@ -170,7 +170,7 @@
 			        	return $(el).val();
 			    	}).get();
 			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
-			    	var care_type = $( ".service option:selected" ).val();
+			    	var care_type = $( ".careType option:selected" ).val()
 
 			    	$.ajax({
 			    		type:"get",
@@ -201,7 +201,7 @@
 			        	return $(el).val();
 			    	}).get();
 			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
-			    	var care_type = $( ".service option:selected" ).val();
+			    	var care_type = $( ".careType option:selected" ).val()
                     var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
 			    	$.ajax({
 			    		type:"get",
@@ -232,7 +232,7 @@
 			        	return $(el).val();
 			    	}).get();
 			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
-			    	var care_type = $( ".service option:selected" ).val();
+			    	var care_type = $( ".careType option:selected" ).val()
                     var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
 			    	$.ajax({
 			    		type:"get",
@@ -266,7 +266,7 @@
 			    	}).get();
 			    	//var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
                      var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
-			    	var care_type = $( ".service option:selected" ).val();
+			    	var care_type = $( ".careType option:selected" ).val();
                     var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
 			    	$.ajax({
 			    		type:"get",
@@ -300,7 +300,7 @@
 			    	}).get();
 			    	//var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
                      var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
-			    	var care_type = $( ".service option:selected" ).val();
+			    	var care_type = $( ".careType option:selected" ).val();
                     var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
 			    	$.ajax({
 			    		type:"get",
@@ -331,7 +331,7 @@
 			        	return $(el).val();
 			    	}).get();
 			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
-			    	var care_type = $( ".service option:selected" ).val();
+			    	var care_type = $( ".careType option:selected" ).val();
                     var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
 			    	$.ajax({
 			    		type:"get",
@@ -362,7 +362,7 @@
 			        	return $(el).val();
 			    	}).get();
 			    	var accept_insurance = $(this).val();
-			    	var care_type = $( ".service option:selected" ).val();
+			    	var care_type = $( ".careType option:selected" ).val();
    	                var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
 			    	$.ajax({
 			    		type:"get",
@@ -406,7 +406,7 @@ $(document).ready(function () {
 	        	return $(el).val();
 	    	}).get();
 	    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
-            var care_type 	=  $('#care_type').val();
+            var care_type = $( ".careType option:selected" ).val();
             var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
             $.ajax({
             	type : "post",
