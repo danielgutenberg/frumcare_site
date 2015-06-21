@@ -44,6 +44,13 @@
                 	<?php 
                 	echo $rec['service_name'];
                 	unset($rec['service_name']);
+                	if ($rec['gender'] == 1) {
+                	   echo ', Male'; 
+                	}
+                	if ($rec['gender'] == 2) {
+                	   echo ', Female'; 
+                	}
+                	unset($rec['gender']);
                 	foreach($rec as $key => $value) { 
                 	   if ($value > 0) { 
                 	        echo ', ' . $key;
