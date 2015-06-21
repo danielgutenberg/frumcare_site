@@ -19,11 +19,14 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			$this->load->view(FRONTEND_TEMPLATE, $data);
 		}
 
-		public function termsandconditions(){	
-			if($this->input->is_ajax_request()){
-				$data['content_data'] = $this->cms_model->getPageDetailBySlug('terms-and-conditions');	
-				echo ($data['content_data']['content']);exit();
-			}
+		public function termsofuse(){	
+			$this->breadcrumbs->push('Terms and Conditions', '/terms-of-use');
+			$this->breadcrumbs->unshift('Home', base_url());
+			
+			$data['main_content'] = 'frontend/cms/page';
+			$data['content_data'] = $this->cms_model->getPageDetailBySlug('terms-of-use');
+			$data['title'] 		  = 'Terms of Use';
+			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}
 
 		public function stayingsafefamilies(){
