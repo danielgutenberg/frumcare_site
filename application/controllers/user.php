@@ -1034,7 +1034,7 @@ class User extends CI_Controller
                         'sendto'      => $receiveremail,
                         'message'     => $msg
                     );
-                    // sendemail($param); 
+                    sendemail($param); 
                     
                     $user_id = check_user();
                     $user = get_user($user_id);
