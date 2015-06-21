@@ -1237,15 +1237,18 @@ class User extends CI_Controller
       }//CODE BY CHAND
 
       public function searches(){
-            $this->breadcrumbs->push('My Search Alerts', site_url().'#');
-            $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
+            $this->breadcrumbs->push('My Searches', site_url().'#');
+        $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
 
-            $data = array(
-                'title'         => "My Searches",
-                'main_content'  => "frontend/user/search"
-            );
+        $current_user = $this->session->userdata['current_user'];
 
-            $this->load->view(FRONTEND_TEMPLATE,$data);
+        $data = array(
+            'title'         => 'View History',
+            'main_content'  => 'frontend/user/viewhistory',
+            'record'        => $this->user_model->getHistory($current_user)
+        );
+
+        $this->load->view(FRONTEND_TEMPLATE,$data);
       }
 
       
