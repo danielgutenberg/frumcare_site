@@ -83,6 +83,7 @@ class BabySitter extends CI_Controller{
 		$limit = 15;
 		if(check_user()){
                     $locationdetails = $this->common_model->getMyLocation(check_user());
+                    print_r($locationdetails);
                     if($locationdetails){
                         $latitude = ($locationdetails[0]['lat']);
                         $longitude = ($locationdetails[0]['lng']);
