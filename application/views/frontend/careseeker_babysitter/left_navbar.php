@@ -11,7 +11,7 @@
 	 	<h4>Advanced Search</h4>
         <?php $cat = $this->uri->segment(2)?$this->uri->segment(2):''; ?>
 	 	<form method="post" id="left-nav" action="">
- 			<div class="select-services">
+ 			<div class="select-services careType">
 	 			<label>Choose a Job Type</label>
                 <?php $this->load->view('frontend/common/left_nav_title')?>
  				<?php /*
@@ -177,7 +177,8 @@ $(function () {
     		        return $(el).val();
     		    }).get();
                 //var rate_type = $('.rate_type').val();
-                var start_date = $("#textbox1").val()?$("#textbox1").val():'';               
+                var start_date = $("#textbox1").val()?$("#textbox1").val():'';
+                var care_type = $( ".careType option:selected" ).val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_babysitter/search",
@@ -214,7 +215,8 @@ $(function () {
                 var rate_type = $('.rate_type:checked').map(function(_, el) {
     		        return $(el).val();
     		    }).get();
-                var start_date = $("#textbox1").val()?$("#textbox1").val():'';               
+                var start_date = $("#textbox1").val()?$("#textbox1").val():''; 
+                var care_type = $( ".careType option:selected" ).val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_babysitter/search",
@@ -251,7 +253,8 @@ $(function () {
                 //var rate_type = $('.rate_type').val();
                 var rate_type = $('.rate_type:checked').map(function(_, el) {
     		        return $(el).val();
-    		    }).get();               
+    		    }).get();  
+    		    var care_type = $( ".careType option:selected" ).val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_babysitter/search",
@@ -295,7 +298,8 @@ $(function () {
                 var rate_type = $('.rate_type:checked').map(function(_, el) {
     		        return $(el).val();
     		    }).get();
-                var rate = $('.rate').val();          
+                var rate = $('.rate').val(); 
+                var care_type = $( ".careType option:selected" ).val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_babysitter/search",
@@ -348,7 +352,7 @@ $(function () {
             var homework_help = $('.homework_help').is(':checked') ? $('.homework_help').val() :'';
             var on_short_notice = $('.on_short_notice').is(':checked') ? $('.on_short_notice').val():'';
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
-            var care_type   =  $('#care_type').val();
+            var care_type = $( ".careType option:selected" ).val();
             var rate = $('.rate').val();
             $.ajax({
                 type : "post",
