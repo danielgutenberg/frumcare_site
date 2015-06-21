@@ -29,9 +29,10 @@
             </tr>
             <?php
             foreach($record as $rec)
-            $id = $rec['id'];
             {
-                unset($rec['id']);
+            
+            $id = $rec['id'];
+            unset($rec['id']);
             unset($rec['user_id']);
             unset($rec['care_type']);
             unset($rec['neighbor']);
