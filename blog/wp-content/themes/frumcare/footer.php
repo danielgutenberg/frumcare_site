@@ -38,8 +38,9 @@
                                     <ul>
                                         <li><a href="<?php echo $ciurl;?>/about-us">About Us</a></li>
                                         <li><a href="<?php echo $ciurl;?>/help">Contact Us</a></li>
-                                        
                                         <li><a href="<?php echo $ciurl;?>/blog">Blog</a></li>
+                                        <li><a href="<?php echo $ciurl;?>/terms-of-use">Terms of Use</a></li>
+                                        <li><a href="<?php echo $ciurl;?>/privacy-policy">Privacy Policy</a></li>
                                         
                                     </ul>
                                 </nav>
