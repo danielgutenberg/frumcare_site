@@ -20,12 +20,22 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 		}
 
 		public function termsofuse(){	
-			$this->breadcrumbs->push('Terms and Conditions', '/terms-of-use');
+			$this->breadcrumbs->push('Terms of Use', '/terms-of-use');
 			$this->breadcrumbs->unshift('Home', base_url());
 			
 			$data['main_content'] = 'frontend/cms/page';
 			$data['content_data'] = $this->cms_model->getPageDetailBySlug('terms-of-use');
 			$data['title'] 		  = 'Terms of Use';
+			$this->load->view(FRONTEND_TEMPLATE,$data);
+		}
+		
+		public function privacypolicy(){	
+			$this->breadcrumbs->push('Privacy Policy', '/privacy-policy');
+			$this->breadcrumbs->unshift('Home', base_url());
+			
+			$data['main_content'] = 'frontend/cms/page';
+			$data['content_data'] = $this->cms_model->getPageDetailBySlug('privacy-policy');
+			$data['title'] 		  = 'Privacy Policy';
 			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}
 

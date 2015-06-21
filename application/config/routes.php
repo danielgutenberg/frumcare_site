@@ -63,6 +63,7 @@ $route['ad/caregiver/(:any)'] = 'ad/index/$1/$2';
 $route['ad/careseeker/(:any)'] = 'ad/index/$1/$2';
 $route['about-us'] = 'cms/aboutus';
 $route['terms-of-use'] = 'cms/termsofuse';
+$route['privacy-policy'] = 'cms/privacypolicy';
 // $route['staying-safe'] = 'cms/stayingsafe';
 // $route['tips-and-tools'] = 'cms/tipsandtools';
 $route['user/upgrademembership'] = 'payment/upgrademembership';
