@@ -60,7 +60,7 @@
                 	   }
                 	}?>
                 </td>
-                <td><button>Create Alert</button></td>
+                <td><button><a href="<?php echo site_url();?>user/createalert/<?php echo $id; ?>">Create Alert</a></button></td>
             </tr>
             <?php
             }
