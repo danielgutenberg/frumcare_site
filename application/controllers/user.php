@@ -1256,7 +1256,7 @@ class User extends CI_Controller
             $this->breadcrumbs->push('My Searches', site_url().'#');
             $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
             $this->db->where('id',$id);
-            $this->db->insert('tbl_searchhistory', array('createAlert' => 1));
+            $this->db->update('tbl_searchhistory', array('createAlert' => 1));
             $this->session->set_flashdata('info', 'Alert Created Successfully');
             $current_user = $this->session->userdata['current_user'];
 
@@ -1274,7 +1274,7 @@ class User extends CI_Controller
             $this->breadcrumbs->push('My Searches', site_url().'#');
             $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
             $this->db->where('id',$id);
-            $this->db->insert('tbl_searchhistory', array('createAlert' => 0));
+            $this->db->update('tbl_searchhistory', array('createAlert' => 0));
             $this->session->set_flashdata('info', 'Alert Cancelled Successfully');
             // redirect('user/searches',true);
       }
