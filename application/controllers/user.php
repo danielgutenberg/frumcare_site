@@ -916,6 +916,8 @@ class User extends CI_Controller
                 }                
 
                 $insert = array(
+                    'longitude' => $p['lng'],
+                    'latitude' => $p['lat'],
                     'user_id' =>$this->session->userdata('current_user'),
                     'account_category' =>$this->session->userdata('account_category'),
                     'care_type' =>$p['care_type'],
@@ -1068,10 +1070,6 @@ class User extends CI_Controller
                     if(isset($p['lat']) && !empty($p['lat'])){
                         $update_user['lat'] = $p['lat'];
                     }
-                    $locationData = [
-                        'latitude' => $p['lat'],
-                        'longitude' => $p['lng']
-                    ];
                     if(isset($p['lng']) && !empty($p['lng'])){
                         $update_user['lng'] = $p['lng'];
                     }
@@ -1091,7 +1089,6 @@ class User extends CI_Controller
                     if(isset($update_user)){
                         $this->common_model->update('tbl_user',$update_user,array('id' => $this->session->userdata('current_user')));
                     }
-                    $this->common_model->update('tbl_userprofile',$locationData,array('id' => $this->session->userdata('current_user'), 'care_type' => $p['care_type']));
                     $profile = $this->job_or_profile();
                     $this->session->set_flashdata('info', "New $profile successfully added");
                     redirect('user/profile');
