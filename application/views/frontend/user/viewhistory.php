@@ -36,6 +36,7 @@
             unset($rec['user_id']);
             unset($rec['care_type']);
             unset($rec['neighbor']);
+            unset($rec['createAlert']);
             ?>
             <tr>
                 <td><?php echo $rec['searcheddate'];
