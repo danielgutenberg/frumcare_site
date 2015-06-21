@@ -30,7 +30,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <label>Looking to work in</label>
             <div class="form-field">
                 <div class="checkbox"><input type="checkbox" value="My home" name="looking_to_work[]"> <span>My home</span></div>
-                <div class="checkbox"><input type="checkbox" value="Childs home" name="looking_to_work[]"> <span>Childs home</span></div>
+                <div class="checkbox"><input type="checkbox" value="Child's home" name="looking_to_work[]"> <span>Child's home</span></div>
                 <div class="checkbox"><input type="checkbox" value="Caregiving institution" name="looking_to_work[]">Caregiving institution</div>
                 <div class="checkbox"><input type="checkbox" value="Mother's Helper" name="looking_to_work[]"> <span>Mother's Helper<span></div>
             </div>

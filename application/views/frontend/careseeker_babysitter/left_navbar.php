@@ -37,9 +37,9 @@
  		
             <div>
 	 			<label>Care Location</label>
-	 			<div class="checkbox"><input type="checkbox" value="Childs home" class="looking_to_work">Child's home</div>
+	 			<div class="checkbox"><input type="checkbox" value="Child's home" class="looking_to_work">Child's home</div>
 	 			<div class="checkbox"><input type="checkbox" value="My home" class="looking_to_work">Caregivers home</div>
-	 			<div class="checkbox"><input type="checkbox" value="Mothers helper" class="looking_to_work">Mother's helper</div>
+	 			<div class="checkbox"><input type="checkbox" value="Mother's helper" class="looking_to_work">Mother's helper</div>
 	 		</div>
    	        <div class="select-services">
 	 			<label>Number of children you can care for</label>

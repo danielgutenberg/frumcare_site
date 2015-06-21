@@ -372,7 +372,7 @@ if($pages > 1){
                 var element = parseInt(page_num)
                 $('.paginate_click').eq(element).removeClass('in-active');
         		$('.paginate_click').eq(element).addClass('active'); //add active class to currently clicked element (style purpose)
-        		
+        		document.body.scrollTop = document.documentElement.scrollTop = 0;
         		return false; //prevent going to herf link
         	});
 
