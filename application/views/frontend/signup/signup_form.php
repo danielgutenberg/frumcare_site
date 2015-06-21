@@ -92,7 +92,7 @@ if($this->uri->segment(2)!='edit'){
             </span>
         </div>
     
-        <span class="sign-up-btn">
+        <span class="sign-up-btn" style="margin-top:5px !important">
             <input id="submit-btn" type="submit" class="btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/>
          </span>
     </form>
