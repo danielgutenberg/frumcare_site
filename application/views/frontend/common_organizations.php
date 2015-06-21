@@ -7,8 +7,8 @@
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {});
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
                     var place = autocomplete.getPlace();                    
-                    var lat = place.geometry.location.k;
-                    var lng = place.geometry.   location.D;                                
+                    var lat = place.geometry.location.A;
+                    var lng = place.geometry.location.F;                                 
                     $("#lat").val(lat);
                     $("#lng").val(lng);
                     $(".searchloader").fadeIn("fast");
