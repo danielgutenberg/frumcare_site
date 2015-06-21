@@ -168,6 +168,14 @@ class Careseeker_cleaningcompany extends CI_Controller{
                     $longitude = $locationdetails[0]['lng'];
                     $location = $locationdetails[0]['location'];
                 }
+                if (!$latitude) {
+                        $ipdata = $this->common_model->getIPData($this->ipaddress);
+                        if(is_array($ipdata)){
+                            $latitude = ($ipdata['lat']);
+                            $longitude = ($ipdata['lon']);
+                            $location = isset($ipdata['city'])?$ipdata['city']:'your city';
+                        }
+                    }
             
             }
             else{

@@ -279,7 +279,6 @@ class Caregivers extends CI_Controller
             $limit      = 15;
             $ipdata     = $this->common_model->getIPData($this->ipaddress);
             $response   = $this->common_model->getLongitudeAndLatitude($ipdata['city']);
-            var_dump($response);exit;
             $latitude   = $response->results[0]->geometry->location->lat;
             $longitude  = $response->results[0]->geometry->location->lng;
 

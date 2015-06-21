@@ -57,6 +57,14 @@
                         $latitude = floor($locationdetails[0]['lat']);
                         $longitude = floor($locationdetails[0]['lng']);
                     }
+                    if (!$latitude) {
+                        $ipdata = $this->common_model->getIPData($this->ipaddress);
+                        if(is_array($ipdata)){
+                            $latitude = ($ipdata['lat']);
+                            $longitude = ($ipdata['lon']);
+                            $location = isset($ipdata['city'])?$ipdata['city']:'your city';
+                        }
+                    }
             }
             else{
                 $ipdata = $this->common_model->getIPData($this->ipaddress);
