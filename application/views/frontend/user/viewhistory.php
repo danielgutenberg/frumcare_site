@@ -27,16 +27,24 @@
                 <th>Searched Keywords</th>
             </tr>
             <?php
-            print_r($record);
             foreach($record as $rec)
+            unset($rec['id']);
+            unset($rec['user_id']);
+            unset($rec['care_type']);
+            unset($rec['neighbor']);
             {
             ?>
             <tr>
-                <td><?php; echo $rec['searcheddate'];?></td>
+                <td><?php echo $rec['searcheddate'];
+                
+            unset($rec['searcheddate']);?></td>
                 <td>
-                	<?php foreach($rec as $key => $value) { 
-                	   if ($value) { 
-                	        echo $key . ' = ' . $value . ', ';
+                	<?php 
+                	echo $rec['service_name'] . ', ';
+                	unset($rec['service_name']);
+                	foreach($rec as $key => $value) { 
+                	   if ($value > 0) { 
+                	        echo $key . ', ';
                 	   }
                 	}?>
                 </td>
