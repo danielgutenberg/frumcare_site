@@ -36,6 +36,7 @@
             unset($rec['user_id']);
             unset($rec['care_type']);
             unset($rec['neighbor']);
+            $alert = $rec['createAlert'];
             unset($rec['createAlert']);
             ?>
             <tr>
@@ -61,8 +62,11 @@
                 	}?>
                 </td>
                 <td>
+                    <?php if ($alert == 0) { ?>
                     <button><a href="<?php echo site_url();?>user/createalert/<?php echo $id; ?>">Create Alert</a></button>
+                    <?php } else { ?>
                     <button><a href="<?php echo site_url();?>user/removealert/<?php echo $id; ?>">Cancel Alert</a></button>
+                    <?php } ?>
                 </td>
             </tr>
             <?php
