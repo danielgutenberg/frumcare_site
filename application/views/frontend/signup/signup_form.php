@@ -86,9 +86,9 @@ if($this->uri->segment(2)!='edit'){
     
     
         <div class="sign-up-checkboxs">
-            <input type="checkbox" name="agree" class="required"/>
-            <span>I have read and accept the
-                <a href="javascript:void(0);" id="terms-and-conditions" class="terms" data-toggle="modal" data-target="#terms">Frumcare terms & conditions</a>
+            <!--<input type="checkbox" name="agree" class="required"/>-->
+            <span>By clicking on "Sign up" you agree to our <a href="<?php echo base_url();?>terms-of-use">Terms of use</a> and <a href="<?php echo base_url();?>privacy-policy">Privacy policy</a>
+                <!--<a href="javascript:void(0);" id="terms-and-conditions" class="terms" data-toggle="modal" data-target="#terms">Frumcare terms & conditions</a>-->
             </span>
         </div>
     
