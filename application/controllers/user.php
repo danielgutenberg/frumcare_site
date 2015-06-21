@@ -1243,7 +1243,7 @@ class User extends CI_Controller
         $current_user = $this->session->userdata['current_user'];
 
         $data = array(
-            'title'         => 'View History',
+            'title'         => 'Search History',
             'main_content'  => 'frontend/user/viewhistory',
             'record'        => $this->user_model->getHistory($current_user)
         );

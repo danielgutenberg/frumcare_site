@@ -8,7 +8,7 @@
 	<div class="dashboard-right float-right">
 
 		<div class="top-welcome">
-			<h2>History</h2>
+			<h2>Search History</h2>
 		</div>
 
 
@@ -25,10 +25,11 @@
             <tr>
                 <th>Date</th>
                 <th>Searched Keywords</th>
+                <th></th>
             </tr>
             <?php
             foreach($record as $rec)
-            
+            $id = $rec['id'];
             {
                 unset($rec['id']);
             unset($rec['user_id']);
@@ -57,6 +58,7 @@
                 	   }
                 	}?>
                 </td>
+                <td><button>Create Alert</button></td>
             </tr>
             <?php
             }
