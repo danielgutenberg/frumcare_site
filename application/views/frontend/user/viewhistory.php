@@ -28,23 +28,25 @@
             </tr>
             <?php
             foreach($record as $rec)
-            unset($rec['id']);
+            
+            {
+                unset($rec['id']);
             unset($rec['user_id']);
             unset($rec['care_type']);
             unset($rec['neighbor']);
-            {
             ?>
             <tr>
                 <td><?php echo $rec['searcheddate'];
                 
-            unset($rec['searcheddate']);?></td>
+            unset($rec['searcheddate']);?>
+            </td>
                 <td>
                 	<?php 
-                	echo $rec['service_name'] . ', ';
+                	echo $rec['service_name'];
                 	unset($rec['service_name']);
                 	foreach($rec as $key => $value) { 
                 	   if ($value > 0) { 
-                	        echo $key . ', ';
+                	        echo ', ' . $key;
                 	   }
                 	}?>
                 </td>
