@@ -182,7 +182,7 @@
                                      <div class="content">
                                         <h3>For Families:</h3>
                                         <p>
-                                            <?php echo substr($safetyposts[0]['post_content'],0,180);?>
+                                            <?php echo substr($safetyposts[0]['post_excerpt'],0,180);?>
                                             <a href="safety-guide/families">Read More</a>
                                         </p>
                                     </div>
@@ -206,7 +206,7 @@
                                      <div class="content">
                                         <h3>For Caregivers:</h3>
                                         <p>
-                                            <?php echo substr($safetyposts[1]['post_content'],0,180);?>
+                                            <?php echo substr($safetyposts[1]['post_excerpt'],0,180);?>
                                             <a href="#">Read More</a>
                                         </p>
                                     </div>
@@ -244,7 +244,7 @@
                                     <div class="content">
                                         <h3>For Families:</h3>
                                         <p>
-                                            <?php echo substr($adviceandtools[0]['post_content'],0,180);?>
+                                            <?php echo substr($adviceandtools[0]['post_excerpt'],0,180);?>
                                             <a href="advice-and-tips/families">Read More</a> 
                                         </p>
                                     </div>
@@ -266,7 +266,7 @@
                                     <div class="content">
                                         <h3>For Caregivers:</h3>
                                         <p>
-                                            <?php echo substr($adviceandtools[1]['post_content'],0,180);?>
+                                            <?php echo substr($adviceandtools[1]['post_excerpt'],0,180);?>
                                             <a href="#">Read More</a>
                                         </p>
                                     </div>
