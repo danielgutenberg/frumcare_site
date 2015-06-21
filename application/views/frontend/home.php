@@ -159,6 +159,7 @@
                         <?php
                         $this->load->model('blog_model');
                         $safetyposts = $this->blog_model->getSafetyFirstPosts(22);
+                        print_r($safetyposts);
                         //if(is_array($safetyposts)){
                             //foreach($safetyposts as $key => $safety):
 
