@@ -30,7 +30,7 @@
 			<div class="toll-info-chat">
 				<span class="toll-num">718-213-4020</span>
 			<br/>
-			<span class="info-com"><a href="mailto:info@frumcare.com">info@frumcare.com</a></span>
+			<span class="info-com"><a target="_top" href="mailto:info@frumcare.com">info@frumcare.com</a></span>
 			<br/>
 			<span class="chats-wrap">Chat</span>
 		</div>
