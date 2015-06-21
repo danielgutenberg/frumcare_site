@@ -589,4 +589,17 @@ function geolocate() {
 
     </script>
 <!-- for google map ends -->
+<script>
+    $("#locationField").ready(function(){        
+        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {});
+            google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                    var place = autocomplete.getPlace();
+                    //console.log(place.geometry.location);
+                    var lat = place.geometry.location.A;
+                    var lng = place.geometry.location.F;                                
+                    $("#lat").val(lat);
+                    $("#lng").val(lng);                                
+                });
+    });
+</script>
 </div>
