@@ -90,10 +90,10 @@
                         <a href="https://www.instagram.com" target="_blank" class="flip-link-container">
                             <span class="flip-link">
                                 <span class="front">
-                                    <img src="<?php echo site_url();?>img/instagramblue.png" alt="Smiley face" height="32" width="32">
+                                    <img src="<?php echo site_url();?>img/instagramblue.png" alt="Smiley face" height="34" width="34">
                                 </span>
                                 <span class="back">
-                                    <img src="<?php echo site_url();?>img/instagram.png" alt="Smiley face" height="32" width="32">
+                                    <img src="<?php echo site_url();?>img/instagram.png" alt="Smiley face" height="34" width="34">
                                 </span>
                             </span>
                         </a>
