@@ -805,6 +805,16 @@ class User_model extends CI_Model
             else
                 return false;
     }
+    
+    public function getSearchAlerts(){
+        $sql    = "select * from tbl_searchhistory where createAlert = 1";
+        $query  = $this->db->query($sql);
+        $res    = $query->result_array();
+        if($res) 
+            return $res;
+        else
+            return false;
+    }
 
     public function getHistory($uid){
         $sql    = "select tbl_searchhistory.*, tbl_care.service_name from tbl_searchhistory join tbl_care on tbl_searchhistory.care_type = tbl_care.id where user_id = $uid and  searcheddate < NOW() order by searcheddate desc";
