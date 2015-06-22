@@ -42,6 +42,7 @@
     				  			var json = jQuery.parseJSON(msg);
     							var pagenum = json.num;
     							var pagedata = json.userdatas;
+    							json.paginate = '<a href="#" class="paginate_click in-active" id="previous">previous</a>' + json.paginate  + '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
     							$('#list_container').html(pagedata);
     							$('#total').text(json.total_rows);
                                 $('.navigations').html(json.pagination);
@@ -290,6 +291,7 @@ if($pages > 1){
 			  			var json = jQuery.parseJSON(msg);
 						var pagenum = json.num;
 						var pagedata = json.userdatas;
+						json.paginate = '<a href="#" class="paginate_click in-active" id="previous">previous</a>' + json.paginate  + '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
 						$('#list_container').html(pagedata);
 						$('#total').text(json.total_rows);
                         $('.navigations').html(json.pagination);    
@@ -303,6 +305,7 @@ if($pages > 1){
 			  			var json = jQuery.parseJSON(msg);
 						var pagenum = json.num;
 						var pagedata = json.userdatas;
+						json.paginate = '<a href="#" class="paginate_click in-active" id="previous">previous</a>' + json.paginate  + '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
 						$('#list_container').html(pagedata);
 						$('#total').text(json.total_rows);
                         $('.navigations').html(json.pagination);
