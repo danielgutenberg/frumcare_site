@@ -20,10 +20,10 @@
 <?php endif;?></div>
 <div class="details-right-caregive col-lg-8 col-md-8 col-sm-12 col-xs-12">
     <div class="profile-name-details">
-        <?php print_r($recordData); if ($recordData['organization_name']) { ?>
+        <?php if ($recordData['organization_name']) { ?>
         <span style="font-size:30px;"><?php echo $recordData['organization_name'];?> </span>
         <?php } else { ?>
-                <span style="font-size:30px;"><?php echo $recordData['organization_name'];?> </span>
+                <span style="font-size:30px;"><?php echo $recordData['name'];?> </span>
                 <?php } ?>
 
     </div>
