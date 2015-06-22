@@ -28,6 +28,7 @@
     				  			var json = jQuery.parseJSON(msg);
     							var pagenum = json.num;
     							var pagedata = json.userdatas;
+    							console.log(json)
     							$('#list_container').html(pagedata);
     							$('#total').text(json.total_rows);
                                 $('.navigations').html(json.pagination);    
