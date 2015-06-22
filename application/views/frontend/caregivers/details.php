@@ -477,7 +477,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                     <?php 
                 }
                 if(in_array(strtolower('First Aid'), array_map('strtolower',$training))){ ?>
-                <li class="cpr" title="Training">First Aid Training</li>
+                <li class="cprt" title="Training">First Aid Training</li>
                 <?php 
             } 										
             if(in_array(strtolower('Nanny/ Babysitter Course'), array_map('strtolower',$training))){?>
