@@ -4085,13 +4085,17 @@ input[type="radio"], input[type="checkbox"] {
 
 @media (min-width: 768px) {
     .callout{ background-position: 0 !important;}
-    .category-img{float:none !important;}
+
 }
 
 /***************** medium size desktop ****************************************/
 @media screen and (max-width: 768px) and (min-width:361px){
     .container .dashboard-left{ width:30%;}
     .container .dashboard-right{ width:70%;  padding-left:5%;}
+}
+
+@media (max-width:768px){
+    .category-img{float:none !important;}
 }
 
 
