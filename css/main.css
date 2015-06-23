@@ -4374,7 +4374,7 @@ button.close {
 }
 .container {
   margin: 0 auto;
-  width: 1090px;
+
 }
 .row:before, .row:after {
   content: " ";
