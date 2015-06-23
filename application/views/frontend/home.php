@@ -30,7 +30,7 @@
                                 </div>
                                 <br />
 
-                                <a href="javascript:void(0);" class="link-block place-ad-link">Join for free</a>
+                                <a href="javascript:void(0);" class="link-block browse-caregivers place-ad-link">Join for free</a>
                             </div>
                             <?php /* <a href="<?php echo site_url("ad");?>" class="link-block browse-caregivers">PLACE AN AD FOR FREE</a> */ ?>
                         </div>
