@@ -4081,6 +4081,11 @@ input[type="radio"], input[type="checkbox"] {
     #site-wrapper ol.progtrckr[data-progtrckr-steps="4"] li{ width:100%;}
 }
 
+@media (min-width: 768px) {
+    .callout{ background-position: 0 !important;}
+    .category-img{float:none !important;}
+}
+
 /***************** medium size desktop ****************************************/
 @media screen and (max-width: 768px) and (min-width:361px){
     .container .dashboard-left{ width:30%;}
@@ -4187,7 +4192,3 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 
-@media (min-width:768px){
-    .callout{ background-position: 0 !important;}
-    .category-img{float:none !important;}
-}
