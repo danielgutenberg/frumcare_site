@@ -4185,3 +4185,8 @@ input[type="radio"], input[type="checkbox"] {
 .table tr td + td{
 	width: auto;
 }
+
+
+@media(min-width:768px){
+    .callout{ background-position: 0 !important;}
+}
