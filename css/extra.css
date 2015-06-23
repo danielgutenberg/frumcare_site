@@ -3453,7 +3453,7 @@ input[type="radio"], input[type="checkbox"] {
 
 
 /* Landscape phone to portrait tablet */
-@media (max-width: 768px) {
+@media (max-width: 400px) {
 
 
     .left-search-panel form{ display: none;}
