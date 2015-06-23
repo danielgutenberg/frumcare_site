@@ -3455,6 +3455,8 @@ input[type="radio"], input[type="checkbox"] {
 /* Landscape phone to portrait tablet */
 @media (max-width: 400px) {
 
+    .callout{ background-position: 0 !important;}
+    .category-img{float:none !important;}
 
     .left-search-panel form{ display: none;}
     .left-search-panel h4{ cursor: pointer;}
