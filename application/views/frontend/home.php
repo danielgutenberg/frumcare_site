@@ -18,15 +18,15 @@
 
                                 <a href="<?php echo site_url('signup?ac=3')?>">I am a Care Orgainzation</a>
                                 <br /> */?>                                
-                                <p>I'm a</p>
+                                <p></p>
                                 <div class="amlabel">
-                                    <input id="parents" type="radio" name="parent" class="select" value="2"><label for="parents">Parent</label>
+                                    <input id="parents" type="radio" name="parent" class="select" value="2"><label for="parents">I'm a Parent</label>
                                     <br />
 
-                                    <input id="caregiver" type="radio" name="parent" class="select" value="1"><label for="caregiver">Caregiver</label>
+                                    <input id="caregiver" type="radio" name="parent" class="select" value="1"><label for="caregiver">I'm a Caregiver</label>
                                     <br />
 
-                                    <input id="care_organization" type="radio" name="parent" class="select" value="3"><label for="care_organization">Care Organization</label>
+                                    <input id="care_organization" type="radio" name="parent" class="select" value="3"><label for="care_organization">I'm a Care Organization</label>
                                 </div>
                                 <br />
 
