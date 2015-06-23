@@ -3306,7 +3306,7 @@ input[type="radio"], input[type="checkbox"] {
 
 
 /********************** medium size desktop *************************/
-@media (max-width:1200px) and (min-width:769px){
+@media (max-width:1200px) and (min-width:400px){
     ol.how-it-works-display{ background:url(../images/howitworks.png) no-repeat !important; background-size:100% !important;}
     ol.how-it-works-display li{ display:none;}
 }
