@@ -3080,9 +3080,9 @@ input[type="radio"], input[type="checkbox"] {
     	.amlabel{
     		padding-top: 0px;
     	}
-    	.container{
+    	/*.container{
     		width: 950px;
-    	}
+    	}*/
     	.progtrckr{
     		width: 950px !important;
     	}
