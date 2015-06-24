@@ -40,6 +40,7 @@ if($detail){
     $smoker = explode(',', $detail[0]['smoker']);
     $date = isset($detail[0]['start_date']) ? $detail[0]['start_date'] : "0000-00-00";
      $rate = $detail[0]['rate'];
+     $contact_name = $detail[0]['contact_name'];
     $rate_type = explode(',',$detail[0]['rate_type']);
     $job_position = $detail[0]['job_position'];
     $lat = $user_detail['lat'];
