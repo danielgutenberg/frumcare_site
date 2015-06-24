@@ -143,10 +143,10 @@
           } }?>
     <?php 
     if($care_type != 7){
-        if(!empty($religious_observance)){?>
+        if(!empty($caregiver_religious_observance)){?>
         <tr>
             <td>Level of religious observance</td>
-            <td ><?php echo $religious_observance?></td>
+            <td ><?php echo $caregiver_religious_observance?></td>
         </tr>
         <?php }
         else{
