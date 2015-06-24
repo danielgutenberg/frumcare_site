@@ -11,7 +11,7 @@
             <td>Looking for care in</td>
             <td>
                 <div class="details-info"><?php if(in_array('My home',$lookingtowork)){ echo $tick; }else{echo $cross;} ?> My home</div>
-                <div class="details-info"><?php if(in_array('Caregivers home',$lookingtowork)){ echo $tick; }else{echo $cross;} ?> Caregivers home</div>
+                <div class="details-info"><?php if(in_array("Caregiver's home",$lookingtowork)){ echo $tick; }else{echo $cross;} ?> Caregivers home</div>
                 <div class="details-info"><?php if(in_array("Mother's helper",$lookingtowork)){ echo $tick; }else{echo $cross;} ?>Mother's helper</div>
             </td>
         </tr>

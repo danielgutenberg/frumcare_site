@@ -208,7 +208,7 @@ class Ad extends CI_Controller
                 'neighbour'             => isset($p['neighbour'])?$p['neighbour']:'',
                 'name_of_owner'         => isset($p['name_of_owner'])?$p['name_of_owner']:'',
                 'profile_picture_owner' => isset($p['profile_picture_owner'])?$p['profile_picture_owner']:'',
-                'smoker'                => isset($p['smoker']) ? $p['smoker'] : '',
+                'smoke'                => isset($p['smoker']) ? $p['smoker'] : '',
             );
             /*
                  $response =  $this->getLongitudeAndLatitude($p['location']);
@@ -954,7 +954,7 @@ class Ad extends CI_Controller
                             'zip'               => isset($p['zip'])?$p['zip']:'',
                             'neighbour'         => isset($p['neighbour'])?$p['neighbour']:'',
                             'religious_observance' => isset($p['religious_observance']) ? $p['religious_observance'] : '',
-                            'smoker' => isset($p['smoker']) ? $p['smoker'] : '',
+                            'smoke' => isset($p['smoker']) ? $p['smoker'] : '',
                             );
             if(isset($p['name'])){
                 $uri = $this->common_model->create_slug($p['name']);
