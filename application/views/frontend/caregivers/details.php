@@ -192,8 +192,8 @@ if($this->uri->segment(4)>16){
 }
 if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
     if($this->uri->segment(4) == 10 || $this->uri->segment(4) == 16) {
-        if(!empty($recordData['organization_type'])){ ?>
-            <span class="age-wrap"><?php echo $recordData['location'].'<span>Type of Organization</span>';?></span>
+        if(!empty($recordData['sub_care'])){ ?>
+            <span class="age-wrap"><?php echo $recordData['sub_care'].'<span>Type of Organization</span>';?></span>
             <?php
         }else{ ?>
         <span class="age-wrap"><?php echo 'N/A'.'<span>Type of Organization</span>';?></span>
