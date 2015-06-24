@@ -182,8 +182,7 @@
         </td>
     </tr>
     
-    <?php if(!empty($rate)){ ?>    
-        <?php $rate_type = explode(',',$rate_type)?>
+    <?php if(!empty($rate)){ ?> 
         <tr>
             <td>Wage</td>
             <td >
