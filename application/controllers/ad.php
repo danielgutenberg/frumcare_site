@@ -208,7 +208,7 @@ class Ad extends CI_Controller
                 'neighbour'             => isset($p['neighbour'])?$p['neighbour']:'',
                 'name_of_owner'         => isset($p['name_of_owner'])?$p['name_of_owner']:'',
                 'profile_picture_owner' => isset($p['profile_picture_owner'])?$p['profile_picture_owner']:'',
-                'smoker'                => isset($p['smoker']) ? $p['smoker'] : '',
+                'smoke'                => isset($p['smoker']) ? $p['smoker'] : '',
             );
             /*
                  $response =  $this->getLongitudeAndLatitude($p['location']);
@@ -483,8 +483,11 @@ class Ad extends CI_Controller
                 'friday_from' => isset($p['friday_from']) ? $p['friday_from'] : '',
                 'friday_to' => isset($p['friday_to']) ? $p['friday_to'] : '',
                 'personal_hygiene' => isset($p['personal_hygiene']) ? $p['personal_hygiene'] : '',
+                'caregiverage_from' => isset($p['caregiverage_from']) ? $p['caregiverage_from'] : '',
+                'caregiverage_to' => isset($p['caregiverage_to']) ? $p['caregiverage_to'] : '',
                 'smoker' => isset($p['smoker']) ? $p['smoker'] : '',
                 'gender_of_caregiver' => isset($p['gender_of_caregiver']) ? $p['gender_of_caregiver'] : '',
+                'gender_of_careseeker' => isset($p['gender_of_careseeker']) ? $p['gender_of_careseeker'] : '',
                 'driver_license' => isset($p['driver_license']) ? 1 : 0,
                 'vehicle' => isset($p['vehicle']) ? 1 : 0,
                 'pick_up_child' => isset($p['pick_up_child']) ? 1 : 0,
@@ -925,6 +928,7 @@ class Ad extends CI_Controller
                 'personal_hygiene' => isset($p['personal_hygiene']) ? $p['personal_hygiene'] : '',
                 'smoker' => isset($p['smoker']) ? $p['smoker'] : '',
                 'gender_of_caregiver' => isset($p['gender_of_caregiver']) ? $p['gender_of_caregiver'] : '',
+                'gender_of_careseeker' => isset($p['gender_of_careseeker']) ? $p['gender_of_careseeker'] : '',
                 'driver_license' => isset($p['driver_license']) ? 1 : 0,
                 'vehicle' => isset($p['vehicle']) ? 1 : 0,
                 'pick_up_child' => isset($p['pick_up_child']) ? 1 : 0,
@@ -937,6 +941,8 @@ class Ad extends CI_Controller
                 'iron' => isset($p['iron']) ? 1 : 0,
                 'fold' => isset($p['fold']) ? 1 : 0,
                 'bath_children' => isset($p['bath_children']) ? 1 : 0,
+                'caregiverage_from' => isset($p['caregiverage_from']) ? $p['caregiverage_from'] : '',
+                'caregiverage_to' => isset($p['caregiverage_to']) ? $p['caregiverage_to'] : '',
                 'bed_children' => isset($p['bed_children']) ? 1 : 0,
                 'optional_number'   => isset($optional_number)?$optional_number:'',
                 'rate_type'   => isset($rate_type)?$rate_type:'',
@@ -950,7 +956,7 @@ class Ad extends CI_Controller
                             'zip'               => isset($p['zip'])?$p['zip']:'',
                             'neighbour'         => isset($p['neighbour'])?$p['neighbour']:'',
                             'religious_observance' => isset($p['religious_observance']) ? $p['religious_observance'] : '',
-                            'smoker' => isset($p['smoker']) ? $p['smoker'] : '',
+                            'smoke' => isset($p['smoker']) ? $p['smoker'] : '',
                             );
             if(isset($p['name'])){
                 $uri = $this->common_model->create_slug($p['name']);

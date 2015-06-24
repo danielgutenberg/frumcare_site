@@ -12,7 +12,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
                <td >Looking to work in</td>
                <td >            
                     <div class="details-info"><?php if(in_array('My home', $lookingtowork)){ echo $tick; }else{echo $cross; }?> My home</div>
-                    <div class="details-info"><?php if(in_array("Childs home", $lookingtowork)){ echo $tick; }else{echo $cross;}?> Child's home</div>
+                    <div class="details-info"><?php if(in_array("Child's home", $lookingtowork)){ echo $tick; }else{echo $cross;}?> Child's home</div>
                     <div class="details-info"><?php if(in_array(strtolower("Caregiving institution"), array_map('strtolower',$lookingtowork))){ echo $tick; }else{echo $cross; }?> Caregiving institution</div>
                     <div class="details-info"><?php if(in_array("Mother's Helper", $lookingtowork)){ echo $tick; }else{echo $cross; }?> Mother's helper</div>	
                 </td>

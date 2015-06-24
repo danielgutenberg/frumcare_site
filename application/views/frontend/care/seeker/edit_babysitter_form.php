@@ -28,7 +28,7 @@ if($detail){
 	$address = $user_detail['location'];
     $phone = $user_detail['contact_number'];
     $number_of_children = $detail[0]['number_of_children'];
-    $gender = explode(',', $user_detail['gender']);
+    $gender_of_careseeker = $detail[0]['gender_of_careseeker'];
     $age = $user_detail['age'];
     $exp = $detail[0]['experience'];
     $temp = explode(',',$detail[0]['availability']);
@@ -79,8 +79,8 @@ if($detail){
             <label>Looking for care in</label>
             <div class="form-field">
             <div class="checkbox"><input type="checkbox" value="My home" name="looking_to_work[]" <?php if(in_array('My home',$looking_to_work)){?> checked="checked" <?php } ?>> My home</div>
-            <div class="checkbox"><input type="checkbox" value="Caregivers home" name="looking_to_work[]" <?php if(in_array('Caregivers home',$looking_to_work)){?> checked="checked" <?php } ?>> Caregivers home</div>
-            <div class="checkbox"><input type="checkbox" value="Mothers helper" name="looking_to_work[]" <?php if(in_array('Mothers helper',$looking_to_work)){?> checked="checked" <?php } ?>/>Mother's helper</div>
+            <div class="checkbox"><input type="checkbox" value="Caregiver's home" name="looking_to_work[]" <?php if(in_array('Caregivers home',$looking_to_work)){?> checked="checked" <?php } ?>> Caregivers home</div>
+            <div class="checkbox"><input type="checkbox" value="Mother's helper" name="looking_to_work[]" <?php if(in_array('Mothers helper',$looking_to_work)){?> checked="checked" <?php } ?>/>Mother's helper</div>
             </div>
         </div>
         <div>
@@ -121,10 +121,10 @@ if($detail){
         <div>
             <label>Gender of children</label>
             <div class="form-field">
-            <div class="radio-half"><input type="radio" value="1" name="gender" <?php if(in_array('1',$gender)){?> checked="checked" <?php } ?>> Male</div>
-            <div class="radio-half"><input type="radio" value="2" name="gender" <?php if(in_array('2',$gender)){?> checked="checked" <?php } ?>> Female</div>
-            <div class="radio-half"><input type="radio" value="3" name="gender" <?php if(in_array('3',$gender)){?> checked="checked" <?php } ?>> Both</div>
-            </div>
+                    <div class="radio"><input type="radio" value="1" name="gender_of_careseeker" <?php if($gender_of_careseeker == 1){?> checked="checked" <?php } ?>> Male</div>
+                    <div class="radio"><input type="radio" value="2" name="gender_of_careseeker" <?php if($gender_of_careseeker == 2){?> checked="checked" <?php } ?>> Female</div>
+                    <div class="radio"><input type="radio" value="3" name="gender_of_careseeker" <?php if($gender_of_careseeker == 3){?> checked="checked" <?php } ?>> Any</div>
+                </div>
         </div>
         <div>
             <label>Ages of children</label>

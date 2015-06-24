@@ -28,7 +28,7 @@ if($detail){
     $phone = $user_detail['contact_number'];
     $subjects       = explode(',', $detail[0]['subjects']);
     $langtemp = explode(',', $detail[0]['language']);
-    $gender = $user_detail['gender'];
+    $gender_of_careseeker = $detail[0]['gender_of_careseeker'];
     $age = $user_detail['age'];
     $age_grp = $detail[0]['age_group'];
     $smoker = explode(',', $detail[0]['smoker']);
@@ -95,9 +95,9 @@ if($detail){
         <div>
             <label>Gender of student</label>
             <div class="form-field">
-                <div class="radio"><input type="radio" value="1" name="gender" <?php echo isset($gender) && $gender == '1' ? 'checked' : '' ?>> Male</div>
-                <div class="radio"><input type="radio" value="2" name="gender" <?php echo isset($gender) && $gender == '2' ? 'checked' : '' ?>> Female</div>
-                <!--<div class="radio"><input type="radio" value="3" name="gender" <?php echo isset($gender) && $gender == '3' ? 'checked' : '' ?>> Any</div>-->
+                <div class="radio"><input type="radio" value="1" name="gender" <?php echo isset($gender_of_student) && $gender_of_student == '1' ? 'checked' : '' ?>> Male</div>
+                <div class="radio"><input type="radio" value="2" name="gender" <?php echo isset($gender_of_student) && $gender_of_student == '2' ? 'checked' : '' ?>> Female</div>
+                <!--<div class="radio"><input type="radio" value="3" name="gender" <?php echo isset($gender_of_student) && $gender_of_student == '3' ? 'checked' : '' ?>> Any</div>-->
             </div>
         </div>
                 
