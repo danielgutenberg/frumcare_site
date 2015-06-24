@@ -47,8 +47,8 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
             <tr >    	
                <td></td>
                <td >    		
-                <div class="details-info"><?php if(in_array('Twins',$optionalnumber)){ echo $tick; }else{echo $cross; }?>  Twins</div>
-                <div class="details-info"><?php if(in_array('Triplets',$optionalnumber)){ echo $tick; }else{echo $cross; }?>  Triplets</div>        
+                <div class="details-info"><?php if(in_array('twins',$optionalnumber)){ echo $tick; }else{echo $cross; }?>  Twins</div>
+                <div class="details-info"><?php if(in_array('triplets',$optionalnumber)){ echo $tick; }else{echo $cross; }?>  Triplets</div>        
             </td>
         </tr>
         <?php                
@@ -150,7 +150,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
             <div class="details-info"><?php if(in_array('Evening', $time)){ echo $tick; }else{echo $cross; }?> Evening</div>
             <div class="details-info"><?php if(in_array('Shabbos', $time)){ echo $tick; }else{echo $cross; }?> Shabbos</div>
             <div class="details-info"><?php if(in_array('Night Nurse', $time)){ echo $tick; }else{echo $cross; }?> Night Nurse</div>
-            <div class="details-info"><?php if(in_array('Vacation Sittter', $time)){ echo $tick; }else{echo $cross; }?>Vacation Sittter</div>            
+            <div class="details-info"><?php if(in_array('Vacation Sitter', $time)){ echo $tick; }else{echo $cross; }?>Vacation Sittter</div>            
         </td>
     </tr>
     <?php }
