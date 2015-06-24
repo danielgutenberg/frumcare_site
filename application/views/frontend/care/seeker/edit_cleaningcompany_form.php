@@ -27,6 +27,7 @@ if($detail){
     $organization_name = $user_detail['organization_name'];
     $name = $user_detail['name'];
     $address = $user_detail['location'];
+    $neighbour = $user_detail['neighbour'];
     $phone = $user_detail['contact_number'];
     $job_postion = explode(',', $detail[0]['job_position']);
     $hourly_rate = $detail[0]['hourly_rate'];
@@ -69,7 +70,7 @@ if($detail){
 <div>
                 <label>Contact name</label>
                 <div class="form-field">
-                <input type="text" name="name" placeholder="Full Name" class="required" value="<?php /*echo isset($name) ? $name : ''*/ ?>"/>
+                <input type="text" name="name" placeholder="Full Name" class="required" value="<?php echo isset($contact_name) ? $contact_name : '' ?>"/>
                 <?php /* <input type="text" name="last_name" placeholder="Last name" class="required" value="<?php if(isset($ln)) echo $ln;?>"/> */?>
                 </div>
             </div>
