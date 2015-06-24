@@ -120,6 +120,27 @@ $user_detail = get_user(check_user());
 				</div>
             </div>
 		</div>
+		<div class="rate-select">
+            <label>Wage</label>
+            <div class="form-field">
+                <select name="rate" class="required rate">
+                    <option value="">Select wage</option>
+                    <option value="5-10">$5-$10 / Hr</option>
+                    <option value="10-15">$10-$15 / Hr</option>
+                    <option value="15-25">$15-$25 / Hr</option>
+                    <option value="25-35">$25-$35 / Hr</option>
+                    <option value="35-45">$35-$45 / Hr</option>
+                    <option value="45-55">$45-$55 / Hr</option>
+                    <option value="55+">$55+ / Hr</option>
+                </select>
+            </div>
+        </div>
+
+         <div>
+            <!--<label>Check one or more</label>
+            <div class="checkbox"><input type="checkbox" name="rate_type[]" value="1">Hourly Rate</div>-->
+            <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
+        </div>
 		<div>
 			<label>Tell us about your needs</label>
 			<div class="form-field">

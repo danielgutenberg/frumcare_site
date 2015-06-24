@@ -10,7 +10,7 @@
         <tr>
             <td>Looking for help in</td>
             <td>
-                <div class="details-info"><?php if(in_array('My home',$lookingtowork)){ echo $tick; }else{echo $cross;} ?> My home</div>
+                <div class="details-info"><?php if(in_array('Home',$lookingtowork)){ echo $tick; }else{echo $cross;} ?> My home</div>
                 <div class="details-info"><?php if(in_array('Office/business',$lookingtowork)){ echo $tick; }else{echo $cross;} ?> Office / business</div>                
             </td>
         </tr>
@@ -142,15 +142,15 @@
         <tr>
             <td id="availability1">When help needed</td>
             <td>
-                <div class="details-info"><?php if(in_array("One Time",$temp)){ echo $tick; }else{ echo $cross; }?> One Time</div>
-                <div class="details-info"><?php if(in_array("Occassionally",$temp)){ echo $tick; }else{ echo $cross; }?> Occassionally</div>
+                <div class="details-info"><?php if(in_array("One time",$temp)){ echo $tick; }else{ echo $cross; }?> One Time</div>
+                <div class="details-info"><?php if(in_array("Occasionally",$temp)){ echo $tick; }else{ echo $cross; }?> Occasionally</div>
                 <div class="details-info"><?php if(in_array("Regularly",$temp)){ echo $tick; }else{ echo $cross; }?> Regularly</div>
                 <div class="details-info"><?php if(in_array("Asap",$temp)){ echo $tick; }else{ echo $cross; }?> Asap</div>
                 <div class="details-info"><?php if(in_array("Start Date",$temp)){echo $tick; if($start_date!='0000-00-00'){ echo $start_date;} }else{echo $cross; } ?> Start Date</div>
                 <div class="details-info"><?php if(in_array("Morning",$temp)){ echo $tick; }else{ echo $cross; }?> Morning</div>
                 <div class="details-info"><?php if(in_array("Afternoon",$temp)){ echo $tick; }else{ echo $cross; }?> Afternoon</div>
                 <div class="details-info"><?php if(in_array("Evening",$temp)){ echo $tick; }else{ echo $cross; }?> Evening</div>
-                <div class="details-info"><?php if(in_array("Weekends Fri./ Sun.",$temp)){ echo $tick; }else{ echo $cross; }?> Weekends Fri./ Sun.</div>
+                <div class="details-info"><?php if(in_array("Weekends fri/sun",$temp)){ echo $tick; }else{ echo $cross; }?> Weekends Fri./ Sun.</div>
                 <div class="details-info"><?php if(in_array("Saturday",$temp)){ echo $tick; }else{ echo $cross; }?> Saturday</div>                                            
             </td>
         </tr>
@@ -170,7 +170,6 @@
             <td>Wage</td>
             <td >
             <?php echo $rate . ' / Hr'; 
-            $type = explode(',',$rate_type);
             ?>
             <!--<div class="details-info"><?php if(in_array('1',$type)){echo $tick; }else{echo $cross; } ?>  Hourly Rate</div>-->
             <div class="details-info"><?php if(in_array('2',$type)){echo $tick; }else{echo $cross; } ?>  Monthly Payment Available</div>    
