@@ -57,7 +57,7 @@ if($detail){
                     <div class="checkbox"><input type="checkbox" value="Special ed" name="subjects[]" <?php if(in_array('Special ed',$subjects)){?> checked="checked" <?php } ?>> <span>Special ed</span></div>                    
                     <div class="checkbox"><input type="checkbox" value="Music" name="subjects[]" <?php if(in_array('Music',$subjects)){?> checked="checked" <?php } ?>> <span>Music</span></div>                                        
                     <div class="checkbox"><input type="checkbox" value="Art" name="subjects[]" <?php if(in_array('Art',$subjects)){?> checked="checked" <?php } ?>> <span>Art</span></div>                
-                    <div class="checkbox"><input type="checkbox" value="Ohter" name="subjects[]" <?php if(in_array('Ohter',$subjects)){?> checked="checked" <?php } ?>> <span>Other</span></div>                                            
+                    <div class="checkbox"><input type="checkbox" value="Ohter" name="subjects[]" <?php if(in_array('Other',$subjects)){?> checked="checked" <?php } ?>> <span>Other</span></div>                                            
                 </div>
             </div>
             <div>

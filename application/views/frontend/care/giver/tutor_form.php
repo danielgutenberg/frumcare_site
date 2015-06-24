@@ -36,7 +36,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                         <div class="checkbox"><input type="checkbox" value="Special ed" name="subjects[]">Special ed</div>                        
                         <div class="checkbox"><input type="checkbox" value="Music" name="subjects[]">Music</div>                        
                         <div class="checkbox"><input type="checkbox" value="Art" name="subjects[]">Art</div>                        
-                        <div class="checkbox"><input type="checkbox" value="Ohter" name="subjects[]">Other</div>                                                
+                        <div class="checkbox"><input type="checkbox" value="Other" name="subjects[]">Other</div>                                                
                 </div>
             </div>
             <div>

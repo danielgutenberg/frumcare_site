@@ -13,7 +13,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
                <td >    		
                 <div class="details-info"><?php if(in_array("Elementary school",$subjects)){ echo $tick; }else{ echo $cross; }?> Elementary school</div>
                 <div class="details-info"><?php if(in_array("High school",$subjects)){ echo $tick; }else{ echo $cross; }?> High school</div>
-                <div class="details-info"><?php if(in_array("Post High school",$subjects)){ echo $tick; }else{ echo $cross; }?>Post High school</div>
+                <div class="details-info"><?php if(in_array("Post high school",$subjects)){ echo $tick; }else{ echo $cross; }?>Post High school</div>
                 <div class="details-info"><?php if(in_array("limudei kodesh",$subjects)){ echo $tick; }else{ echo $cross; }?> Limudei kodesh</div>                
                 <div class="details-info"><?php if(in_array("general studies",$subjects)){ echo $tick; }else{ echo $cross; }?>General studies</div>
                 <div class="details-info"><?php if(in_array("Special ed",$subjects)){ echo $tick; }else{ echo $cross; }?> Special ed</div>
@@ -38,14 +38,14 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
                <td >Availability </td>
                <td >
                 <div class="details-info"><?php if(in_array("Immediate",$temp)){ echo $tick; }else{ echo $cross; }?> Immediately</div>
-                <div class="details-info"><?php if(in_array("Start date",$temp)){echo $tick; if($start_date!='0000-00-00'){ echo $start_date;} }else{echo $cross; } ?> Start Date</div>
-                <div class="details-info"><?php if(in_array("Occassionally",$temp)){ echo $tick; }else{ echo $cross; }?> Occassionally</div>
-                <div class="details-info"><?php if(in_array("Regularly",$temp)){ echo $tick; }else{ echo $cross; }?> Regularly</div>
+                <div class="details-info"><?php if(in_array("Start Date",$temp)){echo $tick; if($start_date!='0000-00-00'){ echo $start_date;} }else{echo $cross; } ?> Start Date</div>
+                <div class="details-info"><?php if(in_array("occassionally",$temp)){ echo $tick; }else{ echo $cross; }?> Occassionally</div>
+                <div class="details-info"><?php if(in_array("regularly",$temp)){ echo $tick; }else{ echo $cross; }?> Regularly</div>
                 <div class="details-info"><?php if(in_array("Morning",$temp)){ echo $tick; }else{ echo $cross; }?> Morning</div>
                 <div class="details-info"><?php if(in_array("Afternoon",$temp)){ echo $tick; }else{ echo $cross; }?> Afternoon</div>
                 <div class="details-info"><?php if(in_array("Evening",$temp)){ echo $tick; }else{ echo $cross; }?> Evening</div>
                 <div class="details-info"><?php if(in_array('Weekends fri/sun', $temp)){echo $tick; }else{ echo $cross; }?>Weekends fri/sun</div>                                                
-                <div class="details-info"><?php if(in_array("By appointment",$temp)){ echo $tick; }else{ echo $cross; }?> By appointment</div>                                    
+                <div class="details-info"><?php if(in_array("By Appointment",$temp)){ echo $tick; }else{ echo $cross; }?> By appointment</div>                                    
             </td>
         </tr>
         <?php }
