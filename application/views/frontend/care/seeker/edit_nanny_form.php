@@ -122,10 +122,10 @@ if($detail){
         <div>
             <label>Gender of children</label>
             <div class="form-field">
-            <div class="radio"><input type="radio" value="1" name="gender_of_careseeker" <?php if(in_array('1',$gender_of_careseeker)){?> checked="checked" <?php } ?>> Male</div>
-            <div class="radio"><input type="radio" value="2" name="gender_of_careseeker" <?php if(in_array('2',$gender_of_careseeker)){?> checked="checked" <?php } ?>> Female</div>
-            <div class="radio"><input type="radio" value="3" name="gender_of_careseeker" <?php if(in_array('3',$gender_of_careseeker)){?> checked="checked" <?php } ?>> Both</div>
-            </div>
+                    <div class="radio"><input type="radio" value="1" name="gender_of_careseeker" <?php if($gender_of_careseeker == 1){?> checked="checked" <?php } ?>> Male</div>
+                    <div class="radio"><input type="radio" value="2" name="gender_of_careseeker" <?php if($gender_of_careseeker == 2){?> checked="checked" <?php } ?>> Female</div>
+                    <div class="radio"><input type="radio" value="3" name="gender_of_careseeker" <?php if($gender_of_careseeker == 3){?> checked="checked" <?php } ?>> Any</div>
+                </div>
         </div>
         <div>
             <label>Ages of children</label>
