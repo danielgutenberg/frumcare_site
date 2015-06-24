@@ -11,7 +11,7 @@
         $age              = $user_data['age'];
         $married          = $user_data['marital_status'];
         $religious_observance  = $user_data['religious_observance'];
-        $smoker                 = $user_data['smoker'];        
+        $smoker                 = $user_data['smoke'];        
         $education_level    = $user_data['education_level'];
         $educational_institution   = $user_data['educational_institution'];
         $familartojewish      = $user_data['familartojewish'];
@@ -162,9 +162,9 @@
                     <div class="small-seperator"></div>
                     <div class="first-names">
                         <label>Smoker</label>
-                        <div class="radio-half"><input type="radio" name="smoker" value="1" <?php if($user_data['smoker'] == 1){?> checked <?php } ?> > Yes</div>
-                        <div class="radio-half"><input type="radio" name="smoker" value="2" <?php if($user_data['smoker'] == 2){?> checked <?php } ?> > No</div>
-                        <div class="radio-half"><input type="radio" name="smoker" value="3" <?php if($user_data['smoker'] == 3){?> checked <?php } ?> > Yes, but not at work</div>
+                        <div class="radio-half"><input type="radio" name="smoker" value="1" <?php if($user_data['smoke'] == 1){?> checked <?php } ?> > Yes</div>
+                        <div class="radio-half"><input type="radio" name="smoker" value="2" <?php if($user_data['smoke'] == 2){?> checked <?php } ?> > No</div>
+                        <div class="radio-half"><input type="radio" name="smoker" value="3" <?php if($user_data['smoke'] == 3){?> checked <?php } ?> > Yes, but not at work</div>
                     </div>
                     <?php } ?>
                     <div class="small-seperator"></div>
