@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="container">
         <div class="row navigation-row">
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <div class="col-one-fourth">
                 <div class="footer-navigation">
                     <nav>
                         <p class="nav-title">Navigation</p>
@@ -16,7 +16,7 @@
                     </nav>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <div class="col-one-fourth">
                 <div class="footer-navigation">
                     <nav>
                         <p class="nav-title">I am looking for</p>
@@ -28,7 +28,7 @@
                     </nav>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <div class="col-one-fourth">
                 <div class="footer-navigation">
                     <nav>
                         <p class="nav-title">Learn More</p>
@@ -41,7 +41,7 @@
                     </nav>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <div class="col-one-fourth">
                 <div class="footer-navigation contactus">
                     <nav>
                         <p class="nav-title">Newsletter Signup</p>
@@ -60,13 +60,18 @@
 
         <div class="colophon">
             <div class="row">
-                <div class="col-half">
-                        Copyright&copy; frumcare.com All rights reserved
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                    Copyright&copy; frumcare.com All rights reserved
+                        </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+
                     <a style="padding-left: 51px;" href="<?php echo site_url();?>terms-of-use">Terms of Use</a> |
                     <a href="<?php echo site_url();?>privacy-policy">Privacy Policy</a>
                 </div>
-                <div class="col-half">
-                    <div class="social-links">
+
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 social-links">
+
                         Follow us on
                         <a href="https://www.facebook.com/pages/FrumCarecom/1442798632665058" target="_blank" class="facebook flip-link-container"><span class="flip-link"><span class="front"><i
                                         class="icon-facebook-white"></i></span><span class="back"><i
