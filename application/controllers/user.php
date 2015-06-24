@@ -916,8 +916,8 @@ class User extends CI_Controller
                 }                
 
                 $insert = array(
-                    'longitude' => $p['lng'],
-                    'latitude' => $p['lat'],
+                    'longitude' => isset($p['lng']) ? $p['lng'] : '',
+                    'latitude' => isset($p['lat']) ? $p['lat'] : '',
                     'user_id' =>$this->session->userdata('current_user'),
                     'account_category' =>$this->session->userdata('account_category'),
                     'care_type' =>$p['care_type'],
