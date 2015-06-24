@@ -39,11 +39,11 @@
             <div>
                 <label>Type of Organization</label>
                 <select name="sub_care">
-                    <option <?php echo $details[0]['sub_care']=='day care center'?'selected="selected"':'';?> value="day care center">Day Care Center</option>
-                    <option <?php echo $details[0]['sub_care']=='day camp'?'selected="selected"':'';?> value="day camp">Day Camp</option>
-                    <option <?php echo $details[0]['sub_care']=='afternoon activities'?'selected="selected"':'';?> value="afternoon activities">Afternoon Activities</option>
-                    <option <?php echo $details[0]['sub_care']=='pre school'?'selected="selected"':'';?> value="pre school">Pre-School</option>
-                    <option <?php echo $details[0]['sub_care']=='other'?'selected="selected"':'';?> value="other">Other</option>
+                    <option <?php echo $detail[0]['sub_care']=='day care center'?'selected="selected"':'';?> value="day care center">Day Care Center</option>
+                    <option <?php echo $detail[0]['sub_care']=='day camp'?'selected="selected"':'';?> value="day camp">Day Camp</option>
+                    <option <?php echo $detail[0]['sub_care']=='afternoon activities'?'selected="selected"':'';?> value="afternoon activities">Afternoon Activities</option>
+                    <option <?php echo $detail[0]['sub_care']=='pre school'?'selected="selected"':'';?> value="pre school">Pre-School</option>
+                    <option <?php echo $detail[0]['sub_care']=='other'?'selected="selected"':'';?> value="other">Other</option>
                 </select>
             </div>
             <div>
