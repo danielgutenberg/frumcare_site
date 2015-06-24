@@ -54,7 +54,8 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
        <td >
         <div class="details-info"><?php if(in_array('CPR', $trainingtemp)){echo $tick; }else{echo $cross; } ?>  CPR</div>
         <div class="details-info"><?php if(in_array('First Aid', $trainingtemp)){echo $tick; }else{echo $cross; } ?> First Aid</div>
-        <div class="details-info"><?php if(in_array('Nanny / Babysitter Course', $trainingtemp)){echo $tick; }else{echo $cross; } ?> Nanny/ Babysitter Course</div>
+        <div class="details-info"><?php if(in_array('Senior Care Training', $trainingtemp)){echo $tick; }else{echo $cross; } ?> Senior Care Training</div>
+        <div class="details-info"><?php if(in_array('Nurse', $trainingtemp)){echo $tick; }else{echo $cross; } ?> Nurse</div>
         <div class="details-info"><?php if(in_array('Other', $trainingtemp)){echo $tick; }else{echo $cross; } ?> Other</div>                      
       </td>	
     </tr>
