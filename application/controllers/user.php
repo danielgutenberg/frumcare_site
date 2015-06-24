@@ -1085,7 +1085,7 @@ class User extends CI_Controller
                         $update_user['zip'] = $p['zip'];
                     }
                     if(isset($p['religious_observance']) && !empty($p['religious_observance'])){
-                        $update_user['religious_observance'] = $p['religious_observance'];
+                        $update_user['caregiver_religious_observance'] = $p['religious_observance'];
                     }
                    
                     if(isset($update_user)){
@@ -1606,6 +1606,7 @@ class User extends CI_Controller
                         'gender'   => isset($_POST['gender'])?$_POST['gender']:'',
                         'contact_number' => isset($number)?$number:'',
                         'caregiver_language'      => isset($lang)?$lang:'',
+                        'caregiver_religious_observance'  => isset($_POST['religious_observance'])?$_POST['religious_observance']:'',
                         'familartojewish' => isset($_POST['familartojewish'])?$_POST['familartojewish']:'',
                         'neighbour' => isset($_POST['neighborhood'])?$_POST['neighborhood']:'',
                         'profile_picture' => isset($_POST['profile_picture'])?$_POST['profile_picture']:'',
