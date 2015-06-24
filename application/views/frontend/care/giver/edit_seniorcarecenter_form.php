@@ -40,11 +40,11 @@
                 <label>Type of Organization</label>
                 <select name="sub_care">
                     
-                    <option <?php echo $details[0]['sub_care']=='assisted living residence'?'selected="selected"':'';?> value="assisted living residence">Assisted living residence</option>
-                    <option <?php echo $details[0]['sub_care']=='senior care center'?'selected="selected"':'';?> value="senior care center">Senior care center</option>
-                    <option <?php echo $details[0]['sub_care']=='nursing home'?'selected="selected"':'';?> value="nursing home">Nursing home</option>
-                    <option <?php echo $details[0]['sub_care']=='rehab therapy center'?'selected="selected"':'';?> value="rehab therapy center">Rehab / Therapy Center</option>
-                    <option <?php echo $details[0]['sub_care']=='other'?'selected="selected"':'';?> value="other">Other</option>
+                    <option <?php echo $detail[0]['sub_care']=='assisted living residence'?'selected="selected"':'';?> value="assisted living residence">Assisted living residence</option>
+                    <option <?php echo $detail[0]['sub_care']=='senior care center'?'selected="selected"':'';?> value="senior care center">Senior care center</option>
+                    <option <?php echo $detail[0]['sub_care']=='nursing home'?'selected="selected"':'';?> value="nursing home">Nursing home</option>
+                    <option <?php echo $detail[0]['sub_care']=='rehab therapy center'?'selected="selected"':'';?> value="rehab therapy center">Rehab / Therapy Center</option>
+                    <option <?php echo $detail[0]['sub_care']=='other'?'selected="selected"':'';?> value="other">Other</option>
                 </select>
             </div>
             
