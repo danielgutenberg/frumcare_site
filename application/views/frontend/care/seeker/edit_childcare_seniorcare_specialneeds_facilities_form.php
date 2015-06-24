@@ -115,7 +115,7 @@ if($detail){
             <div>
                 <label>Contact name</label>
                 <div class="form-field">
-                <input type="text" name="name" placeholder="Name" class="required" value="<?php /*echo isset($first_name) ? $first_name : ''*/ ?>"/>
+               <input type="text" name="name" placeholder="name" class="required" value="<?php echo isset($contact_name)? $contact_name:''; ?>"/>
                 </div>
             </div>
             <div>
