@@ -148,7 +148,7 @@ $rate_type = explode(',',$detail[0]['rate_type']);
         </div>
         <h2>Abilities and skills</h2>
 
-            <div class="checkbox-wrap">
+        <div class="checkbox-wrap">
                 <div>
                     <input type="checkbox" value="1" name="driver_license" <?php echo isset($driver_license) && $driver_license == 1 ? 'checked' : ''?>> <label>Drivers license</label>
                 </div>
@@ -162,6 +162,7 @@ $rate_type = explode(',',$detail[0]['rate_type']);
                  <input type="submit" class="btn btn-success" value="Update"/>
              </div>
             
+        </div>
         </div>
     </form>
 </div>
