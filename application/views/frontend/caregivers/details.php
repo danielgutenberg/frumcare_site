@@ -65,7 +65,7 @@
                            }
                         if($this->uri->segment(4) == 3) {
                             if(!empty($recordData['rate'])){ ?>                                                        
-                       <?php $rate_type = $recordData['rate_type']==2?' / Hr':' / Hr'?>
+                       
                        <span class="hour-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
                        <?php
                        }
@@ -218,7 +218,7 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         <div class="clearfix margin-bots"></div>
         <?php
         if(!empty($recordData['rate'])){ ?>
-        <?php $rate_type = $recordData['rate_type']==2?' / month':' / hr'?>
+        
         <span class="age-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
         <?php
         }                                
