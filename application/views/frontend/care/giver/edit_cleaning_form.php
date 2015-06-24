@@ -41,12 +41,12 @@ $rate_type = explode(',',$detail[0]['rate_type']);
             </div>
             
            
-        <div>
-            <label>Number of rooms</label>
-            <div class="form-field">
-            <input type="text" name="number_of_rooms" class="required number" value=""/>
-            </div>
-        </div>
+        <!--<div>-->
+        <!--    <label>Number of rooms</label>-->
+        <!--    <div class="form-field">-->
+        <!--    <input type="text" name="number_of_rooms" class="required number" value=""/>-->
+        <!--    </div>-->
+        <!--</div>-->
 
         <div>
             <label>Minimum experience</label>
@@ -112,57 +112,57 @@ $rate_type = explode(',',$detail[0]['rate_type']);
                 <div class="checkbox"><input type="checkbox" name="rate_type[]" value="1" <?php if(in_array('1',$rate_type)){?> checked="checked" <?php }?> >Hourly Rate</div>-->
                 <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2" <?php if(in_array('2',$rate_type)){?> checked="checked" <?php }?> >Monthly Rate Available</div>
         </div>
-        <h2>Additional Requirements</h2>
-        <div>
-        <label>Languages necessary</label>
-        <div class="form-field">
-            <div class="checkbox"><input type="checkbox" name="language[]" value="English" <?php if(in_array('English',$langtemp)){?> checked="checked"<?php } ?>> English</div>
-                <div class="checkbox"><input type="checkbox" name="language[]" value="Yiddish" <?php if(in_array('Yiddish',$langtemp)){?> checked="checked"<?php } ?>> Yiddish</div>
-                <div class="checkbox"><input type="checkbox" name="language[]" value="Hebrew" <?php if(in_array('Hebrew',$langtemp)){?> checked="checked"<?php } ?>> Hebrew</div>
-                <div class="checkbox"><input type="checkbox" name="language[]" value="Russian" <?php if(in_array('Russian',$langtemp)){?> checked="checked"<?php } ?>> Russian</div>
-                <div class="checkbox"><input type="checkbox" name="language[]" value="French" <?php if(in_array('French',$langtemp)){?> checked="checked"<?php } ?>> French</div>
-                <div class="checkbox"><input type="checkbox" name="language[]" value="Other" <?php if(in_array('Other',$langtemp)){?> checked="checked"<?php } ?>> Other</div>
-        </div>
-    </div>
+    <!--    <h2>Additional Requirements</h2>-->
+    <!--    <div>-->
+    <!--    <label>Languages necessary</label>-->
+    <!--    <div class="form-field">-->
+    <!--        <div class="checkbox"><input type="checkbox" name="language[]" value="English" <?php if(in_array('English',$langtemp)){?> checked="checked"<?php } ?>> English</div>-->
+    <!--            <div class="checkbox"><input type="checkbox" name="language[]" value="Yiddish" <?php if(in_array('Yiddish',$langtemp)){?> checked="checked"<?php } ?>> Yiddish</div>-->
+    <!--            <div class="checkbox"><input type="checkbox" name="language[]" value="Hebrew" <?php if(in_array('Hebrew',$langtemp)){?> checked="checked"<?php } ?>> Hebrew</div>-->
+    <!--            <div class="checkbox"><input type="checkbox" name="language[]" value="Russian" <?php if(in_array('Russian',$langtemp)){?> checked="checked"<?php } ?>> Russian</div>-->
+    <!--            <div class="checkbox"><input type="checkbox" name="language[]" value="French" <?php if(in_array('French',$langtemp)){?> checked="checked"<?php } ?>> French</div>-->
+    <!--            <div class="checkbox"><input type="checkbox" name="language[]" value="Other" <?php if(in_array('Other',$langtemp)){?> checked="checked"<?php } ?>> Other</div>-->
+    <!--    </div>-->
+    <!--</div>-->
 
-        <div>
-                <label>Gender of helper wanted</label>
-                <div class="form-field">
-                    <div class="radio"><input type="radio" value="1" name="gender_of_caregiver" <?php echo isset($gender_of_caregiver) && $gender_of_caregiver == '1' ? 'checked' : '' ?>> Male</div>
-                    <div class="radio"><input type="radio" value="2" name="gender_of_caregiver" <?php echo isset($gender_of_caregiver) && $gender_of_caregiver == '2' ? 'checked' : '' ?>> Female</div>
-                    <div class="radio"><input type="radio" value="3" name="gender_of_caregiver" <?php echo isset($gender_of_caregiver) && $gender_of_caregiver == '3' ? 'checked' : '' ?>> Either</div>
-                </div>
-            </div>
+    <!--    <div>-->
+    <!--            <label>Gender of helper wanted</label>-->
+    <!--            <div class="form-field">-->
+    <!--                <div class="radio"><input type="radio" value="1" name="gender_of_caregiver" <?php echo isset($gender_of_caregiver) && $gender_of_caregiver == '1' ? 'checked' : '' ?>> Male</div>-->
+    <!--                <div class="radio"><input type="radio" value="2" name="gender_of_caregiver" <?php echo isset($gender_of_caregiver) && $gender_of_caregiver == '2' ? 'checked' : '' ?>> Female</div>-->
+    <!--                <div class="radio"><input type="radio" value="3" name="gender_of_caregiver" <?php echo isset($gender_of_caregiver) && $gender_of_caregiver == '3' ? 'checked' : '' ?>> Either</div>-->
+    <!--            </div>-->
+    <!--        </div>-->
 
-        <div>
-            <label>Level of observance necessary</label>
-            <div class="form-field">
-            <select name="religious_observance">
-                <option value="">Select</option>
-                <option value="Yeshivish/ Chasidish" <?php echo isset($religious_observance) && $religious_observance == 'Yeshivish/ Chasidish' ? 'selected' : '' ?>>Yeshivish / Chasidish</option>
-                <option value="Orthodox/Modern Orthodox" <?php echo isset($religious_observance) && $religious_observance == 'Orthodox/Modern Orthodox' ? 'selected' : '' ?>>Orthodox / Modern Orthodox</option>
-                <option value="Familiar With Jewish Tradition" <?php echo isset($religious_observance) && $religious_observance == 'Familiar With Jewish Tradition' ? 'selected' : '' ?>>Familiar With Jewish Tradition</option>
-                <option value="Not Necessary" <?php echo isset($religious_observance) && $religious_observance == 'Not Necessary' ? 'selected' : '' ?>>Not Necessary</option>
-            </select>
-            </div>
-        </div>
-        <h2>Abilities and skills</h2>
+    <!--    <div>-->
+    <!--        <label>Level of observance necessary</label>-->
+    <!--        <div class="form-field">-->
+    <!--        <select name="religious_observance">-->
+    <!--            <option value="">Select</option>-->
+    <!--            <option value="Yeshivish/ Chasidish" <?php echo isset($religious_observance) && $religious_observance == 'Yeshivish/ Chasidish' ? 'selected' : '' ?>>Yeshivish / Chasidish</option>-->
+    <!--            <option value="Orthodox/Modern Orthodox" <?php echo isset($religious_observance) && $religious_observance == 'Orthodox/Modern Orthodox' ? 'selected' : '' ?>>Orthodox / Modern Orthodox</option>-->
+    <!--            <option value="Familiar With Jewish Tradition" <?php echo isset($religious_observance) && $religious_observance == 'Familiar With Jewish Tradition' ? 'selected' : '' ?>>Familiar With Jewish Tradition</option>-->
+    <!--            <option value="Not Necessary" <?php echo isset($religious_observance) && $religious_observance == 'Not Necessary' ? 'selected' : '' ?>>Not Necessary</option>-->
+    <!--        </select>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--    <h2>Abilities and skills</h2>-->
 
-        <div class="checkbox-wrap">
-                <div>
-                    <input type="checkbox" value="1" name="driver_license" <?php echo isset($driver_license) && $driver_license == 1 ? 'checked' : ''?>> <label>Drivers license</label>
-                </div>
-                <div>
-                    <input type="checkbox" value="1" name="vehicle" <?php echo isset($vehicle) && $vehicle == 1 ? 'checked' : ''?>> <label>Vehicle</label>
-                </div>
-                <div>
-                    <input type="checkbox" value="1" name="on_short_notice" <?php echo isset($on_short_notice) && $on_short_notice == 1 ? 'checked' : ''?>> <label>Available on short notice</label>
-                </div>
-                <div>
-                 <input type="submit" class="btn btn-success" value="Update"/>
-             </div>
+        <!--<div class="checkbox-wrap">-->
+        <!--        <div>-->
+        <!--            <input type="checkbox" value="1" name="driver_license" <?php echo isset($driver_license) && $driver_license == 1 ? 'checked' : ''?>> <label>Drivers license</label>-->
+        <!--        </div>-->
+        <!--        <div>-->
+        <!--            <input type="checkbox" value="1" name="vehicle" <?php echo isset($vehicle) && $vehicle == 1 ? 'checked' : ''?>> <label>Vehicle</label>-->
+        <!--        </div>-->
+        <!--        <div>-->
+        <!--            <input type="checkbox" value="1" name="on_short_notice" <?php echo isset($on_short_notice) && $on_short_notice == 1 ? 'checked' : ''?>> <label>Available on short notice</label>-->
+        <!--        </div>-->
+        <!--        <div>-->
+        <!--         <input type="submit" class="btn btn-success" value="Update"/>-->
+        <!--     </div>-->
             
-        </div>
+        <!--</div>-->
         </div>
     </form>
 </div>
