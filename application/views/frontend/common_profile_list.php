@@ -34,12 +34,12 @@
                         </div>
                     </a><?php 
                 endif ?>
-    	        <div class="basic-background"><?php 
+    	        <!--<div class="basic-background"><?php 
                     if($data['agree_bg_check']  == 1) 
     		        	echo "<a href='#'>Basic Background Check</a>";
   		        	else echo ''; ?>
     	        </div>
-    	        <span class="img-of-profile"></span><br />
+    	        <span class="img-of-profile"></span><br />-->
     	        <div class="pin-location"> <?php 
                     if($data['location']) { ?>
                         <img src="<?php echo site_url();?>img/pin.png">
