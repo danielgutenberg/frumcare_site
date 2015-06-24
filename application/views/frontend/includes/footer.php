@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="container">
         <div class="row navigation-row">
-            <div class="col-one-fourth">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="footer-navigation">
                     <nav>
                         <p class="nav-title">Navigation</p>
@@ -16,7 +16,7 @@
                     </nav>
                 </div>
             </div>
-            <div class="col-one-fourth">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="footer-navigation">
                     <nav>
                         <p class="nav-title">I am looking for</p>
@@ -28,7 +28,7 @@
                     </nav>
                 </div>
             </div>
-            <div class="col-one-fourth">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="footer-navigation">
                     <nav>
                         <p class="nav-title">Learn More</p>
@@ -41,7 +41,7 @@
                     </nav>
                 </div>
             </div>
-            <div class="col-one-fourth">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="footer-navigation contactus">
                     <nav>
                         <p class="nav-title">Newsletter Signup</p>
