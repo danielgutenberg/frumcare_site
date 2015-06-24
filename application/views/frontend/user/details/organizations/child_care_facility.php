@@ -9,8 +9,7 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
 			<td><?php $position = !empty($job_position) ? $job_position : 'N/A'; echo $position?></td>
 		</tr>
 		
-		 <?php if(!empty($rate)){ ?>    
-        <?php $rate_type = explode(',',$rate_type)?>
+		 <?php if(!empty($rate)){ ?>   
         <tr>
             <td>Wage</td>
             <td >
@@ -39,7 +38,7 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
 					<div class="details-info"><?php if(in_array('Part Time', $available)){ echo $tick; }else{ echo $cross; }?>Part Time</div>
 					<div class="details-info"><?php if(in_array('Substitute', $available)){ echo $tick; }else{ echo $cross; }?>Substitute</div>
 					<div class="details-info"><?php if(in_array('Asap', $available)){ echo $tick; }else{ echo $cross; }?>Asap</div>
-					<div class="details-info"><?php if(in_array("Start date",$available)){echo $tick; if($start_date!='0000-00-00'){ echo $start_date;} }else{echo $cross; } ?> Start Date</div>                   
+					<div class="details-info"><?php if(in_array("Start Date",$available)){echo $tick; if($start_date!='0000-00-00'){ echo $start_date;} }else{echo $cross; } ?> Start Date</div>                   
 				</td>
 				<?php }  
                 else{ ?>
