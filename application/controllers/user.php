@@ -971,7 +971,7 @@ class User extends CI_Controller
                     'caregiverage_to'  => isset($p['caregiverage_from'])?$p['caregiverage_to']:0,
                     'smoker' => isset($p['smoker'])?$p['smoker']:1,
                     'gender_of_caregiver' => isset($p['gender_of_caregiver'])?$p['gender_of_caregiver']:1,
-                    'gender_of_student' => isset($p['gender_of_student']) ? $p['gender_of_student'] : '',
+                    'gender_of_careseeker' => isset($p['gender_of_careseeker']) ? $p['gender_of_careseeker'] : '',
                     'personal_hygiene' => isset($p['personal_hygiene'])?$p['personal_hygiene']:'',
                     'reference_file' => isset($p['file'])?$p['file']:'',
                     // added on 28 dec 2014 by santosh

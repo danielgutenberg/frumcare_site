@@ -86,8 +86,8 @@ $user_detail = get_user(check_user());
 			<div>
 				<label>Gender of senior</label>
 				<div class="form-field">
-					<div class="radio"><input type="radio" value="1" name="gender" checked> Male</div>
-					<div class="radio"><input type="radio" value="2" name="gender"> Female</div>
+					<div class="radio"><input type="radio" value="1" name="gender_of_student" checked> Male</div>
+					<div class="radio"><input type="radio" value="2" name="gender_of_student"> Female</div>
 				</div>
 			</div>
 			<div>
