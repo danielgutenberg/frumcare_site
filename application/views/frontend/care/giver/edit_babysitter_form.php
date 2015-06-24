@@ -54,7 +54,7 @@
             <label>Looking to work in</label>
             <div class="form-field">
                 <div class="checkbox"><input type="checkbox" value="My home" name="looking_to_work[]" <?php if(in_array('My home', $lookingtowork)){?>checked="checked"<?php }?>>My home</div>
-                <div class="checkbox"><input type="checkbox" value="Child's home" name="looking_to_work[]" <?php if(in_array("Childs home", $lookingtowork)){?>checked="checked"<?php }?>>Child's home</div>  
+                <div class="checkbox"><input type="checkbox" value="Child's home" name="looking_to_work[]" <?php if(in_array("Child's home", $lookingtowork)){?>checked="checked"<?php }?>>Child's home</div>  
                 <div class="checkbox"><input type="checkbox" value="Caregiving institution" name="looking_to_work[]" <?php if(in_array("Caregiving institution", $lookingtowork)){?>checked="checked"<?php }?>>Caregiving institution</div>
                 <div class="checkbox"><input type="checkbox" value="Mother's Helper" name="looking_to_work[]" <?php if(in_array("Mother's Helper", $lookingtowork)){?>checked="checked"<?php }?>>Mother's Helper</div>
             </div>
