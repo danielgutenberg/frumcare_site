@@ -27,7 +27,7 @@ if($detail){
 	$address = $user_detail['location'];
     $phone = $user_detail['contact_number'];
     $number_of_children = $detail[0]['number_of_children'];
-    $gender = explode(',', $user_detail['gender']);
+    $gender_of_careseeker = explode(',', $detail[0]['gender_of_careseeker']);
     $desc 			 = $detail[0]['profile_description'];
     $hourly_rate = $detail[0]['hourly_rate'];
     $temp = explode(',',$detail[0]['availability']);

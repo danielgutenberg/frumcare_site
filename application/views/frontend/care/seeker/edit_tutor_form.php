@@ -28,7 +28,7 @@ if($detail){
     $phone = $user_detail['contact_number'];
     $subjects       = explode(',', $detail[0]['subjects']);
     $langtemp = explode(',', $detail[0]['language']);
-    $gender_of_careseeker = $detail['gender_of_careseeker'];
+    $gender_of_careseeker = explode(',', $detail[0]['gender_of_careseeker']);
     $age = $user_detail['age'];
     $age_grp = $detail[0]['age_group'];
     $smoker = explode(',', $detail[0]['smoker']);
