@@ -101,11 +101,11 @@
         <?php
         }
         
-    if(!empty($religious_observance)){?>
+    if(!empty($caregiver_religious_observance)){?>
     <tr> 
         <td>Level of religious observance</td>
         <td class="form-field">
-            <?php echo $religious_observance?>
+            <?php echo $caregiver_religious_observance?>
         </td>
     </tr>
     <?php }

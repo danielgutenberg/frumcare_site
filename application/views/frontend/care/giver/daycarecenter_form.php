@@ -80,19 +80,6 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <div class="radio"><input type="radio" value="2" name="gender" <?php echo isset($gender) && $gender == 2 ? 'checked' : '' ?>> Female </iv>
         </div>
     </div>
-
-    <div> 
-        <label>Level of religious observance</label>
-        <div class="form-field">
-        <select name="religious_observance">
-            <option value="">Select</option>
-            <option value="Yeshivish/ Chasidish">Yeshivish / Chasidish</option>
-            <option value="Orthodox/ Modern Orthodox">Orthodox / Modern Orthodox</option>
-            <option value="Other">Other</option>
-            <option value="Not Jewish">Not Jewish</option>
-        </select>
-        </div>
-    </div>
     
     <?php   $this->load->view('frontend/care/photo_upload_owner');  ?> 
     <h1>Organization Details</h1><?php }?>
@@ -157,18 +144,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                     <div class="checkbox"><input type="checkbox" value="12+" name="age_group[]"> 12+ years</div>
                 </div>
             </div>
-            <div>
-                <label>Languages Spoken</label>
-                <div class="form-field">
-                    <div class="checkbox"><input type="checkbox" name="language[]" value="English"> English</div>
-                    <div class="checkbox"><input type="checkbox" name="language[]" value="Yiddish"> Yiddish</div>
-                    <div class="checkbox"><input type="checkbox" name="language[]" value="Hebrew">Hebrew</div>
-                    <div class="checkbox"><input type="checkbox" name="language[]" value="Russian">Russian</div>
-                    <div class="checkbox"><input type="checkbox" name="language[]" value="French">French</div>
-                    <div class="checkbox"><input type="checkbox" name="language[]" value="Other">Other</div>
-                </div>
-            </div>
-
+            
             <div>
                 <label>Number of children in group</label>
                 <div class="form-field">
