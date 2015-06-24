@@ -71,7 +71,7 @@ if($detail){
 <div>
                 <label>Contact name</label>
                 <div class="form-field">
-                <input type="text" name="name" placeholder="Full Name" class="required" value="<?php echo isset($contact_name) ? $contact_name : '' ?>"/>
+                <input type="text" name="name" placeholder="Full Name" class="required" value="<?php echo isset($name) ? $name : '' ?>"/>
                 <?php /* <input type="text" name="last_name" placeholder="Last name" class="required" value="<?php if(isset($ln)) echo $ln;?>"/> */?>
                 </div>
             </div>

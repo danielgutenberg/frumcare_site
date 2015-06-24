@@ -9,8 +9,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 			<td><?php $position = !empty($job_position) ? $job_position : 'N/A'; echo $position?></td>
 		</tr>
 		 
-		 <?php if(!empty($rate)){ ?>    
-        <?php $rate_type = explode(',',$rate_type)?>
+		 <?php if(!empty($rate)){ ?>
         <tr>
             <td>Wage</td>
             <td >
