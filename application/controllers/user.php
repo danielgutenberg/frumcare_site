@@ -996,6 +996,7 @@ class User extends CI_Controller
                     'hours_from'  => isset($p['hours_from'])?$p['hours_from']:'',
                     'hours_to'=> isset($p['hours_to'])?$p['hours_to']:'',
                     'facility_pic' => $facility_pic,
+                    'sub_care'              => isset($p['sub_care']) ? $p['sub_care'] : '',
                     'extra_field'       => isset($extra_field) ? $extra_field : ''
                 );
     
