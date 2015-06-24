@@ -66,7 +66,7 @@
                         </div>
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 
-                    <a style="padding-left: 51px;" href="<?php echo site_url();?>terms-of-use">Terms of Use</a> |
+                    <a style="" href="<?php echo site_url();?>terms-of-use">Terms of Use</a> |
                     <a href="<?php echo site_url();?>privacy-policy">Privacy Policy</a>
                 </div>
 
