@@ -25,18 +25,17 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     <li class="progtrckr-todo">Start Getting Calls</li>
 </ol>
 <?php } 
-    $user_detail = get_user(check_user());
+$user_detail = get_user(check_user());
 	$address = $user_detail['location'];
     $phone = $user_detail['contact_number'];
     $age = $user_detail['age'];
     $neighbour = $user_detail['neighbour'];
     $zip = $user_detail['zip'];
 ?>
-
-<div class="ad-form-container">
+<div class="container">
 <?php if(($this->uri->segment(2) != 'new_profile')){?>
-<form action="<?php echo site_url();?>ad/add_careseeker_step2" method="post">
-<?php }else{
+<form action="<?php echo site_url();?>ad/add_careseeker_step2" method="post"> 
+    <?php }else{
     echo form_open('user/addprofileconfirm');
     if(!empty($record)){
     echo form_hidden('account_category',$record['ac_type']);
@@ -44,11 +43,12 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     echo form_hidden('account_type',$record['account_type']);
     echo form_hidden('organization_care',$record['organization_care']);
    }} ?>
-<?php if($this->uri->segment(2) != 'new_profile'){?> 
-<div>
-    <h1 class="step2">Step 2: Job Details</h1>
-</div>
-<?php } ?>
+    <div class="ad-form-container">
+        <?php if($this->uri->segment(2) != 'new_profile'){?> 
+        <div>
+            <h1 class="step3">Step 2: Job Details</h1>
+        </div>
+        <?php } ?>
                 <div>
                 <label>Location</label>
                 <div id="locationField">
