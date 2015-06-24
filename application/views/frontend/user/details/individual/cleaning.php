@@ -79,7 +79,7 @@ if(!empty($willing_to_work)){
           <div class="details-info"><?php if(in_array('Cleaning and Dusting Furniture', $tempwillingtowork)){ echo $tick; }else{echo $cross;  }?> <span>Cleaning and Dusting Furniture</span></div>
           <div class="details-info"><?php if(in_array('Cleaning Refrigerator/Freezer', $tempwillingtowork)){ echo $tick; }else{echo $cross;  }?><span>Cleaning Refrigerator / Freezer</span></div>
           <div class="details-info"><?php if(in_array('Cleaning Oven/Stove', $tempwillingtowork)){ echo $tick; }else{echo $cross;  }?><span>Cleaning Oven / Stove</span></div>
-          <div class="details-info"><?php if(in_array('Pesach cleaning', $tempwillingtowork)){ echo $tick; }else{echo $cross;  }?><span>Pesach Cleaning</span></div>
+          <div class="details-info"><?php if(in_array('Pesach Cleaning', $tempwillingtowork)){ echo $tick; }else{echo $cross;  }?><span>Pesach Cleaning</span></div>
           <div class="details-info"><?php if(in_array('Able to watch children as well', $tempwillingtowork)){ echo $tick; }else{echo $cross;  }?><span>Able to watch children as well</span></div>
       </td>
   </tr>
@@ -103,7 +103,7 @@ if(!empty($willing_to_work)){
        <td id="availability1">Availability </td>
        <td>
         <div class="details-info"><?php if(in_array("Immediate",$time)){echo $tick; }else{echo $cross; } ?> Immediate </div>
-        <div class="details-info"><?php if(in_array("Start date",$time)){echo $tick; if($start_date!='0000-00-00'){ echo $start_date;} }else{echo $cross; } ?> Start Date</div>        
+        <div class="details-info"><?php if(in_array("Start Date",$time)){echo $tick; if($start_date!='0000-00-00'){ echo $start_date;} }else{echo $cross; } ?> Start Date</div>        
         <div class="details-info"><?php if(in_array('Occassionally', $time)){ echo $tick; }else{echo $cross; } ?>Occassionally</div>
         <div class="details-info"><?php if(in_array('Regularly', $time)){ echo $tick; }else{echo $cross;} ?>Regularly</div>
         <div class="details-info"><?php if(in_array('Morning', $time)){ echo $tick; }else{echo $cross; }?> Morning</div>
