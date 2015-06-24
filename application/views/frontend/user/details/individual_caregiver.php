@@ -125,7 +125,7 @@
         </tr>    
         
     <?php if ($care_type != 7) { ?>
-    <?php if(($smoker==1 || $smoker==3)){?>
+    <?php if(($smoke==1 || $smoke==3)){?>
     <tr>
         <td>Smoker</td>
         <td >        
