@@ -726,6 +726,7 @@ class User_model extends CI_Model
                 'rate'              => isset($p['rate'])?$p['rate']:'',
                 'rate_type'         => isset($rate_type)?$rate_type:'',
                 'facility_pic'      => isset($p['facility_pic'])?$p['facility_pic']:'',
+                'sub_care'              => isset($p['sub_care']) ? $p['sub_care'] : '',
                 'extra_field'       => isset($extra_field) ? $extra_field : ''
             );
 
