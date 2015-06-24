@@ -35,8 +35,8 @@ $rate_type = explode(',',$detail[0]['rate_type']);
                 <label>For</label>
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" value="Private home" name="looking_to_work[]" <?php if(in_array('Private home',$templookingtowork)){?> checked="checked" <?php }?>> <span>Home</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Office/business" name="looking_to_work[]" <?php if(in_array('Business/Office',$templookingtowork)){?> checked="checked" <?php }?>> <span>Office / business</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Office/business" name="looking_to_work[]" <?php if(in_array('Cleaning company',$templookingtowork)){?> checked="checked" <?php }?>> <span>Cleaning company</span></div>                
+                    <div class="checkbox"><input type="checkbox" value="Business/Office" name="looking_to_work[]" <?php if(in_array('Business/Office',$templookingtowork)){?> checked="checked" <?php }?>> <span>Office / business</span></div>
+                    <div class="checkbox"><input type="checkbox" value="Cleaning company" name="looking_to_work[]" <?php if(in_array('Cleaning company',$templookingtowork)){?> checked="checked" <?php }?>> <span>Cleaning company</span></div>                
                 </div>
             </div>
             
