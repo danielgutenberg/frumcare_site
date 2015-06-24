@@ -947,6 +947,7 @@ class Ad extends CI_Controller
                 'bed_children' => isset($p['bed_children']) ? 1 : 0,
                 'optional_number'   => isset($optional_number)?$optional_number:'',
                 'rate_type'   => isset($rate_type)?$rate_type:'',
+                'contact_name' => isset($p['name']) ? $p['name'] : '',
             );
             $insert_new = array(
                             'location' => isset($p['location'])? $p['location'] : '',
