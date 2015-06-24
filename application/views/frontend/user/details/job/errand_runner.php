@@ -83,7 +83,7 @@
         <tr id="availability1">
             <td>When help needed</td>
             <td>
-                <div class="details-info"><?php if(in_array("One Time",$temp)){ echo $tick; }else{ echo $cross; }?> One Time</div>
+                <div class="details-info"><?php if(in_array("One time",$temp)){ echo $tick; }else{ echo $cross; }?> One Time</div>
                 <div class="details-info"><?php if(in_array("Occassionally",$temp)){ echo $tick; }else{ echo $cross; }?> Occassionally</div>
                 <div class="details-info"><?php if(in_array("Regularly",$temp)){ echo $tick; }else{ echo $cross; }?> Regularly</div>
                 <div class="details-info"><?php if(in_array("Asap",$temp)){ echo $tick; }else{ echo $cross; }?> Asap</div>

@@ -502,7 +502,8 @@ class Ad extends CI_Controller
                 'bath_children' => isset($p['bath_children']) ? 1 : 0,
                 'bed_children' => isset($p['bed_children']) ? 1 : 0,
                 'optional_number'   => isset($optional_number)?$optional_number:'',
-                'rate_type'   => isset($rate_type)?$rate_type:''
+                'rate_type'   => isset($rate_type)?$rate_type:'',
+                'contact_name'  => isset($p['name']) ? $p['name'] : ''
 
             );
             
@@ -960,9 +961,9 @@ class Ad extends CI_Controller
                             );
             if(isset($p['name'])){
                 $uri = $this->common_model->create_slug($p['name']);
-                $insert_new['name'] = $p['name'];
                 //$insert['uri'] = $p['uri'];
                 $insert_new['uri'] = $uri;
+                $insert['contact_name'] = $p['name'];
             }
 
                $response =  $this->getLongitudeAndLatitude($p['location']);
