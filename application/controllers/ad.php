@@ -962,6 +962,7 @@ class Ad extends CI_Controller
             if(isset($p['name'])){
                 $uri = $this->common_model->create_slug($p['name']);
                 //$insert['uri'] = $p['uri'];
+                $insert_new['name'] = $p['name'];
                 $insert_new['uri'] = $uri;
                 $insert['contact_name'] = $p['name'];
             }
