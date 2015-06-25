@@ -143,8 +143,8 @@
 		<!--		<div class="btns"><a href="<?php echo site_url()?>caregivers/all" class="caregivers">Find a caregiver</a>-->
 		<!--		<a href="<?php echo site_url()?>jobs/all" class="caregiver-job">Find a job</a></div>-->
 
-		<!--		</div><!-- .child-senior -->-->
-		<!--	</div><!-- .child-senior-wrapper -->-->
+		<!--		</div><!-- .child-senior -->
+		<!--	</div><!-- .child-senior-wrapper -->
 		<!--	<div class="saftey-security-wrapper">-->
 		<!--		<div class="saftey-security container">-->
 		<!--			<div class="title">-->
@@ -157,7 +157,7 @@
 		<!--				<a href="<?php echo site_url()?>safety-guide/caregivers" class="caregiver-job">Safety for caregivers</a></div>-->
 						
 		<!--			</div><!-- .saftey-security -->-->
-		<!--		</div><!-- .saftey-security-wrapper -->-->
+		<!--		</div><!-- .saftey-security-wrapper -->
 	<!--			<div class="help-institutions-wrapper">-->
 	<!--				<div class="help-institutions container">-->
 	<!--					<div class="title">-->
