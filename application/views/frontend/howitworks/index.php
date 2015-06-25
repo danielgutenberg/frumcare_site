@@ -156,7 +156,7 @@
 		<!--			<div class="btns"><a href="<?php echo site_url()?>safety-guide/families" class="caregivers">Safety for families</a>-->
 		<!--				<a href="<?php echo site_url()?>safety-guide/caregivers" class="caregiver-job">Safety for caregivers</a></div>-->
 						
-		<!--			</div><!-- .saftey-security -->-->
+		<!--			</div><!-- .saftey-security -->
 		<!--		</div><!-- .saftey-security-wrapper -->
 	<!--			<div class="help-institutions-wrapper">-->
 	<!--				<div class="help-institutions container">-->
