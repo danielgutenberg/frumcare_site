@@ -182,6 +182,30 @@ $(function () {
 
 <script type="text/javascript">
     $(document).ready(function(){
+        var neighbour = $('.neighbour').val();
+                    var looking_to_work = $('.looking_to_work:checked').map(function(_, el) {
+                        return $(el).val();
+                    }).get();
+                    var rate = $('.rate').val();
+                    var rate_type = $('.rate_type:checked').map(function(_, el) {
+                        return $(el).val();
+                    }).get();
+                    var care_type = $( ".careType option:selected" ).val();
+                        $.ajax({
+    				type:"get",
+    				url:"<?php echo site_url();?>careseeker_cleaningcompany/search",
+    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&looking_to_work="+looking_to_work,
+    				success:function(message){
+                    		$(".searchloader").fadeOut("fast");
+    						var json = jQuery.parseJSON(message);
+    		 				var pagenum = json.num;
+    		 				var pagedata = json.userdatas;
+    						$('#list_container').html(pagedata);
+    						$('#total').text(json.total);
+                            $('.navigations').html(json.pagination);
+    				}
+    			});
+        
         var care_type = $( ".service option:selected" ).val();
         $('#care_type').val(care_type);
 

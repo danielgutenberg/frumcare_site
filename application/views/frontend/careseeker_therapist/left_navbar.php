@@ -126,7 +126,22 @@ $(function () {
     				}
     			});         
         });
-
+        var neighbour = $('.neighbour').val();
+                var gender_of_caregiver = $('.gender_of_caregiver').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';                          
+    			$.ajax({
+    				type:"get",
+    				url:"<?php echo site_url();?>careseeker_therapist/search",
+    				data:"neighbour="+neighbour+"&gender_of_caregiver="+gender_of_caregiver,
+    				success:function(message){
+    						$(".searchloader").fadeOut("fast");
+    						var json = jQuery.parseJSON(message);
+    		 				var pagenum = json.num;
+    		 				var pagedata = json.userdatas;
+    						$('#list_container').html(pagedata);
+    						$('#total').text(json.total);
+                            $('.navigations').html(json.pagination);
+    				}
+    			});
         var $myDialog = $('<div></div>')
                 .html('Are you sure you want to save this search?')
                 .dialog({

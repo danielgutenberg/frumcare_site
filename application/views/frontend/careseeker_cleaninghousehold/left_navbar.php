@@ -265,6 +265,36 @@ $(function () {
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
 <script type="text/javascript">
     $(document).ready(function(){
+          var neighbour = $('.neighbour').val();
+                    var availability = $('.availability:checked').map(function(_, el) {
+                        return $(el).val();
+                    }).get();
+                    var looking_to_work = $('.looking_to_work:checked').map(function(_, el) {
+                        return $(el).val();
+                    }).get();
+                    var rate = $('.rate').val();
+                    var rate_type = $('.rate_type:checked').map(function(_, el) {
+                        return $(el).val();
+                    }).get();
+                    var start_date = $("#textbox1").val()?$("#textbox1").val():'';
+                    var gender_of_caregiver = $('.gender_of_caregiver').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
+                    var care_type = $( ".careType option:selected" ).val();
+                        $.ajax({
+    				type:"get",
+    				url:"<?php echo site_url();?>careseeker_cleaninghousehold/search",
+    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&gender_of_caregiver="+gender_of_caregiver+"&availability="+availability+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
+    				success:function(message){
+    						$(".searchloader").fadeOut("fast");
+    						var json = jQuery.parseJSON(message);
+    		 				var pagenum = json.num;
+    		 				var pagedata = json.userdatas;
+    						$('#list_container').html(pagedata);
+    						$('#total').text(json.total);
+                            $('.navigations').html(json.pagination);
+    				}
+    			});
+          
+          
           var care_type = $( ".service option:selected" ).val();
           $('#care_type').val(care_type);
 

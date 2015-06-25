@@ -312,6 +312,41 @@ $(function () {
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
 <script type="text/javascript">
     $(document).ready(function(){
+         var neighbour = $('.neighbour').val();
+                        var number_of_children = $('.number_of_children').val();
+                        var morenum = $('.morenum:checked').map(function(_, el) {
+                            return $(el).val();
+                        }).get();
+                        var looking_to_work = $('.looking_to_work:checked').map(function(_, el) {
+                            return $(el).val();
+                        }).get();
+                        var age_group = $('.age_group:checked').map(function(_, el) {
+                            return $(el).val();
+                        }).get();
+                        var availability = $('.availability:checked').map(function(_, el) {
+                            return $(el).val();
+                        }).get();
+                        var rate = $('.rate').val();
+                        var rate_type = $('.rate_type').val();
+                        var start_date = $("#textbox1").val()?$("#textbox1").val():'';    
+                        var care_type = $( ".careType option:selected" ).val();
+                        $.ajax({
+    				type:"get",
+    				url:"<?php echo site_url();?>careseeker_nanny/search",
+    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
+    				success:function(message){
+    						$(".searchloader").fadeOut("fast");
+    						var json = jQuery.parseJSON(message);
+    		 				var pagenum = json.num;
+    		 				var pagedata = json.userdatas;
+    						$('#list_container').html(pagedata);
+    						$('#total').text(json.total);
+                            $('.navigations').html(json.pagination);
+    				}
+    			});
+         
+         
+         
          var $myDialog = $('<div></div>')
                 .html('Are you sure you want to save this search?')
                 .dialog({
