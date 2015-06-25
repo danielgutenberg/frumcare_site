@@ -114,17 +114,20 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
                     <td>N/A</td>
 			<?php } ?>
 			
-			<?php if($references==1){?>
-			<tr>
-				<td >References</td>
-				<td >
-					<a href="#">Download</a>
-				</td>
-			</tr>
+			<?php if($reference_file){?>
+    <tr>
+    	<td >References</td>
+    	<td >
+    		<a href="<?php echo site_url() ?>uploads/files/<?php echo $reference_file ?>" download>Download</a>
+    	</td>
+    </tr>
              <?php }  
                 else{ ?>
-                    <td>References</td>
+                <tr>
+                	<td>References</td>
                     <td>N/A</td>
+                </tr>
+                    
 			<?php } ?>
 			
 			<?php if(!empty($payment_option)){?>
