@@ -4086,6 +4086,7 @@ input[type="radio"], input[type="checkbox"] {
 
 @media (min-width: 768px) {
     .callout{ background-position: 0 !important;}
+    .header-main .navigation nav{ float:none !important;}
 
 }
 
