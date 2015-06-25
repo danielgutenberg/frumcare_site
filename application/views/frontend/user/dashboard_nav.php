@@ -39,9 +39,9 @@
 		<li>
 			<a href="<?php echo base_url();?>user/backgroundverification" <?php if($this->uri->segment(2) == 'backgroundverification'){?> class="active" <?php }?>>My Background Checks</a>
 		</li>
-		<li>
-			<a href="<?php echo base_url();?>user/membership" <?php if($this->uri->segment(2) == 'membership'){?> class="active" <?php }?>>My Membership</a>
-		</li>
+		<!--<li>-->
+		<!--	<a href="<?php echo base_url();?>user/membership" <?php if($this->uri->segment(2) == 'membership'){?> class="active" <?php }?>>My Membership</a>-->
+		<!--</li>-->
 		<li>
 			<a href="<?php echo base_url();?>user/paymenthistory" <?php if($this->uri->segment(2) == 'paymenthistory'){?> class="active" <?php }?>>My Payment History</a>
 		</li>

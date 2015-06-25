@@ -129,15 +129,15 @@
 					</a>
 			</div>
 
-			<div class="membership profile-block">
-				<a href="#" class="profile-img">
-					<img src="<?php echo site_url();?>img/icon-dashboard/members.png" title="My Membership" alt="My Membership">
-				</a>
+			<!--<div class="membership profile-block">-->
+			<!--	<a href="#" class="profile-img">-->
+			<!--		<img src="<?php echo site_url();?>img/icon-dashboard/members.png" title="My Membership" alt="My Membership">-->
+			<!--	</a>-->
 				
-				<a href="#" class="profie-name">
-					My Membership
-				</a>
-			</div>
+			<!--	<a href="#" class="profie-name">-->
+			<!--		My Membership-->
+			<!--	</a>-->
+			<!--</div>-->
             <!--    
 			<div class="myworkhistory profile-block">
 				<a href="<?php echo site_url();?>user/#" class="profile-img">
