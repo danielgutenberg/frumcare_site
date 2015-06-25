@@ -238,7 +238,9 @@ $(function () {
     				}
     			});
             }       
-         })();				
+         });
+         $("#chkbox1").trigger('click');
+         
 	});
 </script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
