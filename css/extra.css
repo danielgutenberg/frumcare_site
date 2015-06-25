@@ -4086,7 +4086,7 @@ input[type="radio"], input[type="checkbox"] {
 
 @media (min-width: 768px) {
     .callout{ background-position: 0 !important;}
-    .header-main .navigation nav{ float:none !important;}
+
 
 }
 
@@ -4098,6 +4098,7 @@ input[type="radio"], input[type="checkbox"] {
 
 @media (max-width:768px){
     .category-img{float:none !important;}
+    .header-main .navigation nav{ float:none !important;}
 }
 
 
