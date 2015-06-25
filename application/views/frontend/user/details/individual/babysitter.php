@@ -155,7 +155,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
     <tr>
     	<td >References</td>
     	<td >
-    		<a href="#">Download</a>
+    		<a href="uploads/files/LICENSE.txt" download>Download</a>
     	</td>
     </tr>
     <?php }
