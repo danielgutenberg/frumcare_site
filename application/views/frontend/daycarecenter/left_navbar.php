@@ -237,6 +237,31 @@ $(function () {
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
 <script type="text/javascript">
 	$(document).ready(function(){
+		var neighbour = $('.neighbour').val();
+            var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
+            var lang = $('.lang:checked').map(function(_, el) {
+		        return $(el).val();
+		    }).get();		   
+            var age_group = $('.age_group:checked').map(function(_, el) {
+		        return $(el).val();
+		    }).get();
+            var sub_care = $('.sub_care').val();
+				$.ajax({
+					type:"get",
+					url:"<?php echo site_url();?>daycarecenter/search",
+					data:"neighbour="+neighbour+"&sub_care="+sub_care+"&gender="+gender+"&language="+lang+"&care_type="+care_type+"&age_group="+age_group,
+					success:function(done){
+							$(".searchloader").fadeOut("fast");
+							var json = jQuery.parseJSON(done);
+ 							var pagenum = json.num;
+ 							var pagedata = json.userdatas;
+							$('#list_container').html(pagedata);
+							$('#total').html(json.total_rows);
+                            $('.navigations').html(json.pagination);
+					}
+				});
+		
+		
 		var $myDialog = $('<div></div>')
 	    .html('Are you sure you want to save this search?')
 	    .dialog({

@@ -209,6 +209,33 @@ $(function () {
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
 <script type="text/javascript">
 	$(document).ready(function(){
+		var neighbour = $('.neighbour').val();
+            var lang = $('.lang:checked').map(function(_, el) {
+		        return $(el).val();
+		    }).get();
+            var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+		    var willing_to_work = $('.willing_to_work:checked').map(function(_, el) {
+		        return $(el).val();
+		    }).get();
+            var extra_field = $('.extra_field:checked').map(function(_, el) {
+    		        return $(el).val();
+    		    }).get();
+    		    var care_type = $( ".careType option:selected" ).val();
+				$.ajax({
+					type:"get",
+					url:"<?php echo site_url();?>specialneedscenter/search",
+					data:"neighbour="+neighbour+"&language="+lang+"&willing_to_work="+willing_to_work+"&care_type="+care_type+"&smoker="+smoker+"&extra_field="+extra_field,
+					success:function(done){
+							$(".searchloader").fadeOut("fast");
+							var json = jQuery.parseJSON(done);
+ 							var pagenum = json.num;
+ 							var pagedata = json.userdatas;
+							$('#list_container').html(pagedata);
+							$('#total').text(json.total);
+                            $('.navigations').html(json.pagination);
+					}
+				});
+		
 		var $myDialog = $('<div></div>')
 	    .html('Are you sure you want to save this search?')
 	    .dialog({

@@ -194,6 +194,29 @@ $(function () {
 
 <script type="text/javascript">
 	$(document).ready(function(){
+		var neighbour = $('.neighbour').val();
+            var lang = $('.lang:checked').map(function(_, el) {
+		        return $(el).val();
+		    }).get();
+		    var willing_to_work = $('.willing_to_work:checked').map(function(_, el) {
+		        return $(el).val();
+		    }).get();
+				$.ajax({
+					type:"get",
+					url:"<?php echo site_url();?>seniorcareagency/search",
+					data:"neighbour="+neighbour+"&language="+lang+"&willing_to_work="+willing_to_work+"&care_type="+care_type,
+					success:function(done){
+							$(".searchloader").fadeOut("fast");
+							var json = jQuery.parseJSON(done);
+ 							var pagenum = json.num;
+ 							var pagedata = json.userdatas;
+							$('#list_container').html(pagedata);
+							$('#total').text(json.total);
+                            $('.navigations').html(json.pagination);
+					}
+				});
+		
+		
 		var $myDialog = $('<div></div>')
 	    .html('Are you sure you want to save this search?')
 	    .dialog({

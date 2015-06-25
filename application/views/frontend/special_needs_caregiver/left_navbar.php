@@ -366,6 +366,60 @@ $(function () {
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
 <script type="text/javascript">
 	$(document).ready(function(){
+	var neighbour = $('.neighbour').val();
+            var caregiverage_from = $('.caregiverage_from').val();
+            var caregiverage_to = $('.caregiverage_to').val();
+            var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
+            var lang = $('.lang:checked').map(function(_, el) {
+		        return $(el).val();
+		    }).get();
+            var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+		    var observance = $('.observance:checked').map(function(_, el) {
+		        return $(el).val();
+		    }).get();
+
+		    var subjects = $('.subjects:checked').map(function(_, el) {
+		        return $(el).val();
+		    }).get();
+
+		    var min_exp = $('.year_experience').val();
+		    var availability = $('.availability:checked').map(function(_, el) {
+		        return $(el).val();
+		    }).get();
+
+		    var carelocations = $('.carelocation:checked').map(function(_, el) {
+		        return $(el).val();
+		    }).get();
+
+		    var trainings = $('.training:checked').map(function(_, el) {
+		        return $(el).val();
+		    }).get();
+
+		    var able_to_work = $('.able_to_work:checked').map(function(_, el) {
+		        return $(el).val();
+		    }).get();
+
+		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
+		  	var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
+		    var available = $('.available_on_short_notice').is('.checked')?$('.available_on_short_notice').val():'';
+		    var care_type = $( ".careType option:selected" ).val();
+
+				$.ajax({
+					type:"get",
+					url:"<?php echo site_url();?>special_needs_caregiver/search",
+					data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&carelocation="+carelocations+"&trainings="+trainings+"&able_to_work="+able_to_work+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker,
+					success:function(done){
+							$(".searchloader").fadeOut("fast");
+							var json = jQuery.parseJSON(done);
+ 							var pagenum = json.num;
+ 							var pagedata = json.userdatas;
+							$('#list_container').html(pagedata);
+							$('#total').text(json.total);
+                            $('.navigations').html(json.pagination);
+					}
+				});
+	
+	
 	var $myDialog = $('<div></div>')
     .html('Are you sure you want to save this search?')
     .dialog({

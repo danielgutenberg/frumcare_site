@@ -155,6 +155,29 @@ $(function () {
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
 <script type="text/javascript">
     $(document).ready(function(){
+        var neighbour = $('.neighbour').val();
+                var looking_to_work = $('.looking_to_work:checked').map(function(_, el) {
+    		        return $(el).val();
+    		    }).get();
+                var willing_to_work = $('.willing_to_work:checked').map(function(_, el) {
+    		        return $(el).val();
+    		    }).get();            
+    			$.ajax({
+    				type:"get",
+    				url:"<?php echo site_url();?>cleaningcompany/search",
+    				data:"neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&language="+looking_to_work,
+    				success:function(message){
+    						$(".searchloader").fadeOut("fast");
+    						var json = jQuery.parseJSON(message);
+    		 				var pagenum = json.num;
+    		 				var pagedata = json.userdatas;
+    						$('#list_container').html(pagedata);
+    						$('#total').text(json.total);
+                            $('.navigations').html(json.pagination);
+    				}
+    			});
+        
+        
         var $myDialog = $('<div></div>')
         .html('Are you sure you want to save this search?')
         .dialog({

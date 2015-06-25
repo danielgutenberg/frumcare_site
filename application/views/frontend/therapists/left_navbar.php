@@ -393,6 +393,35 @@ $(function () {
 
 <script>
 $(document).ready(function () {
+  var neighbour = $('.neighbour').val();
+					var caregiverage_from = $('.caregiverage_from').val();
+					var caregiverage_to =  $('.caregiverage_to').val();
+					var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
+					var lang = $('.lang:checked').map(function(_, el) {
+			        	return $(el).val();
+			    	}).get();
+			    	var observance = $('.observance:checked').map(function(_, el) {
+			        	return $(el).val();
+			    	}).get();
+			    	var accept_insurance = $(this).val();
+			    	var care_type = $( ".careType option:selected" ).val();
+   	                var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+			    	$.ajax({
+			    		type:"get",
+			    		url:"<?php echo site_url();?>therapists/search",
+			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&accept_insurance="+accept_insurance+"&gender="+gender+"&care_type="+care_type+"&smoker="+smoker,
+			    		success:function(done){
+                           $(".searchloader").fadeOut("fast");
+							var json = jQuery.parseJSON(done);
+ 							var pagenum = json.num;
+ 							var pagedata = json.userdatas;
+							$('#list_container').html(pagedata);
+							$('#total').text(json.total);
+                            $('.navigations').html(json.pagination);
+			    		}
+			    	});
+  
+  
   var $myDialog = $('<div></div>')
     .html('Are you sure you want to save this search?')
     .dialog({
