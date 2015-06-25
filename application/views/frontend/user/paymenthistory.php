@@ -22,7 +22,7 @@
         <?php
         if(!$record){
         ?>
-        <p>No payment history available.</p>
+        <p>This feature is under construction</p>
         <?php
         }
         else{

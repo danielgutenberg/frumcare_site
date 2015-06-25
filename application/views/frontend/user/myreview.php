@@ -105,7 +105,7 @@
                     echo $links;
             }
       		else{
- 			    echo "There are no reviews and ratings";
+ 			    echo "This feature is under construction";
       		}
         	?>
      </div>

@@ -10,65 +10,66 @@
 			<div class="top-welcome">
 				<h2>My Background Checks</h2>
 			</div>
+			<p>This feature is under construction</p>
 
-            <a href="javascript:void(0);" class="verifyphn" id="<?php echo check_user();?>">Click Here</a> to verify your phone number.
+        <!--    <a href="javascript:void(0);" class="verifyphn" id="<?php echo check_user();?>">Click Here</a> to verify your phone number.-->
 
-            <div id="smserror"></div>
+        <!--    <div id="smserror"></div>-->
 
-             <div class="verifications">
-                <ul style="list-style-type: none;">
-                    <li><label>Basic Background Check</label> <span><img src="<?php echo site_url();?>img/cross.png"></span></li>
-                    <li><label>Motor Vehicle Records Check</label> <span><img src="<?php echo site_url();?>img/cross.png"></span></li>
-                    <li>
-                        <label>Phone number Verification</label> 
-                        <?php if($verificationdata['contact_number_status'] == 0){ ?>
-                            <span><img src="<?php echo site_url();?>img/cross.png" /></span>
-                        <?php }else{ ?>
-                            <span><img src="<?php echo site_url();?>img/tick.png" /></span>
-                        <?php } ?>
-                    </li>
-                    <li>
-                        <label>Email address Verification</label>
-                        <?php if($verificationdata['email_status'] == 0){ ?>
-                            <span><img src="<?php echo site_url();?>img/cross.png" /></span>
-                        <?php }else{ ?>
-                            <span><img src="<?php echo site_url();?>img/tick.png" /></span>
-                        <?php } ?>
-                    </li>
-                    <li>
-                        <label>Facebook Verification</label>
-                        <?php if($verificationdata['facebook_contact_status'] == 0){ ?>
-                            <span><img src="<?php echo site_url();?>img/cross.png" /></span>
-                        <?php }else{ ?>
-                            <span><img src="<?php echo site_url();?>img/tick.png" /></span>
-                        <?php } ?>
-                    </li>
-                    <li>
-                        <label>Twitter Verification</label>
-                        <?php if($verificationdata['twitter_contact_status'] == 0){ ?>
-                            <span><img src="<?php echo site_url();?>img/cross.png" /></span>
-                        <?php }else{ ?>
-                            <span><img src="<?php echo site_url();?>img/tick.png" /></span>
-                        <?php } ?>
-                    </li>
-                    <li>
-                        <label>Google+ Verification</label>
-                        <?php if($verificationdata['google_contact_status'] == 0){ ?>
-                            <span><img src="<?php echo site_url();?>img/cross.png" /></span>
-                        <?php }else{ ?>
-                            <span><img src="<?php echo site_url();?>img/tick.png" /></span>
-                        <?php } ?>
-                    </li>
-                    <li>
-                        <label>Profile Picture Verification</label>
-                         <?php if($verificationdata['profile_picture_status'] == 0){ ?>
-                            <span><img src="<?php echo site_url();?>img/cross.png" /></span>
-                        <?php }else{ ?>
-                            <span><img src="<?php echo site_url();?>img/tick.png" /></span>
-                        <?php } ?>
-                    </li>
-                </ul>   
-        </div>
+        <!--     <div class="verifications">-->
+        <!--        <ul style="list-style-type: none;">-->
+        <!--            <li><label>Basic Background Check</label> <span><img src="<?php echo site_url();?>img/cross.png"></span></li>-->
+        <!--            <li><label>Motor Vehicle Records Check</label> <span><img src="<?php echo site_url();?>img/cross.png"></span></li>-->
+        <!--            <li>-->
+        <!--                <label>Phone number Verification</label> -->
+        <!--                <?php if($verificationdata['contact_number_status'] == 0){ ?>-->
+        <!--                    <span><img src="<?php echo site_url();?>img/cross.png" /></span>-->
+        <!--                <?php }else{ ?>-->
+        <!--                    <span><img src="<?php echo site_url();?>img/tick.png" /></span>-->
+        <!--                <?php } ?>-->
+        <!--            </li>-->
+        <!--            <li>-->
+        <!--                <label>Email address Verification</label>-->
+        <!--                <?php if($verificationdata['email_status'] == 0){ ?>-->
+        <!--                    <span><img src="<?php echo site_url();?>img/cross.png" /></span>-->
+        <!--                <?php }else{ ?>-->
+        <!--                    <span><img src="<?php echo site_url();?>img/tick.png" /></span>-->
+        <!--                <?php } ?>-->
+        <!--            </li>-->
+        <!--            <li>-->
+        <!--                <label>Facebook Verification</label>-->
+        <!--                <?php if($verificationdata['facebook_contact_status'] == 0){ ?>-->
+        <!--                    <span><img src="<?php echo site_url();?>img/cross.png" /></span>-->
+        <!--                <?php }else{ ?>-->
+        <!--                    <span><img src="<?php echo site_url();?>img/tick.png" /></span>-->
+        <!--                <?php } ?>-->
+        <!--            </li>-->
+        <!--            <li>-->
+        <!--                <label>Twitter Verification</label>-->
+        <!--                <?php if($verificationdata['twitter_contact_status'] == 0){ ?>-->
+        <!--                    <span><img src="<?php echo site_url();?>img/cross.png" /></span>-->
+        <!--                <?php }else{ ?>-->
+        <!--                    <span><img src="<?php echo site_url();?>img/tick.png" /></span>-->
+        <!--                <?php } ?>-->
+        <!--            </li>-->
+        <!--            <li>-->
+        <!--                <label>Google+ Verification</label>-->
+        <!--                <?php if($verificationdata['google_contact_status'] == 0){ ?>-->
+        <!--                    <span><img src="<?php echo site_url();?>img/cross.png" /></span>-->
+        <!--                <?php }else{ ?>-->
+        <!--                    <span><img src="<?php echo site_url();?>img/tick.png" /></span>-->
+        <!--                <?php } ?>-->
+        <!--            </li>-->
+        <!--            <li>-->
+        <!--                <label>Profile Picture Verification</label>-->
+        <!--                 <?php if($verificationdata['profile_picture_status'] == 0){ ?>-->
+        <!--                    <span><img src="<?php echo site_url();?>img/cross.png" /></span>-->
+        <!--                <?php }else{ ?>-->
+        <!--                    <span><img src="<?php echo site_url();?>img/tick.png" /></span>-->
+        <!--                <?php } ?>-->
+        <!--            </li>-->
+        <!--        </ul>   -->
+        <!--</div>-->
 			     
 		</div>
 	</div>
