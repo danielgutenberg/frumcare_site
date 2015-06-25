@@ -3087,10 +3087,10 @@ input[type="radio"], input[type="checkbox"] {
     		width: 950px !important;
     	}
     	.header-main .logo {
-    		width: 34%;
+    		/*width: 34%;*/
     	}
     	.header-main .navigation {
-    		width: 65%;
+    		/*width: 65%;*/
     	}
     	.header-main .primary-nav a {
     		color: #000;
