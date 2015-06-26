@@ -158,9 +158,10 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
 		        <td> Yes
 		        <?php if ($reference_file) {?> 
 		            <a href="<?php echo site_url();?>uploads/files/<?php echo $reference_file;?>" target="_blank">Download</a>
+		            <?php } ?>
 		        </td>
-		        <?php } }
-		    else {?><td>N/A</td><?php}?> 
+		        <?php  }
+		    else {?><td>N/A</td><?php }?> 
 		</td>
 	</tr> 
     <?php
