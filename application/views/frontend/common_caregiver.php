@@ -229,6 +229,7 @@
     <?php } ?>
     
 	<div class="select-relevance">               
+            <?php $this->load->view('frontend/common/left_nav_title')?>
             <select name="sort_by_select" id="sort_by_select">
                 <option value="distance">Sort by distance</option>
                 <option value="tbl_userprofile.id">Sort by latest</option>                
