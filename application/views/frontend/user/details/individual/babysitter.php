@@ -150,22 +150,22 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
                 <td>N/A</td>
             </tr>
         <?php            
-        }
-    if($reference_file){?>
+        }?>
     <tr>
-    	<td >References</td>
-    	<td >
-    		<a href="<?php echo site_url() ?>uploads/files/<?php echo $reference_file ?>" download>Download</a>
-    	</td>
-    </tr>
-    <?php }
-    else{ ?>
-            <tr>
-                <td>References</td>
-                <td>N/A</td>
-            </tr>
-        <?php            
-        } ?> 
+				<?php if(isset($references)){?>
+				<?php if($references == 1){?>
+				<td>Refrences</td>
+				<td>
+					Yes <?php if ($reference_file) { ?> <a href="<?php echo site_url();?>uploads/files/<?php echo $reference_file;?>" target="_blank"> Click here to view/Download</a><?php } ?>
+				</td>
+				<?php 
+			} ?>
+		<?php }  
+                else{ ?>
+                    <td>Refrences</td>
+                    <td>N/A</td>
+                    <?php } ?>
+	</tr>  
     <?php
     if($references==1){?>
     <!--<tr>-->
