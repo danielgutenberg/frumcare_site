@@ -97,7 +97,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
     <tr>
         <td>References</td>
 		<td>
-		    <?php if($references == 1) { ?>
+		    <?php print_r($rate); if($references == 1) { ?>
 		        Yes
 		        <?php if ($reference_file) {?> 
 		            <a href="<?php echo site_url();?>uploads/files/<?php echo $reference_file;?>" target="_blank">Download</a>
