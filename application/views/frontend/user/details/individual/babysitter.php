@@ -153,7 +153,6 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
         }?>
     <tr>
         <td>References</td>
-		<td>
 		    <?php if($references == 1) { ?>
 		        <td> Yes
 		        <?php if ($reference_file) {?> 
@@ -162,7 +161,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
 		        </td>
 		        <?php  }
 		    else {?><td>N/A</td><?php }?> 
-		</td>
+		
 	</tr> 
     <?php
     if($references==1){?>
