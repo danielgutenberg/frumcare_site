@@ -163,19 +163,15 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
             <?php
           }?>
     <tr>
-				<?php if(isset($references)){?>
-				<?php if($references == 1){?>
-				<td>Refrences</td>
-				<td>
-					Yes <?php if ($reference_file) { ?> <a href="<?php echo site_url();?>uploads/files/<?php echo $reference_file;?>" target="_blank"> Click here to view/Download</a><?php } ?>
-				</td>
-				<?php 
-			} ?>
-		<?php }  
-                else{ ?>
-                    <td>Refrences</td>
-                    <td>N/A</td>
-                    <?php } ?>
+        <td>References</td>
+		<td>
+		    <?php if($references == 1) {
+		        echo 'Yes';
+		        if ($reference_file) {?> 
+		            <a href="<?php echo site_url();?>uploads/files/<?php echo $reference_file;?>" target="_blank">Download</a>
+		        <?php } }
+		    else { echo 'N/A'; }?> 
+		</td>
 	</tr>   
           <tr style="display:none;">
     	<td >Agree to Background Check?</td>
