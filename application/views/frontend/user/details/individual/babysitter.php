@@ -1,8 +1,6 @@
 <?php
 $cross = "<img src='".site_url()."img/cross.png'> ";
-$tick  = "<img src='".site_url()."img/nut-list.png'> "; 
-print_r('hello');
-print_r($looking_to_work);
+$tick  = "<img src='".site_url()."img/nut-list.png'> ";
 ?>
 <!-- Start Babysitter-->    
 <div class="table-responsive">
