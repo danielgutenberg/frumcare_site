@@ -5673,4 +5673,5 @@ body {
 @media (max-width:769px){
     .footer-links .col-xs-12{ text-align:center; }
     .footer .social-links span{display:block; padding:10px 0; }
+    .footer .navigation-row .col-xs-12{ text-align: center;}
 }
