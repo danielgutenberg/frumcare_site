@@ -72,7 +72,7 @@
 
                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 social-links">
 
-                        Follow us on
+                        <span>Follow us on</span>
                         <a href="https://www.facebook.com/pages/FrumCarecom/1442798632665058" target="_blank" class="facebook flip-link-container"><span class="flip-link"><span class="front"><i
                                         class="icon-facebook-white"></i></span><span class="back"><i
                                         class="icon-facebook-color"></i></span></span></a>
