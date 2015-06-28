@@ -243,7 +243,7 @@ $(function () {
 		        return $(el).val();
 		    }).get();
             var sub_care = $('.sub_care').val();
-            var data = "neighbour="+neighbour+"&sub_care="+sub_care+"&gender="+gender+"&language="+lang+"&care_type="+care_type+"&age_group="+age_group
+            var data = "&sub_care="+sub_care+"&gender="+gender+"&language="+lang+"&age_group="+age_group
             console.log(data)
 				$.ajax({
 					type:"get",
