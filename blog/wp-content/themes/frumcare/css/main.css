@@ -5128,6 +5128,12 @@ label.error {
 
 /* Responsive code  */
 /* Large desktop */
+
+@media (max-width:768px){
+    .blog-content {
+        width: 100%;
+    }
+}
 @media (max-width: 1090px) {
 .blog-content {
   width: calc( 100% - 345px);
