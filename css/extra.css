@@ -4085,7 +4085,10 @@ input[type="radio"], input[type="checkbox"] {
 }
 @media (min-width:769px){
     .footer .social-links{ float:none;}
+    .footer .navigation-row .col-xs-12{ text-align: center;}
 }
+
+
 
 @media (min-width: 768px) {
     .callout{ background-position: 0 !important;}
