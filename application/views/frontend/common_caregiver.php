@@ -82,7 +82,7 @@
     
     if($s2 == 'nursery-playgroup-drop-off-gan'){
         if($s1 == 'caregivers')
-            $left_navbar='nanny';                              
+            $left_navbar='nursery';                              
     }
     
     if($s2 == 'tutor-private-lessons'){
