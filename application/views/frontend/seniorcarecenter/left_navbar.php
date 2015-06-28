@@ -185,10 +185,12 @@ $(function () {
     		    }).get(); 
                 var sub_care = $('.sub_care').val();   
                 var care_type = $( ".careType option:selected" ).val();
+                var data = "neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&language="+lang+"&sub_care="+sub_care+"&extra_field="+extra_field
+                console.log(data)
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>seniorcarecenter/search",
-    				data:"neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&language="+lang+"&sub_care="+sub_care+"&extra_field="+extra_field,
+    				data:data,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
