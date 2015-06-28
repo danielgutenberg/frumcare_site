@@ -70,7 +70,7 @@
                     <a href="<?php echo site_url();?>privacy-policy">Privacy Policy</a>
                 </div>
 
-                <div class="col-xs-12 visible-xs-12">
+                <div class="col-xs-12 hidden-sm hidden-lg hidden-md">
 
                         Follow us on
                     </div>
