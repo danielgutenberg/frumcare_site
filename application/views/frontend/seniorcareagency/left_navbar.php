@@ -120,7 +120,7 @@ $(function () {
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>seniorcareagency/search",
-					data:"neighbour="+neighbour+"&language="+lang+"&willing_to_work="+willing_to_work+"&care_type="+care_type,
+					data:"&language="+lang+"&willing_to_work="+willing_to_work,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -147,7 +147,7 @@ $(function () {
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>seniorcareagency/search",
-					data:"neighbour="+neighbour+"&language="+lang+"&willing_to_work="+willing_to_work+"&care_type="+care_type,
+					data:"&language="+lang+"&willing_to_work="+willing_to_work,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -233,7 +233,7 @@ $(function () {
 				$.ajax({
 					type:"post",
 					url:"<?php echo site_url();?>seniorcareagency/savesearch",
-					data:"neighbour="+neighbour+"&language="+lang+"&willing_to_work="+willing_to_work+"&care_type="+care_type,
+					data:"&language="+lang+"&willing_to_work="+willing_to_work,
 					success:function(done){
 							//console.log(done);
                             alert('Search saved');
