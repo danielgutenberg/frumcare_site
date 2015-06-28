@@ -92,12 +92,14 @@
 
                     	<div class="colophon">
                         <div class="row">
-                            <div class="col-half">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                     Copyright&copy; frumcare.com All rights reserved
+                                </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <a style="padding-left: 51px;" href="<?php echo $ciurl;?>/terms-of-use">Terms of Use</a> |
                                 <a href="<?php echo $ciurl;?>/privacy-policy">Privacy Policy</a>
                             </div>
-                            <div class="col-half">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="social-links">
                                     Follow us on 
                                     <a href="<?php echo do_shortcode("[theme_option do='facebook-link']");?>" target="_blank" title="Facebook" class="facebook flip-link-container"><span class="flip-link"><span class="front"><i class="icon-facebook-white"></i></span><span class="back"><i class="icon-facebook-color"></i></span></span></a>
