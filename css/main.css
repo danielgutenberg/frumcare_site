@@ -5671,5 +5671,5 @@ body {
 }
 
 @media (min-width:769px){
-    .footer-links col-xs-12{ text-align:center; }
+    .footer-links .col-xs-12{ text-align:center; }
 }
