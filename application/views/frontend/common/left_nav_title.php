@@ -9,7 +9,7 @@
         </select>     
     <?php } 
     else { ?>
-        <select name="service" class="care_type">
+        <select name="service" class="service care_type">
             <option value="caregivers">--chose a care type--</option> 
             <option value="1" <?php if(segment(2) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
             <option value="2" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>
@@ -34,7 +34,7 @@
 <?php } ?>
 
 <?php if($this->uri->segment(1) == 'jobs') { ?>    
-    <select name="service" class="jobtype">
+    <select name="service" class="service jobtype">
         <option value="jobs">--chose a job type--</option> 
         <option value="17" <?php if(segment(2) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
     	<option value="18" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>        

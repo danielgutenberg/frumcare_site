@@ -214,10 +214,7 @@ $(function () {
                 var locationaddress = 'careseeker_specialneedsfacility';
              if(pagelink == 'Workers for cleaning company')
                 var locationaddress = 'careseeker_cleaningcompany';
-            if(pagelink == '--select--')
-                var locationaddress = 'careseekers/organization';
-
-            if(pagelink == '--select--')
+            if(pagelink == '--chose a care type--')
             	var locationaddress = 'caregivers';
 
                 
