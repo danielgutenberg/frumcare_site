@@ -4083,6 +4083,9 @@ input[type="radio"], input[type="checkbox"] {
     .profile-list .profile-list-details .category-img{ text-align: center;}
     #site-wrapper ol.progtrckr[data-progtrckr-steps="4"] li{ width:100%;}
 }
+@media (min-width:769px){
+    .footer .social-links{ float:none;}
+}
 
 @media (min-width: 768px) {
     .callout{ background-position: 0 !important;}
