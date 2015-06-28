@@ -4877,6 +4877,8 @@ button.close {
 .carousel-caption .btn {
   text-shadow: none;
 }
+
+
 @media screen and (min-width: 768px) {
   .carousel-control .glyphicon-chevron-left,
   .carousel-control .glyphicon-chevron-right,
@@ -5010,6 +5012,7 @@ button.close {
 .visible-lg-inline-block {
   display: none !important;
 }
+*/
 @media (max-width: 767px) {
   .visible-xs {
     display: block !important;
@@ -5153,6 +5156,7 @@ button.close {
 .visible-print {
   display: none !important;
 }
+/*
 @media print {
   .visible-print {
     display: block !important;
