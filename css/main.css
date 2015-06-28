@@ -5672,5 +5672,5 @@ body {
 
 @media (min-width:769px){
     .footer-links .col-xs-12{ text-align:center; }
-    .footer .social-links span{display:block;}
+    .footer .social-links span{display:block; padding:10px 0; }
 }
