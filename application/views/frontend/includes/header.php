@@ -116,7 +116,7 @@
 
 <div class="header-main">
     <div class="container">
-        <h1 class="col-lg-4 col-md-4 col-sm-8 col-xs-12 center logo">
+        <h1 class="col-lg-4 col-md-4 col-sm-4 col-xs-12 center logo">
             <a href="<?php echo base_url() ?>">
                 <img src="<?php echo base_url('img/logo.png') ?>" alt="Frumcare.com">
             </a>
