@@ -84,7 +84,7 @@ class Seniorcarecenter extends CI_Controller{
                         }
                 }
 			$postdata['neighbor'] 			= $this->input->get('neighbour',true);
-			$postdata['language'] 			= $this->input->get('langugage',true);
+			$postdata['language'] 			= $this->input->get('language',true);
 			$postdata['willing_to_work'] 	= $this->input->get('willing_to_work',true);
             $postdata['sub_care'] 	        = $this->input->get('sub_care',true);
             $postdata['extra_field'] 	    = $this->input->get('extra_field',true);

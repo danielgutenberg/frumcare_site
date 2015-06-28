@@ -92,119 +92,119 @@
 		}); 
 	});
 
-		$(document).ready(function(){
-                $('#sortby').change(function(){ 
-                $('#sortby').val($(this).val());
-                var pagelink = $(this).find("option:selected").text();
+		// $(document).ready(function(){
+  //              $('#sortby').change(function(){ 
+  //              $('#sortby').val($(this).val());
+  //              var pagelink = $(this).find("option:selected").text();
                 
-                if(pagelink == 'Nanny / Au-pair')
-                    var locationaddress = 'nanny';
-                if(pagelink == 'Babysitter')
-                    var locationaddress = 'babysitter';
-                if(pagelink == 'Nursery / Playgroup / Drop off / Gan')
-                    var locationaddress = 'nursery';
-                if(pagelink == 'Tutor / Private lessons')
-                    var locationaddress = 'tutor';
-                 if(pagelink == 'Senior Caregiver')
-                    var locationaddress = 'senior_caregiver';
-                if(pagelink == 'Special needs caregiver')
-                    var locationaddress = 'special_needs_caregiver';
-                if(pagelink == 'Therapist')
-                    var locationaddress = 'therapists';
-                if(pagelink == 'Cleaning / household help')
-                    var locationaddress = 'cleaning';
-                 if(pagelink == 'Errand runner / odd jobs / personal assistant / driver')
-                    var locationaddress = 'errand_runner';       
+  //              if(pagelink == 'Nanny / Au-pair')
+  //                  var locationaddress = 'nanny';
+  //              if(pagelink == 'Babysitter')
+  //                  var locationaddress = 'babysitter';
+  //              if(pagelink == 'Nursery / Playgroup / Drop off / Gan')
+  //                  var locationaddress = 'nursery';
+  //              if(pagelink == 'Tutor / Private lessons')
+  //                  var locationaddress = 'tutor';
+  //               if(pagelink == 'Senior Caregiver')
+  //                  var locationaddress = 'senior_caregiver';
+  //              if(pagelink == 'Special needs caregiver')
+  //                  var locationaddress = 'special_needs_caregiver';
+  //              if(pagelink == 'Therapist')
+  //                  var locationaddress = 'therapists';
+  //              if(pagelink == 'Cleaning / household help')
+  //                  var locationaddress = 'cleaning';
+  //               if(pagelink == 'Errand runner / odd jobs / personal assistant / driver')
+  //                  var locationaddress = 'errand_runner';       
                     
-                location.href = '<?php echo site_url();?>'+locationaddress;
-			});
-            $(document).on('change','#sort_by_select,#per_page',function(){
+  //              location.href = '<?php echo site_url();?>'+locationaddress;
+		// 	});
+  //          $(document).on('change','#sort_by_select,#per_page',function(){
                 
-                $(".searchloader").fadeIn("fast");
-                var x = $('#sort_by_select').val();
-                var y = $('#autocomplete').val();
-                var z = $("#per_page").val();
-                var lat = $('#lat').val();
-                var lng = $('#lng').val();
-                var ac = 1;
-                var care_type = 3;
-                if(y!=''){
-                    $.post('<?php echo site_url()?>common_care_controller/sort',{'option':x,'per_page':z,'lat':lat,'lng':lng,'location':y,'account_category':ac,'care_type':care_type},function(msg){
-                        $(".searchloader").fadeOut("fast");
-				  			var json = jQuery.parseJSON(msg);
-							var pagenum = json.num;
-							var pagedata = json.userdatas;
-							$('#list_container').html(pagedata);
-							$('#total').text(json.total_rows);    
+  //              $(".searchloader").fadeIn("fast");
+  //              var x = $('#sort_by_select').val();
+  //              var y = $('#autocomplete').val();
+  //              var z = $("#per_page").val();
+  //              var lat = $('#lat').val();
+  //              var lng = $('#lng').val();
+  //              var ac = 1;
+  //              var care_type = 3;
+  //              if(y!=''){
+  //                  $.post('<?php echo site_url()?>common_care_controller/sort',{'option':x,'per_page':z,'lat':lat,'lng':lng,'location':y,'account_category':ac,'care_type':care_type},function(msg){
+  //                      $(".searchloader").fadeOut("fast");
+		// 		  			var json = jQuery.parseJSON(msg);
+		// 					var pagenum = json.num;
+		// 					var pagedata = json.userdatas;
+		// 					$('#list_container').html(pagedata);
+		// 					$('#total').text(json.total_rows);    
                     
-                    });
-                }
-                else{
-                    $.post('<?php echo site_url()?>common_care_controller/sort',{'option':x,'per_page':z,'location':y,'account_category':ac,'care_type':care_type},function(msg){
-                        $(".searchloader").fadeOut("fast");
-				  			var json = jQuery.parseJSON(msg);
-							var pagenum = json.num;
-							var pagedata = json.userdatas;
-							$('#list_container').html(pagedata);
-							$('#total').text(json.total_rows);
+  //                  });
+  //              }
+  //              else{
+  //                  $.post('<?php echo site_url()?>common_care_controller/sort',{'option':x,'per_page':z,'location':y,'account_category':ac,'care_type':care_type},function(msg){
+  //                      $(".searchloader").fadeOut("fast");
+		// 		  			var json = jQuery.parseJSON(msg);
+		// 					var pagenum = json.num;
+		// 					var pagedata = json.userdatas;
+		// 					$('#list_container').html(pagedata);
+		// 					$('#total').text(json.total_rows);
                         
-                    });
-                }
+  //                  });
+  //              }
                 
-            });
-			var inital_sortlimit  = $('#sort').val();
-			//var inital_sortlimit = 2;
-			if(inital_sortlimit){
-				$.ajax({
-					type:"get",
-					url:"<?php echo site_url();?>nursery/getPages",
-					data:"per_page="+inital_sortlimit,
-					success:function(data){
-						for (i= 1; i<=data; i++) {
-								if(i == 1){
-									var aclass="active";
-								} 
-								else{
-									var aclass  = "in-active";
-								}
-                  			$('.navigations').append('<a href="<?php echo site_url();?>nursery/pages/'+i+'"><span class="'+aclass+'">'+i+'</span></a>')
+  //          });
+		// 	var inital_sortlimit  = $('#sort').val();
+		// 	//var inital_sortlimit = 2;
+		// 	if(inital_sortlimit){
+		// 		$.ajax({
+		// 			type:"get",
+		// 			url:"<?php echo site_url();?>nursery/getPages",
+		// 			data:"per_page="+inital_sortlimit,
+		// 			success:function(data){
+		// 				for (i= 1; i<=data; i++) {
+		// 						if(i == 1){
+		// 							var aclass="active";
+		// 						} 
+		// 						else{
+		// 							var aclass  = "in-active";
+		// 						}
+  //                			$('.navigations').append('<a href="<?php echo site_url();?>nursery/pages/'+i+'"><span class="'+aclass+'">'+i+'</span></a>')
 
-            			}
-					}	
-				});
-			}
+  //          			}
+		// 			}	
+		// 		});
+		// 	}
 
-			$('#sort,#sortby').change(function(){
-				  var order 	= $('#sortby option:selected').val();
-				  var per_page  = $('#sort option:selected').val();
-					$('.navigations').html('');
-					$('.searchloader').fadeIn("fast");
-				  dataType:"json",
-				  $.ajax({
-				  		type:"get",
-				  		url:"<?php echo site_url();?>caregivers/sort",
-				  		data:"limit="+per_page+"&order="+order,
-				  		success:function(msg){
-				  			$(".searchloader").fadeOut("fast");
-				  			var json = jQuery.parseJSON(msg);
-							var pagenum = json.num;
-							var pagedata = json.userdatas;
-							$('#list_container').html(pagedata);
+		// 	$('#sort,#sortby').change(function(){
+		// 		  var order 	= $('#sortby option:selected').val();
+		// 		  var per_page  = $('#sort option:selected').val();
+		// 			$('.navigations').html('');
+		// 			$('.searchloader').fadeIn("fast");
+		// 		  dataType:"json",
+		// 		  $.ajax({
+		// 		  		type:"get",
+		// 		  		url:"<?php echo site_url();?>caregivers/sort",
+		// 		  		data:"limit="+per_page+"&order="+order,
+		// 		  		success:function(msg){
+		// 		  			$(".searchloader").fadeOut("fast");
+		// 		  			var json = jQuery.parseJSON(msg);
+		// 					var pagenum = json.num;
+		// 					var pagedata = json.userdatas;
+		// 					$('#list_container').html(pagedata);
 
-							var id = '<?php echo $this->uri->segment(3)?$this->uri->segment(3):1;?>';
-								for (i= 1; i<=pagenum; i++) {
-									if(i == id)
-										var aclass="active";
-									else
-										var aclass  = "in-active";
+		// 					var id = '<?php echo $this->uri->segment(3)?$this->uri->segment(3):1;?>';
+		// 						for (i= 1; i<=pagenum; i++) {
+		// 							if(i == id)
+		// 								var aclass="active";
+		// 							else
+		// 								var aclass  = "in-active";
 
-	                  				$('.navigations').append('<a href="<?php echo site_url();?>caregivers/pages/'+i+'"><span class="'+aclass+'">'+i+'</span></a>')
-	            				}
-				  		 }
+	 //                 				$('.navigations').append('<a href="<?php echo site_url();?>caregivers/pages/'+i+'"><span class="'+aclass+'">'+i+'</span></a>')
+	 //           				}
+		// 		  		 }
 				  		
-				  });
-			});
-		});
+		// 		  });
+		// 	});
+		// });
 </script>
 
 <!-- for google map starts -->

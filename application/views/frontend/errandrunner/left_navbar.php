@@ -5,26 +5,26 @@
 	  		<div class="left-search-panel col-lg-3 col-md-3 col-sm-3 col-xs-12">
 	 	<h4>Advanced Search</h4>
 	 	<form method="post" id="left-nav" action="">
- 			<div class="select-services">
-	 			<label>Choose a Care Type</label>
- 				<select name="service" class="service required">
-					<option value="">--select--</option>
-					<option value="1" <?php if(segment(1) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
-					<option value="2" <?php if(segment(1) == 'nanny'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>
-					<option value="3" <?php if(segment(1) == 'nursery'){?> selected="selected" <?php }?>>Nursery / Playgroup / Drop off / Gan</option>
-					<option value="10" <?php if(segment(1) == 'daycarecenter'){?> selected="selected" <?php }?>>Day Care Center / Day Camp / Afternoon Activities</option>
-                    <option value="4" <?php if(segment(1) == 'tutor'){?> selected="selected" <?php }?>>Tutor / Private lessons</option>
-					<option value="5" <?php if(segment(1) == 'senior_caregiver'){?> selected="selected" <?php }?> >Senior Caregiver</option>
-					<option value="13" <?php if(segment(1) == 'seniorcareagency'){?> selected="selected" <?php }?>>Senior Care Agency</option>                    
-                    <option value="16" <?php if(segment(1) == 'seniorcarecenter'){?> selected="selected" <?php }?>>Assisted living / Senior Care Center / Nursing Home</option>
-                    <option value="6" <?php if(segment(1) == 'special_needs_caregiver'){?> selected="selected" <?php }?>>Special needs caregiver</option>
-                    <option value="14" <?php if(segment(1) == 'specialneedscenter'){?> selected="selected" <?php }?>>Special needs center</option>
-					<option value="7" <?php if(segment(1) == 'therapists'){?> selected="selected" <?php }?>>Therapist</option>
-					<option value="8" <?php if(segment(1) == 'cleaning'){?> selected="selected" <?php }?>>Cleaning / household help</option>
-					<option value="15" <?php if(segment(1) == 'cleaninghousehold'){?> selected="selected" <?php }?>>Cleaning / household help company</option>
-                    <option value="9" <?php if(segment(1) == 'errand_runner'){?> selected="selected" <?php }?>>Errand runner / odd jobs / personal assistant / driver</option>
-                 </select>
-	 		</div>
+ 			<!--<div class="select-services">-->
+	 		<!--	<label>Choose a Care Type</label>-->
+ 			<!--	<select name="service" class="service required">-->
+				<!--	<option value="">--select--</option>-->
+				<!--	<option value="1" <?php if(segment(1) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>-->
+				<!--	<option value="2" <?php if(segment(1) == 'nanny'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>-->
+				<!--	<option value="3" <?php if(segment(1) == 'nursery'){?> selected="selected" <?php }?>>Nursery / Playgroup / Drop off / Gan</option>-->
+				<!--	<option value="10" <?php if(segment(1) == 'daycarecenter'){?> selected="selected" <?php }?>>Day Care Center / Day Camp / Afternoon Activities</option>-->
+    <!--                <option value="4" <?php if(segment(1) == 'tutor'){?> selected="selected" <?php }?>>Tutor / Private lessons</option>-->
+				<!--	<option value="5" <?php if(segment(1) == 'senior_caregiver'){?> selected="selected" <?php }?> >Senior Caregiver</option>-->
+				<!--	<option value="13" <?php if(segment(1) == 'seniorcareagency'){?> selected="selected" <?php }?>>Senior Care Agency</option>                    -->
+    <!--                <option value="16" <?php if(segment(1) == 'seniorcarecenter'){?> selected="selected" <?php }?>>Assisted living / Senior Care Center / Nursing Home</option>-->
+    <!--                <option value="6" <?php if(segment(1) == 'special_needs_caregiver'){?> selected="selected" <?php }?>>Special needs caregiver</option>-->
+    <!--                <option value="14" <?php if(segment(1) == 'specialneedscenter'){?> selected="selected" <?php }?>>Special needs center</option>-->
+				<!--	<option value="7" <?php if(segment(1) == 'therapists'){?> selected="selected" <?php }?>>Therapist</option>-->
+				<!--	<option value="8" <?php if(segment(1) == 'cleaning'){?> selected="selected" <?php }?>>Cleaning / household help</option>-->
+				<!--	<option value="15" <?php if(segment(1) == 'cleaninghousehold'){?> selected="selected" <?php }?>>Cleaning / household help company</option>-->
+    <!--                <option value="9" <?php if(segment(1) == 'errand_runner'){?> selected="selected" <?php }?>>Errand runner / odd jobs / personal assistant / driver</option>-->
+    <!--             </select>-->
+	 		<!--</div>-->
 
  			<div class="neighborhood">
 	 			<label>Neighborhood</label>
@@ -158,10 +158,7 @@
                 var locationaddress = 'careseeker_specialneedsfacility';
              if(pagelink == 'Works for cleaning company')
                 var locationaddress = 'careseeker_cleaningcompany';
-            if(pagelink == '--select--')
-                var locationaddress = 'careseekers/organization';
-
-            if(pagelink == '--select--')
+            if(pagelink == '--chose a care type--')
             	var locationaddress = 'caregivers';              
                 
             location.href = '<?php echo site_url();?>'+locationaddress;                

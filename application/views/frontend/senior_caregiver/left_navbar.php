@@ -5,10 +5,10 @@
 	  		<div class="left-search-panel col-lg-3 col-md-3 col-sm-3 col-xs-12">
 	 	<h4>Advanced Search</h4>
 	 	<form method="post" id="left-nav" action="">
- 			<div class="select-services careType">
-	 			<label>Choose a Care Type</label>
- 				<?php $this->load->view('frontend/common/left_nav_title')?>
-	 		</div>
+ 			<!--<div class="select-services careType">-->
+	 		<!--	<label>Choose a Care Type</label>-->
+ 			<!--	<?php $this->load->view('frontend/common/left_nav_title')?>-->
+	 		<!--</div>-->
  			<div>
 	 			<label>Age of Caregiver</label>
 	 			<input type="text" name="caregiverage_from" value="" placeholder="FROM" style="width:25%" class="caregiverage_from"> to  
@@ -169,10 +169,7 @@ $(function () {
                 var locationaddress = 'careseeker_specialneedsfacility';
              if(pagelink == 'Workers for cleaning company')
                 var locationaddress = 'careseeker_cleaningcompany';
-            if(pagelink == '--select--')
-                var locationaddress = 'careseekers/organization';
-
-            if(pagelink == '--select--')
+            if(pagelink == '--chose a care type--')
             	var locationaddress = 'caregivers'; 
                 
             location.href = '<?php echo site_url();?>'+locationaddress;                
