@@ -4794,7 +4794,8 @@ body {
   display: table;
 }
 .how-it-works .how-it-works-display:after {.how-it-works .how-it-works-display li{ display:block;}
-
+  clear: both;
+}
 .how-it-works .how-it-works-display .item {
   float: left;
   padding: 0 10px;
@@ -5405,7 +5406,7 @@ body {
     text-align:     left;
     padding-left:   50px;
     list-style-type: none;
-    font-size: 15px;
+    size: 15px;
   }
   .banner-images span {
     bottom: 20px;
