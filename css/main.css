@@ -5072,7 +5072,7 @@ body {
     transform: rotateY(180deg);
   }
   .footer .social-links span {
-    display: block;
+    display: inline;
   }
   .footer .colophon {
     margin-top: 40px;
