@@ -58,13 +58,13 @@
     $s2 = $this->uri->segment(2); // must be care type, job type    
     
     if($s1=='jobs' && ($s2 == 'all'|| $s2 ==''))
-        $left_navbar='careseeker_babysitter';
+        $left_navbar='all';
     
     if( $s1=='caregivers' && ($s2 == 'all'|| $s2 =='') )
-        $left_navbar='babysitter';
+        $left_navbar='all';
         
     if( $s1=='caregivers' && $s2 == 'organizations')
-        $left_navbar='babysitter';
+        $left_navbar='all';
                                 
     if($s2 == 'babysitter'){
         if($s1 == 'caregivers')
