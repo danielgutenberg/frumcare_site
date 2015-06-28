@@ -5074,6 +5074,11 @@ body {
   .footer .social-links span {
     display: inline;
   }
+
+.footer .social-links a span {
+    display: block;
+}
+
   .footer .colophon {
     margin-top: 40px;
     padding-top: 15px;
