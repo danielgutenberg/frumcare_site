@@ -4793,7 +4793,7 @@ body {
   content: " ";
   display: table;
 }
-.how-it-works .how-it-works-display:after {.how-it-works .how-it-works-display li{ display:block;}
+.how-it-works .how-it-works-display:after, .how-it-works .how-it-works-display li{ display:block;
   clear: both;
 }
 .how-it-works .how-it-works-display .item {
