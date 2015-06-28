@@ -37,6 +37,7 @@
 <link rel="shortcut icon" href="<?php echo $ciurl;?>/img/favicon.ico" type="image/x-icon">
   <link rel="icon" href="<?php echo $ciurl;?>/img/favicon.ico" type="image/x-icon">
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>css/bootstrap.css"/>
 <script type="text/javascript">stLight.options({publisher: "702e5d05-eb6f-470c-8ccc-fea29bd59c8d", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 <?php wp_head(); ?>
 
