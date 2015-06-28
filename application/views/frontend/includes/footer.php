@@ -70,11 +70,12 @@
                     <a href="<?php echo site_url();?>privacy-policy">Privacy Policy</a>
                 </div>
 
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                <div class="col-xs-12 visible-xs-12">
 
                         Follow us on
                     </div>
-                <div class="social-links col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="social-links col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                    <span class="hidden-xs">Follow us on</span>
                         <a href="https://www.facebook.com/pages/FrumCarecom/1442798632665058" target="_blank" class="facebook flip-link-container"><span class="flip-link"><span class="front"><i
                                         class="icon-facebook-white"></i></span><span class="back"><i
                                         class="icon-facebook-color"></i></span></span></a>
