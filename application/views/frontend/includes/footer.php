@@ -59,7 +59,7 @@
         </div>
 
         <div class="colophon">
-            <div class="row">
+            <div class="row footer-links">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 
                     Copyright&copy; frumcare.com All rights reserved
