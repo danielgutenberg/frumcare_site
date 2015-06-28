@@ -5134,6 +5134,8 @@ label.error {
         width: 100%;
     }
 }
+
+.footer-links .col-xs-12{ text-align: center; padding:10px 0;}
 @media (max-width: 1090px) {
 .blog-content {
   width: calc( 100% - 345px);
