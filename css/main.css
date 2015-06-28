@@ -4704,7 +4704,7 @@ body {
   background-image: url("../img/care-banner.jpg");
   background-position: center top;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto;
   padding: 33px 0 21px;
   background-position: 0 -330px;
 }
