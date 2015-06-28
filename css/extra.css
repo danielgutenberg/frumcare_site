@@ -279,6 +279,7 @@ html[xmlns] .clearfix {
 	height: 142px;
 	padding: 2px;
 	width: 142px;
+    max-width:142px;
 }
 .profile-list-details > span, .profile-list-details .name > a {
 	color: #525252;
