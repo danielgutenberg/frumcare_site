@@ -473,11 +473,12 @@ $(function () {
 			    	}).get();
                     var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
 			    	var care_type = $( ".careType option:selected" ).val();
-
+					var data = "neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker
+			    	console.log(data)
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>nursery/search",
-			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
+			    		data:data,
 			    		success:function(done){
                                  $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
