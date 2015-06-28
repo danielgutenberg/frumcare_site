@@ -116,13 +116,13 @@
 
 <div class="header-main">
     <div class="container">
-        <h1 class="col-lg-4 col-md-4 col-sm-12 col-xs-12 center logo">
+        <h1 class="col-lg-4 col-md-4 col-sm-8 col-xs-12 center logo">
             <a href="<?php echo base_url() ?>">
                 <img src="<?php echo base_url('img/logo.png') ?>" alt="Frumcare.com">
             </a>
         </h1>
 
-        <div class="navigation col-lg-8 col-md-8 col-sm-12 col-xs-12 center">
+        <div class="navigation col-lg-8 col-md-8 col-sm-8 col-xs-12 center">
             <nav>
                 <div class="toggle-menu">Menu</div>
                 <ul class="primary-nav">
