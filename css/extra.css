@@ -4084,7 +4084,7 @@ input[type="radio"], input[type="checkbox"] {
     .profile-list .profile-list-details .category-img{ text-align: center;}
     #site-wrapper ol.progtrckr[data-progtrckr-steps="4"] li{ width:100%;}
 }
-@media (max-width:768px){
+@media (max-width:768px) and (min-width:200px){
     .footer .social-links{ float:none;}
     .footer .navigation-row .col-xs-12{ text-align: center;}
     .footer-links .col-xs-12{ text-align: center; padding:10px 0;}
