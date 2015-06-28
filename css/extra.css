@@ -3312,6 +3312,14 @@ input[type="radio"], input[type="checkbox"] {
     ol.how-it-works-display{ background:url(../images/howitworks.png) no-repeat !important; background-size:100% !important;}
     ol.how-it-works-display li{ display:none;}
 }
+
+@media(max-width: 993px){
+    .top-part.responsive-howitwork{
+        display: block;
+    }
+
+    .top-part{ display: none;}
+}
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 769px) and (max-width: 980px) {
 	.container{
