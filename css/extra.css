@@ -3314,11 +3314,36 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 @media(max-width: 993px){
+
+    .top-part{ display: none;}
+
     .top-part.responsive-howitwork{
         display: block;
     }
 
-    .top-part{ display: none;}
+    .create-account-wrap, .job-posted-wrap, .check-candidates-wrap, .track-payments-wrap {
+        display: block;
+        float: none;
+        margin: 10px auto;
+        text-align: center;
+        width: 206px;
+    }
+    .create-account, .check-candidates, .track-payments, .job-posted{
+        background: url("../img/box-down.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+        float: none;
+        padding: 6px 16px;
+        width: 206px;
+    }
+
+    .caregiver-contacts-wrap, .interview-check-wrap{
+        clear: both;
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+        width: 206px;
+    }
+
+
 }
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 769px) and (max-width: 980px) {
