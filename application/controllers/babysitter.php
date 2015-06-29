@@ -24,7 +24,7 @@ class BabySitter extends CI_Controller{
                              
         $this->breadcrumbs->push($title, site_url().'#');
         $this->breadcrumbs->unshift('Home', base_url());
-                                        
+        print_r('got here');                                
         if(check_user()){
             $locationdetails = $this->common_model->getMyLocation(check_user());
             if(is_array($locationdetails)){
