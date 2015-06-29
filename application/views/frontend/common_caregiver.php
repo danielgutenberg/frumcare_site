@@ -181,12 +181,12 @@
     
     <div class="searchloader" style="display:none"></div>		
     Find a <?php $this->load->view('frontend/common/left_nav_title'); if($s1 == 'jobs') {echo 'Job';}?>  <br>
-    Near <div id="locationField">
+    Near <t id="locationField">
 		<input type="text" name="location" class="required" value="<?php echo $location ?>" id="autocomplete"/>
 		<input type="hidden" id="lng">
 		<input type="hidden" id="lat">
 		<!--<input type="button" value="Change Location" class="btn btn-primary" id="change_location"">--> 
-	</div>        
+	</t>        
     within            
     <select name="sort_by_miles" id="sort_by_miles">        
         <option value="1">1 Miles</option>
