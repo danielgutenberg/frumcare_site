@@ -147,7 +147,7 @@ class BabySitter extends CI_Controller{
             $total_rows           	= $total;
             $merge['num']         	= ceil($total_rows/@$limit);
             $merge['pagination']       	= ''; 
-            $merge['total_rows']       	= $total_rows;            
+            $merge['total']       	= $total_rows;            
             echo json_encode($merge);
             exit();
 		//}
