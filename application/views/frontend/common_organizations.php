@@ -111,7 +111,12 @@
     <br />
     <div class="searchloader" style="display:none"></div>		
     Find Workers for your <?php $this->load->view('frontend/common/left_nav_title');?>  <br>
-    Near <a href="javascript:void(0);" class="showgeolocation" id="showgeolocation1"><?php echo $location ?></a>        
+    Near <t id="locationField">
+		<input type="text" name="location" class="required" value="<?php echo $location ?>" id="autocomplete"/>
+		<input type="hidden" id="lng">
+		<input type="hidden" id="lat">
+		<!--<input type="button" value="Change Location" class="btn btn-primary" id="change_location"">--> 
+	</t>        
     within            
     <select name="sort_by_miles" id="sort_by_miles">        
         <option value="1">1 Miles</option>
