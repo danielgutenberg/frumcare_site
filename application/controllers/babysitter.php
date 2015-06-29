@@ -140,17 +140,6 @@ class BabySitter extends CI_Controller{
 			else
 				$total = 0;
 				
-			$pagination	= '';
-            if($page > 1){            	            	
-                	for($i = 1; $i<=$page; $i++)
-                	{
-                		if($i==1){
-                            $pagination .= ' <a href="#" class="paginate_click active" id="'.$i.'-page" >'.$i.'</a> ';
-                        }else{
-                            $pagination .= ' <a href="#" class="paginate_click in-active" id="'.$i.'-page">'.$i.'</a> ';   
-                        }        
-                	}                          	
-            } 
 			$userlogs             	= $this->user_model->getUserLog();
             $merge['userdatas'] = $this->load->view('frontend/common_profile_list', array('userdatas'=>$res,'userlogs'=>$userlogs,'location'=>$location), true);
             $total_rows           	= $total;
