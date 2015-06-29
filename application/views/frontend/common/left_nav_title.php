@@ -140,8 +140,9 @@
                 if (pagelink == '26' || pagelink == '25' || pagelink == '27' || pagelink == '28') {
                     console.log('got here')
                     location.href = '<?php echo site_url();?>caregivers/organizations/'+locationaddress;
+                } else {
+                    location.href = '<?php echo site_url();?>caregivers/'+locationaddress;
                 }
-                location.href = '<?php echo site_url();?>caregivers/'+locationaddress;
             if(type == 'jobs')                    
                 location.href = '<?php echo site_url();?>jobs/'+locationaddress;
             if(type == 'organizations')                    
