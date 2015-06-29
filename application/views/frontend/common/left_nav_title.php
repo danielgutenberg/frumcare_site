@@ -10,7 +10,7 @@
     <?php } 
     else { ?>
         <select name="service" class="service care_type">
-            <option value="caregivers">--chose a care type--</option> 
+            <option value="caregivers">--select--</option> 
             <option value="1" <?php if(segment(2) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
             <option value="2" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>
             <option value="3" <?php if(segment(2) == 'nursery-playgroup-drop-off-gan'){?> selected="selected" <?php }?>>Nursery / Playgroup / Drop off / Gan</option>
@@ -35,7 +35,7 @@
 
 <?php if($this->uri->segment(1) == 'jobs') { ?>    
     <select name="service" class="service jobtype">
-        <option value="jobs">--chose a job type--</option> 
+        <option value="jobs">--select--</option> 
         <option value="17" <?php if(segment(2) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
     	<option value="18" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>        
     	<option value="19" <?php if(segment(2) == 'tutor-private-lessons'){?> selected="selected" <?php }?>>Tutor / Private lessons</option>

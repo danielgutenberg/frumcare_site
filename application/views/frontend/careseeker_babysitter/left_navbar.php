@@ -118,17 +118,18 @@ $(function () {
                 var locationaddress = 'careseeker_cleaninghousehold';
             if(pagelink == 'Errand runner / odd jobs / personal assistant / driver')
                 var locationaddress = 'careseeker_errandrunner';           
-            location.href = '<?php echo site_url();?>'+locationaddress;
-             if(pagelink == 'Workers / staff for childcare facility')
-                location.href = '<?php echo site_url();?>careseeker_childcarefacility';
-            if(pagelink == 'Workers / staff for senior care facility')
-                location.href = '<?php echo site_url();?>careseeker_seniorcarefacility';
-            if(pagelink == 'Workers / staff for special needs facility')
-                location.href = '<?php echo site_url();?>careseeker_specialneedsfacility';
-            if(pagelink == 'Workers for cleaning company')
-                location.href = '<?php echo site_url();?>careseeker_cleaningcompany';
             if(pagelink == '--select--')
-                location.href = 'careseekers';
+                var locationaddress = 'careseekers'; 
+            location.href = '<?php echo site_url();?>'+locationaddress;
+            
+            if(pagelink == 'Workers / staff for childcare facility')
+                location.href = '<?php echo site_url();?>organizations/careseeker_childcarefacility';
+            if(pagelink == 'Workers / staff for senior care facility')
+                location.href = '<?php echo site_url();?>organizations/careseeker_seniorcarefacility';
+            if(pagelink == 'Workers / staff for special needs facility')
+                location.href = '<?php echo site_url();?>organizations/careseeker_specialneedsfacility';
+            if(pagelink == 'Workers for cleaning company')
+                location.href = '<?php echo site_url();?>organizations/careseeker_cleaningcompany';
             
 		});
 
