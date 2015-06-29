@@ -181,7 +181,12 @@
     
     <div class="searchloader" style="display:none"></div>		
     Find a <?php $this->load->view('frontend/common/left_nav_title'); if($s1 == 'jobs') {echo 'Job';}?>  <br>
-    Near <a href="javascript:void(0);" class="showgeolocation" id="showgeolocation1"><?php echo $location ?></a>        
+    Near <div id="locationField" style="display: none;"><a href="javascript:void(0);" class="showgeolocation" id="showgeolocation1"><?php echo $location ?></a>
+		<input type="text" name="location" class="required" value="" id="autocomplete"/>
+		<input type="hidden" id="lng">
+		<input type="hidden" id="lat">
+		<!--<input type="button" value="Change Location" class="btn btn-primary" id="change_location"">--> 
+	</div>        
     within            
     <select name="sort_by_miles" id="sort_by_miles">        
         <option value="1">1 Miles</option>
@@ -192,12 +197,7 @@
         <option value="50">50 Miles</option>
         <option value="unlimited" selected="selected">Unlimited Miles</option>
     </select>            
-    <div id="locationField" style="display: none;">
-		<input type="text" name="location" class="required" value="" id="autocomplete"/>
-		<input type="hidden" id="lng">
-		<input type="hidden" id="lat">
-		<!--<input type="button" value="Change Location" class="btn btn-primary" id="change_location"">--> 
-	</div>  	
+      	
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.showgeolocation').click(function(){
