@@ -48,7 +48,7 @@
                     }
             }
             if(!empty($postdata['rate']) && $postdata['rate'] !='undefined'){
-                $sql .= " and tbl_userprofile.rate =".$postdata['rate'];
+                $sql .= " and tbl_userprofile.rate ='".$postdata['rate'] ."'";
             }
             if(!empty($postdata['rate_type']) && $postdata['rate_type'] !='undefined'){
                 $rate_types = explode(',', $postdata['rate_type']);
