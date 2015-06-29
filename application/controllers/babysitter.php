@@ -133,14 +133,13 @@ class BabySitter extends CI_Controller{
             $postdata['care_type']          = $this->input->get('care_type',true);
 
             $res = $this->babysitter->search($postdata,$latitude,$longitude);
-            
 
 
 			if(is_array($res))
 				$total = count($res);
 			else
 				$total = 0;
-			$page = $total;	
+				
 			$pagination	= '';
             if($page > 1){            	            	
                 	for($i = 1; $i<=$page; $i++)
@@ -156,8 +155,8 @@ class BabySitter extends CI_Controller{
             $merge['userdatas'] = $this->load->view('frontend/common_profile_list', array('userdatas'=>$res,'userlogs'=>$userlogs,'location'=>$location), true);
             $total_rows           	= $total;
             $merge['num']         	= ceil($total_rows/@$limit);
-            $merge['pagination']       	= $pagination; 
-            $merge['total_rows']       	= $total_rows;            
+            $merge['pagination']       	= ''; 
+            $merge['total']       	= $total_rows;            
             echo json_encode($merge);
             exit();
 		//}
