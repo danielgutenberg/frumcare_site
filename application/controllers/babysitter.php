@@ -15,6 +15,7 @@ class BabySitter extends CI_Controller{
 	}
 
 	public function index(){
+        echo 'hello';
         $item_per_page = 15;
         $option = "distance";
         $account_category = 1;
