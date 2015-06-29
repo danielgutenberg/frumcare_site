@@ -15,6 +15,8 @@ class BabySitter extends CI_Controller{
 	}
 
 	public function index(){
+        print_r('got hjere');
+        exit;
         $item_per_page = 15;
         $option = "distance";
         $account_category = 1;
@@ -23,8 +25,7 @@ class BabySitter extends CI_Controller{
         $distance = "unlimited";
                              
         $this->breadcrumbs->push($title, site_url().'#');
-        $this->breadcrumbs->unshift('Home', base_url());
-        print_r('got here');                                
+        $this->breadcrumbs->unshift('Home', base_url());                             
         if(check_user()){
             $locationdetails = $this->common_model->getMyLocation(check_user());
             if(is_array($locationdetails)){
