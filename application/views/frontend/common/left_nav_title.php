@@ -2,10 +2,10 @@
     <?php if($this->uri->segment(2) == 'organizations') { ?>        
         <select name="service" class="care_type_organizations">
             <option value="organizations">--select--</option> 
-            <option value="25" <?php if(segment(3) == 'workers-staff-for-childcare-facility'){?> selected="selected" <?php }?>>Workers / Staff for childcare facility</option>
-            <option value="26" <?php if(segment(3) == 'workers-staff-for-senior-care-facility'){?> selected="selected" <?php }?> >Workers / Staff for senior care facility</option>
-            <option value="27" <?php if(segment(3) == 'workers-staff-for-special-needs-facility'){?> selected="selected" <?php }?>>Workers / Staff for special needs facility</option>
-            <option value="28" <?php if(segment(3) == 'workers-for-cleaning-company'){?> selected="selected" <?php }?>>Workers for cleaning company</option>
+            <option value="25" <?php if(segment(3) == 'workers-staff-for-childcare-facility'){?> selected="selected" <?php }?>>Childcare facility</option>
+            <option value="26" <?php if(segment(3) == 'workers-staff-for-senior-care-facility'){?> selected="selected" <?php }?> >Senior care facility</option>
+            <option value="27" <?php if(segment(3) == 'workers-staff-for-special-needs-facility'){?> selected="selected" <?php }?>>Special needs facility</option>
+            <option value="28" <?php if(segment(3) == 'workers-for-cleaning-company'){?> selected="selected" <?php }?>>Cleaning company</option>
         </select>     
     <?php } 
     else { ?>

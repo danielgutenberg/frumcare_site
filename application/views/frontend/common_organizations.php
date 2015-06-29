@@ -110,7 +110,7 @@
 <div class="right-caregivers col-lg-9 col-md-9 col-sm-9 col-xs-12">
     <br />
     <div class="searchloader" style="display:none"></div>		
-    Find a <?php $this->load->view('frontend/common/left_nav_title'); if($s1 == 'jobs') {echo 'Job';}?>  <br>
+    Find Workers for your <?php $this->load->view('frontend/common/left_nav_title');?>  <br>
     Near <a href="javascript:void(0);" class="showgeolocation" id="showgeolocation1"><?php echo $location ?></a>        
     within            
     <select name="sort_by_miles" id="sort_by_miles">        
