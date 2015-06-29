@@ -102,7 +102,7 @@
             if(!empty($postdata['start_date']) && $postdata['start_date'] !='undefined'){
                 $sql .= " and tbl_userprofile.start_date ='".$postdata['start_date']."'";
             }
-            // $sql .="  order by distance asc";
+            $sql .="  order by distance asc";
             
             //echo $sql;exit;    
 			$query 	= $this->db->query($sql);
