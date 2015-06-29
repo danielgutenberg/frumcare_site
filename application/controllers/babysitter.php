@@ -132,7 +132,7 @@ class BabySitter extends CI_Controller{
             $postdata['care_type']          = $this->input->get('care_type',true);
 
             $result = $this->babysitter->search($postdata,$latitude,$longitude);
-            var_dump($results);
+            print_r($result);
 
 			if(is_array($res))
 				$total = count($res);
