@@ -42,6 +42,7 @@
 				$vehicle			= $search['vehicle'];
 				$available 			= $search['available'];
                 $start_date         = $search['start_date'];
+                $skills             = $search['skills'];
 			}
 
 				$sql = "select tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* from tbl_user left outer join  tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_user.status = 1 and tbl_userprofile.profile_status=1 and tbl_userprofile.care_type=8 ";				
@@ -75,6 +76,16 @@
 					if(is_array($observances)){
 						foreach($observances as $obs):
 							$sql .= " and find_in_set('$obs',tbl_userprofile.religious_observance)";
+						endforeach;
+					}
+
+				}
+				
+				if($skills!=''){
+					$skills = explode(',',$skills);
+					if(is_array($skills)){
+						foreach($skills as $skill):
+							$sql .= " and find_in_set('$skill',tbl_userprofile.willing_to_work)";
 						endforeach;
 					}
 

@@ -5071,7 +5071,9 @@ body {
     -o-transform: rotateY(180deg);
     transform: rotateY(180deg);
   }
-
+  .footer .social-links span {
+    display: inline;
+  }
   .footer .colophon {
     margin-top: 40px;
     padding-top: 15px;

@@ -105,8 +105,8 @@
         <div class="form-field">
         <select name="religious_observance" id="religious_observance">
             <option value="">Select Religious Observance</option>
-            <option value="Yeshivish/ Chasidish">Yeshivish / Chasidish</option>
-            <option value="Orthodox/ Modern Orthodox">Orthodox / Modern Orthodox</option>
+            <option value="Yeshivish/Chasidish">Yeshivish / Chasidish</option>
+            <option value="Orthodox/Modern Orthodox">Orthodox / Modern Orthodox</option>
             <option value="Other">Other</option>
             <option value="Not Jewish">Not Jewish</option>
         </select>
@@ -128,7 +128,7 @@
                     <option value="">Select Education Level</option>
                     <option value="Elementary" <?php echo isset($edu) && $edu == 1 ? 'selected' : '' ?>>Elementary</option>
                     <option value="High School" <?php echo isset($edu) && $edu == 2 ? 'selected' : '' ?>>High School</option>
-                    <option value="Yeshiva/ Seminary" <?php echo isset($edu) && $edu == 3 ? 'selected' : '' ?>>Yeshiva / Seminary</option>
+                    <option value="Yeshiva/Seminary" <?php echo isset($edu) && $edu == 3 ? 'selected' : '' ?>>Yeshiva / Seminary</option>
                     <option value="Degree" <?php echo isset($edu) && $edu == 3 ? 'selected' : '' ?>>Degree</option>
                 </select>
                 </div>

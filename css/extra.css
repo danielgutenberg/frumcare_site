@@ -279,6 +279,7 @@ html[xmlns] .clearfix {
 	height: 142px;
 	padding: 2px;
 	width: 142px;
+    max-width:142px;
 }
 .profile-list-details > span, .profile-list-details .name > a {
 	color: #525252;
@@ -3311,6 +3312,39 @@ input[type="radio"], input[type="checkbox"] {
     ol.how-it-works-display{ background:url(../images/howitworks.png) no-repeat !important; background-size:100% !important;}
     ol.how-it-works-display li{ display:none;}
 }
+
+@media(max-width: 993px){
+
+    .top-part{ display: none;}
+
+    .top-part.responsive-howitwork{
+        display: block;
+    }
+
+    .create-account-wrap, .job-posted-wrap, .check-candidates-wrap, .track-payments-wrap {
+        display: block;
+        float: none;
+        margin: 10px auto;
+        text-align: center;
+        width: 206px;
+    }
+    .create-account, .check-candidates, .track-payments, .job-posted{
+        background: url("../img/box-down.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+        float: none;
+        padding: 6px 16px;
+        width: 206px;
+    }
+
+    .caregiver-contacts-wrap, .interview-check-wrap{
+        clear: both;
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+        width: 206px;
+    }
+
+
+}
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 769px) and (max-width: 980px) {
 	.container{
@@ -3454,7 +3488,7 @@ input[type="radio"], input[type="checkbox"] {
 
 
 /* Landscape phone to portrait tablet */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (min-width:300px) {
 
     .callout{ background-position: 0 !important;}
     .category-img{float:none !important;}
@@ -4083,7 +4117,7 @@ input[type="radio"], input[type="checkbox"] {
     .profile-list .profile-list-details .category-img{ text-align: center;}
     #site-wrapper ol.progtrckr[data-progtrckr-steps="4"] li{ width:100%;}
 }
-@media (max-width:768px){
+@media (max-width:768px) and (min-width:200px){
     .footer .social-links{ float:none;}
     .footer .navigation-row .col-xs-12{ text-align: center;}
     .footer-links .col-xs-12{ text-align: center; padding:10px 0;}

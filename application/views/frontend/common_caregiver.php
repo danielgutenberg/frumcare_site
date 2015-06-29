@@ -179,7 +179,7 @@
 <div class="right-caregivers col-lg-9 col-md-9 col-sm-9 col-xs-12">
     <br />
     <div class="searchloader" style="display:none"></div>		
-    Find a <?php $this->load->view('frontend/common/left_nav_title')?> Job <br>
+    Find a <?php $this->load->view('frontend/common/left_nav_title'); if($s1 == 'jobs') {echo 'Job'}?>  <br>
     Near <a href="javascript:void(0);" class="showgeolocation" id="showgeolocation1"><?php echo $location ?></a>        
     within            
     <select name="sort_by_miles" id="sort_by_miles">        
@@ -229,8 +229,7 @@
         <div class="want-top"><p>Want Employers to Contact you?<a href='<?php echo site_url()."signup?ac=$ac"?>' class="btn btn-primary ml10 btn-xs">Create a Profile for free</a></p></div>
     <?php } ?>
     
-	<div class="select-relevance">               
-            <?php $this->load->view('frontend/common/left_nav_title')?>
+	<div class="select-relevance">
             <select name="sort_by_select" id="sort_by_select">
                 <option value="distance">Sort by distance</option>
                 <option value="tbl_userprofile.id">Sort by latest</option>                
