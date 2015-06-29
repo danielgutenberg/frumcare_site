@@ -137,7 +137,7 @@
                 var locationaddress = 'all';
             
             if(type == 'caregivers')    
-                if (pagelink > 24 && pagelink < 29) {
+                if (pagelink == '26' || pagelink == '25' || pagelink == '27' || pagelink == '28') {
                     location.href = '<?php echo site_url();?>caregivers/organizations/'+locationaddress;
                 }
                 location.href = '<?php echo site_url();?>caregivers/'+locationaddress;
