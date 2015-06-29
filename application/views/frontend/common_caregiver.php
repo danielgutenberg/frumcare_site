@@ -182,7 +182,9 @@
     <div class="searchloader" style="display:none"></div>		
     Find a <?php $this->load->view('frontend/common/left_nav_title'); if($s1 == 'jobs') {echo 'Job';}?>  <br>
     Near <t id="locationField">
-		<input type="text" name="location" class="required" value="<?php echo $location ?>" id="autocomplete"/>
+		<input type="text" name="location" class="required" value="<?php echo $location ?>" id="autocomplete" style="
+    margin-left: 8px;
+    width: 146px;"/>
 		<input type="hidden" id="lng">
 		<input type="hidden" id="lat">
 		<!--<input type="button" value="Change Location" class="btn btn-primary" id="change_location"">--> 
