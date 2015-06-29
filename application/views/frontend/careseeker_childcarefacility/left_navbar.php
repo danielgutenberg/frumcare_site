@@ -53,7 +53,7 @@ $(function () {
         $('.service').change(function(){
     		$('#care_type').val($(this).val());
             var pagelink = $(this).find("option:selected").text();
-
+            console.log(pagelink)
             if(pagelink == 'Nanny / Au-pair')
                 var locationaddress = 'careseeker_nanny';
             if(pagelink == 'Babysitter')

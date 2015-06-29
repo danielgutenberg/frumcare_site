@@ -207,13 +207,13 @@ $(function () {
             if(pagelink == 'Assisted living / Senior Care Center / Nursing Home')
             	var locationaddress = 'seniorcarecenter';
              if(pagelink == 'Workers / Staff for childcare facility')
-                var locationaddress = 'organzations/careseeker_childcarefacility';
+                var locationaddress = 'organizations/careseeker_childcarefacility';
             if(pagelink == 'Workers / Staff for senior care facility')
-                var locationaddress = 'organzations/careseeker_seniorcarefacility';
+                var locationaddress = 'organizations/careseeker_seniorcarefacility';
             if(pagelink == 'Workers / Staff for special needs facility')
-                var locationaddress = 'organzations/careseeker_specialneedsfacility';
+                var locationaddress = 'organizations/careseeker_specialneedsfacility';
              if(pagelink == 'Workers for cleaning company')
-                var locationaddress = 'organzations/careseeker_cleaningcompany';
+                var locationaddress = 'organizations/careseeker_cleaningcompany';
             if(pagelink == '--select--')
             	var locationaddress = 'caregivers';
 
