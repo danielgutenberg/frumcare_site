@@ -127,6 +127,7 @@
             $data['available']				= $this->input->get('available',true);
             $data['start_date']             = $this->input->get('start_date',true);
             $data['smoker']	  			    = $this->input->get('smoker',true);
+            $data['skills']	  			    = $this->input->get('skills',true);
 
             $result = $this->cleaning->search($data,$latitude,$longitude);
                if(!$result)
