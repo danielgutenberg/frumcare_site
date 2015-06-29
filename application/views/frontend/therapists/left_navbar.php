@@ -129,24 +129,16 @@ $(function () {
 
 			$('.neighbour').blur(function(){
 			 $(".searchloader").fadeIn("fast");
-					var neighbour = $(this).val();
-					var caregiverage_from = $('.caregiverage_from').val();
-					var caregiverage_to =  $('.caregiverage_to').val();
 					var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
-                    var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
-			    	var observance = $('.observance:checked').map(function(_, el) {
-			        	return $(el).val();
-			    	}).get();
 			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
-			    	var care_type = $( ".careType option:selected" ).val();
 
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>therapists/search",
-			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&accept_insurance="+accept_insurance+"&gender="+gender+"&care_type="+care_type+"&smoker="+smoker,
+			    		data:"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
 			    		success:function(done){
                            $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -161,24 +153,16 @@ $(function () {
 
 			$('.caregiverage_from').blur(function(){
 			         $(".searchloader").fadeIn("fast");
-					var neighbour = $('.neighbour').val();
-					var caregiverage_from = $(this).val();
-					var caregiverage_to =  $('.caregiverage_to').val();
 					var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
-                    var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
-			    	var observance = $('.observance:checked').map(function(_, el) {
-			        	return $(el).val();
-			    	}).get();
 			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
-			    	var care_type = $( ".careType option:selected" ).val();
 
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>therapists/search",
-			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&accept_insurance="+accept_insurance+"&gender="+gender+"&care_type="+care_type+"&smoker="+smoker,
+			    		data:"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
 			    		success:function(done){
                              $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -193,23 +177,16 @@ $(function () {
 
 			$('.caregiverage_to').blur(function(){
 			         $(".searchloader").fadeIn("fast");
-					var neighbour = $('.neighbour').val();
-					var caregiverage_from = $('.caregiverage_from').val();
-					var caregiverage_to =  $(this).val();
 					var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
-			    	var observance = $('.observance:checked').map(function(_, el) {
-			        	return $(el).val();
-			    	}).get();
 			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
-			    	var care_type = $( ".careType option:selected" ).val();
-                    var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>therapists/search",
-			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&accept_insurance="+accept_insurance+"&gender="+gender+"&care_type="+care_type+"&smoker="+smoker,
+			    		data:"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
 			    		success:function(done){
                             $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -224,23 +201,16 @@ $(function () {
 
 			$('.gender').click(function(){
 			 $(".searchloader").fadeIn("fast");
-					var neighbour = $('.neighbour').val();
-					var caregiverage_from = $('.caregiverage_from').val();
-					var caregiverage_to =  $('.caregiverage_to').val();
-					var gender = $(this).val();
+					var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
-			    	var observance = $('.observance:checked').map(function(_, el) {
-			        	return $(el).val();
-			    	}).get();
 			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
-			    	var care_type = $( ".careType option:selected" ).val();
-                    var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>therapists/search",
-			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&accept_insurance="+accept_insurance+"&gender="+gender+"&care_type="+care_type+"&smoker="+smoker,
+			    		data:"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
 			    		success:function(done){
                              $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -255,60 +225,16 @@ $(function () {
 
 				$('.lang').click(function(){
 				    $(".searchloader").fadeIn("fast");
-					var neighbour = $('.neighbour').val();
-					var caregiverage_from = $('.caregiverage_from').val();
-					var caregiverage_to =  $('.caregiverage_to').val();
-                    //$('input[name=radioName]:checked', '#myForm').val()
-					//var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
-                    var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
+					var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
-			    	var observance = $('.observance:checked').map(function(_, el) {
-			        	return $(el).val();
-			    	}).get();
-			    	//var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
-                     var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
-			    	var care_type = $( ".careType option:selected" ).val();
-                    var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
+
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>therapists/search",
-			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&accept_insurance="+accept_insurance+"&gender="+gender+"&care_type="+care_type+"&smoker="+smoker,
-			    		success:function(done){
-                             $(".searchloader").fadeOut("fast");
-							var json = jQuery.parseJSON(done);
- 							var pagenum = json.num;
- 							var pagedata = json.userdatas;
-							$('#list_container').html(pagedata);
-							$('#total').text(json.total);
-                            $('.navigations').html(json.pagination);
-			    		}
-			    	});
-				});
-                
-                $('.smoker').click(function(){
-				    $(".searchloader").fadeIn("fast");
-					var neighbour = $('.neighbour').val();
-					var caregiverage_from = $('.caregiverage_from').val();
-					var caregiverage_to =  $('.caregiverage_to').val();
-                    //$('input[name=radioName]:checked', '#myForm').val()
-					//var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
-                    var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
-					var lang = $('.lang:checked').map(function(_, el) {
-			        	return $(el).val();
-			    	}).get();
-			    	var observance = $('.observance:checked').map(function(_, el) {
-			        	return $(el).val();
-			    	}).get();
-			    	//var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
-                     var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
-			    	var care_type = $( ".careType option:selected" ).val();
-                    var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
-			    	$.ajax({
-			    		type:"get",
-			    		url:"<?php echo site_url();?>therapists/search",
-			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&accept_insurance="+accept_insurance+"&gender="+gender+"&care_type="+care_type+"&smoker="+smoker,
+			    		data:"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
 			    		success:function(done){
                              $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -323,23 +249,16 @@ $(function () {
 
 				$('.observance').click(function(){
 				    $(".searchloader").fadeIn("fast");
-					var neighbour = $('.neighbour').val();
-					var caregiverage_from = $('.caregiverage_from').val();
-					var caregiverage_to =  $('.caregiverage_to').val();
 					var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
-			    	var observance = $('.observance:checked').map(function(_, el) {
-			        	return $(el).val();
-			    	}).get();
 			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
-			    	var care_type = $( ".careType option:selected" ).val();
-                    var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>therapists/search",
-			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&accept_insurance="+accept_insurance+"&gender="+gender+"&care_type="+care_type+"&smoker="+smoker,
+			    		data:"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
 			    		success:function(done){
                                  $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -354,23 +273,16 @@ $(function () {
 				
 				$('.accept_insurance').click(function(){
 				    $(".searchloader").fadeIn("fast");
-					var neighbour = $('.neighbour').val();
-					var caregiverage_from = $('.caregiverage_from').val();
-					var caregiverage_to =  $('.caregiverage_to').val();
 					var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
-			    	var observance = $('.observance:checked').map(function(_, el) {
-			        	return $(el).val();
-			    	}).get();
-			    	var accept_insurance = $(this).val();
-			    	var care_type = $( ".careType option:selected" ).val();
-   	                var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
+
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>therapists/search",
-			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&accept_insurance="+accept_insurance+"&gender="+gender+"&care_type="+care_type+"&smoker="+smoker,
+			    		data:"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
 			    		success:function(done){
                            $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -391,22 +303,16 @@ $(function () {
 <script>
 $(document).ready(function () {
   var neighbour = $('.neighbour').val();
-					var caregiverage_from = $('.caregiverage_from').val();
-					var caregiverage_to =  $('.caregiverage_to').val();
 					var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
-			    	var observance = $('.observance:checked').map(function(_, el) {
-			        	return $(el).val();
-			    	}).get();
-			    	var accept_insurance = $(this).val();
-			    	var care_type = $( ".careType option:selected" ).val();
-   	                var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
+
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>therapists/search",
-			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&accept_insurance="+accept_insurance+"&gender="+gender+"&care_type="+care_type+"&smoker="+smoker,
+			    		data:"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
 			    		success:function(done){
                            $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -427,23 +333,16 @@ $(document).ready(function () {
     buttons: {
       "OK": function () {
         $(this).dialog("close");
-			var neighbour = $('.neighbour').val();
-			var caregiverage_from = $('.caregiverage_from').val();
-			var caregiverage_to =  $('.caregiverage_to').val();
 			var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
-			var lang = $('.lang:checked').map(function(_, el) {
-	        	return $(el).val();
-	    	}).get();
-	    	var observance = $('.observance:checked').map(function(_, el) {
-	        	return $(el).val();
-	    	}).get();
-	    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
-            var care_type = $( ".careType option:selected" ).val();
-            var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
-            $.ajax({
-            	type : "post",
-            	url  : "<?php echo site_url();?>therapists/savesearch",
-            	data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&accept_insurance="+accept_insurance+"&gender="+gender+"&care_type="+care_type+"&smoker="+smoker,
+					var lang = $('.lang:checked').map(function(_, el) {
+			        	return $(el).val();
+			    	}).get();
+			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
+
+			    	$.ajax({
+			    		type:"get",
+			    		url:"<?php echo site_url();?>therapists/search",
+			    		data:"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
             	success:function(msg){
             		//console.log(msg);
                     alert('Search saved');
