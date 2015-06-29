@@ -137,7 +137,6 @@ $(function () {
 		// onclick
 		$('.lang,.willing_to_work').click(function(){
 			$(".searchloader").fadeIn("fast");
-			var neighbour = $('.neighbour').val();
             var lang = $('.lang:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
