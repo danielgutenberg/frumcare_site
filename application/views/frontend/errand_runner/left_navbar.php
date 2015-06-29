@@ -175,7 +175,7 @@ $(function () {
                 $.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>errand_runner/search",
-					data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date+"&smoker="+smoker,
+					data:"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -217,7 +217,7 @@ $(function () {
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>errand_runner/search",
-					data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date+"&smoker="+smoker,
+					data:"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -263,7 +263,7 @@ $(function () {
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>errand_runner/search",
-					data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date+"&smoker="+smoker,
+					data:"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -316,7 +316,7 @@ $(function () {
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>errand_runner/search",
-					data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date+"&smoker="+smoker,
+					data:"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -378,11 +378,6 @@ $(function () {
 		    var availability = $('.availability:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
-
-		    var able_to_work = $('.able_to_work:checked').map(function(_, el) {
-		        return $(el).val();
-		    }).get();
-            var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
 		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
 		  	var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
 		    var available = $('.short_notice').is('.checked')?$('.short_notice').val():'';
@@ -390,7 +385,7 @@ $(function () {
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>errand_runner/search",
-					data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date+"&smoker="+smoker,
+					data:"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -443,7 +438,7 @@ $(function () {
 	            $.ajax({
 	            	type : "post",
 	            	url  : "<?php echo site_url();?>errand_runner/savesearch",
-	            	data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date+"&smoker="+smoker,
+	            	data:"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date,
 	            	success:function(msg){
 	            		//console.log(msg);
                         alert('Search saved');
