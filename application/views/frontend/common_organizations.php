@@ -127,12 +127,7 @@
         <option value="50">50 Miles</option>
         <option value="unlimited" selected="selected">Unlimited Miles</option>
     </select>            
-    <div id="locationField" style="display: none;">
-		<input type="text" name="location" class="required" value="" id="autocomplete"/>
-		<input type="hidden" id="lng">
-		<input type="hidden" id="lat">
-		<!--<input type="button" value="Change Location" class="btn btn-primary" id="change_location"">--> 
-	</div>  	
+      	
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.showgeolocation').click(function(){
