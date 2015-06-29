@@ -180,7 +180,7 @@
     <br />
     
     <div class="searchloader" style="display:none"></div>		
-    Find 29 a <?php $this->load->view('frontend/common/left_nav_title'); if($s1 == 'jobs') {echo 'Job';}?>  <br>
+    Find a <?php $this->load->view('frontend/common/left_nav_title'); if($s1 == 'jobs') {echo 'Job';}?>  <br>
     Near <a href="javascript:void(0);" class="showgeolocation" id="showgeolocation1"><?php echo $location ?></a>        
     within            
     <select name="sort_by_miles" id="sort_by_miles">        
