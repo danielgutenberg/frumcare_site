@@ -141,7 +141,7 @@
             $merge['total']     = $total_rows;
             $merge['pagination']       	= '';
             echo json_encode($merge);
-            exit;
+            exit();
              
         }
     }
