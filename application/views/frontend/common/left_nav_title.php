@@ -75,6 +75,7 @@
         });
         
         function navigate(pagelink,type){
+            console.log(pagelink)
             if(pagelink == '1')
                 var locationaddress = 'babysitter';
             if(pagelink == '2')
