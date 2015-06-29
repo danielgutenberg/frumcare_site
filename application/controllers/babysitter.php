@@ -11,7 +11,6 @@ class BabySitter extends CI_Controller{
         $this->load->model('common_model');
         $this->load->model('caretype_model');
         $this->load->model('common_care_model');
-        $this->load->controller('common_care_controller', 'controller');
 	}
 
 	public function index(){
