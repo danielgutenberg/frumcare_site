@@ -511,6 +511,7 @@ $(document).ready(function () {
 				success:function(message){
 						$(".searchloader").fadeOut("fast");
 						var json = jQuery.parseJSON(message);
+						console.log(json)
 		 				var pagenum = json.num;
 		 				var pagedata = json.userdatas;
 						$('#list_container').html(pagedata);

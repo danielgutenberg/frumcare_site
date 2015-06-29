@@ -102,7 +102,7 @@
 				}
                 if($start_date!='')
 				    $sql .= " and tbl_userprofile.start_date='".$start_date."'";
-                $sql .=" having distance <50 order by distance asc";
+                $sql .="  order by distance asc";
     			$query 	= $this->db->query($sql);
     			$res 	= $query->result_array();
     			if($res)

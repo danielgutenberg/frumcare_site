@@ -40,7 +40,7 @@
 	 		<div>
 	 			<label>Level of observance (check one or more)</label>
 	 			<div class="checkbox"><input type="checkbox" value="Yeshivish/Chasidish" name="observance[]" class="observance">Yeshivish / Chasidish</div>
-	 			<div class="checkbox"><input type="checkbox" value="Orthodox/Modern orthodox" name="observance[]" class="observance">Orthodox / Modern orthodox</div>	 			
+	 			<div class="checkbox"><input type="checkbox" value="Orthodox/Modern Orthodox" name="observance[]" class="observance">Orthodox / Modern orthodox</div>	 			
 	 			<div class="checkbox"><input type="checkbox" value="Familiar with Jewish Tradition" name="observance[]" class="observance">Familiar with Jewish Tradition</div>
 	 			<div class="checkbox"><input type="checkbox" value="Any" name="observance[]" class=" observance">Any</div>	 			
 	 		</div>
@@ -382,10 +382,12 @@ $(function () {
 		  	var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
 		    var available = $('.short_notice').is('.checked')?$('.short_notice').val():'';
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
+            var data = "&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date
+            console.log(data)
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>errand_runner/search",
-					data:"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date,
+					data:data,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);

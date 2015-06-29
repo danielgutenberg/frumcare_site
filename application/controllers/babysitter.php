@@ -11,6 +11,7 @@ class BabySitter extends CI_Controller{
         $this->load->model('common_model');
         $this->load->model('caretype_model');
         $this->load->model('common_care_model');
+        $this->load->controller('common_care_controller', 'controller');
 	}
 
 	public function index(){
@@ -132,19 +133,31 @@ class BabySitter extends CI_Controller{
             $postdata['care_type']          = $this->input->get('care_type',true);
 
             $res = $this->babysitter->search($postdata,$latitude,$longitude);
-
+            print_r($res);
 
 
 			if(is_array($res))
 				$total = count($res);
 			else
 				$total = 0;
+				
+			$pagination	= '';
+            if($page > 1){            	            	
+                	for($i = 1; $i<=$page; $i++)
+                	{
+                		if($i==1){
+                            $pagination .= ' <a href="#" class="paginate_click active" id="'.$i.'-page" >'.$i.'</a> ';
+                        }else{
+                            $pagination .= ' <a href="#" class="paginate_click in-active" id="'.$i.'-page">'.$i.'</a> ';   
+                        }        
+                	}                          	
+            } 
 			$userlogs             	= $this->user_model->getUserLog();
             $merge['userdatas'] = $this->load->view('frontend/common_profile_list', array('userdatas'=>$res,'userlogs'=>$userlogs,'location'=>$location), true);
             $total_rows           	= $total;
             $merge['num']         	= ceil($total_rows/@$limit);
-            $merge['pagination']       	= ''; 
-            $merge['total']       	= $total_rows;            
+            $merge['pagination']       	= $pagination; 
+            $merge['total_rows']       	= $total_rows;            
             echo json_encode($merge);
             exit();
 		//}
