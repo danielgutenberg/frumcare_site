@@ -292,24 +292,26 @@ $(function () {
 <script type="text/javascript">
     $(document).ready(function(){
          var neighbour = $('.neighbour').val();
-                        var number_of_children = $('.number_of_children').val();
-                        var morenum = $('.morenum:checked').map(function(_, el) {
-                            return $(el).val();
-                        }).get();
-                        var looking_to_work = $('.looking_to_work:checked').map(function(_, el) {
-                            return $(el).val();
-                        }).get();
-                        var age_group = $('.age_group:checked').map(function(_, el) {
-                            return $(el).val();
-                        }).get();
-                        var availability = $('.availability:checked').map(function(_, el) {
-                            return $(el).val();
-                        }).get();
-                        var rate = $('.rate').val();
-                        var rate_type = $('.rate_type').val();
-                        var start_date = $("#textbox1").val()?$("#textbox1").val():'';    
-                        var care_type = $( ".careType option:selected" ).val();
-                        $.ajax({
+                var number_of_children = $('.number_of_children').val();
+                var morenum = $('.morenum:checked').map(function(_, el) {
+    		        return $(el).val();
+    		    }).get();
+                var looking_to_work = $('.looking_to_work:checked').map(function(_, el) {
+    		        return $(el).val();
+    		    }).get();
+                var age_group = $('.age_group:checked').map(function(_, el) {
+    		        return $(el).val();
+    		    }).get();
+                var availability = $('.availability:checked').map(function(_, el) {
+    		        return $(el).val();
+    		    }).get();
+                var rate = $('.rate').val();
+                var rate_type = $('.rate_type:checked').map(function(_, el) {
+    		        return $(el).val();
+    		    }).get();
+                 var start_date = $("#textbox1").val()?$("#textbox1").val():'';    
+                 var care_type = $( ".careType option:selected" ).val();
+    			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_nanny/search",
     				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
