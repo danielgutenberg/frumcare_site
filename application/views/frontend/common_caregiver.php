@@ -232,8 +232,7 @@
 	<div class="select-relevance">
             <select name="sort_by_select" id="sort_by_select">
                 <option value="distance">Sort by distance</option>
-                <option value="tbl_userprofile.id">Sort by latest</option>                
-                <option value="age">Sort by age</option>
+                <option value="tbl_userprofile.id">Sort by latest</option>
             </select>
         
 		<span>Results per Page</span>
