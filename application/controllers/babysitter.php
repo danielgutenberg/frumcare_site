@@ -140,7 +140,7 @@ class BabySitter extends CI_Controller{
 				$total = count($res);
 			else
 				$total = 0;
-				
+			$page = $total;	
 			$pagination	= '';
             if($page > 1){            	            	
                 	for($i = 1; $i<=$page; $i++)
