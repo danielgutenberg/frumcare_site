@@ -63,12 +63,12 @@
     echo $s3;
     
     
-    if( $s1=='caregivers' && $s2 == 'organizations' && $s3 == '') 
+    if( $s1=='caregivers' && $s2 == 'organizations' && $s3 == '') {
         $left_navbar='aaaall';
-        
-    if( $s1=='caregivers' && $s2 == 'organizations' && $s3 = 'all')
+    }   
+    if( $s1=='caregivers' && $s2 == 'organizations' && $s3 = 'all') {
         $left_navbar='aaaall';
-    
+    }
     if($s1 == 'caregivers' && $s2 == 'workers-staff-for-childcare-facility'){        
             $left_navbar='babysitter';
     }
