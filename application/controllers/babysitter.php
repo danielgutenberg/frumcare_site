@@ -80,8 +80,6 @@ class BabySitter extends CI_Controller{
 	}
 
 	public function search(){
-		$title = "Babysitter";        
-        $distance = "unlimited";
 		$limit = 15;
 		if(check_user()){
                     $locationdetails = $this->common_model->getMyLocation(check_user());
@@ -146,22 +144,8 @@ class BabySitter extends CI_Controller{
             $merge['num']       =  ceil($total_rows/$limit); 
             $merge['total']     = $total;
             $merge['pagination']       	= '';
-            
-            $data = array(
-          				'main_content' 	    => 'frontend/common_caregiver',                            
-          				'title'			    => $title,
-                        'pages'             => ceil($total/15),
-                        'countries'         => $this->common_model->getCountries(),
-                        'userlogs'		    => $this->user_model->getUserLog(),
-                        'userdatas'		    => $result,
-                        'account_category'  => 1,
-                        'care_type'         => 1,
-                        'total_rows'        => $total,
-                        'location'          => $location,                                     				              				              				                            
-          			);                      
-            $this->load->view(FRONTEND_TEMPLATE, $data);
-            // echo json_encode($merge);
-            // exit();
+            echo json_encode($merge);
+            exit();
 		//}
 	}
 
