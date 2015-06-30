@@ -58,7 +58,9 @@
     $s1 = $this->uri->segment(1); // must be caregivers, jobs, organization
     $s2 = $this->uri->segment(2); // must be care type, job type
     $s3 = $this->uri->segment(3);    
-    
+    echo $s1;
+    echo $s2;
+    echo $s3;
     
     
     if( $s1=='caregivers' && $s2 == 'organizations' && $s3 == '') 
@@ -74,7 +76,7 @@
     if($s1 == 'caregivers' && $s2 == 'workers-staff-for-senior-care-facility'){       
         $left_navbar='senior_caregiver';       
     }        
-    elseif( $s1 == 'caregivers' && $s2 == 'workers-staff-for-special-needs-facility'){
+    if( $s1 == 'caregivers' && $s2 == 'workers-staff-for-special-needs-facility'){
         
             $left_navbar='special_needs_caregiver';
         
@@ -90,7 +92,7 @@
     if($s1 == 'caregivers' && $s2 == 'organizations' && $s3 == 'workers-staff-for-senior-care-facility'){       
         $left_navbar='senior_caregiver';       
     }        
-    elseif( $s1 == 'caregivers' && $s2 == 'organizations' && $s3 == 'workers-staff-for-special-needs-facility'){
+    if( $s1 == 'caregivers' && $s2 == 'organizations' && $s3 == 'workers-staff-for-special-needs-facility'){
         
             $left_navbar='special_needs_caregiver';
         
