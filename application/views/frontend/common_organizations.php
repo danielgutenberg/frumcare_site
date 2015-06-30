@@ -98,6 +98,7 @@
     if( $s1 == 'caregivers' && $s2 == 'organizations' && $s3 == 'workers-for-cleaning-company'){        
             $left_navbar='cleaning';            
     }
+    $left_navbar = 'all';
     echo $left_navbar;
     if(isset($left_navbar)){
         $this->load->view('frontend/'.$left_navbar.'/left_navbar');
