@@ -58,8 +58,6 @@
     $s1 = $this->uri->segment(1); // must be caregivers, jobs, organization
     $s2 = $this->uri->segment(2); // must be care type, job type
     $s3 = $this->uri->segment(3);    
-    echo $s1;
-    echo $s2;
     echo $s3;
     
     
