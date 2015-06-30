@@ -160,8 +160,8 @@ class BabySitter extends CI_Controller{
                         'location'          => $location,                                     				              				              				                            
           			);                      
             $this->load->view(FRONTEND_TEMPLATE, $data);
-            echo json_encode($merge);
-            exit();
+            // echo json_encode($merge);
+            // exit();
 		//}
 	}
 
