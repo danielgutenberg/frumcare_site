@@ -57,8 +57,7 @@
 <?php 
     $s1 = $this->uri->segment(1); // must be caregivers, jobs, organization
     $s2 = $this->uri->segment(2); // must be care type, job type
-    $s3 = $this->uri->segment(3);    
-    echo $s3;
+    $s3 = $this->uri->segment(3);
     
     
     if( $s1=='caregivers' && $s2 == 'organizations' && $s3 == '') {
@@ -98,7 +97,6 @@
     if( $s1 == 'caregivers' && $s2 == 'organizations' && $s3 == 'workers-for-cleaning-company'){        
             $left_navbar='cleaning';            
     }
-    echo $left_navbar;
     if(isset($left_navbar)){
         $this->load->view('frontend/'.$left_navbar.'/left_navbar');
     }
