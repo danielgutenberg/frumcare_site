@@ -111,7 +111,7 @@
                             $location = isset($ipdata['city'])?$ipdata['city']:'your city';
                         }
                 }
-            $data['neighbour']              = $this->input->get('neighbour',true);
+            
             $data['caregiverage_from']      = $this->input->get('caregiverage_from',true);
             $data['caregiverage_to']        = $this->input->get('caregiverage_to',true);  
             $data['gender']                 = $this->input->get('gender',true);
