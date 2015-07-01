@@ -46,7 +46,7 @@
 	 		<div>
  				<label>For work in</label>
  				<div class="checkbox"><input type="checkbox" name="carelocation" class="carelocation" value="Patients Home">Patients Home</div>
- 				<div class="checkbox"><input type="checkbox" name="carelocation" class="carelocation" value="Caregiving Instution" <?php echo ($this->uri->segment(1)=='caregivers' && ($this->uri->segment(2)=='workers-staff-for-special-needs-facility' || $this->uri->segment(3)=='workers-staff-for-special-needs-facility') )?'checked':'' ?>>Caregiving Instution</div>
+ 				<div class="checkbox"><input type="checkbox" name="carelocation" class="carelocation" value="Caregiving Institution" <?php echo ($this->uri->segment(1)=='caregivers' && ($this->uri->segment(2)=='workers-staff-for-special-needs-facility' || $this->uri->segment(3)=='workers-staff-for-special-needs-facility') )?'checked':'' ?>>Caregiving Institution</div>
 	 		</div> 
 
 	 		<div class="year-exp">
