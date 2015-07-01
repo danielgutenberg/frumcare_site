@@ -119,7 +119,6 @@
             $data['observance']             = $this->input->get('observance',true);
             $data['min_exp']				= $this->input->get('min_exp',true);
             $data['availability']			= $this->input->get('availability',true);
-            $data['care_type']              = $this->input->get('care_type',true);
             $data['carelocation']			= $this->input->get('carelocation',true);
             $data['trainings']				= $this->input->get('trainings',true);
             $data['able_to_work']			= $this->input->get('able_to_work',true);
