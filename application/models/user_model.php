@@ -650,7 +650,7 @@ class User_model extends CI_Model
                 $extra_field = join(',',$p['extra_field']);
             }
 
-            if (isset($p['profile_description']) || isset($p['file']) || isset($p['pdf']) || isset($p['facility_pic'])) {
+            if ($p['profile_description'] || $p['file'] || $p['pdf'] || $p['facility_pic']) {
                 $profileStatus = 0;
                 $email = 1;
             }
