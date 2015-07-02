@@ -1237,7 +1237,7 @@ class User extends CI_Controller
       }//CODE BY CHAND
       
       public function update_job_details(){
-          $care_type = array('care_id'=>$this->uri->segment(3));
+        $care_type = array('care_id'=>$this->uri->segment(3));
         $this->user_model->update_job_details($care_type);
         $email = 3;
             $p = $_POST;
