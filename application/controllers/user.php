@@ -1237,6 +1237,7 @@ class User extends CI_Controller
       }//CODE BY CHAND
       
       public function update_job_details(){
+        $this->user_model->update_job_details($care_type);
         $email = 3;
             $p = $_POST;
             if (isset($p['profile_description']) || isset($p['file']) || isset($p['pdf']) || isset($p['facility_pic'])) {
@@ -1282,11 +1283,40 @@ class User extends CI_Controller
             );
             sendemail($param);
         }
-        $this->user_model->update_job_details($care_type);
+        
+        $profile = $this->job_or_profile();
+        if($q){
+            $this->session->set_flashdata('info', "$profile Updated successfully");
+            redirect('user/profile');
+        }
+        else{
+            $this->session->set_flashdata('info', "Error: $profile could not be updated at this moment");
+            redirect('user/profile');    
+        }
         
         
       }//CODE BY CHAND
-
+        
+        
+    public function job_or_profile(){
+        $ac = $this->session->userdata('account_category');
+        $oc = $this->session->userdata('organization_care'); 
+        if($ac == 1){ 
+            $profile1='Profile';
+        }
+        if($ac ==2){ 
+            $profile1='Job';
+        }
+        if($ac=3){
+            if($oc ==1){
+                $profile1='Profile';
+            }
+            if($oc==2){
+                $profile1='Job';
+            }
+        }
+        return $profile1;
+    }    
       public function searches(){
         $this->breadcrumbs->push('My Searches', site_url().'#');
         $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');

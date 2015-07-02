@@ -770,15 +770,7 @@ class User_model extends CI_Model
                     }
                 }
             }
-                $profile = $this->job_or_profile();
-                if($q){
-                    $this->session->set_flashdata('info', "$profile Updated successfully");
-                    redirect('user/profile');
-                }
-                else{
-                    $this->session->set_flashdata('info', "Error: $profile could not be updated at this moment");
-                    redirect('user/profile');    
-                }
+                
     }
 
     public function getUserPackage($uid){
