@@ -1238,12 +1238,9 @@ class User extends CI_Controller
       
       public function update_job_details(){
         $email = 3;
-        if($_POST) {
-            $p = $_POST;
             if (isset($p['profile_description']) || isset($p['file']) || isset($p['pdf']) || isset($p['facility_pic'])) {
                 $email = 1;
             }
-        }
         $care_type = array('care_id'=>$this->uri->segment(3));
         $this->user_model->update_job_details($care_type);
         echo $email;
