@@ -1240,6 +1240,7 @@ class User extends CI_Controller
         $email = 0;
         if($_POST) {
             $p = $_POST;
+            print_r($p);
             if (isset($p['profile_description']) || isset($p['file']) || isset($p['pdf']) || isset($p['facility_pic'])) {
                 $email = 1;
             }
