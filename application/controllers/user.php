@@ -1242,7 +1242,7 @@ class User extends CI_Controller
                 $email = 1;
             }
         $care_type = array('care_id'=>$this->uri->segment(3));
-        $this->user_model->update_job_details($care_type);
+        
         print_r($email);
         if ($email == 1) {
             $emails = $this->common_model->getAdAdminEmails(); 
@@ -1283,7 +1283,7 @@ class User extends CI_Controller
             );
             sendemail($param);
         }
-        
+        $this->user_model->update_job_details($care_type);
         
       }//CODE BY CHAND
 
