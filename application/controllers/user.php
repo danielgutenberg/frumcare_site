@@ -1248,7 +1248,8 @@ class User extends CI_Controller
         $this->user_model->update_job_details($care_type);
         
         if ($email == 1) {
-            $emails = $this->common_model->getAdAdminEmails();                    
+            $emails = $this->common_model->getAdAdminEmails(); 
+            print_r($emails);
             $receiveremail = '';                    
             foreach($emails as $e1){
                 $receiveremail .= $e1['email1'].',';                        
