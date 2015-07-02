@@ -1283,7 +1283,7 @@ class User extends CI_Controller
             );
             sendemail($param);
         }
-        
+        $q = true;
         $profile = $this->job_or_profile();
         if($q){
             $this->session->set_flashdata('info', "$profile Updated successfully");
