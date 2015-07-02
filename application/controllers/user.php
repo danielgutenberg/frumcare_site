@@ -1238,12 +1238,12 @@ class User extends CI_Controller
       
       public function update_job_details(){
         $email = 3;
+            $p = $_POST;
             if (isset($p['profile_description']) || isset($p['file']) || isset($p['pdf']) || isset($p['facility_pic'])) {
                 $email = 1;
             }
-        $care_type = array('care_id'=>$this->uri->segment(3));
         
-        print_r($email);
+        $care_type = array('care_id'=>$this->uri->segment(3));
         if ($email == 1) {
             $emails = $this->common_model->getAdAdminEmails(); 
             print_r($emails);
@@ -1284,6 +1284,7 @@ class User extends CI_Controller
             sendemail($param);
         }
         $this->user_model->update_job_details($care_type);
+        
         
       }//CODE BY CHAND
 
