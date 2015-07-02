@@ -1253,7 +1253,7 @@ class User extends CI_Controller
             }
             $receiveremail = substr_replace($receiveremail ,"",-1);  //removes comma from last
             
-            $details      = $this->user_model->getUserDetailsById(check_user(),$care_type);
+            $details      = $this->user_model->getUserDetailsById(check_user(),$care_type['care_id']);
             $details['profile_id'] = $q;
             $type = Caretype_model::getCareTypeById($details['care_type']);
             
