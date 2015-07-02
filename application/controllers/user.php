@@ -1237,7 +1237,7 @@ class User extends CI_Controller
       }//CODE BY CHAND
       
       public function update_job_details(){
-        $email = 0;
+        $email = 3;
         if($_POST) {
             $p = $_POST;
             if (isset($p['profile_description']) || isset($p['file']) || isset($p['pdf']) || isset($p['facility_pic'])) {
