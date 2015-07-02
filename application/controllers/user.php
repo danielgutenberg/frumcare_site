@@ -1237,8 +1237,56 @@ class User extends CI_Controller
       }//CODE BY CHAND
       
       public function update_job_details(){
+        $email = 0;
+        if($_POST) {
+            $p = $_POST;
+            if (isset($p['profile_description']) || isset($p['file']) || isset($p['pdf']) || isset($p['facility_pic'])) {
+                $email = 1;
+            }
+        }
         $care_type = array('care_id'=>$this->uri->segment(3));
-        $this->user_model->update_job_details($care_type); 
+        $this->user_model->update_job_details($care_type);
+        
+        if ($email) {
+            $emails = $this->common_model->getAdAdminEmails();                    
+            $receiveremail = '';                    
+            foreach($emails as $e1){
+                $receiveremail .= $e1['email1'].',';                        
+            }
+            $receiveremail = substr_replace($receiveremail ,"",-1);  //removes comma from last
+            
+            $details      = $this->user_model->getUserDetailsById(check_user(),$care_type);
+            $details['profile_id'] = $q;
+            $type = Caretype_model::getCareTypeById($details['care_type']);
+            
+            $data['main_content']   = 'frontend/caregivers/details';
+            $data['recordData']     = $details;
+            $data['title']          = 'Caregivers Details';
+            $data['caretypes']      = $this->caretype_model->getAllCareType();
+            $data['availablility']  = $this->user_model->getCurrentUserTimeTable($details['id']);
+            $data['number_reviews'] = $this->review_model->countReviewById($details['id']);
+            $data['userlog']        = $this->user_model->getUserLogById($details['user_id']);
+            $data['reviewdatas']    = $this->review_model->getAllReviews($details['id']);
+            $data['similar_types']  = $this->user_model->getSimilarPersons($details['care_type'],$details['id']);
+            $data['care_type']      = $this->caretype_model->getAllCareType();
+            $data['refrences']      = $this->refrence_model->getLatestRefrences($details['id']);
+            $data['care_id'] = $details['id'];
+            
+            $msg = $this->load->view('frontend/email/profileapproval', $data, true);
+
+            $param = array(
+                'subject'     => 'A profile has been edited, approval required',
+                'from'        => SITE_EMAIL,
+                'from_name'   => SITE_NAME,
+                'replyto'     => SITE_REPLY_TO_EMAIL,
+                'replytoname' => SITE_NAME,
+                'sendto'      => $receiveremail,
+                'message'     => $msg
+            );
+            sendemail($param);
+        }
+        
+        
       }//CODE BY CHAND
 
       public function searches(){

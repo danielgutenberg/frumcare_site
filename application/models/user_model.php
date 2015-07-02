@@ -601,7 +601,8 @@ class User_model extends CI_Model
     
     function update_job_details($care_type = array())
     {
-        //print_rr($_POST);
+        $profileStatus = 1;
+        $email = 0;
         $care_type = $care_type['care_id'];
         if($_POST) {
             $p = $_POST;
@@ -649,8 +650,12 @@ class User_model extends CI_Model
                 $extra_field = join(',',$p['extra_field']);
             }
 
-
+            if (isset($p['profile_description']) || isset($p['file']) || isset($p['pdf']) || isset($p['facility_pic'])) {
+                $profileStatus = 0;
+                $email = 1;
+            }
             $insert = array(
+                'profile_status' => $profileStatus,
                 'subjects' => $subjects,
                 'language' => $language,
                 'optional_number' => $optional_number,
@@ -701,7 +706,6 @@ class User_model extends CI_Model
                 'conditions_of_patient' => $conditions,
                 'licence_information'   => isset($p['licence_information'])?$p['licence_information']:'',
                 'number_of_rooms' => isset($p['number_of_rooms'])?$p['number_of_rooms']:'',
-                'profile_status' => 0,
                 'personal_hygiene' => isset($p['personal_hygiene'])?$p['personal_hygiene']:'',
                 'references' => isset($p['references']) ? $p['references'] : 2,
                 'reference_file' => isset($p['file'])?$p['file']:'',
