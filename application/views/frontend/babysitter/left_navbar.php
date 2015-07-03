@@ -241,9 +241,7 @@ $(function () {
             var looking_to_work = $('.looking_to_work:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
-            var year_experience = $('.year_experience:checked').map(function(_, el) {
-		        return $(el).val();
-		    }).get();
+            var year_experience = $('.year_experience').val();
             var driver_license = $('.driver_license').is(':checked') ? $('.driver_license').val() : ''; 
             var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
             var pick_up_child = $('.pick_up_child').is(':checked') ? $('.pick_up_child').val() : '';
@@ -296,9 +294,7 @@ $(function () {
             var looking_to_work = $('.looking_to_work:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
-            var year_experience = $('.year_experience:checked').map(function(_, el) {
-		        return $(el).val();
-		    }).get();
+            var year_experience = $('.year_experience').val();
             var driver_license = $('.driver_license').is(':checked') ? $('.driver_license').val() : ''; 
             var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
             var pick_up_child = $('.pick_up_child').is(':checked') ? $('.pick_up_child').val() : '';
@@ -348,9 +344,7 @@ $(function () {
             var looking_to_work = $('.looking_to_work:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
-            var year_experience = $('.year_experience:checked').map(function(_, el) {
-		        return $(el).val();
-		    }).get();
+            var year_experience = $('.year_experience').val();
             var driver_license = $('.driver_license').is(':checked') ? $('.driver_license').val() : ''; 
             var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
             var pick_up_child = $('.pick_up_child').is(':checked') ? $('.pick_up_child').val() : '';
@@ -406,9 +400,7 @@ $(function () {
             var looking_to_work = $('.looking_to_work:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
-            var year_experience = $('.year_experience:checked').map(function(_, el) {
-		        return $(el).val();
-		    }).get();
+            var year_experience = $('.year_experience').val();
             var driver_license = $('.driver_license').is(':checked') ? $('.driver_license').val() : ''; 
             var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
             var pick_up_child = $('.pick_up_child').is(':checked') ? $('.pick_up_child').val() : '';
@@ -489,9 +481,7 @@ $(document).ready(function () {
             var looking_to_work = $('.looking_to_work:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
-            var year_experience = $('.year_experience:checked').map(function(_, el) {
-		        return $(el).val();
-		    }).get();
+            var year_experience = $('.year_experience').val();
             var driver_license = $('.driver_license').is(':checked') ? $('.driver_license').val() : ''; 
             var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
             var pick_up_child = $('.pick_up_child').is(':checked') ? $('.pick_up_child').val() : '';
@@ -549,9 +539,7 @@ $(document).ready(function () {
             var looking_to_work = $('.looking_to_work:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
-            var year_experience = $('.year_experience:checked').map(function(_, el) {
-		        return $(el).val();
-		    }).get();
+            var year_experience = $('.year_experience').val();
             var driver_license = $('.driver_license').is(':checked') ? $('.driver_license').val() : ''; 
             var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
             var pick_up_child = $('.pick_up_child').is(':checked') ? $('.pick_up_child').val() : '';
