@@ -185,7 +185,7 @@ class Ad extends CI_Controller
             
              $insert = array(
                  'marital_status'           => isset($p['marital_status'])? $p['marital_status'] : '',                
-                 'smoker'                   => isset($p['smoker']) ? $p['smoker'] : '',
+                 'smoker'                   => isset($p['smoker']) ? $p['smoker'] : 2,
                  'religious_observance'     => isset($p['religious_observance']) ? $p['religious_observance'] : '',
                  'education_level'          => isset($p['education_level']) ? $p['education_level'] : '',
                  'educational_institution'  => isset($p['educational_institution']) ? $p['educational_institution'] : '',
@@ -209,7 +209,7 @@ class Ad extends CI_Controller
                 'neighbour'             => isset($p['neighbour'])?$p['neighbour']:'',
                 'name_of_owner'         => isset($p['name_of_owner'])?$p['name_of_owner']:'',
                 'profile_picture_owner' => isset($p['profile_picture_owner'])?$p['profile_picture_owner']:'',
-                'smoke'                => isset($p['smoker']) ? $p['smoker'] : '',
+                'smoke'                => isset($p['smoker']) ? $p['smoker'] : 2,
             );
             /*
                  $response =  $this->getLongitudeAndLatitude($p['location']);
@@ -487,7 +487,7 @@ class Ad extends CI_Controller
                 'personal_hygiene' => isset($p['personal_hygiene']) ? $p['personal_hygiene'] : '',
                 'caregiverage_from' => isset($p['caregiverage_from']) ? $p['caregiverage_from'] : '',
                 'caregiverage_to' => isset($p['caregiverage_to']) ? $p['caregiverage_to'] : '',
-                'smoker' => isset($p['smoker']) ? $p['smoker'] : '',
+                'smoker' => isset($p['smoker']) ? $p['smoker'] : 2,
                 'gender_of_caregiver' => isset($p['gender_of_caregiver']) ? $p['gender_of_caregiver'] : '',
                 'gender_of_careseeker' => isset($p['gender_of_careseeker']) ? $p['gender_of_careseeker'] : '',
                 'driver_license' => isset($p['driver_license']) ? 1 : 0,
@@ -930,7 +930,7 @@ class Ad extends CI_Controller
                 'friday_from' => isset($p['friday_from']) ? $p['friday_from'] : '',
                 'friday_to' => isset($p['friday_to']) ? $p['friday_to'] : '',
                 'personal_hygiene' => isset($p['personal_hygiene']) ? $p['personal_hygiene'] : '',
-                'smoker' => isset($p['smoker']) ? $p['smoker'] : '',
+                'smoker' => isset($p['smoker']) ? $p['smoker'] : 2,
                 'gender_of_caregiver' => isset($p['gender_of_caregiver']) ? $p['gender_of_caregiver'] : '',
                 'gender_of_careseeker' => isset($p['gender_of_careseeker']) ? $p['gender_of_careseeker'] : '',
                 'driver_license' => isset($p['driver_license']) ? 1 : 0,
@@ -961,7 +961,7 @@ class Ad extends CI_Controller
                             'zip'               => isset($p['zip'])?$p['zip']:'',
                             'neighbour'         => isset($p['neighbour'])?$p['neighbour']:'',
                             'caregiver_religious_observance' => isset($p['religious_observance']) ? $p['religious_observance'] : '',
-                            'smoke' => isset($p['smoker']) ? $p['smoker'] : '',
+                            'smoke' => isset($p['smoker']) ? $p['smoker'] : 2,
                             );
             if(isset($p['name'])){
                 $uri = $this->common_model->create_slug($p['name']);

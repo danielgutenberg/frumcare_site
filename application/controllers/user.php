@@ -969,7 +969,7 @@ class User extends CI_Controller
                     'optional_number' => isset($optional_number)?$optional_number:'',
                     'caregiverage_from'  => isset($p['caregiverage_from'])?$p['caregiverage_from']:0,
                     'caregiverage_to'  => isset($p['caregiverage_from'])?$p['caregiverage_to']:0,
-                    'smoker' => isset($p['smoker'])?$p['smoker']:1,
+                    'smoker' => isset($p['smoker'])?$p['smoker']:2,
                     'gender_of_caregiver' => isset($p['gender_of_caregiver'])?$p['gender_of_caregiver']:1,
                     'gender_of_careseeker' => isset($p['gender_of_careseeker']) ? $p['gender_of_careseeker'] : '',
                     'contact_name'  => isset($p['name']) ? $p['name'] : '',
@@ -1676,7 +1676,7 @@ class User extends CI_Controller
 
                     $insert2 = array(
                         'marital_status' => isset($_POST['marital_status'])?$_POST['marital_status']:'',                        
-                        'smoker'        => isset($_POST['smoker'])?$_POST['smoker']:'',
+                        'smoker'        => isset($_POST['smoker'])?$_POST['smoker']:2,
                         'educational_institution'     => isset($_POST['educational_instution'])?$_POST['educational_instution']:'',
                         'education_level' => isset($_POST['education'])?$_POST['education']:'',
                         'religious_observance'  => isset($_POST['religious_observance'])?$_POST['religious_observance']:'',
