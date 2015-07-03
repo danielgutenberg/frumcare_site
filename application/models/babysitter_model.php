@@ -60,7 +60,7 @@
                     }
             }
 			if($postdata['number_of_children'])
-				$sql .= " and tbl_userprofile.number_of_children =".$postdata['number_of_children'];
+				$sql .= " and tbl_userprofile.number_of_children >=".$postdata['number_of_children'];
 			if($postdata['morenum']){				
                  $optional_number = explode(',',$postdata['morenum']);
                   if(is_array($optional_number)){

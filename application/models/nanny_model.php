@@ -27,7 +27,7 @@ class Nanny_model extends CI_model{
             if(!empty($postdata['smoker']) && $postdata['smoker']!='undefined'){
 				    $sql .= " and tbl_userprofile.smoker=".$postdata['smoker'];
                 } 
-			if($postdata['gender']){
+			if($postdata['gender'] && $postdata['gender'] != 3 ){
 			     $sql .=" and tbl_user.gender=".$postdata['gender'];
 			}
 			if($postdata['language']){           
