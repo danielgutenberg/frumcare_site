@@ -48,7 +48,7 @@
                 <label>For</label>
                 <div class="radio"><input type="radio" name="willing" class="willing" value="Boys"/>Boys</div>
                 <div class="radio"><input type="radio" name="willing" class="willing" value="Girls"/>Girls</div>
-                <div class="radio"><input type="radio" name="willing" class="willing" value="Girls"/>Any</div>
+                <div class="radio"><input type="radio" name="willing" class="willing" value=""/>Any</div>
             </div>
             <div>
 	 			<label>For Age</label>
