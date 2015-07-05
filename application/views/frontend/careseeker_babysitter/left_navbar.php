@@ -69,7 +69,7 @@
                         <option value="25-35">$25-$35</option>
                         <option value="35-45">$35-$45</option>
                         <option value="45-55">$45-$55</option>
-                        <option value="55+">$55+</option>
+                        <option value="56">$55+</option>
                     </select>    
                 
                             <div>

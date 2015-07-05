@@ -109,7 +109,7 @@ $user_detail = get_user(check_user());
                 <div class="checkbox"><input type="checkbox" value="1-3" name="age_group[]"> 1 to 3 years</div>
                 <div class="checkbox"><input type="checkbox" value="3-5" name="age_group[]"> 3 to 5 years</div>
                 <div class="checkbox"><input type="checkbox" value="6-11" name="age_group[]"> 6 to 11 years</div>
-                <div class="checkbox"><input type="checkbox" value="12+" name="age_group[]"> 12+ years</div>
+                <div class="checkbox"><input type="checkbox" value="13" name="age_group[]"> 12+ years</div>
             </div>
         </div>
         <div>
@@ -169,7 +169,7 @@ $user_detail = get_user(check_user());
                     <option value="25-35">$25-$35 / Hr</option>
                     <option value="35-45">$35-$45 / Hr</option>
                     <option value="45-55">$45-$55 / Hr</option>
-                    <option value="55+">$55+ / Hr</option>
+                    <option value="56">$55+ / Hr</option>
                 </select>
             </div>
         </div>
@@ -223,7 +223,7 @@ $user_detail = get_user(check_user());
             <option value="2" <?php echo isset($exp) && $exp == 2 ? 'selected' : '' ?>>2 years</option>
             <option value="3" <?php echo isset($exp) && $exp == 3 ? 'selected' : '' ?>>3 years</option>
             <option value="4" <?php echo isset($exp) && $exp == 4 ? 'selected' : '' ?>>4 years</option>
-            <option value="5+" <?php echo isset($exp) && $exp == '5+' ? 'selected' : '' ?>>5+ years</option>
+            <option value="6" <?php echo isset($exp) && $exp == 6 ? 'selected' : '' ?>>5+ years</option>
         </select>
         </div>
         </div>
