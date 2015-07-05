@@ -92,7 +92,7 @@
 				}
 
 				if($min_exp!=''){
-					$sql .= " and tbl_userprofile.experience = $min_exp";
+					$sql .= " and tbl_userprofile.experience >= $min_exp";
 				}
 
 				if($availability!=''){
