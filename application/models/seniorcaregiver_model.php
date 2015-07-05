@@ -51,8 +51,8 @@
                 if($search['smoker']!=''){
 				    $sql .= " and tbl_userprofile.smoker=".$search['smoker'];
                 }
-				if($gender!=''){
-					$sql .=" and tbl_user.gender=$gender";
+				if($search['gender'] && $search['gender'] != 3 ){                
+				     $sql .=" and tbl_user.gender=".$search['gender'];
 				}
 
 				if($language!=''){
