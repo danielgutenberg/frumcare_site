@@ -61,12 +61,7 @@
                     }
             }
            	if(!empty($postdata['number_of_children']) && $postdata['number_of_children'] !='undefined'){				
-                 $number_of_children = explode(',',$postdata['number_of_children']);
-                  if(is_array($number_of_children)){
-                        foreach($number_of_children as $data){
-                            $sql .= " and FIND_IN_SET('$data',tbl_userprofile.number_of_children)"; 
-  	                     }
-                    }
+                $sql .= "and tbl_userprofile.number_of_children =".$postdata['number_of_children'];
             }
 			if(!empty($postdata['looking_to_work']) && $postdata['looking_to_work'] !='undefined'){				
                  $looking_to_work = explode(',',$postdata['looking_to_work']);
