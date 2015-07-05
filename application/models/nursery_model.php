@@ -66,7 +66,10 @@
                         endforeach;
                     }
                     if($looking_to_work!=''){
-                        $sql .= " and tbl_userprofile.looking_to_work = '$looking_to_work'";
+                        $age_groups = explode(',',$looking_to_work);
+                        foreach($age_groups as $age_group):
+                            $sql .= " and find_in_set('$age_group',tbl_userprofile.looking_to_work)";
+                        endforeach;
                     }
                     $sql .="  order by distance asc";
                     $query = $this->db->query($sql);
