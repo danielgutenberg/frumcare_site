@@ -40,8 +40,8 @@
                         $sql .= " and tbl_user.age between ".$data['caregiverage_from'].' and '.$data['caregiverage_to'];
                     }
                     if($data['gender'] && $data['gender'] != 3 ){                
-			     $sql .=" and tbl_user.gender=".$data['gender'];
-			}                    
+        			     $sql .=" and tbl_user.gender=".$data['gender'];
+        			}                    
                     if(!empty($data['smoker']) && $data['smoker']!='undefined'){
 				        $sql .= " and tbl_userprofile.smoker=".$data['smoker'];
                     }
