@@ -169,7 +169,7 @@ $user_detail = get_user(check_user());
                     <option value="25-35">$25-$35 / Hr</option>
                     <option value="35-45">$35-$45 / Hr</option>
                     <option value="45-55">$45-$55 / Hr</option>
-                    <option value="56">$55+ / Hr</option>
+                    <option value="55+">$55+ / Hr</option>
                 </select>
             </div>
         </div>
