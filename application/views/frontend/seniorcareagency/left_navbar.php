@@ -19,7 +19,7 @@
 
 	 		<div>
 	 			<label>Specialize in</label>
-	 			<div class="checkbox"><input type="checkbox" name="willing_to_work[]" value="Alz./ dementia" class="willing_to_work">Alz. / dementia</div>
+	 			<div class="checkbox"><input type="checkbox" name="willing_to_work[]" value="Alz./dementia" class="willing_to_work">Alz. / dementia</div>
 	 			<div class="checkbox"><input type="checkbox" name="willing_to_work[]" value="Sight Loss" class="willing_to_work">Sight Loss</div>
 	 			<div class="checkbox"><input type="checkbox" name="willing_to_work[]" value="Hearing Loss" class="willing_to_work">Hearing Loss</div>
 	 			<div class="checkbox"><input type="checkbox" name="willing_to_work[]" value="Wheelchair bound" class="willing_to_work">Wheelchair bound</div>	 			
