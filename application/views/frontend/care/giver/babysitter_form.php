@@ -53,7 +53,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <div class="checkbox"><input type="checkbox" name="age_group[]" value="1-3"> 1 to 3 years</div>
                 <div class="checkbox"><input type="checkbox" name="age_group[]" value="3-5"> 3 to 5 years</div>                
                 <div class="checkbox"><input type="checkbox" name="age_group[]" value="6-11"> 6 to 11 years</div>                
-                <div class="checkbox"><input type="checkbox" name="age_group[]" value="12+"> 12+ years</div>
+                <div class="checkbox"><input type="checkbox" name="age_group[]" value="13"> 12+ years</div>
             </div>
         </div>
         <div>
@@ -65,7 +65,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <option value="2" <?php echo isset($exp) && $exp == 2 ? 'selected' : '' ?>>2 years</option>
                 <option value="3" <?php echo isset($exp) && $exp == 3 ? 'selected' : '' ?>>3 years</option>
                 <option value="4" <?php echo isset($exp) && $exp == 4 ? 'selected' : '' ?>>4 years</option>
-                <option value="5+" <?php echo isset($exp) && $exp == '5+' ? 'selected' : '' ?>>5+ years</option>
+                <option value="5" <?php echo isset($exp) && $exp == 5 ? 'selected' : '' ?>>5+ years</option>
             </select>
             </div>
         </div>
@@ -89,7 +89,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                     <option value="25-35">$25-$35 / Hr</option>
                     <option value="35-45">$35-$45 / Hr</option>
                     <option value="45-55">$45-$55 / Hr</option>
-                    <option value="55+">$55+ / Hr</option>
+                    <option value="56">$55+ / Hr</option>
                 </select>               
             </div>
         </div>
