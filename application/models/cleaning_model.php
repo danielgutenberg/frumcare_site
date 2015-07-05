@@ -57,9 +57,9 @@
                     $sql .= " and tbl_user.age between ".$search['caregiverage_from'].' and '.$search['caregiverage_to'];
                 }
 
-				if($gender!=''){
-					$sql .=" and tbl_user.gender=$gender";
-				}
+				if($search['gender'] && $search['gender'] != 3 ){
+			     $sql .=" and tbl_user.gender=".$search['gender'];
+			}
 
 				if($language!=''){
 					$languages = explode(',',$language);

@@ -37,8 +37,8 @@
 	 		</div>
 	 		<div>
 	 			<label>Level of observance (check one or more)</label>
-	 			<div class="checkbox"><input type="checkbox" value="Yeshivish/Chasidish" name="observance[]" class="observance">Yeshivish / Chasidish</div>
-	 			<div class="checkbox"><input type="checkbox" value="Orthodox/Modern Orthodox" name="observance[]" class="observance">Orthodox / Modern orthodox</div>	 			
+	 			<div class="checkbox"><input type="checkbox" value="Yeshivish/ Chasidish" name="observance[]" class="observance">Yeshivish / Chasidish</div>
+	 			<div class="checkbox"><input type="checkbox" value="Orthodox/ Modern Orthodox" name="observance[]" class="observance">Orthodox / Modern orthodox</div>	 			
 	 			<div class="checkbox"><input type="checkbox" value="Familiar with Jewish Tradition" name="observance[]" class="observance">Familiar with Jewish Tradition</div>
 	 			<div class="checkbox"><input type="checkbox" value="Any" name="observance[]" class=" observance">Any</div>	 			
 	 		</div>
@@ -46,7 +46,7 @@
 	 		<div>
  				<label>For Work in</label>
  				<div class="checkbox"><input type="checkbox" name="carelocation" class="carelocation" value="Private Home">Private Home</div>
- 				<div class="checkbox"><input type="checkbox" name="carelocation" class="carelocation" value="Business / Office">Business / Office</div>
+ 				<div class="checkbox"><input type="checkbox" name="carelocation" class="carelocation" value="Business/Office">Business / Office</div>
                  <div class="checkbox"><input type="checkbox" name="carelocation" class="carelocation" value="Cleaning Company" <?php echo $this->uri->segment(1) == 'caregivers' && ($this->uri->segment(2)=='workers-for-cleaning-company' || $this->uri->segment(3)=='workers-for-cleaning-company')?'checked':'' ?>>Cleaning Company</div> 				
 	 		</div>
 
@@ -58,7 +58,7 @@
 		 				<option value="2">2 years</option>	
 		 				<option value="3">3 years</option>	
 		 				<option value="4">4 years</option>	
-		 				<option value="5+">5+ years</option>	
+		 				<option value="6">5+ years</option>	
 		 			</select>
 		 	</div>
 
@@ -67,7 +67,7 @@
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="One Time">One Time</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Immediate">Immediate</div>
 		 		<div class="checkbox full"><input type="checkbox" id="chkbox1" value="Start Date">Start Date<input type="text" id="textbox1"/></div>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Occasionally">Occasionally</div>
+		 		<div class="checkbox"><input type="checkbox" class="availability" value="Occassionally">Occasionally</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Regularly">Regularly</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Morning">Morning</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Afternoon">Afternoon</div>

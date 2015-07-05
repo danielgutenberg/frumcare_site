@@ -1184,9 +1184,9 @@ class User_model extends CI_Model
          if($data['caregiverage_from'] && $data['caregiverage_to']){
                 $sql .= " and tbl_user.age between ".$data['caregiverage_from'].' and '.$data['caregiverage_to'];
             }
-         if($gender!=''){
-            $sql .= " and tbl_user.gender = '$gender'";
-         }
+         if($data['gender'] && $data['gender'] != 3 ){                
+        			     $sql .=" and tbl_user.gender=".$data['gender'];
+        			} 
 
          if($language!=''){
             $langs = explode(',',$language);
