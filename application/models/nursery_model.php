@@ -39,8 +39,9 @@
                     if($data['caregiverage_from'] && $data['caregiverage_to']){
                         $sql .= " and tbl_user.age between ".$postdata['caregiverage_from'].' and '.$postdata['caregiverage_to'];
                     }
-                    if($gender != '')
-                        $sql .= " and tbl_user.gender = $gender";                    
+                    if($data['gender'] && $data['gender'] != 3 ){                
+			     $sql .=" and tbl_user.gender=".$data['gender'];
+			}                    
                     if(!empty($data['smoker']) && $data['smoker']!='undefined'){
 				        $sql .= " and tbl_userprofile.smoker=".$data['smoker'];
                     }
