@@ -84,9 +84,9 @@
 		 		<div class="checkbox"><input type="checkbox" class="skills" name="skills" value="Laundry">Laundry</div>
 		 		<div class="checkbox"><input type="checkbox" class="skills" name="skills" value="Folding">Folding</div>
                 <div class="checkbox"><input type="checkbox" class="skills" name="skills" value="Ironing">Ironing</div>
-		 		<div class="checkbox"><input type="checkbox" class="skills" name="skills" value="Cleaning and dusting furniture">Cleaning and dusting furniture</div>
-		 		<div class="checkbox"><input type="checkbox" class="skills" name="skills" value="Cleaning refrigerator/ freezer">Cleaning refrigerator / freezer</div>
-		 		<div class="checkbox"><input type="checkbox" class="skills" name="skills" value="Cleaning Oven/ stove">Cleaning Oven / stove</div>
+		 		<div class="checkbox"><input type="checkbox" class="skills" name="skills" value="Cleaning and Dusting Furniture">Cleaning and dusting furniture</div>
+		 		<div class="checkbox"><input type="checkbox" class="skills" name="skills" value="Cleaning Refrigerator/Freezer">Cleaning refrigerator / freezer</div>
+		 		<div class="checkbox"><input type="checkbox" class="skills" name="skills" value="Cleaning Oven/Stove">Cleaning Oven / stove</div>
 		 		<div class="checkbox"><input type="checkbox" value="Pesach Cleaning" name="willing_to_work[]"><span>Pesach Cleaning</span></div>
 		 		<div class="checkbox"><input type="checkbox" class="skills" name="skills" value="Able to watch children as well">Able to watch children as well</div>
 		 	</div>
