@@ -39,8 +39,8 @@
 	 		</div>
 	 		<div>
 	 			<label>Level of observance</label>
-	 			<div class="checkbox"><input type="checkbox" value="Yeshivish/Chasidish" name="observance[]" class="observance">Yeshivish / Chasidish</div>
-	 			<div class="checkbox"><input type="checkbox" value="Orthodox/Modern orthodox" name="observance[]" class="observance">Orthodox / Modern orthodox</div>	 			
+	 			<div class="checkbox"><input type="checkbox" value="Yeshivish/ Chasidish" name="observance[]" class="observance">Yeshivish / Chasidish</div>
+	 			<div class="checkbox"><input type="checkbox" value="Orthodox/ Modern orthodox" name="observance[]" class="observance">Orthodox / Modern orthodox</div>	 			
 	 			<div class="checkbox"><input type="checkbox" value="Familiar with Jewish Tradition" name="observance[]" class="observance">Familiar with Jewish Tradition</div>
 	 			<div class="checkbox"><input type="checkbox" value="Any" name="observance[]" class=" observance">Any</div>	 			
 	 		</div>
@@ -60,7 +60,7 @@
 		 				<option value="2">2 years</option>	
 		 				<option value="3">3 years</option>	
 		 				<option value="4">4 years</option>	
-		 				<option value="5+">5+ years</option>	
+		 				<option value="6">5+ years</option>	
 		 			</select>
 		 	</div>
 
@@ -70,7 +70,7 @@
  				<div class="checkbox"><input type="checkbox" name="training" class="training" value="First Aid">First Aid</div>
  				<div class="checkbox"><input type="checkbox" name="training" class="training" value="Senior Care Training">Senior Care Training</div>
  				<div class="checkbox"><input type="checkbox" name="training" class="training" value="Nurse">Nurse</div>
- 				<div class="checkbox"><input type="checkbox" name="training" class="training" value="Nurse">Other</div>
+ 				<div class="checkbox"><input type="checkbox" name="training" class="training" value="Other">Other</div>
 		 	</div>
 
 		 	<div>
@@ -85,7 +85,7 @@
 		 		<label>When you need care</label>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Immediate">Immediate</div>
 		 		<div class="checkbox full"><input type="checkbox" id="chkbox1" value="Start Date">Start Date<input type="text" id="textbox1"/></div>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Occasionally">Occasionally</div>
+		 		<div class="checkbox"><input type="checkbox" class="availability" value="Occassionally">Occasionally</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Regularly">Regularly</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Morning">Morning</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Afternoon">Afternoon</div>
