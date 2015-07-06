@@ -9,7 +9,7 @@
 	 			<label>Job Type</label>
 	 			<div class="checkbox"><input type="checkbox" value="Home" class="looking_to_work">Home</div>
 	 			<div class="checkbox"><input type="checkbox" value="Office/Business" class="looking_to_work">Office / Business</div>
-	 			<div class="checkbox"><input type="checkbox" value="Any" class="looking_to_work">Any</div>
+	 			<div class="checkbox"><input type="checkbox" value="3" class="looking_to_work">Any</div>
 	 		</div>
 
 	 		<div>
