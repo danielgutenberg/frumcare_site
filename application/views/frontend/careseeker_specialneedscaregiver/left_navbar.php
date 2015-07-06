@@ -10,18 +10,17 @@
 	 			<label>Job Type</label>
 	 			<div class="checkbox"><input type="checkbox" value="Live In" class="looking_to_work">Live In</div>
 	 			<div class="checkbox"><input type="checkbox" value="Live Out" class="looking_to_work">Live Out</div>
-	 			<div class="checkbox"><input type="checkbox" value="Any" class="looking_to_work">Any</div>
+	 			<div class="checkbox"><input type="checkbox" value="" class="looking_to_work">Any</div>
 	 		</div>
 	 		<div>
 	 			<label>Gender of person requiring to care</label>
 	 			<div class="radio-half"><input type="radio" name="gender" value="1" class="gender">Male</div>
 	 			<div class="radio-half"><input type="radio" name="gender" value="2" class="gender"> Female</div>
-	 			<div class="radio-half"><input type="radio" name="gender" value="3" class="gender"> Any</div>
+	 			<div class="radio-half"><input type="radio" name="gender" value="" class="gender"> Any</div>
 	 		</div>
             <div>
                 <label>Job Hours (check one or more)</label>
-                <div class="checkbox"><input type="checkbox" class="availability" value="One time">One Time</div>
-                <div class="checkbox"><input type="checkbox" class="availability" value="Occasionally">Occasionally</div>
+                <div class="checkbox"><input type="checkbox" class="availability" value="Occassionally">Occasionally</div>
                 <div class="checkbox"><input type="checkbox" class="availability" value="Regularly">Regularly</div>		 		
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Asap">Asap</div>
 		 		<div class="checkbox full"><input type="checkbox" id="chkbox1" value="Start Date">Start Date<input type="text" id="textbox1"/></div>
@@ -29,7 +28,7 @@
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Afternoon">Afternoon</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Evening">Evening</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Overnignt">Overnignt</div>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Weekends Fri/Sun">Weekends Fri / Sun</div>
+		 		<div class="checkbox"><input type="checkbox" class="availability" value="Weekends Fri./Sun.">Weekends Fri / Sun</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Shabbos">Shabbos</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="24 hr care">24 hr care</div>
 		 	</div>
@@ -37,7 +36,7 @@
 	 			<label>Gender of caregiver wanted</label>
 	 			<div class="radio-half"><input type="radio" name="gender_of_caregiver" value="1" class="gender_of_caregiver">Male</div>
 	 			<div class="radio-half"><input type="radio" name="gender_of_caregiver" value="2" class="gender_of_caregiver"> Female</div>
-	 			<div class="radio-half"><input type="radio" name="gender_of_caregiver" value="3" class="gender_of_caregiver"> Any</div>
+	 			<div class="radio-half"><input type="radio" name="gender_of_caregiver" value="" class="gender_of_caregiver"> Any</div>
 	 		</div>
 	 		<div class="select-services">
                         <label>Wage</label>
