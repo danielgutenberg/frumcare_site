@@ -38,11 +38,11 @@
   	                     }
                     }
             }
-			if(!empty($postdata['gender']) && $postdata['gender'] !='undefined'){				
-                $sql .= " and tbl_user.gender=".$postdata['gender'];
+			if(!empty($postdata['gender_of_caregiver']) && $postdata['gender_of_caregiver'] !=3){				
+                $sql .= " and tbl_userprofile.gender_of_careseeker=".$postdata['gender_of_caregiver'];
             }
-           	if(!empty($postdata['gender_of_caregiver']) && $postdata['gender_of_caregiver'] !='undefined'){				
-                $sql .= " and tbl_userprofile.gender_of_caregiver=".$postdata['gender_of_caregiver'];
+           	if(!empty($postdata['gender']) && $postdata['gender'] !=3){				
+                $sql .= " and tbl_userprofile.gender_of_caregiver=".$postdata['gender'];
             }
 			if(!empty($postdata['looking_to_work']) && $postdata['looking_to_work'] !='undefined'){				
                  $looking_to_work = explode(',',$postdata['looking_to_work']);
