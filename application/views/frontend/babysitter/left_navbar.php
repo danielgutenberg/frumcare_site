@@ -57,8 +57,8 @@
 	 		</div>
 	 		<div>
 	 			<label>Level of observance</label>
-	 			<div class="checkbox first"><input type="checkbox" value="Yeshivish/Chasidish" name="observance[]" class="hidefamiliar observance">Yeshivish / Chasidish</div>
-	 			<div class="checkbox"><input type="checkbox" value="Orthodox/Modern orthodox" name="observance[]" class="hidefamiliar observance">Orthodox / Modern orthodox</div>
+	 			<div class="checkbox first"><input type="checkbox" value="Yeshivish/ Chasidish" name="observance[]" class="hidefamiliar observance">Yeshivish / Chasidish</div>
+	 			<div class="checkbox"><input type="checkbox" value="Orthodox/ Modern orthodox" name="observance[]" class="hidefamiliar observance">Orthodox / Modern orthodox</div>
 	 			<div class="checkbox"><input type="checkbox" value="Familiar with Jewish Tradition" name="observance[]" class="show observance">Familiar with Jewish Tradition</div>
 	 			<?php /*<div class="checkbox"><input type="checkbox" value="Not Jewish" name="observance[]" class="show observance">Not Jewish</div> */?>
 	 			<div class="checkbox"><input type="checkbox" value="Any" name="observance[]" class="hidefamiliar observance">Any</div>
@@ -99,7 +99,7 @@
                 <div class="checkbox"><input type="checkbox" value="1-3" name="age_group[]"  class="age_group"> 1 to 3 years</div>
                 <div class="checkbox"><input type="checkbox" value="3-5" name="age_group[]"  class="age_group"> 3 to 5 years</div>
                 <div class="checkbox"><input type="checkbox" value="6-11" name="age_group[]"  class="age_group"> 6 to 11 years</div>
-                <div class="checkbox"><input type="checkbox" value="12+" name="age_group[]"  class="age_group"> 12+ years</div>
+                <div class="checkbox"><input type="checkbox" value="13" name="age_group[]"  class="age_group"> 12+ years</div>
 	 		</div>
             
 	 		<div class="year-exp">
@@ -110,14 +110,14 @@
 		 				<option value="2">2 years</option>	
 		 				<option value="3">3 years</option>	
 		 				<option value="4">4 years</option>	
-		 				<option value="5+">5+ years</option>	
+		 				<option value="6">5+ years</option>	
 		 			</select>
 		 	</div>
 		 	<div>
 		 		<label>Training</label>
 		 		<div class="checkbox first"><input type="checkbox" class="training" value="CPR">CPR</div>
 		 		<div class="checkbox"><input type="checkbox" class="training" value="First Aid">First Aid</div>
-		 		<div class="checkbox"><input type="checkbox" class="training" value="Nanny/Babysitter Course">Nanny / Babysitter Course</div>
+		 		<div class="checkbox"><input type="checkbox" class="training" value="Nanny/ Babysitter Course">Nanny / Babysitter Course</div>
 		 		<div class="checkbox"><input type="checkbox" class="training" value="Other">Other</div>
 		 	</div>
 		 	<div>
