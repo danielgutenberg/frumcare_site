@@ -22,7 +22,7 @@
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Morning">Morning</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Afternoon">Afternoon</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Evening">Evening</div>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Weekends Fri/Sun">Weekends Fri / Sun</div>
+		 		<div class="checkbox"><input type="checkbox" class="availability" value="Weekends fri/sun">Weekends Fri / Sun</div>
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Shabbos">Shabbos</div>
 		 	</div>
             <div>
