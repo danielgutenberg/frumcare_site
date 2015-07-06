@@ -33,8 +33,7 @@
 	 		</div>
             <div>
 		 		<label>Job Hours (check one or more)</label>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="One Time">One time</div>
-                <div class="checkbox"><input type="checkbox" class="availability" value="Occasionally">Occasionally</div>
+                <div class="checkbox"><input type="checkbox" class="availability" value="Occassionally">Occasionally</div>
                 <div class="checkbox"><input type="checkbox" class="availability" value="Regularly">Regularly</div>
                 <div class="checkbox"><input type="checkbox" class="availability" value="Asap">Asap</div>
 		 		<div class="checkbox full"><input type="checkbox" id="chkbox1" value="Start Date">Start Date<input type="text" id="textbox1"/></div>
