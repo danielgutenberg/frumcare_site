@@ -20,9 +20,9 @@
 	 		</div>-->
             <div>
 	 			<label>Gender of Senior</label>
-	 			<div class="radio-half"><input type="radio" name="gender_of_caregiver" value="1" class="gender_of_caregiver">Male</div>
-	 			<div class="radio-half"><input type="radio" name="gender_of_caregiver" value="2" class="gender_of_caregiver"> Female</div>
-	 			<div class="radio-half"><input type="radio" name="gender_of_caregiver" value="3" class="gender_of_caregiver"> Any</div>
+	 			<div class="radio-half"><input type="radio" name="gender" value="1" class="gender">Male</div>
+	 			<div class="radio-half"><input type="radio" name="gender" value="2" class="gender"> Female</div>
+	 			<div class="radio-half"><input type="radio" name="gender" value="" class="gender"> Any</div>
 	 		</div>
               <div>
                 <label>Job Hours (check one or more)</label>
@@ -43,7 +43,7 @@
 	 			<label>Gender of Caregiver wanted</label>
     	 			<div class="radio-half"><input type="radio" name="gender_of_caregiver" value="1" class="gender_of_caregiver"> Male  </div>
     	 			<div class="radio-half"><input type="radio" name="gender_of_caregiver" value="2" class="gender_of_caregiver"> Female </div>
-                    <div class="radio-half"><input type="radio" name="gender_of_caregiver" value="3" class="gender_of_caregiver"> Any </div>
+                    <div class="radio-half"><input type="radio" name="gender_of_caregiver" value="" class="gender_of_caregiver"> Any </div>
 	 		</div>
               <div class="select-services">
                 <label>Wage</label>
