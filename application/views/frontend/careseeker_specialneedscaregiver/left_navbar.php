@@ -10,7 +10,7 @@
 	 			<label>Job Type</label>
 	 			<div class="checkbox"><input type="checkbox" value="Live In" class="looking_to_work">Live In</div>
 	 			<div class="checkbox"><input type="checkbox" value="Live Out" class="looking_to_work">Live Out</div>
-	 			<div class="checkbox"><input type="checkbox" value="" class="looking_to_work">Any</div>
+	 			<div class="checkbox"><input type="checkbox" value="3" class="looking_to_work">Any</div>
 	 		</div>
 	 		<div>
 	 			<label>Gender of person requiring to care</label>
