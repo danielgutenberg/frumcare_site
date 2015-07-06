@@ -152,7 +152,7 @@ $(function () {
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_nanny/search",
-    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
+    				data:"availability="+availability+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -189,7 +189,7 @@ $(function () {
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_nanny/search",
-    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
+    				data:"availability="+availability+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -226,7 +226,7 @@ $(function () {
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_nanny/search",
-    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
+    				data:"availability="+availability+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -270,7 +270,7 @@ $(function () {
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_nanny/search",
-    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
+    				data:"availability="+availability+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -312,7 +312,7 @@ $(function () {
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_nanny/search",
-    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
+    				data:"availability="+availability+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -355,7 +355,7 @@ $(function () {
                         $.ajax({
                             type : "post",
                             url  : "<?php echo site_url();?>careseeker_nanny/savesearch",
-                            data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date+"&care_type="+care_type,
+                            data:"availability="+availability+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date+"&care_type="+care_type,
                             success:function(msg){
                                 //console.log(msg);
                                 alert('Search saved');
