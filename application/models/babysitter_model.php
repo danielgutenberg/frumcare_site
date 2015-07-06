@@ -87,7 +87,7 @@
                     }
             }
 			if($postdata['year_experience'])
-				$sql .= " and tbl_userprofile.experience=".$postdata['year_experience'];
+				$sql .= " and tbl_userprofile.experience>=".$postdata['year_experience'];
 			if($postdata['training']){				
                  $training = explode(',',$postdata['training']);
                   if(is_array($training)){
