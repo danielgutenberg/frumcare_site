@@ -22,7 +22,7 @@ define('DB_NAME', 'frumcare_db_blogfrumcare');
 define('DB_USER', 'frumcare_ufrumc');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'Q^[M!2&NqwEM');
+define('DB_PASSWORD', '7!(oKvm[4G+G');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
