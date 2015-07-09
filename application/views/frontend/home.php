@@ -370,7 +370,7 @@
                     $("#submit_now").click(function(e){
                     var name = $('input[name=name]').val();
                     var email = $('input[name=email]').val();
-                    var msg = $('#message1').val();
+                    var msg = $('textarea').val();
                     if( name != '' && email != '' && msg !='') {
                         $(".searchloader").fadeIn('fast');
                         $.post('<?php echo site_url()?>help/send_this_message',
@@ -382,11 +382,11 @@
                             function(e){
                                 $(".searchloader").fadeOut('fast');
                                 notif({
-                                  msg: "Thank you for joining us. We will get back you soon",
+                                  msg: "Thank you for contacting us. We will get back to you.",
                                   position: "right",
                                   time: 100                              
                                 });
-                                $('#submit_now').attr('disabled','disabled');
+                                // $('#submit_now').attr('disabled','disabled');
                                                         
                         });
                     }
