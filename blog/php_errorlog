@@ -21,3 +21,8 @@
 [08-Apr-2015 04:40:41 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/frumcare/public_html/dev/blog/wp-content/themes/frumcare/header.php:11) in /home/frumcare/public_html/dev/blog/wp-content/themes/frumcare/header.php on line 34
 [08-Apr-2015 04:42:07 UTC] PHP Warning:  session_start(): Cannot send session cookie - headers already sent by (output started at /home/frumcare/public_html/dev/blog/wp-content/themes/frumcare/header.php:2) in /home/frumcare/public_html/dev/blog/wp-content/themes/frumcare/header.php on line 25
 [08-Apr-2015 04:42:07 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/frumcare/public_html/dev/blog/wp-content/themes/frumcare/header.php:2) in /home/frumcare/public_html/dev/blog/wp-content/themes/frumcare/header.php on line 25
+[15-May-2015 10:01:00 UTC] PHP Fatal error:  Using $this when not in object context in /home/frumcare/public_html/dev/blog/wp-content/themes/frumcare/header.php on line 75
+[15-May-2015 10:02:54 UTC] PHP Fatal error:  Using $this when not in object context in /home/frumcare/public_html/dev/blog/wp-content/themes/frumcare/header.php on line 75
+[15-May-2015 10:03:01 UTC] PHP Fatal error:  Using $this when not in object context in /home/frumcare/public_html/dev/blog/wp-content/themes/frumcare/header.php on line 75
+[15-May-2015 10:06:06 UTC] PHP Fatal error:  Using $this when not in object context in /home/frumcare/public_html/dev/blog/wp-content/themes/frumcare/header.php on line 75
+[15-May-2015 10:06:11 UTC] PHP Fatal error:  Using $this when not in object context in /home/frumcare/public_html/dev/blog/wp-content/themes/frumcare/header.php on line 75

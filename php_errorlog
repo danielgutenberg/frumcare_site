@@ -13,3 +13,10 @@
 [30-Apr-2015 02:13:18 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/frumcare/public_html/dev/blog/' (include_path='.:/usr/local/php55/pear') in /home/frumcare/public_html/dev/application/controllers/routee.php on line 3
 [30-Apr-2015 03:00:51 America/New_York] PHP Parse error:  syntax error, unexpected 'endforeach' (T_ENDFOREACH) in /home/frumcare/public_html/dev/application/views/frontend/home.php on line 210
 [03-May-2015 05:10:48 America/New_York] PHP Parse error:  syntax error, unexpected '}' in /home/frumcare/public_html/dev/application/views/frontend/user/addprofile.php on line 258
+[11-May-2015 05:37:47 America/New_York] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/frumcare/public_html/dev/application/views/frontend/common_profile_list.php on line 329
+[11-May-2015 05:40:33 America/New_York] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/frumcare/public_html/dev/application/views/frontend/common_profile_list.php on line 329
+[11-May-2015 05:41:43 America/New_York] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/frumcare/public_html/dev/application/views/frontend/common_profile_list.php on line 329
+[11-May-2015 05:43:32 America/New_York] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/frumcare/public_html/dev/application/views/frontend/common_profile_list.php on line 329
+[11-May-2015 05:58:07 America/New_York] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/frumcare/public_html/dev/application/views/frontend/common_profile_list.php on line 329
+[11-May-2015 05:58:55 America/New_York] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/frumcare/public_html/dev/application/views/frontend/common_profile_list.php on line 329
+[11-May-2015 06:01:16 America/New_York] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/frumcare/public_html/dev/application/views/frontend/common_profile_list.php on line 329

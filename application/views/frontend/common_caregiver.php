@@ -61,7 +61,7 @@
         $left_navbar='careseeker_babysitter';
     
     if( $s1=='caregivers' && ($s2 == 'all'|| $s2 =='') )
-        $left_navbar='babysitter';
+        $left_navbar='all';
         
     if( $s1=='caregivers' && $s2 == 'organizations')
         $left_navbar='all';

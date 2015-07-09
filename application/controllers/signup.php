@@ -144,7 +144,11 @@ class Signup extends CI_Controller
                 $this->session->set_userdata($sess);
 
             if($q) {
-                redirect('signup-successful');
+                if($redirectData['care_type'] > 24)
+                    $link = "ad/job/organizations/".$redirectData['care_type'];
+                else
+                    $link = 'ad/add_step2/'.$redirectData['account_cat'].'/'.$redirectData['account_type'].'/'.$log_id.'/'.$redirectData['care_type'];
+                redirect($link);
             } else {
                 $this->session->set_flashdata('msg', 'Your account could not be created. Please try again.');
                 redirect('signup');
@@ -218,11 +222,27 @@ class Signup extends CI_Controller
                     'email'     => $ustatus['email'],
                     'password'  => $ustatus['original_password']
                 );
-
+		$q = check_user();
                 $this->sendemail($userdetail);
+                $user_data = getBrowser();
+                $log = array(
+                    'user_id' => $q,
+                    'login_time' => time(),
+                    'login_browser' => $user_data['name'].' '.$user_data['version'],
+                    'login_os' => $user_data['platform'],
+                    'login_ip' => $_SERVER['REMOTE_ADDR']
+                );
+                $log_id = $this->common_model->insert('tbl_user_logs', $log, true);
+                $log_id = sha1($log_id);
+                $sess = array(
+                    'current_user' => $q,
+                    'log_id' => $log_id
+                );
+                $this->session->sess_expiration = '14400';
+                $this->session->set_userdata($sess);
 
                 $this->session->set_flashdata('success', 'Your email has been verified.');
-                redirect('user/dashboard','refresh');
+                redirect('signup-successful','refresh');
             }else{
                 $this->session->set_flashdata('success', 'Your email has already been verified.');
                 redirect('user/dashboard','refresh');

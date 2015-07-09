@@ -211,6 +211,7 @@ class Ad extends CI_Controller
                 'name_of_owner'         => isset($p['name_of_owner'])?$p['name_of_owner']:'',
                 'profile_picture_owner' => isset($p['profile_picture_owner'])?$p['profile_picture_owner']:'',
                 'smoke'                => isset($p['smoker']) ? $p['smoker'] : 2,
+                'hasAd'                 => 1,                    
             );
             /*
                  $response =  $this->getLongitudeAndLatitude($p['location']);
@@ -511,9 +512,11 @@ class Ad extends CI_Controller
 
             );
             
-            
+            $insert_new = array(
+            'hasAd'                 => 1,
+            );
             if(check_user()) {
-                //$q = $this->common_model->update('tbl_user', $insert_new, array('id' => check_user()));
+                $q = $this->common_model->update('tbl_user', $insert_new, array('id' => check_user()));
                $q = $this->common_model->update('tbl_userprofile', $insert, array('user_id' => check_user()));
             }
             if($q){
@@ -963,6 +966,7 @@ class Ad extends CI_Controller
                             'neighbour'         => isset($p['neighbour'])?$p['neighbour']:'',
                             'caregiver_religious_observance' => isset($p['religious_observance']) ? $p['religious_observance'] : '',
                             'smoke' => isset($p['smoker']) ? $p['smoker'] : 2,
+                            'hasAd'    => 1,
                             );
             if(isset($p['name'])){
                 $uri = $this->common_model->create_slug($p['name']);

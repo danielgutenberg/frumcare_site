@@ -5009,6 +5009,7 @@ body {
   }
   .footer .social-links {
     text-align: right;
+    height:32px;
   }
   .footer .social-links > a {
     margin-left: 6px;
@@ -5020,7 +5021,8 @@ body {
     display: inline-block;
     position: relative;
     width: 32px;
-    height: 32px;
+    height:32px;
+    
     vertical-align: middle;
   }
   .footer .social-links .flip-link-container:hover .flip-link {
@@ -5048,6 +5050,7 @@ body {
     -ms-transform-style: preserve-3d;
     transform-style: preserve-3d;
     position: relative;
+    display: block;
   }
   .footer .social-links .front, .footer .social-links .back {
     -webkit-backface-visibility: hidden;
@@ -5072,8 +5075,13 @@ body {
     transform: rotateY(180deg);
   }
   .footer .social-links span {
-    display: inline;
+    display: block;
   }
+
+  .footer .social-links span.title {
+    display: inline !important;
+  }
+
   .footer .colophon {
     margin-top: 40px;
     padding-top: 15px;

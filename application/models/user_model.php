@@ -25,6 +25,22 @@ class User_model extends CI_Model
         $q = $this->db->get_where('tbl_user', array('email' => $data['email'],'status' => 1,'original_password' => $data['passwd']));
         return $q->num_rows() == 1 ? $q->result_array() : false;
     }
+    
+    public function getUserDetails($id)
+    {
+        $sql = "SELECT * FROM tbl_user where id = '$id'";
+        $query = $this->db->query($sql);
+        $res = $query->row_array();
+        return $res;
+    }
+    
+    public function getNewUserProfile($id)
+    {
+        $sql = "SELECT * FROM tbl_userprofile where user_id = '$id'";
+        $query = $this->db->query($sql);
+        $res = $query->row_array();
+        return $res;
+    }
 
     function getAllDetails($acc_cat,$offset,$limit,$latitude,$longitude){
         $sql = "SELECT tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id LEFT OUTER JOIN tbl_reviews ON tbl_user.id = tbl_reviews.user_id WHERE tbl_userprofile.account_category = $acc_cat and tbl_user.status = 1 and tbl_userprofile.profile_status = 1 ";

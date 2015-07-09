@@ -544,6 +544,40 @@ class User extends CI_Controller
         $user_id = array('id'=>$this->session->userdata('current_user'));
  
         //by kiran
+        $data['userDetails'] = $this->user_model->getUserDetails($user_id['id']);
+        if ($data['userDetails']['hasAd'] == 0) {
+         $user_data = getBrowser();
+                $log = array(
+                    'user_id' => $user_id['id'],
+                    'login_time' => time(),
+                    'login_browser' => $user_data['name'].' '.$user_data['version'],
+                    'login_os' => $user_data['platform'],
+                    'login_ip' => $_SERVER['REMOTE_ADDR']
+                );
+                $log_id = $this->common_model->insert('tbl_user_logs', $log, true);
+                $log_id = sha1($log_id);
+         $profile= $this->user_model->getNewUserProfile($user_id['id']);
+         
+         if($profile['care_type'] > 24)
+                    $link = "ad/job/organizations/".$profile['care_type'];
+                else
+                    $type = $profile['account_category'] == 3 ? 'organization' : 'individual';
+                    if($profile['account_category'] == 1){
+                        $category = 'caregiver';
+                    }
+                    if($profile['account_category'] == 2){
+                        $category = 'careseeker';
+                    }
+
+                    if($profile['account_category']  == 3){
+                        $category = 'organization';
+                    }
+                    $link = 'ad/add_step2/'.$category.'/'.$type.'/'.$log_id.'/'.$profile['care_type'];
+                redirect($link);
+        }
+         
+         
+         
         $data['account_category'] = $this->user_model->get_account_category();
         $data['all_profile'] =$this->user_model->get_all_profile();
         $data['main_content'] = ('frontend/user/profile');
