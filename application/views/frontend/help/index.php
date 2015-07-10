@@ -113,24 +113,24 @@
 <script type="text/javascript">
  // jquery form-validation goes here
     $(function() {
-        $("#contact-form").validate({
-            // Specify the validation rules
-            rules: {
-                name: "required",
-                email: {
-                    required: true,
-                    email: true
-                },
-            },
-            // Specify the validation error messages
-            messages: {
-                name: "Please enter your name",
-                email: "Please enter a valid email address",
-            },
-            submitHandler: function(form) {
-                form.submit();
-            }
-        });
+        // $("#contact-form").validate({
+        //     // Specify the validation rules
+        //     rules: {
+        //         name: "required",
+        //         email: {
+        //             required: true,
+        //             email: true
+        //         },
+        //     },
+        //     // Specify the validation error messages
+        //     messages: {
+        //         name: "Please enter your name",
+        //         email: "Please enter a valid email address",
+        //     },
+        //     submitHandler: function(form) {
+        //         form.submit();
+        //     }
+        // });
 
 
          $(".ticket").validate({
