@@ -194,7 +194,9 @@
                         <label></label>
                             <input type="checkbox" name="fimilartojewish" value="fimilartojewish" <?php if($user_data['familartojewish'] == 'familartojewish'){?> checked = "checked" <?php }?>>
                     </div>
-
+                    <?php 
+                        if($user_data['care_type']!= 7){
+                    ?>
                     <div class="small-seperator"></div>
                     <div class="first-names">
                         <label>Level of Education</label>
@@ -209,7 +211,8 @@
                     <div class="first-names fullwidth">
                             <label>Educational institutions attended</label>
                             <input type="text" name="educational_instution" value="<?php echo $educational_institution;?> ">
-                    </div>                   
+                    </div>   
+                    <?php } ?>
                     <div class="small-seperator"></div>
                     
                     <?php } 
