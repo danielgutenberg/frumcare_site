@@ -109,7 +109,8 @@
 
 		</div>
 	</div>
-
+<script src="<?php echo site_url(); ?>js/notifIt.js" type="text/javascript"></script>
+        <link href="<?php echo site_url(); ?>css/notifIt.css" type="text/css" rel="stylesheet">
 <script type="text/javascript">
  // jquery form-validation goes here
     $(function() {
