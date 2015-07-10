@@ -10,7 +10,7 @@
         $phone            = explode('+1-', $user_data['contact_number']);
         $age              = $user_data['age'];
         $married          = $user_data['marital_status'];
-        $religious_observance  = $user_data['religious_observance'];
+        $religious_observance  = $user_data['caregiver_religious_observance'];
         $smoker                 = $user_data['smoke'];        
         $education_level    = $user_data['education_level'];
         $educational_institution   = $user_data['educational_institution'];
@@ -174,10 +174,10 @@
                     <div class="first-names">
                         <label>Level of observance </label>
                         <select id="religious_observance" name="religious_observance">
-                            <option value="Yeshivish/ Chasidish" <?php if($caregiver_religious_observance == 'Yeshivish/ Chasidish'){?> selected="selected" <?php }?>>Yeshivish/ Chasidish</option>
-                            <option value="Orthodox/ Modern Orthodox" <?php if($caregiver_religious_observance == 'Orthodox/ Modern Orthodox'){?> selected="selected" <?php }?>>Orthodox/ Modern Orthodox</option>
-                            <option value="Other" <?php if($caregiver_religious_observance == 'Other'){?> selected="selected" <?php }?>>Other</option>
-                            <option value="Not Jewish" <?php if($caregiver_religious_observance == 'Not Jewish'){?> selected="selected" <?php }?>>Not Jewish</option>
+                            <option value="Yeshivish/ Chasidish" <?php if($religious_observance == 'Yeshivish/ Chasidish'){?> selected="selected" <?php }?>>Yeshivish/ Chasidish</option>
+                            <option value="Orthodox/ Modern Orthodox" <?php if($religious_observance == 'Orthodox/ Modern Orthodox'){?> selected="selected" <?php }?>>Orthodox/ Modern Orthodox</option>
+                            <option value="Other" <?php if($religious_observance == 'Other'){?> selected="selected" <?php }?>>Other</option>
+                            <option value="Not Jewish" <?php if($religious_observance == 'Not Jewish'){?> selected="selected" <?php }?>>Not Jewish</option>
                         </select>
                     </div>
 		<?php } ?>
