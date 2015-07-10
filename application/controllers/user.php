@@ -1321,7 +1321,11 @@ class User extends CI_Controller
         $q = true;
         $profile = $this->job_or_profile();
         if($q){
-            $this->session->set_flashdata('info', "$profile Updated successfully");
+            if ($email == 1) {
+                $this->session->set_flashdata('info', "$profile Updated successfully. Your ad will be returned to the site shortly after being approved by our team.");
+            } else {
+                $this->session->set_flashdata('info', "$profile Updated successfully");
+            }
             redirect('user/profile');
         }
         else{
