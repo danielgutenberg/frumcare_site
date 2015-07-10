@@ -167,6 +167,7 @@
         });
         
         $("#submit_now").click(function(e){
+        	e.preventDefault();
                     var name = $('input[name=name]').val();
                     var email = $('input[name=email]').val();
                     var msg = $('textarea').val();
