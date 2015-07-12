@@ -23,7 +23,7 @@
         <meta name="title" content="<?php echo $seodata['meta_title'];?>">
         <meta name="description" content="<?php echo $seodata['meta_desc'];?>">
         <meta name="keywords" content="<?php echo $seodata['meta_keywords'];?>">
-        <?php echo $seodata['google_analytics'];?>
+        <?php //echo $seodata['google_analytics'];?>
 
         <link href="<?php echo site_url();?>css/bootstrap.css" type="text/css" rel="stylesheet">
 
@@ -54,6 +54,25 @@
     <link href="<?php echo site_url();?>css/jquery-ui.css" type="text/css" rel="stylesheet">
         <script src="<?php echo base_url('js/vendor/modernizr-2.6.2-respond-1.1.0.min.js') ?>"></script>
 
+        <!-- Facebook Conversion Code for Caregiver leads -->
+        <script>(function() {
+                var _fbq = window._fbq || (window._fbq = []);
+                if (!_fbq.loaded) {
+                    var fbds = document.createElement('script');
+                    fbds.async = true;
+                    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(fbds, s);
+                    _fbq.loaded = true;
+                }
+            })();
+            window._fbq = window._fbq || [];
+            window._fbq.push(['track', '6030516600835', {'value':'0.01','currency':'ILS'}]);
+        </script>
+        <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6030516600835&amp;cd[value]=0.01&amp;cd[currency]=ILS&amp;noscript=1" /></noscript>
+
+
+
     <script>
         $("#textbox1").ready(function(){        
             $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
@@ -64,8 +83,21 @@
             });
         });
     </script>
+
 </head>
 <body onload="initialize()">
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NXZHPF"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NXZHPF');</script>
+<!-- End Google Tag Manager -->
+
+
     <div class="page-loader-modal"></div>
 <!--[if lt IE 9]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
