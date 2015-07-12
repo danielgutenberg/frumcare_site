@@ -545,7 +545,8 @@ class User extends CI_Controller
  
         //by kiran
         $data['userDetails'] = $this->user_model->getUserDetails($user_id['id']);
-        if ($data['userDetails']['hasAd'] == 0) {
+        $profile= $this->user_model->getNewUserProfile($user_id['id']);
+        if ($data['userDetails']['hasAd'] == 0 && $profile['account_category'] != 2) {
          $user_data = getBrowser();
                 $log = array(
                     'user_id' => $user_id['id'],
@@ -556,7 +557,7 @@ class User extends CI_Controller
                 );
                 $log_id = $this->common_model->insert('tbl_user_logs', $log, true);
                 $log_id = sha1($log_id);
-         $profile= $this->user_model->getNewUserProfile($user_id['id']);
+         
          
          if($profile['care_type'] > 24)
                     $link = "ad/job/organizations/".$profile['care_type'];
