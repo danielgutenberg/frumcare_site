@@ -382,7 +382,7 @@
                             function(e){
                                 $(".searchloader").fadeOut('fast');
                                 notif({
-                                  msg: "Thank you for contacting us. We will get back to you.",
+                                  msg: "Thank you for contacting us. We will get back to you shortly.",
                                   position: "right",
                                   time: 100                              
                                 });

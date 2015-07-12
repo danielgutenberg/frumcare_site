@@ -545,7 +545,8 @@ class User extends CI_Controller
  
         //by kiran
         $data['userDetails'] = $this->user_model->getUserDetails($user_id['id']);
-        if ($data['userDetails']['hasAd'] == 0) {
+        $profile= $this->user_model->getNewUserProfile($user_id['id']);
+        if ($data['userDetails']['hasAd'] == 0 && $profile['account_category'] != 2 && $profile['care_type'] < 25) {
          $user_data = getBrowser();
                 $log = array(
                     'user_id' => $user_id['id'],
@@ -556,7 +557,7 @@ class User extends CI_Controller
                 );
                 $log_id = $this->common_model->insert('tbl_user_logs', $log, true);
                 $log_id = sha1($log_id);
-         $profile= $this->user_model->getNewUserProfile($user_id['id']);
+         
          
          if($profile['care_type'] > 24)
                     $link = "ad/job/organizations/".$profile['care_type'];
@@ -1127,7 +1128,7 @@ class User extends CI_Controller
                         $this->common_model->update('tbl_user',$update_user,array('id' => $this->session->userdata('current_user')));
                     }
                     $profile = $this->job_or_profile();
-                    $this->session->set_flashdata('info', "New $profile successfully added");
+                    $this->session->set_flashdata('info', "New $profile successfully added. Your $profile will be placed on the site after being approved by our team.");
                     redirect('user/profile');
                 }
                 else{
@@ -1272,6 +1273,7 @@ class User extends CI_Controller
       
       public function update_job_details(){
         $care_type = array('care_id'=>$this->uri->segment(3));
+        $hasAd = $this->user_model->getUserDetails(check_user())['hasAd'];
         $this->user_model->update_job_details($care_type);
         $email = 3;
             $p = $_POST;
@@ -1321,7 +1323,15 @@ class User extends CI_Controller
         $q = true;
         $profile = $this->job_or_profile();
         if($q){
-            $this->session->set_flashdata('info', "$profile Updated successfully");
+            if ($email == 1) {
+                $this->session->set_flashdata('info', "$profile Updated successfully. Your ad will be returned to the site shortly after being approved by our team.");
+            } else {
+                if ($hasAd == 0) {
+                    $this->session->set_flashdata('info', "$profile Updated successfully. Your ad will be placed on the site after being approved by our team.");
+                } else {
+                    $this->session->set_flashdata('info', "$profile Updated successfully");
+                }
+            }
             redirect('user/profile');
         }
         else{

@@ -116,7 +116,7 @@
     <div class="familar" style="display:none;">
         <label></label>
         <div class="form-field">
-            <input type="checkbox" name="familartojewish" value="familartojewish"> Familiar with Jewish Tradition
+            <input type="checkbox" name="familartojewish" value="1"> Familiar with Jewish Tradition
         </div>
     </div>
      <?php 

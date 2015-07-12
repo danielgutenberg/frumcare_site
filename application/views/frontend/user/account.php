@@ -10,7 +10,7 @@
         $phone            = explode('+1-', $user_data['contact_number']);
         $age              = $user_data['age'];
         $married          = $user_data['marital_status'];
-        $religious_observance  = $user_data['religious_observance'];
+        $religious_observance  = $user_data['caregiver_religious_observance'];
         $smoker                 = $user_data['smoke'];        
         $education_level    = $user_data['education_level'];
         $educational_institution   = $user_data['educational_institution'];
@@ -54,6 +54,7 @@
                         <div>
                             <label>Type of Organization</label>
                             <select name="sub_care">
+                                <option value="">-- Select --</option>
                                 <option value="day care center" <?php echo $user_data['sub_care'] == 'day care center' ? 'selected="selected"' : '' ?> >Day Care Center</option>
                                 <option value="day camp" <?php echo $user_data['sub_care'] == 'day camp' ? 'selected="selected"' : '' ?>>Day Camp</option>
                                 <option value="afternoon activities" <?php echo $user_data['sub_care'] == 'afternoon activities' ? 'selected="selected"' : '' ?>>Afternoon Activities</option>
@@ -142,6 +143,9 @@
                     </div>
                     <div class="small-seperator"></div>
                     <?php if($this->session->userdata('account_category')!=3){ ?>
+                    <?php 
+                        if($user_data['care_type']!= 7){
+                    ?>
                     <div class="first-names">
                             <label>Marital status</label>
                             <div class="radio-half"><input type="radio" name="marital_status" value="1" <?php if(in_array('1', $marital_status)){?> checked="checked" <?php }?> > Single</div>
@@ -150,6 +154,7 @@
                             <div class="radio-half"><input type="radio" name="marital_status" value="4" <?php if(in_array('4', $marital_status)){?> checked="checked" <?php }?> > Widowed</div>
                     </div>
                     <div class="small-seperator"></div>
+                    <?php } ?>
                     <div class="first-names">
                         <label>Languages Spoken</label>
                             <div class="checkbox"><input type="checkbox" name="language[]" value="English" <?php if(in_array('English',$lang)){?> checked="checked" <?php } ?>> English</div>
@@ -159,13 +164,18 @@
                             <div class="checkbox"><input type="checkbox" name="language[]" value="French" <?php if(in_array('French',$lang)){?> checked="checked" <?php } ?>> French</div>
                             <div class="checkbox"><input type="checkbox" name="language[]" value="Other" <?php if(in_array('Other',$lang)){?> checked="checked" <?php } ?>> Other</div>
                     </div>
+                    <?php 
+                        if($user_data['care_type']!= 7){
+                    ?>
                     <div class="small-seperator"></div>
+                    
                     <div class="first-names">
                         <label>Smoker</label>
                         <div class="radio-half"><input type="radio" name="smoker" value="1" <?php if($user_data['smoke'] == 1){?> checked <?php } ?> > Yes</div>
                         <div class="radio-half"><input type="radio" name="smoker" value="2" <?php if($user_data['smoke'] == 2){?> checked <?php } ?> > No</div>
                         <div class="radio-half"><input type="radio" name="smoker" value="3" <?php if($user_data['smoke'] == 3){?> checked <?php } ?> > Yes, but not at work</div>
                     </div>
+                    <?php } ?>
                     <?php } ?>
                     <div class="small-seperator"></div>
                       <?php 
@@ -180,21 +190,24 @@
                             <option value="Not Jewish" <?php if($religious_observance == 'Not Jewish'){?> selected="selected" <?php }?>>Not Jewish</option>
                         </select>
                     </div>
-		<?php } ?>
-                     <div class="familar" style="display:none;">
+                    <div class="first-names">
                         <label></label>
-                        <div class="form-field">
-                            <input type="checkbox" name="familartojewish" value="familartojewish" <?php if($user_data['familartojewish'] == 'familartojewish'){?> checked = "checked" <?php }?>> Familiar with Jewish Tradition
-                        </div>
+                            <input type="checkbox" name="fimilartojewish" value="1" <?php if($user_data['familartojewish'] == 1){?> checked = "checked" <?php }?>>Familiar with Jewish Tradition
                     </div>
+		<?php } ?>
+                    <!-- <div class="familar" style="display:none;">-->
+                    <!--    <label></label>-->
+                    <!--    <div class="form-field">-->
+                    <!--        <input type="checkbox" name="familartojewish" value="familartojewish" <?php if($user_data['familartojewish'] == 'familartojewish'){?> checked = "checked" <?php }?>> Familiar with Jewish Tradition-->
+                    <!--    </div>-->
+                    <!--</div>-->
 
                     <div class="small-seperator"></div>
                     <?php if($this->session->userdata('account_category')!=3){ ?>    
-                    <div class="first-names" style="display:none;">
-                        <label></label>
-                            <input type="checkbox" name="fimilartojewish" value="fimilartojewish" <?php if($user_data['familartojewish'] == 'familartojewish'){?> checked = "checked" <?php }?>>
-                    </div>
-
+                    
+                    <?php 
+                        if($user_data['care_type']!= 7){
+                    ?>
                     <div class="small-seperator"></div>
                     <div class="first-names">
                         <label>Level of Education</label>
@@ -209,7 +222,8 @@
                     <div class="first-names fullwidth">
                             <label>Educational institutions attended</label>
                             <input type="text" name="educational_instution" value="<?php echo $educational_institution;?> ">
-                    </div>                   
+                    </div>   
+                    <?php } ?>
                     <div class="small-seperator"></div>
                     
                     <?php } 

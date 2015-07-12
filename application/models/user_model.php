@@ -776,6 +776,7 @@ class User_model extends CI_Model
                             'neighbour' => isset($p['neighbour']) ? $p['neighbour'] : $user_data[0]['neighbour'],
                             'lat'=>isset($p['lat']) ? $p['lat'] : $user_data[0]['lat'],
                             'lng'=>isset($p['lng']) ? $p['lng'] : $user_data[0]['lng'],
+                            'hasAd' => 1
                         );
                         
                         //print_r($insert_user); exit;
