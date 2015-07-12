@@ -190,6 +190,10 @@
                             <option value="Not Jewish" <?php if($religious_observance == 'Not Jewish'){?> selected="selected" <?php }?>>Not Jewish</option>
                         </select>
                     </div>
+                    <div class="first-names" style="display:none;">
+                        <label></label>
+                            <input type="checkbox" name="fimilartojewish" value="1" <?php if($user_data['familartojewish'] == 1){?> checked = "checked" <?php }?>>
+                    </div>
 		<?php } ?>
                     <!-- <div class="familar" style="display:none;">-->
                     <!--    <label></label>-->
@@ -200,10 +204,7 @@
 
                     <div class="small-seperator"></div>
                     <?php if($this->session->userdata('account_category')!=3){ ?>    
-                    <div class="first-names" style="display:none;">
-                        <label></label>
-                            <input type="checkbox" name="fimilartojewish" value="1" <?php if($user_data['familartojewish'] == 1){?> checked = "checked" <?php }?>>
-                    </div>
+                    
                     <?php 
                         if($user_data['care_type']!= 7){
                     ?>
