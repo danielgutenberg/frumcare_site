@@ -1273,7 +1273,7 @@ class User extends CI_Controller
       
       public function update_job_details(){
         $care_type = array('care_id'=>$this->uri->segment(3));
-        $hasAd = $this->user_model->getUserDetails(check_user());
+        $hasAd = $this->user_model->getUserDetails(check_user())['hasAd'];
         print_r($hasAd);//['hasAd'];
         $this->user_model->update_job_details($care_type);
         $email = 3;
