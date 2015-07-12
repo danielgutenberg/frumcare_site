@@ -143,6 +143,9 @@
                     </div>
                     <div class="small-seperator"></div>
                     <?php if($this->session->userdata('account_category')!=3){ ?>
+                    <?php 
+                        if($user_data['care_type']!= 7){
+                    ?>
                     <div class="first-names">
                             <label>Marital status</label>
                             <div class="radio-half"><input type="radio" name="marital_status" value="1" <?php if(in_array('1', $marital_status)){?> checked="checked" <?php }?> > Single</div>
@@ -151,6 +154,7 @@
                             <div class="radio-half"><input type="radio" name="marital_status" value="4" <?php if(in_array('4', $marital_status)){?> checked="checked" <?php }?> > Widowed</div>
                     </div>
                     <div class="small-seperator"></div>
+                    <?php } ?>
                     <div class="first-names">
                         <label>Languages Spoken</label>
                             <div class="checkbox"><input type="checkbox" name="language[]" value="English" <?php if(in_array('English',$lang)){?> checked="checked" <?php } ?>> English</div>
@@ -160,13 +164,18 @@
                             <div class="checkbox"><input type="checkbox" name="language[]" value="French" <?php if(in_array('French',$lang)){?> checked="checked" <?php } ?>> French</div>
                             <div class="checkbox"><input type="checkbox" name="language[]" value="Other" <?php if(in_array('Other',$lang)){?> checked="checked" <?php } ?>> Other</div>
                     </div>
+                    <?php 
+                        if($user_data['care_type']!= 7){
+                    ?>
                     <div class="small-seperator"></div>
+                    
                     <div class="first-names">
                         <label>Smoker</label>
                         <div class="radio-half"><input type="radio" name="smoker" value="1" <?php if($user_data['smoke'] == 1){?> checked <?php } ?> > Yes</div>
                         <div class="radio-half"><input type="radio" name="smoker" value="2" <?php if($user_data['smoke'] == 2){?> checked <?php } ?> > No</div>
                         <div class="radio-half"><input type="radio" name="smoker" value="3" <?php if($user_data['smoke'] == 3){?> checked <?php } ?> > Yes, but not at work</div>
                     </div>
+                    <?php } ?>
                     <?php } ?>
                     <div class="small-seperator"></div>
                       <?php 
