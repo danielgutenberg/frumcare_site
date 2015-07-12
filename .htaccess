@@ -6,4 +6,10 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?/$1 [L]
 
+RewriteCond %{HTTPS} !=on
+	RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
+	RewriteCond %{HTTP_HOST} (.+)$ [NC]
+	RewriteRule ^(.*)$ http://www.%1/$1 [R=301,L]
+
+
 RewriteRule    ^tips-and-tools/?$    blog/resources/advices/for-family/    [NC,L]
