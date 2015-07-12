@@ -148,7 +148,7 @@
             <td>Level of religious observance</td>
             <td ><?php echo $caregiver_religious_observance?></td>
             <?php if ($caregiver_religious_observance == 'Not Jewish' || $caregiver_religious_observance == 'Other') { ?>
-            <div ><?php if($familartojewish == 1){ echo $tick; }else{ echo $cross; }?> Familiar with Jewish Tradition</div>
+            <br><?php if($familartojewish == 1){ echo $tick; }else{ echo $cross; }?> Familiar with Jewish Tradition
             <?php } ?>
             
         </tr>
