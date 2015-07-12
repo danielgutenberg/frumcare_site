@@ -23,7 +23,7 @@
         <meta name="title" content="<?php echo $seodata['meta_title'];?>">
         <meta name="description" content="<?php echo $seodata['meta_desc'];?>">
         <meta name="keywords" content="<?php echo $seodata['meta_keywords'];?>">
-        <?php echo $seodata['google_analytics'];?>
+
 
         <link href="<?php echo site_url();?>css/bootstrap.css" type="text/css" rel="stylesheet">
 
