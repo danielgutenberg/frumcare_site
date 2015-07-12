@@ -210,9 +210,10 @@ class Ad extends CI_Controller
                 'neighbour'             => isset($p['neighbour'])?$p['neighbour']:'',
                 'name_of_owner'         => isset($p['name_of_owner'])?$p['name_of_owner']:'',
                 'profile_picture_owner' => isset($p['profile_picture_owner'])?$p['profile_picture_owner']:'',
-                'smoke'                => isset($p['smoker']) ? $p['smoker'] : 2,
-                'hasAd'                 => 1,                    
-            );
+                'smoke'                 => isset($p['smoker']) ? $p['smoker'] : 2,
+                'hasAd'                 => 1,   
+                'familartojewish'      => isset($p['familartojewish']) ? $p['familartojewish'] : 0,
+             );
             /*
                  $response =  $this->getLongitudeAndLatitude($p['location']);
                     if($response){

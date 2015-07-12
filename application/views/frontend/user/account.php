@@ -191,18 +191,18 @@
                         </select>
                     </div>
 		<?php } ?>
-                     <div class="familar" style="display:none;">
-                        <label></label>
-                        <div class="form-field">
-                            <input type="checkbox" name="familartojewish" value="familartojewish" <?php if($user_data['familartojewish'] == 'familartojewish'){?> checked = "checked" <?php }?>> Familiar with Jewish Tradition
-                        </div>
-                    </div>
+                    <!-- <div class="familar" style="display:none;">-->
+                    <!--    <label></label>-->
+                    <!--    <div class="form-field">-->
+                    <!--        <input type="checkbox" name="familartojewish" value="familartojewish" <?php if($user_data['familartojewish'] == 'familartojewish'){?> checked = "checked" <?php }?>> Familiar with Jewish Tradition-->
+                    <!--    </div>-->
+                    <!--</div>-->
 
                     <div class="small-seperator"></div>
                     <?php if($this->session->userdata('account_category')!=3){ ?>    
                     <div class="first-names" style="display:none;">
                         <label></label>
-                            <input type="checkbox" name="fimilartojewish" value="fimilartojewish" <?php if($user_data['familartojewish'] == 'familartojewish'){?> checked = "checked" <?php }?>>
+                            <input type="checkbox" name="fimilartojewish" value="1" <?php if($user_data['familartojewish'] == 1){?> checked = "checked" <?php }?>>
                     </div>
                     <?php 
                         if($user_data['care_type']!= 7){
