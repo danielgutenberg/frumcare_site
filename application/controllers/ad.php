@@ -522,7 +522,7 @@ class Ad extends CI_Controller
             if($q){
                 $facility_picture  = isset($p['facility_pic']) ? $p['facility_pic'] : '';
                 $this->common_model->update('tbl_userprofile', array('facility_pic'=>$facility_picture), array('id'=>check_user()));
-                $this->session->set_flashdata('info', 'Ad posted successfully');
+                $this->session->set_flashdata('info', 'Ad posted successfully. Your ad will be placed on the site after being approved by our team.');
                 //user notification
                 $this->notifyUser();
 
@@ -1006,7 +1006,7 @@ class Ad extends CI_Controller
                 $this->notifyUser();
                 $this->approveAds();
 
-                $this->session->set_flashdata('success', 'Ad posted successfully');
+                $this->session->set_flashdata('success', 'Ad posted successfully. Your ad will be placed on the site after being approved by our team.');
                 redirect('user/dashboard');
             }
             else{
