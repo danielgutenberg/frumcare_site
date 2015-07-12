@@ -1274,7 +1274,6 @@ class User extends CI_Controller
       public function update_job_details(){
         $care_type = array('care_id'=>$this->uri->segment(3));
         $hasAd = $this->user_model->getUserDetails(check_user())['hasAd'];
-        print_r($hasAd);//['hasAd'];
         $this->user_model->update_job_details($care_type);
         $email = 3;
             $p = $_POST;
@@ -1327,7 +1326,7 @@ class User extends CI_Controller
             if ($email == 1) {
                 $this->session->set_flashdata('info', "$profile Updated successfully. Your ad will be returned to the site shortly after being approved by our team.");
             } else {
-                if ($hadAd == 0) {
+                if ($hasAd == 0) {
                     $this->session->set_flashdata('info', "$profile Updated successfully. Your ad will be placed on the site after being approved by our team.");
                 } else {
                     $this->session->set_flashdata('info', "$profile Updated successfully");
