@@ -1128,7 +1128,7 @@ class User extends CI_Controller
                         $this->common_model->update('tbl_user',$update_user,array('id' => $this->session->userdata('current_user')));
                     }
                     $profile = $this->job_or_profile();
-                    $this->session->set_flashdata('info', "New $profile successfully added");
+                    $this->session->set_flashdata('info', "New $profile successfully added. Your $profile will be placed on the site after being approved by our team.");
                     redirect('user/profile');
                 }
                 else{
