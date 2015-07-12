@@ -190,7 +190,7 @@
                             <option value="Not Jewish" <?php if($religious_observance == 'Not Jewish'){?> selected="selected" <?php }?>>Not Jewish</option>
                         </select>
                     </div>
-                    <div class="first-names" style="display:none;">
+                    <div class="first-names">
                         <label></label>
                             <input type="checkbox" name="fimilartojewish" value="1" <?php if($user_data['familartojewish'] == 1){?> checked = "checked" <?php }?>>
                     </div>
