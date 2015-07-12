@@ -546,7 +546,7 @@ class User extends CI_Controller
         //by kiran
         $data['userDetails'] = $this->user_model->getUserDetails($user_id['id']);
         $profile= $this->user_model->getNewUserProfile($user_id['id']);
-        if ($data['userDetails']['hasAd'] == 0 && $profile['account_category'] != 2) {
+        if ($data['userDetails']['hasAd'] == 0 && $profile['account_category'] != 2 && $profile['care_type'] < 25) {
          $user_data = getBrowser();
                 $log = array(
                     'user_id' => $user_id['id'],
