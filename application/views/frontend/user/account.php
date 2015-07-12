@@ -192,7 +192,7 @@
                     </div>
                     <div class="first-names">
                         <label></label>
-                            <input type="checkbox" name="fimilartojewish" value="1" <?php if($user_data['familartojewish'] == 1){?> checked = "checked" <?php }?>>Familiar with Jewish Tradition<input>
+                            <input type="checkbox" name="fimilartojewish" value="1" <?php if($user_data['familartojewish'] == 1){?> checked = "checked" <?php }?>>Familiar with Jewish Tradition
                     </div>
 		<?php } ?>
                     <!-- <div class="familar" style="display:none;">-->
