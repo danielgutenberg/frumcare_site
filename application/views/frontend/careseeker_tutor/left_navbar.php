@@ -6,7 +6,7 @@
 	 		
  					
              <div>
-                <label>subject(s)(check one or more)</label>
+                <label>Subject(s)</label>
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" value="Elementary school" name="subjects[]" class="subject"> Elementary school</div>
                     <div class="checkbox"><input type="checkbox" value="High school" name="subjects[]" class="subject"> High school</div>

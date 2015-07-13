@@ -60,7 +60,7 @@
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Vacation Sitter">Vacation Sitter</div>
 		 	</div>
             <div class="select-services">
-                <label>Rate</label>
+                <label>Wage</label>
                     <select name="rate" class="rate">
                         <option value="">Select rate</option>
                         <option value="5-10">$5-$10</option>
