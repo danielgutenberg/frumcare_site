@@ -15,7 +15,7 @@
                     <div class="checkbox"><input type="checkbox" value="general studies" name="subjects[]" class="subject" />General Studies</div>
                     <div class="checkbox"><input type="checkbox" value="Music" name="subjects[]" class="subject"> Music</div>
                     <div class="checkbox"><input type="checkbox" value="Art" name="subjects[]" class="subject"> Art</div>
-                    <div class="checkbox"><input type="checkbox" value="Ohter" name="subjects[]" class="subject"> Ohter</div>
+                    <div class="checkbox"><input type="checkbox" value="Other" name="subjects[]" class="subject"> Other</div>
                 </div>
             </div>
  			<div>
