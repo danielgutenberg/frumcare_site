@@ -435,7 +435,7 @@ $(function () {
 			  	var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
 			    var available = $('.short_notice').is('.checked')?$('.short_notice').val():'';
 	            var start_date = $("#textbox1").val()?$("#textbox1").val():'';
-	            var care_type = $( ".careType option:selected" ).val();
+	            var care_type = $( ".care_type option:selected" ).val();
 	            
 	            $.ajax({
 	            	type : "post",

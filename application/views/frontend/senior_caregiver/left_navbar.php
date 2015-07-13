@@ -529,7 +529,7 @@ $(function () {
 		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
 		  	var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
 		    var available = $('.available_on_short_notice').is('.checked')?$('.available_on_short_notice').val():'';
-	    	var care_type = $( ".careType option:selected" ).val();
+	    	var care_type = $( ".care_type option:selected" ).val();
 
 		    	$.ajax({
 			    		type:"post",
