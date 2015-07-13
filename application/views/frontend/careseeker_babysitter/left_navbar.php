@@ -60,17 +60,17 @@
 		 		<div class="checkbox"><input type="checkbox" class="availability" value="Vacation Sitter">Vacation Sitter</div>
 		 	</div>
             <div class="select-services">
-                <label>Rate</label>
+                <label>Wage</label>
                     <select name="rate" class="rate">
-                        <option value="">Select rate</option>
-                        <option value="5-10">$5-$10</option>
-                        <option value="10-15">$10-$15</option>
-                        <option value="15-25">$15-$25</option>
-                        <option value="25-35">$25-$35</option>
-                        <option value="35-45">$35-$45</option>
-                        <option value="45-55">$45-$55</option>
-                        <option value="55+">$55+</option>
-                    </select>    
+                        <option value="">Select wage</option>
+                        <option value="5-10">$5-$10 / Hr</option>
+                        <option value="10-15">$10-$15 / Hr</option>
+                        <option value="15-25">$15-$25 / Hr</option>
+                        <option value="25-35">$25-$35 / Hr</option>
+                        <option value="35-45">$35-$45 / Hr</option>
+                        <option value="45-55">$45-$55 / Hr</option>
+                        <option value="55+">$55+ / Hr</option>
+                    </select>   
                 
                             <div>
                 <!--<div class="checkbox"><input type="checkbox" name="rate_type[]" value="1" class="rate_type"/>Per hour</div>-->

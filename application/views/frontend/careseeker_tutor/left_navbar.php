@@ -6,7 +6,7 @@
 	 		
  					
              <div>
-                <label>subject(s)(check one or more)</label>
+                <label>Subject(s)</label>
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" value="Elementary school" name="subjects[]" class="subject"> Elementary school</div>
                     <div class="checkbox"><input type="checkbox" value="High school" name="subjects[]" class="subject"> High school</div>
@@ -15,7 +15,7 @@
                     <div class="checkbox"><input type="checkbox" value="general studies" name="subjects[]" class="subject" />General Studies</div>
                     <div class="checkbox"><input type="checkbox" value="Music" name="subjects[]" class="subject"> Music</div>
                     <div class="checkbox"><input type="checkbox" value="Art" name="subjects[]" class="subject"> Art</div>
-                    <div class="checkbox"><input type="checkbox" value="Ohter" name="subjects[]" class="subject"> Ohter</div>
+                    <div class="checkbox"><input type="checkbox" value="Other" name="subjects[]" class="subject"> Other</div>
                 </div>
             </div>
  			<div>
@@ -46,7 +46,7 @@
             <div class="select-services">
                 <label>Wage</label>
                     <select name="rate" class="rate">
-                        <option value="">Select rate</option>
+                        <option value="">Select wage</option>
                         <option value="5-10">$5-$10 / Hr</option>
                         <option value="10-15">$10-$15 / Hr</option>
                         <option value="15-25">$15-$25 / Hr</option>

@@ -47,7 +47,7 @@
               <div class="select-services">
                 <label>Wage</label>
                     <select name="rate" class="rate">
-                        <option value="">Select rate</option>
+                        <option value="">Select wage</option>
                         <option value="5-10">$5-$10 / Hr</option>
                         <option value="10-15">$10-$15 / Hr</option>
                         <option value="15-25">$15-$25 / Hr</option>

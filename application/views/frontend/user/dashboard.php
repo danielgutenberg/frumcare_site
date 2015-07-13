@@ -157,11 +157,11 @@
 			</div>
             -->
 			<div class="searches profile-block">
-					<a href="user/paymenthistory" class="profile-img">
+					<a href="<?php echo site_url();?>user/paymenthistory" class="profile-img">
 						<img src="<?php echo site_url();?>img/icon-dashboard/payment.png" title="My Payment History" alt="My Payment History">
 					</a>
 					
-					<a href="user/paymenthistory" class="profie-name">
+					<a href="<?php echo site_url();?>user/paymenthistory" class="profie-name">
 						My Payment History
 					</a>
 			</div>			

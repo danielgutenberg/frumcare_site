@@ -85,11 +85,11 @@
                        <?php
                    }}
                    if(!empty($recordData['experience'])){ ?>               
-                   <span class="experience-wrap"><?php echo $recordData['experience']. ' <span>Years Experience</span>';?></span>
+                   <span class="experience-wrap"><?php echo $recordData['experience']. ' <span>Years of Experience</span>';?></span>
                    <?php
                 }
                 else{ ?>
-                <span class="experience-wrap"><?php echo 'N/A'. ' <span>Years Experience</span>';?></span>
+                <span class="experience-wrap"><?php echo 'N/A'. ' <span>Years of Experience</span>';?></span>
                 <?php   
                 }                
                 ?>                             	        			    			
