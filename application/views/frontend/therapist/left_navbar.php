@@ -403,7 +403,7 @@ $(document).ready(function () {
 	        	return $(el).val();
 	    	}).get();
 	    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
-            var care_type = $( ".careType option:selected" ).val();
+            var care_type = $( ".care_type option:selected" ).val();
             var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
             $.ajax({
             	type : "post",

@@ -231,7 +231,7 @@ $(function () {
                 var rate_type = $('.rate_type:checked').map(function(_, el) {
     		        return $(el).val();
     		    }).get();  
-    		    var care_type = $( ".careType option:selected" ).val();
+    		    var care_type = $( ".jobtype option:selected" ).val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_babysitter/search",
@@ -276,7 +276,7 @@ $(function () {
     		        return $(el).val();
     		    }).get();
                 var rate = $('.rate').val(); 
-                var care_type = $( ".careType option:selected" ).val();
+                var care_type = $( ".jobtype option:selected" ).val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_babysitter/search",
@@ -318,7 +318,7 @@ $(function () {
     		        return $(el).val();
     		    }).get();
                 var rate = $('.rate').val(); 
-                var care_type = $( ".careType option:selected" ).val();
+                var care_type = $( ".jobtype option:selected" ).val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_babysitter/search",
@@ -366,7 +366,7 @@ $(function () {
             var homework_help = $('.homework_help').is(':checked') ? $('.homework_help').val() :'';
             var on_short_notice = $('.on_short_notice').is(':checked') ? $('.on_short_notice').val():'';
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
-            var care_type = $( ".careType option:selected" ).val();
+            var care_type = $( ".jobtype option:selected" ).val();
             var rate = $('.rate').val();
             $.ajax({
                 type : "post",

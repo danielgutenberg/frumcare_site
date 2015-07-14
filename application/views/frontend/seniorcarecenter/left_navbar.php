@@ -254,7 +254,7 @@ $(function () {
             var extra_field = $('.extra_field:checked').map(function(_, el) {
     		        return $(el).val();
   		    }).get();  
-            var care_type = $( ".careType option:selected" ).val();
+            var care_type = $( ".care_type_organizations option:selected" ).val();
             var sub_care = $('.sub_care').val();
             $.ajax({
                 type : "post",

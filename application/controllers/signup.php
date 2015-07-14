@@ -242,7 +242,7 @@ class Signup extends CI_Controller
                 $this->session->set_userdata($sess);
 
                 $this->session->set_flashdata('success', 'Your email has been verified.');
-                redirect('signup-successful','refresh');
+                redirect('user/dashboard','refresh');
             }else{
                 $this->session->set_flashdata('success', 'Your email has already been verified.');
                 redirect('user/dashboard','refresh');

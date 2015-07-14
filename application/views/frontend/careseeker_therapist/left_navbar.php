@@ -129,7 +129,7 @@ $(function () {
                     $(this).dialog("close");
                         var neighbour = $('.neighbour').val();
                         var gender_of_caregiver = $('.gender_of_caregiver').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';                          
-                        var care_type = $( ".careType option:selected" ).val();
+                        var care_type = $( ".jobtype option:selected" ).val();
                         $.ajax({
                             type : "post",
                             url  : "<?php echo site_url();?>careseeker_specialneedscaregiver/savesearch",

@@ -249,7 +249,7 @@ $(function () {
 		        return $(el).val();
 		    }).get();
             var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
-		    var care_type = $( ".careType option:selected" ).val();
+		    var care_type = $( ".care_type_organizations option:selected" ).val();
             var extra_field = $('.extra_field:checked').map(function(_, el) {
     		        return $(el).val();
     		    }).get();

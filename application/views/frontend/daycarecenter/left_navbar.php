@@ -274,7 +274,7 @@ $(function () {
 		        var lang = $('.lang:checked').map(function(_, el) {
 			        return $(el).val();
 			    }).get();			    
-	            var care_type = $( ".careType option:selected" ).val();
+	            var care_type = $( ".care_type option:selected" ).val();
                 var sub_care = $('.sub_care').val();
 	            var age_group = $('.age_group:checked').map(function(_, el) {
 		        return $(el).val();

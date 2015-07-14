@@ -422,7 +422,7 @@ $(function () {
 		        return $(el).val();
 		    }).get();
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
-            var care_type = $( ".careType option:selected" ).val();
+            var care_type = $( ".care_type option:selected" ).val();
 
             $.ajax({
             	type:"post",

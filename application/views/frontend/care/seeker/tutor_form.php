@@ -17,6 +17,7 @@
         $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
      });
 </script>
+<div class="container">
 <?php 
 if(($this->uri->segment(2) != 'new_profile')){?>
 <ol class="progtrckr" data-progtrckr-steps="3">
@@ -218,3 +219,4 @@ $user_detail = get_user(check_user());
         </div>
     </div>
 </form>
+</div>

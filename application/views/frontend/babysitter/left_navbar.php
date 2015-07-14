@@ -598,7 +598,7 @@ $(document).ready(function () {
             var caregiverage_from  = $('.caregiverage_from').val()?$('.caregiverage_from').val():'';
             var caregiverage_to = $('.caregiverage_to').val()?$('.caregiverage_to').val():'';
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
-            var care_type = $( ".select-services option:selected" ).val();
+            var care_type = $( ".care_type option:selected" ).val();
             var training = $('.training:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();

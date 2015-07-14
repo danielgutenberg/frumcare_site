@@ -206,7 +206,7 @@ $(function () {
                     var rate_type = $('.rate_type:checked').map(function(_, el) {
                         return $(el).val();
                     }).get();
-                    var care_type = $( ".careType option:selected" ).val();
+                    var care_type = $( ".jobtype option:selected" ).val();
                         $.ajax({
                             type : "post",
                             url  : "<?php echo site_url();?>careseeker_specialneedsfacility/savesearch",

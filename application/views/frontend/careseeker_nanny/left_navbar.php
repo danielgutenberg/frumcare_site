@@ -351,7 +351,7 @@ $(function () {
                         var rate = $('.rate').val();
                         var rate_type = $('.rate_type').val();
                         var start_date = $("#textbox1").val()?$("#textbox1").val():'';    
-                        var care_type = $( ".careType option:selected" ).val();
+                        var care_type = $( ".jobtype option:selected" ).val();
                         $.ajax({
                             type : "post",
                             url  : "<?php echo site_url();?>careseeker_nanny/savesearch",
