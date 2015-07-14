@@ -131,7 +131,7 @@ class Login extends CI_Controller
             {
                 case 200:
                     $url = $twitteroauth->getAuthorizeURL($_SESSION['oauth_token']);
-                    echo $url;die;
+                    // echo $url;die;
                     //redirect to Twitter .
                     header('Location: ' . $url);
                     break;
