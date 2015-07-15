@@ -32,7 +32,7 @@ $rate_type = explode(',',$detail[0]['rate_type']);
             </div>
             
             <div>
-                <label>For</label>
+                <label>Looking to work in</label>
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" value="Private home" name="looking_to_work[]" <?php if(in_array('Private home',$templookingtowork)){?> checked="checked" <?php }?>> <span>Home</span></div>
                     <div class="checkbox"><input type="checkbox" value="Business/Office" name="looking_to_work[]" <?php if(in_array('Business/Office',$templookingtowork)){?> checked="checked" <?php }?>> <span>Office / business</span></div>
@@ -49,21 +49,41 @@ $rate_type = explode(',',$detail[0]['rate_type']);
         <!--</div>-->
 
         <div>
-            <label>Minimum experience</label>
-            <div class="form-field">
-            <select name="experience">
-                <option value="">Select minimum experience</option>
-                <option value="1" <?php echo isset($exp) && $exp == 1 ? 'selected' : '' ?>>1 year</option>
-                <option value="2" <?php echo isset($exp) && $exp == 2 ? 'selected' : '' ?>>2 years</option>
-                <option value="3" <?php echo isset($exp) && $exp == 3 ? 'selected' : '' ?>>3 years</option>
-                <option value="4" <?php echo isset($exp) && $exp == 4 ? 'selected' : '' ?>>4 years</option>
-                <option value="5+" <?php echo isset($exp) && $exp == '5+' ? 'selected' : '' ?>>5+ years</option>
-            </select>
+                <label>Years of experience</label>
+                <div class="form-field">
+                <select name="experience" class="required">
+                    <option value="">Select years of experience</option>
+                    <option value="1" <?php echo isset($exp) && $exp == 1 ? 'selected' : '' ?>>1 year</option>
+                    <option value="2" <?php echo isset($exp) && $exp == 2 ? 'selected' : '' ?>>2 years</option>
+                    <option value="3" <?php echo isset($exp) && $exp == 3 ? 'selected' : '' ?>>3 years</option>
+                    <option value="4" <?php echo isset($exp) && $exp == 4 ? 'selected' : '' ?>>4 years</option>
+                    <option value="6" <?php echo isset($exp) && $exp == 6 ? 'selected' : '' ?>>5+ years</option>
+                </select>
+                </div>
             </div>
-        </div>
+            
+            <div class="rate-select">
+                <label>Rate</label>
+                <div class="form-field">
+                    <select name="rate" class="required rate">
+                        <option value="">Select rate</option>
+                    <option value="5-10" <?php echo isset($rate) && $rate == '5-10' ? 'selected' : '' ?>>$5-$10 / Hr</option>
+                    <option value="10-15" <?php echo isset($rate) && $rate == '10-15' ? 'selected' : '' ?>>$10-$15 / Hr</option>
+                    <option value="15-25" <?php echo isset($rate) && $rate == '15-25' ? 'selected' : '' ?>>$15-$25 / Hr</option>
+                    <option value="25-35" <?php echo isset($rate) && $rate == '25-35' ? 'selected' : '' ?>>$25-$35 / Hr</option>
+                    <option value="35-45" <?php echo isset($rate) && $rate == '35-45' ? 'selected' : '' ?>>$35-$45 / Hr</option>
+                    <option value="45-55" <?php echo isset($rate) && $rate == '45-55' ? 'selected' : '' ?>>$45-$55 / Hr</option>
+                    <option value="55+" <?php echo isset($rate) && $rate == '55+' ? 'selected' : '' ?>>$55+ / Hr</option></select>
+                </div>
+            </div>
+            <div>
+                <!--<label>Check one or more</label>-->
+                <!--<div class="checkbox"><input type="checkbox" name="rate_type[]" value="1">Hourly Rate</div>-->
+                <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
+            </div>
             
             <div>
-                <label>Must specialize in</label>
+                <label>Specialize in</label>
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" value="Dishes" name="willing_to_work[]" <?php if(in_array('Dishes', $tempwillingtowork)){?> checked="checked" <?php }?>> <span>Dishes</span></div>
                     <div class="checkbox"><input type="checkbox" value="Floors" name="willing_to_work[]" <?php if(in_array('Floors', $tempwillingtowork)){?> checked="checked" <?php }?>> <span>Floors</span></div>
@@ -92,26 +112,22 @@ $rate_type = explode(',',$detail[0]['rate_type']);
                     <div class="checkbox"><input type="checkbox" value="Saturday" name="availability[]" <?php if(in_array("Saturday",$time)){?> checked="checked"<?php }?>> <span>Saturday</span></div>               
                 </div>
             </div>
-            <div class="rate-select">
-            <label>Wage</label>
-            <div class="form-field">
-                <select name="rate" class="required">
-                    <option value="">Select rate</option>
-                    <option value="5-10" <?php echo isset($rate) && $rate == '5-10' ? 'selected' : '' ?>>$5-$10 / Hr</option>
-                    <option value="10-15" <?php echo isset($rate) && $rate == '10-15' ? 'selected' : '' ?>>$10-$15 / Hr</option>
-                    <option value="15-25" <?php echo isset($rate) && $rate == '15-25' ? 'selected' : '' ?>>$15-$25 / Hr</option>
-                    <option value="25-35" <?php echo isset($rate) && $rate == '25-35' ? 'selected' : '' ?>>$25-$35 / Hr</option>
-                    <option value="35-45" <?php echo isset($rate) && $rate == '35-45' ? 'selected' : '' ?>>$35-$45 / Hr</option>
-                    <option value="45-55" <?php echo isset($rate) && $rate == '45-55' ? 'selected' : '' ?>>$45-$55 / Hr</option>
-                    <option value="55+" <?php echo isset($rate) && $rate == '55+' ? 'selected' : '' ?>>$55+ / Hr</option>
-                </select>
+            <div>
+            <label>References</label>
+            <div class="form-field not-required">
+            <div class="radio"><input type="radio" id="ref_check1" value="1" name="references" class="required" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?>/> Yes</div>
+            <div class="radio"><input type="radio" id="ref_check2" value="2" name="references" class="required" <?php echo isset($ref) && $ref == 2 ? 'checked' : '' ?> checked/> No</div>
             </div>
         </div>
-        <div>
-                <!--<label>Check one or more</label>
-                <div class="checkbox"><input type="checkbox" name="rate_type[]" value="1" <?php if(in_array('1',$rate_type)){?> checked="checked" <?php }?> >Hourly Rate</div>-->
-                <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2" <?php if(in_array('2',$rate_type)){?> checked="checked" <?php }?> >Monthly Rate Available</div>
+        <div class="refrence_file" style="display:none;">
+            <label></label>
+            <input type="hidden" id="file-name" name="file">
+            <button class="btn btn-primary" id="select_file">Select File</button>
+            <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
+            <div id="output" class="loader"></div>
         </div>
+        
+        
     <!--    <h2>Additional Requirements</h2>-->
     <!--    <div>-->
     <!--    <label>Languages necessary</label>-->
@@ -146,23 +162,23 @@ $rate_type = explode(',',$detail[0]['rate_type']);
     <!--        </select>-->
     <!--        </div>-->
     <!--    </div>-->
-    <!--    <h2>Abilities and skills</h2>-->
+        <h2>Abilities and skills</h2>
 
-        <!--<div class="checkbox-wrap">-->
-        <!--        <div>-->
-        <!--            <input type="checkbox" value="1" name="driver_license" <?php echo isset($driver_license) && $driver_license == 1 ? 'checked' : ''?>> <label>Drivers license</label>-->
-        <!--        </div>-->
-        <!--        <div>-->
-        <!--            <input type="checkbox" value="1" name="vehicle" <?php echo isset($vehicle) && $vehicle == 1 ? 'checked' : ''?>> <label>Vehicle</label>-->
-        <!--        </div>-->
-        <!--        <div>-->
-        <!--            <input type="checkbox" value="1" name="on_short_notice" <?php echo isset($on_short_notice) && $on_short_notice == 1 ? 'checked' : ''?>> <label>Available on short notice</label>-->
-        <!--        </div>-->
-        <!--        <div>-->
-        <!--         <input type="submit" class="btn btn-success" value="Update"/>-->
-        <!--     </div>-->
+        <div class="checkbox-wrap">
+                <div>
+                    <input type="checkbox" value="1" name="driver_license" <?php echo isset($driver_license) && $driver_license == 1 ? 'checked' : ''?>> <label>Drivers license</label>
+                </div>
+                <div>
+                    <input type="checkbox" value="1" name="vehicle" <?php echo isset($vehicle) && $vehicle == 1 ? 'checked' : ''?>> <label>Vehicle</label>
+                </div>
+                <div>
+                    <input type="checkbox" value="1" name="on_short_notice" <?php echo isset($on_short_notice) && $on_short_notice == 1 ? 'checked' : ''?>> <label>Available on short notice</label>
+                </div>
+                <div>
+                 <input type="submit" class="btn btn-success" value="Update"/>
+             </div>
             
-        <!--</div>-->
+        </div>
         </div>
     </form>
 </div>
