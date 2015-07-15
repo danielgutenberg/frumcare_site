@@ -121,13 +121,13 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <input type="hidden" name="account_type2" value="<?php echo $this->uri->segment(4);?>"/>
 
 
-        <h2>Abilities and skill</h2>
+        <h2>Skills</h2>
             <div class="checkbox-wrap">
                 <div>
-                    <input type="checkbox" value="1" name="driver_license">Drivers license
+                    <input type="checkbox" value="1" name="driver_license"> Drivers license
                 </div>
                 <div>
-                    <input type="checkbox" value="1" name="vehicle">Vehicle
+                    <input type="checkbox" value="1" name="vehicle"> Vehicle
                 </div>
                 <div>
                     <input type="checkbox" value="1" name="on_short_notice"> Available on short notice
