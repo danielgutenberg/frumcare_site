@@ -29,7 +29,10 @@ class User extends CI_Controller
         $id = $this->session->userdata['current_user'];
         $this->breadcrumbs->push('Dashboard', site_url().'#');
         $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
-
+        if (! $id) {
+            $this->session->set_flashdata('info', 'Invalid username or password');
+            redirect('login');
+        }
         $data['main_content']       = 'frontend/user/dashboard';
         $data['verificationdata']   = $this->user_model->getVerificationData($id);
         $data['title']              = 'Dashboard';
