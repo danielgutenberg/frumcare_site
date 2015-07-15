@@ -113,6 +113,12 @@ $rate_type = explode(',',$detail[0]['rate_type']);
                 </div>
             </div>
             <div>
+            <label>Tell us about yourself</label>
+            <div class="form-field">
+            <textarea name="profile_description" class="required"><?php echo isset($profile_description) ? $profile_description : '' ?></textarea>
+            </div>
+        </div>
+            <div>
             <label>References</label>
             <div class="form-field not-required">
             <div class="radio"><input type="radio" id="ref_check1" value="1" name="references" class="required" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?>/> Yes</div>

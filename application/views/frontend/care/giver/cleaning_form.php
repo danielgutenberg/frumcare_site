@@ -96,6 +96,12 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                     <div class="checkbox"><input type="checkbox" value="Saturday" name="availability[]"> <span>Saturday</span></div>
                 </div>
             </div>
+            <div>
+                <label>Tell us about yourself</label>
+                <div class="form-field">
+                <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
+                </div>
+            </div>
             	<div>
             <label>References</label>
             <div class="form-field not-required">
