@@ -168,7 +168,7 @@ $rate_type = explode(',',$detail[0]['rate_type']);
     <!--        </select>-->
     <!--        </div>-->
     <!--    </div>-->
-        <h2>Abilities and skills</h2>
+        <h2>Skills</h2>
 
         <div class="checkbox-wrap">
                 <div>
