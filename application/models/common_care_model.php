@@ -16,13 +16,13 @@ class Common_care_model extends CI_Model
         if($option == 'tbl_userprofile.id'){
             $order_type = 'desc';
         }        
-        $sql = "SELECT tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance,tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id  WHERE tbl_user.status = 1 and tbl_userprofile.profile_status = 1 ";                
+        $sql = "SELECT tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance,tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id  left outer join tbl_care on tbl_care.id = tbl_userprofile.care_type WHERE tbl_user.status = 1 and tbl_userprofile.profile_status = 1 ";                
         if($care_type!=''){
             $sql.=" and tbl_userprofile.care_type = $care_type and tbl_userprofile.account_category = $account_category";
         }
         else{
            if($account_category==1){
-                $sql.=" and tbl_userprofile.care_type < 10";
+                $sql.=" and tbl_care.service_type = 1";
            }
            if($account_category==2){
                 $sql.=" and tbl_userprofile.care_type >16 and tbl_userprofile.care_type < 25";
