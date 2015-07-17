@@ -41,7 +41,7 @@ class Caregivers extends CI_Controller
                     $location = isset($ipdata['city'])?$ipdata['city']:'your city';
                 }             
             }
-            $userdata       = $this->common_care_model->sort($item_per_page,$latitude,$longitude,$option,$account_category,$care_type,$distance);
+            $userdata       = $this->babysitter->searchAll(array(),$latitude,$longitude);
             $get_total_rows = $this->common_care_model->getCount($latitude,$longitude,$account_category,$care_type,$distance);                                                         
             $data = array(
               				'main_content' 	    => 'frontend/common_caregiver',                            
