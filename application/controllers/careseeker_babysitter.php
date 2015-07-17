@@ -202,6 +202,59 @@ class Careseeker_babysitter extends CI_Controller{
             echo json_encode($merge);
             exit();		
 	}
+	
+	public function searchAll(){
+		$limit = 15;	
+            if(check_user()){
+                $locationdetails = $this->common_model->getMyLocation(check_user());
+                if($locationdetails){
+                    $latitude = $locationdetails[0]['lat'];
+                    $longitude = $locationdetails[0]['lng'];
+                    $location =  isset($locationdetails[0]['location'])?$locationdetails[0]['location']:'your city';
+                }
+                if (!$latitude) {
+                        $ipdata = $this->common_model->getIPData($this->ipaddress);
+                        if(is_array($ipdata)){
+                            $latitude = ($ipdata['lat']);
+                            $longitude = ($ipdata['lon']);
+                            $location = isset($ipdata['city'])?$ipdata['city']:'your city';
+                        }
+                    }
+            
+            }
+            else{
+                $ipdata = $this->common_model->getIPData($this->ipaddress);
+                if(is_array($ipdata)){
+                    $latitude = $ipdata['lat'];
+                    $longitude = $ipdata['lon'];
+                    $location = isset($ipdata['city'])?$ipdata['city']:'your city';
+                }
+            }
+			$postdata['neighbor'] 			= $this->input->get('neighbour',true);
+			$postdata['number_of_children'] = $this->input->get('number_of_children',true);
+			$postdata['morenum']			= $this->input->get('morenum',true);
+			$postdata['age_group']			= $this->input->get('age_group',true);
+			$postdata['looking_to_work']	= $this->input->get('looking_to_work',true);
+			$postdata['availability']		= $this->input->get('availability',true);
+			$postdata['rate']               = $this->input->get('rate',true);
+            $postdata['rate_type']          = $this->input->get('rate_type',true);
+            $postdata['start_date']         = $this->input->get('start_date',true);
+            
+            $res = $this->babysitter->searchAll($postdata,$latitude,$longitude);
+			if(is_array($res))
+				$total = count($res);
+			else
+				$total = 0;
+			$userlogs             	= $this->user_model->getUserLog();
+            $merge['userdatas']   	= $this->load->view('frontend/common_profile_list', array('userdatas'=>$res,'userlogs'=>$userlogs,'location'=>$location), true);
+            $total_rows           	= $total;
+            $merge['num']         	= ceil($total_rows/@$limit); 
+            $merge['total']       	= $total_rows;
+            $merge['pagination']       	= '';  
+            echo json_encode($merge);
+            exit();		
+	}
+	
     public function searchbylocation(){
         if($_GET){
             $latitude   = $this->input->get('latitude',true);
