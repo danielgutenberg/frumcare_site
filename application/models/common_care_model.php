@@ -22,7 +22,6 @@ class Common_care_model extends CI_Model
         }
         else{
            if($account_category==1){
-               print_r('got here');
                 $sql.=" and tbl_userprofile.care_type < 17";
            }
            if($account_category==2){
