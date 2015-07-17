@@ -241,7 +241,7 @@
                         <?php if($data['rate']){?>
 							<li>							
 								<?php echo "$".str_replace("t","-",$data['rate']); ?>
-                                <?php echo $data['rate_type']==1?" per hour":" per hour"; ?>						
+                                <?php echo $data['care_type']==3?"":" per hour"; ?>						
 							</li>
                         <?php  
                             }
