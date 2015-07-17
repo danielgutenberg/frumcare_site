@@ -11,6 +11,7 @@ class Caregivers extends CI_Controller
         $this->load->model('caretype_model');
         $this->load->model('refrence_model');
         $this->load->model('common_care_model');
+        $this->load->model('babysitter_model');
         $this->ipaddress = $_SERVER['REMOTE_ADDR'];
     }
 
