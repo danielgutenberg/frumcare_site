@@ -14,6 +14,7 @@
     $ciurl       = $trimmed_url['scheme']."://".$trimmed_url['host']."/".$path1[1];
     if($path1[2] == 'dev')
      $ciurl .=   "/".$path1[2];
+     $ciurl = substr($ciurl, 0, -5);
 ?>
 
 	</div><!-- #content -->
