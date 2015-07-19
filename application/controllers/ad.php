@@ -213,6 +213,8 @@ class Ad extends CI_Controller
                 'smoke'                 => isset($p['smoker']) ? $p['smoker'] : 2,
                 'hasAd'                 => 1,   
                 'familartojewish'      => isset($p['familartojewish']) ? $p['familartojewish'] : 0,
+                'education_level'          => isset($p['education_level']) ? $p['education_level'] : '',
+                'educational_institution'  => isset($p['educational_institution']) ? $p['educational_institution'] : '',
              );
             /*
                  $response =  $this->getLongitudeAndLatitude($p['location']);

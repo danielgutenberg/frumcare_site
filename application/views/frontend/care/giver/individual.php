@@ -129,7 +129,7 @@
                     <option value="Elementary" <?php echo isset($edu) && $edu == 1 ? 'selected' : '' ?>>Elementary</option>
                     <option value="High School" <?php echo isset($edu) && $edu == 2 ? 'selected' : '' ?>>High School</option>
                     <option value="Yeshiva/Seminary" <?php echo isset($edu) && $edu == 3 ? 'selected' : '' ?>>Yeshiva / Seminary</option>
-                    <option value="Degree" <?php echo isset($edu) && $edu == 3 ? 'selected' : '' ?>>Degree</option>
+                    <option value="Degree" <?php echo isset($edu) && $edu == 'Degree' ? 'selected' : '' ?>>Degree</option>
                 </select>
                 </div>
             </div> 
