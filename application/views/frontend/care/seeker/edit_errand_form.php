@@ -127,15 +127,13 @@ if($detail){
             <div class="checkbox"><input type="checkbox" value="Shabbos" name="availability[]" <?php if(in_array("Shabbos",$temp)){?> checked="checked"<?php }?>>Shabbos</div> 
         </div>
     </div>
-    <div>
-        <label>Tell us about your needs</label>
-        <div class="form-field">
-            <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
-        </div>
-    </div>
+    <!--<div>-->
+    <!--    <label>Tell us about your needs</label>-->
+    <!--    <div class="form-field">-->
+    <!--        <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>-->
+    <!--    </div>-->
+    <!--</div>-->
     
-    
-    <h2>Encouraged but not mandatory fields</h2>
     <div>
         <label>Languages necessary</label>
         <div class="form-field">
