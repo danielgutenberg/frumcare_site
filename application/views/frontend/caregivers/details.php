@@ -263,7 +263,9 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
 <div class="clearfix"></div>
 <br/>
 <div class="meet-caregivers-clients">
-       <?php if($this->uri->segment(4) < 10 || ($this->uri->segment(4)>16 && $this->uri->segment(4) < 24)){ ?>
+       <?php if($this->uri->segment(4) < 10 
+    //   || ($this->uri->segment(4)>16 && $this->uri->segment(4) < 24)
+       ){ ?>
        <h2> Meet 
             <?php echo $recordData['name'];?>
         </h2>

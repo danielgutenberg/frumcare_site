@@ -1718,14 +1718,14 @@ class User extends CI_Controller
                         'neighbour' => isset($_POST['neighborhood'])?$_POST['neighborhood']:'',
                         'profile_picture' => isset($_POST['profile_picture'])?$_POST['profile_picture']:'',
                         'profile_picture_owner'=> isset($_POST['profile_picture_owner'])?$_POST['profile_picture_owner']:'',
-                        'name_of_owner' => isset($_POST['name_of_owner'])?$_POST['name_of_owner']:''
+                        'name_of_owner' => isset($_POST['name_of_owner'])?$_POST['name_of_owner']:'',
+                        'educational_institution'     => isset($_POST['educational_instution'])?$_POST['educational_instution']:'',
+                        'education_level' => isset($_POST['education'])?$_POST['education']:''
                     );
 
                     $insert2 = array(
                         'marital_status' => isset($_POST['marital_status'])?$_POST['marital_status']:'',                        
                         'smoker'        => isset($_POST['smoker'])?$_POST['smoker']:2,
-                        'educational_institution'     => isset($_POST['educational_instution'])?$_POST['educational_instution']:'',
-                        'education_level' => isset($_POST['education'])?$_POST['education']:'',
                         'religious_observance'  => isset($_POST['religious_observance'])?$_POST['religious_observance']:'',
                         'sub_care' => isset($_POST['sub_care'])?$_POST['sub_care']:'',
                      );
