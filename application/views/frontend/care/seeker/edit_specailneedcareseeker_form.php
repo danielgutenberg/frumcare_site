@@ -34,7 +34,7 @@ if($detail){
     $time = explode(',',$detail[0]['availability']);
     $religious_observance = $detail[0]['religious_observance'];
     $age_grp = $detail[0]['age_group'];
-    $hourly_rate = $detail[0]['hourly_rate'];
+    $rate = $detail[0]['rate'];
     $desc 			 = $detail[0]['profile_description'];
     $smoker = explode(',', $detail[0]['smoker']);
     $langtemp = explode(',', $detail[0]['language']);
