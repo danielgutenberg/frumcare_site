@@ -76,11 +76,11 @@
             <?php
           } ?>
     
-    <?php if(!empty($age_group)){ ?>    
+    <?php if(!empty($age)){ ?>    
         <tr>
             <td>Age of person requiring care</td>
             <td>
-                <?php echo $age_group; ?>
+                <?php echo $age; ?>
             </td>
         </tr>
     <?php }
