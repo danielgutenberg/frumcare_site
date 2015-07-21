@@ -9,7 +9,7 @@
             <h2>Contact by email</h2>
             <h3>Enter your details</h3>
             <?php user_flash(); ?>
-            <form action="<?php echo site_url();?>contactprofile/profile/<?php echo $category.'/'.$user['uri']?>" method="post" id="contact_form" enctype="multipart/form-data">
+            <form action="<?php echo site_url();?>contactprofile/profile/<?php echo $category.'/'.$user['uri'] . '/' . $careType?>" method="post" id="contact_form" enctype="multipart/form-data">
                 <div class="contact-profile">
                     <label>Name</label>
                     <input type="text" name="name" class="required">
