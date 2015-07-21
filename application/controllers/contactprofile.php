@@ -11,9 +11,6 @@
 			$category = $this->uri->segment(3);
 			$slug 	  = $this->uri->segment(4);
 			$careType = $this->uri->segment(5);
-			print_r($category);
-			print_r($slug);
-			print_r($careType);
 			if($slug){
 				$user  = $this->user_model->getUserDetailsBySlug($slug, $careType);
 			}
