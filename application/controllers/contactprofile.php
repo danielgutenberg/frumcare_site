@@ -13,7 +13,8 @@
 			$careType = $this->uri->segment(5);
 			if($slug){
 				$user  = $this->user_model->getUserDetailsBySlug($slug, $careType);
-			}                        
+			}print_r($user);
+			exit();
 			if(isset($_POST['contact'])){			 
 				$name 			= $this->input->post('name',true);
 				$phonenumber 	= $this->input->post('phonenumber',true);
