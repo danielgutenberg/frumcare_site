@@ -80,11 +80,11 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 		
 
 		<tr>
-			<?php if(!empty($payment_options)){?>
+			<?php if(!empty($payment_option)){?>
 			<td>Payment Options</td>
 			<td>
 				<div class="details-info">
-					<?php echo $payment_options;?>
+					<?php echo $payment_option;?>
 				</div>
 			</td>
             <?php }  
