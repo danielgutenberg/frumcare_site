@@ -85,7 +85,7 @@
                        <?php
                    }}
                    if(!empty($recordData['experience'])){ ?>               
-                   <span class="experience-wrap"><?php echo $recordData['experience']. ' <span>Years of Experience</span>';?></span>
+                   <span class="experience-wrap"><?php if ($recordData['experience']==6) {echo '5+ <span>Years of Experience</span>';} else {echo $recordData['experience']. ' <span>Years of Experience</span>'; }?></span>
                    <?php
                 }
                 else{ ?>
@@ -131,8 +131,8 @@
             else{ ?>
                 <span class="location-wrap"><?php echo isset($recordData['type_of_therapy']) ? $recordData['type_of_therapy'] : "N/A"; 
                     echo '<span>Type of therapy</span>'; ?></span>
-                <span class="care-type-wrap"><?php echo isset($recordData['experience']) ? $recordData['experience'] : 'N/A';
-                    echo ' <span>Years In Practice</span>';?></span>
+                if(!empty($recordData['experience'])){ ?>               
+                   <span class="care-type-wrap"><?php if ($recordData['experience']==6) {echo '5+ <span>Years in Practice</span>';} else {echo $recordData['experience']. ' <span>Years in Practice</span>'; }?></span>
                 <div class="clearfix margin-bots"></div>
                 <?php if(!empty($recordData['location'])){ ?>
                     <?php $location_array = explode(',',$recordData['location']); ?>
