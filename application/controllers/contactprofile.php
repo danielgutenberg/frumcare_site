@@ -59,7 +59,7 @@
 				      $this->email->message($this->load->view('frontend/email/conact_email',array('name'=>$name,'phonenumber'=>$phonenumber,'comment'=>$comment,'email'=>$email,'filename'=>$filename),true));				      
                       if($this->email->send()){
 				        $this->session->set_flashdata('info','Email successfully sent');
-                        redirect('contactprofile/profile/'.$category.'/'.$slug,'refresh');
+                        redirect('contactprofile/profile/'.$category.'/'.$slug . '/' . $careType,'refresh');
                         }
                         else{
                             show_error($this->email->print_debugger());
