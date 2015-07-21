@@ -1,6 +1,6 @@
 <?php echo $this->breadcrumbs->show();?>
 			<h3>
-					<?php echo ucwords(str_replace('_', ' ', segment(1))); ?>
+					<?php echo 'Errand runner / odd jobs / personal assistant / driver'; ?>
 			</h3>  			
 	  		<div class="left-search-panel col-lg-3 col-md-3 col-sm-3 col-xs-12">
 	 	<h4>Advanced Search</h4>
