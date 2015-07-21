@@ -74,7 +74,8 @@
         				'title' 		    => "Contact",
         				'main_content' 	=> 'frontend/contact/index',
         				'category'		  => $category,
-                'user'          => $user,
+                		'user'          => $user,
+                		'careType'      => $careType
         			);
 
     			   $this->load->view(FRONTEND_TEMPLATE,$data);
