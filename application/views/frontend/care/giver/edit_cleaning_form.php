@@ -6,7 +6,7 @@
 });
 </script>
 <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
-<?php 
+<?php
 $templookingtowork = explode(',', $detail[0]['looking_to_work']);
 $tempwillingtowork = explode(',' , $detail[0]['willing_to_work']);
 $exp = $detail[0]['experience'];
