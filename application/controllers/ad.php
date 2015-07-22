@@ -187,8 +187,6 @@ class Ad extends CI_Controller
                  'marital_status'           => isset($p['marital_status'])? $p['marital_status'] : '',                
                  'smoker'                   => isset($p['smoker']) ? $p['smoker'] : 2,
                  'religious_observance'     => isset($p['religious_observance']) ? $p['religious_observance'] : '',
-                 'education_level'          => isset($p['education_level']) ? $p['education_level'] : '',
-                 'educational_institution'  => isset($p['educational_institution']) ? $p['educational_institution'] : '',
                  'shul_membership'          => isset($p['shul_membership']) ? $p['shul_membership'] : '',
                  'subjects'                 => isset($p['major_subject'])?$p['major_subject']:'',
                  'language'                 => $language
