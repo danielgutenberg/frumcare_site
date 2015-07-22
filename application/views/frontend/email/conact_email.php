@@ -1,7 +1,7 @@
 <strong>Hi There,</strong>
 <br />
     <div style="margin:0; padding:0;">
-        <p style="font-family:Arial, Helvetica, sans-serif; font-size:13px; margin-bottom:20px;">Somebody contacted you in frumcare with following details</p>
+        <p style="font-family:Arial, Helvetica, sans-serif; font-size:13px; margin-bottom:20px;">Somebody contacted you in FrumCare with following details</p>
     </div>
 <div style="font-family:Arial, Helvetica, sans-serif; font-size:13px; margin-bottom:5px;">Name: <?php echo $name;?></div>
 <div style="font-family:Arial, Helvetica, sans-serif; font-size:13px; margin-bottom:5px;">Email: <?php echo $email;?></div>
@@ -12,7 +12,7 @@
 <?php }?>
 
 
-Thanks you,
+Thank you,
 <br />
 FRUMCARE team
 <br />
