@@ -15,6 +15,7 @@
     $ciurl       = $trimmed_url['scheme']."://".$trimmed_url['host']."/".$path1[1];
     if($path1[2] == 'dev')
      $ciurl .=   "/".$path1[2];
+     $ciurl = substr($ciurl, 0, -5);
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" <?php language_attributes(); ?>> <![endif]-->
