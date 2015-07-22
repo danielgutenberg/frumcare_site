@@ -256,7 +256,7 @@
         <tr>
             <td>Minimum experience</td>
             <td>
-                <?php if ($experience == '6') {echo '5+'; } else {echo $experience;} .' years'; ?>
+                <?php if ($experience == '6') {echo '5+'; } else {echo $experience;}?> years
             </td>
         </tr>
     <?php }else{
