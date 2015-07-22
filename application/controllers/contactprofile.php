@@ -50,9 +50,9 @@
 
 					  $this->load->library('email',$config);      
 				      $this->email->set_newline("\r\n");
-                      $this->email->from('info@frumcare.com', 'FRUMCARE');
+                      $this->email->from($email);
 				      $this->email->to($user['email']);                      
-				      $this->email->subject('Somebody Contacted you on frumcare');
+				      $this->email->subject('Somebody Contacted you on FrumCare');
 				      if(isset($filename) && $filename!=''){
 				      	$this->email->attach($upload_data['full_path']);	
 				      }
