@@ -169,6 +169,30 @@ $user_detail = get_user(check_user());
                     <input type="text" name="caregiverage_from" style="width:25%" placeholder="Age From"> to  <input type="text" name="caregiverage_to" style="width:25%" placeholder="Age To">
 				</div>
 			</div>
+			
+			<div class="rate-select">
+                <label>Wage</label>
+                <div class="form-field">
+                    <select name="rate" class="required rate">
+                        <option value="">Select wage</option>
+                        <option value="5-10">$5-$10 / Hr</option>
+                        <option value="10-15">$10-$15 / Hr</option>
+                        <option value="15-25">$15-$25 / Hr</option>
+                        <option value="25-35">$25-$35 / Hr</option>
+                        <option value="35-45">$35-$45 / Hr</option>
+                        <option value="45-55">$45-$55 / Hr</option>
+                        <option value="55+">$55+ / Hr</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                    <!--<label>Check one or more</label>-->
+                    <div class="form-filed">
+                        <!--<div class="checkbox"><input type="checkbox" name="rate_type[]" value="1">Hourly Rate</div>-->
+                        <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
+                    </div>
+            </div>
 
 			<div>
 				<label>Smoking acceptable</label>
@@ -197,7 +221,7 @@ $user_detail = get_user(check_user());
 						<option value="2" <?php echo isset($exp) && $exp == 2 ? 'selected' : '' ?>>2 years</option>
 						<option value="3" <?php echo isset($exp) && $exp == 3 ? 'selected' : '' ?>>3 years</option>
 						<option value="4" <?php echo isset($exp) && $exp == 4 ? 'selected' : '' ?>>4 years</option>
-						<option value="5+" <?php echo isset($exp) && $exp == '5+' ? 'selected' : '' ?>>5+ years</option>
+						<option value="6" <?php echo isset($exp) && $exp == 6 ? 'selected' : '' ?>>5+ years</option>
 					</select>
 				</div>
 			</div>

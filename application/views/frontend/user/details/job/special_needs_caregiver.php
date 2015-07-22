@@ -76,11 +76,11 @@
             <?php
           } ?>
     
-    <?php if(!empty($age_group)){ ?>    
+    <?php if(!empty($age)){ ?>    
         <tr>
             <td>Age of person requiring care</td>
             <td>
-                <?php echo $age_group; ?>
+                <?php echo $age; ?>
             </td>
         </tr>
     <?php }
@@ -97,8 +97,8 @@
         <td>Gender of person requiring care</td>
         <td>
             <?php  
-                if($gender == 1) echo "Male";
-                elseif($gender == 2) echo "Female";
+                if($gender_of_careseeker == 1) echo "Male";
+                elseif($gender_of_careseeker == 2) echo "Female";
                 else echo "Any";
             ?>
         </td>
@@ -268,7 +268,7 @@
         <tr>
             <td>Minimum experience</td>
             <td>
-                <?php echo $experience .' years'; ?>
+                <?php if ($experience == '6') {echo '5+'; } else {echo $experience;} .' years'; ?>
             </td>
         </tr>
     <?php }

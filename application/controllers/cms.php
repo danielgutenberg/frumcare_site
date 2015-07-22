@@ -94,7 +94,7 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			$this->breadcrumbs->unshift('Home', base_url());
 			
 			$data['main_content'] = 'frontend/cms/page';
-			$data['content_data'] = $this->cms_model->getPageDetailBySlug('faqs');
+			$data['content_data'] = $this->cms_model->getPageDetailBySlug('frequently-asked-questions');
 			$data['title'] 		  = 'Frequently Asked Questions';
 			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}

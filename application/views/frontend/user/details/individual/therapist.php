@@ -28,7 +28,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
     <tr>
     	<td>Years in Practice</td>
     	<td>    		
-            <?php echo $experience; ?>  
+            <?php if ($experience == '6') {echo '5+'; } else {echo $experience;} ?>  
         </td>
     </tr>
     <?php }

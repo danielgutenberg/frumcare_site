@@ -97,7 +97,7 @@
                 <?php  
                     if($gender == 1) echo "Male";
                     elseif($gender == 2) echo "Female";
-                    else echo "Any";
+                    else echo "Both";
                 ?>
             </td>
         </tr>
@@ -256,7 +256,7 @@
         <tr>
             <td>Minimum experience</td>
             <td>
-                <?php echo $experience .' years'; ?>
+                <?php if ($experience == '6') {echo '5+'; } else {echo $experience;} .' years'; ?>
             </td>
         </tr>
     <?php }else{

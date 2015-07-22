@@ -156,7 +156,7 @@
                             
                             <?php if($data['experience']){?>
     							<li>							
-    								<?php echo $data['experience'];?> years of experience							
+    								<?php if ($data['experience'] == 6) {echo '5+';} else {echo $data['experience'];}?> years of experience							
     							</li>
                             <?php  } ?>
                         <?php  } 

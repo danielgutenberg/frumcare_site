@@ -232,7 +232,7 @@
         <tr>
             <td>Minimum years of experience</td>
             <td>
-                <?php echo $experience .' years'; ?>
+                <?php if ($experience == '6') {echo '5+'; } else {echo $experience;} .' years'; ?>
             </td>
         </tr>
         <?php }

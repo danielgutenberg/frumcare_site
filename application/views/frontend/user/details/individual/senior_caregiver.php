@@ -14,7 +14,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
         <div class="details-info"><?php if(in_array('Home of senior',$lookingtowork)){echo $tick; }else{echo $cross; } ?> <span>Home of senior</span></div>
         <div class="details-info"><?php if(in_array('Live In',$lookingtowork)){echo $tick; }else{echo $cross; } ?> <span>Live In</span></div>
         <div class="details-info"><?php if(in_array('Live Out',$lookingtowork)){echo $tick; }else{echo $cross; } ?> <span>Live Out</span></div>
-        <div class="details-info"><?php if(in_array('Caregiving institude',$lookingtowork)){echo $tick; }else{echo $cross; } ?> <span>Caregiving Institution</span></div>	
+        <div class="details-info"><?php if(in_array('Caregiving institution',$lookingtowork)){echo $tick; }else{echo $cross; } ?> <span>Caregiving Institution</span></div>	
       </td>
     </tr>
     <?php }
@@ -34,7 +34,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
     <tr>
     	<td >Years of experience</td>
     	<td >    		
-        <?php echo $experience; ?>  
+        <?php if ($experience == '6') {echo '5+'; } else {echo $experience;} ?>  
       </td>
     </tr>
     <?php }

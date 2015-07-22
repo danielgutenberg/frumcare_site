@@ -51,7 +51,7 @@
                     <div class="checkbox"><input type="checkbox" value="Home of senior" name="looking_to_work[]" <?php if(in_array('Home of senior',$looking_to_work)){?> checked="checked" <?php } ?>> <span>Home of senior</span></div>
                     <div class="checkbox"><input type="checkbox" value="Live In" name="looking_to_work[]" <?php if(in_array('Live In',$looking_to_work)){?> checked="checked" <?php } ?>> <span>Live In</span></div>
                     <div class="checkbox"><input type="checkbox" value="Live Out" name="looking_to_work[]" <?php if(in_array('Live Out',$looking_to_work)){?> checked="checked" <?php } ?>> <span>Live Out</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Caregiving institude" name="looking_to_work[]" <?php if(in_array('Caregiving institude',$looking_to_work)){?> checked="checked" <?php } ?>> <span>Caregiving Institution</span></div>                    
+                    <div class="checkbox"><input type="checkbox" value="Caregiving institution" name="looking_to_work[]" <?php if(in_array('Caregiving institude',$looking_to_work)){?> checked="checked" <?php } ?>> <span>Caregiving Institution</span></div>                    
                 </div>
             </div>
             
@@ -64,7 +64,7 @@
                         <option value="2" <?php echo isset($exp) && $exp == 2 ? 'selected' : '' ?>>2 years</option>
                         <option value="3" <?php echo isset($exp) && $exp == 3 ? 'selected' : '' ?>>3 years</option>
                         <option value="4" <?php echo isset($exp) && $exp == 4 ? 'selected' : '' ?>>4 years</option>
-                        <option value="5+" <?php echo isset($exp) && $exp == 5 ? 'selected' : '' ?>>5+ years</option>
+                        <option value="6" <?php echo isset($exp) && $exp == 6 ? 'selected' : '' ?>>5+ years</option>
                     </select>
                 </div>
             </div>
