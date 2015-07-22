@@ -82,7 +82,11 @@
                   if(is_array($looking_to_work)){
                         foreach($looking_to_work as $data){
                             $data1 = mysql_real_escape_string($data);
-                            $sql .= " and FIND_IN_SET('$data1',tbl_userprofile.looking_to_work)"; 
+                            if ($data1 == 'Caregiving institution') {
+                            	$sql .= " and FIND_IN_SET('$data1',tbl_userprofile.looking_to_work) or FIND_IN_SET('Cleaning Company', tbl_userprofile.looking_to_work)"; 
+                            } else {
+                            	$sql .= " and FIND_IN_SET('$data1',tbl_userprofile.looking_to_work)";
+                            }
   	                     }
                     }
             }
