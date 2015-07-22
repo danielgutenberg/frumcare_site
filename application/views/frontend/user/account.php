@@ -232,7 +232,7 @@
                         $photo_url = base_url('images/profile-picture/thumb/'.$profile_picture_owner);
                     }
                     ?>
-                    <?php if($this->session->userdata('account_category')==3){ ?>  
+                    <!--<?php if($this->session->userdata('account_category')==3){ ?>  -->
                     <div class="upload-photo">
                         <h2>Upload a owner's photo</h2>
                         <input type="hidden" id="file-name1" name="profile_picture_owner" value="<?php echo isset($profile_picture_owner)?>">
@@ -257,7 +257,7 @@
                         <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
                     </div> */?>
 
-                    <?php } ?>                                        
+                    <!--<?php } ?>                                        -->
                     </div>             
                     <div class="small-seperator"></div>
                     <div class="sign-up-btn"><input id="submit-btn" type="submit" name="save" class="btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/></div>
