@@ -1,7 +1,7 @@
 <?php echo $this->breadcrumbs->show(); ?>			
             <h3>                
                 <?php
-                if(segment(1) == 'caregivers' && segment(2) == 'workers-staff-for-childcare-facility' ) {
+                if(segment(1) == 'caregivers' && segment(3) == 'workers-staff-for-childcare-facility' ) {
                     echo "Workers / Staff for childcare facility";
                 }
                 elseif(segment(1) == 'caregivers' && (segment(2) == 'all' || segment(2) == '' ) ) {
