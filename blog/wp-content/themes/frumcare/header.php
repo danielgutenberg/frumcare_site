@@ -81,7 +81,7 @@
                                 <a href="<?php echo $ciurl;?>logout"><i class="icon-lock">&nbsp;</i>Log out</a>
                             <?php }else{ ?>
                                     <a href="<?php echo $ciurl;?>signup"><i class="icon-login">&nbsp;</i>Sign up</a>
-                                    <a href="<?php echo $ciurl;?>logout"><i class="icon-lock">&nbsp;</i>Log in</a>
+                                    <a href="<?php echo $ciurl;?>login"><i class="icon-lock">&nbsp;</i>Log in</a>
                             <?php } ?>
                         </div>
 

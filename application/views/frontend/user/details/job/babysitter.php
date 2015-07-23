@@ -95,8 +95,8 @@
             <td>Gender of children</td>
             <td>
                 <?php  
-                    if($gender == 1) echo "Male";
-                    elseif($gender == 2) echo "Female";
+                    if($gender_of_careseeker == 1) echo "Male";
+                    elseif($gender_of_careseeker == 2) echo "Female";
                     else echo "Both";
                 ?>
             </td>
