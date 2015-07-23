@@ -144,7 +144,7 @@
         <tr>
                     <td>Type of Organization</td>
                     <td>
-                        <?php echo $sub_care ? ucfirst($sub_care) : 'N/A'; ?>
+                        <?php echo $organization_type ? ucfirst($organization_type) : 'N/A'; ?>
                     </td>
                 </tr>
         
@@ -154,11 +154,11 @@
         
         
         
-        <?php if(!empty($name)){?>
+        <?php if(!empty($contact_name)){?>
         <tr>
             <td>Contact name</td>
             <td class="form-field">
-                <?php echo $name; ?>
+                <?php echo $contact_name; ?>
             </td>
         </tr>
         <?php }
