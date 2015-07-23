@@ -1,16 +1,16 @@
 <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
 
 <?php
-$photo_url = site_url("images/plus.png");
+// $photo_url = site_url("images/plus.png");
 $ac = $this->session->userdata('account_category');
 $oc = $this->session->userdata('organization_care');
-if(check_user()) {
-    $current_user = get_user(check_user());
-    $photo = $current_user['profile_picture'];
-    $photo_status = $current_user['profile_picture_status'];
-    if($photo!="")
-        $photo_url = base_url('images/profile-picture/thumb/'.$photo);
-}
+// if(check_user()) {
+//     $current_user = get_user(check_user());
+//     $photo = $current_user['profile_picture'];
+//     $photo_status = $current_user['profile_picture_status'];
+//     if($photo!="")
+//         $photo_url = base_url('images/profile-picture/thumb/'.$photo);
+// }
 ?>
 <div class="container">
 <?php echo $this->breadcrumbs->show();?>
