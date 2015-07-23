@@ -78,7 +78,7 @@ if(check_user()) {
            <?php echo anchor('user/addprofile',"Add New $profile",'class="btn btn-info"');?>
         </div>
 		        </div>
-        	</div>
+        	
             <table cellspacing="5" cellpadding="5" class="profiletable">
         <?php
             if(!empty($all_profile)){
