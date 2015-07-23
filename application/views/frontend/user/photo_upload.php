@@ -8,7 +8,7 @@ if(check_user()) {
 }
 ?>
 <div class="upload-photo">
-    <div id="output2"><img src="<?php echo $photo_url?>"></div>
+    <div id="output2" style="margin-bottom: 20px"><img src="<?php echo $photo_url?>"></div>
     <button class="btn btn-default" id="upload2">Select File</button>
     <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
 </div>
