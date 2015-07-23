@@ -8,19 +8,19 @@ if(check_user()) {
 }
 ?>
 <div class="upload-photo">
-    <div id="output"><img src="<?php echo $photo_url?>"></div>
-    <button class="btn btn-default" id="upload">Select File</button>
+    <div id="output2"><img src="<?php echo $photo_url?>"></div>
+    <button class="btn btn-default" id="upload2">Select File</button>
     <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
 </div>
 <script type="text/javascript">
 	var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
 	var link = '<?php echo site_url("ad/upload_pp/" . check_user() . "?files")?>';
-	$('#upload').click(function(e){
+	$('#upload2').click(function(e){
 		e.preventDefault();
 		$('#ImageFile').trigger('click');
 	});
 
-    $('#output').click(function(e){
+    $('#output2').click(function(e){
         e.preventDefault();
         $('#ImageFile').trigger('click');
     });
