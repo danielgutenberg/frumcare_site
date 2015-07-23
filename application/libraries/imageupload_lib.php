@@ -9,7 +9,7 @@ class Imageupload_lib {
         $this->ci = & get_instance();
                 error_reporting(0);
     }
-    function upload($folder,$thumbsize, $largesize){
+    function upload($folder,$thumbsize, $largesize, $replace = false){
         if(isset($_POST)){
             ############ Edit settings ##############
             $ThumbSquareSize        = $thumbsize; //Thumbnail will be 100x100
@@ -91,6 +91,9 @@ class Imageupload_lib {
                 $thumb = $NewImageName;
                 $html = '<div><img src="'.site_url("images/{$folder}/thumb/{$thumb}").'" alt="Thumbnail"></div>';
                 $data =array('files' => $thumb, 'html'=> $html, 'type' => 1);
+                if ($replace) {
+                    return $thumb;
+                }
                 echo json_encode($data);
                 /*
                 // Insert info into database table!

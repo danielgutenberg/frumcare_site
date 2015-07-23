@@ -126,6 +126,10 @@ class Ad extends CI_Controller
     }
 
     function upload_pp($a){
+        if ($a) {
+            $file = $this->imageupload_lib->upload('profile-picture', 100, 300, true);
+            $q = $this->common_model->update('tbl_user', ['profile_picture' => $file], array('id' => $a));
+        }
         $this->imageupload_lib->upload('profile-picture', 100, 300);
     }
 
