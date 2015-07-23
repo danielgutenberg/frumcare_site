@@ -13,7 +13,12 @@ if(check_user()) {
     <button class="btn btn-default" id="upload">Select File</button>
     <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
 </div>
-
+<script>
+    $('#upload').click(function(e){
+         e.preventDefault();
+         $('#ImageFile').trigger('click');
+     });
+</script>
 
 
 <!-- FILE UPLOAD -->
