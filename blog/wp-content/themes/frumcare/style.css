@@ -773,3 +773,4 @@ line-height: 19px;
 .toggle-menu {
     display: none;
 }
+.header-main .navigation .sub-menu{ text-align:center; min-width:160px;}
