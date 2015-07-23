@@ -11,8 +11,7 @@ if(check_user()) {
     <h2>Upload a photo</h2>
     <input type="hidden" id="file-name" name="profile_picture" value="<?php if(isset($photo)) echo $photo;?>">
     <div id="output"><img src="<?php echo $photo_url?>"></div>
-    <label>Browse your computer to select a file to upload</label>
-    <button class="btn btn-default" id="upload">Choose File</button>
+    <button class="btn btn-default" id="upload">Select File</button>
     <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
 </div>
 <!--<p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>-->
