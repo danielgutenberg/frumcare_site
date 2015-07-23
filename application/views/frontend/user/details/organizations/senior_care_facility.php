@@ -122,7 +122,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'>";
 				<tr>
 					<?php if(!empty($experience)){ ?>
 					<td>Minimum experience</td>
-					<td><?php if ($experience == '6') {echo '5+'; } else {echo $experience;} .' years';?></td>
+					<td><?php if ($experience == '6') {echo '5+'; } else {echo $experience;}?> years</td>
 					<?php }  
                 else{ ?>
                     <td>Minimum experience</td>
