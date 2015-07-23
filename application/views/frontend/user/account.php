@@ -54,7 +54,7 @@
                         <div>
                             <label>Type of Organization</label>
                             <select name="sub_care">
-                                <option value="">-- Select --</option>
+                                <option>--Select Type of Organzation--</option>
                                 <option value="day care center" <?php echo $user_data['sub_care'] == 'day care center' ? 'selected="selected"' : '' ?> >Day Care Center</option>
                                 <option value="day camp" <?php echo $user_data['sub_care'] == 'day camp' ? 'selected="selected"' : '' ?>>Day Camp</option>
                                 <option value="afternoon activities" <?php echo $user_data['sub_care'] == 'afternoon activities' ? 'selected="selected"' : '' ?>>Afternoon Activities</option>
@@ -67,6 +67,7 @@
                         <div>
                             <label>Type of Organization</label>
                             <select name="sub_care">
+                                <option>--Select Type of Organzation--</option>
                                 <option value="day care center" <?php echo $user_data['sub_care'] == 'assisted living' ? 'selected="selected"' : '' ?> >Assisted living</option>
                                 <option value="day camp" <?php echo $user_data['sub_care'] == 'senior care center' ? 'selected="selected"' : '' ?>>Senior care center</option>
                                 <option value="afternoon activities" <?php echo $user_data['sub_care'] == 'nursing home' ? 'selected="selected"' : '' ?>>Nursing home</option>
@@ -184,6 +185,7 @@
                     <div class="first-names">
                         <label>Level of observance </label>
                         <select id="religious_observance" name="religious_observance">
+                            <option>--Select Level of Observance--</option>
                             <option value="Yeshivish/ Chasidish" <?php if($religious_observance == 'Yeshivish/ Chasidish'){?> selected="selected" <?php }?>>Yeshivish/ Chasidish</option>
                             <option value="Orthodox/ Modern Orthodox" <?php if($religious_observance == 'Orthodox/ Modern Orthodox'){?> selected="selected" <?php }?>>Orthodox/ Modern Orthodox</option>
                             <option value="Other" <?php if($religious_observance == 'Other'){?> selected="selected" <?php }?>>Other</option>
@@ -212,6 +214,7 @@
                     <div class="first-names">
                         <label>Level of Education</label>
                             <select name="education">
+                                <option>--Select Level of Education--</option>
                                 <option value="Elementary" <?php if($education_level == 'Elementary'){?> selected="selected" <?php }?> >Elementary</option>
                                 <option value="High school" <?php if($education_level == 'High School'){?> selected="selected" <?php }?>>High school</option>
                                 <option  value="Yeshiva/ Seminary" <?php if($education_level == 'Yeshiva/ Seminary'){?> selected="selected" <?php }?>>Yeshiva/ Seminary</option>
@@ -231,8 +234,11 @@
                     if(isset($profile_picture_owner)){
                         $photo_url = base_url('images/profile-picture/thumb/'.$profile_picture_owner);
                     }
+                    if(isset($profile_picture)){
+                        $photo_url = base_url('images/profile-picture/thumb/'.$profile_picture);
+                    }
                     ?>
-                    <!--<?php if($this->session->userdata('account_category')==3){ ?>  -->
+                    <?php if($this->session->userdata('account_category')!=3){ ?>
                     <div class="upload-photo">
                         <h2>Upload a owner's photo</h2>
                         <input type="hidden" id="file-name1" name="profile_picture_owner" value="<?php echo isset($profile_picture_owner)?>">
@@ -257,7 +263,7 @@
                         <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
                     </div> */?>
 
-                    <!--<?php } ?>                                        -->
+                    <?php } ?>
                     </div>             
                     <div class="small-seperator"></div>
                     <div class="sign-up-btn"><input id="submit-btn" type="submit" name="save" class="btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/></div>
