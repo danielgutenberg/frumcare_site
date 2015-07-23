@@ -13,22 +13,7 @@ if(check_user()) {
     <button class="btn btn-default" id="upload">Select File</button>
     <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
 </div>
-<!--<p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>-->
-<!-- FILE UPLOAD -->
-// <script type="text/javascript">
-// 	var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
-// 	var link = '<?php echo site_url("ad/upload_pp?files")?>';
-// 	$('#upload').click(function(e){
-// 		e.preventDefault();
-// 		$('#ImageFile').trigger('click');
-// 	});
 
-//     $('#output').click(function(e){
-//         e.preventDefault();
-//         $('#ImageFile').trigger('click');
-//     });
-    
-// </script>
 
 
 <!-- FILE UPLOAD -->
