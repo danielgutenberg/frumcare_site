@@ -125,7 +125,7 @@ class Ad extends CI_Controller
 
     }
 
-    function upload_pp(){
+    function upload_pp($a){
         $this->imageupload_lib->upload('profile-picture', 100, 300);
     }
 
