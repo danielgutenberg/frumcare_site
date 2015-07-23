@@ -43,19 +43,20 @@ if(check_user()) {
                     }*/?>
                 </h2>
 	        </div>
-	        <?php $this->load->view('frontend/care/photo_upload') ?>
-          <!--  <form class="user-profile" action="<?php echo site_url();?>user/upload/<?php echo sha1(check_user());?>" method="post" enctype="multipart/form-data">            -->
-          <!--  <div class="profile-left">-->
-	         <!--   <div id="output">-->
-	         <!--       <a href="#"><img src="<?php echo $photo_url?>"/></a>-->
-	         <!--   </div>-->
-		        <!--<div class="upload-btns">-->
-		        <!--    <button class="btn btn-default" id="upload">Select File</button>-->
-		        <!--    <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>-->
+	        
+            <form class="user-profile" action="<?php echo site_url();?>user/upload/<?php echo sha1(check_user());?>" method="post" enctype="multipart/form-data">            
+            <div class="profile-left">
+	            <div id="output">
+	                <?php $this->load->view('frontend/care/photo_upload') ?>
+	                <!--<a href="#"><img src="<?php echo $photo_url?>"/></a>-->
+	            </div>
+		        <div class="upload-btns">
+		            <button class="btn btn-default" id="upload">Select File</button>
+		            <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
 
-		        <!--    <input type="hidden" id="file-name" name="profile_picture" value="<?php if(isset($photo)) echo $photo;?>" />-->
-		        <!--    <input type="hidden" id="user_id" name="user_id" value="<?php echo check_user();?>" />-->
-		        <!--    <input type="hidden" id="status" name="profile_picture_status" value="<?php if(isset($photo_status)) echo $photo_status ? $photo_status:'0';?>" />-->
+		            <input type="hidden" id="file-name" name="profile_picture" value="<?php if(isset($photo)) echo $photo;?>" />
+		            <input type="hidden" id="user_id" name="user_id" value="<?php echo check_user();?>" />
+		            <input type="hidden" id="status" name="profile_picture_status" value="<?php if(isset($photo_status)) echo $photo_status ? $photo_status:'0';?>" />
 
 		            <!-- <input type="submit" name="save_image" class="btn btn-info" value="Save Image" /> -->                    
                     <?php
