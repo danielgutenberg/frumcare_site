@@ -123,18 +123,18 @@ $oc = $this->session->userdata('organization_care');
 	</div><!--dashboard-right-->
 </div>
 <!-- FILE UPLOAD -->
-// <script type="text/javascript">
-//     var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
-//     var link = '<?php echo site_url("user/upload_image?files")?>';
-//     $('#upload').click(function(e){
-//         e.preventDefault();
-//         $('#ImageFile').trigger('click');
-//     });
-//   $('#output').click(function(e){
-//         e.preventDefault();
-//         $('#ImageFile').trigger('click');
-//     });
-// </script>
+<script type="text/javascript">
+    var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
+    var link = '<?php echo site_url("user/upload_image?files")?>';
+    $('#upload').click(function(e){
+        e.preventDefault();
+        $('#ImageFile').trigger('click');
+    });
+   $('#output').click(function(e){
+        e.preventDefault();
+        $('#ImageFile').trigger('click');
+    });
+</script>
 
 <script type="text/javascript" src="<?php echo site_url("js/portfoliouploader.js")?>"></script>
 <!-- FILE UPLOAD -->
