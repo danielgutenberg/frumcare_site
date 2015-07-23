@@ -240,7 +240,7 @@
                     ?>
                     <?php if($this->session->userdata('account_category')!=3){ ?>
                     <div class="upload-photo">
-                        <h2>Upload a owner's photo</h2>
+                        <h2>Upload a profile picture</h2>
                         <input type="hidden" id="file-name1" name="profile_picture_owner" value="<?php echo isset($profile_picture_owner)?>">
                         <div id="output1"><img src="<?php echo $photo_url?>"></div>
                         <label>Browse your computer to select a file to upload</label>
