@@ -14,6 +14,7 @@ if(check_user()) {
     <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
 </div>
 <script>
+    var link = '<?php echo site_url("user/upload_image?files")?>';
     $('#upload').click(function(e){
          e.preventDefault();
          $('#ImageFile').trigger('click');
