@@ -15,6 +15,7 @@ if(check_user()) {
 </div>
 <script>
     var link = '<?php echo site_url("user/upload_image?files")?>';
+        var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
     $('#upload').click(function(e){
          e.preventDefault();
          $('#ImageFile').trigger('click');
