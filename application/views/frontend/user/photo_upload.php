@@ -68,12 +68,12 @@ $(function()
                 {
                     // Success so call function to process the form
                     if(data.type==1){
-                        $('#output').html(data.html);
+                        $('#output2').html(data.html);
                         $('.loader').html('');
                         $('#file-name').val(data.files);    
                     }
                     else{
-                        $('#output').html(data.files + ' selected');
+                        $('#output2').html(data.files + ' selected');
                         $('#file-name').val(data.files);
                     }
                     
