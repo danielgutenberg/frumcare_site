@@ -264,9 +264,9 @@
                         ?> 
                         
                         <?php  $availablility_arr = explode(',',$data['availability']); ?>
-                        <?php if(in_array('immediate',$availablility_arr)){?>
+                        <?php if(in_array('Immediate',$availablility_arr)){?>
                             <li>							
-								Available immediately							
+								Available Immediately							
 							</li>
                         <?php  }
                         elseif(in_array(strtolower('Start Date'),array_map('strtolower',$availablility_arr)) && $data['start_date'] !='0000-00-00'){ ?>    
