@@ -130,8 +130,7 @@
                 }
             else{ ?>
                 <span class="location-wrap"><?php echo isset($recordData['type_of_therapy']) ? $recordData['type_of_therapy'] : "N/A"; 
-                    echo '<span>Type of therapy</span>'; ?></span>
-                if(!empty($recordData['experience'])){ ?>               
+                    echo '<span>Type of therapy</span>'; ?></span>              
                    <span class="care-type-wrap"><?php if ($recordData['experience']==6) {echo '5+ <span>Years in Practice</span>';} else {echo $recordData['experience']. ' <span>Years in Practice</span>'; }?></span>
                 <div class="clearfix margin-bots"></div>
                 <?php if(!empty($recordData['location'])){ ?>
