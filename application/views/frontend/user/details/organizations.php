@@ -118,14 +118,15 @@
         </tr>
         <?php
         } ?>
-    <?php if(isset($profile_picture_owner)){
+    
+    
+</table>
+<?php if(isset($profile_picture_owner)){
         $photo_url = base_url('images/profile-picture/thumb/'.$profile_picture_owner);?>
     <div class="upload-photo">
         <div id="output1"><img src="<?php echo $photo_url?>"></div>
     </div>
     <?php } ?>
-    
-</table>
 </div>
 <?php } else { ?>
 
