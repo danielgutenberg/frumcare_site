@@ -194,7 +194,7 @@
 								Job start date: ASAP							
 							</li>
                         <?php  }
-                        elseif(in_array(strtolower('Start Date'),array_map('strtolower',$availablility_arr)) && $data['start_date'] !='0000-00-00'){ ?>    
+                        elseif(isset($data['start_date']) && $data['start_date'] !='0000-00-00'){ ?>    
                             <li>
                                <?php $start_date_arr = explode('-',$data['start_date'])?>
                                Job start date: <?php echo $start_date_arr[1].'/'.$start_date_arr[2].'/'.$start_date_arr[0]; ?>
@@ -264,12 +264,12 @@
                         ?> 
                         
                         <?php  $availablility_arr = explode(',',$data['availability']); ?>
-                        <?php if(in_array('immediate',$availablility_arr)){?>
+                        <?php if(in_array('Immediate',$availablility_arr)){?>
                             <li>							
-								Available immediately							
+								Available Immediately							
 							</li>
                         <?php  }
-                        elseif(in_array(strtolower('Start Date'),array_map('strtolower',$availablility_arr)) && $data['start_date'] !='0000-00-00'){ ?>    
+                        elseif(isset($data['start_date']) && $data['start_date'] !='0000-00-00'){ ?>    
                             <li>
                                <?php $start_date_arr = explode('-',$data['start_date'])?>
                                Available <?php echo $start_date_arr[1].'/'.$start_date_arr[2].'/'.$start_date_arr[0]; ?> 

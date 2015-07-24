@@ -116,7 +116,7 @@
                     $start_date = $recordData['start_date'];                    
                     $start_date_array = explode('-',$start_date);
                     $formated_start_date = $start_date_array[1].'/'.$start_date_array[2].'/'.$start_date_array[0];
-                    if(in_array('immediate',$availablility)){?>
+                    if(in_array('Immediate',$availablility)){?>
                         <span class="location-wrap"><?php echo 'Immediately'.'<span>Availability</span>';?></span>
                         <?php    
                     }
@@ -176,7 +176,7 @@ if($this->uri->segment(4)>16){
     $start_date = $recordData['start_date'];
     $start_date_array = explode('-',$start_date);
     $formated_start_date = $start_date_array[1].'/'.$start_date_array[2].'/'.$start_date_array[0];
-    if(in_array('immediate',$availablility)){?>
+    if(in_array('Immediate',$availablility)){?>
         <span class="location-wrap"><?php echo 'Immediate'.'<span>Job Start Date</span>';?></span>
         <?php    
     }
