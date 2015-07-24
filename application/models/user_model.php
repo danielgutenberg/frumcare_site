@@ -122,7 +122,7 @@ class User_model extends CI_Model
     }
 
     public function getSimilarPersons($care_type,$currid){  
-        $sql = "select tbl_user.uri,tbl_user.name,tbl_user.profile_picture,tbl_userprofile.rate,tbl_userprofile.rate_type,tbl_userprofile.care_type from tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_userprofile.care_type = $care_type and tbl_user.id != $currid order by tbl_userprofile.created_on desc limit 5";
+        $sql = "select tbl_user.uri,tbl_user.name,tbl_user.profile_picture,tbl_userprofile.rate,tbl_userprofile.rate_type,tbl_userprofile.care_type from tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_userprofile.care_type = $care_type and tbl_userprofile.profile_status = 1 and tbl_userprofile.id != $currid order by tbl_userprofile.created_on desc limit 5";
         $query = $this->db->query($sql);
         $res = $query->result_array();
         if($res) return $res;
