@@ -64,6 +64,17 @@
                     </div>
                 </td>
                 <td>
+                    <select name="distance" id="distance">        
+                        <option value="1">1 Miles</option>
+                        <option value="2">2 Miles</option>
+                        <option value="5">5 Miles</option>
+                        <option value="10">10 Miles</option>
+                        <option value="25">25 Miles</option>
+                        <option value="50">50 Miles</option>
+                        <option value="unlimited" selected="selected">Unlimited Miles</option>
+                    </select>
+                </td>
+                <td>
                 	<?php 
                 	echo $rec['service_name'];
                 	unset($rec['service_name']);
