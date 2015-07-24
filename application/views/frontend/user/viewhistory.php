@@ -1,3 +1,17 @@
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
+<script>
+    $("#locationField").ready(function(){        
+        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {});
+            google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                    var place = autocomplete.getPlace();
+                    //console.log(place.geometry.location);
+                    var lat = place.geometry.location.A;
+                    var lng = place.geometry.location.F;                                 
+                    $("#lat").val(lat);
+                    $("#lng").val(lng);                                
+                });
+    });
+</script>
 <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
 <div class="container">
 <?php echo $this->breadcrumbs->show();?>
@@ -23,7 +37,8 @@
         else{
             ?>
             <tr>
-                <th>Date</th>
+                <th>Location</th>
+                <th>Distance</th>
                 <th>Searched Keywords</th>
                 <th></th>
             </tr>
@@ -40,10 +55,14 @@
             unset($rec['createAlert']);
             ?>
             <tr>
-                <td><?php echo $rec['searcheddate'];
-                
-            unset($rec['searcheddate']);?>
-            </td>
+                <td>
+                    <label>Location</label>
+                    <div id="locationField">
+                        <input type="hidden" id="lat" name="lat"/>
+                        <input type="hidden" id="lng" name="lng"/> 
+                        <input type="text" name="location" class="required" id="autocomplete" required/>
+                    </div>
+                </td>
                 <td>
                 	<?php 
                 	echo $rec['service_name'];
