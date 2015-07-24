@@ -231,7 +231,7 @@
                     
                     <?php if($data['care_type'] == 7 && $data['experience']) { ?>
                               <li>
-                                <?php echo $data['experience'].' years in practice'; ?>
+                                <?php if ($data['experience'] == 6) {echo '5+';} else {echo $data['experience'];}?> years in practice
                               </li>
                             <?php } ?> 
                     
