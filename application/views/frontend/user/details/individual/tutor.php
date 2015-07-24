@@ -38,8 +38,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
                <td >Availability </td>
                <td >
                 <div class="details-info"><?php if(in_array("Immediate",$temp)){ echo $tick; }else{ echo $cross; }?> Immediately</div>
-                <div class="details-info"><?php if(in_array("Start Date",$temp)){echo $tick; if($start_date!='0000-00-00'){ echo $start_date;} }else{echo $cross; } ?> Start Date</div>
-                <div class="details-info"><?php if(in_array("occassionally",$temp)){ echo $tick; }else{ echo $cross; }?> Occassionally</div>
+                <div class="details-info"><?php if(isset($start_date) && $start_date !='0000-00-00'){echo $tick; echo $start_date;}else{echo $cross; } ?> Start Date</div><div class="details-info"><?php if(in_array("occassionally",$temp)){ echo $tick; }else{ echo $cross; }?> Occassionally</div>
                 <div class="details-info"><?php if(in_array("regularly",$temp)){ echo $tick; }else{ echo $cross; }?> Regularly</div>
                 <div class="details-info"><?php if(in_array("Morning",$temp)){ echo $tick; }else{ echo $cross; }?> Morning</div>
                 <div class="details-info"><?php if(in_array("Afternoon",$temp)){ echo $tick; }else{ echo $cross; }?> Afternoon</div>
