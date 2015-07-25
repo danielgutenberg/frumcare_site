@@ -274,7 +274,7 @@ class Ad extends CI_Controller
             $profile_status = 0;
         else
             $profile_status = 1;
-        $alerts = $this->user_model->getSearchAlerts($details['latitude'], $details['longitude'], $type);
+        $alerts = $this->user_model->getSearchAlerts($details['latitude'], $details['longitude'], $details['care_type']);
          print_r($alerts);
          if($profile_id){
              $this->db->where('id',$profile_id);
