@@ -275,7 +275,6 @@ class Ad extends CI_Controller
         else
             $profile_status = 1;
         $alerts = $this->user_model->getSearchAlerts($details['latitude'], $details['longitude'], $details['care_type']);
-         print_r($alerts);
          if($profile_id){
              $this->db->where('id',$profile_id);
              $this->db->update('tbl_userprofile',array('profile_status' =>$profile_status));
