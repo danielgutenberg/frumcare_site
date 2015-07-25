@@ -208,7 +208,7 @@ class BabySitter extends CI_Controller{
 			else
 				$total = 0;
 				
-			$page = ceil($total/15);        
+			$pages = ceil($total/15);        
             $pagination	= '';
             if($pages > 1){	
             	$pagination .= '<a href="#" class="paginate_click in-active" id="previous">previous</a>';
@@ -223,7 +223,6 @@ class BabySitter extends CI_Controller{
                     
             	}
             	$pagination .= '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
-            	//$pagination .= '</ul>';
             }
 			 
 			$userlogs             = $this->user_model->getUserLog();            
