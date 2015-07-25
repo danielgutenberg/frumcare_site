@@ -11,7 +11,6 @@ class Ad extends CI_Controller
         $this->load->model('common_model');
         $this->load->model('user_model');
         $this->load->model('admin/ad_model');
-        $this->load->controller('ad');
         $this->load->library('fileupload_lib');
     }
 
@@ -282,7 +281,8 @@ class Ad extends CI_Controller
              $this->session->set_flashdata('info','Ad status updated successfully.');
              redirect('admin/ad','refresh');
          }
-         
+         $alerts = $this->user_model->getSearchAlerts($details['latitude'], $details['longitude'], $type);
+         print_r($alerts);
          $this->ad->sendSearchAlert($details);
     }
 
