@@ -598,7 +598,7 @@ class Ad extends CI_Controller
     {
         
         $alerts = $this->user_model->getSearchAlerts($details['latitude'], $details['longitude'], $type);
-        print_r($alerts);
+        print_r('heelo' . $alerts);
         foreach ($alerts as $alert) {
             foreach ($alert as $criteria => $value) {
                 if ($value) {
