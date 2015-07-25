@@ -80,7 +80,7 @@ if($detail){
             <div class="form-field">
             <div class="checkbox"><input type="checkbox" value="My home" name="looking_to_work[]" <?php if(in_array('My home',$looking_to_work)){?> checked="checked" <?php } ?>> My home</div>
             <div class="checkbox"><input type="checkbox" value="Caregiver's home" name="looking_to_work[]" <?php if(in_array('Caregivers home',$looking_to_work)){?> checked="checked" <?php } ?>> Caregivers home</div>
-            <div class="checkbox"><input type="checkbox" value="Mother's helper" name="looking_to_work[]" <?php if(in_array('Mothers helper',$looking_to_work)){?> checked="checked" <?php } ?>/>Mother's helper</div>
+            <div class="checkbox"><input type="checkbox" value="Mother's helper" name="looking_to_work[]" <?php if(in_array("Mother's helper",$looking_to_work)){?> checked="checked" <?php } ?>/>Mother's helper</div>
             </div>
         </div>
         <div>

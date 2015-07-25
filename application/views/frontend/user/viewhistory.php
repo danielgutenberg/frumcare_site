@@ -51,6 +51,7 @@
             unset($rec['user_id']);
             unset($rec['care_type']);
             unset($rec['neighbor']);
+            unset($rec['searcheddate']);
             $alert = $rec['createAlert'];
             unset($rec['createAlert']);
             ?>
