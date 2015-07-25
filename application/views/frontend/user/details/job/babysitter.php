@@ -174,7 +174,7 @@
         <td>
             <?php 
             if(!empty($caregiverage_from) && !empty($caregiverage_to)){
-                echo $caregiverage_from.' to '.$caregiverage_to<div class="details-info"><?php if(isset($start_date) && $start_date !='0000-00-00'){echo $tick; echo $start_date;}else{echo $cross; } ?> Start Date</div>;
+                echo $caregiverage_from.' to '.$caregiverage_to;
             }
             else{
                 echo "N/A";
