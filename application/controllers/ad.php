@@ -588,7 +588,9 @@ class Ad extends CI_Controller
         );
         sendemail($param);
 
-        $this->sendSearchAlert($details, $type);
+        $a = $this->sendSearchAlert($details, $type);
+        print_r($a);
+        exit();
 
         redirect('ad/success','refresh');
 
@@ -597,7 +599,7 @@ class Ad extends CI_Controller
     public function sendSearchAlert($details)
     {
         
-        $alerts = $this->user_model->getSearchAlerts($details['latitude'], $details['longitude'], $type);
+        return $alerts = $this->user_model->getSearchAlerts($details['latitude'], $details['longitude'], $type);
         print_r($alerts);
         foreach ($alerts as $alert) {
             foreach ($alert as $criteria => $value) {
