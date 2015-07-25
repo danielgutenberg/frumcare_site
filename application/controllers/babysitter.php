@@ -208,7 +208,7 @@ class BabySitter extends CI_Controller{
 			else
 				$total = 0;
 				
-			$page = ceil($total/$per_page);        
+			$page = ceil($total/15);        
             $pagination	= '';
             if($page > 1){            	            	
                 	for($i = 1; $i<=$page; $i++)
