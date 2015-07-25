@@ -9,7 +9,9 @@ class Ad extends CI_Controller
             redirect('admin/login');
         }
         $this->load->model('common_model');
+        $this->load->model('user_model');
         $this->load->model('admin/ad_model');
+        $this->load->controller('ad');
         $this->load->library('fileupload_lib');
     }
 
@@ -268,6 +270,7 @@ class Ad extends CI_Controller
     public function changestatus(){
         $task       = $this->uri->segment(4);
         $profile_id = $this->uri->segment(5);
+        $details = $this->ad_model->getProfile($profile_id);
         if($task == 'reject')
             $profile_status = 0;
         else
@@ -279,6 +282,8 @@ class Ad extends CI_Controller
              $this->session->set_flashdata('info','Ad status updated successfully.');
              redirect('admin/ad','refresh');
          }
+         
+         $this->ad->sendSearchAlert($details);
     }
 
         public function uploadfile(){
