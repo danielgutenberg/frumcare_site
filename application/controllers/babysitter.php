@@ -210,22 +210,27 @@ class BabySitter extends CI_Controller{
 				
 			$page = ceil($total/15);        
             $pagination	= '';
-            if($page > 1){            	            	
-                	for($i = 1; $i<=$page; $i++)
-                	{
-                		if($i==1){
-                            $pagination .= ' <a href="#" class="paginate_click active" id="'.$i.'-page" >'.$i.'</a> ';
-                        }else{
-                            $pagination .= ' <a href="#" class="paginate_click in-active" id="'.$i.'-page">'.$i.'</a> ';   
-                        }        
-                	}                          	
+            if($pages > 1){	
+            	$pagination .= '<a href="#" class="paginate_click in-active" id="previous">previous</a>';
+            	for($i = 1; $i<=$pages; $i++)
+            	{
+            		
+            		if($i==1){
+                        $pagination .= ' <a href="#" class="paginate_click active" id="'.$i.'-page" >'.$i.'</a> ';
+                    }else{
+                        $pagination .= ' <a href="#" class="paginate_click in-active" id="'.$i.'-page">'.$i.'</a> ';   
+                    }
+                    
+            	}
+            	$pagination .= '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
+            	//$pagination .= '</ul>';
             }
 			 
-			$userlogs           = $this->user_model->getUserLog();            
-            $merge['userdatas'] = $this->load->view('frontend/common_profile_list', array('userdatas'=>$result,'userlogs'=>$userlogs,'location'=>$location), true); 
-            $merge['num']       =  ceil($total/$limit); 
-            $merge['total']     = $total;
-            $merge['pagination']       	= $pagination;
+			$userlogs             = $this->user_model->getUserLog();            
+            $merge['userdatas']   = $this->load->view('frontend/common_profile_list', array('userdatas'=>$result,'userlogs'=>$userlogs,'location'=>$location), true); 
+            $merge['num']         =  ceil($total/$limit); 
+            $merge['total']       = $total;
+            $merge['pagination']  = $pagination;
             echo json_encode($merge);
             exit();
 		//}
