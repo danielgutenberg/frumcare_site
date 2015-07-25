@@ -283,7 +283,6 @@ class Ad extends CI_Controller
          }
          $alerts = $this->user_model->getSearchAlerts($details['latitude'], $details['longitude'], $type);
          print_r($alerts);
-         $this->ad->sendSearchAlert($details);
     }
 
         public function uploadfile(){
