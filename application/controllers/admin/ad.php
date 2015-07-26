@@ -294,8 +294,6 @@ class Ad extends CI_Controller
     {
         $details = $this->ad_model->getProfile($id);
         $alerts = $this->user_model->getSearchAlerts($details['latitude'], $details['longitude'], $details['care_type']);
-        print_r($details);
-        print_r($alerts);
         foreach ($alerts as $alert) {
             if ($alert['distance'] < $alert['dist']) {
                 break 1;
@@ -316,7 +314,6 @@ class Ad extends CI_Controller
             $data['care_id']        = $details['id'];
             
             $msg = $this->load->view('frontend/email/searchAlert', $data, true);
-            print_r($email);
             $param = array(
                 'subject'     => 'A new profile has been added in Frumcare.com that matches your search',
                 'from'        => SITE_EMAIL,
