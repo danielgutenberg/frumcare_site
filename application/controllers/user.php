@@ -1382,13 +1382,11 @@ class User extends CI_Controller
                 'createAlert' => 1
                 
             );
-            print_r($insert);
-            exit();
             $this->breadcrumbs->push('My Searches', site_url().'#');
             $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
             $this->db->where('id',$id);
             $this->db->update('tbl_searchhistory', $insert);
-            $this->session->set_flashdata('info', 'Alert Created Successfully');
+            $this->session->set_flashdata('info', $insert);
             redirect('user/searches', 'refresh');
       }
       
