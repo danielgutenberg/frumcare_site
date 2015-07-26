@@ -621,7 +621,7 @@ class Ad extends CI_Controller
                 $data['refrences']      = $this->refrence_model->getLatestRefrences($details['id']);
                 $data['care_id']        = $details['id'];
                 
-                $msg = $this->load->view('frontend/email/profileapproval', $data, true);
+                $msg = $this->load->view('frontend/email/searchAlert', $data, true);
                 
                 $param = array(
                     'subject'     => 'A new profile has been added in Frumcare.com that matches your search',
