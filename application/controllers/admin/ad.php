@@ -298,6 +298,9 @@ class Ad extends CI_Controller
             if ($alert['distance'] < $alert['dist']) {
                 break 1;
             }
+            if ($alert['gender'] > 0 && $alert['gender'] != $details['gender']) {
+                break 1;
+            }
             $id = $alert['user_id'];
             $email = $this->user_model->getUserName($id)['email'];
             $data['main_content']   = 'frontend/caregivers/details';
