@@ -1364,7 +1364,7 @@ class User extends CI_Controller
 
       public function createalert($id)
       {
-            $p = $_POST;
+            $p = $_GET;
             if (isset($p['distance'])) {
                 if($p['distance'] == 'unlimited') {
                     $distance = 10000;

@@ -122,7 +122,7 @@
 		    var location = $('.location').val();
             
 			$.ajax({
-				type:"post",
+				type:"get",
 				url:"<?php echo site_url();?>user/createalert/" + id,
 				data:"lat="+lat+"&long="+long+"&distance="+distance+"&location="+location,
 				success:function(message){
