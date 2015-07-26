@@ -1379,7 +1379,8 @@ class User extends CI_Controller
                 'long' => isset($p['long']) ? $p['long'] : '',
                 'lat' => isset($p['lat']) ? $p['lat'] : '',
                 'distance' => $distance,
-                'createAlert' => 1
+                'createAlert' => 1,
+                'location' => isset($p['location']) ? $p['location'] : ''
                 
             );
             $this->breadcrumbs->push('My Searches', site_url().'#');
