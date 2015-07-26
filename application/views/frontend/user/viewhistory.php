@@ -90,11 +90,11 @@
                 	   echo ', Female'; 
                 	}
                 	unset($rec['gender']);
-                	if ($rec['experience'] > 0) {
-                	    if ($rec['experience'] == 6) {
+                	if ($rec['year_experience'] > 0) {
+                	    if ($rec['year_experience'] == 6) {
                 	        echo ', 5+ years of experience'; 
                 	    } else {
-                	        echo $rec['experience'] . ' years of experience';
+                	        echo $rec['year_experience'] . ' years of experience';
                 	    }
                 	}
                 // 	foreach($rec as $key => $value) { 
