@@ -1386,10 +1386,9 @@ class User extends CI_Controller
             $this->breadcrumbs->push('My Searches', site_url().'#');
             $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
             $this->db->where('id',$id);
-            $this->db->update('tbl_searchhistory', $insert);
-            sleep(15);
+            $this->db->update('tbl_searchhistory', $insert);            sleep(15);
             $this->session->set_flashdata('info', 'Alert Created Successfully');
-            redirect('user/searches', 'refresh');
+            redirect('user/searches', true);
       }
       
       public function removealert($id)
