@@ -598,7 +598,6 @@ class Ad extends CI_Controller
     {
         
         $alerts = $this->user_model->getSearchAlerts($details['latitude'], $details['longitude'], $type);
-        print_r('heelo' . $alerts);
         foreach ($alerts as $alert) {
             if ($alert['distance'] < $alert['dist']) {
                 break 1;
