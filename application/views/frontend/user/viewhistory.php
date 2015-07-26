@@ -62,7 +62,7 @@
                     <div id="locationField">
                         <input type="hidden" id="lat" name="lat"/>
                         <input type="hidden" id="lng" name="lng"/> 
-                        <input type="text" name="location" class="required" id="autocomplete" required/>
+                        <input type="text" name="location" class="required" id="autocomplete"/>
                     </div>
                 </td>
                 <td>
