@@ -1348,6 +1348,7 @@ class User extends CI_Controller
         
        
       public function searches(){
+        sleep(3);
         $this->breadcrumbs->push('My Searches', site_url().'#');
         $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
 
@@ -1397,7 +1398,6 @@ class User extends CI_Controller
             $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
             $this->db->where('id',$id);
             $this->db->update('tbl_searchhistory', array('createAlert' => 0));
-            sleep(3);
             $this->session->set_flashdata('info', 'Alert Cancelled Successfully');
             redirect('user/searches', 'refresh');
       }
