@@ -296,36 +296,36 @@ class Ad extends CI_Controller
         $alerts = $this->user_model->getSearchAlerts($details['latitude'], $details['longitude'], $details['care_type']);
         print_r($details);
         print_r($alerts);
-        foreach ($alerts as $alert) {
-            // if ($alert)
-            $id = $alert['user_id'];
-            $email = $this->user_model->getUserName($id)['email'];
-            $data['main_content']   = 'frontend/caregivers/details';
-            $data['recordData']     = $details;
-            $data['title']          = 'Caregivers Details';
-            $data['caretypes']      = $this->caretype_model->getAllCareType();
-            $data['availablility']  = $this->user_model->getCurrentUserTimeTable($details['id']);
-            $data['number_reviews'] = $this->review_model->countReviewById($details['id']);
-            $data['userlog']        = $this->user_model->getUserLogById($details['user_id']);
-            $data['reviewdatas']    = $this->review_model->getAllReviews($details['id']);
-            $data['similar_types']  = $this->user_model->getSimilarPersons($details['care_type'],$details['id']);
-            $data['care_type']      = $this->caretype_model->getAllCareType();
-            $data['refrences']      = $this->refrence_model->getLatestRefrences($details['id']);
-            $data['care_id']        = $details['id'];
+        // foreach ($alerts as $alert) {
+        //     // if ($alert)
+        //     $id = $alert['user_id'];
+        //     $email = $this->user_model->getUserName($id)['email'];
+        //     $data['main_content']   = 'frontend/caregivers/details';
+        //     $data['recordData']     = $details;
+        //     $data['title']          = 'Caregivers Details';
+        //     $data['caretypes']      = $this->caretype_model->getAllCareType();
+        //     $data['availablility']  = $this->user_model->getCurrentUserTimeTable($details['id']);
+        //     $data['number_reviews'] = $this->review_model->countReviewById($details['id']);
+        //     $data['userlog']        = $this->user_model->getUserLogById($details['user_id']);
+        //     $data['reviewdatas']    = $this->review_model->getAllReviews($details['id']);
+        //     $data['similar_types']  = $this->user_model->getSimilarPersons($details['care_type'],$details['id']);
+        //     $data['care_type']      = $this->caretype_model->getAllCareType();
+        //     $data['refrences']      = $this->refrence_model->getLatestRefrences($details['id']);
+        //     $data['care_id']        = $details['id'];
             
-            $msg = $this->load->view('frontend/email/searchAlert', $data, true);
+        //     $msg = $this->load->view('frontend/email/searchAlert', $data, true);
             
-            $param = array(
-                'subject'     => 'A new profile has been added in Frumcare.com that matches your search',
-                'from'        => SITE_EMAIL,
-                'from_name'   => SITE_NAME,
-                'replyto'     => SITE_REPLY_TO_EMAIL,
-                'replytoname' => SITE_NAME,
-                'sendto'      => $email,
-                'message'     => $msg
-            );
-            sendemail($param);
-        }
+        //     $param = array(
+        //         'subject'     => 'A new profile has been added in Frumcare.com that matches your search',
+        //         'from'        => SITE_EMAIL,
+        //         'from_name'   => SITE_NAME,
+        //         'replyto'     => SITE_REPLY_TO_EMAIL,
+        //         'replytoname' => SITE_NAME,
+        //         'sendto'      => $email,
+        //         'message'     => $msg
+        //     );
+        //     sendemail($param);
+        // }
     }
 
         public function uploadfile(){
