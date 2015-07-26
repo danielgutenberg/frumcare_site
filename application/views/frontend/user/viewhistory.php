@@ -90,11 +90,19 @@
                 	   echo ', Female'; 
                 	}
                 	unset($rec['gender']);
-                	foreach($rec as $key => $value) { 
-                	   if ($value > 0) { 
-                	        echo ', ' . $key;
-                	   }
-                	}?>
+                	if ($rec['experience'] > 0) {
+                	    if ($rec['experience'] == 6) {
+                	        echo ', 5+ years of experience'; 
+                	    } else {
+                	        echo $rec['experience'] . ' years of experience';
+                	    }
+                	}
+                // 	foreach($rec as $key => $value) { 
+                // 	   if ($value > 0) { 
+                // 	        echo ', ' . $key;
+                // 	   }
+                // 	}
+                	?>
                 </td>
                 <td>
                     <?php if ($alert == 0) { ?>
