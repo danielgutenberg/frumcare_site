@@ -26,6 +26,7 @@
 		</div>
 
 
+        <form action="<?php echo site_url();?>ad/savejobdetails" method="post">
 	   <table class="table table-bordered table-striped">
         
         <?php
@@ -57,7 +58,7 @@
             ?>
             <tr>
                 <td>
-                    
+                    <input type="hidden" id="id" value="<?php echo $id?>"/>
                     <div id="locationField">
                         <input type="hidden" id="lat" name="lat"/>
                         <input type="hidden" id="lng" name="lng"/> 
@@ -94,7 +95,7 @@
                 </td>
                 <td>
                     <?php if ($alert == 0) { ?>
-                    <button><a href="<?php echo site_url();?>user/createalert/<?php echo $id; ?>">Create Alert</a></button>
+                    <button class="createAlert"><a href="">Create Alert</a></button>
                     <?php } else { ?>
                     <button><a href="<?php echo site_url();?>user/removealert/<?php echo $id; ?>">Cancel Alert</a></button>
                     <?php } ?>
@@ -105,6 +106,26 @@
             }
         ?>
     </table>
+    </form>
 
 </div>
 </div>
+<script>
+	$(document).ready(function(){
+		$('.createAlert').click(function(){
+		    var id = $('#id').val();
+		    var lat = $('#lat').val();
+		    var long = $('#lng').val();
+		    var distance = $( "#distance option:selected" ).val();
+            
+			$.ajax({
+				type:"post",
+				url:"<?php echo site_url();?>user/createalert/" + id,
+				data:"lat="+lat+"&long="+long+"&distance="+distance,
+				success:function(message){
+				}
+			});
+		});
+        
+	});
+</script>

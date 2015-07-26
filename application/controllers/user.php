@@ -1364,10 +1364,30 @@ class User extends CI_Controller
 
       public function createalert($id)
       {
+            $p = $_POST;
+            if (isset($p['distance'])) {
+                if($p['distance'] == 'unlimited') {
+                    $distance = 10000;
+                } else {
+                    $distance = $p['distance'];
+                }
+            } else {
+                $distance = 0;
+            }
+            
+            $insert = array(
+                'long' => isset($p['long']) ? $p['long'] : '',
+                'lat' => isset($p['lat']) ? $p['lat'] : '',
+                'distance' => $distance,
+                'createAlert' => 1
+                
+            );
+            print_r($insert);
+            exit();
             $this->breadcrumbs->push('My Searches', site_url().'#');
             $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
             $this->db->where('id',$id);
-            $this->db->update('tbl_searchhistory', array('createAlert' => 1));
+            $this->db->update('tbl_searchhistory', $insert);
             $this->session->set_flashdata('info', 'Alert Created Successfully');
             redirect('user/searches', 'refresh');
       }
