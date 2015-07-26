@@ -26,7 +26,7 @@
 		</div>
 
 
-        <form action="<?php echo site_url();?>ad/savejobdetails" method="post">
+       
 	   <table class="table table-bordered table-striped">
         
         <?php
@@ -106,7 +106,6 @@
             }
         ?>
     </table>
-    </form>
 
 </div>
 </div>
