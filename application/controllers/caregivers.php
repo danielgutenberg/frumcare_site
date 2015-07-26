@@ -49,7 +49,7 @@ class Caregivers extends CI_Controller
                             'pages'             => ceil($get_total_rows/$item_per_page),
                             'countries'         => $this->common_model->getCountries(),
                             'userlogs'		    => $this->user_model->getUserLog(),
-                            'userdatas'		    => $userdata,
+                            'userdatas'		    => array_slice($userdata, 0, 15),
                             'account_category'  => $account_category,
                             'care_type'         => $care_type,
                             'total_rows'        => $get_total_rows,

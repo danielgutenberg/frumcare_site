@@ -277,6 +277,7 @@ if($pages > 1){
 </div> 
 <script type="text/javascript">    
 		$(document).ready(function(){
+		    
 		    $('#autocomplete').on('click', function(){$('#autocomplete').val('')})
             //for sort by location, per page
             $(document).on('change','#sort_by_select,#per_page,#sort_by_miles',function(){                

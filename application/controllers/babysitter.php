@@ -208,7 +208,7 @@ class BabySitter extends CI_Controller{
 			else
 				$total = 0;
 				
-			$pages = ceil($total/15);        
+			$pages = ceil($total/$limit);        
             $pagination	= '';
             if($pages > 1){	
             	$pagination .= '<a href="#" class="paginate_click in-active" id="previous">previous</a>';
@@ -224,7 +224,7 @@ class BabySitter extends CI_Controller{
             	}
             	$pagination .= '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
             }
-			 
+			$result = array_slice($result, 0 , $limit);
 			$userlogs             = $this->user_model->getUserLog();            
             $merge['userdatas']   = $this->load->view('frontend/common_profile_list', array('userdatas'=>$result,'userlogs'=>$userlogs,'location'=>$location), true); 
             $merge['num']         =  ceil($total/$limit); 

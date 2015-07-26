@@ -245,6 +245,7 @@ class Careseeker_babysitter extends CI_Controller{
 				$total = count($res);
 			else
 				$total = 0;
+			$res = array_slice($res, 0 , 15);
 			$userlogs             	= $this->user_model->getUserLog();
             $merge['userdatas']   	= $this->load->view('frontend/common_profile_list', array('userdatas'=>$res,'userlogs'=>$userlogs,'location'=>$location), true);
             $total_rows           	= $total;
