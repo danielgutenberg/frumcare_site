@@ -504,20 +504,20 @@ $(document).ready(function () {
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
             var care_type = $( ".select-services option:selected" ).val();
             
-			$.ajax({
-				type:"get",
-				url:"<?php echo site_url();?>babysitter/searchAll",
-				data:"neighbour="+neighbour+"&gender="+gender+"&smoker="+smoker+"&lang="+lang+"&observance="+observance+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&driver_license="+driver_license+"&vehicle="+vehicle+"&pick_up_child="+pick_up_child+"&cook="+cook+"&basic_housework="+basic_housework+"&homework_help="+homework_help+"&on_short_notice="+on_short_notice+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&start_date="+start_date+"&care_type="+care_type,
-				success:function(message){
-						$(".searchloader").fadeOut("fast");
-						var json = jQuery.parseJSON(message);
-		 				var pagenum = json.num;
-		 				var pagedata = json.userdatas;
-						$('#list_container').html(pagedata);
-						$('#total').text(json.total);
-                        $('.navigations').html(json.pagination);
-				}
-			});
+			// $.ajax({
+			// 	type:"get",
+			// 	url:"<?php echo site_url();?>babysitter/searchAll",
+			// 	data:"neighbour="+neighbour+"&gender="+gender+"&smoker="+smoker+"&lang="+lang+"&observance="+observance+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&driver_license="+driver_license+"&vehicle="+vehicle+"&pick_up_child="+pick_up_child+"&cook="+cook+"&basic_housework="+basic_housework+"&homework_help="+homework_help+"&on_short_notice="+on_short_notice+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&start_date="+start_date+"&care_type="+care_type,
+			// 	success:function(message){
+			// 			$(".searchloader").fadeOut("fast");
+			// 			var json = jQuery.parseJSON(message);
+		 //				var pagenum = json.num;
+		 //				var pagedata = json.userdatas;
+			// 			$('#list_container').html(pagedata);
+			// 			$('#total').text(json.total);
+   //                     $('.navigations').html(json.pagination);
+			// 	}
+			// });
   var neighbour = $('.neighbour').val();
 			
   
