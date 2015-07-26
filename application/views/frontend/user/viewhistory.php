@@ -80,6 +80,9 @@
                 	<?php 
                 	echo $rec['service_name'];
                 	unset($rec['service_name']);
+                	unset($rec['distance']);
+                	unset($rec['lat']);
+                	unset($rec['long']);
                 	if ($rec['gender'] == 1) {
                 	   echo ', Male'; 
                 	}
