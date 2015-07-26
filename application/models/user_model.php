@@ -820,8 +820,8 @@ class User_model extends CI_Model
                 return false;
     }
     
-    public function getSearchAlerts(){
-        $sql    = "select * from tbl_searchhistory where createAlert = 1";
+    public function getSearchAlerts($latitude, $longitude, $type){
+        $sql    = "select *, (((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `long` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS dist from tbl_searchhistory where createAlert = 1 and care_type = $type";
         $query  = $this->db->query($sql);
         $res    = $query->result_array();
         if($res) 

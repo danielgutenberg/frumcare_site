@@ -208,12 +208,28 @@ class BabySitter extends CI_Controller{
 			else
 				$total = 0;
 				
+			$pages = ceil($total/15);        
+            $pagination	= '';
+            if($pages > 1){	
+            	$pagination .= '<a href="#" class="paginate_click in-active" id="previous">previous</a>';
+            	for($i = 1; $i<=$pages; $i++)
+            	{
+            		
+            		if($i==1){
+                        $pagination .= ' <a href="#" class="paginate_click active" id="'.$i.'-page" >'.$i.'</a> ';
+                    }else{
+                        $pagination .= ' <a href="#" class="paginate_click in-active" id="'.$i.'-page">'.$i.'</a> ';   
+                    }
+                    
+            	}
+            	$pagination .= '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
+            }
 			 
-			$userlogs           = $this->user_model->getUserLog();            
-            $merge['userdatas'] = $this->load->view('frontend/common_profile_list', array('userdatas'=>$result,'userlogs'=>$userlogs,'location'=>$location), true); 
-            $merge['num']       =  ceil($total_rows/$limit); 
-            $merge['total']     = $total;
-            $merge['pagination']       	= '';
+			$userlogs             = $this->user_model->getUserLog();            
+            $merge['userdatas']   = $this->load->view('frontend/common_profile_list', array('userdatas'=>$result,'userlogs'=>$userlogs,'location'=>$location), true); 
+            $merge['num']         =  ceil($total/$limit); 
+            $merge['total']       = $total;
+            $merge['pagination']  = $pagination;
             echo json_encode($merge);
             exit();
 		//}

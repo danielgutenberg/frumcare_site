@@ -194,7 +194,7 @@
                     </div>
                     <div class="first-names">
                         <label></label>
-                            <input type="checkbox" name="fimilartojewish" value="1" <?php if($user_data['familartojewish'] == 1){?> checked = "checked" <?php }?>>Familiar with Jewish Tradition
+                            <input type="checkbox" name="familartojewish" value="1" <?php if($user_data['familartojewish'] == 1){?> checked = "checked" <?php }?>>Familiar with Jewish Tradition
                     </div>
 		<?php } ?>
                     <!-- <div class="familar" style="display:none;">-->
@@ -216,7 +216,7 @@
                             <select name="education">
                                 <option>--Select Level of Education--</option>
                                 <option value="Elementary" <?php if($education_level == 'Elementary'){?> selected="selected" <?php }?> >Elementary</option>
-                                <option value="High school" <?php if($education_level == 'High School'){?> selected="selected" <?php }?>>High school</option>
+                                <option value="High School" <?php if($education_level == 'High School'){?> selected="selected" <?php }?>>High school</option>
                                 <option  value="Yeshiva/ Seminary" <?php if($education_level == 'Yeshiva/ Seminary'){?> selected="selected" <?php }?>>Yeshiva/ Seminary</option>
                                 <option value="Degree" <?php if($education_level == 'Degree'){?> selected="selected" <?php }?>>Degree</option>
                             </select>
@@ -241,7 +241,6 @@
                     <?php if($this->session->userdata('account_category')!=3){ ?>
                     <div class="upload-photo">
                         <h2>Upload a profile picture</h2>
-                        <input type="hidden" id="file-name1" name="profile_picture_owner" value="<?php echo isset($profile_picture_owner)?>">
                         <div id="output1"><img src="<?php echo $photo_url?>"></div>
                         <label>Browse your computer to select a file to upload</label>
                         <button class="btn btn-default" id="upload1">Choose File</button>

@@ -13,6 +13,14 @@ class ad_model extends CI_Model{
 		else 
 			return false;
 	}
+	
+	public function getProfile($id)
+	{
+		$sql = "SELECT tbl_user.*,tbl_userprofile.* FROM tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_userprofile.id = '$id'";
+        $query = $this->db->query($sql);
+        $res = $query->row_array();
+        return $res;
+	}
 
 
 	public function getAllDetails($id){
