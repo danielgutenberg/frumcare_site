@@ -277,6 +277,65 @@ if($pages > 1){
 </div> 
 <script type="text/javascript">    
 		$(document).ready(function(){
+		    $('.searchloader').fadeIn("fast");
+                var x = $('#sort_by_select').val();
+                var y = $('#autocomplete').val();
+                var z = $("#per_page").val();
+                var lat = $('#lat').val();
+                var lng = $('#lng').val();
+                var miles = $("#sort_by_miles").val();
+                var ac = "<?php echo $account_category ?>";
+                var care_type = "<?php echo $care_type ?>";
+                var previous = '<a href="#" class="paginate_click in-active">previous</a>'
+                var next = '<a href="#" class="paginate_click in-active">next</a>'
+                if ($(this).attr("id") == 'previous') {
+                    var page_num = parseInt($('.paginate_click.active').attr('id').split('-')[0]) - 1
+                    if (page_num == 0) {
+                        page_num = 1
+                    }
+                } else if ($(this).attr("id") == 'next') {
+                    var page_num = parseInt($('.paginate_click.active').attr('id').split('-')[0]) + 1
+                    if (page_num == $('.paginate_click').length - 1) {
+                        page_num = $('.paginate_click').length - 2
+                    }
+                } else {
+                    var clicked_id = $(this).attr("id").split("-"); //ID of clicked element, split() to get page number.
+        		    var page_num = parseInt(clicked_id[0]); //clicked_id[0] holds the page number we need 
+                }
+                
+        		$('.paginate_click').removeClass('active'); //remove any active class
+                $('.paginate_click').addClass('in-active'); //remove any active class		
+                if(y!=''){
+            		$.post("<?php echo site_url();?>common_care_controller/fetch_pages", {'miles':miles,'page':(page_num-1),'option':x,'per_page':z,'lat':lat,'lng':lng,'location':y,'account_category':ac,'care_type':care_type,'total_page':$('#total').text()}, function(msg){
+                       $('.searchloader').fadeOut("fast");
+                        var json = jQuery.parseJSON(msg);
+        				var pagenum = json.num;
+        				var pagedata = json.userdatas;
+        				$('#list_container').html(pagedata);
+        				$('#total').text(json.total_rows);
+                        // $('.navigations').html(json.pagination);
+            		});
+                }
+                else{
+                    var y = $("#showgeolocation1").text();
+                    $.post("<?php echo site_url();?>common_care_controller/fetch_pages", {'miles':miles,'page':(page_num-1),'option':x,'per_page':z,'location':y,'account_category':ac,'care_type':care_type,'total_page':$('#total').text()}, function(msg){
+                       $('.searchloader').fadeOut("fast");
+                        var json = jQuery.parseJSON(msg);
+        				var pagenum = json.num;
+        				var pagedata = json.userdatas;
+        				$('#list_container').html(pagedata);
+        				$('#total').text(json.total_rows);
+                        // $('.navigations').html(json.pagination);
+            		});
+                }
+                var element = parseInt(page_num)
+                $('.paginate_click').eq(element).removeClass('in-active');
+        		$('.paginate_click').eq(element).addClass('active'); //add active class to currently clicked element (style purpose)
+        		document.body.scrollTop = document.documentElement.scrollTop = 0;
+        		return false; //prevent going to herf link
+		    
+		    
+		    
 		    $('#autocomplete').on('click', function(){$('#autocomplete').val('')})
             //for sort by location, per page
             $(document).on('change','#sort_by_select,#per_page,#sort_by_miles',function(){                
