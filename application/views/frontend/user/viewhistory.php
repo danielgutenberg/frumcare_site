@@ -62,7 +62,7 @@
                     <div id="locationField">
                         <input type="hidden" id="lat" name="lat" val="<?php echo isset($rec['lat']) ? $rec['lat'] : ''?>"/>
                         <input type="hidden" id="lng" name="lng" val="<?php echo isset($rec['long']) ? $rec['long'] : ''?>"/> 
-                        <input type="text" name="location" class="location" id="autocomplete" placeholder="<?php echo isset($rec['location']) ? $rec['location'] : ''?>"/>
+                        <input type="text" name="location" class="location" id="autocomplete" value="<?php echo isset($rec['location']) ? $rec['location'] : ''?>"/>
                     </div>
                 </td>
                 <td>
