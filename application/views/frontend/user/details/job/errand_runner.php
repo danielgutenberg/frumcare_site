@@ -146,7 +146,7 @@
             <td>Level of observance necessary</td>
             <td>
                 <?php if($religious_observance == 'Not Jewish') {
-                    echo 'Not Necessary'; 
+                    echo 'Not necessary'; 
                 } else {
                     echo $religious_observance;
                 }?>
