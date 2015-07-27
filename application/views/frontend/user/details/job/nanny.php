@@ -179,8 +179,8 @@
             <td>Age of caregiver wanted</td>
             <td>
                 <?php 
-                if(!empty($caregiverage_from) && !empty($caregiverage_from)){
-                    echo $caregiverage_from.' to '.$caregiverage_from;
+                if(!empty($caregiverage_from) && !empty($caregiverage_to)){
+                    echo $caregiverage_from.' to '.$caregiverage_to;
                 }
                 else{
                     echo "N/A";
