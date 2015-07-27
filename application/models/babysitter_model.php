@@ -55,7 +55,7 @@
                  $observance = explode(',',$postdata['observance']);
                   if(is_array($observance)){
                         foreach($observance as $data){
-                            $sql .= " and FIND_IN_SET('$data',tbl_userprofile.religious_observance)"; 
+                            $sql .= " and FIND_IN_SET('$data',tbl_user.caregiver_religious_observance)";
   	                     }
                     }
             }
@@ -161,7 +161,7 @@
                  $observance = explode(',',$postdata['observance']);
                   if(is_array($observance)){
                         foreach($observance as $data){
-                            $sql .= " and FIND_IN_SET('$data',tbl_userprofile.religious_observance)"; 
+                            $sql .= " and FIND_IN_SET('$data',tbl_user.caregiver_religious_observance)"; 
   	                     }
                     }
             }
