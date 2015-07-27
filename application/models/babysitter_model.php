@@ -131,7 +131,6 @@
 				$sql .= " and tbl_userprofile.start_date='".$postdata['start_date']."'";
             //echo $sql;exit;
 			$sql .=" order by distance asc";
-			print_r($sql);
             $query 	= $this->db->query($sql);
 			$res 	= $query->result_array();
             //var_dump($res);exit;
