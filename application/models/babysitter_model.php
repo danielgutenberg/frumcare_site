@@ -232,7 +232,7 @@
             if($postdata['start_date'])
 				$sql .= " and tbl_userprofile.start_date='".$postdata['start_date']."'";
             //echo $sql;exit;
-			//$sql .=" having distance <50 order by distance asc";
+			$sql .="  order by distance asc";
             $query 	= $this->db->query($sql);
 			$res 	= $query->result_array();
             //var_dump($res);exit;
