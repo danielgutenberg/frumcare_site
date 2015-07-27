@@ -588,13 +588,13 @@ class Ad extends CI_Controller
         );
         sendemail($param);
 
-        $this->sendSearchAlert($details, $type);
+        $this->sendSearchAlert($details, $id);
 
         redirect('ad/success','refresh');
 
     }
 
-    public function sendSearchAlert($details)
+    public function sendSearchAlert($details, $type)
     {
         
         $alerts = $this->user_model->getSearchAlerts($details['latitude'], $details['longitude'], $type);

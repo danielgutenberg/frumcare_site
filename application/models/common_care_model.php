@@ -22,10 +22,10 @@ class Common_care_model extends CI_Model
         }
         else{
            if($account_category==1){
-                $sql.=" and tbl_userprofile.care_type < 17";
+                $sql.=" and tbl_care.service_type = 1";
            }
            if($account_category==2){
-                $sql.=" and tbl_userprofile.care_type >16";
+                $sql.=" and and tbl_care.service_type = 2";
            }
            if($account_category ==3 ) {
                 if(segment(1) == 'caregivers' && segment(2) == 'organizations') $sql .=" and tbl_userprofile.care_type >9 and tbl_userprofile.care_type < 17";
