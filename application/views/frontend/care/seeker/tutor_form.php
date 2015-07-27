@@ -185,8 +185,8 @@ $user_detail = get_user(check_user());
             <div class="form-field">
             <select name="religious_observance">
                 <option value="">Select</option>
-                <option value="Yeshivish/ Chasidish">Yeshivish / Chasidish</option>
-                <option value="Orthodox/ Modern Orthodox">Orthodox / Modern orthodox</option>
+                <option value="Yeshivish/Chasidish">Yeshivish / Chasidish</option>
+                <option value="Orthodox/Modern Orthodox">Orthodox / Modern orthodox</option>
                 <option value="Familiar With Jewish Tradition">Familiar With Jewish Tradition</option>
                 <option value="Not Jewish">Not necessary</option>
             </select>
