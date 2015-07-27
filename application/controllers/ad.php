@@ -597,7 +597,7 @@ class Ad extends CI_Controller
     public function sendSearchAlert($details, $type)
     {
         
-        $alerts = $this->user_model->getSearchAlerts($details['latitude'], $details['longitude'], $type);
+        $alerts = $this->user_model->getSearchAlerts($details['lat'], $details['lng'], $type);
         foreach ($alerts as $alert) {
             if ($alert['distance'] < $alert['dist']) {
                 break 1;
