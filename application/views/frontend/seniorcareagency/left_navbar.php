@@ -48,7 +48,7 @@ $(function () {
 			$('#care_type').val(care_type);
 
 		$('.show').click(function(){
-			$('.familarsection').html('<div class="checkbox"><input type="checkbox" value="Familiar with Jewish Tradition" name="observance[]" class="familiar observance">Familiar with Jewish Tradition</div>').show();
+			$('.familarsection').html('<div class="checkbox"><input type="checkbox" value="Familiar With Jewish Tradition" name="observance[]" class="familiar observance">Familiar with Jewish Tradition</div>').show();
 		});
 
 		$('.hidefamiliar').click(function(){
