@@ -47,7 +47,7 @@
                   $lang = explode(',',$postdata['language']);
                   if(is_array($lang)){
                         foreach($lang as $data){
-                            $sql .= " and FIND_IN_SET('$data',tbl_userprofile.language)"; 
+                            $sql .= " and FIND_IN_SET('$data',tbl_user.caregiver_language)"; 
   	                     }
                     }
             }
@@ -153,7 +153,7 @@
                   $lang = explode(',',$postdata['language']);
                   if(is_array($lang)){
                         foreach($lang as $data){
-                            $sql .= " and FIND_IN_SET('$data',tbl_userprofile.language)"; 
+                            $sql .= " and FIND_IN_SET('$data',tbl_user.caregiver_language)";  
   	                     }
                     }
             }
