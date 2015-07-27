@@ -576,17 +576,17 @@ class Ad extends CI_Controller
         
         $details = $this->user_model->getUserDetailsById($user_id,$id);
         
-        // $msg = $this->load->view('emails/adApproved', array('name' => $details['name']), true);
-        // $param = array(
-        //     'subject'     => 'Ad Approved',
-        //     'from'        => SITE_EMAIL,
-        //     'from_name'   => SITE_NAME,
-        //     'replyto'     => SITE_REPLY_TO_EMAIL,
-        //     'replytoname' => SITE_NAME,
-        //     'sendto'      => $sendto,
-        //     'message'     => $msg
-        // );
-        // sendemail($param);
+        $msg = $this->load->view('emails/adApproved', array('name' => $details['name']), true);
+        $param = array(
+            'subject'     => 'Ad Approved',
+            'from'        => SITE_EMAIL,
+            'from_name'   => SITE_NAME,
+            'replyto'     => SITE_REPLY_TO_EMAIL,
+            'replytoname' => SITE_NAME,
+            'sendto'      => $sendto,
+            'message'     => $msg
+        );
+        sendemail($param);
 
         $this->sendSearchAlert($details, $id);
 

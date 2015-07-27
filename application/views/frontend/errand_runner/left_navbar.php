@@ -41,7 +41,7 @@
 	 			<label>Level of observance (check one or more)</label>
 	 			<div class="checkbox"><input type="checkbox" value="Yeshivish/ Chasidish" name="observance[]" class="observance">Yeshivish / Chasidish</div>
 	 			<div class="checkbox"><input type="checkbox" value="Orthodox/ Modern Orthodox" name="observance[]" class="observance">Orthodox / Modern orthodox</div>	 			
-	 			<div class="checkbox"><input type="checkbox" value="Familiar with Jewish Tradition" name="observance[]" class="observance">Familiar with Jewish Tradition</div>
+	 			<div class="checkbox"><input type="checkbox" value="Familiar With Jewish Tradition" name="observance[]" class="observance">Familiar with Jewish Tradition</div>
 	 			<div class="checkbox"><input type="checkbox" value="Any" name="observance[]" class=" observance">Any</div>	 			
 	 		</div>
 	 		<div class="year-exp">

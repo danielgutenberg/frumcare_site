@@ -113,8 +113,8 @@
 			<div class="form-field">
 				<select name="religious_observance" class="required">
 					<option value="">Select</option>
-					<option value="Orthodox">Orthodox</option>
-					<option value="Modern Orthodox">Modern orthodox</option>
+					<option value="Yeshivish/Chasidish">Yeshivish / Chasidish</option>
+						<option value="Orthodox/Modern Orthodox">Orthodox / Modern orthodox</option>
 					<option value="Other">Other</option>
 					<option value="Not Jewish">Not necessary</option>
 				</select>
