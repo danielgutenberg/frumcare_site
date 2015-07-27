@@ -75,11 +75,11 @@
              <?php
           } ?>
         
-        <?php if(!empty($age_group)){ ?>    
+        <?php if(!empty($age)){ ?>    
         <tr>
             <td>Age of senior</td>
             <td>
-                <?php echo $age_group; ?>
+                <?php echo $age; ?>
             </td>
         </tr>
         <?php }
@@ -190,7 +190,7 @@
         <tr>
             <td>Level of observance necessary</td>
             <td>
-                <?php echo $religious_observance; ?>
+                <?php if ($religious_observance == 'Not Jewish') {echo 'not necessary';} else {echo $religious_observance;} ?>
             </td>
         </tr>
         <?php }
@@ -207,8 +207,8 @@
         <td>Age of caregiver wanted</td>
         <td>
             <?php 
-            if(!empty($caregiverage_from) && !empty($caregiverage_from)){
-                echo $caregiverage_from.' to '.$caregiverage_from;
+            if(!empty($caregiverage_from) && !empty($caregiverage_tp)){
+                echo $caregiverage_from.' to '.$caregiverage_to;
             }
             else{
                 echo "N/A";
