@@ -36,6 +36,10 @@
             $seodata=array('meta_title'=>'Jewish organizations find caregivers & staff ','meta_desc'=>'Jewish organizations and institutions can successfully recruit caregivers, employees and staff as well as advertise their services on FrumCare.com ','meta_keywords'=>'');
 
         }
+        elseif($title=='Therapist'){
+            $seodata=array('meta_title'=>'Find Therapists Serving the Jewish Community ','meta_desc'=>'Frum Care brings you qualified therapists sensitive to the needs of the Jewish community.','meta_keywords'=>'');
+
+        }
         else{
 
             $seodata = $this->common_model->getSEODATA();
