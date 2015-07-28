@@ -18,6 +18,7 @@ class Signup extends CI_Controller
         $data['at'] = isset($_GET['ac']) ? $_GET['ac']:'';
         $data['main_content'] = 'frontend/signup/signup_form';
         $data['title'] = 'Register';
+        $data['seodata']=array('meta_title'=>'Create a Caregiver, Parent or Institution Profile on FrumCare','meta_description'=>'Caregivers, parents & institutions: Create a free profile & find suitable caregivers & caregiver jobs in the frum community. Advertising opportunities available too!','meta_keywords'=>'');
         $this->load->view(FRONTEND_TEMPLATE, $data);
     }
 
