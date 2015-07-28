@@ -45,7 +45,7 @@
             $seodata=array('meta_title'=>'Contact Us','meta_desc'=>'Contact us for more information or if we can help you in anyway.','meta_keywords'=>'');
 
         }
-        if($content_data){
+        elseif($content_data){
             $seodata=array('meta_title'=>$content_data['seo_meta_title'],'meta_desc'=>$content_data['seo_meta_description'],'meta_keywords'=>$content_data['seo_meta_keywords']);
         }
         else{
