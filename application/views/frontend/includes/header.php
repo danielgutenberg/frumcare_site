@@ -23,7 +23,12 @@
 
             $seodata=array('meta_title'=>'Create a Caregiver, Parent or Institution Profile on FrumCare','meta_desc'=>'Caregivers, parents & institutions: Create a free profile & find suitable caregivers & caregiver jobs in the frum community. Advertising opportunities available too!','meta_keywords'=>'');
 
-        }else{
+        }
+        elseif($title=='Caregivers'){
+            $seodata=array('meta_title'=>'Find the perfect nanny or senior caregiverwith FrumCare','meta_desc'=>'Frumcare is the only online tool to find the perfect nanny, babysitter or senior caregiver in the Jewish community.','meta_keywords'=>'');
+
+        }
+        else{
 
             $seodata = $this->common_model->getSEODATA();
 
