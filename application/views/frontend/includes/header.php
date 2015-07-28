@@ -49,6 +49,10 @@
             $seodata=array('meta_title'=>'Learn How FrumCare Works','meta_desc'=>'The ins and outs of our online tool for caregivers, job seekers and families seeking in home help.','meta_keywords'=>'');
 
         }
+        elseif($title=='Safety Guide - For Families'){
+            $seodata=array('meta_title'=>'A Safety Guide for Families seeking household help','meta_desc'=>'Whether you are seeking a babysitter, housekeeper, childcare or elderly care, FrumCare provides a safety guide to having a positive and safe experience.','meta_keywords'=>'');
+
+        }
         elseif($content_data){
             $seodata=array('meta_title'=>$content_data['seo_meta_title'],'meta_desc'=>$content_data['seo_meta_description'],'meta_keywords'=>$content_data['seo_meta_keywords']);
         }
