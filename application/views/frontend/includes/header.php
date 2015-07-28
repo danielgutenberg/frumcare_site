@@ -40,7 +40,7 @@
             $seodata=array('meta_title'=>'Find Therapists Serving the Jewish Community ','meta_desc'=>'Frum Care brings you qualified therapists sensitive to the needs of the Jewish community.','meta_keywords'=>'');
 
         }
-        elseif(isset($content_data)){
+        if($content_data){
             $seodata=array('meta_title'=>$content_data['seo_meta_title'],'meta_desc'=>$content_data['seo_meta_description'],'meta_keywords'=>$content_data['seo_meta_keywords']);
         }
         else{
