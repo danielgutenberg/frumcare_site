@@ -61,6 +61,10 @@
             $seodata=array('meta_title'=>'Hiring a Caregiver: Tips From the Experts','meta_desc'=>'Expert tips on how to hire the best caregiver for your Jewish home.','meta_keywords'=>'');
 
         }
+        elseif($title=='Advice and Tips - For Caregivers'){
+            $seodata=array('meta_title'=>'Advice and Tips for Caregivers from the Experts','meta_desc'=>'FrumCare shares expert advice and tips for caregivers including preventing caregiver burnout, preparing for an interview, how to look for a caregiver job & more.','meta_keywords'=>'');
+
+        }
         elseif($content_data){
             $seodata=array('meta_title'=>$content_data['seo_meta_title'],'meta_desc'=>$content_data['seo_meta_description'],'meta_keywords'=>$content_data['seo_meta_keywords']);
         }
