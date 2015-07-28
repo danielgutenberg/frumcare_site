@@ -45,7 +45,7 @@
               }
         }
         $users =  $this->common_care_model->sort($per_page,$latitude,$longitude,$option,$account_category,$care_type,$miles);                
-        $total_rows = $this->common_care_model->getCount($latitude,$longitude,$account_category,$care_type,$miles);
+        $total_rows = count($users);
         $page = ceil($total_rows/$per_page);        
         $pagination	= '';
         if($page > 1){            	            	
@@ -59,7 +59,7 @@
             	}                          	
         }                  
         $userlogs                = $this->user_model->getUserLog();
-        $merge['userdatas']      = $this->load->view('frontend/common_profile_list', array('userdatas'=>$users,'userlogs'=>$userlogs,'location'=>$location), true);
+        $merge['userdatas']      = $this->load->view('frontend/common_profile_list', array('userdatas'=>array_slice($users, 0 ,15),'userlogs'=>$userlogs,'location'=>$location), true);
         $merge['total_rows']     = $total_rows;
         $merge['num']            = ceil($total_rows/$per_page); 
         $merge['pagination']     = $pagination;
