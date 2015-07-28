@@ -57,6 +57,10 @@
             $seodata=array('meta_title'=>'A Safety Guide for Caregivers','meta_desc'=>'As a caregiver your safety comes first.Whether you are a babysitter, housekeeper or senior care worker, FrumCare guides you to having a safe caregiver experience..','meta_keywords'=>'');
 
         }
+        elseif($title=='Advice and Tips - For Families'){
+            $seodata=array('meta_title'=>'Hiring a Caregiver: Tips From the Experts','meta_desc'=>'Expert tips on how to hire the best caregiver for your Jewish home.','meta_keywords'=>'');
+
+        }
         elseif($content_data){
             $seodata=array('meta_title'=>$content_data['seo_meta_title'],'meta_desc'=>$content_data['seo_meta_description'],'meta_keywords'=>$content_data['seo_meta_keywords']);
         }
