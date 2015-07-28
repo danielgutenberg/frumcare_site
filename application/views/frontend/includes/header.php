@@ -21,7 +21,7 @@
         $this->load->model('common_model');
         if($title=='Register'){
 
-            $seodata=array('meta_title'=>'Create a Caregiver, Parent or Institution Profile on FrumCare','meta_description'=>'Caregivers, parents & institutions: Create a free profile & find suitable caregivers & caregiver jobs in the frum community. Advertising opportunities available too!','meta_keywords'=>'');
+            $seodata=array('meta_title'=>'Create a Caregiver, Parent or Institution Profile on FrumCare','meta_desc'=>'Caregivers, parents & institutions: Create a free profile & find suitable caregivers & caregiver jobs in the frum community. Advertising opportunities available too!','meta_keywords'=>'');
 
         }else{
 
