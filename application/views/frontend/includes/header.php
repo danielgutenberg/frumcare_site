@@ -53,6 +53,10 @@
             $seodata=array('meta_title'=>'A Safety Guide for Families seeking household help','meta_desc'=>'Whether you are seeking a babysitter, housekeeper, childcare or elderly care, FrumCare provides a safety guide to having a positive and safe experience.','meta_keywords'=>'');
 
         }
+        elseif($title=='Safety Guide - For Caregivers'){
+            $seodata=array('meta_title'=>'A Safety Guide for Caregivers','meta_desc'=>'As a caregiver your safety comes first.Whether you are a babysitter, housekeeper or senior care worker, FrumCare guides you to having a safe caregiver experience..','meta_keywords'=>'');
+
+        }
         elseif($content_data){
             $seodata=array('meta_title'=>$content_data['seo_meta_title'],'meta_desc'=>$content_data['seo_meta_description'],'meta_keywords'=>$content_data['seo_meta_keywords']);
         }
