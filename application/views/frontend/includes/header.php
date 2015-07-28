@@ -45,9 +45,14 @@
             $seodata=array('meta_title'=>'Contact Us','meta_desc'=>'Contact us for more information or if we can help you in anyway.','meta_keywords'=>'');
 
         }
+        elseif($title=='How it works'){
+            $seodata=array('meta_title'=>'Learn How FrumCare Works','meta_desc'=>'The ins and outs of our online tool for caregivers, job seekers and families seeking in home help.','meta_keywords'=>'');
+
+        }
         elseif($content_data){
             $seodata=array('meta_title'=>$content_data['seo_meta_title'],'meta_desc'=>$content_data['seo_meta_description'],'meta_keywords'=>$content_data['seo_meta_keywords']);
         }
+
         else{
 
             $seodata = $this->common_model->getSEODATA();
