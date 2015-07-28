@@ -19,7 +19,16 @@
         <title><?php if(isset($title)) echo $title.' - '; ?> FrumCare</title>
         <?php 
         $this->load->model('common_model');
-        $seodata = $this->common_model->getSEODATA();?>
+        if($title=='Register'){
+
+            $seodata=array('meta_title'=>'Create a Caregiver, Parent or Institution Profile on FrumCare','meta_description'=>'Caregivers, parents & institutions: Create a free profile & find suitable caregivers & caregiver jobs in the frum community. Advertising opportunities available too!','meta_keywords'=>'');
+
+        }else{
+
+            $seodata = $this->common_model->getSEODATA();
+        }
+        ?>
+
         <meta name="title" content="<?php echo $seodata['meta_title'];?>">
         <meta name="description" content="<?php echo $seodata['meta_desc'];?>">
         <meta name="keywords" content="<?php echo $seodata['meta_keywords'];?>">
