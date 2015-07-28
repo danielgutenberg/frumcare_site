@@ -28,6 +28,10 @@
             $seodata=array('meta_title'=>'Find the perfect nanny or senior caregiverwith FrumCare','meta_desc'=>'Frumcare is the only online tool to find the perfect nanny, babysitter or senior caregiver in the Jewish community.','meta_keywords'=>'');
 
         }
+        elseif($title=='Jobs'){
+            $seodata=array('meta_title'=>'Find a Caregiver Job In Your Area','meta_desc'=>'Our searchable database of babysitting, senior caregiver jobs & more helps you find a suitable job in the Jewish community, in just the right location.','meta_keywords'=>'');
+
+        }
         else{
 
             $seodata = $this->common_model->getSEODATA();
