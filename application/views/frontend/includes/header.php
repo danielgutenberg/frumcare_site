@@ -32,6 +32,10 @@
             $seodata=array('meta_title'=>'Find a Caregiver Job In Your Area','meta_desc'=>'Our searchable database of babysitting, senior caregiver jobs & more helps you find a suitable job in the Jewish community, in just the right location.','meta_keywords'=>'');
 
         }
+        elseif($title=='Workers / Staff'){
+            $seodata=array('meta_title'=>'Jewish organizations find caregivers & staff ','meta_desc'=>'Jewish organizations and institutions can successfully recruit caregivers, employees and staff as well as advertise their services on FrumCare.com ','meta_keywords'=>'');
+
+        }
         else{
 
             $seodata = $this->common_model->getSEODATA();
