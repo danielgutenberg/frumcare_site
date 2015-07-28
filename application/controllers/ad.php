@@ -139,7 +139,7 @@ class Ad extends CI_Controller
         $params = array(
             'from' => SITE_EMAIL,
             'from_name' => SITE_NAME,
-            'replyto' => SITE_REPLY_TO_EMAIL,
+            'replyto' => SITE_EMAIL,
             'replytoname' => SITE_NAME,
             'sendto' => $to,
             'subject' => 'Confirm Your Email',
@@ -556,7 +556,7 @@ class Ad extends CI_Controller
             'subject'     => 'Ad Placed Successfully',
             'from'        => SITE_EMAIL,
             'from_name'   => SITE_NAME,
-            'replyto'     => SITE_REPLY_TO_EMAIL,
+            'replyto'     => SITE_EMAIL,
             'replytoname' => SITE_NAME,
             'sendto'      => $sendto,
             'message'     => $msg
@@ -581,7 +581,7 @@ class Ad extends CI_Controller
             'subject'     => 'Ad Approved',
             'from'        => SITE_EMAIL,
             'from_name'   => SITE_NAME,
-            'replyto'     => SITE_REPLY_TO_EMAIL,
+            'replyto'     => SITE_EMAIL,
             'replytoname' => SITE_NAME,
             'sendto'      => $sendto,
             'message'     => $msg
@@ -630,7 +630,7 @@ class Ad extends CI_Controller
                 'subject'     => 'A new profile has been added in Frumcare.com that matches your search',
                 'from'        => SITE_EMAIL,
                 'from_name'   => SITE_NAME,
-                'replyto'     => SITE_REPLY_TO_EMAIL,
+                'replyto'     => SITE_EMAIL,
                 'replytoname' => SITE_NAME,
                 'sendto'      => $email,
                 'message'     => $msg
@@ -686,7 +686,7 @@ class Ad extends CI_Controller
             'subject'     => 'A new profile has been added in Frumcare.com, approval required',
             'from'        => SITE_EMAIL,
             'from_name'   => SITE_NAME,
-            'replyto'     => SITE_REPLY_TO_EMAIL,
+            'replyto'     => SITE_EMAIL,
             'replytoname' => SITE_NAME,
             'sendto'      => $receiveremail,
             'message'     => $msg
