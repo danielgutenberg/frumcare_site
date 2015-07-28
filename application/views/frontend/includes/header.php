@@ -26,6 +26,7 @@
         }else{
 
             $seodata = $this->common_model->getSEODATA();
+
         }
         ?>
 
