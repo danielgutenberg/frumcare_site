@@ -16,7 +16,7 @@
             header("Cache-Control: post-check=0, pre-check=0", false);
             header("Pragma: no-cache");
         ?>
-        <title><?php if(isset($title)) echo $title.' - '; ?> FrumCare</title>
+
         <?php 
         $this->load->model('common_model');
         if($title=='Register'){
@@ -75,6 +75,8 @@
 
         }
         ?>
+
+        <title><?php echo $seodata['meta_title'].' - '; ?> FrumCare</title>
 
         <meta name="title" content="<?php echo $seodata['meta_title'];?>">
         <meta name="description" content="<?php echo $seodata['meta_desc'];?>">
