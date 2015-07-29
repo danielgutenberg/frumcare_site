@@ -1345,7 +1345,10 @@ class User extends CI_Controller
         
       }//CODE BY CHAND
         
-        
+        public function deletePhoto($id)
+        {
+            redirect('user/profile');
+        }
        
       public function searches(){
         sleep(3);

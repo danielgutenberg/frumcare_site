@@ -23,6 +23,15 @@ if(check_user()) {
 		e.preventDefault();
 		$('#ImageFile').trigger('click');
 	});
+	$('#deletePhoto').click(function(e){
+	    e.preventDefault();
+	    var link = '<?php echo site_url("user/deletePhoto/" . check_user())?>';
+	    $.ajax({
+            url: link,
+            type: 'POST',
+            beforesend: $('.loader').html(loader),
+        });
+	})
 
     $('#output2').click(function(e){
         e.preventDefault();
