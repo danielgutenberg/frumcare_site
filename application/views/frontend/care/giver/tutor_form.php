@@ -87,7 +87,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
             </div>
             <div>
-                <label>Tell us about yourself</label>
+                <label>Tell us about yourself (Short description not cv)</label>
                 <div class="form-field">
                 <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
                 </div>

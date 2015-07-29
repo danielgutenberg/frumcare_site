@@ -146,7 +146,7 @@
             </div>
         </div>
         <div>
-            <label>Tell us about yourself</label>
+            <label>Tell us about yourself (Short description not cv)</label>
             <div class="form-field">
             <textarea name="profile_description" class="required"><?php echo isset($profile_description) ? $profile_description : '' ?></textarea>
             </div>
