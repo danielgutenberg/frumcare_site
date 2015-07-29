@@ -28,8 +28,7 @@ if(check_user()) {
 	    var link = '<?php echo site_url("user/deletePhoto/" . check_user())?>';
 	    $.ajax({
             url: link,
-            type: 'POST',
-            beforesend: $('.loader').html(loader),
+            type: 'POST'
         });
 	})
 
