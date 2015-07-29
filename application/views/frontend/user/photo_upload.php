@@ -9,12 +9,14 @@ if(check_user()) {
 ?>
 <div class="upload-photo">
     <div id="output2" style="margin-bottom: 20px"><img src="<?php echo $photo_url?>"></div>
-    <?php if ($photo_url != site_url("images/plus.png")) { ?>
-        <button class="btn btn-default" id="deletePhoto">Remove Photo</button>
-    <?php } else { ?>
-        <button class="btn btn-default" id="upload2">Select File</button>
+    <!--<?php if ($photo_url != site_url("images/plus.png")) { ?>-->
+    <!--    <button class="btn btn-default" id="deletePhoto">Remove Photo</button>-->
+    <!--<?php } else { ?>-->
+    <!--    <button class="btn btn-default" id="upload2">Select File</button>-->
+    <!--    <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>-->
+    <!--<?php } ?>-->
+    <button class="btn btn-default" id="upload2">Select File</button>
         <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
-    <?php } ?>
 </div>
 <script type="text/javascript">
 	var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
