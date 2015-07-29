@@ -5,8 +5,8 @@
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
                     var place = autocomplete.getPlace();
                     //console.log(place.geometry.location);
-                    var lat = place.geometry.location.A;
-                    var lng = place.geometry.location.F;                                 
+                    var lat = place.geometry.location.lat();
+                    var lng = place.geometry.location.lng();                                 
                     $("#lat").val(lat);
                     $("#lng").val(lng);                                
                 });
