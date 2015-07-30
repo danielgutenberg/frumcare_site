@@ -281,6 +281,7 @@ if($pages > 1){
 		$(document).ready(function(){
 		    var plc = $('#place').val()
 		    $('#autocomplete').val(plc)
+		    $('#locationaddress').val(plc)
 		    $('#autocomplete').on('click', function(){$('#autocomplete').val('')})
             //for sort by location, per page
             $(document).on('change','#sort_by_select,#per_page,#sort_by_miles',function(){                
