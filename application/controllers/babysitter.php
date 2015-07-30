@@ -153,7 +153,8 @@ class BabySitter extends CI_Controller{
 		$limit = 15;
 		if(isset($_POST['lat']) && isset($_POST['lng'])){
             $latitude = $this->input->post('lat',true);
-            $longitude = $this->input->post('lng',true);                      
+            $longitude = $this->input->post('lng',true);
+            $location = $this->input->post('location',true); 
         } else {
     		if(check_user()){
                 $locationdetails = $this->common_model->getMyLocation(check_user());
