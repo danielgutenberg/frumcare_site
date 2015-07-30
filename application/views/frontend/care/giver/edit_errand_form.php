@@ -33,9 +33,9 @@
     </div>
     
     <div class="dashboard-right float-right">
-
+<div class="ad-form-container float-left">
     <form action="<?php echo site_url().'user/update_job_details/'.$care_type;?>" method="post">
-        <div class="ad-form-container float-left">
+        
             <div class="top-welcome">
                 <h2 class="step3">Edit Job Details</h2>
             </div>
