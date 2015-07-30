@@ -11,6 +11,7 @@
                     var lng = place.geometry.location.lng();                                
                     $("#lat").val(lat);
                     $("#lng").val(lng);
+                    $("#place").val(place.formatted_address);
                     $(".searchloader").fadeIn("fast");
                     var x = $('#sort_by_select').val();
                     var y = $('#autocomplete').val();
@@ -187,6 +188,7 @@
     width: 146px;"/>
 		<input type="hidden" id="lng" value="<?php echo $location['lng']?>">
 		<input type="hidden" id="lat" value="<?php echo $location['lat']?>">
+		<input type="hidden" id="place" value="<?php echo $location['place']?>">
 		<!--<input type="button" value="Change Location" class="btn btn-primary" id="change_location"">--> 
 	</t>        
     within            
@@ -277,7 +279,8 @@ if($pages > 1){
 </div> 
 <script type="text/javascript">    
 		$(document).ready(function(){
-		    
+		    var plc = $('#place').val()
+		    $('#autocomplete').val(plc)
 		    $('#autocomplete').on('click', function(){$('#autocomplete').val('')})
             //for sort by location, per page
             $(document).on('change','#sort_by_select,#per_page,#sort_by_miles',function(){                
