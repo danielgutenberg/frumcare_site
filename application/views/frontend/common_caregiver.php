@@ -204,7 +204,7 @@
 	$(document).ready(function(){
 		$('.showgeolocation').click(function(){
 			$('#locationField').toggle();
-			$('#autocomplete').val('');
+// 			$('#autocomplete').val('');
             $('#autocomplete').focus();
 		});
 	})
