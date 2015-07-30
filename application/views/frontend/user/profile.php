@@ -4,7 +4,6 @@
 // $photo_url = site_url("images/plus.png");
 $ac = $this->session->userdata('account_category');
 $oc = $this->session->userdata('organization_care');
-$ac = $account_category;
 // if(check_user()) {
 //     $current_user = get_user(check_user());
 //     $photo = $current_user['profile_picture'];
