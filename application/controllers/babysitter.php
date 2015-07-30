@@ -232,7 +232,7 @@ class BabySitter extends CI_Controller{
         }
 		$result = array_slice($result, 0 , $limit);
 		$userlogs             = $this->user_model->getUserLog();            
-        $merge['userdatas']   = $this->load->view('frontend/common_profile_list', array('userdatas'=>$result,'userlogs'=>$userlogs,'location'=>location), true); 
+        $merge['userdatas']   = $this->load->view('frontend/common_profile_list', array('userdatas'=>$result,'userlogs'=>$userlogs,'location'=>$location), true); 
         $merge['num']         =  ceil($total/$limit); 
         $merge['total']       = $total;
         $merge['pagination']  = $pagination;
