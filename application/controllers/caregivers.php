@@ -53,7 +53,7 @@ class Caregivers extends CI_Controller
                             'account_category'  => $account_category,
                             'care_type'         => $care_type,
                             'total_rows'        => $get_total_rows,
-                            'location'          => $location              				              				              				                            
+                            'location'          => $locationdetails              				              				              				                            
               			);                      
             $this->load->view(FRONTEND_TEMPLATE, $data);
     }
