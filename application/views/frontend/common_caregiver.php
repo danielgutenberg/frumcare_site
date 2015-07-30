@@ -11,6 +11,7 @@
                     var lng = place.geometry.location.lng();                                
                     $("#lat").val(lat);
                     $("#lng").val(lng);
+                    $("#autocomplete").val(place);
                     $(".searchloader").fadeIn("fast");
                     var x = $('#sort_by_select').val();
                     var y = $('#autocomplete').val();
