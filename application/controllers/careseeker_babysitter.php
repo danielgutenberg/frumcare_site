@@ -42,6 +42,7 @@ class Careseeker_babysitter extends CI_Controller{
                $location = "your location"; 
             } 
         }
+        $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
         $userdata       = $this->common_care_model->sort($item_per_page,$latitude,$longitude,$option,$account_category,$care_type,$distance);
         $get_total_rows = $this->common_care_model->getCount($latitude,$longitude,$account_category,$care_type,$distance);                                                         
         $data = array(
@@ -54,7 +55,7 @@ class Careseeker_babysitter extends CI_Controller{
                         'account_category'  => $account_category,
                         'care_type'         => $care_type,
                         'total_rows'        => $get_total_rows,
-                        'location'          => $location,                                     				              				              				                            
+                        'location'          => $locationdetails,                                     				              				              				                            
           			);                      
         $this->load->view(FRONTEND_TEMPLATE, $data);
 	}
@@ -193,8 +194,9 @@ class Careseeker_babysitter extends CI_Controller{
 				$total = count($res);
 			else
 				$total = 0;
+			$locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
 			$userlogs             	= $this->user_model->getUserLog();
-            $merge['userdatas']   	= $this->load->view('frontend/common_profile_list', array('userdatas'=>$res,'userlogs'=>$userlogs,'location'=>$location), true);
+            $merge['userdatas']   	= $this->load->view('frontend/common_profile_list', array('userdatas'=>$res,'userlogs'=>$userlogs,'location'=>$locationdetails), true);
             $total_rows           	= $total;
             $merge['num']         	= ceil($total_rows/@$limit); 
             $merge['total']       	= $total_rows;
@@ -245,9 +247,10 @@ class Careseeker_babysitter extends CI_Controller{
 				$total = count($res);
 			else
 				$total = 0;
+			$locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
 			$res = array_slice($res, 0 , 15);
 			$userlogs             	= $this->user_model->getUserLog();
-            $merge['userdatas']   	= $this->load->view('frontend/common_profile_list', array('userdatas'=>$res,'userlogs'=>$userlogs,'location'=>$location), true);
+            $merge['userdatas']   	= $this->load->view('frontend/common_profile_list', array('userdatas'=>$res,'userlogs'=>$userlogs,'location'=>$locationdetails), true);
             $total_rows           	= $total;
             $merge['num']         	= ceil($total_rows/@$limit); 
             $merge['total']       	= $total_rows;
