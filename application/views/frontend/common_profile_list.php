@@ -45,7 +45,7 @@
                         <img src="<?php echo site_url();?>img/pin.png">
                         <?php
                     }			        	
-                    $location1 = explode(',',$location);
+                    $location1 = explode(',',$location['place']);
                     echo ceil($data['distance'])." Miles Away From ".$location1[0];  //location is passed from controller
     	        	?>    
     	        </div>
