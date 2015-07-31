@@ -44,8 +44,12 @@
                     if($data['location']) { ?>
                         <img src="<?php echo site_url();?>img/pin.png">
                         <?php
-                    }			        	
-                    $location1 = explode(',',$location['place']);
+                    }
+                    if (is_array($location)) {
+                        $location1 = explode(',',$location['place']);
+                    } else {
+                        $location1 = explode(',',$location);
+                    }
                     echo ceil($data['distance'])." Miles Away From ".$location1[0];  //location is passed from controller
     	        	?>    
     	        </div>
