@@ -51,7 +51,8 @@ class Careseeker_childcarefacility extends CI_Controller{
         else{
             $userdata       = $this->common_care_model->sort($item_per_page,$latitude,$longitude,$option,$account_category,$care_type,$distance);
             $get_total_rows = $this->common_care_model->getCount($latitude,$longitude,$account_category,$care_type,$distance);
-        }                                                                 
+        }  
+        $location = segment(1) == 'caregivers' ? $location : ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
         $data = array(
           				'main_content' 	    => segment(1) == 'caregivers' ? 'frontend/common_organizations' : 'frontend/common_caregiver',                            
           				'title'			    => $title,
@@ -205,6 +206,7 @@ class Careseeker_childcarefacility extends CI_Controller{
 				$total = count($res);
 			else
 				$total = 0;
+			$location = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
 			$userlogs             	= $this->user_model->getUserLog();
             $merge['userdatas']   	= $this->load->view('frontend/common_profile_list', array('userdatas'=>$res,'userlogs'=>$userlogs,'location'=>$location), true);
             $total_rows           	= $total;
