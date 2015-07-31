@@ -194,6 +194,7 @@ class Careseeker_therapist extends CI_Controller{
 				$total = count($res);
 			else
 				$total = 0;
+			$location = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
 			$userlogs             	= $this->user_model->getUserLog();
             $merge['userdatas']   	= $this->load->view('frontend/common_profile_list', array('userdatas'=>$res,'userlogs'=>$userlogs,'location'=>$location), true);
             $total_rows           	= $total;
