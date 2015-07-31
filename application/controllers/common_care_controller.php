@@ -57,9 +57,10 @@
                         $pagination .= ' <a href="#" class="paginate_click in-active" id="'.$i.'-page">'.$i.'</a> ';   
                     }        
             	}                          	
-        }                  
+        }  
+        $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
         $userlogs                = $this->user_model->getUserLog();
-        $merge['userdatas']      = $this->load->view('frontend/common_profile_list', array('userdatas'=>array_slice($users, 0 ,15),'userlogs'=>$userlogs,'location'=>$location), true);
+        $merge['userdatas']      = $this->load->view('frontend/common_profile_list', array('userdatas'=>array_slice($users, 0 ,15),'userlogs'=>$userlogs,'location'=>$locationdetails), true);
         $merge['total_rows']     = $total_rows;
         $merge['num']            = ceil($total_rows/$per_page); 
         $merge['pagination']     = $pagination;
