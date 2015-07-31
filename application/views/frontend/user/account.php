@@ -54,7 +54,7 @@
                         <div>
                             <label>Type of Organization</label>
                             <select name="sub_care">
-                                <option>--Select Type of Organzation--</option>
+                                <option value="">--Select Type of Organzation--</option>
                                 <option value="day care center" <?php echo $user_data['sub_care'] == 'day care center' ? 'selected="selected"' : '' ?> >Day Care Center</option>
                                 <option value="day camp" <?php echo $user_data['sub_care'] == 'day camp' ? 'selected="selected"' : '' ?>>Day Camp</option>
                                 <option value="afternoon activities" <?php echo $user_data['sub_care'] == 'afternoon activities' ? 'selected="selected"' : '' ?>>Afternoon Activities</option>
@@ -217,7 +217,7 @@
                                 <option>--Select Level of Education--</option>
                                 <option value="Elementary" <?php if($education_level == 'Elementary'){?> selected="selected" <?php }?> >Elementary</option>
                                 <option value="High School" <?php if($education_level == 'High School'){?> selected="selected" <?php }?>>High school</option>
-                                <option  value="Yeshiva/ Seminary" <?php if($education_level == 'Yeshiva/ Seminary'){?> selected="selected" <?php }?>>Yeshiva/ Seminary</option>
+                                <option  value="Yeshiva/Seminary" <?php if($education_level == 'Yeshiva/ Seminary'){?> selected="selected" <?php }?>>Yeshiva/ Seminary</option>
                                 <option value="Degree" <?php if($education_level == 'Degree'){?> selected="selected" <?php }?>>Degree</option>
                             </select>
                     </div>
