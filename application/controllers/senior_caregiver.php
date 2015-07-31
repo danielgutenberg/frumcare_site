@@ -41,6 +41,7 @@
                 }
             $userdata       = $this->common_care_model->sort($item_per_page,$latitude,$longitude,$option,$account_category,$care_type,$distance);
             $get_total_rows = $this->common_care_model->getCount($latitude,$longitude,$account_category,$care_type,$distance);                                                         
+            $location = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
             $data = array(
               				'main_content' 	    => 'frontend/common_caregiver',                            
               				'title'			    => $title,
@@ -134,6 +135,7 @@
             else
                 $total_rows = count($result); 
             
+            $location = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
             $userlogs           = $this->user_model->getUserLog();
             $merge['userdatas'] = $this->load->view('frontend/common_profile_list', array('userdatas'=>$result,'userlogs'=>$userlogs,'location'=>$location), true); 
             $merge['num']       =  ceil($total_rows/$limit); 
