@@ -260,9 +260,9 @@ class BabySitter extends CI_Controller{
             }else{
                 $total_rows  = 0;
             }
-
+            $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
             $userlogs                = $this->user_model->getUserLog();
-            $merge['userdatas']      = $this->load->view('frontend/caregivers/profile_list', array('userdatas'=>$users,'userlogs'=>$userlogs,'location'=>$location,'location'=>$location), true);
+            $merge['userdatas']      = $this->load->view('frontend/caregivers/profile_list', array('userdatas'=>$users,'userlogs'=>$userlogs,'location'=>$locationdetails), true);
             $merge['total_rows']     = $total_rows;   
             $merge['num']            = ceil($total_rows/$per_page); 
             echo json_encode($merge);
