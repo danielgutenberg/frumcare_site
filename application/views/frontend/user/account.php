@@ -217,7 +217,7 @@
                                 <option>--Select Level of Education--</option>
                                 <option value="Elementary" <?php if($education_level == 'Elementary'){?> selected="selected" <?php }?> >Elementary</option>
                                 <option value="High School" <?php if($education_level == 'High School'){?> selected="selected" <?php }?>>High school</option>
-                                <option  value="Yeshiva/ Seminary" <?php if($education_level == 'Yeshiva/ Seminary'){?> selected="selected" <?php }?>>Yeshiva/ Seminary</option>
+                                <option  value="Yeshiva/Seminary" <?php if($education_level == 'Yeshiva/ Seminary'){?> selected="selected" <?php }?>>Yeshiva/ Seminary</option>
                                 <option value="Degree" <?php if($education_level == 'Degree'){?> selected="selected" <?php }?>>Degree</option>
                             </select>
                     </div>
