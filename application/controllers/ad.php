@@ -664,6 +664,8 @@ class Ad extends CI_Controller
         $receiveremail = substr_replace($receiveremail ,"",-1);
         
         $details      = $this->user_model->getUserDetailsById($user_id,$id);
+        print_r($details);
+        exit();
         $details['profile_id'] = $q;
         $type = Caretype_model::getCareTypeById($details['care_type']);
         
