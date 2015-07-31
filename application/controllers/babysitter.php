@@ -40,6 +40,7 @@ class BabySitter extends CI_Controller{
                 $location = isset($ipdata['city'])?$ipdata['city']:'your city';
             }             
         }
+        $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
         $userdata       = $this->common_care_model->sort($item_per_page,$latitude,$longitude,$option,$account_category,$care_type,$distance);
         $get_total_rows = $this->common_care_model->getCount($latitude,$longitude,$account_category,$care_type,$distance);                                                         
         $data = array(
@@ -52,7 +53,7 @@ class BabySitter extends CI_Controller{
                         'account_category'  => $account_category,
                         'care_type'         => $care_type,
                         'total_rows'        => $get_total_rows,
-                        'location'          => $location,                                     				              				              				                            
+                        'location'          => $locationdetails,                                     				              				              				                            
           			);                      
         $this->load->view(FRONTEND_TEMPLATE, $data);
 	}
@@ -138,9 +139,9 @@ class BabySitter extends CI_Controller{
 			else
 				$total = 0;
 				
-			 
+			$locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
 			$userlogs           = $this->user_model->getUserLog();            
-            $merge['userdatas'] = $this->load->view('frontend/common_profile_list', array('userdatas'=>$result,'userlogs'=>$userlogs,'location'=>$location), true); 
+            $merge['userdatas'] = $this->load->view('frontend/common_profile_list', array('userdatas'=>$result,'userlogs'=>$userlogs,'location'=>$locationdetails), true); 
             $merge['num']       =  ceil($total_rows/$limit); 
             $merge['total']     = $total;
             $merge['pagination']       	= '';
@@ -230,9 +231,10 @@ class BabySitter extends CI_Controller{
         	}
         	$pagination .= '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
         }
+        $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
 		$result = array_slice($result, 0 , $limit);
 		$userlogs             = $this->user_model->getUserLog();            
-        $merge['userdatas']   = $this->load->view('frontend/common_profile_list', array('userdatas'=>$result,'userlogs'=>$userlogs,'location'=>$location), true); 
+        $merge['userdatas']   = $this->load->view('frontend/common_profile_list', array('userdatas'=>$result,'userlogs'=>$userlogs,'location'=>$locationdetails), true); 
         $merge['num']         =  ceil($total/$limit); 
         $merge['total']       = $total;
         $merge['pagination']  = $pagination;
