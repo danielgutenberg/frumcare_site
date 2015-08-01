@@ -155,35 +155,35 @@ class BabySitter extends CI_Controller{
             $latitude = $this->input->post('lat',true);
             $longitude = $this->input->post('lng',true);
             $location = $this->input->post('location',true); 
-        if ($latitude && $longitude && $location) {
+    //     if ($latitude && $longitude && $location) {
             
-        } else {
-    		if(check_user()){
-                $locationdetails = $this->common_model->getMyLocation(check_user());
-                if($locationdetails){
-                    $latitude = ($locationdetails[0]['lat']);
-                    $longitude = ($locationdetails[0]['lng']);
-                    $location =  isset($locationdetails[0]['location'])?$locationdetails[0]['location']:'your city';
-                }
-                if (!$latitude) {
-                    $ipdata = $this->common_model->getIPData($this->ipaddress);
-                    if(is_array($ipdata)){
-                        $latitude = ($ipdata['lat']);
-                        $longitude = ($ipdata['lon']);
-                        $location = isset($ipdata['city'])?$ipdata['city']:'your city';
-                    }
-                }
+    //     } else {
+    // 		if(check_user()){
+    //             $locationdetails = $this->common_model->getMyLocation(check_user());
+    //             if($locationdetails){
+    //                 $latitude = ($locationdetails[0]['lat']);
+    //                 $longitude = ($locationdetails[0]['lng']);
+    //                 $location =  isset($locationdetails[0]['location'])?$locationdetails[0]['location']:'your city';
+    //             }
+    //             if (!$latitude) {
+    //                 $ipdata = $this->common_model->getIPData($this->ipaddress);
+    //                 if(is_array($ipdata)){
+    //                     $latitude = ($ipdata['lat']);
+    //                     $longitude = ($ipdata['lon']);
+    //                     $location = isset($ipdata['city'])?$ipdata['city']:'your city';
+    //                 }
+    //             }
         
-            }
-            else{
-                $ipdata = $this->common_model->getIPData($this->ipaddress);
-                    if(is_array($ipdata)){
-                        $latitude = ($ipdata['lat']);
-                        $longitude = ($ipdata['lon']);
-                        $location = isset($ipdata['city'])?$ipdata['city']:'your city';
-                    }
-            }
-        }
+    //         }
+    //         else{
+    //             $ipdata = $this->common_model->getIPData($this->ipaddress);
+    //                 if(is_array($ipdata)){
+    //                     $latitude = ($ipdata['lat']);
+    //                     $longitude = ($ipdata['lon']);
+    //                     $location = isset($ipdata['city'])?$ipdata['city']:'your city';
+    //                 }
+    //         }
+    //     }
 		$postdata['neighbor'] 			= $this->input->get('neighbour',true);
 		$postdata['gender']   			= $this->input->get('gender',true);
 		$postdata['smoker']	  			= $this->input->get('smoker',true);
