@@ -152,9 +152,9 @@ class BabySitter extends CI_Controller{
 	
 	public function searchAll(){
 		$limit = 15;
-            $latitude = $this->input->post('lat',true);
-            $longitude = $this->input->post('lng',true);
-            $location = $this->input->post('location',true); 
+            $latitude = $this->input->get('lat',true);
+            $longitude = $this->input->get('lng',true);
+            $location = $this->input->get('location',true); 
     //     if ($latitude && $longitude && $location) {
             
     //     } else {
