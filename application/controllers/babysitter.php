@@ -151,6 +151,11 @@ class BabySitter extends CI_Controller{
 	}
 	
 	public function searchAll(){
+	    $page = $this->input->get('pagenum',true);
+	    $offset = 0;
+	    if ($page > 1) {
+	        $offset = $page * 15;
+	    }
 		$limit = 15;
             $latitude = $this->input->get('lat',true);
             $longitude = $this->input->get('lng',true);
@@ -233,7 +238,7 @@ class BabySitter extends CI_Controller{
         	$pagination .= '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
         }
         $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
-		$result = array_slice($result, 0 , $limit);
+		$result = array_slice($result, $offset , $limit);
 		$userlogs             = $this->user_model->getUserLog();            
         $merge['userdatas']   = $this->load->view('frontend/common_profile_list', array('userdatas'=>$result,'userlogs'=>$userlogs,'location'=>$locationdetails), true); 
         $merge['num']         =  ceil($total/$limit); 

@@ -189,6 +189,7 @@
 		<input type="hidden" id="lng" value="<?php echo $location['lng']?>">
 		<input type="hidden" id="lat" value="<?php echo $location['lat']?>">
 		<input type="hidden" id="place" value="<?php echo $location['place']?>">
+		<input type="hidden" id="pagenum" value="">
 		<!--<input type="button" value="Change Location" class="btn btn-primary" id="change_location"">--> 
 	</t>        
     within            
@@ -280,7 +281,9 @@ if($pages > 1){
 <script type="text/javascript">    
 		$(document).ready(function(){
 		    var plc = $('#place').val()
+		    var pag = parseInt($('.paginate_click.active').text())
 		    $('#autocomplete').val(plc)
+		    $('#pagenum').val(pag)
 		    $('#locationaddress').val(plc)
 		    $('#autocomplete').on('click', function(){$('#autocomplete').val('')})
             //for sort by location, per page
