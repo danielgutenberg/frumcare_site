@@ -30,32 +30,39 @@
 		        	<img src="<?php echo site_url();?>img/pin.png">
 		        
 		        	<?php 
-		        	$ipaddress = $_SERVER["REMOTE_ADDR"];
-		        	$ipdata 	= Common_model::getIPData($ipaddress);
-		        	//echo $ipdata['city'];die;
-                    if($ipdata['city']){
-                        $response 	= Common_model::getLongitudeAndLatitude($ipdata['city']);
-                        //print_r($response);die;
-			        	@$lat    	= $response->results[0]->geometry->location->lat;
-	                    @$long   	= $response->results[0]->geometry->location->lng;
-		        	}else{
-		        		$lat   = $ipdata['lat'];
-            			$long  = $ipdata['lon'];
+		        	if (isset($location)) {
+		        		$lat = $loaction['lat'];
+		        		$long = $location['lng'];
+		        		$city = explode(',',$location['place'])[0];
+		        	} else {
+			        	$ipaddress = $_SERVER["REMOTE_ADDR"];
+			        	$ipdata 	= Common_model::getIPData($ipaddress);
+			        	//echo $ipdata['city'];die;
+	                    if($ipdata['city']){
+	                        $response 	= Common_model::getLongitudeAndLatitude($ipdata['city']);
+	                        //print_r($response);die;
+				        	@$lat    	= $response->results[0]->geometry->location->lat;
+		                    @$long   	= $response->results[0]->geometry->location->lng;
+			        	}else{
+			        		$lat   = $ipdata['lat'];
+	            			$long  = $ipdata['lon'];
+			        	}
+	
+			        //	if($data['lat'] && $data['lng']){
+	//	        			//$distance = Common_model::getdistance($lat,$long,$data['lat'],$data['lng'],"M");
+	//	        		}else{
+	//	        			$distance = 0;
+	//	        		}
+	                    
+	
+			        	if($ipdata['city']){
+			        		$city = $ipdata['city'];
+			        	}else{
+			        		$city = "you";
+			        	}
+	                    $city = isset($location)?$location:$city;
 		        	}
-
-		        //	if($data['lat'] && $data['lng']){
-//	        			//$distance = Common_model::getdistance($lat,$long,$data['lat'],$data['lng'],"M");
-//	        		}else{
-//	        			$distance = 0;
-//	        		}
                     $distance = isset($data['distance']) ? $data['distance'] : (Common_model::getdistance($lat,$long,$data['lat'],$data['lng'],"M"));
-
-		        	if($ipdata['city']){
-		        		$city = $ipdata['city'];
-		        	}else{
-		        		$city = "you";
-		        	}
-                    $city = isset($location)?$location:$city;
 		        	echo ceil($distance)." Miles Away From ". $city;
 		        	?>
 	        </div>
