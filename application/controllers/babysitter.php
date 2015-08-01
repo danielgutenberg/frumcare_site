@@ -262,7 +262,7 @@ class BabySitter extends CI_Controller{
             }
             $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
             $userlogs                = $this->user_model->getUserLog();
-            $merge['userdatas']      = $this->load->view('frontend/caregivers/profile_list', array('userdatas'=>$users,'userlogs'=>$userlogs,'location'=>$locationdetail), true);
+            $merge['userdatas']      = $this->load->view('frontend/caregivers/profile_list', array('userdatas'=>$users,'userlogs'=>$userlogs,'location'=>$locationdetails), true);
             $merge['total_rows']     = $total_rows;   
             $merge['num']            = ceil($total_rows/$per_page); 
             echo json_encode($merge);
