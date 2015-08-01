@@ -520,7 +520,7 @@ $(document).ready(function () {
             var lat = $('#lat').val();
             var lng = $('#lng').val();
             var location = $('#place').val();
-            var pagenum = $('#pagenum').val()
+            var pagenum = $('#pagenum').val();
 			$.ajax({
 				type:"get",
 				url:"<?php echo site_url();?>babysitter/searchAll",
