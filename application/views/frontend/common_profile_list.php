@@ -45,6 +45,7 @@
                         <img src="<?php echo site_url();?>img/pin.png">
                         <?php
                     }
+                    print_r($location);
                     if (is_array($location)) {
                         $location1 = explode(',',$location['place']);
                     } else {
