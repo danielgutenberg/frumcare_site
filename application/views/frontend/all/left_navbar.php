@@ -518,6 +518,9 @@ $(document).ready(function () {
 						$('#list_container').html(pagedata);
 						$('#total').text(json.total);
                         $('.navigations').html(json.pagination);
+                        if (json.lcation) {
+                        	$('#locationaddress').text(json.location)
+                        }
 				}
 			});
   var neighbour = $('.neighbour').val();
