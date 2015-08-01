@@ -154,7 +154,7 @@ class BabySitter extends CI_Controller{
 	    $page = $this->input->get('pagenum',true);
 	    $offset = 0;
 	    if ($page > 1) {
-	        $offset = $page * 15;
+	        $offset = ($page - 1) * 15;
 	    }
 		$limit = 15;
             $latitude = $this->input->get('lat',true);
@@ -228,7 +228,7 @@ class BabySitter extends CI_Controller{
         	for($i = 1; $i<=$pages; $i++)
         	{
         		
-        		if($i==1){
+        		if($i==$page){
                     $pagination .= ' <a href="#" class="paginate_click active" id="'.$i.'-page" >'.$i.'</a> ';
                 }else{
                     $pagination .= ' <a href="#" class="paginate_click in-active" id="'.$i.'-page">'.$i.'</a> ';   
