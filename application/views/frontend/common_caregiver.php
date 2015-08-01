@@ -282,6 +282,7 @@ if($pages > 1){
 		$(document).ready(function(){
 		    var plc = $('#place').val()
 		    var pag = parseInt($('.paginate_click.active').text())
+		    $('#pagenum').val(pag)
 		    $('#autocomplete').val(plc)
 		    $('#pagenum').val(pag)
 		    $('#locationaddress').val(plc)
@@ -388,6 +389,8 @@ if($pages > 1){
                 var element = parseInt(page_num)
                 $('.paginate_click').eq(element).removeClass('in-active');
         		$('.paginate_click').eq(element).addClass('active'); //add active class to currently clicked element (style purpose)
+        		var pag = parseInt($('.paginate_click.active').text())
+		    $('#pagenum').val(pag)
         		document.body.scrollTop = document.documentElement.scrollTop = 0;
         		return false; //prevent going to herf link
         	});
