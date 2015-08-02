@@ -65,7 +65,7 @@
 					$languages = explode(',',$language);
 					if(is_array($languages)){
 						foreach($languages as $lang):
-							$sql .= " and find_in_set('$lang',tbl_userprofile.language)";
+							$sql .= " and find_in_set('$lang',tbl_user.caregiver_language)";
 						endforeach;
 					}
 
