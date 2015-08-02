@@ -213,8 +213,8 @@ class Careseeker_childcarefacility extends CI_Controller{
             $postdata['rate_type']          = $this->input->get('rate_type',true);
             
             $result = $this->childcarefacility->search($postdata,$latitude,$longitude);
-			if(is_array($res))
-				$total = count($res);
+			if(is_array($result))
+				$total = count($result);
 			else
 				$total = 0;
 			$pages = ceil($total/$limit);        

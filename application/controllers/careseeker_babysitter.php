@@ -200,7 +200,7 @@ class Careseeker_babysitter extends CI_Controller{
             $postdata['rate_type']          = $this->input->get('rate_type',true);
             $postdata['start_date']         = $this->input->get('start_date',true);
             
-            $res = $this->babysitter->search($postdata,$latitude,$longitude);
+            $result = $this->babysitter->search($postdata,$latitude,$longitude);
 			if(is_array($result))
 				$total = count($result);
 			else
@@ -281,7 +281,7 @@ class Careseeker_babysitter extends CI_Controller{
             $postdata['rate_type']          = $this->input->get('rate_type',true);
             $postdata['start_date']         = $this->input->get('start_date',true);
             
-            $res = $this->babysitter->searchAll($postdata,$latitude,$longitude);
+            $result = $this->babysitter->searchAll($postdata,$latitude,$longitude);
 			if(is_array($result))
 				$total = count($result);
 			else
