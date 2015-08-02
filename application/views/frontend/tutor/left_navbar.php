@@ -178,10 +178,14 @@ $(function () {
 		    }).get();
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
             var care_type = $( ".careType option:selected" ).val();
+			var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();	
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>tutor/search",
-					data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&subjects="+subjects+"&start_date="+start_date+"&smoker="+smoker,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&subjects="+subjects+"&start_date="+start_date+"&smoker="+smoker,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -190,6 +194,9 @@ $(function () {
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 
@@ -220,10 +227,14 @@ $(function () {
 		    }).get();
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
             var care_type = $( ".careType option:selected" ).val();
+			var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();	
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>tutor/search",
-					data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&subjects="+subjects+"&start_date="+start_date+"&smoker="+smoker,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&subjects="+subjects+"&start_date="+start_date+"&smoker="+smoker,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -232,6 +243,9 @@ $(function () {
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 		});
@@ -261,10 +275,14 @@ $(function () {
 		    }).get();
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
             var care_type = $( ".careType option:selected" ).val();
+			var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();	
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>tutor/search",
-					data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&subjects="+subjects+"&start_date="+start_date+"&smoker="+smoker,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&subjects="+subjects+"&start_date="+start_date+"&smoker="+smoker,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -273,6 +291,9 @@ $(function () {
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 		});
@@ -308,10 +329,14 @@ $(function () {
 		    }).get();
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
             var care_type = $( ".careType option:selected" ).val();
+			var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();	
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>tutor/search",
-					data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&subjects="+subjects+"&start_date="+start_date+"&smoker="+smoker,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&subjects="+subjects+"&start_date="+start_date+"&smoker="+smoker,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -320,6 +345,9 @@ $(function () {
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
             }       
@@ -377,10 +405,14 @@ $(function () {
 		    }).get();
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
             var care_type = $( ".careType option:selected" ).val();
+			var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();	
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>tutor/search",
-					data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&subjects="+subjects+"&start_date="+start_date+"&smoker="+smoker,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&subjects="+subjects+"&start_date="+start_date+"&smoker="+smoker,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -389,6 +421,9 @@ $(function () {
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 	
