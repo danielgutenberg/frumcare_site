@@ -75,7 +75,7 @@
 					$observances = explode(',',$observance);
 					if(is_array($observances)){
 						foreach($observances as $obs):
-							$sql .= " and find_in_set('$obs',tbl_userprofile.religious_observance)";
+							$sql .= " and find_in_set('$obs',bl_user.caregiver_religious_observance)";
 						endforeach;
 					}
 
