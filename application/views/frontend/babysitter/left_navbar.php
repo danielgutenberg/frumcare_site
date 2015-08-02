@@ -261,7 +261,7 @@ $(function () {
             var pagenum = $('#pagenum').val();
 			$.ajax({
 				type:"get",
-				url:"<?php echo site_url();?>babysitter/searchAll",
+				url:"<?php echo site_url();?>babysitter/search",
 				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&gender="+gender+"&smoker="+smoker+"&lang="+lang+"&observance="+observance+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&driver_license="+driver_license+"&vehicle="+vehicle+"&pick_up_child="+pick_up_child+"&cook="+cook+"&basic_housework="+basic_housework+"&homework_help="+homework_help+"&on_short_notice="+on_short_notice+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&start_date="+start_date+"&care_type="+care_type,
 				success:function(message){
 						$(".searchloader").fadeOut("fast");
@@ -319,7 +319,7 @@ $(function () {
             var pagenum = $('#pagenum').val();
 			$.ajax({
 				type:"get",
-				url:"<?php echo site_url();?>babysitter/searchAll",
+				url:"<?php echo site_url();?>babysitter/search",
 				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&gender="+gender+"&smoker="+smoker+"&lang="+lang+"&observance="+observance+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&driver_license="+driver_license+"&vehicle="+vehicle+"&pick_up_child="+pick_up_child+"&cook="+cook+"&basic_housework="+basic_housework+"&homework_help="+homework_help+"&on_short_notice="+on_short_notice+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&start_date="+start_date+"&care_type="+care_type,
 				success:function(message){
 						$(".searchloader").fadeOut("fast");
@@ -377,7 +377,7 @@ $(function () {
             var pagenum = $('#pagenum').val();
 			$.ajax({
 				type:"get",
-				url:"<?php echo site_url();?>babysitter/searchAll",
+				url:"<?php echo site_url();?>babysitter/search",
 				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&gender="+gender+"&smoker="+smoker+"&lang="+lang+"&observance="+observance+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&driver_license="+driver_license+"&vehicle="+vehicle+"&pick_up_child="+pick_up_child+"&cook="+cook+"&basic_housework="+basic_housework+"&homework_help="+homework_help+"&on_short_notice="+on_short_notice+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&start_date="+start_date+"&care_type="+care_type,
 				success:function(message){
 						$(".searchloader").fadeOut("fast");
@@ -442,7 +442,7 @@ $(function () {
             var pagenum = $('#pagenum').val();
 			$.ajax({
 				type:"get",
-				url:"<?php echo site_url();?>babysitter/searchAll",
+				url:"<?php echo site_url();?>babysitter/search",
 				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&gender="+gender+"&smoker="+smoker+"&lang="+lang+"&observance="+observance+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&driver_license="+driver_license+"&vehicle="+vehicle+"&pick_up_child="+pick_up_child+"&cook="+cook+"&basic_housework="+basic_housework+"&homework_help="+homework_help+"&on_short_notice="+on_short_notice+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&start_date="+start_date+"&care_type="+care_type,
 				success:function(message){
 						$(".searchloader").fadeOut("fast");
@@ -532,7 +532,7 @@ $(document).ready(function () {
             var pagenum = $('#pagenum').val();
 			$.ajax({
 				type:"get",
-				url:"<?php echo site_url();?>babysitter/searchAll",
+				url:"<?php echo site_url();?>babysitter/search",
 				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&gender="+gender+"&smoker="+smoker+"&lang="+lang+"&observance="+observance+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&driver_license="+driver_license+"&vehicle="+vehicle+"&pick_up_child="+pick_up_child+"&cook="+cook+"&basic_housework="+basic_housework+"&homework_help="+homework_help+"&on_short_notice="+on_short_notice+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&start_date="+start_date+"&care_type="+care_type,
 				success:function(message){
 						$(".searchloader").fadeOut("fast");
