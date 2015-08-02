@@ -94,10 +94,14 @@ $(function () {
                     return $(el).val();
                 }).get();
                 var care_type = $( ".careType option:selected" ).val();
+    			var lat = $('#lat').val();
+                var lng = $('#lng').val();
+                var location = $('#place').val();
+                var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_childcarefacility/search",
-    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&looking_to_work="+looking_to_work,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&looking_to_work="+looking_to_work,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -106,6 +110,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                            	$('#locationaddress').text(json.location)
+                            }
     				}
     			});
 		});
@@ -120,10 +127,14 @@ $(function () {
                     return $(el).val();
                 }).get();
                 var care_type = $( ".careType option:selected" ).val();
+    			var lat = $('#lat').val();
+                var lng = $('#lng').val();
+                var location = $('#place').val();
+                var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_childcarefacility/search",
-    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&looking_to_work="+looking_to_work,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&looking_to_work="+looking_to_work,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -132,6 +143,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                            	$('#locationaddress').text(json.location)
+                            }
     				}
     			});
         });
@@ -146,10 +160,14 @@ $(function () {
                     return $(el).val();
                 }).get();
                 var care_type = $( ".careType option:selected" ).val();
+    			var lat = $('#lat').val();
+                var lng = $('#lng').val();
+                var location = $('#place').val();
+                var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_childcarefacility/search",
-    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&looking_to_work="+looking_to_work,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&looking_to_work="+looking_to_work,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -158,6 +176,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                            	$('#locationaddress').text(json.location)
+                            }
     				}
     			});
         });				
@@ -176,10 +197,14 @@ $(function () {
                     return $(el).val();
                 }).get();
                 var care_type = $( ".careType option:selected" ).val();
+    			var lat = $('#lat').val();
+                var lng = $('#lng').val();
+                var location = $('#place').val();
+                var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_childcarefacility/search",
-    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&looking_to_work="+looking_to_work,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&looking_to_work="+looking_to_work,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -188,6 +213,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                            	$('#locationaddress').text(json.location)
+                            }
     				}
     			});
         
