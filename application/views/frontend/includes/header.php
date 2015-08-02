@@ -25,7 +25,7 @@
 
         }
         elseif($title=='Caregivers'){
-            $seodata=array('meta_title'=>'Find the perfect nanny or senior caregiverwith FrumCare','meta_desc'=>'Frumcare is the only online tool to find the perfect nanny, babysitter or senior caregiver in the Jewish community.','meta_keywords'=>'');
+            $seodata=array('meta_title'=>'Find The Perfect Nanny Or Senior Caregiver with FrumCare','meta_desc'=>'Frumcare is the only online tool to find the perfect nanny, babysitter or senior caregiver in the Jewish community.','meta_keywords'=>'');
 
         }
         elseif($title=='Jobs'){
@@ -33,7 +33,7 @@
 
         }
         elseif($title=='Workers / Staff'){
-            $seodata=array('meta_title'=>'Jewish organizations find caregivers & staff ','meta_desc'=>'Jewish organizations and institutions can successfully recruit caregivers, employees and staff as well as advertise their services on FrumCare.com ','meta_keywords'=>'');
+            $seodata=array('meta_title'=>'Jewish Organizations Find Caregivers & Staff ','meta_desc'=>'Jewish organizations and institutions can successfully recruit caregivers, employees and staff as well as advertise their services on FrumCare.com ','meta_keywords'=>'');
 
         }
         elseif($title=='Therapist'){
