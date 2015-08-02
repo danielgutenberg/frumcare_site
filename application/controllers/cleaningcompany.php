@@ -128,6 +128,7 @@ class Cleaningcompany extends CI_Controller{
             $merge['num']         	= ceil($total_rows/@$limit); 
             $merge['total']       	= $total_rows;
             $merge['pagination']       	= $pagination;  
+            $merge['location'] = $location;
             echo json_encode($merge);
             exit();	
 	}
