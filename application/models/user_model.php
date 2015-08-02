@@ -1215,7 +1215,7 @@ class User_model extends CI_Model
             $langs = explode(',',$language);
                 if(is_array($langs)){
                     foreach($langs as $lang):
-                        $sql .= " and find_in_set('$lang',tbl_userprofile.language)";
+                        $sql .= " and find_in_set('$lang',tbl_user.caregiver_language)";
                     endforeach;
                 }
          }
