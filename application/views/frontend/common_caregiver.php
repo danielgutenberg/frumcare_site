@@ -189,6 +189,7 @@
 		<input type="hidden" id="lng" value="<?php echo $location['lng']?>">
 		<input type="hidden" id="lat" value="<?php echo $location['lat']?>">
 		<input type="hidden" id="place" value="<?php echo $location['place']?>">
+		<input type="hidden" id="pagenum" value="">
 		<!--<input type="button" value="Change Location" class="btn btn-primary" id="change_location"">--> 
 	</t>        
     within            
@@ -280,7 +281,10 @@ if($pages > 1){
 <script type="text/javascript">    
 		$(document).ready(function(){
 		    var plc = $('#place').val()
+		    var pag = parseInt($('.paginate_click.active').text())
+		    $('#pagenum').val(pag)
 		    $('#autocomplete').val(plc)
+		    $('#pagenum').val(pag)
 		    $('#locationaddress').val(plc)
 		    $('#autocomplete').on('click', function(){$('#autocomplete').val('')})
             //for sort by location, per page
@@ -385,6 +389,8 @@ if($pages > 1){
                 var element = parseInt(page_num)
                 $('.paginate_click').eq(element).removeClass('in-active');
         		$('.paginate_click').eq(element).addClass('active'); //add active class to currently clicked element (style purpose)
+        		var pag = parseInt($('.paginate_click.active').text())
+		    $('#pagenum').val(pag)
         		document.body.scrollTop = document.documentElement.scrollTop = 0;
         		return false; //prevent going to herf link
         	});

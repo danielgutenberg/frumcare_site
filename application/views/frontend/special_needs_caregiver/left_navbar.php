@@ -204,12 +204,16 @@ $(function () {
 		    }).get();
 		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
 		    var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
+		    var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 		    var available = $('.available_on_short_notice').is('.checked')?$('.available_on_short_notice').val():'';
 		    var care_type = $( ".careType option:selected" ).val();
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>special_needs_caregiver/search",
-					data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&carelocation="+carelocations+"&trainings="+trainings+"&able_to_work="+able_to_work+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&carelocation="+carelocations+"&trainings="+trainings+"&able_to_work="+able_to_work+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -218,6 +222,9 @@ $(function () {
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 
@@ -238,12 +245,7 @@ $(function () {
 		        return $(el).val();
 		    }).get();
 
-		    var min_exp = $('.year_experience').val();
-		    var availability = $('.availability:checked').map(function(_, el) {
-		        return $(el).val();
-		    }).get();
-
-		     var carelocations = $('.carelocation:checked').map(function(_, el) {
+		    var carelocations = $('.carelocation:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
 
@@ -255,15 +257,22 @@ $(function () {
 		        return $(el).val();
 		    }).get();
 
+		    var min_exp = $('.year_experience').val();
+		    var availability = $('.availability:checked').map(function(_, el) {
+		        return $(el).val();
+		    }).get();
 		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
 		    var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
+		    var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 		    var available = $('.available_on_short_notice').is('.checked')?$('.available_on_short_notice').val():'';
 		    var care_type = $( ".careType option:selected" ).val();
-
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>special_needs_caregiver/search",
-					data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&carelocation="+carelocations+"&trainings="+trainings+"&able_to_work="+able_to_work+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&carelocation="+carelocations+"&trainings="+trainings+"&able_to_work="+able_to_work+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -272,6 +281,9 @@ $(function () {
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 		});
@@ -290,15 +302,6 @@ $(function () {
 		        return $(el).val();
 		    }).get();
 
-		    var subjects = $('.subjects:checked').map(function(_, el) {
-		        return $(el).val();
-		    }).get();
-
-		    var min_exp = $('.year_experience').val();
-		    var availability = $('.availability:checked').map(function(_, el) {
-		        return $(el).val();
-		    }).get();
-
 		    var carelocations = $('.carelocation:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
@@ -311,15 +314,22 @@ $(function () {
 		        return $(el).val();
 		    }).get();
 
+		    var min_exp = $('.year_experience').val();
+		    var availability = $('.availability:checked').map(function(_, el) {
+		        return $(el).val();
+		    }).get();
 		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
-		  	var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
+		    var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
+		    var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 		    var available = $('.available_on_short_notice').is('.checked')?$('.available_on_short_notice').val():'';
 		    var care_type = $( ".careType option:selected" ).val();
-
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>special_needs_caregiver/search",
-					data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&carelocation="+carelocations+"&trainings="+trainings+"&able_to_work="+able_to_work+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&carelocation="+carelocations+"&trainings="+trainings+"&able_to_work="+able_to_work+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -328,6 +338,9 @@ $(function () {
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 		});
@@ -375,15 +388,6 @@ $(function () {
 		        return $(el).val();
 		    }).get();
 
-		    var subjects = $('.subjects:checked').map(function(_, el) {
-		        return $(el).val();
-		    }).get();
-
-		    var min_exp = $('.year_experience').val();
-		    var availability = $('.availability:checked').map(function(_, el) {
-		        return $(el).val();
-		    }).get();
-
 		    var carelocations = $('.carelocation:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
@@ -396,15 +400,22 @@ $(function () {
 		        return $(el).val();
 		    }).get();
 
+		    var min_exp = $('.year_experience').val();
+		    var availability = $('.availability:checked').map(function(_, el) {
+		        return $(el).val();
+		    }).get();
 		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
-		  	var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
+		    var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
+		    var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 		    var available = $('.available_on_short_notice').is('.checked')?$('.available_on_short_notice').val():'';
 		    var care_type = $( ".careType option:selected" ).val();
-
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>special_needs_caregiver/search",
-					data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&carelocation="+carelocations+"&trainings="+trainings+"&able_to_work="+able_to_work+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&carelocation="+carelocations+"&trainings="+trainings+"&able_to_work="+able_to_work+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -413,6 +424,9 @@ $(function () {
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 	

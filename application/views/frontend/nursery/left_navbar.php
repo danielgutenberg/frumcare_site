@@ -156,10 +156,14 @@ $(function () {
                     
                     var care_type = $( ".careType option:selected" ).val();
                     var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+			    	var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>nursery/search",
-			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
+			    		data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
 			    		success:function(done){
                            $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -168,325 +172,396 @@ $(function () {
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 			    		}
 			    	});
 			});
 
 			$('.caregiverage_from').blur(function(){
 			        $(".searchloader").fadeIn("fast");
-					var neighbour = $('.neighbour').val();
-					var caregiverage_from = $(this).val();
+					var neighbour = $(this).val();
+					var caregiverage_from = $('.caregiverage_from').val();
 					var caregiverage_to =  $('.caregiverage_to').val();
 					var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
-                    var willing = $('.willing').is(':checked')?$('input[name=willing]:checked').val():'';
+                    var willing = $('.willing').is(':checked')?$('input[name=willing]:checked').val():'';        
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
 			    	var observance = $('.observance:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
-			    	 var age_group = $('.age_group:checked').map(function(_, el) {
+
+                    var age_group = $('.age_group:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
-			    	var care_type = $( ".careType option:selected" ).val();
+                    
+                    var care_type = $( ".careType option:selected" ).val();
                     var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+			    	var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>nursery/search",
-			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
+			    		data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
 			    		success:function(done){
-                             $(".searchloader").fadeOut("fast");
+                           $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
  							var pagenum = json.num;
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 			    		}
 			    	});
 			});
 
 			$('.caregiverage_to').blur(function(){
 			        $(".searchloader").fadeIn("fast");
-					var neighbour = $('.neighbour').val();
+					var neighbour = $(this).val();
 					var caregiverage_from = $('.caregiverage_from').val();
-					var caregiverage_to =  $(this).val();
+					var caregiverage_to =  $('.caregiverage_to').val();
 					var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
-                    var willing = $('.willing').is(':checked')?$('input[name=willing]:checked').val():'';
+                    var willing = $('.willing').is(':checked')?$('input[name=willing]:checked').val():'';        
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
 			    	var observance = $('.observance:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
-                     var age_group = $('.age_group:checked').map(function(_, el) {
+
+                    var age_group = $('.age_group:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
-			    	var care_type = $( ".careType option:selected" ).val();
+                    
+                    var care_type = $( ".careType option:selected" ).val();
                     var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+			    	var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>nursery/search",
-			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
+			    		data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
 			    		success:function(done){
-                            $(".searchloader").fadeOut("fast");
+                           $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
  							var pagenum = json.num;
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 			    		}
 			    	});
 			});
 
 			$('.gender').click(function(){
 			 $(".searchloader").fadeIn("fast");
-					var neighbour = $('.neighbour').val();
+					var neighbour = $(this).val();
 					var caregiverage_from = $('.caregiverage_from').val();
 					var caregiverage_to =  $('.caregiverage_to').val();
-					var gender = $(this).val();
-                    var willing = $('.willing').is(':checked')?$('input[name=willing]:checked').val():'';
+					var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
+                    var willing = $('.willing').is(':checked')?$('input[name=willing]:checked').val():'';        
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
 			    	var observance = $('.observance:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
-			    	 var age_group = $('.age_group:checked').map(function(_, el) {
+
+                    var age_group = $('.age_group:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
-			    	var care_type = $( ".careType option:selected" ).val();
+                    
+                    var care_type = $( ".careType option:selected" ).val();
                     var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+			    	var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>nursery/search",
-			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
+			    		data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
 			    		success:function(done){
-                             $(".searchloader").fadeOut("fast");
+                           $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
  							var pagenum = json.num;
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 			    		}
 			    	});
 			});
 
 				$('.lang').click(function(){
 				    $(".searchloader").fadeIn("fast");
-					var neighbour = $('.neighbour').val();
+					var neighbour = $(this).val();
 					var caregiverage_from = $('.caregiverage_from').val();
 					var caregiverage_to =  $('.caregiverage_to').val();
-                    //$('input[name=radioName]:checked', '#myForm').val()
-					//var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
-                    var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
-                    var willing = $('.willing').is(':checked')?$('input[name=willing]:checked').val():'';
+					var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
+                    var willing = $('.willing').is(':checked')?$('input[name=willing]:checked').val():'';        
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
 			    	var observance = $('.observance:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
-                    var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
-			    	 var age_group = $('.age_group:checked').map(function(_, el) {
+
+                    var age_group = $('.age_group:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
-                     
-			    	var care_type = $( ".careType option:selected" ).val();
-
+                    
+                    var care_type = $( ".careType option:selected" ).val();
+                    var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+			    	var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>nursery/search",
-			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
+			    		data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
 			    		success:function(done){
-                             $(".searchloader").fadeOut("fast");
+                           $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
  							var pagenum = json.num;
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 			    		}
 			    	});
 				});
                 $('.smoker').click(function(){
 				    $(".searchloader").fadeIn("fast");
-					var neighbour = $('.neighbour').val();
+					var neighbour = $(this).val();
 					var caregiverage_from = $('.caregiverage_from').val();
 					var caregiverage_to =  $('.caregiverage_to').val();
-                    //$('input[name=radioName]:checked', '#myForm').val()
-					//var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
-                    var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
-                    var willing = $('.willing').is(':checked')?$('input[name=willing]:checked').val():'';
+					var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
+                    var willing = $('.willing').is(':checked')?$('input[name=willing]:checked').val():'';        
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
 			    	var observance = $('.observance:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
-                    var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
-			    	 var age_group = $('.age_group:checked').map(function(_, el) {
+
+                    var age_group = $('.age_group:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
-                     
-			    	var care_type = $( ".careType option:selected" ).val();
-
+                    
+                    var care_type = $( ".careType option:selected" ).val();
+                    var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+			    	var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>nursery/search",
-			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
+			    		data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
 			    		success:function(done){
-                             $(".searchloader").fadeOut("fast");
+                           $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
  							var pagenum = json.num;
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 			    		}
 			    	});
 				});
 
 				$('.observance').click(function(){
 				    $(".searchloader").fadeIn("fast");
-					var neighbour = $('.neighbour').val();
+					var neighbour = $(this).val();
 					var caregiverage_from = $('.caregiverage_from').val();
 					var caregiverage_to =  $('.caregiverage_to').val();
 					var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
-                    var willing = $('.willing').is(':checked')?$('input[name=willing]:checked').val():'';
+                    var willing = $('.willing').is(':checked')?$('input[name=willing]:checked').val():'';        
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
 			    	var observance = $('.observance:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
-			    	 var age_group = $('.age_group:checked').map(function(_, el) {
+
+                    var age_group = $('.age_group:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
+                    
+                    var care_type = $( ".careType option:selected" ).val();
                     var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
-			    	var care_type = $( ".careType option:selected" ).val();
-
+			    	var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>nursery/search",
-			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
+			    		data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
 			    		success:function(done){
-                                 $(".searchloader").fadeOut("fast");
+                           $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
  							var pagenum = json.num;
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 			    		}
 			    	});
 				});
                 
                 	$('.age_group').click(function(){
     				    $(".searchloader").fadeIn("fast");
-    					var neighbour = $('.neighbour').val();
-    					var caregiverage_from = $('.caregiverage_from').val();
-    					var caregiverage_to =  $('.caregiverage_to').val();
-    					var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
-                        var willing = $('.willing').is(':checked')?$('input[name=willing]:checked').val():'';
-    					var lang = $('.lang:checked').map(function(_, el) {
-    			        	return $(el).val();
-    			    	}).get();
-    			    	var observance = $('.observance:checked').map(function(_, el) {
-    			        	return $(el).val();
-    			    	}).get();
-    			    	 var age_group = $('.age_group:checked').map(function(_, el) {
-    			        	return $(el).val();
-    			    	}).get();
-                        
-    			    	var care_type = $( ".careType option:selected" ).val();
-                        var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
-    			    	$.ajax({
-    			    		type:"get",
-    			    		url:"<?php echo site_url();?>nursery/search",
-    			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
-    			    		success:function(done){
-                                     $(".searchloader").fadeOut("fast");
-    							var json = jQuery.parseJSON(done);
-     							var pagenum = json.num;
-     							var pagedata = json.userdatas;
-    							$('#list_container').html(pagedata);
-    							$('#total').text(json.total);
-                                $('.navigations').html(json.pagination);
-    			    		}
-    			    	});
-				});
-                
-                $('.willing').click(function(){
-    				    $(".searchloader").fadeIn("fast");
-    					var neighbour = $('.neighbour').val();
-    					var caregiverage_from = $('.caregiverage_from').val();
-    					var caregiverage_to =  $('.caregiverage_to').val();
-    					var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
-                        var willing = $(this).val();
-    					var lang = $('.lang:checked').map(function(_, el) {
-    			        	return $(el).val();
-    			    	}).get();
-    			    	var observance = $('.observance:checked').map(function(_, el) {
-    			        	return $(el).val();
-    			    	}).get();
-    			    	 var age_group = $('.age_group:checked').map(function(_, el) {
-    			        	return $(el).val();
-    			    	}).get();
-                        var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
-    			    	var care_type = $( ".careType option:selected" ).val();
-    
-    			    	$.ajax({
-    			    		type:"get",
-    			    		url:"<?php echo site_url();?>nursery/search",
-    			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
-    			    		success:function(done){
-                                     $(".searchloader").fadeOut("fast");
-    							var json = jQuery.parseJSON(done);
-     							var pagenum = json.num;
-     							var pagedata = json.userdatas;
-    							$('#list_container').html(pagedata);
-    							$('#total').text(json.total);
-                                $('.navigations').html(json.pagination);
-    			    		}
-    			    	});
-				});
-	});
-</script>
-<script type="text/javascript">
-	$(document).ready(function(){
-	var neighbour = $('.neighbour').val();
+    					var neighbour = $(this).val();
 					var caregiverage_from = $('.caregiverage_from').val();
 					var caregiverage_to =  $('.caregiverage_to').val();
 					var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
-                    var willing = $('.willing').is(':checked')?$('input[name=willing]:checked').val():'';
+                    var willing = $('.willing').is(':checked')?$('input[name=willing]:checked').val():'';        
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
 			    	var observance = $('.observance:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
-			    	 var age_group = $('.age_group:checked').map(function(_, el) {
+
+                    var age_group = $('.age_group:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
+                    
+                    var care_type = $( ".careType option:selected" ).val();
                     var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
-			    	var care_type = $( ".careType option:selected" ).val();
-					var data = "neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker
-			    	console.log(data)
+			    	var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>nursery/search",
-			    		data:data,
+			    		data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
 			    		success:function(done){
-                                 $(".searchloader").fadeOut("fast");
+                           $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
  							var pagenum = json.num;
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
+			    		}
+			    	});
+				});
+                
+                $('.willing').click(function(){
+    				    $(".searchloader").fadeIn("fast");
+    					var neighbour = $(this).val();
+					var caregiverage_from = $('.caregiverage_from').val();
+					var caregiverage_to =  $('.caregiverage_to').val();
+					var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
+                    var willing = $('.willing').is(':checked')?$('input[name=willing]:checked').val():'';        
+					var lang = $('.lang:checked').map(function(_, el) {
+			        	return $(el).val();
+			    	}).get();
+			    	var observance = $('.observance:checked').map(function(_, el) {
+			        	return $(el).val();
+			    	}).get();
+
+                    var age_group = $('.age_group:checked').map(function(_, el) {
+			        	return $(el).val();
+			    	}).get();
+                    
+                    var care_type = $( ".careType option:selected" ).val();
+                    var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+			    	var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
+			    	$.ajax({
+			    		type:"get",
+			    		url:"<?php echo site_url();?>nursery/search",
+			    		data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
+			    		success:function(done){
+                           $(".searchloader").fadeOut("fast");
+							var json = jQuery.parseJSON(done);
+ 							var pagenum = json.num;
+ 							var pagedata = json.userdatas;
+							$('#list_container').html(pagedata);
+							$('#total').text(json.total);
+                            $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
+			    		}
+			    	});
+				});
+	});
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){
+	var neighbour = $(this).val();
+					var caregiverage_from = $('.caregiverage_from').val();
+					var caregiverage_to =  $('.caregiverage_to').val();
+					var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
+                    var willing = $('.willing').is(':checked')?$('input[name=willing]:checked').val():'';        
+					var lang = $('.lang:checked').map(function(_, el) {
+			        	return $(el).val();
+			    	}).get();
+			    	var observance = $('.observance:checked').map(function(_, el) {
+			        	return $(el).val();
+			    	}).get();
+
+                    var age_group = $('.age_group:checked').map(function(_, el) {
+			        	return $(el).val();
+			    	}).get();
+                    
+                    var care_type = $( ".careType option:selected" ).val();
+                    var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+			    	var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
+			    	$.ajax({
+			    		type:"get",
+			    		url:"<?php echo site_url();?>nursery/search",
+			    		data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
+			    		success:function(done){
+                           $(".searchloader").fadeOut("fast");
+							var json = jQuery.parseJSON(done);
+ 							var pagenum = json.num;
+ 							var pagedata = json.userdatas;
+							$('#list_container').html(pagedata);
+							$('#total').text(json.total);
+                            $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 			    		}
 			    	});
 	

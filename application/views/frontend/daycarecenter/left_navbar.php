@@ -128,10 +128,14 @@ $(function () {
 		        return $(el).val();
 		    }).get();
             var sub_care = $('.sub_care').val();
+            var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>daycarecenter/search",
-					data:"neighbour="+neighbour+"&sub_care="+sub_care+"&gender="+gender+"&language="+lang+"&care_type="+care_type+"&age_group="+age_group,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&sub_care="+sub_care+"&gender="+gender+"&language="+lang+"&care_type="+care_type+"&age_group="+age_group,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -141,6 +145,9 @@ $(function () {
 							$('#total').html(json.total_rows);
 							$('.numsds').text(pagenum);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 
@@ -159,10 +166,14 @@ $(function () {
 		        return $(el).val();
 		    }).get();
             var sub_care = $('.sub_care').val();
+            var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>daycarecenter/search",
-					data:"neighbour="+neighbour+"&sub_care="+sub_care+"&gender="+gender+"&language="+lang+"&care_type="+care_type+"&age_group="+age_group,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&sub_care="+sub_care+"&gender="+gender+"&language="+lang+"&care_type="+care_type+"&age_group="+age_group,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -172,6 +183,9 @@ $(function () {
 							$('#total').html(json.total_rows);
 							$('.numsds').text(pagenum);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 
@@ -182,17 +196,22 @@ $(function () {
 			$(".searchloader").fadeIn("fast");
 			var neighbour = $('.neighbour').val();
             var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
+            
             var lang = $('.lang:checked').map(function(_, el) {
 		        return $(el).val();
-		    }).get();		   
+		    }).get();		    
             var age_group = $('.age_group:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
             var sub_care = $('.sub_care').val();
+            var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>daycarecenter/search",
-					data:"neighbour="+neighbour+"&sub_care="+sub_care+"&gender="+gender+"&language="+lang+"&care_type="+care_type+"&age_group="+age_group,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&sub_care="+sub_care+"&gender="+gender+"&language="+lang+"&care_type="+care_type+"&age_group="+age_group,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -200,7 +219,11 @@ $(function () {
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
 							$('#total').html(json.total_rows);
+							$('.numsds').text(pagenum);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 		});
@@ -236,19 +259,22 @@ $(function () {
 	$(document).ready(function(){
 		var neighbour = $('.neighbour').val();
             var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
+            
             var lang = $('.lang:checked').map(function(_, el) {
 		        return $(el).val();
-		    }).get();		   
+		    }).get();		    
             var age_group = $('.age_group:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
             var sub_care = $('.sub_care').val();
-            var data = "&sub_care="+sub_care+"&gender="+gender+"&language="+lang+"&age_group="+age_group
-            console.log(data)
+            var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>daycarecenter/search",
-					data:data,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&sub_care="+sub_care+"&gender="+gender+"&language="+lang+"&care_type="+care_type+"&age_group="+age_group,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -256,7 +282,11 @@ $(function () {
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
 							$('#total').html(json.total_rows);
+							$('.numsds').text(pagenum);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 		

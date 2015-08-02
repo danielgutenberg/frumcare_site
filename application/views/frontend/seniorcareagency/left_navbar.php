@@ -116,11 +116,15 @@ $(function () {
 		    var willing_to_work = $('.willing_to_work:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
+		    var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>seniorcareagency/search",
-					data:"&language="+lang+"&willing_to_work="+willing_to_work,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&language="+lang+"&willing_to_work="+willing_to_work,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -129,6 +133,9 @@ $(function () {
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 
@@ -137,16 +144,22 @@ $(function () {
 		// onclick
 		$('.lang,.willing_to_work').click(function(){
 			$(".searchloader").fadeIn("fast");
+            var neighbour = $('.neighbour').val();
             var lang = $('.lang:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
 		    var willing_to_work = $('.willing_to_work:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
+		    var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
+
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>seniorcareagency/search",
-					data:"&language="+lang+"&willing_to_work="+willing_to_work,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&language="+lang+"&willing_to_work="+willing_to_work,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -155,6 +168,9 @@ $(function () {
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 		});
@@ -197,10 +213,15 @@ $(function () {
 		    var willing_to_work = $('.willing_to_work:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
+		    var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
+
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>seniorcareagency/search",
-					data:"&language="+lang+"&willing_to_work="+willing_to_work,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&language="+lang+"&willing_to_work="+willing_to_work,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -209,6 +230,9 @@ $(function () {
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 		

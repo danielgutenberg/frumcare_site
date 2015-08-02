@@ -194,10 +194,14 @@ $(function () {
     		    }).get();
                 var start_date = $("#textbox1").val()?$("#textbox1").val():''; 
                 var care_type = $( ".careType option:selected" ).val();
+    			var lat = $('#lat').val();
+                var lng = $('#lng').val();
+                var location = $('#place').val();
+                var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_babysitter/searchAll",
-    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&availability="+availability+"&start_date="+start_date,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&availability="+availability+"&start_date="+start_date,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -206,13 +210,16 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                            	$('#locationaddress').text(json.location)
+                            }
     				}
     			});         
         });
         $('.rate,.number_of_children,#textbox1').change(function(){
                 $(".searchloader").fadeIn("fast");
     			var neighbour = $('.neighbour').val();
-                var number_of_children = $('.number_of_children').val();
+                var number_of_children = $('.number_of_children:selected').val();
                 var morenum = $('.morenum:checked').map(function(_, el) {
     		        return $(el).val();
     		    }).get();
@@ -226,16 +233,20 @@ $(function () {
     		        return $(el).val();
     		    }).get();
                 var rate = $('.rate').val();
-                var start_date = $("#textbox1").val()?$("#textbox1").val():'';
                 //var rate_type = $('.rate_type').val();
                 var rate_type = $('.rate_type:checked').map(function(_, el) {
     		        return $(el).val();
-    		    }).get();  
-    		    var care_type = $( ".jobtype option:selected" ).val();
+    		    }).get();
+                var start_date = $("#textbox1").val()?$("#textbox1").val():''; 
+                var care_type = $( ".careType option:selected" ).val();
+    			var lat = $('#lat').val();
+                var lng = $('#lng').val();
+                var location = $('#place').val();
+                var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_babysitter/searchAll",
-    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&availability="+availability+"&start_date="+start_date,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&availability="+availability+"&start_date="+start_date,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -244,6 +255,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                            	$('#locationaddress').text(json.location)
+                            }
     				}
     			});
         });
@@ -257,7 +271,7 @@ $(function () {
                 $('#textbox1').val('');
                 $(".searchloader").fadeIn("fast");
     			var neighbour = $('.neighbour').val();
-                var number_of_children = $('.number_of_children').val();
+                var number_of_children = $('.number_of_children:selected').val();
                 var morenum = $('.morenum:checked').map(function(_, el) {
     		        return $(el).val();
     		    }).get();
@@ -270,17 +284,21 @@ $(function () {
                 var availability = $('.availability:checked').map(function(_, el) {
     		        return $(el).val();
     		    }).get();
-                var start_date = $("#textbox1").val()?$("#textbox1").val():'';
+                var rate = $('.rate').val();
                 //var rate_type = $('.rate_type').val();
                 var rate_type = $('.rate_type:checked').map(function(_, el) {
     		        return $(el).val();
     		    }).get();
-                var rate = $('.rate').val(); 
-                var care_type = $( ".jobtype option:selected" ).val();
+                var start_date = $("#textbox1").val()?$("#textbox1").val():''; 
+                var care_type = $( ".careType option:selected" ).val();
+    			var lat = $('#lat').val();
+                var lng = $('#lng').val();
+                var location = $('#place').val();
+                var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_babysitter/searchAll",
-    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&availability="+availability+"&start_date="+start_date,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&availability="+availability+"&start_date="+start_date,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -289,6 +307,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                            	$('#locationaddress').text(json.location)
+                            }
     				}
     			});
             }       
@@ -298,41 +319,48 @@ $(function () {
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
 <script type="text/javascript">
-    // var neighbour = $('.neighbour').val();
-    //             var number_of_children = $('.number_of_children').val();
-    //             var morenum = $('.morenum:checked').map(function(_, el) {
-    // 		        return $(el).val();
-    // 		    }).get();
-    //             var looking_to_work = $('.looking_to_work:checked').map(function(_, el) {
-    // 		        return $(el).val();
-    // 		    }).get();
-    //             var age_group = $('.age_group:checked').map(function(_, el) {
-    // 		        return $(el).val();
-    // 		    }).get();
-    //             var availability = $('.availability:checked').map(function(_, el) {
-    // 		        return $(el).val();
-    // 		    }).get();
-    //             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
-    //             //var rate_type = $('.rate_type').val();
-    //             var rate_type = $('.rate_type:checked').map(function(_, el) {
-    // 		        return $(el).val();
-    // 		    }).get();
-    //             var rate = $('.rate').val(); 
-    //             var care_type = $( ".jobtype option:selected" ).val();
-    // 			$.ajax({
-    // 				type:"get",
-    // 				url:"<?php echo site_url();?>careseeker_babysitter/searchAll",
-    // 				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&availability="+availability+"&start_date="+start_date,
-    // 				success:function(message){
-    // 						$(".searchloader").fadeOut("fast");
-    // 						var json = jQuery.parseJSON(message);
-    // 		 				var pagenum = json.num;
-    // 		 				var pagedata = json.userdatas;
-    // 						$('#list_container').html(pagedata);
-    // 						$('#total').text(json.total);
-    //                         $('.navigations').html(json.pagination);
-    // 				}
-    // 			});
+    var neighbour = $('.neighbour').val();
+                var number_of_children = $('.number_of_children:selected').val();
+                var morenum = $('.morenum:checked').map(function(_, el) {
+    		        return $(el).val();
+    		    }).get();
+                var looking_to_work = $('.looking_to_work:checked').map(function(_, el) {
+    		        return $(el).val();
+    		    }).get();
+                var age_group = $('.age_group:checked').map(function(_, el) {
+    		        return $(el).val();
+    		    }).get();
+                var availability = $('.availability:checked').map(function(_, el) {
+    		        return $(el).val();
+    		    }).get();
+                var rate = $('.rate').val();
+                //var rate_type = $('.rate_type').val();
+                var rate_type = $('.rate_type:checked').map(function(_, el) {
+    		        return $(el).val();
+    		    }).get();
+                var start_date = $("#textbox1").val()?$("#textbox1").val():''; 
+                var care_type = $( ".careType option:selected" ).val();
+    			var lat = $('#lat').val();
+                var lng = $('#lng').val();
+                var location = $('#place').val();
+                var pagenum = $('#pagenum').val();
+    			$.ajax({
+    				type:"get",
+    				url:"<?php echo site_url();?>careseeker_babysitter/searchAll",
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&availability="+availability+"&start_date="+start_date,
+    				success:function(message){
+    						$(".searchloader").fadeOut("fast");
+    						var json = jQuery.parseJSON(message);
+    		 				var pagenum = json.num;
+    		 				var pagedata = json.userdatas;
+    						$('#list_container').html(pagedata);
+    						$('#total').text(json.total);
+                            $('.navigations').html(json.pagination);
+                            if (json.location) {
+                            	$('#locationaddress').text(json.location)
+                            }
+    				}
+    			});
     
     
     $(document).ready(function(){
