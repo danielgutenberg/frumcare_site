@@ -135,8 +135,8 @@ class Tutor extends CI_Controller{
             $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
     		$result = array_slice($result, $offset , $limit);$userlogs           = $this->user_model->getUserLog();
             $merge['userdatas']   	= $this->load->view('frontend/common_profile_list', array('userdatas'=>$result,'userlogs'=>$userlogs,'location'=>$locationdetails), true); 
-            $merge['total']     =  $total_rows;
-            $merge['num']       =  ceil($total_rows/$limit);
+            $merge['total']     =  $total;
+            $merge['num']       =  ceil($total/$limit);
             $merge['pagination']       	= $pagination;
             $merge['location'] = $location; 
             echo json_encode($merge);
