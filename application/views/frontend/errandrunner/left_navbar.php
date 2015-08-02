@@ -184,14 +184,19 @@
 		    var availability = $('.availability:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
+            var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
 		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
 		    var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
 		    var available = $('.short_notice').is('.checked')?$('.short_notice').val():'';
 				var start_date = $("#textbox1").val()?$("#textbox1").val():'';
+				var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
                 $.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>errand_runner/search",
-					data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -199,6 +204,10 @@
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
+                            $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 
@@ -224,14 +233,19 @@
 		    var availability = $('.availability:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
+            var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
 		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
 		    var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
 		    var available = $('.short_notice').is('.checked')?$('.short_notice').val():'';
-            var start_date = $("#textbox1").val()?$("#textbox1").val():'';
-				$.ajax({
+				var start_date = $("#textbox1").val()?$("#textbox1").val():'';
+				var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
+                $.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>errand_runner/search",
-					data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -239,6 +253,10 @@
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
+                            $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 		});
@@ -259,24 +277,23 @@
 		        return $(el).val();
 		    }).get();
 
-		    
 		    var min_exp = $('.year_experience').val();
 		    var availability = $('.availability:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
-
-		    var able_to_work = $('.able_to_work:checked').map(function(_, el) {
-		        return $(el).val();
-		    }).get();
-
+            var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
 		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
-		  	var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
+		    var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
 		    var available = $('.short_notice').is('.checked')?$('.short_notice').val():'';
-            var start_date = $("#textbox1").val()?$("#textbox1").val():'';
-				$.ajax({
+				var start_date = $("#textbox1").val()?$("#textbox1").val():'';
+				var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
+                $.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>errand_runner/search",
-					data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -284,6 +301,10 @@
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
+                            $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 		});
@@ -311,24 +332,23 @@
 		        return $(el).val();
 		    }).get();
 
-		    
 		    var min_exp = $('.year_experience').val();
 		    var availability = $('.availability:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
-
-		    var able_to_work = $('.able_to_work:checked').map(function(_, el) {
-		        return $(el).val();
-		    }).get();
-
+            var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
 		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
-		  	var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
+		    var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
 		    var available = $('.short_notice').is('.checked')?$('.short_notice').val():'';
-            var start_date = $("#textbox1").val()?$("#textbox1").val():'';
-				$.ajax({
+				var start_date = $("#textbox1").val()?$("#textbox1").val():'';
+				var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
+                $.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>errand_runner/search",
-					data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -336,6 +356,10 @@
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
+                            $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
             }       
@@ -384,24 +408,23 @@
 		        return $(el).val();
 		    }).get();
 
-		    
 		    var min_exp = $('.year_experience').val();
 		    var availability = $('.availability:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
-
-		    var able_to_work = $('.able_to_work:checked').map(function(_, el) {
-		        return $(el).val();
-		    }).get();
-
+            var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
 		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
-		  	var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
+		    var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
 		    var available = $('.short_notice').is('.checked')?$('.short_notice').val():'';
-            var start_date = $("#textbox1").val()?$("#textbox1").val():'';
-				$.ajax({
+				var start_date = $("#textbox1").val()?$("#textbox1").val():'';
+				var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
+                $.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>errand_runner/search",
-					data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -409,6 +432,10 @@
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
+                            $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 	
