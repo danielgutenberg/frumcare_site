@@ -127,11 +127,15 @@ $(function () {
     		        return $(el).val();
     		    }).get();
             var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+            var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
             var care_type = $( ".careType option:selected" ).val();
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>specialneedscenter/search",
-					data:"neighbour="+neighbour+"&language="+lang+"&willing_to_work="+willing_to_work+"&care_type="+care_type+"&smoker="+smoker+"&extra_field="+extra_field,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&language="+lang+"&willing_to_work="+willing_to_work+"&care_type="+care_type+"&smoker="+smoker+"&extra_field="+extra_field,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -140,6 +144,9 @@ $(function () {
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 
@@ -152,18 +159,22 @@ $(function () {
             var lang = $('.lang:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
-            var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
 		    var willing_to_work = $('.willing_to_work:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
             var extra_field = $('.extra_field:checked').map(function(_, el) {
     		        return $(el).val();
     		    }).get();
-    		    var care_type = $( ".careType option:selected" ).val();
+            var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+            var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
+            var care_type = $( ".careType option:selected" ).val();
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>specialneedscenter/search",
-					data:"neighbour="+neighbour+"&language="+lang+"&willing_to_work="+willing_to_work+"&care_type="+care_type+"&smoker="+smoker+"&extra_field="+extra_field,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&language="+lang+"&willing_to_work="+willing_to_work+"&care_type="+care_type+"&smoker="+smoker+"&extra_field="+extra_field,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -172,6 +183,9 @@ $(function () {
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 		});
@@ -210,18 +224,22 @@ $(function () {
             var lang = $('.lang:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
-            var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
 		    var willing_to_work = $('.willing_to_work:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
             var extra_field = $('.extra_field:checked').map(function(_, el) {
     		        return $(el).val();
     		    }).get();
-    		    var care_type = $( ".careType option:selected" ).val();
+            var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+            var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
+            var care_type = $( ".careType option:selected" ).val();
 				$.ajax({
 					type:"get",
 					url:"<?php echo site_url();?>specialneedscenter/search",
-					data:"neighbour="+neighbour+"&language="+lang+"&willing_to_work="+willing_to_work+"&care_type="+care_type+"&smoker="+smoker+"&extra_field="+extra_field,
+					data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&language="+lang+"&willing_to_work="+willing_to_work+"&care_type="+care_type+"&smoker="+smoker+"&extra_field="+extra_field,
 					success:function(done){
 							$(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -230,6 +248,9 @@ $(function () {
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 					}
 				});
 		
