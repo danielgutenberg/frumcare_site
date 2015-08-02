@@ -106,11 +106,15 @@ $(function () {
     		    }).get();
                 var willing_to_work = $('.willing_to_work:checked').map(function(_, el) {
     		        return $(el).val();
-    		    }).get();            
+    		    }).get();
+    		    var lat = $('#lat').val();
+                var lng = $('#lng').val();
+                var location = $('#place').val();
+                var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>cleaningcompany/search",
-    				data:"neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&language="+looking_to_work,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&language="+looking_to_work,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -119,6 +123,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                            	$('#locationaddress').text(json.location)
+                            }
     				}
     			});
 		});
@@ -130,11 +137,15 @@ $(function () {
     		    }).get();
                 var willing_to_work = $('.willing_to_work:checked').map(function(_, el) {
     		        return $(el).val();
-    		    }).get();            
+    		    }).get();
+    		    var lat = $('#lat').val();
+                var lng = $('#lng').val();
+                var location = $('#place').val();
+                var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>cleaningcompany/search",
-    				data:"neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&language="+looking_to_work,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&language="+looking_to_work,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -143,6 +154,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                            	$('#locationaddress').text(json.location)
+                            }
     				}
     			});
         });
@@ -158,11 +172,15 @@ $(function () {
     		    }).get();
                 var willing_to_work = $('.willing_to_work:checked').map(function(_, el) {
     		        return $(el).val();
-    		    }).get();            
+    		    }).get();
+    		    var lat = $('#lat').val();
+                var lng = $('#lng').val();
+                var location = $('#place').val();
+                var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>cleaningcompany/search",
-    				data:"neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&language="+looking_to_work,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&language="+looking_to_work,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -171,6 +189,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                            	$('#locationaddress').text(json.location)
+                            }
     				}
     			});
         
