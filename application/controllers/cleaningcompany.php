@@ -125,8 +125,8 @@ class Cleaningcompany extends CI_Controller{
 			$userlogs             	= $this->user_model->getUserLog();
             $merge['userdatas'] = $this->load->view('frontend/common_profile_list', array('userdatas'=>$result,'userlogs'=>$userlogs,'location'=>$location), true);
             $total_rows           	= $total;
-            $merge['num']         	= ceil($total_rows/@$limit); 
-            $merge['total']       	= $total_rows;
+            $merge['num']         	= ceil($total/$limit); 
+            $merge['total']       	= $total;
             $merge['pagination']       	= $pagination;  
             $merge['location'] = $location;
             echo json_encode($merge);
