@@ -202,7 +202,7 @@ class Careseeker_cleaningcompany extends CI_Controller{
 			$postdata['looking_to_work']	= $this->input->get('looking_to_work',true);
 			$postdata['rate']               = $this->input->get('rate',true);
             $postdata['rate_type']          = $this->input->get('rate_type',true);
-            $res = $this->cleaningcompany->search($postdata,$latitude,$longitude);
+            $result = $this->cleaningcompany->search($postdata,$latitude,$longitude);
 			if(is_array($result))
 				$total = count($result);
 			else

@@ -149,10 +149,14 @@ $(function () {
     		    }).get();
                  var start_date = $("#textbox1").val()?$("#textbox1").val():'';  
                  var care_type = $( ".careType option:selected" ).val();
+    			var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_nanny/search",
-    				data:"availability="+availability+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&availability="+availability+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -161,13 +165,16 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                        	$('#locationaddress').text(json.location)
+                        }
     				}
     			});
 		});
         $('.looking_to_work,.age_group,.morenum,.looking_to_work,.availability,.age_group').click(function(){
                 $(".searchloader").fadeIn("fast");
     			var neighbour = $('.neighbour').val();
-                var number_of_children = $('.number_of_children:selected').val();
+                var number_of_children = $('.number_of_children').val();
                 var morenum = $('.morenum:checked').map(function(_, el) {
     		        return $(el).val();
     		    }).get();
@@ -184,12 +191,16 @@ $(function () {
                 var rate_type = $('.rate_type:checked').map(function(_, el) {
     		        return $(el).val();
     		    }).get();
-                 var start_date = $("#textbox1").val()?$("#textbox1").val():'';    
+                 var start_date = $("#textbox1").val()?$("#textbox1").val():'';  
                  var care_type = $( ".careType option:selected" ).val();
+    			var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_nanny/search",
-    				data:"availability="+availability+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&availability="+availability+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -198,6 +209,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                        	$('#locationaddress').text(json.location)
+                        }
     				}
     			});         
         });
@@ -221,12 +235,16 @@ $(function () {
                 var rate_type = $('.rate_type:checked').map(function(_, el) {
     		        return $(el).val();
     		    }).get();
-                 var start_date = $("#textbox1").val()?$("#textbox1").val():'';    
+                 var start_date = $("#textbox1").val()?$("#textbox1").val():'';  
                  var care_type = $( ".careType option:selected" ).val();
+    			var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_nanny/search",
-    				data:"availability="+availability+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&availability="+availability+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -235,6 +253,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                        	$('#locationaddress').text(json.location)
+                        }
     				}
     			});
         });
@@ -265,12 +286,16 @@ $(function () {
                 var rate_type = $('.rate_type:checked').map(function(_, el) {
     		        return $(el).val();
     		    }).get();
-                 var start_date = $("#textbox1").val()?$("#textbox1").val():'';   
+                 var start_date = $("#textbox1").val()?$("#textbox1").val():'';  
                  var care_type = $( ".careType option:selected" ).val();
+    			var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_nanny/search",
-    				data:"availability="+availability+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&availability="+availability+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -279,6 +304,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                        	$('#locationaddress').text(json.location)
+                        }
     				}
     			});
             }       
@@ -307,12 +335,16 @@ $(function () {
                 var rate_type = $('.rate_type:checked').map(function(_, el) {
     		        return $(el).val();
     		    }).get();
-                 var start_date = $("#textbox1").val()?$("#textbox1").val():'';    
+                 var start_date = $("#textbox1").val()?$("#textbox1").val():'';  
                  var care_type = $( ".careType option:selected" ).val();
+    			var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_nanny/search",
-    				data:"availability="+availability+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&availability="+availability+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -321,6 +353,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                        	$('#locationaddress').text(json.location)
+                        }
     				}
     			});
          
