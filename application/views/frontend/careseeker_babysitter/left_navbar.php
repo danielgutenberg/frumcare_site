@@ -326,6 +326,7 @@ $(function () {
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
 <script type="text/javascript">
+    $(document).ready(function () {
     var neighbour = $('.neighbour').val();
                 var number_of_children = $('.number_of_children').val();
                 var morenum = $('.morenum:checked').map(function(_, el) {
@@ -368,6 +369,7 @@ $(function () {
                             }
     				}
     			});
+    })
     
     
     $(document).ready(function(){
