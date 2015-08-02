@@ -133,12 +133,16 @@ $(function () {
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
+			    	var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
 
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>therapists/search",
-			    		data:"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
+			    		data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
 			    		success:function(done){
                            $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -147,6 +151,9 @@ $(function () {
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 			    		}
 			    	});
 			});
@@ -157,20 +164,27 @@ $(function () {
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
+			    	var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
 
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>therapists/search",
-			    		data:"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
+			    		data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
 			    		success:function(done){
-                             $(".searchloader").fadeOut("fast");
+                           $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
  							var pagenum = json.num;
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 			    		}
 			    	});
 			});
@@ -181,20 +195,27 @@ $(function () {
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
+			    	var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
 
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>therapists/search",
-			    		data:"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
+			    		data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
 			    		success:function(done){
-                            $(".searchloader").fadeOut("fast");
+                           $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
  							var pagenum = json.num;
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 			    		}
 			    	});
 			});
@@ -205,20 +226,27 @@ $(function () {
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
+			    	var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
 
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>therapists/search",
-			    		data:"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
+			    		data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
 			    		success:function(done){
-                             $(".searchloader").fadeOut("fast");
+                           $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
  							var pagenum = json.num;
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 			    		}
 			    	});
 			});
@@ -229,20 +257,27 @@ $(function () {
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
+			    	var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
 
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>therapists/search",
-			    		data:"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
+			    		data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
 			    		success:function(done){
-                             $(".searchloader").fadeOut("fast");
+                           $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
  							var pagenum = json.num;
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 			    		}
 			    	});
 				});
@@ -253,20 +288,27 @@ $(function () {
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
+			    	var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
 
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>therapists/search",
-			    		data:"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
+			    		data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
 			    		success:function(done){
-                                 $(".searchloader").fadeOut("fast");
+                           $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
  							var pagenum = json.num;
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 			    		}
 			    	});
 				});
@@ -277,12 +319,16 @@ $(function () {
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
+			    	var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
 
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>therapists/search",
-			    		data:"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
+			    		data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
 			    		success:function(done){
                            $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -291,6 +337,9 @@ $(function () {
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 			    		}
 			    	});
 				});
@@ -302,17 +351,20 @@ $(function () {
 
 <script>
 $(document).ready(function () {
-  var neighbour = $('.neighbour').val();
-					var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
+  var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
 					var lang = $('.lang:checked').map(function(_, el) {
 			        	return $(el).val();
 			    	}).get();
+			    	var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
 			    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
 
 			    	$.ajax({
 			    		type:"get",
 			    		url:"<?php echo site_url();?>therapists/search",
-			    		data:"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
+			    		data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
 			    		success:function(done){
                            $(".searchloader").fadeOut("fast");
 							var json = jQuery.parseJSON(done);
@@ -321,6 +373,9 @@ $(document).ready(function () {
 							$('#list_container').html(pagedata);
 							$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+	                        	$('#locationaddress').text(json.location)
+	                        }
 			    		}
 			    	});
   
