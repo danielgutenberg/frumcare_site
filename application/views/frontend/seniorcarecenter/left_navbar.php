@@ -127,10 +127,14 @@ $(function () {
     		    }).get();
                 var sub_care = $('.sub_care').val(); 
                 var care_type = $( ".careType option:selected" ).val();
+                var lat = $('#lat').val();
+                var lng = $('#lng').val();
+                var location = $('#place').val();
+                var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>seniorcarecenter/search",
-    				data:"neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&language="+lang+"&sub_care="+sub_care+"&extra_field="+extra_field,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&language="+lang+"&sub_care="+sub_care+"&extra_field="+extra_field,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -139,6 +143,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                            	$('#locationaddress').text(json.location)
+                            }
     				}
     			});
 		});
@@ -150,16 +157,20 @@ $(function () {
     		    }).get();
                 var willing_to_work = $('.willing_to_work:checked').map(function(_, el) {
     		        return $(el).val();
-    		    }).get();     
-                var sub_care = $('.sub_care').val();
+    		    }).get();
                 var extra_field = $('.extra_field:checked').map(function(_, el) {
     		        return $(el).val();
-    		    }).get();       
-    		    var care_type = $( ".careType option:selected" ).val();
+    		    }).get();
+                var sub_care = $('.sub_care').val(); 
+                var care_type = $( ".careType option:selected" ).val();
+                var lat = $('#lat').val();
+                var lng = $('#lng').val();
+                var location = $('#place').val();
+                var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>seniorcarecenter/search",
-    				data:"neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&language="+lang+"&sub_care="+sub_care+"&extra_field="+extra_field,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&language="+lang+"&sub_care="+sub_care+"&extra_field="+extra_field,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -168,6 +179,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                            	$('#locationaddress').text(json.location)
+                            }
     				}
     			});
 		});
@@ -182,15 +196,17 @@ $(function () {
     		    }).get();
                 var extra_field = $('.extra_field:checked').map(function(_, el) {
     		        return $(el).val();
-    		    }).get(); 
-                var sub_care = $('.sub_care').val();   
+    		    }).get();
+                var sub_care = $('.sub_care').val(); 
                 var care_type = $( ".careType option:selected" ).val();
-                var data = "neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&language="+lang+"&sub_care="+sub_care+"&extra_field="+extra_field
-                console.log(data)
+                var lat = $('#lat').val();
+                var lng = $('#lng').val();
+                var location = $('#place').val();
+                var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>seniorcarecenter/search",
-    				data:data,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&language="+lang+"&sub_care="+sub_care+"&extra_field="+extra_field,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -199,6 +215,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                            	$('#locationaddress').text(json.location)
+                            }
     				}
     			});
         });
@@ -217,13 +236,17 @@ $(function () {
     		    }).get();
                 var extra_field = $('.extra_field:checked').map(function(_, el) {
     		        return $(el).val();
-    		    }).get(); 
-                var sub_care = $('.sub_care').val();   
+    		    }).get();
+                var sub_care = $('.sub_care').val(); 
                 var care_type = $( ".careType option:selected" ).val();
+                var lat = $('#lat').val();
+                var lng = $('#lng').val();
+                var location = $('#place').val();
+                var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>seniorcarecenter/search",
-    				data:"neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&language="+lang+"&sub_care="+sub_care+"&extra_field="+extra_field,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&language="+lang+"&sub_care="+sub_care+"&extra_field="+extra_field,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -232,6 +255,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                            	$('#locationaddress').text(json.location)
+                            }
     				}
     			});
     
