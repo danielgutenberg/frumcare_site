@@ -275,7 +275,7 @@ $(function () {
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
 <script type="text/javascript">
     $(document).ready(function(){
-          ar neighbour = $('.neighbour').val();
+          var neighbour = $('.neighbour').val();
                 var availability = $('.availability:checked').map(function(_, el) {
     		        return $(el).val();
     		    }).get();
