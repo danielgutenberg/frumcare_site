@@ -360,11 +360,11 @@ $(function () {
                             if (json.location) {
                             	$('#locationaddress').text(json.location)
                             }
-                             if ($('.paginate.active').length == 0) {
+                             setTimeout(function(){if ($('.paginate.active').length == 0) {
                             $('#1-page').removeClass('in-active');
                             $('#1-page').addClass('active');
                             $('#pagenum').val(1);
-                        }
+                        }}, 1000)
     				}
     			});
     })
