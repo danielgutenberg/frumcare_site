@@ -532,7 +532,7 @@ $(document).ready(function () {
 		 				var pagedata = json.userdatas;
 						$('#list_container').html(pagedata);
 						$('#total').text(json.total);
-                        $('.navigations').html(json.pagination);
+                        // $('.navigations').html(json.pagination);
                         if (json.location) {
                         	$('#locationaddress').text(json.location)
                         }
