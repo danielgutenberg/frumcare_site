@@ -142,8 +142,7 @@ $(function () {
  							var pagenum = json.num;
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
-							$('#total').html(json.total_rows);
-							$('.numsds').text(pagenum);
+							$('#total').html(json.total);
                             $('.navigations').html(json.pagination);
                             if (json.location) {
 	                        	$('#locationaddress').text(json.location)
@@ -180,8 +179,7 @@ $(function () {
  							var pagenum = json.num;
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
-							$('#total').html(json.total_rows);
-							$('.numsds').text(pagenum);
+							$('#total').html(json.total);
                             $('.navigations').html(json.pagination);
                             if (json.location) {
 	                        	$('#locationaddress').text(json.location)
@@ -218,8 +216,7 @@ $(function () {
  							var pagenum = json.num;
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
-							$('#total').html(json.total_rows);
-							$('.numsds').text(pagenum);
+							$('#total').html(json.total);
                             $('.navigations').html(json.pagination);
                             if (json.location) {
 	                        	$('#locationaddress').text(json.location)
@@ -281,8 +278,7 @@ $(function () {
  							var pagenum = json.num;
  							var pagedata = json.userdatas;
 							$('#list_container').html(pagedata);
-							$('#total').html(json.total_rows);
-							$('.numsds').text(pagenum);
+							$('#total').html(json.total);
                             $('.navigations').html(json.pagination);
                             if (json.location) {
 	                        	$('#locationaddress').text(json.location)
