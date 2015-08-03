@@ -541,7 +541,7 @@ $(document).ready(function () {
                         if (json.location) {
                         	$('#locationaddress').text(json.location)
                         }
-                        setTimeout(function(){if ($('.paginate.active').length == 0) {
+                        setTimeout(function(){if ($('.paginate_click.active').length == 0) {
                             $('#1-page').removeClass('in-active');
                             $('#1-page').addClass('active');
                             $('#pagenum').val(1);
