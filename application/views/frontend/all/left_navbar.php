@@ -545,7 +545,7 @@ $(document).ready(function () {
                             $('#1-page').removeClass('in-active');
                             $('#1-page').addClass('active');
                             $('#pagenum').val(1);
-                        }}, 1000)
+                        }}, 100)
 				}
 			});
 			
