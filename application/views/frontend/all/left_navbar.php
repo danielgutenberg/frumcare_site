@@ -541,10 +541,10 @@ $(document).ready(function () {
                         if (json.location) {
                         	$('#locationaddress').text(json.location)
                         }
-                        if (!$('#pagenum').val(); > 0) {
+                        if (!$('#pagenum').val() > 0) {
                             console.log(pagenum);
-                            $('1-page').removeClass('in-active');
-                            $('1-page').addClass('active');
+                            $('#1-page').removeClass('in-active');
+                            $('#1-page').addClass('active');
                             $('#pagenum').val(1);
                         }
 				}
