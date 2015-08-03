@@ -275,6 +275,7 @@ $(function () {
                         }
 				}
 			});
+			
 		});        
         
         $('.number_of_children,.year_experience,.age_group,#textbox1').change(function(){
@@ -540,8 +541,14 @@ $(document).ready(function () {
                         if (json.location) {
                         	$('#locationaddress').text(json.location)
                         }
+                        setTimeout(function(){if ($('.paginate_click.active').length == 0) {
+                            $('#1-page').removeClass('in-active');
+                            $('#1-page').addClass('active');
+                            $('#pagenum').val(1);
+                        }}, 100)
 				}
 			});
+			
   var neighbour = $('.neighbour').val();
 			
   
