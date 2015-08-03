@@ -128,6 +128,12 @@
       	
 <script type="text/javascript">
 	$(document).ready(function(){
+		var plc = $('#place').val()
+		    var pag = parseInt($('.paginate_click.active').text())
+		    $('#pagenum').val(pag)
+		    $('#autocomplete').val(plc)
+		    $('#pagenum').val(pag)
+		    $('#locationaddress').val(plc)
 		$('.showgeolocation').click(function(){
 			$('#locationField').toggle();
 			$('#autocomplete').val('');
