@@ -147,10 +147,14 @@ $(function () {
                 var start_date = $("#textbox1").val()?$("#textbox1").val():''; 
                 var gender = $('.gender').is(':checked')?$('input[name=gender]:checked').val():'';
                 var gender_of_caregiver = $('.gender_of_caregiver').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';                          
+    			var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_tutor/search",
-    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&morenum="+morenum+"&looking_to_work="+looking_to_work+"&subject="+subject+"&gender="+gender+"&gender_of_caregiver="+gender_of_caregiver+"&availability="+availability+"&start_date="+start_date,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&morenum="+morenum+"&looking_to_work="+looking_to_work+"&subject="+subject+"&gender="+gender+"&gender_of_caregiver="+gender_of_caregiver+"&availability="+availability+"&start_date="+start_date,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -159,6 +163,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                        	$('#locationaddress').text(json.location)
+                        }
     				}
     			});
 		});
@@ -184,10 +191,14 @@ $(function () {
                 var start_date = $("#textbox1").val()?$("#textbox1").val():''; 
                 var gender = $('.gender').is(':checked')?$('input[name=gender]:checked').val():'';
                 var gender_of_caregiver = $('.gender_of_caregiver').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';                          
+    			var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_tutor/search",
-    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&morenum="+morenum+"&looking_to_work="+looking_to_work+"&subject="+subject+"&gender="+gender+"&gender_of_caregiver="+gender_of_caregiver+"&availability="+availability+"&start_date="+start_date,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&morenum="+morenum+"&looking_to_work="+looking_to_work+"&subject="+subject+"&gender="+gender+"&gender_of_caregiver="+gender_of_caregiver+"&availability="+availability+"&start_date="+start_date,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -196,6 +207,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                        	$('#locationaddress').text(json.location)
+                        }
     				}
     			});         
         });
@@ -221,10 +235,14 @@ $(function () {
                 var start_date = $("#textbox1").val()?$("#textbox1").val():''; 
                 var gender = $('.gender').is(':checked')?$('input[name=gender]:checked').val():'';
                 var gender_of_caregiver = $('.gender_of_caregiver').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';                          
+    			var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_tutor/search",
-    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&morenum="+morenum+"&looking_to_work="+looking_to_work+"&subject="+subject+"&gender="+gender+"&gender_of_caregiver="+gender_of_caregiver+"&availability="+availability+"&start_date="+start_date,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&morenum="+morenum+"&looking_to_work="+looking_to_work+"&subject="+subject+"&gender="+gender+"&gender_of_caregiver="+gender_of_caregiver+"&availability="+availability+"&start_date="+start_date,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -233,6 +251,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                        	$('#locationaddress').text(json.location)
+                        }
     				}
     			});
         });
@@ -265,10 +286,14 @@ $(function () {
                 var start_date = $("#textbox1").val()?$("#textbox1").val():''; 
                 var gender = $('.gender').is(':checked')?$('input[name=gender]:checked').val():'';
                 var gender_of_caregiver = $('.gender_of_caregiver').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';                          
+    			var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_tutor/search",
-    				data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&morenum="+morenum+"&looking_to_work="+looking_to_work+"&subject="+subject+"&gender="+gender+"&gender_of_caregiver="+gender_of_caregiver+"&availability="+availability+"&start_date="+start_date,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&morenum="+morenum+"&looking_to_work="+looking_to_work+"&subject="+subject+"&gender="+gender+"&gender_of_caregiver="+gender_of_caregiver+"&availability="+availability+"&start_date="+start_date,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -277,6 +302,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                        	$('#locationaddress').text(json.location)
+                        }
     				}
     			});
             }       
