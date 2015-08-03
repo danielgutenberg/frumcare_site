@@ -100,7 +100,7 @@
                 <?php  
                 if($gender == 1) echo "Male";
                 elseif($gender == 2) echo "Female";
-                else echo "Any";
+                else echo "Both";
                 ?>
             </td>
         </tr>
