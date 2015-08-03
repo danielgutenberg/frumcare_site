@@ -68,10 +68,14 @@ $(function () {
     		  $(".searchloader").fadeIn("fast");
     			var neighbour = $('.neighbour').val();
                 var gender_of_caregiver = $('.gender_of_caregiver').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';                          
+    			var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_therapist/search",
-    				data:"neighbour="+neighbour+"&gender_of_caregiver="+gender_of_caregiver,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&gender_of_caregiver="+gender_of_caregiver,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -80,6 +84,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                        	$('#locationaddress').text(json.location)
+                        }
     				}
     			});
 		});
@@ -88,10 +95,14 @@ $(function () {
                 $(".searchloader").fadeIn("fast");
     			var neighbour = $('.neighbour').val();
                 var gender_of_caregiver = $('.gender_of_caregiver').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';                          
+    			var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_therapist/search",
-    				data:"neighbour="+neighbour+"&gender_of_caregiver="+gender_of_caregiver,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&gender_of_caregiver="+gender_of_caregiver,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -100,15 +111,22 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                        	$('#locationaddress').text(json.location)
+                        }
     				}
     			});         
         });
         var neighbour = $('.neighbour').val();
                 var gender_of_caregiver = $('.gender_of_caregiver').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';                          
+    			var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var pagenum = $('#pagenum').val();
     			$.ajax({
     				type:"get",
     				url:"<?php echo site_url();?>careseeker_therapist/search",
-    				data:"neighbour="+neighbour+"&gender_of_caregiver="+gender_of_caregiver,
+    				data:"pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&neighbour="+neighbour+"&gender_of_caregiver="+gender_of_caregiver,
     				success:function(message){
     						$(".searchloader").fadeOut("fast");
     						var json = jQuery.parseJSON(message);
@@ -117,6 +135,9 @@ $(function () {
     						$('#list_container').html(pagedata);
     						$('#total').text(json.total);
                             $('.navigations').html(json.pagination);
+                            if (json.location) {
+                        	$('#locationaddress').text(json.location)
+                        }
     				}
     			});
         var $myDialog = $('<div></div>')
