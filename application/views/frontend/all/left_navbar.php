@@ -541,7 +541,8 @@ $(document).ready(function () {
                         if (json.location) {
                         	$('#locationaddress').text(json.location)
                         }
-                        if ($('#pagenum').val() < 1) {
+                        if (!pagenum > 0) {
+                            console.log(pagenum);
                             $('1-page').removeClass('in-active');
                             $('1-page').addClass('active');
                             $('#pagenum').val(1);
