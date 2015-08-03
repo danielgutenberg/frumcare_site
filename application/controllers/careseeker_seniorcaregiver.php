@@ -152,7 +152,17 @@ class Careseeker_seniorcaregiver extends CI_Controller{
         $this->load->view(FRONTEND_TEMPLATE, $data);
     }
     public function search(){
-		$limit = 15;		
+		$page = $this->input->get('pagenum',true);
+	    $offset = 0;
+	    if ($page > 1) {
+	        $offset = ($page - 1) * 15;
+	    }
+		$limit = 15;
+            $latitude = $this->input->get('lat',true);
+            $longitude = $this->input->get('lng',true);
+            $location = $this->input->get('location',true);
+		$limit = 15;
+		if (!$latitude || !$longitude || !$location) {		
 		    if(check_user()){
                     $locationdetails = $this->common_model->getMyLocation(check_user());
                     if($locationdetails){
@@ -178,6 +188,7 @@ class Careseeker_seniorcaregiver extends CI_Controller{
                             $location = isset($ipdata['city'])?$ipdata['city']:'your city';
                         }
                 }
+		}
 			$postdata['neighbor'] 			= $this->input->get('neighbour',true);
 			$postdata['subject']            = $this->input->get('subject',true);
 			$postdata['gender']			    = $this->input->get('gender',true);
@@ -188,18 +199,36 @@ class Careseeker_seniorcaregiver extends CI_Controller{
 			$postdata['rate']               = $this->input->get('rate',true);
             $postdata['rate_type']          = $this->input->get('rate_type',true);
             
-            $res = $this->seniorcaregiver->search($postdata,$latitude,$longitude);
-			if(is_array($res))
-				$total = count($res);
+            $result = $this->seniorcaregiver->search($postdata,$latitude,$longitude);
+			if(is_array($result))
+				$total = count($result);
 			else
 				$total = 0;
-			$locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
+					$total = 0;
+			$pages = ceil($total/$limit);        
+            $pagination	= '';
+            if($pages > 1){	
+            	$pagination .= '<a href="#" class="paginate_click in-active" id="previous">previous</a>';
+            	for($i = 1; $i<=$pages; $i++)
+            	{
+            		
+            		if($i==$page){
+                        $pagination .= ' <a href="#" class="paginate_click active" id="'.$i.'-page" >'.$i.'</a> ';
+                    }else{
+                        $pagination .= ' <a href="#" class="paginate_click in-active" id="'.$i.'-page">'.$i.'</a> ';   
+                    }
+                    
+            	}
+            	$pagination .= '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
+            }
+            $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
+    		$result = array_slice($result, $offset , $limit);
 			$userlogs             	= $this->user_model->getUserLog();
-            $merge['userdatas']   	= $this->load->view('frontend/common_profile_list', array('userdatas'=>$res,'userlogs'=>$userlogs,'location'=>$locationdetails), true);
-            $total_rows           	= $total;
-            $merge['num']         	= ceil($total_rows/@$limit); 
-            $merge['total']       	= $total_rows;
-            $merge['pagination']       	= '';  
+            $merge['userdatas']   	= $this->load->view('frontend/common_profile_list', array('userdatas'=>$result,'userlogs'=>$userlogs,'location'=>$locationdetails), true);
+            $merge['num']       =  ceil($total/$limit); 
+            $merge['total']     = $total;
+            $merge['pagination']       	= $pagination;
+            $merge['location'] = $location; 
             echo json_encode($merge);
             exit();	            
 	}
