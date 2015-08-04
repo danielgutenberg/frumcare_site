@@ -75,6 +75,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <div class="checkbox"><input type="checkbox" value="CPR" name="training[]"> <span>CPR</span></div>
                 <div class="checkbox"><input type="checkbox" value="First Aid" name="training[]"> <span>First Aid</span></div>
                 <div class="checkbox"><input type="checkbox" value="Nanny/ Babysitter Course" name="training[]"> <span>Nanny/ Babysitter Course</span></div>
+                <div class="checkbox"><input type="checkbox" value="Nurse" name="training[]"> <span>Nurse</span></div>
                 <div class="checkbox"><input type="checkbox" value="Other" name="training[]"> <span>Other</span></div>            
             </div>
         </div>

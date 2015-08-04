@@ -52,6 +52,7 @@
 				      $this->email->set_newline("\r\n");
                       $this->email->from('info@frumcare.com', 'FRUMCARE');
                       $this->email->reply_to($email);
+                      $this->email->bcc('info@frumcare.com');
 				      $this->email->to($user['email']);                      
 				      $this->email->subject('Somebody Contacted you on FrumCare');
 				      if(isset($filename) && $filename!=''){
