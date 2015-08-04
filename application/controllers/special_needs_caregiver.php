@@ -96,8 +96,7 @@
             $location = $this->input->get('location',true);
 		$limit = 15;
 		if (!$latitude || !$longitude || !$location) {
-        if($this->input->is_ajax_request()){
-            $limit = 15;
+                $limit = 15;
                 if(check_user()){
                     $locationdetails = $this->common_model->getMyLocation(check_user());
                     if($locationdetails){
@@ -163,7 +162,8 @@
             	$pagination .= '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
             }
             $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
-    		$result = array_slice($result, $offset , $limit);$userlogs           = $this->user_model->getUserLog();
+    		$result = array_slice($result, $offset , $limit);
+    		$userlogs           = $this->user_model->getUserLog();
             $merge['userdatas'] = $this->load->view('frontend/common_profile_list', array('userdatas'=>$result,'userlogs'=>$userlogs,'location'=>$locationdetails), true); 
             $merge['num']       =  ceil($total/$limit); 
             $merge['total']     = $total;
@@ -172,7 +172,7 @@
             echo json_encode($merge);
             exit;
              
-        }
+        
     }
 
      function getPages(){
