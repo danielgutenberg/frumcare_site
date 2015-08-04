@@ -1,6 +1,6 @@
 <?php if($this->uri->segment(1) == 'caregivers') { ?>
     <?php if($this->uri->segment(2) == 'organizations') { ?>        
-        <select name="service" class="care_type_organizations">
+        <select name="service" class="care_type_organizations" style="width:230px">
             <option value="organizations">--select--</option> 
             <option value="25" <?php if(segment(3) == 'workers-staff-for-childcare-facility'){?> selected="selected" <?php }?>>Childcare facility</option>
             <option value="26" <?php if(segment(3) == 'workers-staff-for-senior-care-facility'){?> selected="selected" <?php }?> >Senior care facility</option>
@@ -9,7 +9,7 @@
         </select>     
     <?php } 
     else { ?>
-        <select name="service" class="service care_type">
+        <select name="service" class="service care_type" style="width:230px">
             <option value="caregivers">--select--</option> 
             <option value="1" <?php if(segment(2) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
             <option value="2" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>
@@ -34,7 +34,7 @@
 <?php } ?>
 
 <?php if($this->uri->segment(1) == 'jobs') { ?>    
-    <select name="service" class="service jobtype">
+    <select name="service" class="service jobtype" style="width:230px">
         <option value="jobs">--select--</option> 
         <option value="17" <?php if(segment(2) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
     	<option value="18" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>        
