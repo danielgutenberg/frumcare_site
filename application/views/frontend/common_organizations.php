@@ -7,10 +7,11 @@
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {});
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
                     var place = autocomplete.getPlace();                    
-                    var lat = place.geometry.location.A;
-                    var lng = place.geometry.location.F;                                 
+                    var lat = place.geometry.location.lat();
+                    var lng = place.geometry.location.lng();                                
                     $("#lat").val(lat);
                     $("#lng").val(lng);
+                    $("#place").val(place.formatted_address);
                     $(".searchloader").fadeIn("fast");
                     var x = $('#sort_by_select').val();
                     var y = $('#autocomplete').val();
