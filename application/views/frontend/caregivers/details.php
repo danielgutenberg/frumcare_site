@@ -66,7 +66,7 @@
                         if($this->uri->segment(4) == 3) {
                             if(!empty($recordData['rate'])){ ?>                                                        
                        
-                       <span class="hour-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
+                       <span class="hour-wrap"><?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
                        <?php
                        }
                        else{ ?>
