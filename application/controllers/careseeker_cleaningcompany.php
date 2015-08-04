@@ -52,7 +52,7 @@ class Careseeker_cleaningcompany extends CI_Controller{
             $userdata       = $this->common_care_model->sort($item_per_page,$latitude,$longitude,$option,$account_category,$care_type,$distance);
             $get_total_rows = $this->common_care_model->getCount($latitude,$longitude,$account_category,$care_type,$distance);
         }  
-        $location = segment(1) == 'caregivers' ? $location : ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
+        $location = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
         $data = array(
           				'main_content' 	    => segment(1) == 'caregivers' ? 'frontend/common_organizations' : 'frontend/common_caregiver',                            
           				'title'			    => $title,
@@ -227,8 +227,8 @@ class Careseeker_cleaningcompany extends CI_Controller{
     		$result = array_slice($result, $offset , $limit);$userlogs             	= $this->user_model->getUserLog();
             $merge['userdatas']   	= $this->load->view('frontend/common_profile_list', array('userdatas'=>$result,'userlogs'=>$userlogs,'location'=>$locationdetails), true);
             
-            $merge['num']         	= ceil($total_rows/@$limit); 
-            $merge['total']       	= $total_rows;
+            $merge['num']         	= ceil($total/$limit); 
+            $merge['total']       	= $total;
             $merge['pagination']       	= '';  
             echo json_encode($merge);
             exit();		      
