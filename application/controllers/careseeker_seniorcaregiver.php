@@ -205,7 +205,6 @@ class Careseeker_seniorcaregiver extends CI_Controller{
 				$total = count($result);
 			else
 				$total = 0;
-					$total = 0;
 			$pages = ceil($total/$limit);        
             $pagination	= '';
             if($pages > 1){	
