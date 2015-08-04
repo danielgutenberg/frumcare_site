@@ -211,6 +211,7 @@ $user_detail = get_user(check_user());
             <div class="checkbox"><input type="checkbox" value="CPR" name="training[]"> CPR</div>
             <div class="checkbox"><input type="checkbox" value="First Aid" name="training[]"> First Aid</div>
             <div class="checkbox"><input type="checkbox" value="Nanny/ Babysitter course" name="training[]"> Nanny / Babysitter course</div>
+            <div class="checkbox"><input type="checkbox" value="Nurse" name="training[]"> Nurse</div>
             <div class="checkbox"><input type="checkbox" value="Not necessary" name="training[]"> Not necessary</div>
         </div>
     </div>
