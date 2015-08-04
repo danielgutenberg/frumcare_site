@@ -60,6 +60,7 @@ class Organizations extends CI_Controller
                     $location = isset($ipdata['city'])?$ipdata['city']:'your city';
                 }             
             }
+            $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
             $userdata       = $this->organizations_model->sort($item_per_page,$latitude,$longitude,$option,$account_category,$care_type,$distance);
             $get_total_rows = $this->organizations_model->getCount($latitude,$longitude,$account_category,$care_type,$distance);                                                         
             $data = array(
@@ -72,7 +73,7 @@ class Organizations extends CI_Controller
                             'account_category'  => $account_category,
                             'care_type'         => $care_type,
                             'total_rows'        => $get_total_rows,
-                            'location'          => $location              				              				              				                            
+                            'location'          => $locationdetails              				              				              				                            
               			);                      
             $this->load->view(FRONTEND_TEMPLATE, $data);
     }

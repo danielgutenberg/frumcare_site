@@ -7,10 +7,11 @@
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {});
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
                     var place = autocomplete.getPlace();                    
-                    var lat = place.geometry.location.A;
-                    var lng = place.geometry.location.F;                                 
+                    var lat = place.geometry.location.lat();
+                    var lng = place.geometry.location.lng();                                
                     $("#lat").val(lat);
                     $("#lng").val(lng);
+                    $("#place").val(place.formatted_address);
                     $(".searchloader").fadeIn("fast");
                     var x = $('#sort_by_select').val();
                     var y = $('#autocomplete').val();
@@ -110,9 +111,11 @@
     <div class="searchloader" style="display:none"></div>		
     Find Workers for your <?php $this->load->view('frontend/common/left_nav_title');?>  <br>
     Near <t id="locationField">
-		<input type="text" name="location" class="required" value="<?php echo $location ?>" id="autocomplete"/>
-		<input type="hidden" id="lng">
-		<input type="hidden" id="lat">
+		<input type="text" name="location" class="required" value="<?php echo $location['place'] ?>" id="autocomplete"/>
+		<input type="hidden" id="lng" value="<?php echo $location['lng']?>">
+		<input type="hidden" id="lat" value="<?php echo $location['lat']?>">
+		<input type="hidden" id="place" value="<?php echo $location['place']?>">
+		<input type="hidden" id="pagenum" value="">
 		<!--<input type="button" value="Change Location" class="btn btn-primary" id="change_location"">--> 
 	</t>        
     within            
@@ -128,6 +131,12 @@
       	
 <script type="text/javascript">
 	$(document).ready(function(){
+		var plc = $('#place').val()
+		    var pag = parseInt($('.paginate_click.active').text())
+		    $('#pagenum').val(pag)
+		    $('#autocomplete').val(plc)
+		    $('#pagenum').val(pag)
+		    $('#locationaddress').val(plc)
 		$('.showgeolocation').click(function(){
 			$('#locationField').toggle();
 			$('#autocomplete').val('');

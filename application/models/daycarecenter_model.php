@@ -54,7 +54,6 @@
                     }
             }
         $sql .="  order by distance asc";
-        echo $sql;exit;
 		$query = $this->db->query($sql);
 		$res = $query->result_array();
         if($res)
