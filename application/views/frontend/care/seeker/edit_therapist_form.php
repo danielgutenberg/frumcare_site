@@ -12,9 +12,26 @@
                     var lat = place.geometry.location.lat();
                     var lng = place.geometry.location.lng();                                 
                     $("#lat").val(lat);
-                    $("#lng").val(lng);                                
+                    $("#lng").val(lng);   
+                    document.getElementById("error").innerHTML="";
                 });
     });
+     $("#textbox1").ready(function(){        
+        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
+     });
+     
+     $(document).ready(function() {
+       $('.btn').click(function(event) {
+        event.preventDefault(); 
+        if ($('#lat').val() == '') {
+            window.scrollTo(0, $("#locationField").offset().top);
+            $("#locationField").css('border-color', 'red')
+           document.getElementById("error").innerHTML="Please click on location from dropdown";
+        } else {
+            $('#personal-details-form').submit()
+        }
+     });
+    })
 </script>
 <?php
 $user_detail = get_user(check_user());
@@ -63,13 +80,14 @@ if($detail){
     <div class="top-welcome">
         <h2>Edit Job Details</h2>
     </div>
-    <div>
+   <div>
             <label>Location</label>
             <div id="locationField">
                 <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
                 <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
                 <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
-            </div>    
+            </div> 
+             <span style="color:red;" id="error"> </span>
         </div>
          <div>
             <label>Neighborhood / Street</label>

@@ -10,7 +10,8 @@
                     var lat = place.geometry.location.lat();
                     var lng = place.geometry.location.lng();                                 
                     $("#lat").val(lat);
-                    $("#lng").val(lng);                                
+                    $("#lng").val(lng);
+                    document.getElementById("error").innerHTML="";
                 });
     });
     $("#textbox1").ready(function(){        
@@ -63,7 +64,8 @@ $user_detail = get_user(check_user());
                 <input type="hidden" id="lat" name="lat"/>
                 <input type="hidden" id="lng" name="lng"/> 
                 <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
-            </div>    
+            </div>  
+            <span style="color:red;" id="error"> </span>
         </div>
         <div>
             <label>Neighborhood / Street</label>
@@ -277,6 +279,19 @@ $user_detail = get_user(check_user());
 <script type="text/javascript" src="<?php echo site_url();?>js/jquery.ui.maskinput.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+    
+    $('.btn').click(function(event) {
+        event.preventDefault(); 
+        if ($('#lat').val() == '') {
+            window.scrollTo(0, $("#locationField").offset().top);
+            $("#locationField").css('border-color', 'red')
+           document.getElementById("error").innerHTML="Please click on location from dropdown";
+        } else {
+            $('#personal-details-form').submit()
+        }
+     });
+    
+    
     $('#contact_number').mask('999-999-9999');
 
         $('.religious_observance').change(function(){
