@@ -21,19 +21,27 @@
             $navigate = $data['care_type']>16?'jobs':'caregivers'; ?> 	
             <div class="profile-list clearfix usual row">
             <div class="profile-img-wrap col-md-3 col-sm-3 col-xs-12"> <?php
-                if($data['profile_picture']!="" && file_exists('images/profile-picture/'.$data['profile_picture'])):?>
+                if($data['profile_picture']!="" && file_exists('images/profile-picture/'.$data['profile_picture'])) {?>
                     <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
     		            <div id="profile_image">
     		            	<img src="<?php echo site_url("images/profile-picture/{$data['profile_picture']}")?>">
     		            </div>
-    	            </a><?php 
-                else:?>
+    	            </a><?php }
+                else {  
+                    if($data['photo_of_child']!="" && file_exists('images/profile-picture/'.$data['photo_of_child'])) {?>
+                        <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
+        		            <div id="profile_image">
+        		            	<img src="<?php echo site_url("images/profile-picture/{$data['photo_of_child']}")?>">
+        		            </div>
+        	            </a><?php } else { ?>
+                
+                
                     <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
 			            <div id="profile_image">
 			            	<img src="<?php echo site_url("images/no-image.jpg")?>">
                         </div>
                     </a><?php 
-                endif ?>
+                } ?>
     	        <!--<div class="basic-background"><?php 
                     if($data['agree_bg_check']  == 1) 
     		        	echo "<a href='#'>Basic Background Check</a>";
