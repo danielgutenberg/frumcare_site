@@ -10,12 +10,26 @@
                     var lat = place.geometry.location.lat();
                     var lng = place.geometry.location.lng();                                 
                     $("#lat").val(lat);
-                    $("#lng").val(lng);                                
+                    $("#lng").val(lng);   
+                    document.getElementById("error").innerHTML="";
                 });
     });
      $("#textbox1").ready(function(){        
         $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
      });
+     
+     $(document).ready(function() {
+       $('.btn').click(function(event) {
+        event.preventDefault(); 
+        if ($('#lat').val() == '') {
+            window.scrollTo(0, $("#locationField").offset().top);
+            $("#locationField").css('border-color', 'red')
+           document.getElementById("error").innerHTML="Please click on location from dropdown";
+        } else {
+            $('#personal-details-form').submit()
+        }
+     });
+    })
 </script>
 <?php 
 if(($this->uri->segment(2) != 'new_profile')){?>

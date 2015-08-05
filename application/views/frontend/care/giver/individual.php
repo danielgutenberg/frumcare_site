@@ -8,7 +8,8 @@
                     var lat = place.geometry.location.lat();
                     var lng = place.geometry.location.lng();                                 
                     $("#lat").val(lat);
-                    $("#lng").val(lng);                                
+                    $("#lng").val(lng);
+                    document.getElementById("error").innerHTML="";
                 });
     });
 </script>
@@ -28,10 +29,11 @@
     <div>    
         <label>Location</label>
         <div id="locationField">
-            <input type="hidden" id="lat" name="lat"/>
-            <input type="hidden" id="lng" name="lng"/> 
+            <input type="hidden" id="lat" name="lat" required/>
+            <input type="hidden" id="lng" name="lng" required/> 
             <input type="text" name="location" class="required" id="autocomplete" required/>
-        </div>    
+        </div>   
+        <span style="color:red;" id="error"> </span>
     </div>
 
     <div>
@@ -192,6 +194,17 @@
 <script>
 $(document).ready(function(){
     $('#contact').mask('999-999-9999');
+    
+    $('.btn').click(function(event) {
+        event.preventDefault(); 
+        if ($('#lat').val() == '') {
+            window.scrollTo(0, $("#locationField").offset().top);
+            $("#locationField").css('border-color', 'red')
+           document.getElementById("error").innerHTML="Please click on location from dropdown";
+        } else {
+            $('#personal-details-form').submit()
+        }
+     });
 
     $('#religious_observance').change(function(){
         if($(this).val() == 'Other')

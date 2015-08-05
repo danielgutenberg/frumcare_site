@@ -1,16 +1,33 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
 <script>
-    $("#locationField").ready(function(){        
+     $("#locationField").ready(function(){        
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {});
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
                     var place = autocomplete.getPlace();
                     //console.log(place.geometry.location);
-                    var lat = place.geometry.location.A;
-                    var lng = place.geometry.location.F;                                
+                    var lat = place.geometry.location.lat();
+                    var lng = place.geometry.location.lng();                                 
                     $("#lat").val(lat);
-                    $("#lng").val(lng);                                
+                    $("#lng").val(lng);   
+                    document.getElementById("error").innerHTML="";
                 });
     });
+     $("#textbox1").ready(function(){        
+        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
+     });
+     
+     $(document).ready(function() {
+       $('.btn').click(function(event) {
+        event.preventDefault(); 
+        if ($('#lat').val() == '') {
+            window.scrollTo(0, $("#locationField").offset().top);
+            $("#locationField").css('border-color', 'red')
+           document.getElementById("error").innerHTML="Please click on location from dropdown";
+        } else {
+            $('#personal-details-form').submit()
+        }
+     });
+    })
 </script>
 <ol class="progtrckr" data-progtrckr-steps="3">
     <li class="progtrckr-done">Sign up</li>
@@ -42,7 +59,8 @@
             <input type="hidden" id="lat" name="lat"/>
             <input type="hidden" id="lng" name="lng"/> 
             <input type="text" name="location" class="required" id="autocomplete" required/>
-        </div>    
+        </div>
+          <span style="color:red;" id="error"> </span>
     </div>
 
     <div>
