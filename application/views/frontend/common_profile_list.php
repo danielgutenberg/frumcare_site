@@ -41,7 +41,7 @@
 			            	<img src="<?php echo site_url("images/no-image.jpg")?>">
                         </div>
                     </a><?php 
-                } ?>
+                }} ?>
     	        <!--<div class="basic-background"><?php 
                     if($data['agree_bg_check']  == 1) 
     		        	echo "<a href='#'>Basic Background Check</a>";
