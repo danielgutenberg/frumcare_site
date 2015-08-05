@@ -196,6 +196,7 @@ $(document).ready(function(){
     $('.btn').click(function(event) {
         event.preventDefault(); 
         if ($('#lat').val() == '') {
+            window.scrollTo(0, $("#locationField").offset().top);
             alert('Please chose location from dropdown')
         } else {
             $('#personal-details-form').submit()
