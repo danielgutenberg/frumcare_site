@@ -77,7 +77,7 @@
         function navigate(pagelink,type){
             var lat = $('#lat').val();
             var lng = $('#lng').val();
-            var location = $('#place').val();
+            var place = $('#place').val();
             console.log(pagelink)
             if(pagelink == '1')
                 var locationaddress = 'babysitter';
@@ -143,7 +143,7 @@
                 if (pagelink == '26' || pagelink == '25' || pagelink == '27' || pagelink == '28') {
                     location.href = '<?php echo site_url();?>caregivers/organizations/'+locationaddress;
                 } else {
-                    location.href = '<?php echo site_url();?>caregivers/'+locationaddress + '/' + location + '/' + lat + '/' + lng;
+                    location.href = '<?php echo site_url();?>caregivers/'+locationaddress + '/' + place + '/' + lat + '/' + lng;
                 }
             if(type == 'jobs')                    
                 location.href = '<?php echo site_url();?>jobs/'+locationaddress;
