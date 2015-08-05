@@ -13,11 +13,14 @@
     ?>
 </h3>
 <div class="left-sidebar-details col-lg-9 col-md-8 col-sm-8 col-xs-12">
-   <div class="profile-img col-lg-4 col-md-4 col-sm-6 col-sm-12"><?php if($recordData['profile_picture']!= '' && file_exists('images/profile-picture/'.$recordData['profile_picture'])):?>
+   <div class="profile-img col-lg-4 col-md-4 col-sm-6 col-sm-12"><?php if($recordData['profile_picture']!= '' && file_exists('images/profile-picture/'.$recordData['profile_picture'])) {?>
     <img class="img-responsive" src="<?php echo site_url();?>images/profile-picture/<?php echo $recordData['profile_picture'];?>">
-<?php else:?>
+<?php } else {
+            if($recordData['photo_of_child']!= '' && file_exists('images/profile-picture/'.$recordData['photo_of_child'])) { ?>
+                <img class="img-responsive" src="<?php echo site_url();?>images/profile-picture/<?php echo $recordData['photo_of_child'];?>">
+                <?php } else { ?>
     <img class="img-responsive" src="<?php echo site_url("images/no-image.jpg")?>">
-<?php endif;?></div>
+<?php }}?></div>
 <div class="details-right-caregive col-lg-8 col-md-8 col-sm-12 col-xs-12">
     <div class="profile-name-details">
         <?php if ($recordData['organization_name']) { ?>
