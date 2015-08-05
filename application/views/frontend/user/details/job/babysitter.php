@@ -240,6 +240,7 @@
                 <div class="details-info"> <?php if(in_array('CPR',$trainingtemp)){echo $tick; }else{ echo $cross; } ?> CPR</div>
                 <div class="details-info"> <?php if(in_array('First Aid',$trainingtemp)){ echo $tick; }else{ echo $cross; } ?> First Aid</div>
                 <div class="details-info"> <?php if(in_array('Nanny/ Babysitter course',$trainingtemp)){ echo $tick; }else{ echo $cross; } ?> Nanny/ Babysitter course</div>
+                <div class="details-info"><?php if(in_array('Nurse', $trainingtemp)){ echo $tick; }else{echo $cross; } ?> Nurse</div>
                 <div class="details-info"> <?php if(in_array('Not necessary',$trainingtemp)){ echo $tick; }else{ echo $cross; } ?> Not necessary</div>
             </td>
         </tr>
