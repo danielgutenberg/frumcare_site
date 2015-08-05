@@ -208,6 +208,10 @@ class Careseeker_tutor extends CI_Controller{
             $postdata['rate_type']          = $this->input->get('rate_type',true);
             
             $result = $this->tutor->search($postdata,$latitude,$longitude);
+            if(is_array($result))
+				$total = count($result);
+			else
+				$total = 0;
 			$pages = ceil($total/$limit);        
             $pagination	= '';
             if($pages > 1){	
