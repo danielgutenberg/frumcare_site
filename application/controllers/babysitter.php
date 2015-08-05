@@ -14,7 +14,7 @@ class BabySitter extends CI_Controller{
 	}
 
 	public function index(){
-	    print_r($_SERVER['QUERY_STRING']);
+	    print_r(parse_url($_SERVER['QUERY_STRING']));
 	    exit();
         $item_per_page = 15;
         $option = "distance";
