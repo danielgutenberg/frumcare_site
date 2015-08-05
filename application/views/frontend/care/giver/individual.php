@@ -31,7 +31,8 @@
             <input type="hidden" id="lat" name="lat" required/>
             <input type="hidden" id="lng" name="lng" required/> 
             <input type="text" name="location" class="required" id="autocomplete" required/>
-        </div>    
+        </div>   
+        <span style="color:red;" id="error"> </span>
     </div>
 
     <div>
@@ -198,7 +199,7 @@ $(document).ready(function(){
         if ($('#lat').val() == '') {
             window.scrollTo(0, $("#locationField").offset().top);
             $("#locationField").css('border-color', 'red')
-            alert('Please chose location from dropdown')
+           document.getElementById("error").innerHTML="Please click on location from dropdown";
         } else {
             $('#personal-details-form').submit()
         }
