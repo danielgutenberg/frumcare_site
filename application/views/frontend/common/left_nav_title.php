@@ -141,16 +141,16 @@
             
             if(type == 'caregivers')    
                 if (pagelink == '26' || pagelink == '25' || pagelink == '27' || pagelink == '28') {
-                    location.href = '<?php echo site_url();?>caregivers/organizations/'+locationaddress;
+                    location.href = '<?php echo site_url();?>caregivers/organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
                 } else {
-                    location.href = '<?php echo site_url();?>caregivers/'+locationaddress + '/' + place + '/' + lat + '/' + lng;
+                    location.href = '<?php echo site_url();?>caregivers/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
                 }
             if(type == 'jobs')                    
-                location.href = '<?php echo site_url();?>jobs/'+locationaddress;
+                location.href = '<?php echo site_url();?>jobs/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
             if(type == 'organizations')                    
-                location.href = '<?php echo site_url();?>organizations/'+locationaddress;
+                location.href = '<?php echo site_url();?>organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
             if(type == 'organization_job')
-                location.href = '<?php echo site_url();?>caregivers/organizations/'+locationaddress;
+                location.href = '<?php echo site_url();?>caregivers/organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
         } //end of navigate
     });			         
 </script>

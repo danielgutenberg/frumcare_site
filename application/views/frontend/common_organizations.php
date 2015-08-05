@@ -111,7 +111,7 @@
     <div class="searchloader" style="display:none"></div>		
     Find Workers for your <?php $this->load->view('frontend/common/left_nav_title');?>  <br>
     Near <t id="locationField">
-		<input type="text" name="location" class="required" value="<?php echo $location['place'] ?>" id="autocomplete  style="width:239px"
+		<input type="text" name="location" class="required" value="<?php echo $location['place'] ?>" id="autocomplete"  style="width:239px">
 		<input type="hidden" id="lng" value="<?php echo $location['lng']?>">
 		<input type="hidden" id="lat" value="<?php echo $location['lat']?>">
 		<input type="hidden" id="place" value="<?php echo $location['place']?>">
@@ -156,7 +156,7 @@
           elseif( $total_rows > 1 ) echo $title.'s near ';
           else echo $title.' near ';
         ?>                
-        <span id="locationaddress"><?php echo $location;?></span>
+        <span id="locationaddress"><?php echo $location['place'];?></span>
 	</h3>
     
 	<?php if(($account_category == 1) || ($care_type < 17 && $care_type > 0)){ 

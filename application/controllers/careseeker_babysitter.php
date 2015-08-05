@@ -23,12 +23,18 @@ class Careseeker_babysitter extends CI_Controller{
         $this->breadcrumbs->push($title, site_url().'#');
         $this->breadcrumbs->unshift('Home', base_url());
                                         
+       $loc = $_GET;
+        if (isset($loc['location']) && isset($loc['lat']) && isset($loc['lng'])) {
+            $location = $loc['location'];
+            $latitude = $loc['lat'];
+            $longitude = $loc['lng'];
+        } else {                               
         if(check_user()){
             $locationdetails = $this->common_model->getMyLocation(check_user());
             if(is_array($locationdetails)){
                 $latitude = ($locationdetails[0]['lat']);
                 $longitude = ($locationdetails[0]['lng']);
-                $location =  isset($locationdetails[0]['location'])?$locationdetails[0]['location']:'your city';                                                                       
+                $location =  $locationdetails[0]['location']?$locationdetails[0]['location']:'your city';                                                                       
             }
         }
         else{
@@ -37,10 +43,8 @@ class Careseeker_babysitter extends CI_Controller{
                 $latitude = $ipdata['lat'];
                 $longitude = $ipdata['lon'];
                 $location = isset($ipdata['city'])?$ipdata['city']:'your city';
-            }
-            else{
-               $location = "your location"; 
-            } 
+            }             
+        }
         }
         $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
         $userdata       = $this->common_care_model->sort($item_per_page,$latitude,$longitude,$option,$account_category,$care_type,$distance);

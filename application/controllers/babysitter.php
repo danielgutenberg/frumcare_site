@@ -14,6 +14,7 @@ class BabySitter extends CI_Controller{
 	}
 
 	public function index(){
+	    
         $item_per_page = 15;
         $option = "distance";
         $account_category = 1;
@@ -23,7 +24,13 @@ class BabySitter extends CI_Controller{
                              
         $this->breadcrumbs->push($title, site_url().'#');
         $this->breadcrumbs->unshift('Home', base_url());
-                                        
+        
+	    $loc = $_GET;
+        if (isset($loc['location']) && isset($loc['lat']) && isset($loc['lng'])) {
+            $location = $loc['location'];
+            $latitude = $loc['lat'];
+            $longitude = $loc['lng'];
+        } else {                               
         if(check_user()){
             $locationdetails = $this->common_model->getMyLocation(check_user());
             if(is_array($locationdetails)){
@@ -39,6 +46,7 @@ class BabySitter extends CI_Controller{
                 $longitude = $ipdata['lon'];
                 $location = isset($ipdata['city'])?$ipdata['city']:'your city';
             }             
+        }
         }
         $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
         $userdata       = $this->common_care_model->sort($item_per_page,$latitude,$longitude,$option,$account_category,$care_type,$distance);

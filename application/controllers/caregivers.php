@@ -25,22 +25,29 @@ class Caregivers extends CI_Controller
             $this->breadcrumbs->push($title, site_url().'#');
             $this->breadcrumbs->unshift('Home', base_url());
                                             
-            if(check_user()){
+            $loc = $_GET;
+        if (isset($loc['location']) && isset($loc['lat']) && isset($loc['lng'])) {
+            $location = $loc['location'];
+            $latitude = $loc['lat'];
+            $longitude = $loc['lng'];
+        } else {                               
+        if(check_user()){
             $locationdetails = $this->common_model->getMyLocation(check_user());
             if(is_array($locationdetails)){
                 $latitude = ($locationdetails[0]['lat']);
                 $longitude = ($locationdetails[0]['lng']);
                 $location =  $locationdetails[0]['location']?$locationdetails[0]['location']:'your city';                                                                       
             }
-            }
-            else{
-                $ipdata = $this->common_model->getIPData($this->ipaddress);
-                if(is_array($ipdata)){
-                    $latitude = $ipdata['lat'];
-                    $longitude = $ipdata['lon'];
-                    $location = isset($ipdata['city'])?$ipdata['city']:'your city';
-                }             
-            }
+        }
+        else{
+            $ipdata = $this->common_model->getIPData($this->ipaddress);
+            if(is_array($ipdata)){
+                $latitude = $ipdata['lat'];
+                $longitude = $ipdata['lon'];
+                $location = isset($ipdata['city'])?$ipdata['city']:'your city';
+            }             
+        }
+        }
             $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
             $userdata       = $this->common_care_model->sort($item_per_page,$latitude,$longitude,$option,$account_category,$care_type,$distance);
             $get_total_rows = count($userdata);                                                         
