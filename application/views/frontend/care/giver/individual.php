@@ -192,6 +192,15 @@
 <script>
 $(document).ready(function(){
     $('#contact').mask('999-999-9999');
+    
+    $('.btn').click(function(event) {
+        event.preventDefault(); 
+        if ($('#lat').val() == '') {
+            alert('Please chose location from dropdown')
+        } else {
+            $('#personal-details-form').submit()
+        }
+     });
 
     $('#religious_observance').change(function(){
         if($(this).val() == 'Other')
