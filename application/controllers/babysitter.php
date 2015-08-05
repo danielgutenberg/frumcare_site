@@ -13,7 +13,8 @@ class BabySitter extends CI_Controller{
         $this->load->model('common_care_model');
 	}
 
-	public function index($location, $latitude, $longitude){
+	public function index(){
+	    print_r($_SERVER['QUERY_STRING']);
         $item_per_page = 15;
         $option = "distance";
         $account_category = 1;
