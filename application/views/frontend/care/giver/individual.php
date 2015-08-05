@@ -28,8 +28,8 @@
     <div>    
         <label>Location</label>
         <div id="locationField">
-            <input type="hidden" id="lat" name="lat"/>
-            <input type="hidden" id="lng" name="lng"/> 
+            <input type="hidden" id="lat" name="lat" required/>
+            <input type="hidden" id="lng" name="lng" required/> 
             <input type="text" name="location" class="required" id="autocomplete" required/>
         </div>    
     </div>
