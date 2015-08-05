@@ -8,7 +8,8 @@
                     var lat = place.geometry.location.lat();
                     var lng = place.geometry.location.lng();                                 
                     $("#lat").val(lat);
-                    $("#lng").val(lng);                                
+                    $("#lng").val(lng);
+                    document.getElementById("error").innerHTML="";
                 });
     });
 </script>
