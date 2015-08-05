@@ -156,7 +156,7 @@
           elseif( $total_rows > 1 ) echo $title.'s near ';
           else echo $title.' near ';
         ?>                
-        <span id="locationaddress"><?php echo $location;?></span>
+        <span id="locationaddress"><?php echo $location['place'];?></span>
 	</h3>
     
 	<?php if(($account_category == 1) || ($care_type < 17 && $care_type > 0)){ 
