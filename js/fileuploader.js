@@ -46,6 +46,8 @@ $(function()
                     else{
                         $('#output').html(data.files + ' selected');
                         $('#file-name').val(data.files);
+                        $('#upload').css({'display':'none'});
+                        $('.upload-photo').append('<button class="btn btn-default" id="remove">Remove File</button>');
                     }
 
             	}
