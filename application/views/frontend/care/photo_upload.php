@@ -85,7 +85,7 @@ $(function()
                         $('.loader').html('');
                         $('#file-name').val(data.files);
                         $('#upload').css({'display':'none'});
-                        $('#remove').css({'display':'none'});
+                        $('#remove').css({'display':'block'});
                     }
                     else{
                         $('#output').html(data.files + ' selected');
