@@ -21,7 +21,7 @@ $(function()
 		{
 			data.append(key, value);
 		});
-        
+
         $.ajax({
             url: link,
             type: 'POST',
@@ -39,13 +39,15 @@ $(function()
                     if(data.type==1){
                         $('#output').html(data.html);
                         $('.loader').html('');
-                        $('#file-name').val(data.files);    
+                        $('#file-name').val(data.files);
+                        $('#upload').css({'display':'none'});
+                        $('.upload-photo').append('<button class="btn btn-default" id="remove">Remove File</button>');
                     }
                     else{
                         $('#output').html(data.files + ' selected');
                         $('#file-name').val(data.files);
                     }
-            		
+
             	}
             	else
             	{
