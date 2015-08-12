@@ -52,6 +52,7 @@ $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'frumcare_ufrumc';
 $db['default']['password'] = '7!(oKvm[4G+G';
 $db['default']['database'] = 'frumcare_db_frumcare';
+//$db['default']['database'] = 'frumcare_db_frumcare';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
