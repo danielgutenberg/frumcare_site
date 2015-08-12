@@ -13,6 +13,7 @@ if(check_user()) {
     <div id="output1"><img src="<?php echo $photo_url?>"></div>
     <label>Browse your computer to select a file to upload</label>
     <button class="btn btn-default" id="upload1">Choose File</button>
+    <button class="btn btn-default" id="remove" style="display:none;">Remove File</button>
     <input type="file" name="ImageFile" id="ImageFile1" style="display: none;"> <div class="loader1"></div>
 </div>
 <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>
@@ -29,19 +30,26 @@ if(check_user()) {
         e.preventDefault();
         $('#ImageFile1').trigger('click');
     });
-    
+
 </script>
 
 <script type="text/javascript">
 $(function()
 {
+
+    if($('#file-name1').val()!=''){
+        $('#upload').css({'display':'none'});
+        $('#remove').css({'display':'block'});
+    }
+
+
     // Variable to store your files
     var files;
 
     // Add events
     //$('input[type=file]').on('change', prepareUpload);
     $('#ImageFile1').on('change', prepareUploadOwnerPhoto);
-    
+
     //$('form').on('submit', uploadFiles);
 
     // Grab the files and set them to our variable
@@ -75,13 +83,15 @@ $(function()
                     if(data.type==1){
                         $('#output1').html(data.html);
                         $('.loader1').html('');
-                        $('#file-name1').val(data.files);    
+                        $('#file-name1').val(data.files);
+                        $('#upload').css({'display':'none'});
+                        $('#remove').css({'display':'block'});
                     }
                     else{
                         $('#output1').html(data.files + ' selected');
                         $('#file-name1').val(data.files);
                     }
-                    
+
                 }
                 else
                 {
