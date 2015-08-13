@@ -11,7 +11,7 @@
                             <li><a href="<?php echo site_url();?>blog">Blog</a></li>
                             <!--<li><a href="<?php echo site_url();?>terms-of-use">Terms of Use</a></li>-->
                             <!--<li><a href="<?php echo site_url();?>privacy-policy">Privacy Policy</a></li>-->
-                            
+
                         </ul>
                     </nav>
                 </div>
@@ -119,16 +119,22 @@
 
 <script>
     $(function(){
-        
+
+        $('#remove').click(function(){
+            var loader='<?php echo site_url("images/loader.gif")?>';
+            $('#file-name').val('');
+            $('#output img').attr('src',loader);
+        });
+
         $("#subscribe").click(function(){
             var subName = $("#sub_name").val();
             var subEmail = $("#sub_email").val();
             var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-            
-            
+
+
             if(subName == ''){
                 $(".errorName").html("Please type your name").css("color","red");
-                
+
             }else if(subEmail == ''){
                 $(".errorEmail").html("Please type your email").css("color","red");
             }else if(!emailReg.test( subEmail )){
@@ -153,7 +159,7 @@
                     }
             });
             }
-            
+
         });
     });
 </script>
