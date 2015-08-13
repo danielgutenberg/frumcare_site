@@ -9,6 +9,7 @@ $(function()
 
 	// Grab the files and set them to our variable
 	function prepareUpload(event){
+        alert('working');
 		files = event.target.files;
 		event.stopPropagation(); // Stop stuff happening
         event.preventDefault(); // Totally stop stuff happening
