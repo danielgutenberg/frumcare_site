@@ -9,7 +9,7 @@ $(function()
 
 	// Grab the files and set them to our variable
 	function prepareUpload(event){
-        alert('working');
+
 		files = event.target.files;
 		event.stopPropagation(); // Stop stuff happening
         event.preventDefault(); // Totally stop stuff happening
@@ -42,13 +42,13 @@ $(function()
                         $('.loader').html('');
                         $('#file-name').val(data.files);
                         $('#upload').css({'display':'none'});
-                        $('.upload-photo').append('<button class="btn btn-default" id="remove">Remove File</button>');
+                        $('#upload').append('<button class="btn btn-default" id="remove">Remove File</button>');
                     }
                     else{
                         $('#output').html(data.files + ' selected');
                         $('#file-name').val(data.files);
                         $('#upload').css({'display':'none'});
-                        $('.upload-photo').append('<button class="btn btn-default" id="remove">Remove File</button>');
+                        $('#upload').append('<button class="btn btn-default" id="remove">Remove File</button>');
                     }
 
             	}
