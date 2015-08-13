@@ -44,13 +44,13 @@ $(function()
                         $('.loader').html('');
                         $('#file-name').val(data.files);
                         $('#upload').css({'display':'none'});
-                        $('#upload').append('<button class="btn btn-default" id="remove">Remove File</button>');
+                        $('.upload-photo').append('<button class="btn btn-default" id="remove">Remove File</button>');
                     }
                     else{
                         $('#output').html(data.files + ' selected');
                         $('#file-name').val(data.files);
                         $('#upload').css({'display':'none'});
-                        $('#upload').append('<button class="btn btn-default" id="remove">Remove File</button>');
+                        $('.upload-photo').appendTo('<button class="btn btn-default" id="remove">Remove File</button>');
                     }
 
             	}
