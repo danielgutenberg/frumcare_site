@@ -53,6 +53,7 @@ $(function()
                         $('.upload-photo').append('<button class="btn btn-default" id="remove">Remove File</button>');
                     }
 
+
             	}
             	else
             	{
