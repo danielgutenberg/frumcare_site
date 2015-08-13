@@ -1,5 +1,7 @@
 $(function()
 {
+
+
 	// Variable to store your files
 	var files;
 
