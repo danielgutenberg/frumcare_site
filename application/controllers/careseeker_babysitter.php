@@ -348,6 +348,8 @@ class Careseeker_babysitter extends CI_Controller{
             $user_id = check_user();
         else
             $user_id = 0;
+            $distance = $this->input->post('distance', true) == 'unlimited' ? 99999 : $this->input->post('distance', true);
+            
         $data = array(
             'user_id'               => $user_id,
             'neighbor'              => $this->input->post('neighbour',true),
@@ -364,7 +366,11 @@ class Careseeker_babysitter extends CI_Controller{
             'homework_help'         => $this->input->post('homework_help',true),
             'on_short_notice'       => $this->input->post('on_short_notice',true),
             'start_date'            => $this->input->post('start_date',true),
-            'care_type'             => $this->input->post('care_type',true),
+            'care_type'             => 17,
+            'lat'                   => $this->input->post('lat', true),
+                'long'                  => $this->input->post('lng', true),
+                'location'              => $this->input->post('location', true),
+                'distance'              => $distance
         );
 
         $q = $this->db->insert('tbl_searchhistory',$data);

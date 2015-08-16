@@ -403,7 +403,7 @@ class BabySitter extends CI_Controller{
                 'lat'                   => $this->input->post('lat', true),
                 'long'                  => $this->input->post('lng', true),
                 'location'              => $this->input->post('location', true),
-                'distance'              => $distance,
+                'distance'              => $distance
             );
 
             $q = $this->db->insert('tbl_searchhistory',$data);

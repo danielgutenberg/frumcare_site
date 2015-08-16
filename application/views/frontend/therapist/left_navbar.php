@@ -461,10 +461,14 @@ $(document).ready(function () {
 	    	var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accept_insurance]:checked').val():'';
             var care_type = $( ".care_type option:selected" ).val();
             var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+            var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var distance = $('#sort_by_miles').val();
             $.ajax({
             	type : "post",
             	url  : "<?php echo site_url();?>therapists/savesearch",
-            	data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&accept_insurance="+accept_insurance+"&gender="+gender+"&care_type="+care_type+"&smoker="+smoker,
+            	data:"lat="+lat+"&lng="+lng+"&location="+location+"&distance="+distance+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&accept_insurance="+accept_insurance+"&gender="+gender+"&care_type="+care_type+"&smoker="+smoker,
             	success:function(msg){
             		//console.log(msg);
                     alert('Search saved to search alerts section in your dashboard');

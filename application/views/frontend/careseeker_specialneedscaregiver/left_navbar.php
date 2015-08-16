@@ -339,11 +339,15 @@ var neighbour = $('.neighbour').val();
                         var gender = $('.gender').is(':checked')?$('input[name=gender]:checked').val():'';
                         var gender_of_caregiver = $('.gender_of_caregiver').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';                          
                         var care_type = $( ".jobtype option:selected" ).val();
+                        var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var distance = $('#sort_by_miles').val();
 
                         $.ajax({
                             type : "post",
                             url  : "<?php echo site_url();?>careseeker_specialneedscaregiver/savesearch",
-                            data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&looking_to_work="+looking_to_work+"&gender="+gender+"&gender_of_caregiver="+gender_of_caregiver+"&availability="+availability+"&start_date="+start_date+"&care_type="+care_type,
+                            data:"lat="+lat+"&lng="+lng+"&location="+location+"&distance="+distance+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&looking_to_work="+looking_to_work+"&gender="+gender+"&gender_of_caregiver="+gender_of_caregiver+"&availability="+availability+"&start_date="+start_date+"&care_type="+care_type,
                             success:function(msg){
                                 //console.log(msg);
                                 alert('Search saved to search alerts section in your dashboard');

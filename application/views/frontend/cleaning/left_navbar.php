@@ -514,11 +514,15 @@ $(function () {
 		    var available = $('.available_on_short_notice').is('.checked')?$('.available_on_short_notice').val():'';
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
             var care_type = $( ".care_type_organizations option:selected" ).val();
+            var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var distance = $('#sort_by_miles').val();
 
             $.ajax({
             	type : "post",
             	url  : "<?php echo site_url();?>cleaning/savesearch",
-            	data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&carelocation="+carelocations+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&start_date="+start_date+"&skills="+skills+"&smoker="+smoker,
+            	data:"lat="+lat+"&lng="+lng+"&location="+location+"&distance="+distance+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&carelocation="+carelocations+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&start_date="+start_date+"&skills="+skills+"&smoker="+smoker,
             	success:function(msg){
             		//console.log(msg);
                     alert('Search saved to search alerts section in your dashboard');

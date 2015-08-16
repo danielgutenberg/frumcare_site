@@ -240,10 +240,14 @@ $(function () {
                         return $(el).val();
                     }).get();
                     var care_type = $( ".jobtype option:selected" ).val();
+                    var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var distance = $('#sort_by_miles').val();
                         $.ajax({
                             type : "post",
                             url  : "<?php echo site_url();?>careseeker_seniorcarefacility/savesearch",
-                            data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&looking_to_work="+looking_to_work+"&care_type="+care_type,
+                            data:"lat="+lat+"&lng="+lng+"&location="+location+"&distance="+distance+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&looking_to_work="+looking_to_work+"&care_type="+care_type,
                             success:function(msg){
                                 //console.log(msg);
                                 alert('Search saved to search alerts section in your dashboard');

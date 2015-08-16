@@ -302,13 +302,17 @@ $(function () {
 			    }).get();			    
 	            var care_type = $( ".care_type option:selected" ).val();
                 var sub_care = $('.sub_care').val();
+                var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var distance = $('#sort_by_miles').val();
 	            var age_group = $('.age_group:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
 	            $.ajax({
 	            	type : "post",
 	            	url  : "<?php echo site_url();?>daycarecenter/savesearch",
-	            	data:"neighbour="+neighbour+"&sub_care="+sub_care+"&gender="+gender+"&language="+lang+"&care_type="+care_type+"&age_group="+age_group,
+	            	data:"lat="+lat+"&lng="+lng+"&location="+location+"&distance="+distance+"&neighbour="+neighbour+"&sub_care="+sub_care+"&gender="+gender+"&language="+lang+"&care_type="+care_type+"&age_group="+age_group,
 	            	success:function(msg){
 	            		//console.log(msg);
                         alert('Search saved to search alerts section in your dashboard');

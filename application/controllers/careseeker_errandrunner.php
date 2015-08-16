@@ -274,15 +274,22 @@ class Careseeker_errandrunner extends CI_Controller{
                     $user_id = check_user();
                 else
                     $user_id = 0;
+                $distance = $this->input->post('distance', true) == 'unlimited' ? 99999 : $this->input->post('distance', true);
+            
                 if($this->input->is_ajax_request()){
                     $data = array(
                         'user_id'               => $user_id,
-                        'care_type'             => $this->input->post('care_type',true),
+                        'care_type'             => 21,
                         'availability'          => $this->input->post('availability',true),
                         'gender_of_caregiver'   => $this->input->post('gender_of_caregiver',true),
                         'rate'                  => $this->input->post('rate',true),
                         'rate_type'             => $this->input->post('rate_type',true),    
                         'start_date'            => $this->input->post('start_date',true),
+                         'lat'                   => $this->input->post('lat', true),
+                'long'                  => $this->input->post('lng', true),
+                'location'              => $this->input->post('location', true),
+                'distance'              => $distance
+            
                     );
 
                     $q = $this->db->insert('tbl_searchhistory',$data);

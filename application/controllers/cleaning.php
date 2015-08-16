@@ -244,6 +244,8 @@
         else
             $user_id = 0;
         if($this->input->is_ajax_request()){
+            $distance = $this->input->post('distance', true) == 'unlimited' ? 99999 : $this->input->post('distance', true);
+            
             $data = array(
                 'user_id'           => $user_id,
                 'neighbor'          => $this->input->post('neighbour',true),
@@ -254,11 +256,16 @@
                 'observance'        => $this->input->post('observance',true),
                 'year_experience'   => $this->input->post('min_exp',true),
                 'availability'      => $this->input->post('availability',true),
-                'care_type'         => $this->input->post('care_type',true),
+                'care_type'         => 8,
                 'looking_to_work'   => $this->input->post('carelocation',true),
                 'driver_license'    => $this->input->post('driver_license',true),    
                 'vehicle'           => $this->input->post('vehicle',true),
                 'availability'      => $this->input->post('available',true),
+                'lat'                   => $this->input->post('lat', true),
+                'long'                  => $this->input->post('lng', true),
+                'location'              => $this->input->post('location', true),
+                'distance'              => $distance
+            
             );
 
             $q = $this->db->insert('tbl_searchhistory',$data);

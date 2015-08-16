@@ -242,6 +242,8 @@ class Nursery extends CI_Controller{
             $user_id = check_user();
         else
             $user_id = 0;
+        $distance = $this->input->post('distance', true) == 'unlimited' ? 99999 : $this->input->post('distance', true);
+            
 
         if($this->input->is_ajax_request()){
             $data = array(
@@ -253,8 +255,13 @@ class Nursery extends CI_Controller{
                 'observance'        => $this->input->post('observance',true),
                 'age_group'         => $this->input->post('age_group',true),
                 'gender'            => $this->input->post('gender',true),
-                'care_type'         => $this->input->post('care_type',true),
-                'willing_to_work'   => $this->input->post('willing',true)
+                'care_type'         => 3,
+                'willing_to_work'   => $this->input->post('willing',true),
+                'lat'                   => $this->input->post('lat', true),
+                'long'                  => $this->input->post('lng', true),
+                'location'              => $this->input->post('location', true),
+                'distance'              => $distance
+            
             );
 
            $q =  $this->db->insert('tbl_searchhistory',$data);

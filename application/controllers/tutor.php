@@ -238,6 +238,8 @@ class Tutor extends CI_Controller{
             $user_id = check_user();
         else
             $user_id = 0;
+        $distance = $this->input->post('distance', true) == 'unlimited' ? 99999 : $this->input->post('distance', true);
+            
 
         $data = array(
             'user_id'           => $user_id,
@@ -249,9 +251,14 @@ class Tutor extends CI_Controller{
             'observance'        => $this->input->post('observance',true),
             'min_exp'           => $this->input->post('min_exp',true),
             'availability'      => $this->input->post('availability',true),
-            'care_type'         => $this->input->post('care_type',true),
+            'care_type'         => 4,
             'subjects'          => $this->input->post('subjects',true),
             'start_date'        => $this->input->post('start_date',true),
+            'lat'                   => $this->input->post('lat', true),
+                'long'                  => $this->input->post('lng', true),
+                'location'              => $this->input->post('location', true),
+                'distance'              => $distance
+            
         );
 
         $q = $this->db->insert('tbl_searchhistory',$data);

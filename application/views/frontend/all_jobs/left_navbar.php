@@ -403,10 +403,14 @@ $(function () {
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
             var care_type = $( ".jobtype option:selected" ).val();
             var rate = $('.rate').val();
+            var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var distance = $('#sort_by_miles').val();
             $.ajax({
                 type : "post",
                 url  : "<?php echo site_url();?>careseeker_babysitter/savesearch",
-                data:"neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&driver_license="+driver_license+"&vehicle="+vehicle+"&pick_up_child="+pick_up_child+"&cook="+cook+"&basic_housework="+basic_housework+"&homework_help="+homework_help+"&on_short_notice="+on_short_notice+"&start_date="+start_date+"&care_type="+care_type,
+                data:"lat="+lat+"&lng="+lng+"&location="+location+"&distance="+distance+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&driver_license="+driver_license+"&vehicle="+vehicle+"&pick_up_child="+pick_up_child+"&cook="+cook+"&basic_housework="+basic_housework+"&homework_help="+homework_help+"&on_short_notice="+on_short_notice+"&start_date="+start_date+"&care_type="+care_type,
                 success:function(msg){
                     //console.log(msg);
                     alert('Search saved to search alerts section in your dashboard');                    
