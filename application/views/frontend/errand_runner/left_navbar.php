@@ -466,7 +466,7 @@ $(function () {
 	            	data:"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date,
 	            	success:function(msg){
 	            		//console.log(msg);
-                        alert('Search saved');
+                        alert('Search saved to search alerts section in your dashboard');
 	            	}
 	            });
 	      },

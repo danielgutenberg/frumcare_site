@@ -218,7 +218,7 @@ $(function () {
                     data:"neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&looking_to_work="+looking_to_work+"&care_type="+care_type,
                     success:function(done){
                         //console.log(done);
-                        alert('Search saved');
+                        alert('Search saved to search alerts section in your dashboard');
                     }
                 });
           },

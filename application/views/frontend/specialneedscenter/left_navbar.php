@@ -280,7 +280,7 @@ $(function () {
 					data:"neighbour="+neighbour+"&language="+lang+"&willing_to_work="+willing_to_work+"&care_type="+care_type+"&smoker="+smoker+"&extra_field="+extra_field,
 					success:function(done){
 							//console.log(done);
-                            alert('Search saved');
+                            alert('Search saved to search alerts section in your dashboard');
 					}
 				});
 	      },

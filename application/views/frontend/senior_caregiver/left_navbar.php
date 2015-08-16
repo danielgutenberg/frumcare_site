@@ -556,7 +556,7 @@ $(function () {
 			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&carelocation="+carelocations+"&trainings="+trainings+"&able_to_work="+able_to_work+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&start_date="+start_date+"&smoker="+smoker,
 			    		success:function(done){
 			    			//console.log(done);
-                            alert('Search saved');
+                            alert('Search saved to search alerts section in your dashboard');
 			    		}
 	    		});
       	},

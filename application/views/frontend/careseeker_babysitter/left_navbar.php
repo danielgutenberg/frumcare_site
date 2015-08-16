@@ -411,7 +411,7 @@ $(function () {
                 data:"neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&driver_license="+driver_license+"&vehicle="+vehicle+"&pick_up_child="+pick_up_child+"&cook="+cook+"&basic_housework="+basic_housework+"&homework_help="+homework_help+"&on_short_notice="+on_short_notice+"&start_date="+start_date+"&care_type="+care_type,
                 success:function(msg){
                     //console.log(msg);
-                    alert(msg);                    
+                    alert('Search saved to search alerts section in your dashboard');                    
                 }
             });
       },

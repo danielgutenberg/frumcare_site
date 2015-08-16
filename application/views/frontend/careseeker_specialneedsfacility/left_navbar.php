@@ -240,7 +240,7 @@ $(function () {
                             data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&looking_to_work="+looking_to_work+"&care_type="+care_type,
                             success:function(msg){
                                 //console.log(msg);
-                                alert('Search saved');
+                                alert('Search saved to search alerts section in your dashboard');
                             }
                         });
                   },

@@ -157,7 +157,7 @@ $(function () {
                             data:"neighbour="+neighbour+"&gender_of_caregiver="+gender_of_caregiver+"&care_type="+care_type,
                             success:function(msg){
                                 //console.log(msg);
-                                alert('Search saved');
+                                alert('Search saved to search alerts section in your dashboard');
                             }
                         });
                   },

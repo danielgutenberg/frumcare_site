@@ -259,7 +259,7 @@ $(function () {
 					data:"&language="+lang+"&willing_to_work="+willing_to_work,
 					success:function(done){
 							//console.log(done);
-                            alert('Search saved');
+                            alert('Search saved to search alerts section in your dashboard');
 					}
 				});
 	      },

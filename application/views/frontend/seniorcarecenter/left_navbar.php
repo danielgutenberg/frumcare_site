@@ -288,7 +288,7 @@ $(function () {
                 data:"neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&language="+lang+"&care_type="+care_type+"&sub_care="+sub_care+"&extra_field="+extra_field,
                 success:function(msg){
                     //console.log(msg);
-                    alert('Search saved');
+                    alert('Search saved to search alerts section in your dashboard');
                 }
             });
       },

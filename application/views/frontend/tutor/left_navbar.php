@@ -465,7 +465,7 @@ $(function () {
             	data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&subjects="+subjects+"&start_date="+start_date+"&smoker="+smoker,
             	success:function(message){
             		//console.log(message);
-                    alert('Search saved');
+                    alert('Search saved to search alerts section in your dashboard');
             	}
             })
       	},

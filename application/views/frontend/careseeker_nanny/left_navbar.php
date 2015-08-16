@@ -393,7 +393,7 @@ $(function () {
                             data:"availability="+availability+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date+"&care_type="+care_type,
                             success:function(msg){
                                 //console.log(msg);
-                                alert('Search saved');
+                                alert('Search saved to search alerts section in your dashboard');
                             }
                         });
                   },

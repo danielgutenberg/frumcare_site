@@ -320,7 +320,7 @@ $(function () {
                             data:"rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&gender_of_caregiver="+gender_of_caregiver+"&availability="+availability+"&start_date="+start_date+"&care_type="+care_type,
                             success:function(msg){
                                 //console.log(msg);
-                                alert('Search saved');
+                                alert('Search saved to search alerts section in your dashboard');
                             }
                         });
                   },

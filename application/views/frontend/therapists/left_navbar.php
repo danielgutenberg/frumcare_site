@@ -400,7 +400,7 @@ $(document).ready(function () {
 			    		data:"&languages="+lang+"&accept_insurance="+accept_insurance+"&gender="+gender,
             	success:function(msg){
             		//console.log(msg);
-                    alert('Search saved');
+                    alert('Search saved to search alerts section in your dashboard');
             	}
             });
       },

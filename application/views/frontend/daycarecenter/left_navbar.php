@@ -311,7 +311,7 @@ $(function () {
 	            	data:"neighbour="+neighbour+"&sub_care="+sub_care+"&gender="+gender+"&language="+lang+"&care_type="+care_type+"&age_group="+age_group,
 	            	success:function(msg){
 	            		//console.log(msg);
-                        alert('Search saved');
+                        alert('Search saved to search alerts section in your dashboard');
 	            	}
 	            });
 	      },

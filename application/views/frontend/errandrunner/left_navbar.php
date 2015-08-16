@@ -482,7 +482,7 @@
 	            	url  : "<?php echo site_url();?>errand_runner/savesearch",
 	            	data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&smoker="+smoker+"&start_date="+start_date,
 	            	success:function(msg){
-	            		console.log(msg);
+	            		console.log('Search saved to search alerts section in your dashboard');
 	            	}
 	            });
 	      },
