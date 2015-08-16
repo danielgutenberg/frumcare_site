@@ -121,9 +121,9 @@
     $(function(){
 
         $('#remove').click(function(){
-            var loader='<?php echo site_url("images/loader.gif")?>';
-            $('#file-name').val('');
-            $('#output img').attr('src',loader);
+            var lodr='<?php echo site_url("images/loader.gif")?>';
+            $('#file-name').attr('value','');
+            $('#output img').attr('src',lodr);
         });
 
         $("#subscribe").click(function(){
