@@ -44,13 +44,13 @@ $(function()
                         $('.loader').html('');
                         $('#file-name').val(data.files);
                         $('#upload').css({'display':'none'});
-                        $('.upload-photo').append('<button class="btn btn-default" id="remove">Remove File</button>');
+                        $('.upload-photo').append('<button class="btn btn-default" id="remove" onclick="return removePic()">Remove File</button>');
                     }
                     else{
                         $('#output').html(data.files + ' selected');
                         $('#file-name').val(data.files);
                         $('#upload').css({'display':'none'});
-                        $('.upload-photo').append('<button class="btn btn-default" id="remove">Remove File</button>');
+                        $('.upload-photo').append('<button class="btn btn-default" id="remove" onclick="">Remove File</button>');
                     }
 
 
@@ -70,4 +70,12 @@ $(function()
         });
     }
 
+
+
+
+
+
 });
+
+
+
