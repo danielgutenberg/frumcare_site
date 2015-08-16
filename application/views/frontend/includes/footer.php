@@ -120,7 +120,8 @@
 <script>
     $(function(){
 
-        $('#remove').click(function(){
+        $('.upload-photo #remove').click(function(){
+            alert('removal working');
             var lodr='<?php echo site_url("images/loader.gif")?>';
             $('#file-name').attr('value','');
             $('#output img').attr('src',lodr);
