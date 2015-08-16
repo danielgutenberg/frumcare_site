@@ -118,14 +118,19 @@
 
 
 <script>
+
+function removePic(){
+        $('#file-name').attr('value','');
+        var lodr='<?php echo site_url("images/plus.png")?>';
+        $('#output img').attr('src',lodr);
+        $('#remove').remove();
+        $('#upload').css({'display':'inline-block'});
+        return false;
+    }
+
+
     $(function(){
 
-        $('.upload-photo #remove').click(function(){
-            alert('removal working');
-            var lodr='<?php echo site_url("images/loader.gif")?>';
-            $('#file-name').attr('value','');
-            $('#output img').attr('src',lodr);
-        });
 
         $("#subscribe").click(function(){
             var subName = $("#sub_name").val();
