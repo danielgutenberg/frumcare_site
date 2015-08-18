@@ -16,10 +16,6 @@
                     document.getElementById("error").innerHTML="";
                 });
     });
-     $("#textbox1").ready(function(){        
-        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-     });
-     
      $(document).ready(function() {
        $('.btn').click(function(event) {
         event.preventDefault(); 
@@ -32,6 +28,8 @@
         }
      });
     })
+     
+     
 </script>
 <?php if(($this->uri->segment(2) != 'new_profile')){?>
 <ol class="progtrckr" data-progtrckr-steps="3">
