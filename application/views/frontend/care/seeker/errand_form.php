@@ -200,6 +200,7 @@ $user_detail = get_user(check_user());
 </div>
     </form>
 </div>
+</div>
 
 <script type="text/javascript">
 function change_wage(val){
