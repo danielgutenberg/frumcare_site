@@ -35,7 +35,7 @@ $user_detail = get_user(check_user());
 ?>
 <div class="container">
 <?php if(($this->uri->segment(2) != 'new_profile')){?>
-<form action="<?php echo site_url();?>ad/add_careseeker_step2" method="post"> 
+<form action="<?php echo site_url();?>ad/add_careseeker_step2" method="post" id="personal-details-form"> 
     <?php }else{
     echo form_open('user/addprofileconfirm');
     if(!empty($record)){
