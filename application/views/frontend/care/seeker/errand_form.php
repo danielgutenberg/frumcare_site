@@ -14,9 +14,6 @@
                     document.getElementById("error").innerHTML="";
                 });
     });
-     $("#textbox1").ready(function(){        
-        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-     });
      
      $(document).ready(function() {
        $('.btn').click(function(event) {
