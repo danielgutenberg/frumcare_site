@@ -5,7 +5,7 @@
     <li class="progtrckr-todo">Start Getting Calls</li>
 </ol>
 
-<form action="<?php echo site_url();?>ad/add_careseeker_step2" method="post">
+<form action="<?php echo site_url();?>ad/add_careseeker_step2" method="post" id="personal-details-form">
 	<div class="ad-form-container">
 		<div>
 			<h1 class="step2">Step 2: Job Details</h1>

@@ -87,7 +87,7 @@ if($detail){
    </div>
    <div class="dashboard-right float-right">
 
-    <form action="<?php echo site_url().'user/update_job_details/'.$care_type;?>" method="post">
+    <form action="<?php echo site_url().'user/update_job_details/'.$care_type;?>" method="post" id="personal-details-form">
         <div class="ad-form-container float-left">
 
             <div class="top-welcome">

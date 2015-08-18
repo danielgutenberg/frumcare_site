@@ -9,7 +9,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 <?php } ?>
 <div class="container">
 <?php if(($this->uri->segment(2) != 'new_profile')){?>
-    <form action="<?php echo site_url();?>ad/savejobdetails" method="post">
+    <form action="<?php echo site_url();?>ad/savejobdetails" method="post" id="personal-details-form">
 <?php }else{
     $this->load->helper('form');
     echo form_open('user/addprofileconfirm');
