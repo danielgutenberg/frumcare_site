@@ -206,7 +206,7 @@ class Common_Model extends CI_Model
     }
 
     public function get_care($id,$service_by){
-        $sql = "select * from tbl_care where service_type = $id and service_by = $service_by order by display_order asc";
+        $sql = "select * from tbl_care where service_type = $id and service_by = $service_by and id != 29 order by display_order asc";
         $query = $this->db->query($sql);
         $res = $query->result_array();
             if($res)
