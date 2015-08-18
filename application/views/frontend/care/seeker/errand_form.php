@@ -89,13 +89,13 @@ $user_detail = get_user(check_user());
 <div>
     <label>Description of job</label>
     <div class="form-field">
-    <textarea name="job_description" class="required"></textarea>
+    <textarea name="job_description" class=""></textarea>
     </div>
 </div>
 <div class="rate-select">
             <label>Wage</label>
             <div class="form-field">
-                <select name="rate" class="required rate">
+                <select name="rate" class="rate">
                     <option value="">Select wage</option>
                     <option value="5-10">$5-$10 / Hr</option>
                     <option value="10-15">$10-$15 / Hr</option>
@@ -130,7 +130,7 @@ $user_detail = get_user(check_user());
 <div>
     <label>Tell us about your needs</label>
     <div class="form-field">
-    <textarea name="profile_description" class="required"></textarea>
+    <textarea name="profile_description" class=""></textarea>
     </div>
 </div>
 
@@ -160,7 +160,7 @@ $user_detail = get_user(check_user());
 <div>
     <label>Level of observance necessary</label>
     <div class="form-field">
-    <select name="religious_observance" class="required">
+    <select name="religious_observance" class="">
         <option value="">Select</option>
         <option value="Yeshivish/Chasidish" <?php echo isset($religious_observance) && $religious_observance == 'Yeshivish/Chasidish' ? 'selected' : '' ?>>Yeshivish / Chasidish</option>
                 <option value="Orthodox/Modern Orthodox" <?php echo isset($religious_observance) && $religious_observance == 'Orthodox/Modern Orthodox' ? 'selected' : '' ?>>Orthodox / Modern orthodox</option>

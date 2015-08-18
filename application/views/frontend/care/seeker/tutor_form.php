@@ -87,7 +87,7 @@ $user_detail = get_user(check_user());
         <div>
             <label>Age of student</label>
             <div class="form-field">
-            <input type="text" name="age" class="required number" value="<?php echo isset($age) ? $age : '' ?>"/>
+            <input type="text" name="age" class="number" value="<?php echo isset($age) ? $age : '' ?>"/>
             </div>
         </div>
 
@@ -130,7 +130,7 @@ $user_detail = get_user(check_user());
         <div class="rate-select">
             <label>Wage</label>
             <div class="form-field">
-                <select name="rate" class="required rate">
+                <select name="rate" class="rate">
                     <option value="">Select wage</option>
                     <option value="5-10">$5-$10 / Hr</option>
                     <option value="10-15">$10-$15 / Hr</option>
@@ -210,7 +210,7 @@ $user_detail = get_user(check_user());
         <div>
             <label>Minimum years of experience</label>
             <div class="form-field">
-            <select name="experience" class="required">
+            <select name="experience" class="">
                 <option value="">Select</option>
                 <option value="1" <?php echo isset($exp) && $exp == 1 ? 'selected' : '' ?>>1 year</option>
                 <option value="2" <?php echo isset($exp) && $exp == 2 ? 'selected' : '' ?>>2 years</option>

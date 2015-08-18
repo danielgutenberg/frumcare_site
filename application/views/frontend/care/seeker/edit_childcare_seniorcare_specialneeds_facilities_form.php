@@ -159,14 +159,14 @@ if($detail){
             <div>
                 <label>Position you are looking to fill</label>
                 <div class="form-field">
-                        <input type="text" name="job_position" class="required" value="<?php echo isset($job_position)?$job_position:''?>"/>
+                        <input type="text" name="job_position" class="" value="<?php echo isset($job_position)?$job_position:''?>"/>
                 </div>
             </div>
 
            <div class="rate-select">
             <label>Wage</label>
             <div class="form-field">
-                <select name="rate" class="required">
+                <select name="rate" class="">
                     <option value="">Select rate</option>
                     <option value="5-10" <?php echo isset($rate) && $rate == '5-10' ? 'selected' : '' ?>>$5-$10 / Hr</option>
                     <option value="10-15" <?php echo isset($rate) && $rate == '10-15' ? 'selected' : '' ?>>$10-$15 / Hr</option>
@@ -207,7 +207,7 @@ if($detail){
             <div>
                 <label>Details</label>
                 <div class="form-field">
-                <textarea name="profile_description" class="required"><?php echo isset($profile_description) ? $profile_description : '' ?></textarea>
+                <textarea name="profile_description" class=""><?php echo isset($profile_description) ? $profile_description : '' ?></textarea>
                 </div>
             </div>
 

@@ -101,7 +101,7 @@ $user_detail = get_user(check_user());
         <div>
             <label>Number of rooms</label>
             <div class="form-field">
-            <input type="text" name="number_of_rooms" class="required number" value=""/>
+            <input type="text" name="number_of_rooms" class="number" value=""/>
             </div>
         </div>
 
@@ -153,7 +153,7 @@ $user_detail = get_user(check_user());
         <div class="rate-select">
             <label>Wage</label>
             <div class="form-field">
-                <select name="rate" class="required rate">
+                <select name="rate" class="rate">
                     <option value="">Select wage</option>
                     <option value="5-10">$5-$10 / Hr</option>
                     <option value="10-15">$10-$15 / Hr</option>

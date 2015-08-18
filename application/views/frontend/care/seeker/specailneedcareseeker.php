@@ -45,7 +45,7 @@
 		<div>
 			<label>Age of person requiring care</label>
 			<div class="form-field">
-				<input type="text" name="age" class="required number" value="<?php echo isset($age) ? $age : '' ?>"/>
+				<input type="text" name="age" class="number" value="<?php echo isset($age) ? $age : '' ?>"/>
 			</div>
 		</div>
 
@@ -79,7 +79,7 @@
 		<div>
 			<label>Tell us about needs</label>
 			<div class="form-field">
-				<textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
+				<textarea name="profile_description" class=""><?php echo isset($desc) ? $desc : '' ?></textarea>
 			</div>
 		</div>
 
@@ -111,7 +111,7 @@
 		<div>
 			<label>Level of observance necessary</label>
 			<div class="form-field">
-				<select name="religious_observance" class="required">
+				<select name="religious_observance" class="">
 					<option value="">Select</option>
 					<option value="Yeshivish/Chasidish">Yeshivish / Chasidish</option>
 						<option value="Orthodox/Modern Orthodox">Orthodox / Modern orthodox</option>
@@ -123,7 +123,7 @@
 		<div>
 			<label>Caregiver age from</label>
 			<div class="form-field">
-				<select name="age_group" class="required">
+				<select name="age_group" class="">
 					<option value="">Select caregiver age from</option>
 					<option value="1-5" <?php echo isset($age_grp) && $age_grp == '1-5' ? 'selected' : '' ?>>1 to 5</option>
 					<option value="5-10" <?php echo isset($age_grp) && $age_grp == '5-10' ? 'selected' : '' ?>>5 to 10</option>

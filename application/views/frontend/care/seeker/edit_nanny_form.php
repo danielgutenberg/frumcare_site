@@ -132,7 +132,7 @@ if($detail){
         <div>
             <label>Number of children</label>
             <div class="form-field">
-            <input type="text" value="<?php echo isset($number_of_children) ? $number_of_children : '' ?>" name="number_of_children" class="required number">
+            <input type="text" value="<?php echo isset($number_of_children) ? $number_of_children : '' ?>" name="number_of_children" class="number">
             </div>
             <div class="checkbox"><input type="checkbox" value="twins" name="optional_number[]" <?php if(in_array('twins',$optional_number)){?> checked="checked" <?php } ?>> Twins</div>
             <div class="checkbox"><input type="checkbox" value="triplets" name="optional_number[]" <?php if(in_array('triplets',$optional_number)){?> checked="checked" <?php } ?>> Triplets</div>
@@ -190,14 +190,14 @@ if($detail){
         <div>
             <label>Caregiver age</label>
             <div class="form-field">
-            <input type="text" name="caregiverage_from" value="<?php echo isset($caregiverage_from)?$caregiverage_from:'';?>" placeholder="Age From" style="width:25%" class="required"> to  <input type="text" name="caregiverage_to" value="<?php echo isset($caregiverage_to)?$caregiverage_to:'';?>" placeholder="Age To" style="width:25%" class="required">
+            <input type="text" name="caregiverage_from" value="<?php echo isset($caregiverage_from)?$caregiverage_from:'';?>" placeholder="Age From" style="width:25%" class=""> to  <input type="text" name="caregiverage_to" value="<?php echo isset($caregiverage_to)?$caregiverage_to:'';?>" placeholder="Age To" style="width:25%" class="">
             </div>
         </div>
 
         <div class="rate-select">
             <label>Wage</label>
             <div class="form-field">
-            <select name="rate" class="required">
+            <select name="rate" class="">
                 <option value="">Select rate</option>
                 <option value="5-10" <?php echo isset($rate) && $rate == '5-10' ? 'selected' : '' ?>>$5-$10 / Hr</option>
                 <option value="10-15" <?php echo isset($rate) && $rate == '10-15' ? 'selected' : '' ?>>$10-$15 / Hr</option>
@@ -220,7 +220,7 @@ if($detail){
         <div>
             <label>Tell us about your needs</label>
             <div class="form-field">
-            <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
+            <textarea name="profile_description" class=""><?php echo isset($desc) ? $desc : '' ?></textarea>
             </div>
         </div>
 

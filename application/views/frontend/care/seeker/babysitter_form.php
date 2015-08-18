@@ -89,7 +89,7 @@ $user_detail = get_user(check_user());
         <div>
             <label>Number of children</label>
             <div class="form-field">
-                <input type="text" value="" name="number_of_children" class="required number">
+                <input type="text" value="" name="number_of_children" class="number">
                 <div class="checkbox"><input type="checkbox" value="twins" name="optional_number[]">Twins</div>
                 <div class="checkbox"><input type="checkbox" value="triplets" name="optional_number[]">Triplets</div>
             </div>
@@ -163,7 +163,7 @@ $user_detail = get_user(check_user());
         <div class="rate-select">
             <label>Wage</label>
             <div class="form-field">
-                <select name="rate" class="required rate">
+                <select name="rate" class="rate">
                     <option value="">Select wage</option>
                     <option value="5-10">$5-$10 / Hr</option>
                     <option value="10-15">$10-$15 / Hr</option>
@@ -185,7 +185,7 @@ $user_detail = get_user(check_user());
         <div>
             <label>Tell us about your needs</label>
             <div class="form-field">
-            <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
+            <textarea name="profile_description" class=""><?php echo isset($desc) ? $desc : '' ?></textarea>
             </div>
         </div>
     <h2>Abilities and Skill Necessary</h2>
