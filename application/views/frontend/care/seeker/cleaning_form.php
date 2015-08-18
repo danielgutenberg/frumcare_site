@@ -63,7 +63,7 @@ $user_detail = get_user(check_user());
     <div class="ad-form-container">
          <?php if($this->uri->segment(2) != 'new_profile'){?> 
         <div>
-            <h1 class="step2">Step 2: Job Details</h1>
+            <h1 class="step3">Step 2: Job Details</h1>
         </div>
         <?php } ?>
         <div>
@@ -228,4 +228,5 @@ $user_detail = get_user(check_user());
         </div>
     </div>
     </form>
+</div>
 </div>
