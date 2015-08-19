@@ -616,8 +616,8 @@ FrumCare.com
             'from_name'   => SITE_NAME,
             'replyto'     => '',
             'replytoname' => '',
-            //'sendto'      => SITE_EMAIL,
-            'sendto'      => 'cpramod2012@gmail.com',
+            'sendto'      => SITE_EMAIL,
+            //'sendto'      => 'cpramod2012@gmail.com',
             'message'     => $msg
         );
         sendemail($param);
