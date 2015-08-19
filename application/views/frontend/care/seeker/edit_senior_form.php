@@ -1,27 +1,28 @@
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>                
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
 <script>
-    $("#locationField").ready(function(){        
+    $("#locationField").ready(function(){
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {});
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
                     var place = autocomplete.getPlace();
                     //console.log(place.geometry.location);
                     var lat = place.geometry.location.lat();
-                    var lng = place.geometry.location.lng();                                 
+                    var lng = place.geometry.location.lng();
                     $("#lat").val(lat);
-                    $("#lng").val(lng);   
+                    $("#lng").val(lng);
                     document.getElementById("error").innerHTML="";
                 });
     });
-     $("#textbox1").ready(function(){        
+     $("#textbox1").ready(function(){
         $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
      });
-     
+
      $(document).ready(function() {
        $('.btn').click(function(event) {
-        event.preventDefault(); 
+
+        event.preventDefault();
         if ($('#lat').val() == '') {
             window.scrollTo(0, $("#locationField").offset().top);
             $("#locationField").css('border-color', 'red')
@@ -105,17 +106,17 @@ if($detail){
             <label>Location</label>
             <div id="locationField">
                 <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
+                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/>
                 <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
-            </div> 
+            </div>
              <span style="color:red;" id="error"> </span>
         </div>
          <div>
             <label>Neighborhood / Street</label>
             <div>
             <input type="text" name="neighbour" class="required" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>
-            </div>    
-        </div>         
+            </div>
+        </div>
         <div>
             <label>Phone</label>
             <div class="form-field">
@@ -139,11 +140,11 @@ if($detail){
             </div>
             <div>
                 <label>Conditions senior suffers from</label>
-                <div class="form-field">            
+                <div class="form-field">
                     <div class="checkbox"><input type="checkbox" value="Alz./ Dementia" name="willing_to_work[]" <?php if(in_array('Alz./ Dementia', $tempwillingtowork)){?> checked="checked"<?php }?>> <span>Alz. / Dementia</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Sight loss" name="willing_to_work[]" <?php if(in_array('Sight loss', $tempwillingtowork)){?> checked="checked"<?php }?>> <span>Sight loss</span></div>                                        
+                    <div class="checkbox"><input type="checkbox" value="Sight loss" name="willing_to_work[]" <?php if(in_array('Sight loss', $tempwillingtowork)){?> checked="checked"<?php }?>> <span>Sight loss</span></div>
                     <div class="checkbox"><input type="checkbox" value="Hearing loss" name="willing_to_work[]" <?php if(in_array('Hearing loss', $tempwillingtowork)){?> checked="checked"<?php }?>> <span>Hearing loss</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Wheelchair bound" name="willing_to_work[]" <?php if(in_array('Wheelchair bound', $tempwillingtowork)){?> checked="checked"<?php }?>> <span>Wheelchair bound</span></div>                    
+                    <div class="checkbox"><input type="checkbox" value="Wheelchair bound" name="willing_to_work[]" <?php if(in_array('Wheelchair bound', $tempwillingtowork)){?> checked="checked"<?php }?>> <span>Wheelchair bound</span></div>
                 </div>
             </div>
 
@@ -209,7 +210,7 @@ if($detail){
                     <input type="text" name="caregiverage_from" value="<?php echo isset($caregiverage_from)?$caregiverage_from:'';?>" placeholder="Age From" style="width:25%" class=""> to  <input type="text" name="caregiverage_to" value="<?php echo isset($caregiverage_to)?$caregiverage_to:'';?>" placeholder="Age To" style="width:25%" class="">
                 </div>
             </div>
-            
+
             <div class="rate-select">
             <label>Wage</label>
             <div class="form-field">
