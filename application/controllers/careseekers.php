@@ -1,4 +1,4 @@
-<?php 
+<?php
 	if(!defined("BASEPATH"))exit('No direct script access allowed');
 	class Careseekers extends CI_Controller{
 		public function __construct(){
@@ -18,22 +18,22 @@
             $account_category = 2;
             $care_type = '';//blank for careseekers and caregiver
             $title = "Jobs";
-            $distance = "unlimited";                     
+            $distance = "unlimited";
             $this->breadcrumbs->push($title, site_url().'#');
             $this->breadcrumbs->unshift('Home', base_url());
-                                            
+
             $loc = $_GET;
         if (isset($loc['location']) && isset($loc['lat']) && isset($loc['lng'])) {
             $location = $loc['location'];
             $latitude = $loc['lat'];
             $longitude = $loc['lng'];
-        } else {                               
+        } else {
         if(check_user()){
             $locationdetails = $this->common_model->getMyLocation(check_user());
             if(is_array($locationdetails)){
                 $latitude = ($locationdetails[0]['lat']);
                 $longitude = ($locationdetails[0]['lng']);
-                $location =  $locationdetails[0]['location']?$locationdetails[0]['location']:'your city';                                                                       
+                $location =  $locationdetails[0]['location']?$locationdetails[0]['location']:'your city';
             }
         }
         else{
@@ -42,14 +42,14 @@
                 $latitude = $ipdata['lat'];
                 $longitude = $ipdata['lon'];
                 $location = isset($ipdata['city'])?$ipdata['city']:'your city';
-            }             
+            }
         }
         }
             $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
             $userdata       = $this->common_care_model->sort($item_per_page,$latitude,$longitude,$option,$account_category,$care_type,$distance);
-            $get_total_rows = count($userdata);                                                        
+            $get_total_rows = count($userdata);
             $data = array(
-              				'main_content' 	    => 'frontend/common_caregiver',                            
+              				'main_content' 	    => 'frontend/common_caregiver',
               				'title'			    => $title,
                             'pages'             => ceil($get_total_rows/$item_per_page),
                             'countries'         => $this->common_model->getCountries(),
@@ -58,9 +58,9 @@
                             'account_category'  => $account_category,
                             'care_type'         => $care_type,
                             'total_rows'        => $get_total_rows,
-                            'location'          => $locationdetails              				              				              				                            
-              			);                      
-            $this->load->view(FRONTEND_TEMPLATE, $data);          
+                            'location'          => $locationdetails
+              			);
+            $this->load->view(FRONTEND_TEMPLATE, $data);
 		}
    function pages(){
 
@@ -74,7 +74,7 @@
         }else{
             $per_page = 15;
         }
-         
+
             if($cat == 'organization'){
                 $acc_cat = 3;
                 $care_type = 2;
@@ -94,7 +94,7 @@
                 if(is_array($ipdata)){
                     $latitude = ($ipdata['lat']);
                     $longitude = ($ipdata['lon']);
-                }    
+                }
             }
 
 
@@ -102,7 +102,7 @@
         $page = $this->uri->segment(3)?$this->uri->segment(3):1;
         $offset =    ($page - 1) * $per_page;
 
-            
+
         $userdata   = $this->user_model->getAllCareSeekerDetails($acc_cat,$offset,$per_page,$latitude,$longitude);
         $data['main_content']  = 'frontend/caregivers/index';
         $data['userdatas']     = $userdata;
@@ -124,7 +124,7 @@
 	        $this->breadcrumbs->push($type[0]['service_name'], '#');
 	        $this->breadcrumbs->push($details['name'], '#');
 	        $this->breadcrumbs->unshift('Home', base_url());
-	        
+
 	        $data['main_content']   = 'frontend/caregivers/details';
 	        $data['recordData']     = $details;
 	        $data['title']          = 'Jobs Details';
@@ -136,7 +136,7 @@
 	        $data['similar_types']  = $this->user_model->getSimilarPersons($details['care_type'],$details['id']);
 	        $data['care_type']      = $this->caretype_model->getAllCareType();
 	        $data['refrences']      = $this->refrence_model->getLatestRefrences($details['id']);
-	        $data['care_id']       = $details['id']; //condition for blocking own review and rating         
+	        $data['care_id']       = $details['id']; //condition for blocking own review and rating
 	        $this->load->view(FRONTEND_TEMPLATE,$data);
     }
 
@@ -173,22 +173,22 @@
 
                    if($limit){
                             if($order != 'distance'){
-                               $users              = $this->user_model->careseekersort($limit, $order,($latitude),($longitude)); 
+                               $users              = $this->user_model->careseekersort($limit, $order,($latitude),($longitude));
                            }else{
                                  $users            = $this->user_model->careseekerorderByDistance($limit,$latitude,$longitude);
                            }
                            $userlogs                = $this->user_model->getUserLog();
                            $merge['userdatas']      = $this->load->view('frontend/caregivers/profile_list', array('userdatas'=>$users,'userlogs'=>$userlogs), true);
                            $total_rows              = $this->user_model->countUserTable();
-                           $merge['num']            =  ceil($total_rows/$limit); 
+                           $merge['num']            =  ceil($total_rows/$limit);
                            echo json_encode($merge);
                            exit;
-                       
+
                    }
         }
 
     }
-    
+
     public function sort_cate(){
       if($this->input->is_ajax_request()){
         $limit      = $this->input->get('limit',true);
@@ -217,13 +217,13 @@
        $users                   = $this->user_model->sortcareseeker($limit, $care_type,$latitude,$longitude);
        if($users != false)
           $total_rows = count($users);
-        else 
+        else
           $total_rows = 0;
 
        $userlogs                = $this->user_model->getUserLog();
        $merge['userdatas']      = $this->load->view('frontend/caregivers/profile_list', array('userdatas'=>$users,'userlogs'=>$userlogs), true);
        $merge['total_rows']     = $total_rows;
-       $merge['num']            = ceil($total_rows/$limit); 
+       $merge['num']            = ceil($total_rows/$limit);
        echo json_encode($merge);
        exit;
     }
@@ -244,14 +244,14 @@
               $total_rows = count($users);
             else
               $total_rows = 0;
-            
+
             $userlogs                = $this->user_model->getUserLog();
             $merge['userdatas']      = $this->load->view('frontend/caregivers/profile_list', array('userdatas'=>$users,'userlogs'=>$userlogs,'location'=>$location), true);
             $merge['total_rows']     =  $total_rows;
-            $merge['num']            =  ceil($total_rows/$per_page); 
+            $merge['num']            =  ceil($total_rows/$per_page);
             echo json_encode($merge);
             exit;
-        }        
+        }
     }
 }
 
