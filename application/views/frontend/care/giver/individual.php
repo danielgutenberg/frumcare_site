@@ -1,12 +1,12 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
 <script>
-    $("#locationField").ready(function(){        
+    $("#locationField").ready(function(){
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {});
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
                     var place = autocomplete.getPlace();
                     //console.log(place.geometry.location);
                     var lat = place.geometry.location.lat();
-                    var lng = place.geometry.location.lng();                                 
+                    var lng = place.geometry.location.lng();
                     $("#lat").val(lat);
                     $("#lng").val(lng);
                     document.getElementById("error").innerHTML="";
@@ -18,21 +18,21 @@
     <li class="progtrckr-done">Personal Details</li>
     <li class="progtrckr-todo">Job Details</li>
     <li class="progtrckr-todo">Start Getting Calls</li>
-</ol> 
+</ol>
 
 <div class="container">
 <form action="<?php echo site_url();?>ad/registeruserdetails" method="post" id="personal-details-form" enctype="multipart/formdata">
     <div class="ad-form-container">
         <h1 class="step2">
-            Step 2: Personal Details 
+            Step 2: Personal Details
         </h1>
-    <div>    
+    <div>
         <label>Location</label>
         <div id="locationField">
             <input type="hidden" id="lat" name="lat" required/>
-            <input type="hidden" id="lng" name="lng" required/> 
+            <input type="hidden" id="lng" name="lng" required/>
             <input type="text" name="location" class="required" id="autocomplete" required/>
-        </div>   
+        </div>
         <span style="color:red;" id="error"> </span>
     </div>
 
@@ -40,8 +40,8 @@
         <label>Neighborhood / Street</label>
         <div>
             <input type="text" name="neighbour" class="required" value="" />
-        </div>    
-    </div>    
+        </div>
+    </div>
      <div>
         <label>Phone</label>
         <div class="form-field">
@@ -57,7 +57,7 @@
 	        </div>
 	    </div>
 	   <?php } ?>
-    
+
     <div>
         <label>Gender</label>
         <div class="form-field">
@@ -65,32 +65,32 @@
           <div class="radio-half"><input type="radio" value="2" name="gender" <?php echo isset($gender) && $gender == 2 ? 'checked' : '' ?>> Female</div>
         </div>
     </div>
-    <?php 
+    <?php
         if( segment(6) != 7) { ?>
             <div>
                 <label>Marital status</label>
                 <div class="form-field">
                     <div class="radio-half"><input type="radio" name="marital_status" value="1"> Single</div>
                     <div class="radio-half"><input type="radio" name="marital_status" value="2"> Married</div>
-                    <div class="radio-half"><input type="radio" name="marital_status" value="3"> Divorced</div>            
+                    <div class="radio-half"><input type="radio" name="marital_status" value="3"> Divorced</div>
                     <div class="radio-half"><input type="radio" name="marital_status" value="4"> Widowed</div>
                 </div>
-            </div> <?php 
+            </div> <?php
         } ?>
-        
-        
+
+
     <div>
         <label>Languages spoken</label>
         <div class="form-field">
             <div class="checkbox"><input type="checkbox" name="language[]" value="English"> English</div>
             <div class="checkbox"><input type="checkbox" name="language[]" value="Yiddish"> Yiddish</div>
             <div class="checkbox"><input type="checkbox" name="language[]" value="Hebrew"> Hebrew</div>
-            <div class="checkbox"><input type="checkbox" name="language[]" value="Russian"> Russian</div>            
-            <div class="checkbox"><input type="checkbox" name="language[]" value="French"> French</div>            
+            <div class="checkbox"><input type="checkbox" name="language[]" value="Russian"> Russian</div>
+            <div class="checkbox"><input type="checkbox" name="language[]" value="French"> French</div>
             <div class="checkbox"><input type="checkbox" name="language[]" value="Other"> Other</div>
         </div>
     </div>
-    <?php 
+    <?php
         if( segment(6) != 7) { ?>
             <div>
                 <label>I am a smoker</label>
@@ -99,7 +99,7 @@
                 <div class="radio-half"><input type="radio" name="smoker" value="2" checked> No</div>
                 <div class="radio-half"><input type="radio" name="smoker" value="3"> Yes, but not at work</div>
                 </div>
-            </div> <?php 
+            </div> <?php
         } ?>
  <?php if( segment(6) != 7) { ?>
     <div>
@@ -121,7 +121,7 @@
             <input type="checkbox" name="familartojewish" value="1"> Familiar with Jewish Tradition
         </div>
     </div>
-     <?php 
+     <?php
         if( segment(6) != 7) { ?>
             <div>
                 <label>Level of education</label>
@@ -134,12 +134,12 @@
                     <option value="Degree" <?php echo isset($edu) && $edu == 'Degree' ? 'selected' : '' ?>>Degree</option>
                 </select>
                 </div>
-            </div> 
+            </div>
             <div>
                 <label>Educational institutions attended</label>
                 <div class="form-field">
                     <input type="text" name="educational_institution" value="<?php echo isset($edu_ins) ? $edu_ins : '' ?>">
-                </div>  
+                </div>
             </div> <?php
         } ?>
     <?php /* <div>
@@ -159,7 +159,7 @@
 
     <?php $this->load->view('frontend/care/photo_upload') ?>
 
-    <?php 
+    <?php
         $acc_cat = $this->uri->segment(3);
         if($acc_cat == 'caregiver'){
             $cat = 1;
@@ -175,9 +175,9 @@
         }
     ?>
 
-   
 
-    <div>   
+
+    <div>
         <!-- <label>Shul membership</label> -->
         <div class="form-field">
         <input type="hidden" name="account_category" value="<?php echo $cat;?>">
@@ -194,9 +194,9 @@
 <script>
 $(document).ready(function(){
     $('#contact').mask('999-999-9999');
-    
+
     $('.btn').click(function(event) {
-        event.preventDefault(); 
+        event.preventDefault();
         if ($('#lat').val() == '') {
             window.scrollTo(0, $("#locationField").offset().top);
             $("#locationField").css('border-color', 'red')

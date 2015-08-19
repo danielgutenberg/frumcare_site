@@ -15,11 +15,11 @@ class User extends CI_Controller
     function index(){
         $data['title'] = 'User Manager';
         $data['user_data'] = $this->common_model->get_all('tbl_user');
-  
+
         $data['main_content'] = 'admin/user/user';
         $this->load->view(BACKEND_TEMPLATE, $data);
     }
-    
+
     function dashboard($id) {
 
         $data['main_content']       = 'frontend/user/dashboard';
@@ -27,8 +27,8 @@ class User extends CI_Controller
         $data['title']              = 'Dashboard';
         $this->load->view(FRONTEND_TEMPLATE, $data);
     }
-    
-    function logs(){       
+
+    function logs(){
         $data['title'] = 'User Log Manager';
         $data['user_data'] = $this->common_model->getAllUserLogs();
         $data['main_content'] = 'admin/user/user_logs';
@@ -84,7 +84,8 @@ class User extends CI_Controller
     }
 
     public function profilepicture(){
-        
+        //$records=$this->common_model->getAllProfileImages();
+        //print_r($records); exit;
         $data = array(
                 'recordData'    => $this->common_model->getAllProfileImages(),
                 'main_content'  => 'admin/user/profilepicture',
@@ -93,6 +94,49 @@ class User extends CI_Controller
 
         $this->load->view(BACKEND_TEMPLATE,$data);
     }
+
+/*********************** picture management script *********************************************/
+
+    public function picturemanagement(){
+
+        $data = array(
+                'recordData'    => $this->common_model->getAllAdImages(),
+                'main_content'  => 'admin/user/pictures',
+                'title'         =>  'Picture Manager'
+        );
+
+        $this->load->view(BACKEND_TEMPLATE,$data);
+    }
+
+    function approve(){
+
+        $id    = $this->uri->segment(4);
+        $task       = $this->uri->segment(5);
+
+        if($task=='activate') {
+
+            $sql = $this->db->where('id', $id)->update('tbl_userprofile', array('photo_status' => 1));
+            if ($sql):
+                $this->session->set_flashdata('success', 'Profile picture status changed successfully');
+            else:
+                $this->session->set_flashdata('error', 'Error approving the picture');
+            endif;
+            redirect('admin/user/picturemanagement', 'refresh');
+        }else{
+            $sql = $this->db->where('id', $id)->update('tbl_userprofile', array('photo_status' => 0));
+            if ($sql):
+                $this->session->set_flashdata('success', 'Picture status changed successfully');
+            else:
+                $this->session->set_flashdata('error', 'Error performing action');
+            endif;
+            redirect('admin/user/picturemanagement', 'refresh');
+        }
+
+
+
+    }
+
+
 
    /* public function deleteProfileImage($id = ''){
         $id = $this->uri->segment(4);
@@ -160,8 +204,8 @@ class User extends CI_Controller
         $this->session->flashdata('info','User Log Deleted Successfully');
         redirect('admin/user/logs','refresh');
       }
-      
-     public function status(){        
+
+     public function status(){
         $user_id    = $this->uri->segment(4);
         $task       = $this->uri->segment(5);
 
@@ -169,48 +213,48 @@ class User extends CI_Controller
         $this->session->set_flashdata('info', 'User status changed successfully');
         redirect('admin/user','refresh');
      }
-     
+
      function reset_password($id){
-        if(isset($_POST['reset_password'])){ 
+        if(isset($_POST['reset_password'])){
           $id           = $this->input->post('id', true);
           $password     = $this->input->post('password', true);
-          
+
           $emaildata    = $this->user_model->getEmailAddressById($id);
           $this->send_email($emaildata['email'], $password);
-          
+
           $res = $this->user_model->reset_password();
           $this->session->set_flashdata('info', "Password Updated Successfully");
-          redirect('admin/user','refresh');  
-            
+          redirect('admin/user','refresh');
+
         }
-        
+
         $data = array(
              'main_content' => 'admin/user/reset_password',
              'title'        => 'User Profile',
              'pagetitle'    => 'Reset Password'
         );
-        
+
         $this->load->view(BACKEND_TEMPLATE, $data);
       }
-      
+
       function send_email($email,$password){
          $config = array (
               'mailtype' => 'html',
               'charset'  => 'utf-8',
               'priority' => '1'
          );
-        
+
         $data = array(
             'password'  => $password,
-            'link'      => site_url().'login' 
+            'link'      => site_url().'login'
         );
-        
+
         $this->load->library('email',$config);
         $this->email->from('no-reply@frumcare.com', 'Frumcare');
-        $this->email->to($email); 
+        $this->email->to($email);
         $this->email->subject('Password Updated');
-        $this->email->message($this->load->view('emails/reset_password', $data,true));	
+        $this->email->message($this->load->view('emails/reset_password', $data,true));
         $this->email->send();
       }
-      
+
 }//Controller Close

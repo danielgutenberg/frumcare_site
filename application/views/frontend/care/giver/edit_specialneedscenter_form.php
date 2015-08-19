@@ -1,5 +1,5 @@
     <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
-<?php 
+<?php
 	if($detail){
 		$established 		= $detail[0]['established'];
 		$certification 		= $detail[0]['certification'];
@@ -24,7 +24,7 @@
     <div class="dashboard-left float-left">
          <?php $this->load->view('frontend/user/dashboard_nav');?>
     </div>
-    
+
     <div class="dashboard-right float-right">
 
 <form action="<?php echo site_url().'user/update_job_details/'.$care_type;?>" method="post">
@@ -32,7 +32,7 @@
     <div>
         <h1 class="step3">Edit Organization Details</h1>
     </div>
-    
+
     <div>
         <label>Year established</label>
         <div class="form-field">
@@ -66,11 +66,11 @@
 
     <div>
         <label>Specialize in</label>
-        <div class="form-field">            
+        <div class="form-field">
             <div class="checkbox"><input type="checkbox" value="Autism" name="willing_to_work[]" <?php if(in_array('Autism', $willing_to_work)){?> checked="checked" <?php }?>> <span>Autism</span></div>
-            <div class="checkbox"><input type="checkbox" value="Down Syndrome" name="willing_to_work[]" <?php if(in_array('Down Syndrome', $willing_to_work)){?> checked="checked" <?php }?>> <span>Down Syndrome</span></div>            
+            <div class="checkbox"><input type="checkbox" value="Down Syndrome" name="willing_to_work[]" <?php if(in_array('Down Syndrome', $willing_to_work)){?> checked="checked" <?php }?>> <span>Down Syndrome</span></div>
             <div class="checkbox"><input type="checkbox" value="Wheelchair bound" name="willing_to_work[]" <?php if(in_array('Wheelchair bound', $willing_to_work)){?> checked="checked" <?php }?>> <span>Wheelchair bound</span></div>
-            <div class="checkbox"><input type="checkbox" value="Handicapped" name="willing_to_work[]" <?php if(in_array('Handicapped',$willing_to_work)){?> checked="checked"<?php }?>><span>Handicapped</span></div>        
+            <div class="checkbox"><input type="checkbox" value="Handicapped" name="willing_to_work[]" <?php if(in_array('Handicapped',$willing_to_work)){?> checked="checked"<?php }?>><span>Handicapped</span></div>
         </div>
     </div>
    <div>
@@ -100,9 +100,9 @@
         <label>Cost</label>
         <div class="form-field">
            <input type="text" name="rate" value="<?php echo $rate;?>">
-        </div> 
+        </div>
     </div>
-            
+
             <div>
         <label>Tell us about your organization / facilities / staff</label>
         <div class="form-field">
@@ -110,15 +110,15 @@
         </div>
     </div>
 
-    
 
-        <?php 
+
+        <?php
             if(!empty($facility)){
                 $photo_url = base_url('images/profile-picture/thumb/'.$facility);
             }else{
                 $photo_url = base_url('images/plus.png');
             }
-        ?>                   
+        ?>
             <div class="upload-photo">
                 <h2>Upload Photo of Facility / Organization</h2>
                 <input type="hidden" id="file-name" name="facility_pic" value="<?php echo $facility;?>">
@@ -156,77 +156,14 @@
         $('body').removeAttr('onload');
     });
     $("#ref_check1").click(function(){
-            $(".refrence_file").show();   
+            $(".refrence_file").show();
         });
 
-    $('#output,#upload').click(function(e){
-        e.preventDefault();
-        $('#ImageFile').trigger('click');
-    });
 
-    $(function(){
-        var files;
 
-          var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
-        var link = '<?php echo site_url("ad/upload_pp?files")?>';
 
-        $('#ImageFile').on('change',prepareUpload);
 
-        // Grab the files and set them to our variable
-        function prepareUpload(event){
-            files = event.target.files;
-            event.stopPropagation(); // Stop stuff happening
-            event.preventDefault(); // Totally stop stuff happening
 
-            // START A LOADING SPINNER HERE
-
-            // Create a formdata object and add the files
-            var data = new FormData();
-            $.each(files, function(key, value)
-            {
-                data.append(key, value);
-            });
-            $.ajax({
-                url: link,
-                type: 'POST',
-                beforesend: $('.loader').html(loader),
-                data: data,
-                cache: false,
-                dataType: 'json',
-                processData: false, // Don't process the files
-                contentType: false, // Set content type to false as jQuery will tell the server its a query string request
-                success: function(data, textStatus, jqXHR)
-                {
-                    if(typeof data.error === 'undefined')
-                    {
-                        // Success so call function to process the form
-                        if(data.type==1){
-                            $('#output').html(data.html);
-                            $('.loader').html('');
-                            $('#file-name').val(data.files);    
-                        }
-                        else{
-                            $('#output').html(data.files + ' selected');
-                            $('#file-name').val(data.files);
-                        }
-                        
-                    }
-                    else
-                    {
-                        // Handle errors here
-                        console.log('ERRORS: ' + data.error);
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown)
-                {
-                    // Handle errors here
-                    console.log('ERRORS: ' + textStatus);
-                    // STOP LOADING SPINNER
-                }
-            });
-        }
-
-    });
 </script>
 
 <?php /* <script>
@@ -242,14 +179,14 @@ $(document).ready(function(){
 
         $("#ckbox1").change(function(){
             if($('#ckbox1').is(':checked')){
-                $("#textbox1").show();   
+                $("#textbox1").show();
             }else{
-                $("#textbox1").hide(); 
-                $('#textbox1').val('');       
+                $("#textbox1").hide();
+                $('#textbox1').val('');
             }
         });
   $("#ref_check1").click(function(){
-            $(".refrence_file").show();   
+            $(".refrence_file").show();
         });
         $("#ref_check2").click(function(){
              	$.ajax({
@@ -260,8 +197,8 @@ $(document).ready(function(){
                         $('#output').html(r);
 			         }
 		          });
-                     $(".refrence_file").hide(); 
-             $('#file-name').val('');   
+                     $(".refrence_file").hide();
+             $('#file-name').val('');
         });
 });
 </script>

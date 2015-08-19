@@ -12,9 +12,10 @@
                     <div class="panel-body">
                         <div class="table-responsive">
                             <!-- <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-hover" id="example"> -->
-                             <table id="dt_basic" class="table table-striped table-bordered table-hover"> 
+                             <table id="dt_basic" class="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>
+                                    <th>SN.</th>
                                     <th>Name</th>
                                     <th>Image</th>
                                     <th>Status</th>
@@ -22,22 +23,25 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                   
-                                       <?php 
-                                            if(is_array($recordData)){  
+
+                                       <?php
+                                       $i=0;
+                                            if(is_array($recordData)){
                                                 foreach($recordData as $data):
+                                                    $i++;
                                                     $photo_url = base_url("images/no-image.jpg");
-                                                    
+
                                                         if($data['profile_picture']!="")
                                                                 $photo_url = base_url('images/profile-picture/thumb/'.$data['profile_picture']);
 
                                                         if(file_exists('images/profile-picture/'.$data['profile_picture']) && $data['profile_picture']!='')
-                                                                $fullphoto = base_url('images/profile-picture/'.$data['profile_picture']);                                                                
+                                                                $fullphoto = base_url('images/profile-picture/'.$data['profile_picture']);
                                                         else
                                                                 $fullphoto = base_url('images/no-image.jpg');
 
 
                                         ?>  <tr>
+                                                    <td><?php echo $i;?></td>
                                                 <td>
                                                     <a href="<?php echo site_url();?>admin/user/view/<?php echo $data['id'];?>" style="color:#5D5E5F"><?php echo $data['name'];?></a>
                                                 </td>
@@ -55,19 +59,19 @@
                                                     <?php /* <a href="<?php echo site_url();?>admin/user/deleteProfileImage/<?php echo $data['id'];?>" onclick="return confirm('Are you sure to delete?');">Delete</a></td> */?>
                                             </tr>
                                         <?php
-                                            endforeach; 
+                                            endforeach;
                                             }else{?>
                                             <tr>
-                                                <td colspan="4" align="center">No profile picture available.</td> 
+                                                <td colspan="4" align="center">No profile picture available.</td>
                                             </tr>
                                         <?php } ?>
-                                    
-                               
+
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                                          
+
                 </div>
             </div>
         </div>
@@ -90,14 +94,14 @@
         <script src="<?php echo site_url();?>plugins/admin/js/plugin/datatables/media/js/TableTools.min.js"></script>
         <script src="<?php echo site_url();?>plugins/admin/js/plugin/datatables/DT_bootstrap.js"></script>
 
-        
-        
+
+
         <script type="text/javascript">
-        
+
         // DO NOT REMOVE : GLOBAL FUNCTIONS!
-        
+
         $(document).ready(function() {
-           
+
            $('.lightbox').click(function(){
             var fullimage = $(this).attr('id');
                 $('#dialog_simple').dialog('open');
@@ -120,26 +124,27 @@
                     }
                 }]
             });
-          
+
 
             pageSetUp();
 
-           
+
 
             /*
              * BASIC
              */
             $('#dt_basic').dataTable({
-                "sPaginationType" : "bootstrap_full"
+                "sPaginationType" : "bootstrap_full",
+                "order": [[ 1, "asc" ]]
             });
-    
+
             /* END BASIC */
-    
+
             /* Add the events etc before DataTables hides a column */
             $("#datatable_fixed_column thead input").keyup(function() {
                 oTable.fnFilter(this.value, oTable.oApi._fnVisibleToColumnIndex(oTable.fnSettings(), $("thead input").index(this)));
             });
-    
+
             $("#datatable_fixed_column thead input").each(function(i) {
                 this.initVal = this.value;
             });
@@ -154,9 +159,9 @@
                     this.className = "search_init";
                     this.value = this.initVal;
                 }
-            });     
-            
-    
+            });
+
+
             var oTable = $('#datatable_fixed_column').dataTable({
                 "sDom" : "<'dt-top-row'><'dt-wrapper't><'dt-row dt-bottom-row'<'row'<'col-sm-6'i><'col-sm-6 text-right'p>>",
                 //"sDom" : "t<'row dt-wrapper'<'col-sm-6'i><'dt-row dt-bottom-row'<'row'<'col-sm-6'i><'col-sm-6 text-right'>>",
@@ -164,10 +169,10 @@
                     "sSearch" : "Search all columns:"
                 },
                 "bSortCellsTop" : true
-            });     
-            
-    
-    
+            });
+
+
+
             /*
              * COL ORDER
              */
@@ -178,9 +183,9 @@
                     $('.ColVis_Button').addClass('btn btn-default btn-sm').html('Columns <i class="icon-arrow-down"></i>');
                 }
             });
-            
+
             /* END COL ORDER */
-    
+
             /* TABLE TOOLS */
             $('#datatable_tabletools').dataTable({
                 "sDom" : "<'dt-top-row'Tlf>r<'dt-wrapper't><'dt-row dt-bottom-row'<'row'<'col-sm-6'i><'col-sm-6 text-right'p>>",
@@ -198,7 +203,7 @@
                     });
                 }
             });
-        
+
         /* END TABLE TOOLS */
         })
 
