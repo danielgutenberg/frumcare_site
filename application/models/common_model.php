@@ -292,7 +292,6 @@ class Common_Model extends CI_Model
             }
     }
     
-
     public function getAllAdImages(){
         $sql= "SELECT * FROM tbl_user LEFT JOIN tbl_userprofile ON tbl_userprofile.user_id=tbl_user.id WHERE tbl_userprofile.photo=1 ORDER BY tbl_userprofile.id desc";
         //$sql    = "select id, name, profile_picture, profile_picture_status from tbl_user order by id desc";
