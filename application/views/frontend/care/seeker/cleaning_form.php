@@ -2,25 +2,25 @@
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
 <script>
-    $("#locationField").ready(function(){        
+    $("#locationField").ready(function(){
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {});
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
                     var place = autocomplete.getPlace();
                     //console.log(place.geometry.location);
                     var lat = place.geometry.location.lat();
-                    var lng = place.geometry.location.lng();                                 
+                    var lng = place.geometry.location.lng();
                     $("#lat").val(lat);
-                    $("#lng").val(lng);   
+                    $("#lng").val(lng);
                     document.getElementById("error").innerHTML="";
                 });
     });
-     $("#textbox1").ready(function(){        
+     $("#textbox1").ready(function(){
         $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
      });
-     
+
      $(document).ready(function() {
        $('.btn').click(function(event) {
-        event.preventDefault(); 
+        event.preventDefault();
         if ($('#lat').val() == '') {
             window.scrollTo(0, $("#locationField").offset().top);
             $("#locationField").css('border-color', 'red')
@@ -30,7 +30,7 @@
             $('#newJob').submit()
         }
      });
-    })
+    });
 </script>
 <?php
 if(($this->uri->segment(2) != 'new_profile')){?>
@@ -39,7 +39,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     <li class="progtrckr-done">Job Details</li>
     <li class="progtrckr-todo">Start Getting Calls</li>
 </ol>
-<?php } 
+<?php }
 $user_detail = get_user(check_user());
 	$address = $user_detail['location'];
     $phone = $user_detail['contact_number'];
@@ -63,7 +63,7 @@ $user_detail = get_user(check_user());
    } ?>
 
     <div class="ad-form-container">
-         <?php if($this->uri->segment(2) != 'new_profile'){?> 
+         <?php if($this->uri->segment(2) != 'new_profile'){?>
         <div>
             <h1 class="step3">Step 2: Job Details</h1>
         </div>
@@ -80,6 +80,7 @@ $user_detail = get_user(check_user());
 
             <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>
             <input type="hidden" name="account_type2" value="<?php echo $this->uri->segment(4);?>"/>
+<<<<<<< HEAD
             <label>Location</label>
             <div id="locationField">
                 <input type="hidden" id="lat" name="lat"/>
@@ -88,12 +89,23 @@ $user_detail = get_user(check_user());
                 <span style="color:red;" id="error"> </span>
             </div>
             </div>
+=======
+
+
+<label>Location</label>
+<div id="locationField">
+    <input type="hidden" id="lat" name="lat"/>
+    <input type="hidden" id="lng" name="lng"/>
+    <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
+    <span style="color:red;" id="error"> </span>
+</div>
+>>>>>>> image approval
                 <div>
                     <label>Neighborhood / Street</label>
                     <div>
                     <input type="text" name="neighbour" class="required" onFocus="geolocate()" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
-                    </div>    
-                </div>                 
+                    </div>
+                </div>
 				<div>
 					<label>Phone</label>
 					<div class="form-field">
@@ -126,14 +138,14 @@ $user_detail = get_user(check_user());
             <div class="checkbox"><input type="checkbox" value="Dishes" name="willing_to_work[]"> Dishes</div>
             <div class="checkbox"><input type="checkbox" value="Floors" name="willing_to_work[]"> Floors</div>
             <div class="checkbox"><input type="checkbox" value="Windows" name="willing_to_work[]"> Windows</div>
-            <div class="checkbox"><input type="checkbox" value="Laundry" name="willing_to_work[]"> Laundry</div>            
+            <div class="checkbox"><input type="checkbox" value="Laundry" name="willing_to_work[]"> Laundry</div>
             <div class="checkbox"><input type="checkbox" value="Folding" name="willing_to_work[]"> Folding</div>
             <div class="checkbox"><input type="checkbox" value="Ironing" name="willing_to_work[]"> Ironing</div>
             <div class="checkbox"><input type="checkbox" value="Cleaning and Dusting Furniture" name="willing_to_work[]">Cleaning and Dusting Furniture</div>
             <div class="checkbox"><input type="checkbox" value="Cleaning Refrigerator/Freezer" name="willing_to_work[]">Cleaning Refrigerator / Freezer</div>
             <div class="checkbox"><input type="checkbox" value="Cleaning Oven/Stovetop" name="willing_to_work[]">Cleaning Oven / Stovetop</div>
             <div class="checkbox"><input type="checkbox" value="Pesach Cleaning" name="willing_to_work[]"><span>Pesach Cleaning</span></div>
-            <div class="checkbox"><input type="checkbox" name="pick_up_child" value="1"/>Must be able to watch children as well</div> 
+            <div class="checkbox"><input type="checkbox" name="pick_up_child" value="1"/>Must be able to watch children as well</div>
             </div>
         </div>
 
@@ -180,7 +192,7 @@ $user_detail = get_user(check_user());
         <!--</div>-->
 
         <h2>Additional Requirements</h2>
-        <div>  
+        <div>
             <label>Languages necessary</label>
             <div class="form-field">
             <div class="checkbox"><input type="checkbox" name="language[]" value="English"> English</div>
@@ -216,7 +228,7 @@ $user_detail = get_user(check_user());
         		<div>
         			<input type="checkbox" value="1" name="watch_children"> <label>Must be able to watch children as well</label>
         		</div>
-        		
+
         	</div>
         <div>
             <label>Smoking acceptable</label>
