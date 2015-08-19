@@ -1,5 +1,5 @@
 <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
-<?php 
+<?php
     if($detail){
         $lookingtowork = explode(',',$detail[0]['looking_to_work']);
         //$age_grp = $detail[0]['age_group'];
@@ -77,10 +77,10 @@
                 <div class="form-field">
                     <div class="checkbox"><input type="checkbox" value="0-3" name="age_group[]" <?php if(in_array('0-3',$age_group)){?> checked="checked" <?php } ?>/> 0-3 months</div>
                     <div class="checkbox"><input type="checkbox" value="3-6" name="age_group[]" <?php if(in_array('3-6',$age_group)){?> checked="checked" <?php } ?>/> 3-6 months</div>
-                    <div class="checkbox"><input type="checkbox" value="6-12" name="age_group[]" <?php if(in_array('6-12',$age_group)){?> checked="checked" <?php } ?>/> 6-12 months</div>                    
-                    <div class="checkbox"><input type="checkbox" value="1-3" name="age_group[]" <?php if(in_array('1-3',$age_group)){?> checked="checked" <?php } ?>/> 1 to 3 years</div>                    
-                    <div class="checkbox"><input type="checkbox" value="3-5" name="age_group[]" <?php if(in_array('3-5',$age_group)){?> checked="checked" <?php } ?>/> 3 to 5 years</div>                    
-                    <div class="checkbox"><input type="checkbox" value="6-11" name="age_group[]" <?php if(in_array('6-11',$age_group)){?> checked="checked" <?php } ?>/> 6 to 11 years</div>                    
+                    <div class="checkbox"><input type="checkbox" value="6-12" name="age_group[]" <?php if(in_array('6-12',$age_group)){?> checked="checked" <?php } ?>/> 6-12 months</div>
+                    <div class="checkbox"><input type="checkbox" value="1-3" name="age_group[]" <?php if(in_array('1-3',$age_group)){?> checked="checked" <?php } ?>/> 1 to 3 years</div>
+                    <div class="checkbox"><input type="checkbox" value="3-5" name="age_group[]" <?php if(in_array('3-5',$age_group)){?> checked="checked" <?php } ?>/> 3 to 5 years</div>
+                    <div class="checkbox"><input type="checkbox" value="6-11" name="age_group[]" <?php if(in_array('6-11',$age_group)){?> checked="checked" <?php } ?>/> 6 to 11 years</div>
                     <div class="checkbox"><input type="checkbox" value="12+" name="age_group[]" <?php if(in_array('12+',$age_group)){?> checked="checked" <?php } ?>/> 12+ years</div>
                 </div>
             </div>
@@ -98,8 +98,8 @@
                 <input type="text" value="<?php echo isset($number_of_staff) ? $number_of_staff : '' ?>" name="number_of_staff" class="required number">
                 </div>
             </div>
-          
-            
+
+
             <div>
                 <label>Days / Hours</label>
                 <div class="form-field">
@@ -124,7 +124,7 @@
 
                 <input type="hidden" id="pdf-name" name="pdf" value="<?php echo $detail[0]['pdf'];?>">
                 <button class="btn btn-primary" id="pdf_file">Please select pdf file</button>
-                <input type="file" name="pdf_upload" id="pdf_upload" style="display: none;"> 
+                <input type="file" name="pdf_upload" id="pdf_upload" style="display: none;">
                 <div id="output1" class="loader1">
                         <?php if(isset($detail[0]['pdf'])){
                             echo $detail[0]['pdf'];
@@ -137,21 +137,21 @@
             </div>
 
 
-            <?php 
-                
+            <?php
+
                 if(isset($facility)){
                     $photo_url = base_url('images/profile-picture/thumb/'.$facility);
                 }else{
                     $photo_url = site_url("images/plus.png");
-                } 
-            ?>                   
-                    
+                }
+            ?>
+
             <div class="upload-photo">
                 <h2>Upload photo of facility / organization</h2>
                 <input type="hidden" id="pic-name" name="facility_pic" value="<?php echo $facility; ?>">
                 <div id="output2"><img src="<?php echo $photo_url;?>"></div>
                 <label>Browse your computer to select a file to upload</label>
-                <button class="btn btn-default" id="upload">Choose File</button>
+                <a href="#" class="button btn-default" id="upload">Choose File</a>
                 <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader2"></div>
                 <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>
             </div>
@@ -177,7 +177,7 @@
             <label></label>
             <input type="hidden" id="file-name" name="file" value="<?php echo isset($reference_file)?$reference_file:'' ?>">
             <button class="btn btn-primary" id="select_file">Select File</button>
-            <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
+            <input type="file" name="file_upload" id="file_upload" style="display: none;">
             <div id="output" class="loader">
                     <?php if(isset($reference_file))
                         echo $reference_file;
@@ -212,17 +212,17 @@
         $('body').removeAttr("onload");
         //  $("#ref_check1").click(function(){
         //     if($('#ref_check1').is(':checked')){
-        //         $('.refrence_file').show();   
+        //         $('.refrence_file').show();
         //     }
         // });
         // $("#ref_check2").click(function(){
         //     if($("#ref_check2").is(':checked')){
-        //         $('.refrence_file').hide(); 
-        //         $('#upload_ref').val('');       
+        //         $('.refrence_file').hide();
+        //         $('#upload_ref').val('');
         //     }
         // });
         $("#ref_check1").click(function(){
-            $(".refrence_file").show();   
+            $(".refrence_file").show();
         });
         $("#ref_check2").click(function(){
                 $.ajax({
@@ -233,8 +233,8 @@
                         $('#output').html(r);
                      }
                   });
-                     $(".refrence_file").hide(); 
-             $('#file-name').val('');   
+                     $(".refrence_file").hide();
+             $('#file-name').val('');
         });
 });
 </script>
@@ -244,9 +244,9 @@
         e.preventDefault();
         $('#file_upload').trigger('click');
         $(document).on('change', '#file_upload', prepareUpload);
-        
+
     });//CODE BY Kiran
-    
+
     $('#pdf_file').click(function(e){
         e.preventDefault();
         $('#pdf_upload').trigger('click');
@@ -259,11 +259,11 @@
         $('#ImageFile').trigger('click');
         $(document).on('change', '#ImageFile', prepareUpload2);
      })
-    
+
      function prepareUpload(event){
         var loader  = '<img src="<?php echo site_url("images/loader.gif")?>">';
         var link    = '<?php echo site_url("user/uploadfile?files")?>';
-        
+
 
         var files = event.target.files;
         event.stopPropagation(); // Stop stuff happening
@@ -294,13 +294,13 @@
                     if(data.type==1){
                         $('#output').html(data.html);
                         $('.loader').html('');
-                        $('#file-name').val(data.files);    
+                        $('#file-name').val(data.files);
                     }
                     else{
                         $('#output').html(data.files + ' selected');
                         $('#file-name').val(data.files);
                     }
-                    
+
                 }
                 else
                 {
@@ -360,13 +360,13 @@
                     if(data.type==1){
                         $('#output1').html(data.html);
                         $('.loader1').html('');
-                        $('#pdf-name').val(data.files);    
+                        $('#pdf-name').val(data.files);
                     }
                     else{
                         $('#output1').html(data.files + ' selected');
                         $('#pdf-name').val(data.files);
                     }
-                    
+
                 }
                 else
                 {
@@ -386,7 +386,7 @@
     // upload profile picture from here
 
     function prepareUpload2(event){
-        var file; 
+        var file;
         var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
         var link = '<?php echo site_url("ad/upload_pp?files")?>';
         // Grab the files and set them to our variable
@@ -419,13 +419,13 @@
                         if(data.type==1){
                             $('#output2').html(data.html);
                             $('.loader2').html('');
-                            $('#pic-name').val(data.files);    
+                            $('#pic-name').val(data.files);
                         }
                         else{
                             $('#output2').html(data.files + ' selected');
                             $('#pic-name').val(data.files);
                         }
-                        
+
                     }
                     else
                     {
