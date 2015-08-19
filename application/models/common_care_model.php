@@ -41,8 +41,9 @@ class Common_care_model extends CI_Model
         $query = $this->db->query($sql);
         if($query){
              $res=$query->result_array();
+            echo '<pre>';
             print_r($res); exit;
-
+            echo '</pre>';
         }
         else{
             return false;
