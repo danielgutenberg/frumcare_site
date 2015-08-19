@@ -1,5 +1,5 @@
 <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
-<?php 
+<?php
     if($detail){
     	$established        = $detail[0]['established'];
         $temp               = explode(',' ,$detail[0]['willing_to_work']);
@@ -21,13 +21,13 @@
          <?php $this->load->view('frontend/user/dashboard_nav');?>
     </div>
     <div class="dashboard-right float-right">
-    
+
 <form action="<?php echo site_url().'user/update_job_details/'.$care_type;?>" method="post">
     <div class="ad-form-container float-left">
         <div class="top-welcome">
             <h2 class="step3">Edit Organization Details</h2>
         </div>
-        
+
         <!--<div>-->
         <!--    <label>Year established</label>-->
         <!--    <div class="form-field">-->
@@ -58,11 +58,11 @@
                 <div class="checkbox"><input type="checkbox" value="Windows" name="willing_to_work[]" <?php if(in_array('Windows', $temp)){?> checked="checked" <?php }?>> <span>Windows</span></div>
                 <div class="checkbox"><input type="checkbox" value="Laundry" name="willing_to_work[]" <?php if(in_array('Laundry', $temp)){?> checked="checked" <?php }?>> <span>Laundry</span></div>
                 <div class="checkbox"><input type="checkbox" value="Folding" name="willing_to_work[]" <?php if(in_array('Folding', $temp)){?> checked="checked" <?php }?>> <span>Folding</span></div>
-                <div class="checkbox"><input type="checkbox" value="Ironing" name="willing_to_work[]" <?php if(in_array('Ironing', $temp)){?> checked="checked" <?php }?>> <span>Ironing</span></div>                    
-                <div class="checkbox"><input type="checkbox" value="Cleaning and Dusting Furniture" name="willing_to_work[]" <?php if(in_array('Cleaning and Dusting Furniture', $temp)){?> checked="checked" <?php }?>> <span>Cleaning and Dusting Furniture</span></div>                    
-                <div class="checkbox"><input type="checkbox" value="Cleaning Refrigerator/Freezer" name="willing_to_work[]" <?php if(in_array('Cleaning Refrigerator/Freezer', $temp)){?> checked="checked" <?php }?>><span>Cleaning Refrigerator/Freezer</span></div>                    
+                <div class="checkbox"><input type="checkbox" value="Ironing" name="willing_to_work[]" <?php if(in_array('Ironing', $temp)){?> checked="checked" <?php }?>> <span>Ironing</span></div>
+                <div class="checkbox"><input type="checkbox" value="Cleaning and Dusting Furniture" name="willing_to_work[]" <?php if(in_array('Cleaning and Dusting Furniture', $temp)){?> checked="checked" <?php }?>> <span>Cleaning and Dusting Furniture</span></div>
+                <div class="checkbox"><input type="checkbox" value="Cleaning Refrigerator/Freezer" name="willing_to_work[]" <?php if(in_array('Cleaning Refrigerator/Freezer', $temp)){?> checked="checked" <?php }?>><span>Cleaning Refrigerator/Freezer</span></div>
                 <div class="checkbox"><input type="checkbox" value="Cleaning Oven/Stove" name="willing_to_work[]" <?php if(in_array('Cleaning Oven/Stove', $temp)){?> checked="checked" <?php }?>><span>Cleaning Oven/Stove</span></div>
-                <div class="checkbox"><input type="checkbox" value="Pesach Cleaning" name="willing_to_work[]" <?php if(in_array('Pesach Cleaning', $temp)){?> checked="checked" <?php } ?> ><span>Pesach Cleaning</span></div> 
+                <div class="checkbox"><input type="checkbox" value="Pesach Cleaning" name="willing_to_work[]" <?php if(in_array('Pesach Cleaning', $temp)){?> checked="checked" <?php } ?> ><span>Pesach Cleaning</span></div>
                 <div class="checkbox"><input type="checkbox" value="Able to watch children as well" name="willing_to_work[]" <?php if(in_array('Able to watch children as well', $temp)){?> checked="checked" <?php }?>><span>Able to watch children as well</span></div>
             </div>
          </div>
@@ -83,8 +83,8 @@
         </div>
     </div>
 
-        
-        
+
+
         <div class="rate-select">
             <label>Rate</label>
             <div class="form-field">
@@ -99,15 +99,15 @@
                 <option value="55+" <?php echo isset($rate) && $rate == '55+' ? 'selected' : '' ?>>$55+/Hr</option>
             </select>
             </div>
-        </div>    
+        </div>
         <div>
                 <!--<label>Check one or more</label>
             <div class="checkbox"><input type="checkbox" name="rate_type[]" value="1" <?php if(in_array('1', $rate_type)){?> checked="checked" <?php } ?> >Hourly Rate</div>-->
             <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2" <?php if(in_array('2', $rate_type)){?> checked="checked" <?php } ?> >Monthly Rate Available</div>
         </div>
-             
-        
-      
+
+
+
         <div class="ad-form-container float-left">
             <label>Tell us about your organization</label>
             <div class="form-field">
@@ -115,14 +115,14 @@
             </div>
         </div>
 
-          <?php 
-            
+          <?php
+
             if(isset($facility)){
                 $photo_url = base_url('images/profile-picture/thumb/'.$facility);
             }else{
                 $photo_url = site_url("images/plus.png");
             }
-        ?>                   
+        ?>
             <!--<div class="upload-photo">-->
             <!--    <h2>Upload photo of facility / organization</h2>-->
             <!--    <input type="hidden" id="file-name" name="facility_pic" value="<?php echo $facility;?>">-->
@@ -133,7 +133,7 @@
             <!--    <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>-->
             <!--</div>-->
 
-        
+
         <div class="ad-form-container float-left">
             <input type="submit" class="btn btn-success" value="Update"/>
         </div>
@@ -148,69 +148,7 @@
         $('body').removeAttr('onload');
     });
 
-    $('#output,#upload').click(function(e){
-        e.preventDefault();
-        $('#ImageFile').trigger('click');
-    });
 
-    $(function(){
-        var files;
-        var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
-        var link = '<?php echo site_url("ad/upload_pp?files")?>';
 
-        $('#ImageFile').on('change',prepareUpload);
 
-        function prepareUpload(event){
-            files = event.target.files;
-            event.stopPropagation(); // Stop stuff happening
-            event.preventDefault(); // Totally stop stuff happening
-
-            // START A LOADING SPINNER HERE
-
-            // Create a formdata object and add the files
-            var data = new FormData();
-            $.each(files, function(key, value)
-            {
-                data.append(key, value);
-            });
-            $.ajax({
-                url: link,
-                type: 'POST',
-                beforesend: $('.loader').html(loader),
-                data: data,
-                cache: false,
-                dataType: 'json',
-                processData: false, // Don't process the files
-                contentType: false, // Set content type to false as jQuery will tell the server its a query string request
-                success: function(data, textStatus, jqXHR)
-                {
-                    if(typeof data.error === 'undefined')
-                    {
-                        // Success so call function to process the form
-                        if(data.type==1){
-                            $('#output').html(data.html);
-                            $('.loader').html('');
-                            $('#file-name').val(data.files);    
-                        }
-                        else{
-                            $('#output').html(data.files + ' selected');
-                            $('#file-name').val(data.files);
-                        }
-                        
-                    }
-                    else
-                    {
-                        // Handle errors here
-                        console.log('ERRORS: ' + data.error);
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown)
-                {
-                    // Handle errors here
-                    console.log('ERRORS: ' + textStatus);
-                    // STOP LOADING SPINNER
-                }
-            }); 
-        }
-    });
 </script>
