@@ -1,27 +1,29 @@
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>                
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
 <script>
-    $("#locationField").ready(function(){        
+    $("#locationField").ready(function(){
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {});
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
                     var place = autocomplete.getPlace();
                     //console.log(place.geometry.location);
                     var lat = place.geometry.location.lat();
-                    var lng = place.geometry.location.lng();                                 
+                    var lng = place.geometry.location.lng();
                     $("#lat").val(lat);
-                    $("#lng").val(lng);   
+                    $("#lng").val(lng);
                     document.getElementById("error").innerHTML="";
                 });
     });
-     $("#textbox1").ready(function(){        
+     $("#textbox1").ready(function(){
         $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
      });
-     
+
      $(document).ready(function() {
        $('.btn').click(function(event) {
-        event.preventDefault(); 
+
+
+        event.preventDefault();
         if ($('#lat').val() == '') {
             window.scrollTo(0, $("#locationField").offset().top);
             $("#locationField").css('border-color', 'red')
@@ -31,14 +33,14 @@
         }
      });
     })
-</script>  
+</script>
   <script>
   $(function() {
     $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
   });
   </script>
 <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
-<?php 
+<?php
 $user_detail = get_user(check_user());
 if($detail){
 	$looking_to_work = explode(',', $detail[0]['looking_to_work']);
@@ -77,7 +79,7 @@ if($detail){
     $phone = $user_detail['contact_number'];
     $age_group = explode(',',$detail[0]['age_group']);
     $caregiverage_from = $detail[0]['caregiverage_from'];
-    $caregiverage_to = $detail[0]['caregiverage_to']; 
+    $caregiverage_to = $detail[0]['caregiverage_to'];
     $optional_number =explode(',',$detail[0]['optional_number']);
      $rate = $detail[0]['rate'];
     $rate_type = explode(',',$detail[0]['rate_type']);
@@ -100,7 +102,7 @@ if($detail){
         <div class="top-welcome">
             <h2>Edit Job Details</h2>
         </div>
-        
+
         <div>
             <label>Looking For</label>
             <div class="form-field">
@@ -112,17 +114,17 @@ if($detail){
             <label>Location</label>
             <div id="locationField">
                 <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
+                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/>
                 <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
-            </div> 
+            </div>
              <span style="color:red;" id="error"> </span>
         </div>
          <div>
             <label>Neighborhood / Street</label>
             <div>
             <input type="text" name="neighbour" class="required" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>
-            </div>    
-        </div>        
+            </div>
+        </div>
         <div>
             <label>Phone</label>
             <div class="form-field">
@@ -150,7 +152,7 @@ if($detail){
              <div class="form-field">
                     <div class="checkbox"><input type="checkbox" value="0-3" name="age_group[]" <?php if(in_array('0-3',$age_group)){?> checked="checked" <?php } ?>/> 0-3 months</div>
                     <div class="checkbox"><input type="checkbox" value="3-6" name="age_group[]" <?php if(in_array('3-6',$age_group)){?> checked="checked" <?php } ?>/> 3-6 months</div>
-                    <div class="checkbox"><input type="checkbox" value="6-12" name="age_group[]" <?php if(in_array('6-12',$age_group)){?> checked="checked" <?php } ?>/> 6-12 months</div>                    
+                    <div class="checkbox"><input type="checkbox" value="6-12" name="age_group[]" <?php if(in_array('6-12',$age_group)){?> checked="checked" <?php } ?>/> 6-12 months</div>
                     <div class="checkbox"><input type="checkbox" value="1-3" name="age_group[]" <?php if(in_array('1-3',$age_group)){?> checked="checked" <?php } ?>/> 1 to 3 years</div>
                     <div class="checkbox"><input type="checkbox" value="3-5" name="age_group[]" <?php if(in_array('3-5',$age_group)){?> checked="checked" <?php } ?>/> 3 to 5 years</div>
                     <div class="checkbox"><input type="checkbox" value="6-11" name="age_group[]" <?php if(in_array('6-11',$age_group)){?> checked="checked" <?php } ?>/> 6 to 11 years</div>
@@ -161,7 +163,7 @@ if($detail){
             <label>When you need care</label>
             <div class="form-field">
                 <div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]" <?php if(in_array("Occassionally",$temp)){?> checked="checked"<?php }?>>Occassionally</div>
-                <div class="checkbox"><input type="checkbox" value="Regularly" name="availability[]" <?php if(in_array("Regularly",$temp)){?> checked="checked"<?php }?>>Regularly</div>    
+                <div class="checkbox"><input type="checkbox" value="Regularly" name="availability[]" <?php if(in_array("Regularly",$temp)){?> checked="checked"<?php }?>>Regularly</div>
                 <div class="checkbox"><input type="checkbox" value="Asap" name="availability[]" <?php if(in_array("Asap",$temp)){?> checked="checked"<?php }?>/> Asap</div>
                 <div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1" <?php if(in_array("Start Date",$temp)){?> checked="checked"<?php }?>/>Start Date
                 <input  type="text" name="start_date" id="textbox1" value="<?php echo isset($date)?$date:''?>"/></div>
@@ -316,14 +318,14 @@ if($detail){
                 <div class="upload-photo">
                     <input type="hidden" id="file-name" name="photo_of_child" value="<?php if(isset($photo)) echo $photo;?>">
                     <div id="output"><img src="<?php echo $photo_url?>"></div>
-                    <button class="btn btn-default" id="upload">Choose File</button>
+                    <a href="#" class="buttons btn-default" id="upload">Choose File</a>
                     <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
                 </div>
                 <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>
             </div>
 
             <br />
-        
+
             <div>
                 <input type="submit" class="btn btn-success" value="Update"/>
             </div>
@@ -341,10 +343,10 @@ function change_wage(val){
     }
     else if(val=2){
         $('#wage').removeAttr('name');
-        $('#wage').attr('name', 'monthly_rate');    
+        $('#wage').attr('name', 'monthly_rate');
     }else if(val=3){
        $('#wage').removeAttr('name');
-        $('#wage').attr('name', 'room_and_board_rate'); 
+        $('#wage').attr('name', 'room_and_board_rate');
     }
 }
     $(document).ready(function(){
@@ -357,29 +359,16 @@ function change_wage(val){
 
        //  $("#ckbox1").change(function(){
        //      if($('#ckbox1').is(':checked')){
-       //          $("#textbox1").show();   
+       //          $("#textbox1").show();
        //      }else{
-       //          $("#textbox1").hide(); 
-       //          $('#textbox1').val('');       
+       //          $("#textbox1").hide();
+       //          $('#textbox1').val('');
        //      }
        //  });
     });
 
 </script>
 <!-- FILE UPLOAD -->
-<script type="text/javascript">
-    var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
-    var link = '<?php echo site_url("ad/upload_pp?files")?>';
-    $('#upload').click(function(e){
-        e.preventDefault();
-        $('#ImageFile').trigger('click');
-    });
 
-    $('#output').click(function(e){
-        e.preventDefault();
-        $('#ImageFile').trigger('click');
-    });
-    
-</script>
 
 <script type="text/javascript" src="<?php echo site_url("js/fileuploader.js")?>"></script>
