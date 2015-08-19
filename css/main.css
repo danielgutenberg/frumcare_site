@@ -30,7 +30,7 @@
 /*
 Base file and includes
 */
-/* 
+/*
     Created on : Jul 16, 2014, 12:02:49 PM
     Author     : Access Keys
     */
@@ -845,7 +845,7 @@ input[type="date"] {
   min-height: 20px;
   padding-left: 20px;
   margin-top: 10px;
-  margin-bottom: 10px;  
+  margin-bottom: 10px;
 }
 .radio-half{
   font-size: 12px;
@@ -1054,7 +1054,7 @@ textarea.input-lg,  select[multiple].input-lg {
   top: 0;
   right: 15px;
 }
-.btn {
+.buttons,.btn {
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
@@ -4518,13 +4518,13 @@ body {
   width: 65px;
 }
 .icon-job {
-  background-position: -285px -163px; 
-  width: 65px; 
+  background-position: -285px -163px;
+  width: 65px;
   height: 65px;
 }
 .icon-profile {
-  background-position: -376px -163px; 
-  width: 65px; 
+  background-position: -376px -163px;
+  width: 65px;
   height: 65px;
 }
 /*safety-first icons*/
@@ -4980,7 +4980,7 @@ body {
     text-align: center;
     text-shadow: 0 0 2px #ccc;
     /*text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.3);*/
-    text-transform: uppercase;    
+    text-transform: uppercase;
   }
   .banner-sub-title > a:hover {
     text-decoration: underline;
@@ -5022,7 +5022,7 @@ body {
     position: relative;
     width: 32px;
     height:32px;
-    
+
     vertical-align: middle;
   }
   .footer .social-links .flip-link-container:hover .flip-link {
@@ -5597,7 +5597,7 @@ body {
 }
 .right-sidebar .recent-posts li:first-child, .right-sidebar .categories li:first-child,.right-sidebar .archives li:first-child{
     border-top: none;
-} 
+}
 .right-sidebar a:hover{
     text-decoration: none;
 }
