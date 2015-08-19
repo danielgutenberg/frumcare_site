@@ -13,7 +13,7 @@
 			$this->ipaddress = $_SERVER['REMOTE_ADDR'];
 		}
         public function index(){
-            echo 'working'; exit;
+            //echo 'working'; exit;
             $item_per_page = 15;
             $option = "distance";
             $account_category = 2;
