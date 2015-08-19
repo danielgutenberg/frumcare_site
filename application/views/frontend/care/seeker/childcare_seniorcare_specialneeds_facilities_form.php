@@ -3,25 +3,27 @@
 <link href="<?php echo site_url();?>css/jquery-ui.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
 <script>
-   $("#locationField").ready(function(){        
+   $("#locationField").ready(function(){
        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {});
            google.maps.event.addListener(autocomplete, 'place_changed', function() {
                    var place = autocomplete.getPlace();
                    //console.log(place.geometry.location);
                    var lat = place.geometry.location.lat();
-                    var lng = place.geometry.location.lng();                                 
+                    var lng = place.geometry.location.lng();
                    $("#lat").val(lat);
-                   $("#lng").val(lng);  
+                   $("#lng").val(lng);
                    document.getElementById("error").innerHTML="";
                });
    });
-    $("#textbox1").ready(function(){        
+    $("#textbox1").ready(function(){
        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
     });
-    
+
     $(document).ready(function() {
        $('.btn').click(function(event) {
-        event.preventDefault(); 
+
+
+        event.preventDefault();
         if ($('#lat').val() == '') {
             window.scrollTo(0, $("#locationField").offset().top);
             $("#locationField").css('border-color', 'red')
@@ -30,14 +32,14 @@
             $('#personal-details-form').submit()
         }
      });
-    })
+    });
 </script>
 <?php
    if(check_user()) {
    $u = get_user(check_user());
    $fn = ucfirst($u['name']);
    $recorddata= get_account_details();
-   
+
    }
    ?>
 <?php
@@ -140,7 +142,7 @@
             <label>Location</label>
             <div id="locationField">
                <input type="hidden" id="lat" name="lat"/>
-               <input type="hidden" id="lng" name="lng"/> 
+               <input type="hidden" id="lng" name="lng"/>
                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
             </div>
             <span style="color:red;" id="error"> </span>
@@ -150,7 +152,7 @@
             <div>
                <input type="text" name="neighbour" class="required" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
             </div>
-         </div>         
+         </div>
          <div>
             <label>Phone</label>
             <div class="form-field">
@@ -301,8 +303,8 @@
             <div class="upload-photo">
                <input type="hidden" id="file-name" name="facility_pic" value="">
                <div id="output"><img id="uploadedfile" src="<?php echo $photo_url?>"></div>
-               <button class="btn btn-default" id="upload">Choose File</button>
-               <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> 
+               <a href="#" class="buttons btn-default" id="upload">Choose File</a>
+               <input type="file" name="ImageFile" id="ImageFile" style="display: none;">
                <div class="loader"></div>
             </div>
             <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>
@@ -313,15 +315,7 @@
       </div>
    </form>
 </div>
-<!-- FILE UPLOAD -->
-<script type="text/javascript">
-   var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
-   var link = '<?php echo site_url("ad/upload_pp?files")?>';
-   $('#upload,#output').click(function(e){
-       e.preventDefault();
-       $('#ImageFile').trigger('click');
-   });
-</script>
+
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
 <script type="text/javascript" src="<?php echo site_url("js/fileuploader.js")?>"></script>
