@@ -1730,6 +1730,7 @@ class User extends CI_Controller
                  
                         
                     $insert1 = array(
+                        'marital_status' => isset($_POST['marital_status'])?$_POST['marital_status']:'',
                         'location' => isset($_POST['address_location'])?$_POST['address_location']:'',
                         'zip'      => isset($_POST['zip'])?$_POST['zip']:'',
                         'age'      =>  isset($_POST['age'])?$_POST['age']:'',
