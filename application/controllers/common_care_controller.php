@@ -45,7 +45,7 @@
               }
         }
         $users =  $this->common_care_model->sort($per_page,$latitude,$longitude,$option,$account_category,$care_type,$miles);                
-        
+
         $total_rows = count($users);
         $page = ceil($total_rows/$per_page);        
         $pagination	= '';
