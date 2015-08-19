@@ -1,11 +1,11 @@
-<?php 
+<?php
 if(($this->uri->segment(2) != 'new_profile')){?>
 <ol class="progtrckr" data-progtrckr-steps="4">
     <li class="progtrckr-done">Sign up</li>
     <li class="progtrckr-done">Personal Details</li>
     <li class="progtrckr-done">Job Details</li>
     <li class="progtrckr-todo">Start Getting Calls</li>
-</ol> 
+</ol>
 <?php } ?>
 <div class="container">
 <?php if(($this->uri->segment(2) != 'new_profile')){?>
@@ -21,7 +21,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     echo form_hidden('organization_care',$record['organization_care']);
    }} ?>
 <div class="ad-form-container">
-	 <?php if($this->uri->segment(2) != 'new_profile'){?>  
+	 <?php if($this->uri->segment(2) != 'new_profile'){?>
        <div>
             <h1 class="step3">Step 3: Job Details</h1>
         </div>
@@ -37,7 +37,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             </div>
         </div>
         <div>
-            
+
             <label>Number of children willing to care for</label>
             <div class="form-field">
                 <div class="checkbox"><input type="text" value="" name="number_of_children" class="required number"/></div>
@@ -48,12 +48,12 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         <div>
             <label>Ages of children willing to care for</label>
             <div class="form-field">
-                <div class="checkbox"><input type="checkbox" name="age_group[]" value="0-3"> 0-3 months</div>                
+                <div class="checkbox"><input type="checkbox" name="age_group[]" value="0-3"> 0-3 months</div>
                 <div class="checkbox"><input type="checkbox" name="age_group[]" value="3-6"> 3-6 months</div>
                 <div class="checkbox"><input type="checkbox" name="age_group[]" value="6-12"> 6-12 months</div>
                 <div class="checkbox"><input type="checkbox" name="age_group[]" value="1-3"> 1 to 3 years</div>
-                <div class="checkbox"><input type="checkbox" name="age_group[]" value="3-5"> 3 to 5 years</div>                
-                <div class="checkbox"><input type="checkbox" name="age_group[]" value="6-11"> 6 to 11 years</div>                
+                <div class="checkbox"><input type="checkbox" name="age_group[]" value="3-5"> 3 to 5 years</div>
+                <div class="checkbox"><input type="checkbox" name="age_group[]" value="6-11"> 6 to 11 years</div>
                 <div class="checkbox"><input type="checkbox" name="age_group[]" value="13"> 12+ years</div>
             </div>
         </div>
@@ -72,12 +72,12 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         </div>
         <div>
             <div class="form-field">
-                <label>Training</label>            
+                <label>Training</label>
                 <div class="checkbox"><input type="checkbox" value="CPR" name="training[]"> <span>CPR</span></div>
                 <div class="checkbox"><input type="checkbox" value="First Aid" name="training[]"> <span>First Aid</span></div>
                 <div class="checkbox"><input type="checkbox" value="Nanny/ Babysitter Course" name="training[]"> <span>Nanny/ Babysitter Course</span></div>
                 <div class="checkbox"><input type="checkbox" value="Nurse" name="training[]"> <span>Nurse</span></div>
-                <div class="checkbox"><input type="checkbox" value="Other" name="training[]"> <span>Other</span></div>            
+                <div class="checkbox"><input type="checkbox" value="Other" name="training[]"> <span>Other</span></div>
             </div>
         </div>
         <div class="rate-select">
@@ -92,7 +92,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                     <option value="35-45">$35-$45 / Hr</option>
                     <option value="45-55">$45-$55 / Hr</option>
                     <option value="56">$55+ / Hr</option>
-                </select>               
+                </select>
             </div>
         </div>
         <div>
@@ -110,10 +110,10 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Morning"> <span>Morning</span></div>
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Afternoon"> <span>Afternoon</span></div>
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Evening"> <span>Evening</span></div>
-                <div class="checkbox"><input type="checkbox" name="availability[]" value="Weekends fri/sun"> <span>Weekends fri / sun</span></div>                
-                <div class="checkbox"><input type="checkbox" name="availability[]" value="Shabbos"> <span>Shabbos</span></div>                
-                <div class="checkbox"><input type="checkbox" name="availability[]" value="Night Nurse"> <span>Night Nurse</span></div>                
-                <div class="checkbox"><input type="checkbox" name="availability[]" value="Vacation Sitter"> <span>Vacation Sitter</span></div>                
+                <div class="checkbox"><input type="checkbox" name="availability[]" value="Weekends fri/sun"> <span>Weekends fri / sun</span></div>
+                <div class="checkbox"><input type="checkbox" name="availability[]" value="Shabbos"> <span>Shabbos</span></div>
+                <div class="checkbox"><input type="checkbox" name="availability[]" value="Night Nurse"> <span>Night Nurse</span></div>
+                <div class="checkbox"><input type="checkbox" name="availability[]" value="Vacation Sitter"> <span>Vacation Sitter</span></div>
 	       </div>
         </div>
         <div>
@@ -134,7 +134,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <label></label>
             <input type="hidden" id="file-name" name="file">
             <button class="btn btn-primary" id="select_file">Select File</button>
-            <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
+            <input type="file" name="file_upload" id="file_upload" style="display: none;">
             <div id="output" class="loader"></div>
         </div>
 
@@ -193,17 +193,17 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 </form>
 </div>
 <script>
- $("#textbox1").ready(function(){        
+ $("#textbox1").ready(function(){
         $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
      });
-$(document).ready(function(){    
+$(document).ready(function(){
         $('.chargetype').change(function(){
             if($(this).val() == 'hourly_rate')
                 $('.rate').attr('name','hourly_rate');
 
             if($(this).val() == 'monthly_rate')
                 $('.rate').attr('name','monthly_rate');
-            
+
         });
 
         $('#ref_check1').click(function(){
