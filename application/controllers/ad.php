@@ -30,9 +30,9 @@ class Ad extends CI_Controller
     }
 
 
-    // first step 
+    // first step
     function registeruser(){
-            $exp                = $this->input->post('care_type',TRUE);  
+            $exp                = $this->input->post('care_type',TRUE);
             $temp               = explode('_',$exp);
             $care_type          = $temp[0];
             $account_type       = $temp[1];
@@ -40,10 +40,10 @@ class Ad extends CI_Controller
             $original_password  = $this->input->post('password',TRUE);
             $fname              = $this->input->post('name',TRUE);
             $email              = $this->input->post('email',TRUE);
-            
+
             $uri = $this->seoUrl($fname);
-            
-            
+
+
             $data = array(
                     'uri'                   => $uri,
                     'password'              => sha1($password),
@@ -52,7 +52,7 @@ class Ad extends CI_Controller
                     'email'                 => $email,
                     'email_hash'            => sha1($email),
                     'created_on'            => strtotime('now'),
-                  
+
             );
             // save to database
             $this->db->insert('tbl_user', $data);
@@ -63,7 +63,7 @@ class Ad extends CI_Controller
                             'care_type'         => $care_type,
                             'created_time'      => strtotime('now'),
                             'organization_care' => isset($_POST['organization_care'])?$_POST['organization_care'] :0,
-                            'profile_status'    => 0,    
+                            'profile_status'    => 0,
                         );
 
             //print_r($new_data);exit;
@@ -80,12 +80,12 @@ class Ad extends CI_Controller
 
                 // send email confirmation from here
                 $this->send_confirmation($email,$fname);
-                  // send confirmation email 
+                  // send confirmation email
                         $useradminemails = $this->common_model->getUserAdmiEmails();
                         if(is_array($useradminemails)){
-                            foreach($useradminemails as $useradminemail):   
+                            foreach($useradminemails as $useradminemail):
                                 $useradmin[] =  $useradminemail['email1'];
-                            endforeach;    
+                            endforeach;
                         }
                         $subject = "User Registered, action required";
                         $message = $this->load->view('frontend/email/useradminapprovalemail',array('name'=>$fname,'email'=>$email,'hash'=>sha1($q),'account_type'=>$_POST['account_category'],'id'=>$q),true);
@@ -109,7 +109,7 @@ class Ad extends CI_Controller
                 $this->session->sess_expiration = '14400';
                 $this->session->set_userdata($sess);
 
-                // send to next step 
+                // send to next step
                     if($this->session->userdata('account_category') == 1){
                         $category = 'caregiver';
                     }else{
@@ -157,7 +157,7 @@ class Ad extends CI_Controller
 
 
         if($this->uri->segment(3) == 'organization')
-            $view = 'frontend/care/giver/organization';            
+            $view = 'frontend/care/giver/organization';
 
 
 
@@ -175,26 +175,26 @@ class Ad extends CI_Controller
     }
 
 
-    public function registeruserdetails(){               
+    public function registeruserdetails(){
         if($_POST) {
              $p = $_POST;
              $language = '';
              if(isset($p['language'])) {
                  $language = join(',', $p['language']);
              }
-             
+
              $contact_number = isset($p['contact_number'])? $p['contact_number'] : '';
              $numberwithcountrycode = '+1-'.$contact_number;
 
-            
+
              $insert = array(
-                 'marital_status'           => isset($p['marital_status'])? $p['marital_status'] : '',                
+                 'marital_status'           => isset($p['marital_status'])? $p['marital_status'] : '',
                  'smoker'                   => isset($p['smoker']) ? $p['smoker'] : 2,
                  'religious_observance'     => isset($p['religious_observance']) ? $p['religious_observance'] : '',
                  'shul_membership'          => isset($p['shul_membership']) ? $p['shul_membership'] : '',
                  'subjects'                 => isset($p['major_subject'])?$p['major_subject']:'',
                  'language'                 => $language
-                 
+
              );
 
              $insert_new = array(
@@ -202,9 +202,9 @@ class Ad extends CI_Controller
                 'caregiver_religious_observance'     => isset($p['religious_observance']) ? $p['religious_observance'] : '',
                 'caregiver_language' => $language,
                 'gender'                => isset($p['gender'])? $p['gender'] : '',
-                'contact_number'        => $numberwithcountrycode, 
+                'contact_number'        => $numberwithcountrycode,
                 'profile_picture'       => isset($p['profile_picture']) ? $p['profile_picture'] : '',
-                'city'                  => isset($p['city']) ? $p['city'] : '',                
+                'city'                  => isset($p['city']) ? $p['city'] : '',
                 'zip'                   => isset($p['zip'])?$p['zip']:'',
                 'location'              => isset($p['location'])?$p['location']:'',
                 'lat'                   => isset($p['lat'])?$p['lat']:'',
@@ -213,11 +213,16 @@ class Ad extends CI_Controller
                 'name_of_owner'         => isset($p['name_of_owner'])?$p['name_of_owner']:'',
                 'profile_picture_owner' => isset($p['profile_picture_owner'])?$p['profile_picture_owner']:'',
                 'smoke'                 => isset($p['smoker']) ? $p['smoker'] : 2,
-                'hasAd'                 => 1,   
+                'hasAd'                 => 1,
                 'familartojewish'      => isset($p['familartojewish']) ? $p['familartojewish'] : 0,
                 'education_level'          => isset($p['education_level']) ? $p['education_level'] : '',
                 'educational_institution'  => isset($p['educational_institution']) ? $p['educational_institution'] : '',
              );
+
+
+            if(isset($p['profile_picture'])){
+                $insert['photo_status']=0;
+            }
             /*
                  $response =  $this->getLongitudeAndLatitude($p['location']);
                     if($response){
@@ -228,24 +233,27 @@ class Ad extends CI_Controller
                         $lat   = 0;
                         $long   = 0;
                     }
-                   
+
                    $geodata = array(
                         'lat' => $lat,
                         'lng' => $long,
                         'country' => $country,
                     );
              }*/
-              
+
+
+
+
              if(check_user()) {
                //$q = $this->common_model->update('tbl_user', $geodata, array('id' => check_user()));
                $q = $this->common_model->update('tbl_user', $insert_new, array('id' => check_user()));
                $q =  $this->common_model->update('tbl_userprofile', $insert, array('user_id' => check_user()));
-             } 
+             }
 
 
              if($p['account_category'] == 1)
                     $category = "caregiver";
-                else 
+                else
                     $category = "careseeker";
 
             if($p['account_type'] == 1)
@@ -254,8 +262,13 @@ class Ad extends CI_Controller
                     $type = "organization";
 
                 if($q){
+
+                    if(isset($p['profile_picture'])){
+
+                        $this->notifyNewImage();
+                    }
                     redirect('ad/add_step3/'.$category.'/'.$type.'/'.$this->session->userdata('log_id').'/job-details/'.$this->session->userdata('log_id'));
-                }              
+                }
         }
     }
 
@@ -312,7 +325,7 @@ class Ad extends CI_Controller
             $data['main_content'] = 'frontend/care/giver/cleaningcompany_form';
         }
         if($id == 16){
-            $data['main_content'] = 'frontend/care/giver/seniorcarecenter_form';  
+            $data['main_content'] = 'frontend/care/giver/seniorcarecenter_form';
         }
         if($id == 17)
             $data['main_content'] = 'frontend/care/seeker/babysitter_form';
@@ -391,7 +404,7 @@ class Ad extends CI_Controller
             }else{
                 $facility_pic = '';
             }
-                
+
             $insert = array(
                 'subjects'              => $subjects,
                 'language'              => $language,
@@ -419,7 +432,7 @@ class Ad extends CI_Controller
                 'cook' => isset($p['cook']) ? 1 : 0,
                 'basic_housework' => isset($p['basic_housework']) ? 1 : 0,
                 'sick_child_care' => isset($p['sick_child_care']) ? 1 : 0,
-                'homework_help' => isset($p['homework_help']) ? 1 : 0,   
+                'homework_help' => isset($p['homework_help']) ? 1 : 0,
                 'on_short_notice' => isset($p['on_short_notice']) ? 1 : 0,
                 'clean' => isset($p['clean']) ? 1 : 0,
                 'wash' => isset($p['wash']) ? 1 : 0,
@@ -504,7 +517,7 @@ class Ad extends CI_Controller
                 'cook' => isset($p['cook']) ? 1 : 0,
                 'basic_housework' => isset($p['basic_housework']) ? 1 : 0,
                 'sick_child_care' => isset($p['sick_child_care']) ? 1 : 0,
-                'homework_help' => isset($p['homework_help']) ? 1 : 0,   
+                'homework_help' => isset($p['homework_help']) ? 1 : 0,
                 'on_short_notice' => isset($p['on_short_notice']) ? 1 : 0,
                 'wash' => isset($p['wash']) ? 1 : 0,
                 'iron' => isset($p['iron']) ? 1 : 0,
@@ -516,7 +529,7 @@ class Ad extends CI_Controller
                 'contact_name'  => isset($p['name']) ? $p['name'] : ''
 
             );
-            
+
             $insert_new = array(
             'hasAd'                 => 1,
             );
@@ -537,7 +550,7 @@ class Ad extends CI_Controller
             }
             else{
                 $this->session->set_flashdata('info', 'Error: Ad could not be posted at this moment');
-                redirect('user/dashboard');    
+                redirect('user/dashboard');
             }
         }
     }
@@ -546,11 +559,11 @@ class Ad extends CI_Controller
         $user_id = check_user();
         $user = get_user($user_id);
         $sendto = $user['email'];
-        
+
         $a = get_account_details();
         $id = $a->care_type;
         $details = $this->user_model->getUserDetailsById($user_id,$id);
-        
+
         $msg = $this->load->view('emails/adPlaced', array('name' => $details['name']), true);
         $param = array(
             'subject'     => 'Ad Placed Successfully',
@@ -564,18 +577,65 @@ class Ad extends CI_Controller
         sendemail($param);
     }
 
+
+    public function notifyNewImage(){
+
+        $user_id = check_user();
+        $user = get_user($user_id);
+        $sendto = $user['email'];
+
+        $a = get_account_details();
+        $id = $a->care_type;
+        $details = $this->user_model->getUserDetailsById($user_id,$id);
+
+       $msg='<strong>Hi Admin,</strong>
+<br />
+    <div style="margin:0; padding:0;">
+        <p style="font-family:Arial, Helvetica, sans-serif; font-size:13px; margin-bottom:20px;"> New Image has been added in an ad on FrumCare.com!<p>
+            <div style="font-family:Arial, Helvetica, sans-serif; font-size:13px; margin-bottom:5px;">Please Login to admin panel to verify</div>
+    </div>
+<br />
+Thanks,
+<br />
+FrumCare.com
+<br />
+
+ <br />
+ The email is auto generated by frumcare.com website.
+
+
+
+
+
+';
+
+        $param = array(
+            'subject'     => 'Image Added to an Ad',
+            'from'        => '',
+            'from_name'   => SITE_NAME,
+            'replyto'     => '',
+            'replytoname' => '',
+            //'sendto'      => SITE_EMAIL,
+            'sendto'      => 'cpramod2012@gmail.com',
+            'message'     => $msg
+        );
+        sendemail($param);
+    }
+
+
+
     public function approveAd($id)
     {
         $user_id = $this->uri->segment(3);
         $id = $this->uri->segment(4);
         $this->db->where(array('user_id' => $user_id, 'care_type' => $id));
         $this->db->update('tbl_userprofile', array('profile_status'=>1));
-        
+
         $user = get_user($user_id);
         $sendto = $user['email'];
-        
+
         $details = $this->user_model->getUserDetailsById($user_id,$id);
-        
+
         $msg = $this->load->view('emails/adApproved', array('name' => $details['name']), true);
         $param = array(
             'subject'     => 'Ad Approved',
@@ -596,7 +656,7 @@ class Ad extends CI_Controller
 
     public function sendSearchAlert($details, $type)
     {
-        
+
         $alerts = $this->user_model->getSearchAlerts($details['lat'], $details['lng'], $type);
         foreach ($alerts as $alert) {
             if ($alert['distance'] < $alert['dist']) {
@@ -608,7 +668,7 @@ class Ad extends CI_Controller
             if ($alert['year_experience'] > 0 and $alert['year_experience'] > $details['experience']) {
                 break 1;
             }
-            
+
             $id = $alert['user_id'];
             $email = $this->user_model->getUserName($id)['email'];
             $data['main_content']   = 'frontend/caregivers/details';
@@ -623,9 +683,9 @@ class Ad extends CI_Controller
             $data['care_type']      = $this->caretype_model->getAllCareType();
             $data['refrences']      = $this->refrence_model->getLatestRefrences($details['id']);
             $data['care_id']        = $details['id'];
-            
+
             $msg = $this->load->view('frontend/email/searchAlert', $data, true);
-            
+
             $param = array(
                 'subject'     => 'A new profile has been added in Frumcare.com that matches your search',
                 'from'        => SITE_EMAIL,
@@ -638,7 +698,7 @@ class Ad extends CI_Controller
             sendemail($param);
         }
     }
-    
+
     public function approveAds()
     {
         $user_id=check_user();
@@ -656,17 +716,17 @@ class Ad extends CI_Controller
 
         /********************* get user profile of the current user ******************/
 
-        $emails = $this->common_model->getAdAdminEmails();                    
-        $receiveremail = '';                    
+        $emails = $this->common_model->getAdAdminEmails();
+        $receiveremail = '';
         foreach($emails as $e1){
-            $receiveremail .= $e1['email1'].',';                        
+            $receiveremail .= $e1['email1'].',';
         }
         $receiveremail = substr_replace($receiveremail ,"",-1);
-        
+
         $details      = $this->user_model->getUserDetailsById($user_id,$id);
         $details['profile_id'] = $q;
         $type = Caretype_model::getCareTypeById($details['care_type']);
-        
+
         $data['main_content']   = 'frontend/caregivers/details';
         $data['recordData']     = $details;
         $data['title']          = 'Caregivers Details';
@@ -679,9 +739,9 @@ class Ad extends CI_Controller
         $data['care_type']      = $this->caretype_model->getAllCareType();
         $data['refrences']      = $this->refrence_model->getLatestRefrences($details['id']);
         $data['care_id'] = $details['id'];
-        
+
         $msg = $this->load->view('frontend/email/profileapproval', $data, true);
-        
+
         $param = array(
             'subject'     => 'A new profile has been added in Frumcare.com, approval required',
             'from'        => SITE_EMAIL,
@@ -695,15 +755,15 @@ class Ad extends CI_Controller
 
     }
 
-  
+
     // function add_careseeker_step1()
     // {
     //     if($_POST) {
     //         $p = $_POST;
     //         $uri = $this->common_model->create_slug($p['first_name'],false,$p['last_name']);
     //         $exp = explode('_', $p['care_type']);
-    //         $care_type = $exp[0]; 
-    //         $account_type = $exp[1]; 
+    //         $care_type = $exp[0];
+    //         $account_type = $exp[1];
 
     //         $insert = array(
     //             'first_name'        => $p['first_name'],
@@ -717,7 +777,7 @@ class Ad extends CI_Controller
     //             'password'          => sha1($p['password']),
     //             'original_password' => $p['password']
     //         );
-            
+
     //         if(check_user()) {
     //             $q = $this->common_model->update('tbl_user', $insert, array('id' => check_user()), true);
     //         } else {
@@ -741,14 +801,14 @@ class Ad extends CI_Controller
     //             $this->session->sess_expiration = '14400';
     //             $this->session->set_userdata($sess);
     //         }
-            
+
     //         if(check_user()) {
     //             $q = $this->common_model->update('tbl_user', $insert, array('id' => check_user()));
-    //         } 
+    //         }
 
     //         if($q){
     //             redirect('ad/careseeker/job-details-'.$this->session->userdata('log_id'));
-    //         }    
+    //         }
     //     }
     // }
 
@@ -769,7 +829,7 @@ class Ad extends CI_Controller
                return $data['main_content'] = 'frontend/care/giver/cleaningcompany_form';
             }
             if($id == 16){
-              return  $data['main_content'] = 'frontend/care/giver/seniorcarecenter_form';  
+              return  $data['main_content'] = 'frontend/care/giver/seniorcarecenter_form';
             }
 
             if($id == 17)
@@ -843,6 +903,11 @@ class Ad extends CI_Controller
                 $rate_type = join(',',$p['rate_type']);
             }
 
+
+
+
+
+
             $insert = array(
                 'subjects'              => $subjects,
                 'language'              => $language,
@@ -869,7 +934,7 @@ class Ad extends CI_Controller
                 'cook' => isset($p['cook']) ? 1 : 0,
                 'basic_housework' => isset($p['basic_housework']) ? 1 : 0,
                 'sick_child_care' => isset($p['sick_child_care']) ? 1 : 0,
-                'homework_help' => isset($p['homework_help']) ? 1 : 0,   
+                'homework_help' => isset($p['homework_help']) ? 1 : 0,
                 'on_short_notice' => isset($p['on_short_notice']) ? 1 : 0,
                 'clean' => isset($p['clean']) ? 1 : 0,
                 'wash' => isset($p['wash']) ? 1 : 0,
@@ -952,7 +1017,7 @@ class Ad extends CI_Controller
                 'cook' => isset($p['cook']) ? 1 : 0,
                 'basic_housework' => isset($p['basic_housework']) ? 1 : 0,
                 'sick_child_care' => isset($p['sick_child_care']) ? 1 : 0,
-                'homework_help' => isset($p['homework_help']) ? 1 : 0,   
+                'homework_help' => isset($p['homework_help']) ? 1 : 0,
                 'on_short_notice' => isset($p['on_short_notice']) ? 1 : 0,
                 'wash' => isset($p['wash']) ? 1 : 0,
                 'iron' => isset($p['iron']) ? 1 : 0,
@@ -965,6 +1030,16 @@ class Ad extends CI_Controller
                 'rate_type'   => isset($rate_type)?$rate_type:'',
                 'contact_name' => isset($p['name']) ? $p['name'] : '',
             );
+
+
+            if(isset($p['photo_of_child'])){
+
+                $insert['newphoto']=1;
+                $insert['photo']=1;
+                $insert['photo_status']=0;
+
+            }
+
             $insert_new = array(
                             'location' => isset($p['location'])? $p['location'] : '',
                             'contact_number' => isset($p['contact_number'])? $p['contact_number'] : '',
@@ -994,7 +1069,7 @@ class Ad extends CI_Controller
                     $lat   = 0;
                     $long   = 0;
                 }
-               
+
                $geodata = array(
                     'lat' => $lat,
                     'lng' => $long,
@@ -1012,15 +1087,23 @@ class Ad extends CI_Controller
                $q = $this->common_model->update('tbl_user', $insert_new, array('id' => check_user())); //by kiran
             }
             if($q){
+
+                if(isset($p['photo_of_child'])){
+
+                    $this->notifyNewImage();
+                }
+
                 $this->notifyUser();
                 $this->approveAds();
+
+
 
                 $this->session->set_flashdata('success', 'Ad posted successfully. Your ad will be placed on the site after being approved by our team.');
                 redirect('user/dashboard');
             }
             else{
                 $this->session->set_flashdata('fail', 'Error: Ad could not be posted at this moment');
-                redirect('user/dashboard');    
+                redirect('user/dashboard');
             }
         }
     }
@@ -1045,7 +1128,7 @@ class Ad extends CI_Controller
             $data        = $this->load->view('frontend/care/care_options',array('care_type'=>$care_type),true);
             echo json_encode($data);
             exit();
-            
+
         }
     }
 
@@ -1058,7 +1141,7 @@ class Ad extends CI_Controller
       }else{
         return false;
       }
-        
+
     }
 
     public function approve(){
@@ -1099,7 +1182,7 @@ class Ad extends CI_Controller
         else
            die('404 error <br> Page not found');
         $data['title'] = 'Job Organizations';
-        $this->load->view(FRONTEND_TEMPLATE,$data); 
-        
+        $this->load->view(FRONTEND_TEMPLATE,$data);
+
     }
 }
