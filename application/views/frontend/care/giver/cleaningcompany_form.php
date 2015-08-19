@@ -1,10 +1,10 @@
-<?php 
-if(($this->uri->segment(2) != 'new_profile')){?> 
+<?php
+if(($this->uri->segment(2) != 'new_profile')){?>
 <ol class="progtrckr" data-progtrckr-steps="3">
     <li class="progtrckr-done">Sign up</li>
     <li class="progtrckr-done">Organization Info</li>
-    <li class="progtrckr-done">Organization Details</li>    
-</ol> 
+    <li class="progtrckr-done">Organization Details</li>
+</ol>
 
 <?php } ?>
 
@@ -21,7 +21,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         echo form_hidden('organization_care',$record['organization_care']);
     }} ?>
 <div class="ad-form-container float-left">
-     <?php if($this->uri->segment(2) != 'new_profile'){?>  
+     <?php if($this->uri->segment(2) != 'new_profile'){?>
      <div>
         <h1 class="step3">Step 3: Organization Details</h1>
     </div>
@@ -37,23 +37,23 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     <!--        </select>-->
     <!--    </div>-->
     <!--</div>-->
-    
+
     <?php if($this->uri->segment(2) == 'new_profile') { ?>
              <h1>Organization Info</h1>
              <div>
         <label>Location</label>
         <div id="locationField">
             <input type="hidden" id="lat" name="lat"/>
-            <input type="hidden" id="lng" name="lng"/> 
+            <input type="hidden" id="lng" name="lng"/>
             <input type="text" name="location" class="required" id="autocomplete" required/>
-        </div>    
+        </div>
     </div>
 
     <div>
         <label>Neighborhood / Street</label>
         <div>
             <input type="text" name="neighbour" class="required" value=""/>
-        </div>    
+        </div>
     </div>
 
     <!--<div>-->
@@ -76,7 +76,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     </div>
 
 
-    <div> 
+    <div>
         <label>Age of owner / operator</label>
         <div class="form-field">
         <input type="text" name="age" class="required number" value="<?php echo isset($age) ? $age : '' ?>"/>
@@ -91,7 +91,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         </div>
     </div>
 
-    <div> 
+    <div>
         <label>Level of religious observance</label>
         <div class="form-field">
         <select name="religious_observance">
@@ -103,10 +103,10 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         </select>
         </div>
     </div>
-    
-    <?php   $this->load->view('frontend/care/photo_upload_owner');  ?> 
+
+    <?php   $this->load->view('frontend/care/photo_upload_owner');  ?>
     <h1>Organization Details</h1><?php }?>
-    
+
     <div>
         <label>We clean</label>
         <div class="form-field">
@@ -125,13 +125,13 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <div class="checkbox"><input type="checkbox" value="Windows" name="willing_to_work[]"> <span>Windows</span></div>
             <div class="checkbox"><input type="checkbox" value="Laundry" name="willing_to_work[]"> <span>Laundry</span></div>
             <div class="checkbox"><input type="checkbox" value="Folding" name="willing_to_work[]"> <span>Folding</span></div>
-            <div class="checkbox"><input type="checkbox" value="Ironing" name="willing_to_work[]"> <span>Ironing</span></div>                    
-            <div class="checkbox"><input type="checkbox" value="Cleaning and Dusting Furniture" name="willing_to_work[]"> <span>Cleaning and Dusting Furniture</span></div>                    
-            <div class="checkbox"><input type="checkbox" value="Cleaning Refrigerator/Freezer" name="willing_to_work[]"><span>Cleaning Refrigerator / Freezer</span></div>                    
-            <div class="checkbox"><input type="checkbox" value="Cleaning Oven/Stove" name="willing_to_work[]"><span>Cleaning Oven / Stove</span></div>                    
+            <div class="checkbox"><input type="checkbox" value="Ironing" name="willing_to_work[]"> <span>Ironing</span></div>
+            <div class="checkbox"><input type="checkbox" value="Cleaning and Dusting Furniture" name="willing_to_work[]"> <span>Cleaning and Dusting Furniture</span></div>
+            <div class="checkbox"><input type="checkbox" value="Cleaning Refrigerator/Freezer" name="willing_to_work[]"><span>Cleaning Refrigerator / Freezer</span></div>
+            <div class="checkbox"><input type="checkbox" value="Cleaning Oven/Stove" name="willing_to_work[]"><span>Cleaning Oven / Stove</span></div>
             <div class="checkbox"><input type="checkbox" value="Pesach Cleaning" name="willing_to_work[]"><span>Pesach Cleaning</span></div>
-            <div class="checkbox"><input type="checkbox" value="Able to watch children as well" name="willing_to_work[]"><span>Able to watch children as well</span></div>                    
-        </div>            
+            <div class="checkbox"><input type="checkbox" value="Able to watch children as well" name="willing_to_work[]"><span>Able to watch children as well</span></div>
+        </div>
     </div>
     <div>
         <label>Days / Hours</label>
@@ -167,7 +167,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         <!--<label>Check one or more</label>
         <div class="checkbox"><input type="checkbox" name="rate_type[]" value="1">Hourly Rate</div>-->
         <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
-    </div>  
+    </div>
     <div>
         <!--	<div>-->
         <!--    <label>References</label>-->
@@ -188,8 +188,8 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
         </div>
     </div>
-    <?php   $photo_url = site_url("images/plus.png");  ?>                   
-                    
+    <?php   $photo_url = site_url("images/plus.png");  ?>
+
             <!--<div class="upload-photo">-->
             <!--    <h2>Upload photo of facility / organization</h2>-->
             <!--    <input type="hidden" id="file-name" name="profile_picture" value="">-->
@@ -211,7 +211,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         e.preventDefault();
         $('#file_upload,#output').trigger('click');
         $(document).on('change', '#file_upload', prepareUpload);
-        
+
     });
 
      function prepareUpload(event){
@@ -247,13 +247,13 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                     if(data.type==1){
                         $('#output').html(data.html);
                         $('.loader').html('');
-                        $('#file-name').val(data.files);    
+                        $('#file-name').val(data.files);
                     }
                     else{
                         $('#output').html(data.files + ' selected');
                         $('#file-name').val(data.files);
                     }
-                    
+
                 }
                 else
                 {
