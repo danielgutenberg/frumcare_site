@@ -348,7 +348,7 @@
 		<div class="clearfix"></div>
         <?php
 
-        exit;
+
 		} //end of foreach
 	} //end of if
     else{
