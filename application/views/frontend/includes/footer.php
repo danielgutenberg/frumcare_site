@@ -219,7 +219,7 @@ $(function()
 
     $('#ImageFile').on('change',prepareUpload1);
 
-    $('#ImageFile1').on('change',prepareUpload1);
+    $('#ImageFile1').on('change',prepareUpload2);
     //$('form').on('submit', uploadFiles);
 
     // Grab the files and set them to our variable
@@ -294,6 +294,77 @@ $(function()
             }
         });
     }
+
+
+    ////////////////// second image upload ////////////////////////////////
+
+
+    // Grab the files and set them to our variable
+    function prepareUpload2(event){
+
+        var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
+
+        var link = '<?php echo site_url("ad/upload_pp?files")?>';
+        files = event.target.files;
+        event.stopPropagation(); // Stop stuff happening
+        event.preventDefault(); // Totally stop stuff happening
+
+        // START A LOADING SPINNER HERE
+
+        // Create a formdata object and add the files
+        var data = new FormData();
+        $.each(files, function(key, value)
+        {
+            data.append(key, value);
+        });
+
+        $.ajax({
+            url: link,
+            type: 'POST',
+            beforesend: $('.loader1').html(loader),
+            data: data,
+            cache: false,
+            dataType: 'json',
+            processData: false, // Don't process the files
+            contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+            success: function(data, textStatus, jqXHR)
+            {
+                if(typeof data.error === 'undefined')
+                {
+                    // Success so call function to process the form
+                    if(data.type==1){
+
+                        $('#output1').html(data.html);
+                        $('.loader1').html('');
+                        $('#file-name1').val(data.files);
+                        $('#upload1').css({'display':'none'});
+                        $('<a class="buttons btn-default" href="#" id="remove" onclick="return removePics();" style="margin:10px 10px;">Remove File</a>').insertAfter('#output1');
+
+                        //$this->session->set_userdata('newupload',1);
+
+                    }
+                    else{
+                        $('#output').html(data.files + ' selected');
+                        $('#file-name').val(data.files);
+                    }
+
+
+                }
+                else
+                {
+                    // Handle errors here
+                    console.log('ERRORS: ' + data.error);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown)
+            {
+                // Handle errors here
+                console.log('ERRORS: ' + textStatus);
+                // STOP LOADING SPINNER
+            }
+        });
+    }
+
 
 });
 
