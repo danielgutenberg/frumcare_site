@@ -4,13 +4,16 @@
 	class SearchAlert extends CI_Controller{
 		public function __construct(){
 			parent:: __construct();
+            $this->load->model('admin/searchalert_m','searchalert_m',true);
 		}
 
 		public function index(){
-
+            $records=$this->searchalert_m->get_all();
+            //print_r($records); exit;
 			$data = array(
+                'record'=>$records,
 				'main_content' => 'admin/searchalert/index',
-				'title'		   => 'SearchAlert'	
+				'title'		   => 'SearchAlert'
 			);
 
 			$this->load->view(BACKEND_TEMPLATE, $data);
