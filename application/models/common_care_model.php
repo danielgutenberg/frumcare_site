@@ -41,11 +41,8 @@ class Common_care_model extends CI_Model
         $sql.= " order by $option $order_type";
         $query = $this->db->query($sql);
         if($query){
-             $res=$query->result_array();
-            echo '<pre>';
-            print_r($res);
-            echo '</pre>';
-            exit;
+            return $res=$query->result_array();
+
         }
         else{
             return false;
