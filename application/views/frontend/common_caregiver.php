@@ -271,7 +271,10 @@ if($pages > 1){
 	<div class="clearfix margin-bot"></div>
 	<div id="list_container" class="">
 	<?php //print_rr($userdatas);?>
-    <?php $this->load->view('frontend/common_profile_list', array('userdatas'=>$userdatas,'userlogs'=>$userlogs));?>
+    <?php $this->load->view('frontend/common_profile_list', array('userdatas'=>$userdatas,'userlogs'=>$userlogs));
+    exit;
+
+    ?>
 	</div>
 	<div class="navigations"><?php echo $pagination; ?></div>
 	</div>
