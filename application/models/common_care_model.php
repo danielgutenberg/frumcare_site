@@ -2,8 +2,7 @@
 class Common_care_model extends CI_Model
 {
       public function sort($per_page,$latitude,$longitude,$option,$account_category,$care_type,$distance){
-          echo 'working'; exit;
-        if(empty($latitude) && empty($latitude)){
+         if(empty($latitude) && empty($latitude)){
             $ip = $_SERVER['REMOTE_ADDR'];
             $ipdata = $this->getIPData($ip);
             if(is_array($ipdata)){
@@ -42,8 +41,8 @@ class Common_care_model extends CI_Model
         $sql.= " order by $option $order_type";
         $query = $this->db->query($sql);
         if($query){
-            return $res=$query->result_array();
-
+             $res=$query->result_array();
+            print_r($res); exit;
         }
         else{
             return false;
