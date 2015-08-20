@@ -50,8 +50,8 @@
 
             $userdata       = $this->common_care_model->sort($item_per_page,$latitude,$longitude,$option,$account_category,$care_type,$distance);
             $get_total_rows = count($userdata);
-            $user=array_slice($userdata, 0 ,15);
-            print_r($user); exit;
+            //$user=array_slice($userdata, 0 ,15);
+            //print_r($user); exit;
             $data = array(
               				'main_content' 	    => 'frontend/common_caregiver',
               				'title'			    => $title,
