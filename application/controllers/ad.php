@@ -906,7 +906,9 @@ FrumCare.com
 
 
 
-
+            if(isset($p['photo_of_child'])){
+                $p['profile_picture']=$p['photo_of_child'];
+            }
 
 
             $insert = array(
@@ -1052,6 +1054,7 @@ FrumCare.com
                             'caregiver_religious_observance' => isset($p['religious_observance']) ? $p['religious_observance'] : '',
                             'smoke' => isset($p['smoker']) ? $p['smoker'] : 2,
                             'hasAd'    => 1,
+                            'profile_picture'=>$p['profile_picture']
                             );
             if(isset($p['name'])){
                 $uri = $this->common_model->create_slug($p['name']);
