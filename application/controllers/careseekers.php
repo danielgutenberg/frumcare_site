@@ -47,6 +47,7 @@
         }
         }
             $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
+
             $userdata       = $this->common_care_model->sort($item_per_page,$latitude,$longitude,$option,$account_category,$care_type,$distance);
             $get_total_rows = count($userdata);
             $data = array(
