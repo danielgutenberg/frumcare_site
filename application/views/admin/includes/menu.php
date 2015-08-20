@@ -122,9 +122,9 @@
             <li>
                 <a href="<?php echo $ppaccess;?>" title="User ProfilePicture Manager"><i class="fa fa-lg fa-fw fa-film"></i> <span class="menu-item-parent">User Profile Picture Manager</span></a>
             </li>
-            <li>
-                <a href="<?php echo $picaccess;?>" title="Picture Manager"><i class="fa fa-lg fa-fw fa-film"></i> <span class="menu-item-parent">Picture Manager</span></a>
-            </li>
+            <!-- <li>
+                <a href="<?php // echo $picaccess;?>" title="Picture Manager"><i class="fa fa-lg fa-fw fa-film"></i> <span class="menu-item-parent">Picture Manager</span></a>
+            </li> -->
             <li>
                 <a href="<?php echo $uprofileaccess;?>" title="User Profile Configuration"><i class="fa fa-lg fa-fw fa-gear"></i> <span class="menu-item-parent">User Profile Manager</span></a>
             </li>
