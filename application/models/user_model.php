@@ -163,7 +163,7 @@ class User_model extends CI_Model
 
     // caregiver sort
     function sort($limit,$care_type,$latitude,$longitude){
-        $sql    = "select tbl_user.*, (((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* from tbl_user left outer join tbl_userprofile on tbl_user.id  = tbl_userprofile.user_id where tbl_userprofile.account_category = 1 and tbl_userprofile.care_type!=7 and tbl_userprofile.profile_status = 1 and tbl_user.lat like '%$latitude%' and tbl_user.lng like '%$longitude%'";
+        $sql    = "select tbl_user.*, (((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* from tbl_user left outer join tbl_userprofile on tbl_user.id  = tbl_userprofile.user_id where tbl_userprofile.account_category = 1 and tbl_userprofile.care_type!=7 and tbl_userprofile.profile_status = 1 and tbl_userprofile.photo_status = 1 and tbl_user.lat like '%$latitude%' and tbl_user.lng like '%$longitude%'";
         if($care_type!='')
              $sql   .=  " and tbl_userprofile.care_type = $care_type";
              $sql   .= " order by distance asc";
@@ -180,7 +180,7 @@ class User_model extends CI_Model
 
     // caregiver sort
     function sortcareseeker($limit,$care_type,$latitude,$longitude){
-        $sql    = "select tbl_user.*, (((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* from tbl_user left outer join tbl_userprofile on tbl_user.id  = tbl_userprofile.user_id where tbl_userprofile.account_category = 2 and tbl_userprofile.care_type!=7 and tbl_userprofile.profile_status = 1 and tbl_user.lat like '%$latitude%' and tbl_user.lng like '%$longitude%'";
+        $sql    = "select tbl_user.*, (((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* from tbl_user left outer join tbl_userprofile on tbl_user.id  = tbl_userprofile.user_id where tbl_userprofile.account_category = 2 and tbl_userprofile.care_type!=7 and tbl_userprofile.profile_status = 1 and tbl_userprofile.photo_status = 1 and tbl_user.lat like '%$latitude%' and tbl_user.lng like '%$longitude%'";
         if($care_type!='')
              $sql   .=  " and tbl_userprofile.care_type = $care_type";
              $sql   .= " order by distance asc";
@@ -226,7 +226,7 @@ class User_model extends CI_Model
 
 
     public function getAllTherapist($latitude,$longitude,$offset,$limit){
-        $sql = "SELECT tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id WHERE tbl_userprofile.account_category = 1 and tbl_userprofile.care_type = 7 and tbl_user.status = 1 and tbl_userprofile.profile_status = 1  and tbl_user.lat like '%$latitude%' and tbl_user.lng like '%$longitude%' ORDER BY distance asc limit $offset, $limit";
+        $sql = "SELECT tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id WHERE tbl_userprofile.account_category = 1 and tbl_userprofile.care_type = 7 and tbl_user.status = 1 and tbl_userprofile.profile_status = 1 and tbl_userprofile.photo_status = 1  and tbl_user.lat like '%$latitude%' and tbl_user.lng like '%$longitude%' ORDER BY distance asc limit $offset, $limit";
         $query = $this->db->query($sql);
         $res = $query->result_array();
         if($res)
@@ -236,7 +236,7 @@ class User_model extends CI_Model
     }
 
     public function countUserTable($lat,$lon){
-        $sql = "select * from tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_user.status = 1 and tbl_userprofile.care_type !=7 and tbl_userprofile.account_category = 1 and tbl_userprofile.profile_status = 1 and tbl_user.lat like '%$lat%' and tbl_user.lng like'%$lon%'";
+        $sql = "select * from tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_user.status = 1 and tbl_userprofile.care_type !=7 and tbl_userprofile.account_category = 1 and tbl_userprofile.profile_status = 1 and tbl_userprofile.photo_status = 1 and tbl_user.lat like '%$lat%' and tbl_user.lng like'%$lon%'";
         $query  = $this->db->query($sql);
         $res = $query->num_rows();
         if($res)
@@ -246,7 +246,7 @@ class User_model extends CI_Model
     }
 
     public function countCareSeeker($lat,$lng){
-     $sql = "select * from tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_user.status = 1 and tbl_userprofile.care_type !=7 and tbl_userprofile.account_category = 2 and tbl_userprofile.profile_status = 1 and tbl_userprofile.photo_status= 1 and tbl_user.lat like '%$lat' and tbl_user.lng like '%$lng%'";
+     $sql = "select * from tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_user.status = 1 and tbl_userprofile.care_type !=7 and tbl_userprofile.account_category = 2 and tbl_userprofile.profile_status = 1 and tbl_userprofile.photo_status= 1 and tbl_userprofile.photo_status = 1 and tbl_user.lat like '%$lat' and tbl_user.lng like '%$lng%'";
      $query  = $this->db->query($sql);
      $res = $query->num_rows();
         if($res)
@@ -408,7 +408,7 @@ class User_model extends CI_Model
 
      // careseeker
      function getAllCareSeekerDetails($acc_cat,$offset,$limit,$latitude,$longitude){
-        $sql = "SELECT tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance,tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id LEFT OUTER JOIN tbl_reviews ON tbl_user.id = tbl_reviews.user_id WHERE tbl_userprofile.account_category = $acc_cat and tbl_user.status = 1 and tbl_userprofile.profile_status = 1";
+        $sql = "SELECT tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance,tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id LEFT OUTER JOIN tbl_reviews ON tbl_user.id = tbl_reviews.user_id WHERE tbl_userprofile.account_category = $acc_cat and tbl_user.status = 1 and tbl_userprofile.profile_status = 1 and tbl_userprofile.photo_status=1";
         //$sql = "SELECT tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance,tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id LEFT OUTER JOIN tbl_reviews ON tbl_user.id = tbl_reviews.user_id WHERE tbl_userprofile.account_category = $acc_cat and tbl_user.status = 1 and tbl_userprofile.profile_status = 1";
         if($acc_cat == 3){
             $sql .= " and tbl_userprofile.organization_care = 2";
@@ -423,7 +423,7 @@ class User_model extends CI_Model
         }
     }
     function countAllcareseekers($acc_cat,$latitude,$longitude){
-        $sql = "SELECT tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance,tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id LEFT OUTER JOIN tbl_reviews ON tbl_user.id = tbl_reviews.user_id WHERE tbl_userprofile.account_category = $acc_cat and tbl_user.status = 1 and tbl_userprofile.profile_status = 1";
+        $sql = "SELECT tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance,tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id LEFT OUTER JOIN tbl_reviews ON tbl_user.id = tbl_reviews.user_id WHERE tbl_userprofile.account_category = $acc_cat and tbl_user.status = 1 and tbl_userprofile.profile_status = 1 and tbl_userprofile.photo_status=1";
         if($acc_cat == 3){
             $sql .= " and tbl_userprofile.organization_care = 2";
         }
@@ -586,7 +586,7 @@ class User_model extends CI_Model
     }
 
     public function search_careseeker($search_text){
-        $sql = "SELECT * FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id WHERE tbl_user.status =1 AND tbl_userprofile.profile_status = 1 AND tbl_userprofile.care_type < 17 AND tbl_user.name LIKE '".mysql_real_escape_string($search_text)."%'";
+        $sql = "SELECT * FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id WHERE tbl_user.status =1 AND tbl_userprofile.profile_status = 1 AND tbl_userprofile.photo_status=1 AND tbl_userprofile.care_type < 17 AND tbl_user.name LIKE '".mysql_real_escape_string($search_text)."%'";
         $query = $this->db->query($sql);
         $data = $query->result_array();
             if($data)
