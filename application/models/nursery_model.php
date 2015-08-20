@@ -35,7 +35,7 @@
                 $care_type  = $data['care_type'];
                 $looking_to_work = $data['looking_to_work'];  
                 
-                $sql = "select tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* from tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_userprofile.care_type=3 and tbl_user.status = 1  and tbl_userprofile.profile_status = 1";                                      
+                $sql = "select tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* from tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_userprofile.care_type=3 and tbl_user.status = 1  and tbl_userprofile.profile_status = 1 and tbl_userprofile.photo_status = 1";
                     if($data['caregiverage_from'] && $data['caregiverage_to']){
                         $sql .= " and tbl_user.age between ".$data['caregiverage_from'].' and '.$data['caregiverage_to'];
                     }
@@ -82,7 +82,7 @@
         }
 
         public function countNursery($lat,$lon){
-            $sql = "select * from tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_user.status = 1 and tbl_userprofile.care_type !=7 and tbl_userprofile.account_category = 1 and tbl_userprofile.profile_status = 1 and tbl_user.lat like '%$lat%' and tbl_user.lng like'%$lon%' and tbl_userprofile.care_type = 3";
+            $sql = "select * from tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_user.status = 1 and tbl_userprofile.care_type !=7 and tbl_userprofile.account_category = 1 and tbl_userprofile.profile_status = 1 and tbl_userprofile.photo_status = 1 and tbl_user.lat like '%$lat%' and tbl_user.lng like'%$lon%' and tbl_userprofile.care_type = 3";
             $query  = $this->db->query($sql);
             $res = $query->num_rows();
             if($res)

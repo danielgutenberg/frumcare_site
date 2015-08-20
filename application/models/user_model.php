@@ -51,7 +51,7 @@ class User_model extends CI_Model
     }
 
     function getAllDetails($acc_cat,$offset,$limit,$latitude,$longitude){
-        $sql = "SELECT tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id LEFT OUTER JOIN tbl_reviews ON tbl_user.id = tbl_reviews.user_id WHERE tbl_userprofile.account_category = $acc_cat and tbl_user.status = 1 and tbl_userprofile.profile_status = 1 ";
+        $sql = "SELECT tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id LEFT OUTER JOIN tbl_reviews ON tbl_user.id = tbl_reviews.user_id WHERE tbl_userprofile.account_category = $acc_cat and tbl_user.status = 1 and  and tbl_userprofile.photo_status = 1 ";
         if($acc_cat == 3)
             $sql .=" and tbl_userprofile.organization_care = 1";
         $sql .=" having distance <50 ORDER BY distance ASC limit $offset, $limit";
@@ -130,7 +130,7 @@ class User_model extends CI_Model
     }
 
     public function getSimilarPersons($care_type,$currid){
-        $sql = "select tbl_user.uri,tbl_user.name,tbl_user.profile_picture,tbl_userprofile.rate,tbl_userprofile.rate_type,tbl_userprofile.care_type from tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_userprofile.care_type = $care_type and tbl_userprofile.profile_status = 1 and tbl_userprofile.id != $currid order by tbl_userprofile.created_on desc limit 5";
+        $sql = "select tbl_user.uri,tbl_user.name,tbl_user.profile_picture,tbl_userprofile.rate,tbl_userprofile.rate_type,tbl_userprofile.care_type from tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_userprofile.care_type = $care_type and tbl_userprofile.profile_status = 1 and tbl_userprofile.photo_status = 1 and tbl_userprofile.id != $currid order by tbl_userprofile.created_on desc limit 5";
         $query = $this->db->query($sql);
         $res = $query->result_array();
         if($res) return $res;
@@ -163,7 +163,7 @@ class User_model extends CI_Model
 
     // caregiver sort
     function sort($limit,$care_type,$latitude,$longitude){
-        $sql    = "select tbl_user.*, (((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* from tbl_user left outer join tbl_userprofile on tbl_user.id  = tbl_userprofile.user_id where tbl_userprofile.account_category = 1 and tbl_userprofile.care_type!=7 and tbl_userprofile.profile_status = 1 and tbl_userprofile.photo_status = 1 and tbl_user.lat like '%$latitude%' and tbl_user.lng like '%$longitude%'";
+        $sql    = "select tbl_user.*, (((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* from tbl_user left outer join tbl_userprofile on tbl_user.id  = tbl_userprofile.user_id where tbl_userprofile.account_category = 1 and tbl_userprofile.care_type!=7 and tbl_userprofile.profile_status = 1  and tbl_userprofile.photo_status = 1 and tbl_user.lat like '%$latitude%' and tbl_user.lng like '%$longitude%'";
         if($care_type!='')
              $sql   .=  " and tbl_userprofile.care_type = $care_type";
              $sql   .= " order by distance asc";
@@ -970,7 +970,7 @@ class User_model extends CI_Model
         //     return false;
         // }
 
-        $sql = "select * from tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_user.status = 1 and tbl_userprofile.profile_status = 1 and tbl_userprofile.user_id = $id";
+        $sql = "select * from tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_user.status = 1 and tbl_userprofile.profile_status = 1 and tbl_userprofile.photo_status = 1 and tbl_userprofile.user_id = $id";
         //echo $sql;exit;
         $query = $this->db->query($sql);
         $res = $query->result_array();
@@ -1119,7 +1119,7 @@ class User_model extends CI_Model
     }
 
     public function orderByCare($care_id,$lat,$lng){
-        $sql    = "select* from tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_userprofile.care_type = $care_id and tbl_user.status = 1 and tbl_userprofile.profile_status = 1 and tbl_user.lat like '%$lat%' and tbl_user.lng like '%$lng%'";
+        $sql    = "select* from tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_userprofile.care_type = $care_id and tbl_user.status = 1 and tbl_userprofile.profile_status = 1 and tbl_userprofile.photo_status = 1 and tbl_user.lat like '%$lat%' and tbl_user.lng like '%$lng%'";
         $res  = $this->db->query($sql);
         $data   = $res->result_array();
 
