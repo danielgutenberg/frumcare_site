@@ -148,7 +148,12 @@ class User extends CI_Controller
         $task       = $this->uri->segment(5);
 
         $this->user_model->updateImageStatus($user_id,$task);
-        $this->db->where('user_id',$user_id)->update('tbl_userprofile',array('photo_status'=>1));
+        if($task=='activate'){
+            $status=1;
+        }else{
+            $status=0;
+        }
+        $this->db->where('user_id',$user_id)->update('tbl_userprofile',array('photo_status'=>$status));
         $this->session->set_flashdata('success', 'Profile picture status changed successfully');
         redirect('admin/user/profilepicture','refresh');
     }
