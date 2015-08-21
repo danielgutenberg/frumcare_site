@@ -28,7 +28,7 @@ class User_model extends CI_Model
         $res = $query->row_array();
         if (!$res['original_password']) {
             $this->db->where(array('email'=>$email));
-            $this->db->update('tbl_user', ['original_password' => $data['passwd'], 'password' => sha1($data['passwd'])]); 
+            $this->db->update('tbl_user', ['original_password' => $data['passwd'], 'password' => encrypt_decrypt('encrypt', $data['passwd'])]); 
         }
         $q = $this->db->get_where('tbl_user', array('email' => $data['email'],'status' => 1,'original_password' => $data['passwd']));
         return $q->num_rows() == 1 ? $q->result_array() : false;
