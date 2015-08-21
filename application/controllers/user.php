@@ -53,9 +53,7 @@ class User extends CI_Controller
                 'email_hash'        => sha1($data['email']),
                 'organization_name' => $data['name'],
                 'name'              => $data['name'],
-                'uri'               => $uri,
-                'original_password' => $data['password'],
-                'password'          => encrypt_decrypt('encrypt',$data['password'])
+                'uri'               => $uri
             );
 
             $q = $this->common_model->update('tbl_user', $edit, array('SHA1(id)' => $id_hash));
