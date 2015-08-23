@@ -19,7 +19,7 @@
                                     <th>Location</th>
                                     <th>Distance</th>
                                     <th>Searched Keywords</th>
-                                    <th>Date</th>
+                                    <th>Searched Date</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -71,7 +71,7 @@
                                                 ?>
                                             </td>
                                             <td>
-
+                                                <?php echo $rec->searcheddate;?>
                                             </td>
 
                                         </tr>
