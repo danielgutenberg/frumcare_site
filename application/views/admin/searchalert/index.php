@@ -73,6 +73,7 @@
                                             <td>
 
                                                 <?php echo $rec->searcheddate;?>
+
                                             </td>
 
                                         </tr>
