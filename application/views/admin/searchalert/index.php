@@ -19,7 +19,7 @@
                                     <th>Location</th>
                                     <th>Distance</th>
                                     <th>Searched Keywords</th>
-                                    <th></th>
+                                    <th>Date</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -32,48 +32,15 @@
                                         <tr>
                                             <td><?php echo $rec->name;?></td>
                                             <td>
-                                                <input type="hidden" id="id" value="<?php echo $rec->id?>"/>
+
 
                                                 <div id="locationField">
-                                                    <input type="hidden" id="lat" name="lat"
-                                                           val="<?php echo isset($rec->lat) ? $rec->lat : ''?>"/>
-                                                    <input type="hidden" id="lng" name="lng"
-                                                           val="<?php echo isset($rec->long) ? $rec->long : ''?>"/>
-                                                    <input type="text" name="location" class="location" id="autocomplete"
-                                                           value="<?php echo isset($rec->location) ? $rec->location : ''?>"/>
-                                                </div>
+                                                    <?php echo $rec->location;?>
+                                                    </div>
                                             </td>
                                             <td>
-                                                <select name="distance" id="distance">
-                                                    <option
-                                                        value="unlimited" <?php echo isset($rec->distance) && $rec->distance == 10000 ? 'selected' : '' ?>>
-                                                        Unlimited Miles
-                                                    </option>
-                                                    <option
-                                                        value="1" <?php echo isset($rec->distance) && $rec->distance == 1 ? 'selected' : '' ?>>
-                                                        1 Miles
-                                                    </option>
-                                                    <option
-                                                        value="2" <?php echo isset($rec->distance) && $rec->distance == 2 ? 'selected' : '' ?>>
-                                                        2 Miles
-                                                    </option>
-                                                    <option
-                                                        value="5" <?php echo isset($rec->distance) && $rec->distance == 5 ? 'selected' : '' ?>>
-                                                        5 Miles
-                                                    </option>
-                                                    <option
-                                                        value="10" <?php echo isset($rec->distance) && $rec->distance == 10 ? 'selected' : '' ?>>
-                                                        10 Miles
-                                                    </option>
-                                                    <option
-                                                        value="25" <?php echo isset($rec->distance) && $rec->distance == 25 ? 'selected' : '' ?>>
-                                                        25 Miles
-                                                    </option>
-                                                    <option
-                                                        value="50" <?php echo isset($rec->distance) && $rec->distance == 50 ? 'selected' : '' ?>>
-                                                        50 Miles
-                                                    </option>
-                                                </select>
+                                                <?php echo $rec->distance;?>
+
                                             </td>
                                             <td>
                                                 <?php
@@ -102,6 +69,9 @@
                                                 // 	   }
                                                 // 	}
                                                 ?>
+                                            </td>
+                                            <td>
+
                                             </td>
 
                                         </tr>
