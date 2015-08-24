@@ -723,6 +723,8 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
         });
 
 
+
+
 		$.localScroll();
         $(".timetable").click(function(){
             var divPosition = $('#availability1').offset();
