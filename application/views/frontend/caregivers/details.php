@@ -290,11 +290,8 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
     </p>
     <div class="map">
         <h2>Map Location</h2>
-        <?php
+        <?php echo $recordData['location']; ?>
 
-            echo $recordData['location'];
-
-         ?>
         <p id="map"></p>
     </div>
 </div>
