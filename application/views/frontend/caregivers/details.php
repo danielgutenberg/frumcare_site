@@ -717,7 +717,6 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 	$(document).ready(function(){
 
 
-
         new GMaps({
           div: '#map',
           lat: -12.043333,
