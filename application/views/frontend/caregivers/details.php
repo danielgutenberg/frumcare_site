@@ -292,7 +292,7 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         <h2>Map Location</h2>
         <?php echo $recordData['location']; ?>
 
-        <p id="map"></p>
+        <div id="map"></div>
     </div>
 </div>
 <?php
@@ -712,6 +712,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 <!-- scroll js starts -->
 <script src="<?php echo site_url();?>js/jquery.localScroll.min.js"></script>
 <script src="<?php echo site_url();?>js/jquery.scrollTo.min.js"></script>
+<script src="<?php echo base_url('js/gmaps.js');?>"></script>
 <!-- scroll js ends -->
 <script>
 	$(document).ready(function(){
