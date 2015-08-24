@@ -114,6 +114,7 @@
 
 <script src="<?php echo base_url('js/my_js.js') ?>"></script>
 <script src="<?php echo base_url('js/main.js') ?>"></script>
+<script src="<?php echo base_url('js/gmaps.js');?>"></script>
 
 
 
