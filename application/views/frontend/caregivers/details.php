@@ -292,6 +292,18 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         <h2>Map Location</h2>
         <?php echo $recordData['location']; ?>
 
+        <?php
+          $Address = urlencode($Address);
+          $request_url = "http://maps.googleapis.com/maps/api/geocode/xml?address=".$Address."&sensor=true";
+          $xml = simplexml_load_file($request_url) or die("url not loading");
+          $status = $xml->status;
+          if ($status=="OK") {
+              $Lat = $xml->result->geometry->location->lat;
+              $Lon = $xml->result->geometry->location->lng;
+
+          }
+        ?>
+
         <div id="map"></div>
 
     </div>
@@ -723,8 +735,8 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 
          var map = new GMaps({
         div: '#map',
-        lat: 51.5073346,
-        lng: -0.1276831,
+        lat: <?php echo $Lat;?>,
+        lng: <?php echo $Lon;?>,
         width: '500px',
         height: '500px',
         zoom: 12,
