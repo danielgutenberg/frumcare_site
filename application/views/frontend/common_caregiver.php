@@ -270,7 +270,7 @@ if($pages > 1){
 
 ?>
 
-<div class="navigations"><?php echo $pagination; ?></div>
+
 	<div class="clearfix margin-bot"></div>
 	<div id="list_container" class="">
 	<?php //print_rr($userdatas);?>
