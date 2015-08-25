@@ -728,7 +728,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script type="text/javascript" src="<?php echo base_url();?>js/gmaps.js"></script>
 
-<?php echo $Lat.'Longitude'.:$Lon;?>
+<?php echo $Lat.'Longitude:'.$Lon;?>
 
 
 <!-- scroll js ends -->
