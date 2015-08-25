@@ -713,19 +713,28 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 <!-- scroll js starts -->
 <script src="<?php echo site_url();?>js/jquery.localScroll.min.js"></script>
 <script src="<?php echo site_url();?>js/jquery.scrollTo.min.js"></script>
-<script src="<?php echo base_url('js/gmaps.js');?>"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript" src="https://raw.github.com/HPNeo/gmaps/master/gmaps.js"></script>
+
 <!-- scroll js ends -->
 <script>
 	$(document).ready(function(){
 
 
-        var map=new GMaps({
-          div: 'map',
-          lat: -12.043333,
-          lng: -77.028333,
-          width:'500px',
-          height:'500px'
-        });
+         var map = new GMaps({
+        div: '#map',
+        lat: 51.5073346,
+        lng: -0.1276831,
+        width: '500px',
+        height: '500px',
+        zoom: 12,
+        zoomControl: true,
+        zoomControlOpt: {
+            style: 'SMALL',
+            position: 'TOP_LEFT'
+        },
+        panControl: false
+    });
 
 
 
