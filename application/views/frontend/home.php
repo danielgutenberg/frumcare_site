@@ -313,7 +313,7 @@
 
              <h2 class="title">What People Says About Us</h2>
 
-             <div class="col-md-6 col-sm-6 col-xs-12">
+             <div class="col-md-6 col-sm-6 col-xs-12" style="border-right:1px solid #ccc;">
 
                  <article>
                         <p class="testimonial">
