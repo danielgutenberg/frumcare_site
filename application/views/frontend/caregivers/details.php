@@ -728,15 +728,20 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script type="text/javascript" src="<?php echo base_url();?>js/gmaps.js"></script>
 
+<?php echo $Lat.'Longitude'.:$Lon;?>
+
+
 <!-- scroll js ends -->
 <script>
 	$(document).ready(function(){
 
+        var lat=<?php echo $Lat;?>
+        var lon=<?php echo $Lon;?>
 
          var map = new GMaps({
         div: '#map',
-        lat: <?php echo $Lat;?>,
-        lng: <?php echo $Lon;?>,
+        lat: lat,
+        lng: lon,
         width: '500px',
         height: '500px',
         zoom: 12,
