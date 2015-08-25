@@ -310,7 +310,12 @@
                  </form>
 
              </div>
-                    <article>
+
+             <h2 class="title">What People Says About Us</h2>
+
+             <div class="col-md-6 col-sm-6 col-xs-12">
+
+                 <article>
                         <p class="testimonial">
                             “<?php
                             $desc = nl2br(strip_tags($testimonial[0]->testimonial_description));
@@ -320,7 +325,11 @@
                             <span class="author"><?php echo $testimonial[0]->testimonial_by;?></span>
                         </p>
                     </article>
-                    <article>
+
+             </div>
+             <div class="col-md-6 col-sm-6 col-xs-12">
+
+                 <article>
                         <p class="testimonial">
                             “<?php
 
@@ -331,6 +340,10 @@
                             <span class="author"><?php echo $testimonial[1]->testimonial_by;?></span>
                         </p>
                     </article>
+
+             </div>
+
+
                 </div>
                 </div>
             </section>
