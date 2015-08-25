@@ -727,17 +727,11 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 
          var map = new GMaps({
         div: '#map',
-        lat: lat,
-        lng: lon,
+        lat: 31.7963186,
+        lng: 35.175359,
         width: '500px',
-        height: '500px',
-        zoom: 12,
-        zoomControl: true,
-        zoomControlOpt: {
-            style: 'SMALL',
-            position: 'TOP_LEFT'
-        },
-        panControl: false
+        height: '500px'
+
     });
 
 
