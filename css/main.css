@@ -4886,7 +4886,7 @@ body {
   font-style: italic;
   line-height: 1.6;
   margin: 0;
-  padding: 0 71px;
+  padding: 0 20px;
   text-align: center;
 }
 .client-say .testimonial .author {
@@ -4900,9 +4900,7 @@ body {
   margin-bottom: 30px;
   }*/
   .client-say article {
-    border-right: 1px solid #ccc;
-    float: left;
-    width: 50%;
+
   }
   .client-say article:nth-of-type(2n) {
     border-right: none;
