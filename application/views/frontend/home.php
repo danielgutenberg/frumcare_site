@@ -7,7 +7,7 @@
                     <div class="banner-text col-md-5 col-sm-6 col-xs-12">
                         <h2 class="banner-title">
                             We Connect <br />Jewish Families <br />with Caregivers
-                        </h2>                        
+                        </h2>
                         <div class='banner-sub-title'>
                             <div class="banner-title-small">Choose an option:</div>
                                 <?php /* <a href="<?php echo site_url('signup?ac=2')?>">I am a Parent</a>
@@ -17,7 +17,7 @@
                                 <br />
 
                                 <a href="<?php echo site_url('signup?ac=3')?>">I am a Care Orgainzation</a>
-                                <br /> */?>                                
+                                <br /> */?>
                                 <p></p>
                                 <div class="amlabel">
                                     <input id="parents" type="radio" name="parent" class="select" value="2"><label for="parents">I'm a Parent</label>
@@ -39,8 +39,8 @@
                                 <li><a title="Child Care"><img src="img/banner%20images/woman-taking-care-of-girl.png" alt="#"/><span>Child Care</span></a></li>
                                 <li><a title="Senior Care"><img src="img/banner%20images/man-helping-elderly.png" alt="#"/><span>Senior Care</span></a></li>
                                 <!--<li><a title="Special Needs Care"><img src="img/banner%20images/woman-and-child.png" alt="#"/><span>Special Needs Care</span></a></li>-->
-                                <li><a title="Special Needs Care"><img src="img/banner%20images/ThinkstockPhotos-468469005.png" alt="#"/><span>Special Needs Care</span></a></li>                            
-                                <li><a title="Cleaning & Household Help"><img src="img/banner%20images/woman-doing-house-chores.png" alt="#"/><span>Cleaning & Household Help</span></a></li>                            
+                                <li><a title="Special Needs Care"><img src="img/banner%20images/ThinkstockPhotos-468469005.png" alt="#"/><span>Special Needs Care</span></a></li>
+                                <li><a title="Cleaning & Household Help"><img src="img/banner%20images/woman-doing-house-chores.png" alt="#"/><span>Cleaning & Household Help</span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                                 <span class="looking-for-care-job">Looking for a care job?</span><br/>
                                 Find Jobs in your area
                             </h2>
-                            
+
                             <a href="<?php echo base_url('jobs/all') ?>" class="place-ad-link link-block">FIND A JOB</a>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
         <section class="how-it-works">
             <div class="container">
                 <h2 class="title">How it works <span><a href="<?php echo site_url();?>howitworks">Learn More</a></span></h2>
-                
+
                 <ol class="how-it-works-display">
                     <li class="item lookingfor">
                         <h3 class="sub-title">I am looking for</h3>
@@ -150,10 +150,10 @@
             <div class="container">
 
                 <h2 class="title">We put safety first</h2>
-                
-                
+
+
                 <div class="row">
-                    <div class="col-half border-right">            
+                    <div class="col-half border-right">
 
                         <h2><a href="safety-guide/families" style="color:white">Safety Guide</a></h2>
                         <?php
@@ -212,19 +212,19 @@
                                     </div>
                                 </article>
                             </div>
-                         <?php 
+                         <?php
                          //endforeach;
                      //}
                      ?>
 
                  </div>
-                 <?php 
+                 <?php
                  $adviceandtools = $this->blog_model->getAdvicePosts(21);
 
                  ?>
                  <div class="col-half padleft">
                     <h2><a href="advice-and-tips/families" style="color:white">Advice and Tips</a></h2>
-                    <?php 
+                    <?php
                     //if(is_array($adviceandtools)){
                         //foreach($adviceandtools as $key => $advice):
                             ?>
@@ -245,7 +245,7 @@
                                         <h3>For Families:</h3>
                                         <p>
                                             <?php echo substr($adviceandtools[0]['post_excerpt'],0,180);?>
-                                            <a href="blog/finding-and-preparing-for-a-new-babysitter">Read More</a> 
+                                            <a href="blog/finding-and-preparing-for-a-new-babysitter">Read More</a>
                                         </p>
                                     </div>
                                 </article>
@@ -272,7 +272,7 @@
                                     </div>
                                 </article>
                             </div>
-                            <?php 
+                            <?php
                             //endforeach;
                         //}
                         ?>
@@ -310,11 +310,11 @@
                  </form>
 
              </div>
-                    <?php /*<article>
+                    <article>
                         <p class="testimonial">
                             “<?php
                             $desc = nl2br(strip_tags($testimonial[0]->testimonial_description));
-                            echo strip_tags($desc); 
+                            echo strip_tags($desc);
                             ?>”
                             <br />
                             <span class="author"><?php echo $testimonial[0]->testimonial_by;?></span>
@@ -325,12 +325,12 @@
                             “<?php
 
                             $desc = nl2br(strip_tags($testimonial[1]->testimonial_description));
-                            echo strip_tags($desc); 
+                            echo strip_tags($desc);
                             ?>”
                             <br />
                             <span class="author"><?php echo $testimonial[1]->testimonial_by;?></span>
                         </p>
-                    </article> */ ?>
+                    </article>
                 </div>
                 </div>
             </section>
@@ -364,7 +364,7 @@
                             //alert('Please select the care type');return false;
                             window.location= '<?php echo site_url();?>signup';
                         }else{
-                            window.location= '<?php echo site_url();?>signup?ac='+selected_category;    
+                            window.location= '<?php echo site_url();?>signup?ac='+selected_category;
                         }
                     });
                     $("#submit_now").click(function(e){
@@ -384,20 +384,20 @@
                                 notif({
                                   msg: "Thank you for contacting us. We will get back to you shortly.",
                                   position: "right",
-                                  time: 100                              
+                                  time: 100
                                 });
                                 // $('#submit_now').attr('disabled','disabled');
-                                                        
+
                         });
                     }
                     else {
                         notif({
                                   msg: "Please fill all the field correctly",
                                   position: "right",
-                                  time: 100                              
+                                  time: 100
                                 });
                     }
                     return false;
-                });  
+                });
              });
 </script>
