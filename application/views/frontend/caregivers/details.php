@@ -292,17 +292,7 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         <h2>Map Location</h2>
         <?php echo $recordData['location']; ?>
 
-        <?php
-          $Address = urlencode($Address);
-          $request_url = "http://maps.googleapis.com/maps/api/geocode/xml?address=".$Address."&sensor=true";
-          $xml = simplexml_load_file($request_url) or die("url not loading");
-          $status = $xml->status;
-          if ($status=="OK") {
-              $Lat = $xml->result->geometry->location->lat;
-              $Lon = $xml->result->geometry->location->lng;
 
-          }
-        ?>
 
         <div id="map"></div>
 
@@ -728,15 +718,12 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script type="text/javascript" src="<?php echo base_url();?>js/gmaps.js"></script>
 
-<?php echo $Lat.'Longitude:'.$Lon;?>
 
 
 <!-- scroll js ends -->
 <script>
 	$(document).ready(function(){
 
-        var lat=<?php echo $Lat;?>
-        var lon=<?php echo $Lon;?>
 
          var map = new GMaps({
         div: '#map',
@@ -752,6 +739,25 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
         },
         panControl: false
     });
+
+
+         GMaps.geocode({
+          address: "<?php echo $recordData['location'];?>",
+          callback: function(results, status){
+            if(status=='OK'){
+              var latlng = results[0].geometry.location;
+              map.setCenter(latlng.lat(), latlng.lng());
+              map.addMarker({
+                lat: latlng.lat(),
+                lng: latlng.lng(),
+                title: "<?php echo $recordData['Location'];?>",
+                infoWindow: {
+                  content: "<span class='info_text'><?php echo $recordData['Location'];?></span>",
+                }
+              });
+            }
+          }
+       });
 
 
 
