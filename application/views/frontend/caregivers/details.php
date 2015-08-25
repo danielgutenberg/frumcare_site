@@ -294,7 +294,6 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
 
         <div id="map"></div>
 
-
     </div>
 </div>
 <?php
