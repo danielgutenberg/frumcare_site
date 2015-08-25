@@ -720,7 +720,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 
 
         var map=new GMaps({
-          div: '#map',
+          div: 'map',
           lat: -12.043333,
           lng: -77.028333,
           width:'500px',
