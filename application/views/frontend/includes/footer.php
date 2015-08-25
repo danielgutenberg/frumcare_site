@@ -92,6 +92,8 @@
                                 </span>
                             </span>
                         </a>
+
+
                         <a href="https://www.instagram.com" target="_blank" class="flip-link-container">
                             <span class="flip-link">
                                 <span class="front">
@@ -114,6 +116,7 @@
 
 <script src="<?php echo base_url('js/my_js.js') ?>"></script>
 <script src="<?php echo base_url('js/main.js') ?>"></script>
+
 
 
 
