@@ -1,14 +1,14 @@
 <link href="<?php echo site_url(); ?>style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
-<link rel="stylesheet" href="<?php echo base_url();?>css/jquery.raty.css">          
+<link rel="stylesheet" href="<?php echo base_url();?>css/jquery.raty.css">
 <script src="<?php echo base_url();?>js/jquery.raty.js"></script>
 <script>
-    $("#locationField").ready(function(){        
+    $("#locationField").ready(function(){
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {});
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                    var place = autocomplete.getPlace();                    
+                    var place = autocomplete.getPlace();
                     var lat = place.geometry.location.lat();
-                    var lng = place.geometry.location.lng();                                
+                    var lng = place.geometry.location.lng();
                     $("#lat").val(lat);
                     $("#lng").val(lng);
                     $("#place").val(place.formatted_address);
@@ -32,8 +32,8 @@
     							json.pagination = '<a href="#" class="paginate_click in-active" id="previous">previous</a>' + json.pagination  + '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
     							$('#list_container').html(pagedata);
     							$('#total').text(json.total_rows);
-                                $('.navigations').html(json.pagination);    
-                        
+                                $('.navigations').html(json.pagination);
+
                         });
                     }
                     else{
@@ -47,126 +47,126 @@
     							$('#list_container').html(pagedata);
     							$('#total').text(json.total_rows);
                                 $('.navigations').html(json.pagination);
-                            
+
                         });
-                    }                             
-                });                              
+                    }
+                });
     });
 </script>
 <div class="container">
-<?php 
+<?php
     $s1 = $this->uri->segment(1); // must be caregivers, jobs, organization
-    $s2 = $this->uri->segment(2); // must be care type, job type    
-    
+    $s2 = $this->uri->segment(2); // must be care type, job type
+
     if($s1=='jobs' && ($s2 == 'all'|| $s2 ==''))
         $left_navbar='all_jobs';
-    
+
     if( $s1=='caregivers' && ($s2 == 'all'|| $s2 =='') )
         $left_navbar='all';
-        
+
     if( $s1=='caregivers' && $s2 == 'organizations')
         $left_navbar='all';
-                                
+
     if($s2 == 'babysitter'){
         if($s1 == 'caregivers')
             $left_navbar='babysitter';
         elseif($s1 == 'jobs')
-            $left_navbar='careseeker_babysitter';                        
+            $left_navbar='careseeker_babysitter';
     }
-    
+
     if($s2 == 'nanny-au-pair'){
         if($s1 == 'caregivers')
             $left_navbar='nanny';
         elseif($s1 == 'jobs')
-            $left_navbar='careseeker_nanny';                        
+            $left_navbar='careseeker_nanny';
     }
-    
+
     if($s2 == 'nursery-playgroup-drop-off-gan'){
         if($s1 == 'caregivers')
-            $left_navbar='nursery';                              
+            $left_navbar='nursery';
     }
-    
+
     if($s2 == 'tutor-private-lessons'){
         if($s1 == 'caregivers')
             $left_navbar='tutor';
         elseif($s1 == 'jobs')
-            $left_navbar='careseeker_tutor';                        
+            $left_navbar='careseeker_tutor';
     }
-    
+
     if($s2 == 'senior-caregiver'){
         if($s1 == 'caregivers')
             $left_navbar='senior_caregiver';
         elseif($s1 == 'jobs')
-            $left_navbar='careseeker_seniorcaregiver';                        
+            $left_navbar='careseeker_seniorcaregiver';
     }
-    
+
     if($s2 == 'special-needs-caregiver'){
         if($s1 == 'caregivers')
             $left_navbar='special_needs_caregiver';
         elseif($s1 == 'jobs')
-            $left_navbar='careseeker_specialneedscaregiver';                        
+            $left_navbar='careseeker_specialneedscaregiver';
     }
-    
+
     if($s2 == 'therapists'){
         if($s1 == 'caregivers')
             $left_navbar='therapists';
         elseif($s1 == 'jobs')
-            $left_navbar='careseeker_therapist';                        
+            $left_navbar='careseeker_therapist';
     }
-    
+
     if($s2 == 'cleaning-household-help'){
         if($s1 == 'caregivers')
             $left_navbar='cleaning';
         elseif($s1 == 'jobs')
-            $left_navbar='careseeker_cleaninghousehold';                        
+            $left_navbar='careseeker_cleaninghousehold';
     }
-    
+
     if($s2 == 'errand-runner-odd-jobs-personal-assistant-driver'){
         if($s1 == 'caregivers')
             $left_navbar='errand_runner';
         elseif($s1 == 'jobs')
-            $left_navbar='careseeker_errandrunner';                        
+            $left_navbar='careseeker_errandrunner';
     }
-    
-    if($s2 == 'day-care-center-day-camp-afternoon-activities'){        
+
+    if($s2 == 'day-care-center-day-camp-afternoon-activities'){
         $left_navbar='daycarecenter';
-    }                
+    }
     if($s2 == 'senior-care-agency')
         $left_navbar='seniorcareagency';
-        
+
     if($s2 == 'special-needs-center')
         $left_navbar='specialneedscenter';
-                            
+
     if($s2 == 'cleaning-household-help-company')
         $left_navbar='cleaninghousehold';
-    
+
     if($s2 == 'assisted-living-senior-care-center-nursing-home')
         $left_navbar='seniorcarecenter';
-    
+
     if($s2 == 'workers-staff-for-childcare-facility'){
         if($s1 == 'caregivers')
             $left_navbar='babysitter';
         elseif($s1 == 'jobs')
             $left_navbar='careseeker_childcarefacility';
     }
-            
+
     if($s2 == 'workers-staff-for-senior-care-facility'){
         if($s1 == 'caregivers')
             $left_navbar='senior_caregiver';
         elseif($s1 == 'jobs')
             $left_navbar='careseeker_seniorcarefacility';
-    }        
+    }
     elseif($s2 == 'workers-staff-for-special-needs-facility'){
         if($s1 == 'caregivers')
             $left_navbar='special_needs_caregiver';
         elseif($s1 == 'jobs')
             $left_navbar='careseeker_specialneedsfacility';
-    }        
+    }
     if($s2 == 'workers-for-cleaning-company'){
         if($s1 == 'caregivers')
             $left_navbar='cleaning';
         elseif($s1 == 'jobs')
-            $left_navbar='careseeker_cleaningcompany';    
+            $left_navbar='careseeker_cleaningcompany';
     }
     if(isset($left_navbar)){
 
@@ -175,12 +175,12 @@
     }
     else{
         die('The page you are trying to access doesnt exist anymore');
-    }                                                                   
+    }
 ?>
 <div class="right-caregivers col-lg-9 col-md-9 col-sm-9 col-xs-12">
     <br />
-    
-    <div class="searchloader" style="display:none"></div>		
+
+    <div class="searchloader" style="display:none"></div>
     Find a <?php $this->load->view('frontend/common/left_nav_title'); if($s1 == 'jobs') {echo 'Job';}?>  <br>
     Near <t id="locationField">
 		<input type="text" name="location" class="required" value="<?php echo $location['place'] ?>" id="autocomplete" style="width:239px"/>
@@ -188,10 +188,10 @@
 		<input type="hidden" id="lat" value="<?php echo $location['lat']?>">
 		<input type="hidden" id="place" value="<?php echo $location['place']?>">
 		<input type="hidden" id="pagenum" value="">
-		<!--<input type="button" value="Change Location" class="btn btn-primary" id="change_location"">--> 
-	</t>        
-    within            
-    <select name="sort_by_miles" id="sort_by_miles">        
+		<!--<input type="button" value="Change Location" class="btn btn-primary" id="change_location"">-->
+	</t>
+    within
+    <select name="sort_by_miles" id="sort_by_miles">
         <option value="1">1 Miles</option>
         <option value="2">2 Miles</option>
         <option value="5">5 Miles</option>
@@ -199,8 +199,8 @@
         <option value="25">25 Miles</option>
         <option value="50">50 Miles</option>
         <option value="unlimited" selected="selected">Unlimited Miles</option>
-    </select>            
-      	
+    </select>
+
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.showgeolocation').click(function(){
@@ -212,62 +212,65 @@
 </script>
 	<h3>
 		<span id="total"><?php echo $total_rows ?></span>
-        <?php          
+        <?php
           if( $total_rows > 1 && substr($title,-1) == 'y' ){
             $ntitle = substr($title,0,-1);
-            echo $ntitle.'ies near';            
-          }             
+            echo $ntitle.'ies near';
+          }
           elseif( substr($title,-1) == 's' ) echo $title.' near ';
           elseif( $total_rows > 1 ) echo $title.'s near ';
           else echo $title.' near ';
-        ?>                
+        ?>
         <span id="locationaddress"><?php echo $location['place'];?></span>
 	</h3>
-    
-	<?php if(($account_category == 1) || ($care_type < 17 && $care_type > 0)){ 
+
+	<?php if(($account_category == 1) || ($care_type < 17 && $care_type > 0)){
         $ac = $account_category==3?3:1; ?>
         <div class="want-top"><p>Want Caregivers to Contact you?<a href='<?php echo site_url()."signup?ac=$ac"?>' class="btn btn-primary ml10 btn-xs">Post a Job for free</a></p></div>
     <?php }
-        if(($account_category == 2) || ($care_type > 16 && $care_type < 29) ){ 
+        if(($account_category == 2) || ($care_type > 16 && $care_type < 29) ){
             $ac = $account_category==3?3:2; ?>
         <div class="want-top"><p>Want Employers to Contact you?<a href='<?php echo site_url()."signup?ac=$ac"?>' class="btn btn-primary ml10 btn-xs">Create a Profile for free</a></p></div>
     <?php } ?>
-    
+
 	<div class="select-relevance">
             <select name="sort_by_select" id="sort_by_select">
                 <option value="distance">Sort by distance</option>
                 <option value="tbl_userprofile.id">Sort by latest</option>
             </select>
-        
+
 		<span>Results per Page</span>
-			<span class="fifteens">				
+			<span class="fifteens">
                 <select id="per_page">
 					<option value="15">15</option>
 					<option value="25">25</option>
 					<option value="50">50</option>
 					<option value="100">100</option>
 				</select>
-			</span>            
+			</span>
 	</div>
 <?php
 $pagination	= '';
-if($pages > 1){	
+if($pages > 1){
 	$pagination .= '<a href="#" class="paginate_click in-active" id="previous">previous</a>';
 	for($i = 1; $i<=$pages; $i++)
 	{
-		
+
 		if($i==1){
             $pagination .= ' <a href="#" class="paginate_click active" id="'.$i.'-page" >'.$i.'</a> ';
         }else{
-            $pagination .= ' <a href="#" class="paginate_click in-active" id="'.$i.'-page">'.$i.'</a> ';   
+            $pagination .= ' <a href="#" class="paginate_click in-active" id="'.$i.'-page">'.$i.'</a> ';
         }
-        
+
 	}
 	$pagination .= '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
 	//$pagination .= '</ul>';
-} 
+}
+
+
 ?>
 
+<div class="navigations"><?php echo $pagination; ?></div>
 	<div class="clearfix margin-bot"></div>
 	<div id="list_container" class="">
 	<?php //print_rr($userdatas);?>
@@ -276,7 +279,7 @@ if($pages > 1){
 	</div>
 	<div class="navigations"><?php echo $pagination; ?></div>
 	</div>
-</div> 
+</div>
 <script type="text/javascript">
 		$(document).ready(function(){
 		    var plc = $('#place').val()
@@ -287,7 +290,7 @@ if($pages > 1){
 		    $('#locationaddress').val(plc)
 		    $('#autocomplete').on('click', function(){$('#autocomplete').val('')})
             //for sort by location, per page
-            $(document).on('change','#sort_by_select,#per_page,#sort_by_miles',function(){                
+            $(document).on('change','#sort_by_select,#per_page,#sort_by_miles',function(){
                 $(".searchloader").fadeIn("fast");
                 var x = $('#sort_by_select').val();
                 var y = $('#autocomplete').val();
@@ -306,8 +309,8 @@ if($pages > 1){
 						json.pagination = '<a href="#" class="paginate_click in-active" id="previous">previous</a>' + json.pagination  + '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
 						$('#list_container').html(pagedata);
 						$('#total').text(json.total_rows);
-                        $('.navigations').html(json.pagination);    
-                    
+                        $('.navigations').html(json.pagination);
+
                     });
                 }
                 else{
@@ -321,19 +324,19 @@ if($pages > 1){
 						$('#list_container').html(pagedata);
 						$('#total').text(json.total_rows);
                         $('.navigations').html(json.pagination);
-                        
+
                     });
                 }
-                
+
             });
-            
-            $('#autocomplete').change(function(e){                  
+
+            $('#autocomplete').change(function(e){
                    e.stopImmediatePropagation();
                    $(this).focus();
             });
-                                                                                         
+
             //for pagination
-            $(document).on('click','.paginate_click',function (e) {		        
+            $(document).on('click','.paginate_click',function (e) {
                 $('.searchloader').fadeIn("fast");
                 var x = $('#sort_by_select').val();
                 var y = $('#autocomplete').val();
@@ -357,11 +360,11 @@ if($pages > 1){
                     }
                 } else {
                     var clicked_id = $(this).attr("id").split("-"); //ID of clicked element, split() to get page number.
-        		    var page_num = parseInt(clicked_id[0]); //clicked_id[0] holds the page number we need 
+        		    var page_num = parseInt(clicked_id[0]); //clicked_id[0] holds the page number we need
                 }
-                
+
         		$('.paginate_click').removeClass('active'); //remove any active class
-                $('.paginate_click').addClass('in-active'); //remove any active class		
+                $('.paginate_click').addClass('in-active'); //remove any active class
                 if(y!=''){
             		$.post("<?php echo site_url();?>common_care_controller/fetch_pages", {'miles':miles,'page':(page_num-1),'option':x,'per_page':z,'lat':lat,'lng':lng,'location':y,'account_category':ac,'care_type':care_type,'total_page':$('#total').text()}, function(msg){
                        $('.searchloader').fadeOut("fast");
