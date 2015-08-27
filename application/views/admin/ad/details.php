@@ -20,10 +20,10 @@
                             <div class="form-group">
                                 <label class="control-label">Gender:</label>
                                 <div class="ad-manager-full-input">
-                                    <?php 
+                                    <?php
                                         if($detail[0]['gender'] = 1)
                                             echo 'Male';
-                                        else 
+                                        else
                                             echo 'Female';
                                     ?>
                                 </div>
@@ -42,10 +42,10 @@
                              <div class="form-group">
                                 <label class="control-label">Type:</label>
                                 <div class="ad-manager-full-input">
-                                    
-                                        <?php if($detail[0]['account_category'] == 1){ echo "Caregiver"; }?> 
-                                        <?php if($detail[0]['account_category'] == 2){ echo "Parent"; }?> 
-                                        <?php if($detail[0]['account_category'] == 3){ echo "Organization"; }?> 
+
+                                        <?php if($detail[0]['account_category'] == 1){ echo "Caregiver"; }?>
+                                        <?php if($detail[0]['account_category'] == 2){ echo "Parent"; }?>
+                                        <?php if($detail[0]['account_category'] == 3){ echo "Organization"; }?>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -54,14 +54,14 @@
                             <?php if($ad_form){
                                     $this->load->view($ad_form,$detail);
                                 }?>
-                                
+
                             <div class="form-group">
                                 <div class="ad-manager-btns">
                                     <input class="btn btn-primary btn-default" type="submit" name="update" value="Update"/>
                                     <input class="btn btn-primary btn-danger" type="button" value="Cancel" onclick="history.go(-1);"/>
                                 </div>
                             </div>
-                        
+
                     </form>
                 </div>
             </div>
