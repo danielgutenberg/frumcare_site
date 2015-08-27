@@ -1,12 +1,16 @@
 <!-- MAIN CONTENT -->
             <div id="content">
             <h2>Welcome to Admin Dashboard of FRUMCARE</h2>
-<div class="dashboard-wrapper"><div>
+<div class="dashboard-wrapper">
+
+    <div class="row">
+
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
         <a title="Dashboard" href="<?php echo site_url();?>admin/dashboard"><i class="fa fa-lg fa-fw fa-home"></i><span class="menu-item-parent">Dashboard</span></a>
         <div class="icon-title">Dashboard</div>
     </div>
-    
-    <?php 
+
+    <?php
         $admin_level  = $this->session->userdata['admin_level'];
          if($admin_level){
           $accessareas  = Common_model::getRoleAccessByRoleName($admin_level);
@@ -87,97 +91,98 @@
             $admin= site_url().'admin/admin';
           else
             $admin= site_url().'admin/#';
-        }         
+        }
     ?>
-    
-    
-    <div>
+
+
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
         <a title="Admin" href="<?php echo $admin;?>">
             <i class="fa fa-lg fa-fw fa-user"></i>
             <span class="menu-item-parent">Admin</span>
-            
+
         </a>
         <div class="icon-title">Admin</div>
     </div>
-        <div>
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
             <a title="Admin Role" href="<?php echo $adminrole;?>"><i class="fa fa-lg fa-fw fa-group"></i> <span class="menu-item-parent">Admin Role</span></a>
             <div class="icon-title">Admin Role</div>
         </div>
-       
-        <div>
+
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
             <a title="Page Manager" href="<?php echo $pageaccess;?>"><i class="fa fa-lg fa-fw fa-file-o"></i> <span class="menu-item-parent">Page Manager</span></a>
             <div class="icon-title">Page Manger</div>
         </div>
-        
-        <div>
+
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
             <a title="User Manager" href="<?php echo $useraccess;?>"><i class="fa fa-lg fa-fw fa-sitemap"></i> <span class="menu-item-parent">User Manager</span></a>
             <div class="icon-title">User Manager</div>
         </div>
-       
-        <div>
+
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
             <a title="User Log Manager" href="<?php echo $logaccess;?>"><i class="fa fa-lg fa-fw fa-bar-chart"></i> <span class="menu-item-parent">User Log Manager</span></a>
             <div class="icon-title">User Log Manager</div>
         </div>
-         
-        <div>
+
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
             <a title="User Profile Picture Manager" href="<?php echo $uprofileaccess;?>"><i class="fa fa-lg fa-fw fa-film"></i> <span class="menu-item-parent">User Profile Picture Manager</span></a>
             <div class="icon-title">User Profile Picture Manager</div>
         </div>
-        
-        <div>
+
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
             <a title="User Profile Configuration" href="<?php echo $uprofileaccess;?>"><i class="fa fa-lg fa-fw fa-gear"></i> <span class="menu-item-parent">User Profile Manager</span></a>
             <div class="icon-title">User Profile Configuration</div>
         </div>
-        
-        <div>
+
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
             <a title="Email Template Manager" href="<?php echo $emailtemplate;?>"><i class="fa fa-lg fa-fw fa-pencil"></i> <span class="menu-item-parent">Email Template Manager</span></a>
             <div class="icon-title">Email Template Manager</div>
         </div>
-        
-        <div>
+
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
             <a title="Payment Manager" href="<?php echo $payment;?>"><i class="fa fa-lg fa-fw fa-dollar"></i> <span class="menu-item-parent">Payment Manager</span></a>
             <div class="icon-title">Payment Manager</div>
         </div>
-        
-        <div>
+
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
             <a title="Ad Manager" href="<?php echo $adaccess;?>"><i class="fa fa-lg fa-fw fa-money"></i> <span class="menu-item-parent">Ad Manager</span></a>
             <div class="icon-title">Ad Manager</div>
         </div>
-        
-        <div>
+
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
             <a title="Search Alert" href="<?php echo $searchalert;?>"><i class="fa fa-lg fa-fw fa-search"></i> <span class="menu-item-parent">Search Alert</span></a>
             <div class="icon-title">Search Alert</div>
         </div>
-        
-        <div>
+
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
             <a title="Package Manager" href="<?php echo $package;?>"><i class="fa fa-lg fa-fw fa-suitcase"></i> <span class="menu-item-parent">Package Manager</span></a>
             <div class="icon-title">Package Manager</div>
         </div>
-        
-        <div>
+
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
             <a title="Feature Manager" href="<?php echo $feature;?>"><i class="fa fa-lg fa-fw fa-th"></i> <span class="menu-item-parent">Feature Manager</span></a>
             <div class="icon-title">Feature Manager</div>
         </div>
-       
-        <div>
+
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
             <a title="Ticket Manager" href="<?php echo $ticket;?>"><i class="fa fa-lg fa-fw fa-ticket"></i> <span class="menu-item-parent">Ticket Manager</span></a>
             <div class="icon-title">Ticket Manager</div>
         </div>
-        
-        <div>
+
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
             <a title="Testimonial Manager" href="<?php echo $testimonial;?>"><i class="fa fa-lg fa-fw fa-quote-left"></i> <span class="menu-item-parent">Testimonial Manager</span></a>
             <div class="icon-title">Testimonial Manager</div>
-        </div>
-        
-        <div>
+        </div >
+
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
             <a title="General SEO Manager" href="<?php echo $generalseo;?>"><i class="fa fa-lg fa-fw fa-book"></i> <span class="menu-item-parent">General SEO Manager</span></a>
             <div class="icon-title">General SEO Manager</div>
         </div>
-        
-        <div><a title="Notification Manager" href="<?php echo $notification;?>"><i class="fa fa-lg fa-fw fa-bell"></i><span class="menu-item-parent">Notification Manager</span></a>
+
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6"><a title="Notification Manager" href="<?php echo $notification;?>"><i class="fa fa-lg fa-fw fa-bell"></i><span class="menu-item-parent">Notification Manager</span></a>
             <div class="icon-title">Notification Manager</div>
         </div>
-        
+        </div>
+
             </div>
                <?php /*  <div class="row">
                     <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
@@ -264,8 +269,8 @@
                                                     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                                                         <span class="demo-liveupdate-1"> <span class="onoffswitch-title">Live switch</span> <span class="onoffswitch">
                                                                 <input type="checkbox" name="start_interval" class="onoffswitch-checkbox" id="start_interval">
-                                                                <label class="onoffswitch-label" for="start_interval"> 
-                                                                    <span class="onoffswitch-inner" data-swchon-text="ON" data-swchoff-text="OFF"></span> 
+                                                                <label class="onoffswitch-label" for="start_interval">
+                                                                    <span class="onoffswitch-inner" data-swchon-text="ON" data-swchoff-text="OFF"></span>
                                                                     <span class="onoffswitch-switch"></span> </label> </span> </span>
                                                         <div id="updating-chart" class="chart-large txt-color-blue"></div>
 
@@ -599,7 +604,7 @@
                                                     <div class="message-text">
                                                         <time>
                                                             2014-01-13
-                                                        </time> <a href="javascript:void(0);" class="username">John Doe</a> Haha! Yeah I know what you mean. Thanks for the file Sadi! <i class="fa fa-smile-o txt-color-orange"></i> 
+                                                        </time> <a href="javascript:void(0);" class="username">John Doe</a> Haha! Yeah I know what you mean. Thanks for the file Sadi! <i class="fa fa-smile-o txt-color-orange"></i>
                                                     </div>
                                                 </li>
                                             </ul>
