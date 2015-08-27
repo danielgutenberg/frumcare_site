@@ -31,6 +31,7 @@
                                                  <th>Updated on</th>
                                                  <th>Status</th>
                                                 <th colspan="4">Actions</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -124,8 +125,29 @@
          * BASIC
          */
         $('#dt_basic').dataTable({
-            "sPaginationType" : "bootstrap_full"
-        });
+            "bPaginate": true,
+            "bLengthChange": true,
+            "bFilter": true,
+            "bSort": true,
+            "bInfo": true,
+            "bAutoWidth": true,
+            "aoColumns": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null //put as many null values as your columns
+
+            ]});
 
         /* END BASIC */
 
