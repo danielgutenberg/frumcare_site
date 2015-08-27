@@ -31,6 +31,9 @@
                                                  <th>Updated on</th>
                                                  <th>Status</th>
                                                 <th colspan="4">Actions</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
 
                                             </tr>
                                         </thead>
@@ -125,12 +128,13 @@
          * BASIC
          */
         $('#dt_basic').dataTable({
-            "bPaginate": true,
-            "bLengthChange": true,
-            "bFilter": true,
-            "bSort": true,
-            "bInfo": true,
-            "bAutoWidth": true,
+            "language": {
+                "lengthMenu": "Display _MENU_ records per page",
+                "zeroRecords": "Nothing found - sorry",
+                "info": "Showing page _PAGE_ of _PAGES_",
+                "infoEmpty": "No records available",
+                "infoFiltered": "(filtered from _MAX_ total records)"
+            },
             "aoColumns": [
                 null,
                 null,
