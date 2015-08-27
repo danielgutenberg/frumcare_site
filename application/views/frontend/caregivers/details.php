@@ -30,7 +30,7 @@
                 <?php } ?>
 
     </div>
-    <!--div>
+    <div>
         <?php if($this->uri->segment(4) <17 ){ ?>
         <?php $reviews = $number_reviews['number_reviews']; ?>
         <div class="rating-score" id="<?php echo ($number_reviews['total_review']/($reviews>0?$reviews:1));?>"></div>
@@ -55,7 +55,7 @@
                         <?php
                     }?>
 
-                </div>-->
+                </div>
                 <?php
                 if($this->uri->segment(4)>0 && $this->uri->segment(4)<10){
                    if($recordData['care_type'] != 7){
