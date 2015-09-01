@@ -31,6 +31,7 @@
 		        
 		        	<?php 
 		        	if (isset($location)) {
+                        print_r($location); 
 		        		$lat = $loaction['lat'];
 		        		$long = $location['lng'];
 		        		$city = explode(',',$location['place'])[0];
