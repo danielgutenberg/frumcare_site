@@ -59,8 +59,8 @@
                     } else {
                         $location1 = explode(',',$location);
                     }
-
-                    if (preg_match($location1[0],$data['location'])){
+                    echo $data['location'];
+                    if (strpos($location1[0],$data['location'])!=false){
                         echo "0 Miles Away From ".$location1[0];
                     }else{
                         echo ceil($data['distance'])." Miles Away From ".$location1[0];  //location is passed from controller
