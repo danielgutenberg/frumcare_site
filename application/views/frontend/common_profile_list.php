@@ -18,6 +18,8 @@
 	if(is_array($userdatas)){
         foreach($userdatas as $key => $data){
 
+            echo 'working'; exit;
+
 			$reviewData = Review_model::countReviewById($data['id']);
             $navigate = $data['care_type']>16?'jobs':'caregivers'; ?>
             <div class="profile-list clearfix usual row">
