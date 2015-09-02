@@ -67,10 +67,10 @@
 
                     if (preg_match('/'.$location1[0].'/',$data['location'])){
                         echo "0 Miles Away From ".$location1[0];
-                        echo 'workings';
+                        
                     }else{
                         echo ceil($data['distance'])." Miles Away From ".$location1[0];  //location is passed from controller
-                        echo 'not workings';
+
                     }
 
     	        	?>
