@@ -64,7 +64,7 @@
                     }
 
 
-
+                    echo $data['location'];
                     if (strpos($location1[0],$data['location'])!=false){
                         echo "0 Miles Away From ".$location1[0];
                         echo 'working';
