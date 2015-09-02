@@ -51,7 +51,7 @@
   		        	else echo ''; ?>
     	        </div>
     	        <span class="img-of-profile"></span><br />-->
-                <?php echo 'working'; exit;?>
+                
     	        <div class="pin-location"> <?php
                     if($data['location']) { ?>
                         <img src="<?php echo site_url();?>img/pin.png">
