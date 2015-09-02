@@ -51,7 +51,7 @@
   		        	else echo ''; ?>
     	        </div>
     	        <span class="img-of-profile"></span><br />-->
-                
+
     	        <div class="pin-location"> <?php
                     if($data['location']) { ?>
                         <img src="<?php echo site_url();?>img/pin.png">
@@ -63,12 +63,14 @@
                         $location1 = explode(',',$location);
                     }
 
-                    echo 'working'; exit;
+
 
                     if (strpos($location1[0],$data['location'])!=false){
                         echo "0 Miles Away From ".$location1[0];
+                        echo 'working'; exit;
                     }else{
                         echo ceil($data['distance'])." Miles Away From ".$location1[0];  //location is passed from controller
+                        echo 'not working'; exit;
                     }
 
     	        	?>
