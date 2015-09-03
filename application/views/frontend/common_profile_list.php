@@ -88,15 +88,13 @@
     	        </div>
 	        </div>
         	<div class="profile-list-details col-md-9 col-sm-9 col-xs-12">
-            <pre>
+
             <?php
                 $json = file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false");
                 $json_data = json_decode($json);
-                $postcode = $json_data;
-                print_r($postcode);
+                echo $postcode = $json_data->results[0]->address_components[7]->long_name;
 
             ?>
-                </pre>
 
                 <?php if ($data['account_category'] == 3) {?>
                 <span class="name">
