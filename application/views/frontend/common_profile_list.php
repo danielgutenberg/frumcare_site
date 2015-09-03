@@ -18,10 +18,8 @@
 	if(is_array($userdatas)){
         foreach($userdatas as $key => $data){
 
-            echo '<pre>';
-            print_r($data);
-            echo '</pre>';
-
+            $lat=$data['lat'];
+            $lng=$data['lng'];
 
 
 			$reviewData = Review_model::countReviewById($data['id']);
@@ -68,6 +66,12 @@
                     }
 
                     //print_r($data);
+
+                    $json = file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false");
+                    $json_data = json_decode($json);
+                    print_r($json_data);
+
+
 
                     if (preg_match('/'.$location1[0].'/',$data['location'])){
                         echo "0 Miles Away From ".$location1[0];
