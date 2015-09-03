@@ -92,7 +92,8 @@
             <?php
                 $json = file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false");
                 $json_data = json_decode($json);
-                echo $postcode = $json_data->results[7]->long_name;
+                $postcode = $json_data->results[7]->long_name;
+                echo '<strong>'.$postcode.'</strong>';
             ?>
 
                 <?php if ($data['account_category'] == 3) {?>
