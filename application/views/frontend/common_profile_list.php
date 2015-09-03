@@ -92,7 +92,7 @@
             <?php
                 $json = file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false");
                 $json_data = json_decode($json);
-                $postcode = $json_data->results[7];
+                $postcode = $json_data->results;
                 print_r($postcode);
 
             ?>
