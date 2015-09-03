@@ -63,7 +63,7 @@
                         $location1 = explode(',',$location);
                     }
 
-                    print_r($data);
+                    //print_r($data);
 
                     if (preg_match('/'.$location1[0].'/',$data['location'])){
                         echo "0 Miles Away From ".$location1[0];
