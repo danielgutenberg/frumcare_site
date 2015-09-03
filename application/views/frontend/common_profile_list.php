@@ -63,17 +63,25 @@
                         $location1 = explode(',',$location);
                     }
 
-
+                    print_r($data); 
 
                     if (preg_match('/'.$location1[0].'/',$data['location'])){
                         echo "0 Miles Away From ".$location1[0];
-                        
+
                     }else{
                         echo ceil($data['distance'])." Miles Away From ".$location1[0];  //location is passed from controller
 
                     }
 
-    	        	?>
+
+                    /*$json = file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false");
+                    $json_data = json_decode($json);
+                    $location['city'] = $json_data->results[3]->formatted_address;
+                    */
+
+
+
+                    ?>
     	        </div>
 	        </div>
         	<div class="profile-list-details col-md-9 col-sm-9 col-xs-12">
