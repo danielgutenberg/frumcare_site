@@ -18,6 +18,10 @@
 	if(is_array($userdatas)){
         foreach($userdatas as $key => $data){
 
+            echo '<pre>';
+            print_r($data);
+            echo '</pre>';
+
 
 
 			$reviewData = Review_model::countReviewById($data['id']);
@@ -73,12 +77,7 @@
 
                     }
 
-                    $lat=$data['lat'];
-                    $lng=$data['lng'];
-                    $json = file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false");
-                    $json_data = json_decode($json);
-                    //$location['city'] = $json_data->results[3]->formatted_address;
-                    print_r($json_data);
+
 
 
 
