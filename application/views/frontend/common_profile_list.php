@@ -67,9 +67,7 @@
 
                     //print_r($data);
 
-                    $json = file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false");
-                    $json_data = json_decode($json);
-                    print_r($json_data);
+
 
 
 
@@ -90,6 +88,13 @@
     	        </div>
 	        </div>
         	<div class="profile-list-details col-md-9 col-sm-9 col-xs-12">
+
+            <?php
+                $json = file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false");
+                $json_data = json_decode($json);
+                print_r($json_data);
+            ?>
+
                 <?php if ($data['account_category'] == 3) {?>
                 <span class="name">
 					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo $data['organization_name'];?></a>
