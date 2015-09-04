@@ -8,7 +8,7 @@
                         <h2 class="banner-title">
                             We Connect <br />Jewish Families <br />with Caregivers
                         </h2>                        
-                        <div class='banner-sub-title' style="background-color: white;>
+                        <div class='banner-sub-title' style="background-color: white";>
                             <div class="banner-title-small" style="margin-left: 37px; padding-top: 10px;">Choose an option:</div>
                                 <?php /* <a href="<?php echo site_url('signup?ac=2')?>">I am a Parent</a>
                                 <br />
