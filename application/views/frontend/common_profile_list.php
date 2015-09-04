@@ -65,7 +65,7 @@
         	<div class="profile-list-details col-md-9 col-sm-9 col-xs-12">
                 <?php if ($data['account_category'] == 3) {?>
                 <span class="name">
-					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo ucfirst($data['organization_name']);?></a>
+					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo ucfirst($data['organiztion_name']);?></a>
 				</span>	<?php } else { ?>
 				<span class="name">
 					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo ucfirst($data['name']);?></a>
