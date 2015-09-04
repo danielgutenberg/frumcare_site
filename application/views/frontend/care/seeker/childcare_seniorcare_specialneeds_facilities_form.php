@@ -207,7 +207,7 @@
          <div>
             <label>Details</label>
             <div class="form-field">
-               <textarea name="profile_description" class=""></textarea>
+               <textarea name="profile_description" class="required"></textarea>
             </div>
          </div>
          <h2>Additional Requirements</h2>
