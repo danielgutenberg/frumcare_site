@@ -35,7 +35,7 @@
 <?php
    if(check_user()) {
    $u = get_user(check_user());
-   $fn = ucfirst($u['name']);
+   $fn = ucfirst($u['organiztion_name']);
    $recorddata= get_account_details();
    
    }
