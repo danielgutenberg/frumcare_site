@@ -24,9 +24,9 @@
 <div class="details-right-caregive col-lg-8 col-md-8 col-sm-12 col-xs-12">
     <div class="profile-name-details">
         <?php if ($recordData['organization_name']) { ?>
-        <span style="font-size:30px;"><?php echo $recordData['organization_name'];?> </span>
+        <span style="font-size:30px;"><?php echo ucfirst($recordData['organization_name']);?> </span>
         <?php } else { ?>
-                <span style="font-size:30px;"><?php echo $recordData['name'];?> </span>
+                <span style="font-size:30px;"><?php echo ucfirst($recordData['name']);?> </span>
                 <?php } ?>
 
     </div>
@@ -269,7 +269,7 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
     //   || ($this->uri->segment(4)>16 && $this->uri->segment(4) < 24)
        ){ ?>
        <h2> Meet 
-            <?php echo $recordData['name'];?>
+            <?php echo ucfirst($recordData['name']);?>
         </h2>
         <?php 
         }
