@@ -68,6 +68,7 @@
 
 
 
+
                     $formated_add=$json_data->results[5]->formatted_address;
 
 
