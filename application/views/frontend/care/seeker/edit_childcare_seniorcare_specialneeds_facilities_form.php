@@ -44,7 +44,8 @@ $(document).ready(function(){
 $user_detail = get_user(check_user());
 //print_r($usr);
 if($detail){
-    $organiztion_name      = $user_detail['organization_name'];
+    $organiztion_name      = $user_detail['organiztion_name'];
+    $contact_name          = $user_detail['name'];
     $neighbour              =   $usr[0]['neighbour'];
     $organization_type      = $detail[0]['organization_type'];
     $first_name             = ucfirst($user_detail['name']);
