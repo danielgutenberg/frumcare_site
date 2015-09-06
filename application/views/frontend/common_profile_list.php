@@ -73,10 +73,11 @@
     	        </div>
 	        </div>
         	<div class="profile-list-details col-md-9 col-sm-9 col-xs-12">
-
-                echo '<pre>';
+                    <?php
+                    echo '<pre>';
                     print_r($json_data->results[5]);
                     echo '</pre>';
+                    ?>
 
 
                 <?php if ($data['account_category'] == 3) {?>
