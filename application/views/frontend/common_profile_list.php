@@ -64,12 +64,11 @@
                     $lng = $data['lng'];
                     $json = file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false");
                     $json_data = json_decode($json);
-
+                    print_r($json_data[5]);
 
 
                     $formated_add=$json_data->results[5]->formatted_address;
-                    echo $formated_add;
-                    print_r($json_data->results[5]);
+
 
                     if(preg_match('/'.$location1[0].'/',$data['location'])){
                         echo '0 Miles Away From '.$location1[0];
