@@ -34,7 +34,7 @@
     				  			var json = jQuery.parseJSON(msg);
     							var pagenum = json.num;
     							var pagedata = json.userdatas;
-    							console.log(json);
+    							//console.log(json);
                                 if(json.num>1){
                                     json.pagination = '<a href="#" class="paginate_click in-active" id="previous">previous</a>' + json.pagination  + '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
 
@@ -52,7 +52,7 @@
                         $.post('<?php echo site_url()?>common_care_controller/sort',{'miles':miles,'option':x,'per_page':z,'location':y,'account_category':ac,'care_type':care_type,'total_page':$('#total').text()},function(msg){
                             $(".searchloader").fadeOut("fast");
     				  			var json = jQuery.parseJSON(msg);
-                                console.log(json);
+                                //console.log(json);
     							var pagenum = json.num;
     							var pagedata = json.userdatas;
     							if(pagenum>1){
@@ -324,7 +324,13 @@ if($pages > 1){
 			  			var json = jQuery.parseJSON(msg);
 						var pagenum = json.num;
 						var pagedata = json.userdatas;
-						json.pagination = '<a href="#" class="paginate_click in-active" id="previous">previous</a>' + json.pagination  + '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
+                        if(pagenum>1){
+                            json.pagination = '<a href="#" class="paginate_click in-active" id="previous">previous</a>' + json.pagination  + '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
+
+                        }else{
+                            json.pagination = '</div>';
+
+                        }
 						$('#list_container').html(pagedata);
 						$('#total').text(json.total_rows);
                         $('.navigations').html(json.pagination);
@@ -338,7 +344,14 @@ if($pages > 1){
 			  			var json = jQuery.parseJSON(msg);
 						var pagenum = json.num;
 						var pagedata = json.userdatas;
-						json.pagination = '<a href="#" class="paginate_click in-active" id="previous">previous</a>' + json.pagination  + '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
+                        if(pagenum>1){
+                            json.pagination = '<a href="#" class="paginate_click in-active" id="previous">previous</a>' + json.pagination  + '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
+
+                        }else{
+                            json.pagination = '</div>';
+
+                        }
+						//json.pagination = '<a href="#" class="paginate_click in-active" id="previous">previous</a>' + json.pagination  + '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
 						$('#list_container').html(pagedata);
 						$('#total').text(json.total_rows);
                         $('.navigations').html(json.pagination);
