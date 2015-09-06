@@ -87,7 +87,7 @@ if($detail){
     </div>
     <div class="dashboard-right float-right">
 
-<form action="<?php echo site_url().'user/update_job_details/'.$care_type;?>" method="post">
+<form action="<?php echo site_url().'user/update_job_details/'.$care_type;?>" method="post" id="personal-details-form"> 
     <div class="ad-form-container float-left">
         <div class="top-welcome">
             <h2>Edit Job Details</h2>
@@ -124,7 +124,7 @@ if($detail){
         <div>
             <label>Number of children</label>
             <div class="form-field">
-            <input type="text" value="<?php echo isset($number_of_children) ? $number_of_children : '' ?>" name="number_of_children" class="required number">
+            <input type="text" value="<?php echo isset($number_of_children) ? $number_of_children : '' ?>" name="number_of_children" class="number">
             </div>
         </div>
 
@@ -189,13 +189,13 @@ if($detail){
         <div>
             <label>Caregiver age</label>
             <div class="form-field">
-            <input type="text" name="caregiverage_from" value="<?php echo isset($caregiverage_from)?$caregiverage_from:'';?>" placeholder="Age From" style="width:25%" class="required"> to  <input type="text" name="caregiverage_to" value="<?php echo isset($caregiverage_to)?$caregiverage_to:'';?>" placeholder="Age To" style="width:25%" class="required">
+            <input type="text" name="caregiverage_from" value="<?php echo isset($caregiverage_from)?$caregiverage_from:'';?>" placeholder="Age From" style="width:25%" class=""> to  <input type="text" name="caregiverage_to" value="<?php echo isset($caregiverage_to)?$caregiverage_to:'';?>" placeholder="Age To" style="width:25%" class="">
             </div>
         </div>
         <div class="rate-select">
             <label>Wage</label>
             <div class="form-field">
-                <select name="rate" class="required">
+                <select name="rate" class="">
                     <option value="">Select rate</option>
                     <option value="5-10" <?php echo isset($rate) && $rate == '5-10' ? 'selected' : '' ?>>$5-$10 / Hr</option>
                     <option value="10-15" <?php echo isset($rate) && $rate == '10-15' ? 'selected' : '' ?>>$10-$15 / Hr</option>

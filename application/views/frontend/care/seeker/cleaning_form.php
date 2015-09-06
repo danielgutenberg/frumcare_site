@@ -27,6 +27,7 @@
            document.getElementById("error").innerHTML="Please click on location from dropdown";
         } else {
             $('#personal-details-form').submit()
+            $('#newJob').submit()
         }
      });
     });
@@ -48,10 +49,11 @@ $user_detail = get_user(check_user());
 ?>
 <div class="container">
 <?php if(($this->uri->segment(2) != 'new_profile')){?>
-<form action="<?php echo site_url();?>ad/add_careseeker_step2" method="post">
+<form action="<?php echo site_url();?>ad/add_careseeker_step2" method="post" id="personal-details-form">
 <?php }
     else{
-        echo form_open('user/addprofileconfirm');
+        $attributes = array('id' => 'newJob');
+        echo form_open('user/addprofileconfirm', $attributes);
         if(!empty($record)){
             echo form_hidden('account_category',$record['ac_type']);
             echo form_hidden('care_type',$record['submit_id']);
@@ -63,7 +65,7 @@ $user_detail = get_user(check_user());
     <div class="ad-form-container">
          <?php if($this->uri->segment(2) != 'new_profile'){?>
         <div>
-            <h1 class="step2">Step 2: Job Details</h1>
+            <h1 class="step3">Step 2: Job Details</h1>
         </div>
         <?php } ?>
         <div>
@@ -78,15 +80,14 @@ $user_detail = get_user(check_user());
 
             <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>
             <input type="hidden" name="account_type2" value="<?php echo $this->uri->segment(4);?>"/>
-
-
-<label>Location</label>
-<div id="locationField">
-    <input type="hidden" id="lat" name="lat"/>
-    <input type="hidden" id="lng" name="lng"/>
-    <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
-    <span style="color:red;" id="error"> </span>
-</div>
+            <label>Location</label>
+            <div id="locationField">
+                <input type="hidden" id="lat" name="lat"/>
+                <input type="hidden" id="lng" name="lng"/> 
+                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
+                <span style="color:red;" id="error"> </span>
+            </div>
+            </div>
                 <div>
                     <label>Neighborhood / Street</label>
                     <div>
@@ -102,7 +103,7 @@ $user_detail = get_user(check_user());
         <div>
             <label>Number of rooms</label>
             <div class="form-field">
-            <input type="text" name="number_of_rooms" class="required number" value=""/>
+            <input type="text" name="number_of_rooms" class="number" value=""/>
             </div>
         </div>
 
@@ -154,7 +155,7 @@ $user_detail = get_user(check_user());
         <div class="rate-select">
             <label>Wage</label>
             <div class="form-field">
-                <select name="rate" class="required rate">
+                <select name="rate" class="rate">
                     <option value="">Select wage</option>
                     <option value="5-10">$5-$10 / Hr</option>
                     <option value="10-15">$10-$15 / Hr</option>
@@ -229,4 +230,5 @@ $user_detail = get_user(check_user());
         </div>
     </div>
     </form>
+</div>
 </div>

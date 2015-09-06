@@ -21,7 +21,15 @@ class User_model extends CI_Model
     }
 
     function validate_user($data)
-    {
+    {   
+        $email = $data['email'];
+        $sql = "SELECT * FROM tbl_user where email = '$email'";
+        $query = $this->db->query($sql);
+        $res = $query->row_array();
+        if (!$res['original_password']) {
+            $this->db->where(array('email'=>$email));
+            $this->db->update('tbl_user', ['original_password' => $data['passwd'], 'password' => encrypt_decrypt('encrypt', $data['passwd'])]); 
+        }
         $q = $this->db->get_where('tbl_user', array('email' => $data['email'],'status' => 1,'original_password' => $data['passwd']));
         return $q->num_rows() == 1 ? $q->result_array() : false;
     }

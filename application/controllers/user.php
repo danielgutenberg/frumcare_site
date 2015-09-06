@@ -53,9 +53,7 @@ class User extends CI_Controller
                 'email_hash'        => sha1($data['email']),
                 'organization_name' => $data['name'],
                 'name'              => $data['name'],
-                'uri'               => $uri,
-                'original_password' => $data['password'],
-                'password'          => encrypt_decrypt('encrypt',$data['password'])
+                'uri'               => $uri
             );
 
             $q = $this->common_model->update('tbl_user', $edit, array('SHA1(id)' => $id_hash));
@@ -1730,6 +1728,7 @@ class User extends CI_Controller
                  
                         
                     $insert1 = array(
+                        'marital_status' => isset($_POST['marital_status'])?$_POST['marital_status']:'',
                         'location' => isset($_POST['address_location'])?$_POST['address_location']:'',
                         'zip'      => isset($_POST['zip'])?$_POST['zip']:'',
                         'age'      =>  isset($_POST['age'])?$_POST['age']:'',

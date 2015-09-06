@@ -27,6 +27,7 @@
            document.getElementById("error").innerHTML="Please click on location from dropdown";
         } else {
             $('#personal-details-form').submit()
+            $('#newJob').submit()
         }
      });
     })
@@ -48,9 +49,10 @@ $user_detail = get_user(check_user());
     $zip = $user_detail['zip'];
 ?>
 <?php if(($this->uri->segment(2) != 'new_profile')){?>
-<form action="<?php echo site_url();?>ad/add_careseeker_step2" method="post">
+<form action="<?php echo site_url();?>ad/add_careseeker_step2" method="post" id="personal-details-form">
  <?php }else{
-    echo form_open('user/addprofileconfirm');
+    $attributes = array('id' => 'newJob');
+    echo form_open('user/addprofileconfirm', $attributes);
     if(!empty($record)){
     echo form_hidden('account_category',$record['ac_type']);
     echo form_hidden('care_type',$record['submit_id']);
@@ -87,7 +89,7 @@ $user_detail = get_user(check_user());
         <div>
             <label>Age of student</label>
             <div class="form-field">
-            <input type="text" name="age" class="required number" value="<?php echo isset($age) ? $age : '' ?>"/>
+            <input type="text" name="age" class="number" value="<?php echo isset($age) ? $age : '' ?>"/>
             </div>
         </div>
 
@@ -130,7 +132,7 @@ $user_detail = get_user(check_user());
         <div class="rate-select">
             <label>Wage</label>
             <div class="form-field">
-                <select name="rate" class="required rate">
+                <select name="rate" class="rate">
                     <option value="">Select wage</option>
                     <option value="5-10">$5-$10 / Hr</option>
                     <option value="10-15">$10-$15 / Hr</option>
@@ -210,7 +212,7 @@ $user_detail = get_user(check_user());
         <div>
             <label>Minimum years of experience</label>
             <div class="form-field">
-            <select name="experience" class="required">
+            <select name="experience" class="">
                 <option value="">Select</option>
                 <option value="1" <?php echo isset($exp) && $exp == 1 ? 'selected' : '' ?>>1 year</option>
                 <option value="2" <?php echo isset($exp) && $exp == 2 ? 'selected' : '' ?>>2 years</option>

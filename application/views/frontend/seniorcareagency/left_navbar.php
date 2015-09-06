@@ -253,13 +253,17 @@ $(function () {
 		        return $(el).val();
 		    }).get();
 		    var care_type = $( ".care_type option:selected" ).val();
+		    var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var distance = $('#sort_by_miles').val();
 				$.ajax({
 					type:"post",
 					url:"<?php echo site_url();?>seniorcareagency/savesearch",
-					data:"&language="+lang+"&willing_to_work="+willing_to_work,
+					data:"lat="+lat+"&lng="+lng+"&location="+location+"&distance="+distance+"&language="+lang+"&willing_to_work="+willing_to_work,
 					success:function(done){
 							//console.log(done);
-                            alert('Search saved');
+                            alert('Search saved to search alerts section in your dashboard');
 					}
 				});
 	      },

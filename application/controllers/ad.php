@@ -198,6 +198,7 @@ class Ad extends CI_Controller
              );
 
              $insert_new = array(
+                 'marital_status'           => isset($p['marital_status'])? $p['marital_status'] : '', 
                 'age'                   => isset($p['age'])? $p['age'] : '',
                 'caregiver_religious_observance'     => isset($p['religious_observance']) ? $p['religious_observance'] : '',
                 'caregiver_language' => $language,

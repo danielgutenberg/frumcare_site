@@ -77,7 +77,7 @@ if($detail){
     </div>
     <div class="dashboard-right float-right">
 
-<form action="<?php echo site_url().'user/update_job_details/'.$care_type;?>" method="post">
+<form action="<?php echo site_url().'user/update_job_details/'.$care_type;?>" method="post" id="personal-details-form">
 <div class="ad-form-container float-left">
         <div class="top-welcome">
             <h2>Edit Job Details</h2>
@@ -106,7 +106,7 @@ if($detail){
         <div>
             <label>Ages of student</label>
             <div class="form-field">
-            <input type="text" name="age" class="required number" value="<?php echo isset($age) ? $age : '' ?>"/>
+            <input type="text" name="age" class="number" value="<?php echo isset($age) ? $age : '' ?>"/>
             </div>
         </div>
 
@@ -179,7 +179,7 @@ if($detail){
         <div>
             <label>Tutor age</label>
             <div class="form-field">
-                <input type="text" name="caregiverage_from" value="<?php echo isset($caregiverage_from)?$caregiverage_from:'';?>" placeholder="Age From" style="width:25%" class="required"> to  <input type="text" name="caregiverage_to" value="<?php echo isset($caregiverage_to)?$caregiverage_to:'';?>" placeholder="Age To" style="width:25%" class="required">
+                <input type="text" name="caregiverage_from" value="<?php echo isset($caregiverage_from)?$caregiverage_from:'';?>" placeholder="Age From" style="width:25%" class=""> to  <input type="text" name="caregiverage_to" value="<?php echo isset($caregiverage_to)?$caregiverage_to:'';?>" placeholder="Age To" style="width:25%" class="">
             </div>
         </div>
         <div>
@@ -204,7 +204,7 @@ if($detail){
         <div>
             <label>Minimum years experience</label>
             <div class="form-field">
-            <select name="experience" class="required">
+            <select name="experience" class="">
                 <option value="">Select Minimum years experience</option>
                 <option value="1" <?php echo isset($exp) && $exp == 1 ? 'selected' : '' ?>>1 year</option>
                 <option value="2" <?php echo isset($exp) && $exp == 2 ? 'selected' : '' ?>>2 years</option>

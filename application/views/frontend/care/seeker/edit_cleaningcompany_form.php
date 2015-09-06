@@ -74,7 +74,7 @@ if($detail){
     </div>
     <div class="dashboard-right float-right">
 
-<form action="<?php echo site_url().'user/update_job_details/'.$care_type;?>" method="post">
+<form action="<?php echo site_url().'user/update_job_details/'.$care_type;?>" method="post" id="personal-details-form">
 <div class="ad-form-container float-left">
 <div class="top-welcome">
     <h2>Edit Job Details</h2>
@@ -116,14 +116,14 @@ if($detail){
 <div>
     <label>Position you are looking to fill</label>
     <div class="form-field">
-        <input type="text" name="job_position" class="required" value="<?php echo isset($job_position)?$job_position:''?>"/>
+        <input type="text" name="job_position" class="" value="<?php echo isset($job_position)?$job_position:''?>"/>
     </div>
 </div>
 
 <div>
             <label>Wage</label>
             <div class="form-field">
-            <select name="rate" class="required">
+            <select name="rate" class="">
             <option value="">Select rate</option>
             <option value="5-10" <?php echo isset($rate) && $rate == '5-10' ? 'selected' : '' ?>>$5-$10 / Hr</option>
             <option value="10-15" <?php echo isset($rate) && $rate == '10-15' ? 'selected' : '' ?>>$10-$15 / Hr</option>

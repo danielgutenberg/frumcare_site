@@ -242,9 +242,11 @@
             $user_id = 0;
 
         if($this->input->is_ajax_request()){
+            $distance = $this->input->post('distance', true) == 'unlimited' ? 99999 : $this->input->post('distance', true);
+            
             $data = array(
                 'user_id'           => $user_id,
-                'care_type'         => $this->input->post('care_type',true),
+                'care_type'         => 6,
                 'caregiverage_from' => $this->input->post('caregiverage_from',true),
                 'caregiverage_to'   => $this->input->post('caregiverage_to',true),
                 'gender'            => $this->input->post('gender',true),
@@ -258,6 +260,11 @@
                 'driver_license'    => $this->input->post('driver_license',true),
                 'vehicle'           => $this->input->post('vehicle',true),
                 'availability'      => $this->input->post('available',true),
+                'lat'                   => $this->input->post('lat', true),
+                'long'                  => $this->input->post('lng', true),
+                'location'              => $this->input->post('location', true),
+                'distance'              => $distance
+            
             );
 
             $q = $this->db->insert('tbl_searchhistory',$data);

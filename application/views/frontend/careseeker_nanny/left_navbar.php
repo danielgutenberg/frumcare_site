@@ -387,13 +387,17 @@ $(function () {
                         var rate_type = $('.rate_type').val();
                         var start_date = $("#textbox1").val()?$("#textbox1").val():'';    
                         var care_type = $( ".jobtype option:selected" ).val();
+                        var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var distance = $('#sort_by_miles').val();
                         $.ajax({
                             type : "post",
                             url  : "<?php echo site_url();?>careseeker_nanny/savesearch",
-                            data:"availability="+availability+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date+"&care_type="+care_type,
+                            data:"lat="+lat+"&lng="+lng+"&location="+location+"&distance="+distance+"&availability="+availability+"&rate="+rate+"&rate_type="+rate_type+"&neighbour="+neighbour+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&start_date="+start_date+"&care_type="+care_type,
                             success:function(msg){
                                 //console.log(msg);
-                                alert('Search saved');
+                                alert('Search saved to search alerts section in your dashboard');
                             }
                         });
                   },

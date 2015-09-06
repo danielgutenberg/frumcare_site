@@ -590,13 +590,17 @@ $(function () {
 	        	return $(el).val();
 	    	}).get();
 	    	var care_type = $( ".care_type option:selected" ).val();
+	    	var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var distance = $('#sort_by_miles').val();
 	    	$.ajax({
     			    		type:"post",
     			    		url:"<?php echo site_url();?>nursery/savesearch",
-    			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
+    			    		data:"lat="+lat+"&lng="+lng+"&location="+location+"&distance="+distance+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
     			    		success:function(done){
            						//console.log(done);
-                                alert('Search saved');
+                                alert('Search saved to search alerts section in your dashboard');
     			    		}
     			    	});
       	},

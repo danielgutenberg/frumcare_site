@@ -282,13 +282,17 @@ $(function () {
   		    }).get();  
             var care_type = $( ".care_type_organizations option:selected" ).val();
             var sub_care = $('.sub_care').val();
+            var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var distance = $('#sort_by_miles').val();
             $.ajax({
                 type : "post",
                 url  : "<?php echo site_url();?>seniorcarecenter/savesearch",
-                data:"neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&language="+lang+"&care_type="+care_type+"&sub_care="+sub_care+"&extra_field="+extra_field,
+                data:"lat="+lat+"&lng="+lng+"&location="+location+"&distance="+distance+"&neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&language="+lang+"&care_type="+care_type+"&sub_care="+sub_care+"&extra_field="+extra_field,
                 success:function(msg){
                     //console.log(msg);
-                    alert('Search saved');
+                    alert('Search saved to search alerts section in your dashboard');
                 }
             });
       },

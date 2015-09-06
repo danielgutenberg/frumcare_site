@@ -611,13 +611,17 @@ $(function () {
 		    var availability = $('.availability:checked').map(function(_, el) {
 		        return $(el).val();
 		    }).get();
+		    var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var distance = $('#sort_by_miles').val();
             $.ajax({
 				type:"post",
 				url:"<?php echo site_url();?>nanny/savesearch",
-				data:"availability="+availability+"&training="+training+"&neighbour="+neighbour+"&gender="+gender+"&lang="+lang+"&observance="+observance+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&driver_license="+driver_license+"&vehicle="+vehicle+"&pick_up_child="+pick_up_child+"&cook="+cook+"&basic_housework="+basic_housework+"&homework_help="+homework_help+"&on_short_notice="+on_short_notice+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&start_date="+start_date+"&care_type="+care_type+"&bath_children="+bath_children+"&bed_children="+bed_children+"&smoker="+smoker,
+				data:"lat="+lat+"&lng="+lng+"&location="+location+"&distance="+distance+"&availability="+availability+"&training="+training+"&neighbour="+neighbour+"&gender="+gender+"&lang="+lang+"&observance="+observance+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&driver_license="+driver_license+"&vehicle="+vehicle+"&pick_up_child="+pick_up_child+"&cook="+cook+"&basic_housework="+basic_housework+"&homework_help="+homework_help+"&on_short_notice="+on_short_notice+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&start_date="+start_date+"&care_type="+care_type+"&bath_children="+bath_children+"&bed_children="+bed_children+"&smoker="+smoker,
 				success:function(message){
 					//console.log(message);
-                    alert('Search saved');
+                    alert('Search saved to search alerts section in your dashboard');
 				}
 			});
 

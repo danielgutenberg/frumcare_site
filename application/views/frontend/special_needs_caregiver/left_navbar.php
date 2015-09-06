@@ -476,13 +476,17 @@ $(function () {
 		  	var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
 		    var available = $('.available_on_short_notice').is('.checked')?$('.available_on_short_notice').val():'';
 	    	var care_type = $( ".care_type option:selected" ).val();
+	    	var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var distance = $('#sort_by_miles').val();
 		    	$.ajax({
 			    		type:"post",
 			    		url:"<?php echo site_url();?>special_needs_caregiver/savesearch",
-			    		data:"neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&carelocation="+carelocations+"&trainings="+trainings+"&able_to_work="+able_to_work+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&care_type="+care_type+"&smoker="+smoker,
+			    		data:"lat="+lat+"&lng="+lng+"&location="+location+"&distance="+distance+"&neighbour="+neighbour+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&care_type="+care_type+"&carelocation="+carelocations+"&trainings="+trainings+"&able_to_work="+able_to_work+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&care_type="+care_type+"&smoker="+smoker,
 			    		success:function(done){
 			    			//console.log(done);
-                            alert('Search saved');
+                            alert('Search saved to search alerts section in your dashboard');
 			    		}
 	    		});
       	},

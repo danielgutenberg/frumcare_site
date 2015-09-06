@@ -274,13 +274,17 @@ $(function () {
             var extra_field = $('.extra_field:checked').map(function(_, el) {
     		        return $(el).val();
     		    }).get();
+    		    var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var distance = $('#sort_by_miles').val();
 				$.ajax({
 					type:"post",
 					url:"<?php echo site_url();?>specialneedscenter/savesearch",
-					data:"neighbour="+neighbour+"&language="+lang+"&willing_to_work="+willing_to_work+"&care_type="+care_type+"&smoker="+smoker+"&extra_field="+extra_field,
+					data:"lat="+lat+"&lng="+lng+"&location="+location+"&distance="+distance+"&neighbour="+neighbour+"&language="+lang+"&willing_to_work="+willing_to_work+"&care_type="+care_type+"&smoker="+smoker+"&extra_field="+extra_field,
 					success:function(done){
 							//console.log(done);
-                            alert('Search saved');
+                            alert('Search saved to search alerts section in your dashboard');
 					}
 				});
 	      },

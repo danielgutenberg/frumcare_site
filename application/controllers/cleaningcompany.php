@@ -227,13 +227,19 @@ class Cleaningcompany extends CI_Controller{
         }
 
         if($this->input->is_ajax_request()){
+            $distance = $this->input->post('distance', true) == 'unlimited' ? 99999 : $this->input->post('distance', true);
+            
             $data = array(
                 'user_id'           => $user_id,
                 'neighbor'          => $this->input->post('neighbour',true),
                 'willing_to_work'   => $this->input->post('willing_to_work',true),
                 'looking_to_work'   => $this->input->post('looking_to_work',true),
-                'care_type'         => $this->input->post('care_type',true),
-            );
+                'care_type'         => 15,
+                'lat'                   => $this->input->post('lat', true),
+                'long'                  => $this->input->post('lng', true),
+                'location'              => $this->input->post('location', true),
+                'distance'              => $distance
+            
 
             $q = $this->db->insert('tbl_searchhistory',$data);
             if($q)

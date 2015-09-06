@@ -2,7 +2,6 @@
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>                
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
 <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
 <script>
     $("#locationField").ready(function(){        
@@ -17,10 +16,6 @@
                     document.getElementById("error").innerHTML="";
                 });
     });
-     $("#textbox1").ready(function(){        
-        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-     });
-     
      $(document).ready(function() {
        $('.btn').click(function(event) {
         event.preventDefault(); 
@@ -30,9 +25,12 @@
            document.getElementById("error").innerHTML="Please click on location from dropdown";
         } else {
             $('#personal-details-form').submit()
+            $('#newJob').submit()
         }
      });
     })
+     
+     
 </script>
 <?php if(($this->uri->segment(2) != 'new_profile')){?>
 <ol class="progtrckr" data-progtrckr-steps="3">
@@ -49,9 +47,10 @@ $user_detail = get_user(check_user());
     $zip = $user_detail['zip'];
 ?>
 <?php if(($this->uri->segment(2) != 'new_profile')){?>
-<form action="<?php echo site_url();?>ad/add_careseeker_step2" method="post">
+<form action="<?php echo site_url();?>ad/add_careseeker_step2" method="post" id="personal-details-form">
 <?php }else{
-			echo form_open('user/addprofileconfirm');
+			$attributes = array('id' => 'newJob');
+    		echo form_open('user/addprofileconfirm', $attributes);
 			if(!empty($record)){
 				echo form_hidden('account_category',$record['ac_type']);
 				echo form_hidden('care_type',$record['submit_id']);
@@ -97,7 +96,7 @@ $user_detail = get_user(check_user());
 		<div>
 			<label>Age of person requiring care</label>
 			<div class="form-field">
-				<input type="text" name="age" class="required number" value="<?php echo isset($age) ? $age : '' ?>"/>
+				<input type="text" name="age" class="number" value="<?php echo isset($age) ? $age : '' ?>"/>
 			</div>
 		</div>
 
@@ -138,7 +137,7 @@ $user_detail = get_user(check_user());
 		<div class="rate-select">
             <label>Wage</label>
             <div class="form-field">
-                <select name="rate" class="required rate">
+                <select name="rate" class="rate">
                     <option value="">Select wage</option>
                     <option value="5-10">$5-$10 / Hr</option>
                     <option value="10-15">$10-$15 / Hr</option>
@@ -187,7 +186,7 @@ $user_detail = get_user(check_user());
     	<div>
     		<label>Level of observance necessary</label>
     		<div class="form-field">
-    			<select name="religious_observance" class="required">
+    			<select name="religious_observance" class="">
     				<option value="">Select</option>
     				<option value="Yeshivish/Chasidish">Yeshivish / Chasidish</option>
     				<option value="Orthodox/Modern Orthodox">Orthodox / Modern orthodox</option>

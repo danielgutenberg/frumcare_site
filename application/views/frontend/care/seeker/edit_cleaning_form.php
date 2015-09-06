@@ -82,7 +82,7 @@ if($detail){
     </div>
     <div class="dashboard-right float-right">
 
-<form action="<?php echo site_url().'user/update_job_details/'.$care_type;?>" method="post">
+<form action="<?php echo site_url().'user/update_job_details/'.$care_type;?>" method="post" id="personal-details-form">
     <div class="ad-form-container float-left">
         <div class="top-welcome">
             <h2>Edit Job Details</h2>
@@ -118,7 +118,7 @@ if($detail){
         <div>
             <label>Number of rooms</label>
             <div class="form-field">
-            <input type="text" name="number_of_rooms" class="required number" value="<?php echo isset($rooms) ? $rooms : '' ?>"/>
+            <input type="text" name="number_of_rooms" class="number" value="<?php echo isset($rooms) ? $rooms : '' ?>"/>
             </div>
         </div>
 
@@ -170,7 +170,7 @@ if($detail){
         <div class="rate-select">
             <label>Wage</label>
             <div class="form-field">
-            <select name="rate" class="required">
+            <select name="rate" class="">
                 <option value="">Select rate</option>
                 <option value="5-10" <?php echo isset($rate) && $rate == '5-10' ? 'selected' : '' ?>>$5-$10 / Hr</option>
                 <option value="10-15" <?php echo isset($rate) && $rate == '10-15' ? 'selected' : '' ?>>$10-$15 / Hr</option>
@@ -219,7 +219,7 @@ if($detail){
         <div>
             <label>Level of observance necessary</label>
             <div class="form-field">
-            <select name="religious_observance" class="required">
+            <select name="religious_observance" class="">
                 <option value="">Select</option>
                 <option value="Yeshivish/Chasidish" <?php echo isset($religious_observance) && $religious_observance == 'Yeshivish/Chasidish' ? 'selected' : '' ?>>Yeshivish / Chasidish</option>
                 <option value="Orthodox/Modern Orthodox" <?php echo isset($religious_observance) && $religious_observance == 'Orthodox/Modern Orthodox' ? 'selected' : '' ?>>Orthodox / Modern orthodox</option>

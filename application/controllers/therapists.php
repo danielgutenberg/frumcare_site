@@ -357,6 +357,8 @@ class Therapists extends CI_Controller{
         $user_id = 0;
 
       if($this->input->is_ajax_request()){
+          $distance = $this->input->post('distance', true) == 'unlimited' ? 99999 : $this->input->post('distance', true);
+            
           $data = array(
               'user_id'           => $user_id,
               'neighbor'          => $this->input->post('neighbour',true),
@@ -366,7 +368,12 @@ class Therapists extends CI_Controller{
               'observance'        => $this->input->post('observance',true),
               'accept_insurance'  => $this->input->post('accept_insurance',true),
               'gender'            => $this->input->post('gender',true),
-              'care_type'         => $this->input->post('care_type',true)
+              'care_type'         => 7,
+              'lat'                   => $this->input->post('lat', true),
+                'long'                  => $this->input->post('lng', true),
+                'location'              => $this->input->post('location', true),
+                'distance'              => $distance
+            
           );
         $q = $this->db->insert('tbl_searchhistory',$data);
         if($q)

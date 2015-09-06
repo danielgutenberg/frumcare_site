@@ -377,6 +377,7 @@ class BabySitter extends CI_Controller{
         }
 
         if($this->input->is_ajax_request()){
+            $distance = $this->input->post('distance', true) == 'unlimited' ? 99999 : $this->input->post('distance', true);
             $data = array(
                 'user_id'               => $user_id, 
                 'neighbor'             => $this->input->post('neighbour',true),
@@ -387,8 +388,7 @@ class BabySitter extends CI_Controller{
                 'number_of_children'    => $this->input->post('number_of_children',true),
                 'morenum'               => $this->input->post('morenum',true),
                 'age_group'             => $this->input->post('age_group',true),
-                'looking_to_work'       => $this->input->post('looking_to_work',true),
-                'year_experience'       => $this->input->post('year_experience',true),
+                'looking_to_work'       => $this->input->post('year_experience',true),
                 'driver_license'        => $this->input->post('driver_license',true),
                 'vehicle'               => $this->input->post('vehicle',true),
                 'pick_up_child'         => $this->input->post('pick_up_child',true),
@@ -399,7 +399,11 @@ class BabySitter extends CI_Controller{
                 'caregiverage_from'     => $this->input->post('caregiverage_from',true),
                 'caregiverage_to'       => $this->input->post('caregiverage_to',true),
                 'start_date'            => $this->input->post('start_date',true),
-                'care_type'             => $this->input->post('care_type',true),
+                'care_type'             => 1,
+                'lat'                   => $this->input->post('lat', true),
+                'long'                  => $this->input->post('lng', true),
+                'location'              => $this->input->post('location', true),
+                'distance'              => $distance
             );
 
             $q = $this->db->insert('tbl_searchhistory',$data);

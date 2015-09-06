@@ -242,6 +242,8 @@
                 $user_id = check_user();
             else
                 $user_id = 0;
+            $distance = $this->input->post('distance', true) == 'unlimited' ? 99999 : $this->input->post('distance', true);
+            
 
             $data = array(
                 'user_id'           => $user_id,
@@ -253,14 +255,19 @@
                 'observance'        => $this->input->post('observance',true),
                 'year_experience'   => $this->input->post('min_exp',true),
                 'availability'      => $this->input->post('availability',true),
-                'care_type'         => $this->input->post('care_type',true),
+                'care_type'         => 5,
                 'looking_to_work'   => $this->input->post('carelocation',true),
                 'training'          => $this->input->post('trainings',true),
                 'willing_to_work'   => $this->input->post('willing_to_work',true),
                 'driver_license'    => $this->input->post('driver_license',true), 
                 'vehicle'           => $this->input->post('vehicle',true),
                 'availability'      => $this->input->post('available',true),
-                'start_date'        => $this->input->post('start_date',true)
+                'start_date'        => $this->input->post('start_date',true),
+                'lat'                   => $this->input->post('lat', true),
+                'long'                  => $this->input->post('lng', true),
+                'location'              => $this->input->post('location', true),
+                'distance'              => $distance
+            
             );
 
             $q = $this->db->insert('tbl_searchhistory',$data);

@@ -35,9 +35,10 @@ $user_detail = get_user(check_user());
 ?>
 <div class="container">
 <?php if(($this->uri->segment(2) != 'new_profile')){?>
-<form action="<?php echo site_url();?>ad/add_careseeker_step2" method="post">
+<form action="<?php echo site_url();?>ad/add_careseeker_step2" method="post" id="personal-details-form">
     <?php }else{
-    echo form_open('user/addprofileconfirm');
+    $attributes = array('id' => 'newJob');
+    echo form_open('user/addprofileconfirm', $attributes);
     if(!empty($record)){
     echo form_hidden('account_category',$record['ac_type']);
     echo form_hidden('care_type',$record['submit_id']);
@@ -89,7 +90,7 @@ $user_detail = get_user(check_user());
         <div>
             <label>Number of children</label>
             <div class="form-field">
-                <input type="text" value="" name="number_of_children" class="required number">
+                <input type="text" value="" name="number_of_children" class="number">
                 <div class="checkbox"><input type="checkbox" value="twins" name="optional_number[]">Twins</div>
                 <div class="checkbox"><input type="checkbox" value="triplets" name="optional_number[]">Triplets</div>
             </div>
@@ -163,7 +164,7 @@ $user_detail = get_user(check_user());
         <div class="rate-select">
             <label>Wage</label>
             <div class="form-field">
-                <select name="rate" class="required rate">
+                <select name="rate" class="rate">
                     <option value="">Select wage</option>
                     <option value="5-10">$5-$10 / Hr</option>
                     <option value="10-15">$10-$15 / Hr</option>
@@ -290,6 +291,7 @@ $(document).ready(function(){
            document.getElementById("error").innerHTML="Please click on location from dropdown";
         } else {
             $('#personal-details-form').submit()
+            $('#newJob').submit()
         }
      });
 

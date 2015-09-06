@@ -212,13 +212,17 @@ $(function () {
                     return $(el).val();
                 }).get();              
                 var care_type = $( ".care_type option:selected" ).val();
+                var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var location = $('#place').val();
+            var distance = $('#sort_by_miles').val();
                 $.ajax({
                     type:"post",
                     url:"<?php echo site_url();?>cleaningcompany/savesearch",
-                    data:"neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&looking_to_work="+looking_to_work+"&care_type="+care_type,
+                    data:"lat="+lat+"&lng="+lng+"&location="+location+"&distance="+distance+"&neighbour="+neighbour+"&willing_to_work="+willing_to_work+"&looking_to_work="+looking_to_work+"&care_type="+care_type,
                     success:function(done){
                         //console.log(done);
-                        alert('Search saved');
+                        alert('Search saved to search alerts section in your dashboard');
                     }
                 });
           },
