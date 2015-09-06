@@ -29,9 +29,14 @@
     				  			var json = jQuery.parseJSON(msg);
     							var pagenum = json.num;
     							var pagedata = json.userdatas;
-    							console.log(json);
+    							//console.log(json);
+                                if(json.num>1){
                                     json.pagination = '<a href="#" class="paginate_click in-active" id="previous">previous</a>' + json.pagination  + '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
-    							$('#list_container').html(pagedata);
+
+                                }else{
+                                    json.pagination = '</div>';
+                                }
+                                    $('#list_container').html(pagedata);
     							$('#total').text(json.total_rows);
                                 $('.navigations').html(json.pagination);
 
@@ -44,7 +49,12 @@
     				  			var json = jQuery.parseJSON(msg);
     							var pagenum = json.num;
     							var pagedata = json.userdatas;
-    							json.pagination = '<a href="#" class="paginate_click in-active" id="previous">previous</a>' + json.pagination  + '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
+    							if(pagenum>1){
+                                    json.pagination = '<a href="#" class="paginate_click in-active" id="previous">previous</a>' + json.pagination  + '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
+                                }else{
+                                    json.pagination = '</div>';
+                                }
+
     							$('#list_container').html(pagedata);
     							$('#total').text(json.total_rows);
                                 $('.navigations').html(json.pagination);
