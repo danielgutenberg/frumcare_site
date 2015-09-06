@@ -75,7 +75,7 @@
         	<div class="profile-list-details col-md-9 col-sm-9 col-xs-12">
                     <?php
                     echo '<pre>';
-                    echo ($json_data->results[5]->formatted_address);
+                    print_r($json_data->results[5]);
                     echo '</pre>';
                     ?>
 
