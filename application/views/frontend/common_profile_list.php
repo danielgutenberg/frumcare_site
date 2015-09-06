@@ -62,7 +62,7 @@
                      //print_r($data);
                     $lat = $data['lat'];
                     $lng = $data['lng'];
-                    $json = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false&key=AIzaSyAPllomIeBMeuk4d-a3vsTMInefAUPufrk");
+                    $json = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false&key=AIzaSyC8myVpwWYDd7r6A9vQRB31bk60iNBe3UU");
                     $json_data = json_decode($json);
 
                     print_r($json_data);
