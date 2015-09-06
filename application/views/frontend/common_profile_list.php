@@ -59,13 +59,13 @@
                         $location1 = explode(',',$location);
                     }
 
-                    print_r($data);
+                    //print_r($data);
                     $lat = $data['lat'];
-                    $lng = $data['lon'];
+                    $lng = $data['lng'];
                     $json = file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false");
                     $json_data = json_decode($json);
 
-                    //print_r($json_data);
+                    print_r($json_data->results);
 
 
 
