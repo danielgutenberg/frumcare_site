@@ -65,8 +65,9 @@
                     $json = file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false");
                     $json_data = json_decode($json);
 
-                    print_r($json_data->results[3]);
-
+                    echo '<pre>';
+                    print_r($json_data->results[4]);
+                    echo '</pre>';
 
 
                     echo ceil($data['distance'])." Miles Away From ".$location1[0];  //location is passed from controller
