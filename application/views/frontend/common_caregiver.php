@@ -47,6 +47,7 @@
                         $.post('<?php echo site_url()?>common_care_controller/sort',{'miles':miles,'option':x,'per_page':z,'location':y,'account_category':ac,'care_type':care_type,'total_page':$('#total').text()},function(msg){
                             $(".searchloader").fadeOut("fast");
     				  			var json = jQuery.parseJSON(msg);
+                                console.log(json);
     							var pagenum = json.num;
     							var pagedata = json.userdatas;
     							if(pagenum>1){
