@@ -251,6 +251,7 @@
 	</div>
 <?php
 $pagination	= '';
+echo $pages;
 if($pages > 1){
 	$pagination .= '<a href="#" class="paginate_click in-active" id="previous">previous</a>';
 	for($i = 1; $i<=$pages; $i++)
