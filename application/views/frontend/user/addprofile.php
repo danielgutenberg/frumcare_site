@@ -305,10 +305,11 @@
                                     <div class="radio org_caregiver"><label><input type="radio" value='1' id="org_caregiver" name="care" checked="checked" />Advertise My Service</label></div>
                                     <div class="radio org_parent"><label><input type="radio" value='2' id="org_parent" name="care" />Find Workers</label></div>                                                                                                    
                                 </div>
-                                <div id="care_type" class='care-type clearfix' ></div>                            
+                                <div id="care_type" class='care-type clearfix' ></div>   
+                                <div id="result" style="display: none; "></div>
                         </form> 
                     </div>
-                    <div id="result" style="display: none; "></div>
+                    
                     <?php if(segment(3) != '') { ?>
                     <a href="<?php echo base_url('login/get-password/'.sha1($email).'?redirect_uri='.urlencode(current_url())) ?>">Click here</a> to change your password.
                     <br />
