@@ -79,7 +79,7 @@
 		<div>
 			<label>Tell us about needs</label>
 			<div class="form-field">
-				<textarea name="profile_description" class=""><?php echo isset($desc) ? $desc : '' ?></textarea>
+				<textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
 			</div>
 		</div>
 
