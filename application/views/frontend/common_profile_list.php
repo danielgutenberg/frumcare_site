@@ -68,7 +68,8 @@
 
 
                     $formated_add=$json_data->results[5]->formatted_address;
-                    echo $location1[0];
+                    echo $formated_add;
+                    print_r($json_data->results[5]);
 
                     if(preg_match('/'.$location1[0].'/',$data['location'])){
                         echo '0 Miles Away From '.$location1[0];
