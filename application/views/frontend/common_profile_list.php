@@ -65,10 +65,10 @@
                     $json = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false&key=AIzaSyC8myVpwWYDd7r6A9vQRB31bk60iNBe3UU");
                     $json_data = json_decode($json);
 
-                    print_r($json_data);
+                    //print_r($json_data);
 
 
-                    echo $formated_add=$json_data->results[5]->formatted_address;
+                    $formated_add=$json_data->results[5]->formatted_address;
 
 
                     if(preg_match('/'.$location1[0].'/',$data['location'])){
