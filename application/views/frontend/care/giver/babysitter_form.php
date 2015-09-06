@@ -12,7 +12,8 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     <form action="<?php echo site_url();?>ad/savejobdetails" method="post" id="personal-details-form">
 <?php }else{
     $this->load->helper('form');
-    echo form_open('user/addprofileconfirm');
+    $attributes = array('id' => 'newJob');
+    echo form_open('user/addprofileconfirm', $attributes);
     if(!empty($record)){
     echo form_hidden('account_category',$record['ac_type']);
     echo form_hidden('care_type',$record['submit_id']);

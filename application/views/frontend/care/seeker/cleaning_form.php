@@ -27,7 +27,7 @@
            document.getElementById("error").innerHTML="Please click on location from dropdown";
         } else {
             $('#personal-details-form').submit()
-            $('#myform').submit()
+            $('#newJob').submit()
         }
      });
     })
@@ -52,7 +52,8 @@ $user_detail = get_user(check_user());
 <form action="<?php echo site_url();?>ad/add_careseeker_step2" method="post" id="personal-details-form">
 <?php }
     else{
-        echo form_open('user/addprofileconfirm');
+        $attributes = array('id' => 'newJob');
+        echo form_open('user/addprofileconfirm', $attributes);
         if(!empty($record)){
             echo form_hidden('account_category',$record['ac_type']);
             echo form_hidden('care_type',$record['submit_id']);
