@@ -23,6 +23,8 @@
                     var care_type = "<?php echo $care_type ?>";
 
                     $(x).change(function(){
+                        $("#showgeolocation1").text(y);
+                        $("#locationaddress").text(y);
                         $.post('<?php echo site_url()?>common_care_controller/sort',{'miles':miles,'option':x,'per_page':z,'lat':lat,'lng':lng,'location':y,'account_category':ac,'care_type':care_type,'total_page':$('#total').text()},function(msg){
                             $(".searchloader").fadeOut("fast");
                             var json = jQuery.parseJSON(msg);
