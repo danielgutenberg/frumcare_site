@@ -3,6 +3,61 @@
 <link rel="stylesheet" href="<?php echo base_url();?>css/jquery.raty.css">
 <script src="<?php echo base_url();?>js/jquery.raty.js"></script>
 <script>
+    $(document).ready(function() {
+        $('#sort_by_select').change(function () {
+
+            var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {});
+            google.maps.event.addListener(autocomplete, 'place_changed', function () {
+                var place = autocomplete.getPlace();
+                var lat = place.geometry.location.lat();
+                var lng = place.geometry.location.lng();
+                $("#lat").val(lat);
+                $("#lng").val(lng);
+                $("#place").val(place.formatted_address);
+                $(".searchloader").fadeIn("fast");
+                var x = $('#sort_by_select').val();
+                var y = $('#autocomplete').val();
+                var z = $("#per_page").val();
+                var lat = $('#lat').val();
+                var lng = $('#lng').val();
+                var miles = $("#sort_by_miles").val();
+                var ac = "<?php echo $account_category ?>";
+                var care_type = "<?php echo $care_type ?>";
+
+
+                $("#showgeolocation1").text(y);
+                $("#locationaddress").text(y);
+                $.post('<?php echo site_url()?>common_care_controller/sort', {
+                    'miles': miles,
+                    'option': x,
+                    'per_page': z,
+                    'lat': lat,
+                    'lng': lng,
+                    'location': y,
+                    'account_category': ac,
+                    'care_type': care_type,
+                    'total_page': $('#total').text()
+                }, function (msg) {
+                    $(".searchloader").fadeOut("fast");
+                    var json = jQuery.parseJSON(msg);
+                    var pagenum = json.num;
+                    var pagedata = json.userdatas;
+                    console.log(json);
+                    if (json.num > 1) {
+                        json.pagination = '<a href="#" class="paginate_click in-active" id="previous">previous</a>' + json.pagination + '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
+
+                    } else {
+                        json.pagination = '</div>';
+                    }
+                    $('#list_container').html(pagedata);
+                    $('#total').text(json.total_rows);
+                    $('.navigations').html(json.pagination);
+
+                });
+            });
+        });
+    });
+
     $("#locationField").ready(function(){
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {});
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
@@ -22,27 +77,8 @@
                     var ac = "<?php echo $account_category ?>";
                     var care_type = "<?php echo $care_type ?>";
 
-                    $('#sort_by_select').change(function(){
-                        $("#showgeolocation1").text(y);
-                        $("#locationaddress").text(y);
-                        $.post('<?php echo site_url()?>common_care_controller/sort',{'miles':miles,'option':x,'per_page':z,'lat':lat,'lng':lng,'location':y,'account_category':ac,'care_type':care_type,'total_page':$('#total').text()},function(msg){
-                            $(".searchloader").fadeOut("fast");
-                            var json = jQuery.parseJSON(msg);
-                            var pagenum = json.num;
-                            var pagedata = json.userdatas;
-                            console.log(json);
-                            if(json.num>1){
-                                json.pagination = '<a href="#" class="paginate_click in-active" id="previous">previous</a>' + json.pagination  + '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
 
-                            }else{
-                                json.pagination = '</div>';
-                            }
-                            $('#list_container').html(pagedata);
-                            $('#total').text(json.total_rows);
-                            $('.navigations').html(json.pagination);
 
-                        });
-                    });
                     if(y!=''){
                         $("#showgeolocation1").text(y);
                         $("#locationaddress").text(y);
