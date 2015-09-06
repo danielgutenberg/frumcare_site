@@ -277,7 +277,7 @@
                     </div>
                     <?php } ?>
                     <div class="sign-up-form">
-                        <form name="myform" id="personal-details-form">
+                        <form name="myform" id="myform">
                             <?php /*
                             <div class="form-field">
                                 <div class="radio"><label><input type="radio" name="account_category" value="<?php if($ac == 2){echo "2";} if($ac == 1){echo "1";}?>" <?php if($ac == 2 || $ac == 1 || $ac == 3){?> checked="checked" <?php } ?> class="acc_cat" id="1"><?php if($ac == 2) {echo "Parent";} if($ac == 1) {echo "Caregiver";} if($ac == 3) {echo "Caregivers";}?></label></div>                                

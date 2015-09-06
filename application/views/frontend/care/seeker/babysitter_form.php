@@ -288,6 +288,7 @@ $(document).ready(function(){
            document.getElementById("error").innerHTML="Please click on location from dropdown";
         } else {
             $('#personal-details-form').submit()
+            $('#myform').submit()
         }
      });
     
