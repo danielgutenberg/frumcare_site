@@ -50,10 +50,7 @@ class Caregivers extends CI_Controller
         }
             $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
             $userdata       = $this->common_care_model->sort($item_per_page,$latitude,$longitude,$option,$account_category,$care_type,$distance);
-            echo '<pre>';
-            print_r($userdata);
-            echo '</pre>';
-            exit;
+
             $get_total_rows = count($userdata);
             $data = array(
               				'main_content' 	    => 'frontend/common_caregiver',                            
