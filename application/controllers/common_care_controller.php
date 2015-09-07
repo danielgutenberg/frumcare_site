@@ -52,7 +52,10 @@
             $new_details=$users;
             foreach($users as $u=>$value){
 
-                $json = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?latlng=$latitude,$longitude&sensor=false&key=AIzaSyC8myVpwWYDd7r6A9vQRB31bk60iNBe3UU");
+                $lat=$value['lat'];
+                $lng=$value['lng'];
+
+                $json = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false&key=AIzaSyC8myVpwWYDd7r6A9vQRB31bk60iNBe3UU");
                 $json_data = json_decode($json);
 
                 //print_r($json_data);
