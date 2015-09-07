@@ -15,6 +15,87 @@
 	public function index(){
 	}
 
+
+        public function sorting(){
+            $option =  $this->input->post('option',true);
+            $per_page = $this->input->post('per_page',true);
+            $location = $this->input->post('location',true);
+            $care_type = $this->input->post('care_type',true);
+            $miles = isset($_POST['miles'])?$_POST['miles']:1;
+            $account_category = $this->input->post('account_category',true);
+            if(isset($_POST['lat']) && isset($_POST['lng'])){
+                $latitude = $this->input->post('lat',true);
+                $longitude = $this->input->post('lng',true);
+            }
+            else{
+                if(check_user()){
+                    $locationdetails = $this->common_model->getMyLocation(check_user());
+                    if($locationdetails){
+                        $latitude = ($locationdetails[0]['lat']);
+                        $longitude = ($locationdetails[0]['lng']);
+                        $location =  $locationdetails[0]['location']?$locationdetails[0]['location']:'your location';
+                    }
+                }
+                else{
+                    $ipdata = $this->common_model->getIPData($this->ipaddress);
+                    if(is_array($ipdata)){
+                        $latitude  = $ipdata['lat'];
+                        $longitude = $ipdata['lon'];
+                        $location = isset($ipdata['city'])?$ipdata['city']:'your city';
+                    }
+                }
+            }
+
+            $location1 = explode(',',$location);
+
+            $users =  $this->common_care_model->sorting($per_page,$latitude,$longitude,$option,$account_category,$care_type,$miles);
+            $new_details=$users;
+            foreach($users as $u=>$value){
+                $lat = $latitude;
+                $lng = $longitude;
+                $json = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false&key=AIzaSyC8myVpwWYDd7r6A9vQRB31bk60iNBe3UU");
+                $json_data = json_decode($json);
+
+                //print_r($json_data);
+
+
+                $formated_add=$json_data->results[5]->formatted_address;
+
+
+                $loc=$value['location'];
+                if(preg_match('/'.$location1[0].'/',$loc)){
+                    $users[$u]['distance']=0;
+                }elseif(preg_match('/'.$location[0].'/',$formated_add)){
+                    $users[$u]['distance']=0;
+                }
+
+            }
+
+            $total_rows = count($users);
+            $page = ceil($total_rows/$per_page);
+            $pagination	= '';
+            if($page > 1){
+                for($i = 1; $i<=$page; $i++)
+                {
+                    if($i==1){
+                        $pagination .= ' <a href="#" class="paginate_click active" id="'.$i.'-page" >'.$i.'</a> ';
+                    }else{
+                        $pagination .= ' <a href="#" class="paginate_click in-active" id="'.$i.'-page">'.$i.'</a> ';
+                    }
+                }
+            }
+            $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
+            $userlogs                = $this->user_model->getUserLog();
+            $merge['userdatas']      = $this->load->view('frontend/common_profile_list', array('userdatas'=>array_slice($users, 0 ,15),'userlogs'=>$userlogs,'location'=>$locationdetails), true);
+            $merge['total_rows']     = $total_rows;
+            $merge['num']            = ceil($total_rows/$per_page);
+            $merge['pagination']     = $pagination;
+            echo json_encode($merge);
+            exit;
+        }
+
+
+
     public function sort(){
         $option =  $this->input->post('option',true);
         $per_page = $this->input->post('per_page',true);
@@ -44,8 +125,9 @@
                     }
               }
         }
-        echo $location; exit;
-        $users =  $this->common_care_model->sort($per_page,$latitude,$longitude,$option,$account_category,$care_type,$miles);                
+
+        $users =  $this->common_care_model->sort($per_page,$latitude,$longitude,$option,$account_category,$care_type,$miles);
+
 
         $total_rows = count($users);
         $page = ceil($total_rows/$per_page);        
