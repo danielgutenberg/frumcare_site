@@ -319,7 +319,7 @@ if($pages > 1){
                 var ac = "<?php echo $account_category ?>";
                 var care_type = "<?php echo $care_type ?>";
                 if(y!=''){
-                    $.post('<?php echo site_url()?>common_care_controller/sort',{'miles':miles,'option':x,'per_page':z,'lat':lat,'lng':lng,'location':y,'account_category':ac,'care_type':care_type,'total_page':'<?php echo $total_rows ?>'},function(msg){
+                    $.post('<?php echo site_url()?>common_care_controller/sorting',{'miles':miles,'option':x,'per_page':z,'lat':lat,'lng':lng,'location':y,'account_category':ac,'care_type':care_type,'total_page':'<?php echo $total_rows ?>'},function(msg){
                         $(".searchloader").fadeOut("fast");
 			  			var json = jQuery.parseJSON(msg);
 						var pagenum = json.num;
@@ -339,7 +339,7 @@ if($pages > 1){
                 }
                 else{
                     var y = $("#showgeolocation1").text();
-                    $.post('<?php echo site_url()?>common_care_controller/sort',{'miles':miles,'option':x,'per_page':z,'location':y,'account_category':ac,'care_type':care_type,'total_page':'<?php echo $total_rows ?>'},function(msg){
+                    $.post('<?php echo site_url()?>common_care_controller/sorting',{'miles':miles,'option':x,'per_page':z,'location':y,'account_category':ac,'care_type':care_type,'total_page':'<?php echo $total_rows ?>'},function(msg){
                         $(".searchloader").fadeOut("fast");
 			  			var json = jQuery.parseJSON(msg);
 						var pagenum = json.num;
