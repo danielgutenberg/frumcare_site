@@ -197,6 +197,21 @@ class Ad extends CI_Controller
 
              );
 
+            $loc=explode(',',$p['location']);
+            unset($loc[0]);
+            $loc=implode(',',$loc);
+            $response =  $this->getLongitudeAndLatitude($loc);
+            if($response){
+                $lat        = $response->results[0]->geometry->location->lat;
+                $long       = $response->results[0]->geometry->location->lng;
+                $country    = $response->results[0]->address_components[1]->long_name;
+            }else{
+                $lat   = 0;
+                $long   = 0;
+            }
+
+
+
              $insert_new = array(
                  'marital_status'           => isset($p['marital_status'])? $p['marital_status'] : '', 
                 'age'                   => isset($p['age'])? $p['age'] : '',
