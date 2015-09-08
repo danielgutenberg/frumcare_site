@@ -51,51 +51,7 @@ class Common_care_model extends CI_Model
 
 
 
-    public function sorting($per_page,$latitude,$longitude,$option,$account_category,$care_type,$distance){
-        if(empty($latitude) && empty($latitude)){
-            $ip = $_SERVER['REMOTE_ADDR'];
-            $ipdata = $this->getIPData($ip);
-            if(is_array($ipdata)){
-                $latitude = $ipdata['lat'];
-                $longitude = $ipdata['lon'];
-            }else{
-                die('Some error occured. We will fix it soon');
-            }
-        }
-        $order_type = 'asc';
-        if($option == 'tbl_userprofile.id'){
-            $order_type = 'desc';
-        }
 
-        $sql = "SELECT * FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id  left outer join tbl_care on tbl_care.id = tbl_userprofile.care_type WHERE tbl_userprofile.profile_status = 1 AND tbl_userprofile.photo_status = 1";
-
-        if($care_type!=''){
-            $sql.=" and tbl_userprofile.care_type = $care_type and tbl_userprofile.account_category = $account_category";
-        }
-        else{
-            if($account_category==1){
-                $sql.=" and tbl_care.service_type = 1";
-            }
-            if($account_category==2){
-                $sql.=" and tbl_care.service_type = 2";
-            }
-            if($account_category ==3 ) {
-                if(segment(1) == 'caregivers' && segment(2) == 'organizations') $sql .=" and tbl_userprofile.care_type >9 and tbl_userprofile.care_type < 17";
-                elseif(segment(1) == 'jobs' && segment(2) == 'organizations') $sql .=" and tbl_userprofile.care_type > 24";
-                else $sql .=" and (tbl_userprofile.care_type >9 and tbl_userprofile.care_type < 17) or tbl_userprofile.care_type > 24";
-            }
-        }
-
-        //$sql.= " order by $option $order_type";
-        $query = $this->db->query($sql);
-        if($query){
-            return $res=$query->result_array();
-
-        }
-        else{
-            return false;
-        }
-    }
 
 
     public function paginate($position,$item_per_page,$latitude,$longitude,$option,$account_category,$care_type,$distance){
