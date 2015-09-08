@@ -51,37 +51,6 @@
             $users =  $this->common_care_model->sorting($per_page,$latitude,$longitude,$option,$account_category,$care_type,$miles);
 
 
-            foreach($users as $u=>$value){
-
-                $lat=$value['lat'];
-                $lng=$value['lng'];
-
-                $json = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false&key=AIzaSyC8myVpwWYDd7r6A9vQRB31bk60iNBe3UU");
-                $json_data = json_decode($json);
-
-
-                $formated_add=$json_data->results[5]->formatted_address;
-
-
-                $loc=$value['location'];
-                if(preg_match('/'.$location1[0].'/',$loc)){
-                    $distance=0;
-                }elseif(preg_match('/'.$location[0].'/',$formated_add)){
-                    $distance=0;
-                }else{
-                    $distance=$value['distance'];
-                }
-
-                if($miles!='unlimited'){
-                    if($distance<=$miles){
-                        $newdata[]=$value;
-                    }
-                }else{
-                    $newdata[]=$value;
-                }
-
-            }
-
             $total_rows = count($users);
             $page = ceil($total_rows/$per_page);
             $pagination	= '';
