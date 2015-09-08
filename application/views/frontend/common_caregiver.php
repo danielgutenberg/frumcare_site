@@ -407,7 +407,6 @@ if($pages > 1){
                         // $('.navigations').html(json.pagination);
             		});
                 }
-
                 else{
                     var y = $("#showgeolocation1").text();
                     $.post("<?php echo site_url();?>common_care_controller/fetch_pages", {'miles':miles,'page':(page_num-1),'option':x,'per_page':z,'location':y,'account_category':ac,'care_type':care_type,'total_page':$('#total').text()}, function(msg){
