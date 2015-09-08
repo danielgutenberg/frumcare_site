@@ -1065,6 +1065,12 @@ FrumCare.com
                 $insert['contact_name'] = $p['name'];
             }
 
+
+            $loc=explode(',',$p['location']);
+            unset($loc[0]);
+            $p['location']=implode(',',$loc);
+
+
                $response =  $this->getLongitudeAndLatitude($p['location']);
                 if($response){
                     $lat        = $response->results[0]->geometry->location->lat;
@@ -1075,11 +1081,14 @@ FrumCare.com
                     $long   = 0;
                 }
 
+
                $geodata = array(
                     'lat' => $lat,
                     'lng' => $long,
                     'country' => $country,
                 );
+
+
                 //insert location for profile as well
                 $geodata1 = array(
                     'latitude' => $lat,
