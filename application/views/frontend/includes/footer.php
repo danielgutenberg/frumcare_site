@@ -192,6 +192,11 @@ function removePic(){
 $(function()
 {
 
+    $('#autocomplete').change(function(){
+        $('#lat').val('');
+        $('#lng').val('');
+    });
+
     $('#upload').click(function(){
         $('#ImageFile').trigger('click');
         return false;
