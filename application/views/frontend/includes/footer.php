@@ -192,7 +192,7 @@ function removePic(){
 $(function()
 {
 
-    $('#autocomplete').change(function(){
+    $('#locationField #autocomplete').change(function(){
         $('#lat').val('');
         $('#lng').val('');
     });
