@@ -11,8 +11,8 @@
                     </div>
                     <div class="panel-body">
                     <div class="table-responsive">
-                        <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-hover" id="example">
-                            <thead>
+                        <table id="dt_basic" class="table table-striped table-bordered table-hover">
+                        <thead>
                                 <tr class="success">
                                     <th>Subject</th>
                                     <th>Sent By</th>
