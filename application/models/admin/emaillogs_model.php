@@ -27,4 +27,11 @@ class Emaillogs_model extends CI_Model
         $res = $this->db->delete('tbl_email_logs',array('id'=>$id));
         return $res;
     }
+
+
+    public function addEmailLog($data){
+        $table="tbl_email_logs";
+        return $this->db->insert($table,$data);
+
+    }
 }
