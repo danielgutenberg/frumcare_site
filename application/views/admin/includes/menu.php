@@ -38,6 +38,12 @@
             $uprofileaccess = site_url().'admin/user/profile';
           else
             $uprofileaccess = site_url().'admin/#';
+
+            if(in_array('emailtemplate', $tempaccess))
+                $emaillog  = site_url().'admin/emaillogs';
+            else
+                $emaillog = site_url().'admin/#';
+
           if(in_array('emailtemplate', $tempaccess))
               $emailtemplate  = site_url().'admin/emailtemplate';
           else
@@ -127,6 +133,9 @@
             </li> -->
             <li>
                 <a href="<?php echo $uprofileaccess;?>" title="User Profile Configuration"><i class="fa fa-lg fa-fw fa-gear"></i> <span class="menu-item-parent">User Profile Manager</span></a>
+            </li>
+            <li>
+                <a href="<?php echo $emaillog;?>" title="Email Log"><i class="fa fa-lg fa-fw fa-pencil"></i> <span class="menu-item-parent">Email Log Manager</span></a>
             </li>
             <li>
               <a href="<?php echo $emailtemplate;?>" title="Email Template Manager"><i class="fa fa-lg fa-fw fa-pencil"></i> <span class="menu-item-parent">Email Template Manager</span></a>
