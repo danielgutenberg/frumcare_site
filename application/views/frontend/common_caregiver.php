@@ -298,7 +298,7 @@ $pagi=$pagination;
     <?php $this->load->view('frontend/common_profile_list', array('userdatas'=>$userdatas,'userlogs'=>$userlogs));
      ?>
 	</div>
-	<div class="navigations"><?php echo $pagi; ?></div>
+	<div class="navigations navi"><?php echo $pagi; ?></div>
 	</div>
 </div>
 <script type="text/javascript">
@@ -337,6 +337,7 @@ $pagi=$pagination;
 						$('#list_container').html(pagedata);
 						$('#total').text(json.total_rows);
                         $('.navigations').html(json.pagination);
+                        $('.navi').html(json.pagination);
 
                     });
                 }
