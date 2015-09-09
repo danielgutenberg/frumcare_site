@@ -281,23 +281,22 @@ if($pages > 1){
         }
 
 	}
-	$pagination .= '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
+	$pagi .= '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
 	//$pagination .= '</ul>';
 }
 
-echo $pagination; exit;
 
 
 ?>
 
-    <div class="navigations"><?php echo $pagination;?>
+    <div class="navigations"><?php echo $pagi;?>
 	<div class="clearfix margin-bot"></div>
 	<div id="list_container" class="">
 	<?php //print_rr($userdatas);?>
     <?php $this->load->view('frontend/common_profile_list', array('userdatas'=>$userdatas,'userlogs'=>$userlogs));
      ?>
 	</div>
-	<div class="navigations"><?php echo $pagination; ?></div>
+	<div class="navigations"><?php echo $pagi; ?></div>
 	</div>
 </div>
 <script type="text/javascript">
