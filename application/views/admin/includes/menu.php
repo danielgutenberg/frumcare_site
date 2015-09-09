@@ -135,7 +135,7 @@
                 <a href="<?php echo $uprofileaccess;?>" title="User Profile Configuration"><i class="fa fa-lg fa-fw fa-gear"></i> <span class="menu-item-parent">User Profile Manager</span></a>
             </li>
             <li>
-                <a href="<?php echo $emaillog;?>" title="Email Log"><i class="fa fa-lg fa-fw fa-pencil"></i> <span class="menu-item-parent">Email Log Manager</span></a>
+                <a href="<?php echo $emaillog;?>" title="Email Log"><i class="fa fa-lg fa-fw fa-pencil"></i> <span class="menu-item-parent">Email Sent Box</span></a>
             </li>
             <li>
               <a href="<?php echo $emailtemplate;?>" title="Email Template Manager"><i class="fa fa-lg fa-fw fa-pencil"></i> <span class="menu-item-parent">Email Template Manager</span></a>
