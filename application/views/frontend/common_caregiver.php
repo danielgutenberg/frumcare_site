@@ -359,6 +359,7 @@ $pagi=$pagination;
 						$('#list_container').html(pagedata);
 						$('#total').text(json.total_rows);
                         $('.navigations').html(json.pagination);
+                        $('.navi').html(json.pagination);
 
                     });
                 }
