@@ -281,15 +281,17 @@ if($pages > 1){
         }
 
 	}
-	$pagi .= '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
+	$pagination .= '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
 	//$pagination .= '</ul>';
 }
+
+$pagi=$pagination;
 
 
 
 ?>
 
-    <div class="navigations"><?php echo $pagi;?>
+    <div class="navigations"><?php echo $pagination;?>
 	<div class="clearfix margin-bot"></div>
 	<div id="list_container" class="">
 	<?php //print_rr($userdatas);?>
