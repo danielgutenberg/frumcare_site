@@ -25,7 +25,6 @@
                     var care_type = "<?php echo $care_type ?>";
 
 
-
                     if(y!=''){
                         $("#showgeolocation1").text(y);
                         $("#locationaddress").text(y);
