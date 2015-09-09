@@ -285,6 +285,8 @@ if($pages > 1){
 	//$pagination .= '</ul>';
 }
 
+echo $pagination; exit;
+
 
 ?>
 
