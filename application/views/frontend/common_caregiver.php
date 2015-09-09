@@ -287,8 +287,6 @@ if($pages > 1){
 
 
 
-
-
 ?>
 
     <div class="navigations"><?php echo $pagination;?>
