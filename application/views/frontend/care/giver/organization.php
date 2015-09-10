@@ -50,7 +50,7 @@
 </ol> 
 
 <div class="container">
-<form action="<?php echo site_url();?>ad/registeruserdetails" method="post">
+<form action="<?php echo site_url();?>ad/registeruserdetails" method="post" id="personal-details-form">
     <div class="ad-form-container">
         <h1 class="step2">
             Step 2: Organization Info 
