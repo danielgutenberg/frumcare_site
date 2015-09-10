@@ -7,6 +7,7 @@
                     var lat = place.geometry.location.lat();
                     var lng = place.geometry.location.lng();
                     var i = 0;
+                      console.log(place)
                       var len = place.address_components.length;
                       while (i < len) {
                         var ac = place.address_components[i];
