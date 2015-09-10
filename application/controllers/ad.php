@@ -221,6 +221,8 @@ class Ad extends CI_Controller
                 'contact_number'        => $numberwithcountrycode,
                 'profile_picture'       => isset($p['profile_picture']) ? $p['profile_picture'] : '',
                 'city'                  => isset($p['city']) ? $p['city'] : '',
+                'country'                  => isset($p['country']) ? $p['country'] : '',
+                'state'                  => isset($p['state']) ? $p['state'] : '',
                 'zip'                   => isset($p['zip'])?$p['zip']:'',
                 'location'              => isset($p['location'])?$p['location']:'',
                 'lat'                   => isset($p['lat'])?$p['lat']:'',
