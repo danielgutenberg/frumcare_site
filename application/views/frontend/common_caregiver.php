@@ -6,7 +6,7 @@
 
 
     $("#locationField").ready(function(){
-        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], { types: ['establishment'] });
+        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], { types: ['address'] });
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
                     var place = autocomplete.getPlace();
                     var lat = place.geometry.location.lat();
