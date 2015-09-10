@@ -11,7 +11,7 @@
                       while (i < len) {
                         var ac = place.address_components[i];
                         if (ac.types.indexOf('locality') >= 0) {
-                          $("#cityName").val(ac.short_name);
+                          $("#cityName").val(ac.long_name);
                         }
                         if (ac.types.indexOf('administrative_area_level_1') >= 0) {
                           $("#stateName").val(ac.long_name);
