@@ -1,10 +1,10 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
 <script>
     $("#locationField").ready(function(){
-        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {});
+        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['address']});
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
                     var place = autocomplete.getPlace();
-                    //console.log(place.geometry.location);
+                    console.log(place);
                     var lat = place.geometry.location.lat();
                     var lng = place.geometry.location.lng();
                     $("#lat").val(lat);
