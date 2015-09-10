@@ -4,7 +4,6 @@
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['address']});
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
                     var place = autocomplete.getPlace();
-                    console.log(place);
                     var lat = place.geometry.location.lat();
                     var lng = place.geometry.location.lng();
                     var i = 0;

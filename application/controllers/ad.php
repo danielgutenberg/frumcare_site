@@ -1050,6 +1050,8 @@ FrumCare.com
                 'optional_number'   => isset($optional_number)?$optional_number:'',
                 'rate_type'   => isset($rate_type)?$rate_type:'',
                 'contact_name' => isset($p['name']) ? $p['name'] : '',
+                'longitude' => isset($p['lng'])? $p['lng'] : '',
+                'latitude' => isset($p['lat'])? $p['lat'] : '',
             );
 
 
@@ -1063,6 +1065,11 @@ FrumCare.com
 
             $insert_new = array(
                             'location' => isset($p['location'])? $p['location'] : '',
+                            'lng' => isset($p['lng'])? $p['lng'] : '',
+                            'lat' => isset($p['lat'])? $p['lat'] : '',
+                            'city' => isset($p['city'])? $p['city'] : '',
+                            'state' => isset($p['state'])? $p['state'] : '',
+                            'country' => isset($p['country'])? $p['country'] : '',
                             'contact_number' => isset($p['contact_number'])? $p['contact_number'] : '',
                             'age' => isset($p['age'])? $p['age'] : '',
                             'gender' => isset($p['gender'])? $p['gender'] : '',
@@ -1099,18 +1106,18 @@ FrumCare.com
                 }
 
 
-               $geodata = array(
-                    'lat' => $lat,
-                    'lng' => $long,
-                    'country' => $country,
-                );
+            //   $geodata = array(
+            //         'lat' => $lat,
+            //         'lng' => $long,
+            //         'country' => $country,
+            //     );
 
 
-                //insert location for profile as well
-                $geodata1 = array(
-                    'latitude' => $lat,
-                    'longitude' => $long,
-                );
+            //     //insert location for profile as well
+            //     $geodata1 = array(
+            //         'latitude' => $lat,
+            //         'longitude' => $long,
+            //     );
             if(check_user()) {
                $q = $this->common_model->update('tbl_userprofile', $insert, array('user_id' => check_user()));
                $q = $this->common_model->update('tbl_userprofile', $geodata1, array('user_id' => check_user(), ));
