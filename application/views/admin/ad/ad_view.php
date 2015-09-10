@@ -22,6 +22,7 @@
                                                 <th>User Id</th>
                                                 <th>Ad Title</th>
                                                 <th>Name</th>
+                                                <th>Location</th>
                                                 <th>Category</th>
                                                 <th>Type</th>
                                                 <th>Email</th>
@@ -47,6 +48,7 @@
                                                 <td><?php echo $ud['user_id'];?></td>
                                                <td><?php echo ($care_type)? $care_type->service_name: '';?></td>
                                                 <td><?php echo $nme; ?></td>
+                                                <td><?php echo $ud['location'];?></td>
                                                 <td>
 
 
