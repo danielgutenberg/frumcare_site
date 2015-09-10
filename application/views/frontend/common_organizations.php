@@ -4,7 +4,7 @@
 <script src="<?php echo base_url();?>js/jquery.raty.js"></script>
 <script>
     $("#locationField").ready(function(){        
-        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['cities']});
+        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['(cities)']});
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
                     var place = autocomplete.getPlace();                    
                     var lat = place.geometry.location.lat();
