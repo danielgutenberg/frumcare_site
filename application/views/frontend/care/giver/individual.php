@@ -6,6 +6,7 @@
                     var place = autocomplete.getPlace();
                     var lat = place.geometry.location.lat();
                     var lng = place.geometry.location.lng();
+                    console.log(place)
                     var i = 0;
                       var len = place.address_components.length;
                       while (i < len) {
