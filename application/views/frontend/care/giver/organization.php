@@ -75,7 +75,7 @@
             <input type="hidden" id="cityName" name="city"/>
             <input type="hidden" id="stateName" name="state"/>
             <input type="hidden" id="countryName" name="country"/>
-            <input type="text" name="location" class="required" id="autocomplete" required/>
+            <input type="text" name="location" class="required" id="autocomplete" required placeholder="Please enter a complete street address"/>
         </div>
           <span style="color:red;" id="error"> </span>
     </div>
