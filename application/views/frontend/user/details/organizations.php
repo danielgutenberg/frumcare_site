@@ -22,39 +22,7 @@ $location = '';
             </td>    
         </tr>
         <?php }
-        if(!empty($neighbour)){?>
-        <tr>
-            <td>Neighborhood / Street</td>
-            <td>
-                <?php echo $neighbour;?>
-            </td>    
-        </tr>
-        <?php }
-        else{ ?>
-            <tr>
-            <td>Neighborhood / Street</td>
-            <td>
-                N/A
-            </td>    
-        </tr>
-        <?php
-        }
         
-       /* if(!empty($zip)){?>
-        <tr>
-            <td>Zip</td>
-            <td><?php echo $zip;?> </td>
-        </tr>
-        <?php }
-        else{ ?>
-            <tr>
-            <td>Zip</td>
-            <td>
-                N/A
-            </td>    
-        </tr>
-        <?php
-        } */
 
         if(!empty($name)){?>
         <tr>
