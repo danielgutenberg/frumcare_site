@@ -1765,8 +1765,6 @@ class User extends CI_Controller
                         'sub_care' => isset($_POST['sub_care'])?$_POST['sub_care']:'',
                      );
                      
-                     print_r($insert1);
-                     
                     //   $response =  $this->common_model->getLongitudeAndLatitude($_POST['address_location']);
                     //     if($response){
                     //         $lat        = $response->results[0]->geometry->location->lat;
