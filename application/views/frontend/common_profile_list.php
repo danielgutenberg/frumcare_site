@@ -111,17 +111,26 @@
                 } ?> <br /> <?php
                 
                 $type = Caretype_model::getCareTypeById($data['care_type']);
-                
+                $location = '';
+                if ($data['city']) {
+                    $location += $data['city'];
+                }
+                if ($data['state']) {
+                    $location += ', ' . $data['state'];
+                }
+                if ($data['country']) {
+                    $location += ', ' . $data['country'];
+                }
                 //for caregivers 
                 //if($data['care_type'] < 10){ 
                 if($data['care_type'] < 17){
-                    echo $type[0]['service_name'].' - '.$data['location'];                                
+                    echo $type[0]['service_name'].' - '.$location;                                
                 } 
                 
                 //for job posters
                 //if($data['care_type'] < 25 && $data['care_type'] > 16){ 
                 if($data['care_type'] > 16){
-                    echo $type[0]['service_name'].' needed - '.$data['location'];                                                               
+                    echo $type[0]['service_name'].' needed - '.$location;                                                               
                 } 
                 
                 //for caregivers
