@@ -53,6 +53,8 @@
     	        </div>
     	        <span class="img-of-profile"></span><br />-->
     	        <div class="pin-location"> <?php 
+                    
+    	        print_r($data);
                     if($data['location']) { ?>
                         <img src="<?php echo site_url();?>img/pin.png">
                         <?php
