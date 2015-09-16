@@ -111,15 +111,14 @@
                 
                 $type = Caretype_model::getCareTypeById($data['care_type']);
                 $loca = '';
-                print_r($data['city']);
                 if ($data['city'] != '') {
-                    $loca += $data['city'];
+                    $loca .= $data['city'];
                 }
                 if ($data['state'] != '') {
-                    $loca += ', ' . $data['state'];
+                    $loca .= ', ' . $data['state'];
                 }
                 if ($data['country'] != '') {
-                    $loca += ', ' . $data['country'];
+                    $loca .= ', ' . $data['country'];
                 }
                 //for caregivers 
                 //if($data['care_type'] < 10){ 
