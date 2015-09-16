@@ -198,7 +198,7 @@
                     <div class="first-names">
                         <label>Level of observance </label>
                         <select id="religious_observance" name="religious_observance">
-                            <option>--Select Level of Observance--</option>
+                            <option value="">--Select Level of Observance--</option>
                             <option value="Yeshivish/Chasidish" <?php if($religious_observance == 'Yeshivish/Chasidish'){?> selected="selected" <?php }?>>Yeshivish/ Chasidish</option>
                             <option value="Orthodox/Modern Orthodox" <?php if($religious_observance == 'Orthodox/Modern Orthodox'){?> selected="selected" <?php }?>>Orthodox/ Modern Orthodox</option>
                             <option value="Other" <?php if($religious_observance == 'Other'){?> selected="selected" <?php }?>>Other</option>
@@ -227,7 +227,7 @@
                     <div class="first-names">
                         <label>Level of Education</label>
                             <select name="education">
-                                <option>--Select Level of Education--</option>
+                                <option value="">--Select Level of Education--</option>
                                 <option value="Elementary" <?php if($education_level == 'Elementary'){?> selected="selected" <?php }?> >Elementary</option>
                                 <option value="High School" <?php if($education_level == 'High School'){?> selected="selected" <?php }?>>High school</option>
                                 <option  value="Yeshiva/Seminary" <?php if($education_level == 'Yeshiva/Seminary'){?> selected="selected" <?php }?>>Yeshiva/ Seminary</option>
