@@ -111,6 +111,7 @@
                 
                 $type = Caretype_model::getCareTypeById($data['care_type']);
                 $loca = '';
+                print_r($data['city']);
                 if ($data['city'] != '') {
                     $loca += $data['city'];
                 }
