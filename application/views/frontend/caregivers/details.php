@@ -99,9 +99,17 @@
                 <div class="clearfix margin-bots"></div>
                 <?php
                 if(!empty($recordData['location'])){ ?>
-                <?php $location_array = explode(',',$recordData['location']); ?>
-                <?php $formated_location = (isset($location_array[0])?$location_array[0]:"").', '.(isset($location_array[1])?$location_array[1]:""); ?>
-                <span class="location-wrap"><?php echo $formated_location.'<span>Location</span>';?></span>
+                <?php $loca = '';
+                if ($recordData['$city'] != '') {
+                    $loca .= $recordData['$city'];
+                }
+                if ($recordData['$state'] != '') {
+                    $loca .= ', ' . $recordData['$state'];
+                }
+                if ($recordData['$country'] != '') {
+                    $loca .= ', ' . $recordData['$country'];
+                }?>
+                <span class="location-wrap"><?php echo $loca.'<span>Location</span>';?></span>
                 <?php
                 }
                 else{ ?>
@@ -151,9 +159,18 @@
 }
 if($this->uri->segment(4)>16){
     if(!empty($recordData['location'])){ ?>
-        <?php $location_array = explode(',',$recordData['location']); ?>
+        <?php $loca = '';
+                if ($recordData['$city'] != '') {
+                    $loca .= $recordData['$city'];
+                }
+                if ($recordData['$state'] != '') {
+                    $loca .= ', ' . $recordData['$state'];
+                }
+                if ($recordData['$country'] != '') {
+                    $loca .= ', ' . $recordData['$country'];
+                }?>
         <?php $formated_location = (isset($location_array[0])?$location_array[0]:"").', '.(isset($location_array[1])?$location_array[1]:""); ?>
-        <span class="age-wrap"><?php echo $formated_location.'<span>Location</span>';?></span>
+        <span class="age-wrap"><?php echo $loca.'<span>Location</span>';?></span>
         <?php
     }
     else{ ?>
@@ -202,7 +219,17 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         <?php
         }
         if(!empty($recordData['location'])){ ?>
-            <span class="hour-wrap"><?php echo $recordData['location'].'<span>Location</span>';?></span>
+        <?php $loca = '';
+                if ($recordData['$city'] != '') {
+                    $loca .= $recordData['$city'];
+                }
+                if ($recordData['$state'] != '') {
+                    $loca .= ', ' . $recordData['$state'];
+                }
+                if ($recordData['$country'] != '') {
+                    $loca .= ', ' . $recordData['$country'];
+                }?>
+            <span class="hour-wrap"><?php echo $loca.'<span>Location</span>';?></span>
             <?php
         }else{ ?>
         <span class="hour-wrap"><?php echo 'N/A'.'<span>Location</span>';?></span>
@@ -232,7 +259,17 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
     } else {
 
         if(!empty($recordData['location'])){ ?>
-            <span class="age-wrap"><?php echo $recordData['location'].'<span>Location</span>';?></span>
+        <?php $loca = '';
+                if ($recordData['$city'] != '') {
+                    $loca .= $recordData['$city'];
+                }
+                if ($recordData['$state'] != '') {
+                    $loca .= ', ' . $recordData['$state'];
+                }
+                if ($recordData['$country'] != '') {
+                    $loca .= ', ' . $recordData['$country'];
+                }?>
+            <span class="age-wrap"><?php echo $loca.'<span>Location</span>';?></span>
             <?php
         }else{ ?>
         <span class="age-wrap"><?php echo 'N/A'.'<span>Location</span>';?></span>
@@ -289,7 +326,17 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         ?>
     </p>
     <div class="map">
-        <h2>Map Location (<?php echo $recordData['location']; ?>)</h2>
+        <?php $loca = '';
+                if ($recordData['$city'] != '') {
+                    $loca .= $recordData['$city'];
+                }
+                if ($recordData['$state'] != '') {
+                    $loca .= ', ' . $recordData['$state'];
+                }
+                if ($recordData['$country'] != '') {
+                    $loca .= ', ' . $recordData['$country'];
+                }?>
+        <h2>Map Location (<?php echo $loca; ?>)</h2>
 
 
 
