@@ -1726,7 +1726,7 @@ class User extends CI_Controller
       }
 
       public function account($id_hash = '' ){
-            if(isset($_POST['save'])){
+            
                  if(isset($_POST['language'])){
                     $lang = join(',',$_POST['language']);
                  }
@@ -1751,7 +1751,6 @@ class User extends CI_Controller
                         'caregiver_language'      => isset($lang)?$lang:'',
                         'caregiver_religious_observance'  => isset($_POST['religious_observance'])?$_POST['religious_observance']:'',
                         'familartojewish' => isset($_POST['familartojewish'])?$_POST['familartojewish']:'',
-                        'neighbour' => isset($_POST['neighborhood'])?$_POST['neighborhood']:'',
                         'profile_picture' => isset($_POST['profile_picture'])?$_POST['profile_picture']:'',
                         'profile_picture_owner'=> isset($_POST['profile_picture_owner'])?$_POST['profile_picture_owner']:'',
                         'name_of_owner' => isset($_POST['name_of_owner'])?$_POST['name_of_owner']:'',
@@ -1801,7 +1800,7 @@ class User extends CI_Controller
 
                         redirect('user/details/'.$id_hash);                        
 
-            }
+            
       }
       
       public function job_or_profile(){
