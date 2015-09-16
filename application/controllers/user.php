@@ -1738,7 +1738,9 @@ class User extends CI_Controller
                         
                     $insert1 = array(
                         'marital_status' => isset($_POST['marital_status'])?$_POST['marital_status']:'',
-                        'location' => isset($_POST['address_location'])?$_POST['address_location']:'',
+                        'location' => isset($_POST['location'])?$_POST['location']:'',
+                        'lat'      => isset($_POST['lat'])?$_POST['lat']:'',
+                        'lng'      =>  isset($_POST['lng'])?$_POST['lng']:'',
                         'zip'      => isset($_POST['zip'])?$_POST['zip']:'',
                         'age'      =>  isset($_POST['age'])?$_POST['age']:'',
                         'gender'   => isset($_POST['gender'])?$_POST['gender']:'',
@@ -1764,21 +1766,21 @@ class User extends CI_Controller
                         'sub_care' => isset($_POST['sub_care'])?$_POST['sub_care']:'',
                      );
                      
-                      $response =  $this->common_model->getLongitudeAndLatitude($_POST['address_location']);
-                        if($response){
-                            $lat        = $response->results[0]->geometry->location->lat;
-                            $long       = $response->results[0]->geometry->location->lng;
-                            $country    = $response->results[0]->address_components[1]->long_name;
-                        }else{
-                            $lat   = 0;
-                            $long   = 0;
-                        }
+                    //   $response =  $this->common_model->getLongitudeAndLatitude($_POST['address_location']);
+                    //     if($response){
+                    //         $lat        = $response->results[0]->geometry->location->lat;
+                    //         $long       = $response->results[0]->geometry->location->lng;
+                    //         $country    = $response->results[0]->address_components[1]->long_name;
+                    //     }else{
+                    //         $lat   = 0;
+                    //         $long   = 0;
+                    //     }
                
-                       $geodata = array(
-                            'lat' => $lat,
-                            'lng' => $long,
-                            'country' => $country,
-                        );
+                    //   $geodata = array(
+                    //         'lat' => $lat,
+                    //         'lng' => $long,
+                    //         'country' => $country,
+                    //     );
                 
   
                         $id = check_user();
@@ -1789,8 +1791,8 @@ class User extends CI_Controller
                             $this->db->where('user_id', $id);
                             $this->db->update('tbl_userprofile',$insert2);
                             
-                            $this->db->where('id', $id);
-                            $this->db->update('tbl_user',$geodata);
+                            // $this->db->where('id', $id);
+                            // $this->db->update('tbl_user',$geodata);
                             
                             $this->session->set_flashdata('info', 'Personal detail updated successfully.');
                             redirect('user/dashboard','refresh');
