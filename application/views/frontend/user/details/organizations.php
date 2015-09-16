@@ -1,4 +1,14 @@
 <?php 
+$location = '';
+        if ($city != '') {
+            $location .= $city;
+        }
+        if ($state != '') {
+            $location .= ', ' . $state;
+        }
+        if ($country != '') {
+            $location .= ', ' . $country;
+        }
     if ( $care_type < 24 ) { ?>
     <h2>Organization info</h2>
         
