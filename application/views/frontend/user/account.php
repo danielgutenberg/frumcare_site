@@ -20,11 +20,11 @@
         $owner_name            = $user_data['name_of_owner']; 
         $profile_picture = $user_data['profile_picture'];
         $profile_picture_owner = $user_data['profile_picture_owner'];
-        $lat = $user_detail['lat'];
-        $lng = $user_detail['lng'];
-        $city = $user_detail['city'];
-        $state = $user_detail['state'];
-        $country = $user_detail['country'];
+        $lat = $user_data['lat'];
+        $lng = $user_data['lng'];
+        $city = $user_data['city'];
+        $state = $user_data['state'];
+        $country = $user_data['country'];
     }    
     $photo_url = site_url("images/plus.png");
     $ac = $this->session->userdata('account_category');
