@@ -21,7 +21,7 @@
                           $("#cityName").val(ac.long_name);
                         }
                         if (ac.types.indexOf('administrative_area_level_1') >= 0) {
-                          $("#stateName").val(ac.long_name);
+                          $("#stateName").val(ac.short_name);
                         }
                         if (ac.types.indexOf('country') >= 0) {
                           $("#countryName").val(ac.long_name);
