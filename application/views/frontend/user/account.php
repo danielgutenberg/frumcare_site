@@ -90,7 +90,7 @@
                             <input type="hidden" id="cityName" name="city" value="<?php echo isset($city)?$city:''?>"/>
                             <input type="hidden" id="stateName" name="state" value="<?php echo isset($state)?$state:''?>"/>
                             <input type="hidden" id="countryName" name="country" value="<?php echo isset($country)?$country:''?>"/>
-                            <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
+                            <input type="text" name="location" class="required" placeholder="Please enter a complete street address" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
                         </div>
                         <span style="color:red;" id="error"> </span>
                     </div>
@@ -343,7 +343,6 @@
                     var lat = place.geometry.location.lat();
                     var lng = place.geometry.location.lng();
                     var i = 0;
-                    console.log(place.address_components);
                       var len = place.address_components.length;
                       while (i < len) {
                         var ac = place.address_components[i];
