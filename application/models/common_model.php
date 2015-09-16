@@ -388,7 +388,7 @@ class Common_Model extends CI_Model
     }
 
     public function getMyLocation($user_id){
-        $sql    = "select lat,lng,location from tbl_user where  id = $user_id";
+        $sql    = "select lat,lng,location, city from tbl_user where  id = $user_id";
         $query  = $this->db->query($sql);
         $res = $query->result_array();
         if($res)
