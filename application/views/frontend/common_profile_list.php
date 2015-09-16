@@ -53,8 +53,6 @@
     	        </div>
     	        <span class="img-of-profile"></span><br />-->
     	        <div class="pin-location"> <?php 
-                    
-    	        print_r($data);
                     if($data['location']) { ?>
                         <img src="<?php echo site_url();?>img/pin.png">
                         <?php
@@ -113,13 +111,13 @@
                 
                 $type = Caretype_model::getCareTypeById($data['care_type']);
                 $loca = '';
-                if ($data['city']) {
+                if ($data['city'] != '') {
                     $loca += $data['city'];
                 }
-                if ($data['state']) {
+                if ($data['state'] != '') {
                     $loca += ', ' . $data['state'];
                 }
-                if ($data['country']) {
+                if ($data['country'] != '') {
                     $loca += ', ' . $data['country'];
                 }
                 //for caregivers 
