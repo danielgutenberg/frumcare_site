@@ -3,6 +3,16 @@
     <?php
         $cross = "<img src='".site_url()."img/cross.png'> ";
         $tick  = "<img src='".site_url()."img/nut-list.png'> ";    
+        $location = '';
+        if ($city != '') {
+            $location .= $city;
+        }
+        if ($state != '') {
+            $location .= ', ' . $state;
+        }
+        if ($country != '') {
+            $location .= ', ' . $country;
+        }
     ?>
     
     <?php if(!empty($looking_to_work)){ ?>

@@ -3,19 +3,36 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>                
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
 <script>
-    $("#locationField").ready(function(){        
-        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {});
+    $("#locationField").ready(function(){
+        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['address']});
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                    $("#cityName").val('');
+                    $("#stateName").val('');
+                    $("#countryName").val('');
                     var place = autocomplete.getPlace();
-                    //console.log(place.geometry.location);
                     var lat = place.geometry.location.lat();
-                    var lng = place.geometry.location.lng();                                 
+                    var lng = place.geometry.location.lng();
+                    var i = 0;
+                      var len = place.address_components.length;
+                      while (i < len) {
+                        var ac = place.address_components[i];
+                        if (ac.types.indexOf('locality') >= 0 || ac.types.indexOf('sublocality') >=0 ) {
+                          $("#cityName").val(ac.long_name);
+                        }
+                        if (ac.types.indexOf('administrative_area_level_1') >= 0) {
+                          $("#stateName").val(ac.short_name);
+                        }
+                        if (ac.types.indexOf('country') >= 0) {
+                          $("#countryName").val(ac.long_name);
+                        }
+                        i++;
+                      }
                     $("#lat").val(lat);
-                    $("#lng").val(lng);   
+                    $("#lng").val(lng);
                     document.getElementById("error").innerHTML="";
                 });
     });
-     $("#textbox1").ready(function(){        
+    $("#textbox1").ready(function(){
         $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
      });
      
@@ -69,6 +86,9 @@ if($detail){
     $rate_type = explode(',',$detail[0]['rate_type']);
     $lat = $user_detail['lat'];
     $lng = $user_detail['lng'];
+    $city = $user_detail['city'];
+    $state = $user_detail['state'];
+    $country = $user_detail['country'];
 }
 ?>
 
@@ -94,21 +114,24 @@ if($detail){
                 <div class="checkbox"><input type="checkbox" value="Office/business" name="looking_to_work[]" <?php if(in_array('Office/business',$looking_to_work)){?> checked="checked" <?php } ?>> Office / business</div>
             </div>
         </div>
-        <div>
+       <div>
             <label>Location</label>
             <div id="locationField">
                 <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> 
+                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/>
+                <input type="hidden" id="cityName" name="city" value="<?php echo isset($city)?$city:''?>"/>
+                <input type="hidden" id="stateName" name="state" value="<?php echo isset($state)?$state:''?>"/>
+                <input type="hidden" id="countryName" name="country" value="<?php echo isset($country)?$country:''?>"/>
                 <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
-            </div>
+            </div> 
              <span style="color:red;" id="error"> </span>
         </div>
-         <div>
-            <label>Neighborhood / Street</label>
-            <div>
-            <input type="text" name="neighbour" class="required" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>
-            </div>    
-        </div>         
+        <!-- <div>-->
+        <!--    <label>Neighborhood / Street</label>-->
+        <!--    <div>-->
+        <!--    <input type="text" name="neighbour" class="required" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>-->
+        <!--    </div>    -->
+        <!--</div>         -->        
         <div>
             <label>Phone</label>
             <div class="form-field">

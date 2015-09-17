@@ -34,7 +34,7 @@ class Cleaninghousehold extends CI_Controller{
             if(is_array($locationdetails)){
                 $latitude = ($locationdetails[0]['lat']);
                 $longitude = ($locationdetails[0]['lng']);
-                $location =  $locationdetails[0]['location']?$locationdetails[0]['location']:'your city';                                                                       
+                $location =  $locationdetails[0]['city']?$locationdetails[0]['city']:'your city';                                                                       
             }
         }
         else{
@@ -70,7 +70,7 @@ class Cleaninghousehold extends CI_Controller{
                     if($locationdetails){
                         $latitude = ($locationdetails[0]['lat']);
                         $longitude = ($locationdetails[0]['lng']);
-                        $location =  isset($locationdetails[0]['location'])?$locationdetails[0]['location']:'your city';
+                        $location =  isset($locationdetails[0]['city'])?$locationdetails[0]['city']:'your city';
                     }
                     if (!$latitude) {
                         $ipdata = $this->common_model->getIPData($this->ipaddress);

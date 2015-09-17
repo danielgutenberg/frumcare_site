@@ -17,6 +17,16 @@
 <?php 
 	if(is_array($userdatas)){		
         foreach($userdatas as $key => $data){ 
+			$loca = '';
+                if ($data['city'] != '') {
+                    $loca .= $data['city'];
+                }
+                if ($data['state'] != '') {
+                    $loca .= ', ' . $data['state'];
+                }
+                if ($data['country'] != '') {
+                    $loca .= ', ' . $data['country'];
+                }
 			$reviewData = Review_model::countReviewById($data['id']);
             $navigate = $data['care_type']>16?'jobs':'caregivers'; ?> 	
             <div class="profile-list clearfix usual row">
@@ -89,13 +99,13 @@
                 //for caregivers 
                 //if($data['care_type'] < 10){ 
                 if($data['care_type'] < 17){
-                    echo $type[0]['service_name'].' - '.$data['location'];                                
+                    echo $type[0]['service_name'].' - '.$loca;                                
                 } 
                 
                 //for job posters
                 //if($data['care_type'] < 25 && $data['care_type'] > 16){ 
                 if($data['care_type'] > 16){
-                    echo $type[0]['service_name'].' needed - '.$data['location'];                                                               
+                    echo $type[0]['service_name'].' needed - '.$loca;                                                               
                 } 
                 
                 //for caregivers
