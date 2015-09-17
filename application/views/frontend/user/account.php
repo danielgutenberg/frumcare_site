@@ -78,7 +78,7 @@
                         </div> <?php
                     } ?>
                     <div class="first-names">
-                        <label id="locationField">Location</label>
+                        <label id="locationField">Location       (Full address will not be published)</label>
                         <input type="text" name="address_location" placeholder="Address/Location" class="required" value="<?php echo (isset($address_location)) ? $address_location : '' ?>" id="autocomplete" onFocus="geolocate()"/>
                     </div>
                     <div class="small-seperator"></div>

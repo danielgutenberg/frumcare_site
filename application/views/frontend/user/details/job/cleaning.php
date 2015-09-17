@@ -52,19 +52,19 @@
           } ?>
         
         <?php if(!empty($neighbour)){ ?>
-        <tr>
-            <td>Neighborhood / Street</td>
-            <td>
-                <?php echo $neighbour; ?>
-            </td>
-        </tr>
+        <!--<tr>-->
+        <!--    <td>Neighborhood / Street</td>-->
+        <!--    <td>-->
+        <!--        <?php echo $neighbour; ?>-->
+        <!--    </td>-->
+        <!--</tr>-->
         <?php }
         else{
             ?>
-                <tr>
-                    <td >Neighborhood / Street</td>
-                    <td>N/A</td>
-                </tr>
+                <!--<tr>-->
+                <!--    <td >Neighborhood / Street</td>-->
+                <!--    <td>N/A</td>-->
+                <!--</tr>-->
             <?php
           } ?>
         

@@ -113,7 +113,7 @@ if($detail){
                 </div>
             </div>
             <div>
-            <label>Location</label>
+            <label>Location       (Full address will not be published)</label>
             <div id="locationField">
                 <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
                 <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/>
