@@ -102,12 +102,12 @@ $user_detail = get_user(check_user());
             </div>
             <span style="color:red;" id="error"> </span>
         </div>
-        <!--<div>-->
-        <!--    <label>Neighborhood / Street</label>-->
-        <!--    <div>-->
-        <!--    <input type="text" name="neighbour" class="required" onFocus="geolocate()" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />-->
-        <!--    </div>    -->
-        <!--</div>         -->               
+        <div>
+            <label>Neighborhood / Street</label>
+            <div>
+            <input type="text" name="neighbour" class="required" onFocus="geolocate()" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
+            </div>    
+        </div>         
 				<div>
 					<label>Phone</label>
 					<div class="form-field">
