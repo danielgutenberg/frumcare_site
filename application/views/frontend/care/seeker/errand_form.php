@@ -85,7 +85,7 @@ $user_detail = get_user(check_user());
         <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>
     <input type="hidden" name="account_type2" value="<?php echo $this->uri->segment(4);?>"/>
                 <div>
-            <label>Location       (Full address will not be published)</label>
+            <label>Location </label>
             <div id="locationField">
                 <input type="hidden" id="lat" name="lat"/>
                 <input type="hidden" id="lng" name="lng"/>

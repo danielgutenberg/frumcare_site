@@ -47,7 +47,7 @@
             Step 2: Personal Details 
         </h1>
     <div>
-            <label>Location       (Full address will not be published)</label>
+            <label>Location</label>
             <div id="locationField">
                 <input type="hidden" id="lat" name="lat"/>
                 <input type="hidden" id="lng" name="lng"/>

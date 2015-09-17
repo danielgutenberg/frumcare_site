@@ -77,7 +77,7 @@ $user_detail = get_user(check_user());
             </div>
         </div>
         <div>
-            <label>Location       (Full address will not be published)</label>
+            <label>Location </label>
             <div id="locationField">
                 <input type="hidden" id="lat" name="lat"/>
                 <input type="hidden" id="lng" name="lng"/>

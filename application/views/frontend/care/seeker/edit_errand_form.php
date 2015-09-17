@@ -103,7 +103,7 @@ if($detail){
         <h2>Edit Job Details</h2>
     </div>
     <div>
-            <label>Location       (Full address will not be published)</label>
+            <label>Location </label>
             <div id="locationField">
                 <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
                 <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/>
