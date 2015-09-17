@@ -4,7 +4,7 @@
     if(segment(3) != '') {
         $action = 'user/account/'.segment(3);
         $user_data = $user_data[0];
-        $address_location = $user_data['location'];
+        $address = $user_data['location'];
         $neighbourhood    = $user_data['neighbour'];
         $zip              = $user_data['zip'];
         $phone            = explode('+1-', $user_data['contact_number']);
@@ -20,6 +20,11 @@
         $owner_name            = $user_data['name_of_owner']; 
         $profile_picture = $user_data['profile_picture'];
         $profile_picture_owner = $user_data['profile_picture_owner'];
+        $lat = $user_data['lat'];
+        $lng = $user_data['lng'];
+        $city = $user_data['city'];
+        $state = $user_data['state'];
+        $country = $user_data['country'];
     }    
     $photo_url = site_url("images/plus.png");
     $ac = $this->session->userdata('account_category');
@@ -77,9 +82,17 @@
                             </select>
                         </div> <?php
                     } ?>
-                    <div class="first-names">
-                        <label id="locationField">Location       (Full address will not be published)</label>
-                        <input type="text" name="address_location" placeholder="Address/Location" class="required" value="<?php echo (isset($address_location)) ? $address_location : '' ?>" id="autocomplete" onFocus="geolocate()"/>
+                     <div class="first-names">
+                        <label>Location</label>
+                        <div id="locationField">
+                            <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
+                            <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/>
+                            <input type="hidden" id="cityName" name="city" value="<?php echo isset($city)?$city:''?>"/>
+                            <input type="hidden" id="stateName" name="state" value="<?php echo isset($state)?$state:''?>"/>
+                            <input type="hidden" id="countryName" name="country" value="<?php echo isset($country)?$country:''?>"/>
+                            <input type="text" name="location" class="required" placeholder="Please enter a complete street address" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
+                        </div>
+                        <span style="color:red;" id="error"> </span>
                     </div>
                     <div class="small-seperator"></div>
                     
