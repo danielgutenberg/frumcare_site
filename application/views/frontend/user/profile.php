@@ -87,11 +87,11 @@ $oc = $this->session->userdata('organization_care');
                 <tr>
                     <td width="35%"><?php echo $row->service_name;?></td>
                     <td width="15%"><a href="<?php echo site_url();?>user/edit_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $row->care_type;?>">Edit <?php echo $profile ?></a></td>
-                    <td width="15%">
-                        <a href="<?php echo site_url();?>user/hide_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $row->care_type;?>" onclick="return confirm('Are you sure to hide?')">
-                            Hide &nbsp;
-                        </a>
-                    </td>
+                    <!--<td width="15%">-->
+                    <!--    <a href=" <?php /*echo site_url();*/?>user/hide_profile/<?/*php echo $this->session->userdata['current_user'];*/?>/<?php /*echo $row->care_type;*/?>" onclick="return confirm('Are you sure to hide?')">-->
+                    <!--        Hide &nbsp;-->
+                    <!--    </a>-->
+                    <!--</td>-->
                     <?php if ($row->profile_status == 2) { ?>
                         <td width="15%">
                             <a href="<?php echo site_url();?>user/unarchive_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $row->care_type;?>" onclick="return confirm('Are you sure you want to activate this profile?')">
