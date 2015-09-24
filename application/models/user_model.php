@@ -784,6 +784,9 @@ class User_model extends CI_Model
                             'neighbour' => isset($p['neighbour']) ? $p['neighbour'] : $user_data[0]['neighbour'],
                             'lat'=>isset($p['lat']) ? $p['lat'] : $user_data[0]['lat'],
                             'lng'=>isset($p['lng']) ? $p['lng'] : $user_data[0]['lng'],
+                            'city' => isset($p['city']) ? $p['city'] : $user_data[0]['city'],
+                            'state'=>isset($p['state']) ? $p['state'] : $user_data[0]['state'],
+                            'country'=>isset($p['country']) ? $p['country'] : $user_data[0]['country'],
                             'hasAd' => 1
                         );
                         

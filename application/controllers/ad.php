@@ -210,6 +210,9 @@ class Ad extends CI_Controller
                 'location'              => isset($p['location'])?$p['location']:'',
                 'lat'                   => isset($p['lat'])?$p['lat']:'',
                 'lng'                   => isset($p['lng'])?$p['lng']:'',
+                'city'              => isset($p['city'])?$p['city']:'',
+                'state'                   => isset($p['state'])?$p['state']:'',
+                'country'                   => isset($p['country'])?$p['country']:'',
                 'neighbour'             => isset($p['neighbour'])?$p['neighbour']:'',
                 'name_of_owner'         => isset($p['name_of_owner'])?$p['name_of_owner']:'',
                 'profile_picture_owner' => isset($p['profile_picture_owner'])?$p['profile_picture_owner']:'',
@@ -965,9 +968,16 @@ class Ad extends CI_Controller
                 'optional_number'   => isset($optional_number)?$optional_number:'',
                 'rate_type'   => isset($rate_type)?$rate_type:'',
                 'contact_name' => isset($p['name']) ? $p['name'] : '',
+                'latitutde' => isset($p['lat'])? $p['lat'] : '',
+                'longitude' => isset($p['lng'])? $p['lng'] : '',
             );
             $insert_new = array(
                             'location' => isset($p['location'])? $p['location'] : '',
+                            'lat' => isset($p['lat'])? $p['lat'] : '',
+                            'lng' => isset($p['lng'])? $p['lng'] : '',
+                            'city' => isset($p['city'])? $p['city'] : '',
+                            'state' => isset($p['state'])? $p['state'] : '',
+                            'country' => isset($p['country'])? $p['country'] : '',
                             'contact_number' => isset($p['contact_number'])? $p['contact_number'] : '',
                             'age' => isset($p['age'])? $p['age'] : '',
                             'gender' => isset($p['gender'])? $p['gender'] : '',
@@ -986,30 +996,30 @@ class Ad extends CI_Controller
                 $insert['contact_name'] = $p['name'];
             }
 
-               $response =  $this->getLongitudeAndLatitude($p['location']);
-                if($response){
-                    $lat        = $response->results[0]->geometry->location->lat;
-                    $long       = $response->results[0]->geometry->location->lng;
-                    $country    = $response->results[0]->address_components[1]->long_name;
-                }else{
-                    $lat   = 0;
-                    $long   = 0;
-                }
+            //   $response =  $this->getLongitudeAndLatitude($p['location']);
+            //     if($response){
+            //         $lat        = $response->results[0]->geometry->location->lat;
+            //         $long       = $response->results[0]->geometry->location->lng;
+            //         $country    = $response->results[0]->address_components[1]->long_name;
+            //     }else{
+            //         $lat   = 0;
+            //         $long   = 0;
+            //     }
                
-               $geodata = array(
-                    'lat' => $lat,
-                    'lng' => $long,
-                    'country' => $country,
-                );
-                //insert location for profile as well
-                $geodata1 = array(
-                    'latitude' => $lat,
-                    'longitude' => $long,
-                );
+            //   $geodata = array(
+            //         'lat' => $lat,
+            //         'lng' => $long,
+            //         'country' => $country,
+            //     );
+            //     //insert location for profile as well
+            //     $geodata1 = array(
+            //         'latitude' => $lat,
+            //         'longitude' => $long,
+            //     );
             if(check_user()) {
                $q = $this->common_model->update('tbl_userprofile', $insert, array('user_id' => check_user()));
-               $q = $this->common_model->update('tbl_userprofile', $geodata1, array('user_id' => check_user(), ));
-               $q = $this->common_model->update('tbl_user', $geodata, array('id' => check_user()));
+            //   $q = $this->common_model->update('tbl_userprofile', $geodata1, array('user_id' => check_user(), ));
+            //   $q = $this->common_model->update('tbl_user', $geodata, array('id' => check_user()));
                $q = $this->common_model->update('tbl_user', $insert_new, array('id' => check_user())); //by kiran
             }
             if($q){
