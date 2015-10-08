@@ -1726,6 +1726,7 @@ class User extends CI_Controller
       }
 
       public function account($id_hash = '' ){
+            print_r($id_hash);
             if(isset($_POST['save'])){
                  if(isset($_POST['language'])){
                     $lang = join(',',$_POST['language']);
