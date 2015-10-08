@@ -147,7 +147,7 @@
                     <?php } ?>
                     
                     
-                    
+                    <input type="hidden" name="save"/>
 
                     <div class="small-seperator"></div>
                     <div class="first-names">
