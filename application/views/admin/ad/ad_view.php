@@ -37,6 +37,7 @@ function scroller(from,to) {
                             <th>Category</th>
                             <th>Type</th>
                             <th>Email</th>
+                            <th>Location</th>
                             <th>Phone</th>
                            
                              <th>Created On</th>
@@ -71,6 +72,7 @@ function scroller(from,to) {
                             </td>
                             <td><?php echo $ud['ad_type']==1 ? 'Paid': 'Free';?></td>
                             <td><?php echo $ud['email'];?></td>
+                            <td><?php echo $ud['location'];?></td>
                             <td><?php echo $ud['contact_number'];?></td>
                             <td><?php echo date('Y-m-d H:i:s',$ud['created_time']);?></td>
                             
