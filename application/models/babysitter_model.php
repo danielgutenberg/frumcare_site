@@ -55,7 +55,7 @@
                  $observance = explode(',',$postdata['observance']);
                   if(is_array($observance)){
                         foreach($observance as $data){
-                        	if ($observance != 'Any') {
+                        	if ($data != 'Any') {
                             	$sql .= " and FIND_IN_SET('$data',tbl_user.caregiver_religious_observance)";
                         	}
   	                     }
