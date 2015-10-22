@@ -968,7 +968,7 @@ class Ad extends CI_Controller
                 'optional_number'   => isset($optional_number)?$optional_number:'',
                 'rate_type'   => isset($rate_type)?$rate_type:'',
                 'contact_name' => isset($p['name']) ? $p['name'] : '',
-                'latitutde' => isset($p['lat'])? $p['lat'] : '',
+                'latitude' => isset($p['lat'])? $p['lat'] : '',
                 'longitude' => isset($p['lng'])? $p['lng'] : '',
             );
             $insert_new = array(
