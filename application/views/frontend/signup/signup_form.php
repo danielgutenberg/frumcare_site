@@ -39,10 +39,10 @@ if($this->uri->segment(2)!='edit'){
 <?php  } ?> 
 
 <div class="container sign-up-forms">
-    <div id="signUpLeft">
+    <div id="signUpLeft" style="margin-left:-225px">
     <?php flash();?>
     <?php if(segment(3) == '') { ?>
-    <h2>
+    <h2 style="margin-left:-225px">
         Create your account
     </h2>
     <p>
@@ -88,13 +88,13 @@ if($this->uri->segment(2)!='edit'){
     
         <div class="clearfix">
             <!--<input type="checkbox" name="agree" class="required"/>-->
-            <span style="font-size:12px">By clicking on "Sign up" you agree to our <a href="<?php echo base_url();?>terms-of-use">Terms of use</a> and <a href="<?php echo base_url();?>privacy-policy">Privacy policy</a>
+            <span style="font-size:12px">By clicking on "Sign up" you agree to our <a href="<?php echo base_url();?>terms-of-use">Terms of use</a><br> and <a href="<?php echo base_url();?>privacy-policy">Privacy policy</a>
                 <!--<a href="javascript:void(0);" id="terms-and-conditions" class="terms" data-toggle="modal" data-target="#terms">Frumcare terms & conditions</a>-->
             </span>
         </div>
     
         <span class="sign-up-btn" style="margin-top:5px !important; margin-left:-15px;">
-            <input id="submit-btn" type="submit" class="btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/>
+            <input style="margin-left:-225px" id="submit-btn" type="submit" class="btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/>
          </span>
     </form>
     </div>
