@@ -1120,8 +1120,8 @@ FrumCare.com
             //     );
             if(check_user()) {
                $q = $this->common_model->update('tbl_userprofile', $insert, array('user_id' => check_user()));
-               $q = $this->common_model->update('tbl_userprofile', $geodata1, array('user_id' => check_user(), ));
-               $q = $this->common_model->update('tbl_user', $geodata, array('id' => check_user()));
+            //   $q = $this->common_model->update('tbl_userprofile', $geodata1, array('user_id' => check_user(), ));
+            //   $q = $this->common_model->update('tbl_user', $geodata, array('id' => check_user()));
                $q = $this->common_model->update('tbl_user', $insert_new, array('id' => check_user())); //by kiran
             }
             if($q){
