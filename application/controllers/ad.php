@@ -15,6 +15,7 @@ class Ad extends CI_Controller
         $this->load->model('common_care_model');
         $this->load->model('email_template_model');
         $this->load->model('refrence_model');
+        $this->load->helper('url');
     }
 
     function index(){
@@ -558,6 +559,8 @@ class Ad extends CI_Controller
             if($q){
                 $facility_picture  = isset($p['facility_pic']) ? $p['facility_pic'] : '';
                 $this->common_model->update('tbl_userprofile', array('facility_pic'=>$facility_picture), array('id'=>check_user()));
+                
+                $link = anchor('caregivers', 'cancel');
                 $this->session->set_flashdata('info', 'Ad posted successfully. Your ad will be placed on the site after being approved by our team.');
                 //user notification
                 $this->notifyUser();
@@ -1133,8 +1136,8 @@ FrumCare.com
 
                 $this->notifyUser();
                 $this->approveAds();
-
-                $message = 'Ad posted successfully. Your ad will be placed on the site after being approved by our team. Click here to search caregivers in your area' . site_url('caregivers');
+                $link = anchor('caregivers', 'here');
+                $message = 'Ad posted successfully. Your ad will be placed on the site after being approved by our team. Click ' . $link . ' to search caregivers in your area';
 
                 $this->session->set_flashdata('success', $message);
                 $this->session->set_flashdata('message', '<div>Click here to search caregivers in your area</div>');
