@@ -52,7 +52,7 @@ if($this->uri->segment(2)!='edit'){
     <?php } else { ?>
     <h2>Edit your account</h2>
     <?php } ?>
-    <div class="sign-up-form">
+    <div class="sign-up-form" style="margin-left:50px">
         <form role="form" id="sign-up" action="<?php echo base_url($action) ?>" method="post">
          <div class="care-type clearfix">I am a</div>
                 <div class="form-field">
@@ -93,7 +93,7 @@ if($this->uri->segment(2)!='edit'){
             </span>
         </div>
     
-        <span class="sign-up-btn" style="margin-top:5px !important; margin-left:-15px;">
+        <span class="sign-up-btn" style="margin-top:5px !important; margin-left:-18px;">
             <input id="submit-btn" type="submit" class="btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/>
          </span>
     </form>
