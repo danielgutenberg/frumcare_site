@@ -206,6 +206,7 @@ if($this->uri->segment(2)!='edit'){
             $('.started').text('Organization Details');
             var careType = $('input[name=organization_care]:checked').val()
             getAccountCat(careType, 2)
+            leftText(1, 1);
         });
 
         $('.acc_cat').click(function(){
@@ -215,6 +216,7 @@ if($this->uri->segment(2)!='edit'){
 
         $('.org_caretype').change(function(){
             getAccountCat($(this).val(),$(this).attr('id'));
+            leftText($(this).val(),$(this).attr('id'));
         });
 
     });
