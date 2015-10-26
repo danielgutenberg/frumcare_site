@@ -109,7 +109,10 @@ if($this->uri->segment(2)!='edit'){
     <div class="signUpRight" style="width:400px;display:inline-block;float:right">
         <h2>Looking for a Care Job?</h2>
         <p>Find a well paying job on FrumCare!  Hundreds of families in YOUR area are looking for trustworthy caregivers just like you. Sign up and connect with families now!</p>
-        <span style="font-family: wingdings; font-size: 200%;">&check; Search Jobs in your area</span>
+        <span style="font-family: wingdings; font-size: 120%;">&check; Search Jobs in your area</span>
+        <span style="font-family: wingdings; font-size: 120%;">&check; Set up search alerts and receive new job openings directly to your inbox</span>
+        <span style="font-family: wingdings; font-size: 120%;">&check; Create a profile, list your skills and talents, add photos and more</span>
+        <span style="font-family: wingdings; font-size: 120%;">&check; Get access to exciting new features and tools for caregivers</span>
     </div>
 </div>
 
