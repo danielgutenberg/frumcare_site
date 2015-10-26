@@ -38,8 +38,8 @@ if($this->uri->segment(2)!='edit'){
 
 <?php  } ?> 
 
-<div class="container sign-up-forms" style="width=800px";>
-    <div class="signUpLeft" style="width=400px;display=inline-block">
+<div class="container sign-up-forms" style="width:800px";>
+    <div class="signUpLeft" style="width:400px;display:inline-block;float:left">
     <?php flash();?>
     <?php if(segment(3) == '') { ?>
     <h2>
@@ -106,7 +106,7 @@ if($this->uri->segment(2)!='edit'){
     <?php } ?>
     </div>
     
-    <div class="signUpRight" style="width=400px;display=inline-block">
+    <div class="signUpRight" style="width:400px;display:inline-block;float:right">
         <h2>Looking for a Care Job?</h2>
         <p>Find a well paying job on FrumCare!  Hundreds of families in YOUR area are looking for trustworthy caregivers just like you. Sign up and connect with families now!</p>
         <span style="font-family: wingdings; font-size: 200%;">&check; Search Jobs in your area</span>
