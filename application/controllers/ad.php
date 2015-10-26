@@ -560,8 +560,10 @@ class Ad extends CI_Controller
                 $facility_picture  = isset($p['facility_pic']) ? $p['facility_pic'] : '';
                 $this->common_model->update('tbl_userprofile', array('facility_pic'=>$facility_picture), array('id'=>check_user()));
                 
-                $link = anchor('caregivers', 'cancel');
-                $this->session->set_flashdata('info', 'Ad posted successfully. Your ad will be placed on the site after being approved by our team.');
+                $link = anchor('jobs', 'here');
+                $message = 'Ad posted successfully. Your ad will be placed on the site after being approved by our team. <br> Click ' . $link . ' to search for jobs in your area';
+                $this->session->set_flashdata('info', $message);
+                
                 //user notification
                 $this->notifyUser();
 
@@ -1137,11 +1139,8 @@ FrumCare.com
                 $this->notifyUser();
                 $this->approveAds();
                 $link = anchor('caregivers', 'here');
-                $message = 'Ad posted successfully. Your ad will be placed on the site after being approved by our team. Click ' . $link . ' to search caregivers in your area';
-
+                $message = 'Ad posted successfully. Your ad will be placed on the site after being approved by our team. <br> Click ' . $link . ' to search caregivers in your area';
                 $this->session->set_flashdata('success', $message);
-                $this->session->set_flashdata('message', '<div>Click here to search caregivers in your area</div>');
-                $this->session->set_flashdata('link', site_url('caregivers'));
                 redirect('user/dashboard');
             }
             else{

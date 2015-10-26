@@ -30,15 +30,16 @@ if($this->uri->segment(2)!='edit'){
 ?>
 
 <ol class="progtrckr" data-progtrckr-steps="4">
-    <li class="progtrckr-done">Sign Up</li>
-    <li class="progtrckr-todo parent">Your Details</li>
-    <li class="progtrckr-todo personal">Job Details</li>
-    <li class="progtrckr-todo started">Start Getting Calls</li>
+    <li class="progtrckr-done">1. Sign Up</li>
+    <li class="progtrckr-todo parent">2. Your Details</li>
+    <li class="progtrckr-todo personal">2. Job Details</li>
+    <li class="progtrckr-todo started">3. Start Getting Calls</li>
 </ol>
 
 <?php  } ?> 
 
 <div class="container sign-up-forms">
+    <div id="signUpLeft">
     <?php flash();?>
     <?php if(segment(3) == '') { ?>
     <h2>
@@ -103,6 +104,7 @@ if($this->uri->segment(2)!='edit'){
     <?php /* <a href="<?php echo base_url();?>user/verifyemailaddress/<?php echo sha1($email);?>" id="<?php echo $email;?>" class="verifyemail">Click here</a> to verfiy your email address. */?>
 
     <?php } ?>
+    </div>
 </div>
 
 <!-- Modal -->
