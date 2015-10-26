@@ -1137,7 +1137,8 @@ FrumCare.com
 
 
                 $this->session->set_flashdata('success', 'Ad posted successfully. Your ad will be placed on the site after being approved by our team.');
-                $this->session->set_flashdata('<div>Click here to search caregivers in your area</div>');
+                $this->session->set_flashdata('message', '<div>Click here to search caregivers in your area</div>');
+                $this->session->set_flashdata('link', site_url('caregivers'));
                 redirect('user/dashboard');
             }
             else{
