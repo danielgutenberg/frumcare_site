@@ -107,12 +107,12 @@ if($this->uri->segment(2)!='edit'){
     </div>
     
     <div class="signUpRight" style="width:400px;display:inline-block;float:right">
-        <h2>Looking for a Care Job?</h2>
-        <p>Find a well paying job on FrumCare! <br>  Hundreds of families in YOUR area are looking for trustworthy caregivers just like you. <br> Sign up and connect with families now!</p>
-        <span style="font-family: wingdings; font-size: 120%;">&check; Search Jobs in your area</span><br>
-        <span style="font-family: wingdings; font-size: 120%;">&check; Set up search alerts and receive new job openings directly to your inbox</span><br>
-        <span style="font-family: wingdings; font-size: 120%;">&check; Create a profile, list your skills and talents, add photos and more</span><br>
-        <span style="font-family: wingdings; font-size: 120%;">&check; Get access to exciting new features and tools for caregivers</span>
+        <h2>Need a Caregiver?</h2>
+        <p>Connect with the perfect caregiver for your family on FrumCare. <br>  Get started by creating your free account now! <br></p>
+        <span style="font-family: wingdings; font-size: 120%;">&check; Search quality caregivers in your area</span><br>
+        <span style="font-family: wingdings; font-size: 120%;">&check; Set up search alerts and receive new caregiver profiles directly to your inbox</span><br>
+        <span style="font-family: wingdings; font-size: 120%;">&check; Post a job and get contacted by caregivers in your area</span><br>
+        <span style="font-family: wingdings; font-size: 120%;">&check; Get access to exciting new features helping you with your care needs</span>
     </div>
 </div>
 
