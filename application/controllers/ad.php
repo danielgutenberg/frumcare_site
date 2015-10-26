@@ -1134,9 +1134,9 @@ FrumCare.com
                 $this->notifyUser();
                 $this->approveAds();
 
+                $message = 'Ad posted successfully. Your ad will be placed on the site after being approved by our team. Click here to search caregivers in your area' . site_url('caregivers');
 
-
-                $this->session->set_flashdata('success', 'Ad posted successfully. Your ad will be placed on the site after being approved by our team.');
+                $this->session->set_flashdata('success', $message);
                 $this->session->set_flashdata('message', '<div>Click here to search caregivers in your area</div>');
                 $this->session->set_flashdata('link', site_url('caregivers'));
                 redirect('user/dashboard');
