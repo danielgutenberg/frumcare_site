@@ -39,7 +39,7 @@ if($this->uri->segment(2)!='edit'){
 <?php  } ?> 
 
 <div class="container sign-up-forms">
-    <div id="signUpLeft" style="margin-left:-225px">
+    <div class="signUpLeft" style="margin-left:-225px">
     <?php flash();?>
     <?php if(segment(3) == '') { ?>
     <h2 style="margin-left:-225px">

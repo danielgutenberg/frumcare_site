@@ -439,7 +439,7 @@ html[xmlns] .clearfix {
 	font-family: 'Lato',sans-serif;
 	font-weight: 400;
 }
-#signUpLeft > p {
+.signUpLeft > p {
 	color: #909090;
 	font-family: 'Lato',sans-serif;
 	font-size: 15px;
