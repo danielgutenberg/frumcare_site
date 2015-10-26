@@ -105,6 +105,12 @@ if($this->uri->segment(2)!='edit'){
 
     <?php } ?>
     </div>
+    
+    <div class="signUpRight">
+        <h2>Looking for a Care Job?</h2>
+        <p>Find a well paying job on FrumCare!  Hundreds of families in YOUR area are looking for trustworthy caregivers just like you. Sign up and connect with families now!</p>
+        <span style="font-family: wingdings; font-size: 200%;">&#252; Search Jobs in your area</span>
+    </div>
 </div>
 
 <!-- Modal -->
