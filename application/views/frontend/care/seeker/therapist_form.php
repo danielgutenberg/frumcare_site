@@ -142,7 +142,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 <div>
     <label>Tell us about your needs</label>
     <div class="form-field">
-    <textarea name="profile_description" class="required"></textarea>
+    <textarea name="profile_description" class="txt"></textarea>
     </div>
 </div>
 

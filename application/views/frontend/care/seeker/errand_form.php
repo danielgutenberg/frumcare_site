@@ -111,7 +111,7 @@ $user_detail = get_user(check_user());
 <div>
     <label>Description of job</label>
     <div class="form-field">
-    <textarea name="job_description" class="required"></textarea>
+    <textarea name="job_description" class="txt"></textarea>
     </div>
 </div>
 <div class="rate-select">
@@ -152,7 +152,7 @@ $user_detail = get_user(check_user());
 <div>
     <label>Tell us about your needs</label>
     <div class="form-field">
-    <textarea name="profile_description" class=""></textarea>
+    <textarea name="profile_description" class="txt"></textarea>
     </div>
 </div>
 

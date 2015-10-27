@@ -181,7 +181,7 @@ $user_detail = get_user(check_user());
 		<div>
 			<label>Tell us about your needs</label>
 			<div class="form-field">
-				<textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
+				<textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
 			</div>
 		</div>
 

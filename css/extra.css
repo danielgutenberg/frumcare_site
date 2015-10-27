@@ -1818,6 +1818,17 @@ html[xmlns] .clearfix {
 	padding-right: 10px;
 	width: 100%;
 }
+
+.ad-form-container .txt {
+	background: none repeat scroll 0 0 #f4f4f4;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	height: 38px;
+	margin-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 100%;
+}
 .ad-form-container select {
 	background: none repeat scroll 0 0 #f4f4f4;
 	border: 1px solid #cccccc;

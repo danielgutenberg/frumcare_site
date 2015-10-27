@@ -231,7 +231,7 @@ if($detail){
             <div>
                 <label>Details</label>
                 <div class="form-field">
-                <textarea name="profile_description" class="required"><?php echo isset($profile_description) ? $profile_description : '' ?></textarea>
+                <textarea name="profile_description" class="txt"><?php echo isset($profile_description) ? $profile_description : '' ?></textarea>
                 </div>
             </div>
 
