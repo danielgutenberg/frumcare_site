@@ -45,13 +45,30 @@
 | the active record class
 */
 
-$active_group = 'default';
+$active_group = 'dev';
 $active_record = TRUE;
+
+$db['dev']['hostname'] = 'danielguten-demosis-1373854';
+$db['dev']['username'] = 'danielguten';
+$db['dev']['database'] = 'frumcare_db_frumcare';
+//$db['default']['database'] = 'frumcare_db_frumcare';
+$db['dev']['dbdriver'] = 'mysql';
+$db['dev']['dbprefix'] = '';
+$db['dev']['pconnect'] = TRUE;
+$db['dev']['db_debug'] = TRUE;
+$db['dev']['cache_on'] = FALSE;
+$db['dev']['cachedir'] = '';
+$db['dev']['char_set'] = 'utf8';
+$db['dev']['dbcollat'] = 'utf8_general_ci';
+$db['dev']['swap_pre'] = '';
+$db['dev']['autoinit'] = TRUE;
+$db['dev']['stricton'] = FALSE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'frumcare_ufrumc';
 $db['default']['password'] = '7!(oKvm[4G+G';
-$db['default']['database'] = 'frumcare_db_frumcare';
+$db['default']['database'] = 'frumcare_db';
+//$db['default']['database'] = 'frumcare_db_frumcare';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
