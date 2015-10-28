@@ -67,7 +67,7 @@ $oc = $this->session->userdata('organization_care');
                         }
                     ?>
                     <?php
-                        if($ac == 3 && $oc == 1){?>
+                        if($ac == 3){?>
                             <br />
                             <a href="<?php echo site_url('user/details/'.sha1(check_user()))?>" class="btn btn-info">Edit Organization Info</a>
                             <?php

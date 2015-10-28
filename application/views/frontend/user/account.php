@@ -110,7 +110,7 @@
                     <div class="small-seperator"></div>
                     <div class="first-names">
                         <label>Phone</label>
-                        <input type="text" name="contact_number" id="conatct" placeholder="Contact Number" class="required" value="<?php echo (isset($phone[1])) ? $phone[1] : '' ?>"/>
+                        <input type="text" name="contact_number" id="conatct" placeholder="Contact Number" class="required" value="<?php echo (isset($phone[1])) ? $phone[1] : $user_data['contact_number'] ?>"/>
                     </div>
                     <div class="small-seperator"></div>
 
@@ -199,8 +199,8 @@
                         <label>Level of observance </label>
                         <select id="religious_observance" name="religious_observance">
                             <option>--Select Level of Observance--</option>
-                            <option value="Yeshivish/Chasidish" <?php if($religious_observance == 'Yeshivish/Chasidish'){?> selected="selected" <?php }?>>Yeshivish/ Chasidish</option>
-                            <option value="Orthodox/Modern Orthodox" <?php if($religious_observance == 'Orthodox/Modern Orthodox'){?> selected="selected" <?php }?>>Orthodox/ Modern Orthodox</option>
+                            <option value="Yeshivish/ Chasidish" <?php if($religious_observance == 'Yeshivish/ Chasidish'){?> selected="selected" <?php }?>>Yeshivish/ Chasidish</option>
+                            <option value="Orthodox/ Modern Orthodox" <?php if($religious_observance == 'Orthodox/ Modern Orthodox'){?> selected="selected" <?php }?>>Orthodox/ Modern Orthodox</option>
                             <option value="Other" <?php if($religious_observance == 'Other'){?> selected="selected" <?php }?>>Other</option>
                             <option value="Not Jewish" <?php if($religious_observance == 'Not Jewish'){?> selected="selected" <?php }?>>Not Jewish</option>
                         </select>

@@ -319,7 +319,13 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
     //   || ($this->uri->segment(4)>16 && $this->uri->segment(4) < 24)
        ){ ?>
        <h2> Meet 
-            <?php echo ucfirst($recordData['name']);?>
+            <?php 
+            if ($this->uri->segment(4) < 10) { 
+                echo ucfirst($recordData['name']);
+            } else {
+                echo ucfirst($recordData['organization_name']);
+            }
+            ?>
         </h2>
         <?php 
         }
@@ -459,7 +465,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
           }
           if(($recordData['care_type'] > 9 && $recordData['care_type'] < 17 ) || ($recordData['care_type'] > 24)){ ?>
           <span class="view-availability-btn">
-              <a href="#" class="btn btn-primary viewcontactdetails">Contact <?php echo $recordData['name'] ?></a>                                               
+              <a href="#" class="btn btn-primary viewcontactdetails">Contact <?php echo $recordData['organization_name'] ?></a>                                               
           </span>
           <?php
       } 
