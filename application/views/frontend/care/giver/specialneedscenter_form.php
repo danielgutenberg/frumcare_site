@@ -172,7 +172,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     <div>
         <label>Tell us about your organization / facilities / staff</label>
         <div class="form-field">
-        <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
+        <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
         </div>
     </div>
 

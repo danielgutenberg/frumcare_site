@@ -129,7 +129,7 @@ if($detail){
     <div>
         <label>Description of job</label>
         <div class="form-field">
-        <textarea name="job_description" class="required"><?php echo isset($job_description) ? $job_description : '' ?></textarea>
+        <textarea name="job_description" class="txt"><?php echo isset($job_description) ? $job_description : '' ?></textarea>
         </div>
     </div>
     <div class="rate-select">

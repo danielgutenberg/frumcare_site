@@ -38,29 +38,31 @@ if($this->uri->segment(2)!='edit'){
 
 <?php  } ?> 
 
-<div class="container sign-up-forms">
+<div class="container sign-up-forms" style="width:1250px";>
     <?php flash();?>
     <?php if(segment(3) == '') { ?>
     <h2>
         Create your account
     </h2>
-    <p>
+    <p style="text-align:center">
         Sign up now for Frumcare. Already have an <br/>account?
         <a href="<?php echo base_url('login') ?>">Log In</a>
     </p>
     <?php } else { ?>
     <h2>Edit your account</h2>
     <?php } ?>
-    <div class="sign-up-form">
+    <div class="signUpLeft" style="width:450px;display:inline-block;float:left;margin-left:400px;">
+    
+    <div class="sign-up-form" style="margin-left:50px">
         <form role="form" id="sign-up" action="<?php echo base_url($action) ?>" method="post">
          <div class="care-type clearfix">I am a</div>
-                <div class="form-field">
+                <div class="form-field" style="width:800px">
                         <div class="radio short"><input type="radio" name="account_category" value="2" <?php if($at == 2 ){?> checked="checked" <?php } ?> class="acc_cat" id="1"> Parent</div>
                         <div class="radio short"><input type="radio" name="account_category" value="1" <?php if($at == 1 ){?> checked="checked" <?php } ?> class="acc_cat" id="1"> Caregiver</div>
                         <div class="radio long"><input type="radio" name="account_category" value="3" <?php if($at == 3 ){?> checked="checked" <?php } ?> class="organization"> Caregiving Organization</div>
                 </div>
 
-                <div class="form-field organizational_care" <?php echo isset($at) && $at==3?'':'style="display:none"'?>>
+                <div class="form-field organizational_care" <?php echo isset($at) && $at==3?'':'style="display:none; width:800px"'?>>
                     <div>What would you like to do?</div>
                     <div class="radio"><input type="radio" name="organization_care" value="1" class="org_caretype required" id="2" checked="checked">Advertise My Service</div>
                     <div class="radio"><input type="radio" name="organization_care" value="2" class="org_caretype required" id="2">Find Workers</div>
@@ -87,12 +89,12 @@ if($this->uri->segment(2)!='edit'){
     
         <div class="clearfix">
             <!--<input type="checkbox" name="agree" class="required"/>-->
-            <span style="font-size:12px">By clicking on "Sign up" you agree to our <a href="<?php echo base_url();?>terms-of-use">Terms of use</a> and <a href="<?php echo base_url();?>privacy-policy">Privacy policy</a>
+            <span style="font-size:12px">By clicking on "Sign up" you agree to our <a href="<?php echo base_url();?>terms-of-use">Terms of use</a><br> and <a href="<?php echo base_url();?>privacy-policy">Privacy policy</a>
                 <!--<a href="javascript:void(0);" id="terms-and-conditions" class="terms" data-toggle="modal" data-target="#terms">Frumcare terms & conditions</a>-->
             </span>
         </div>
     
-        <span class="sign-up-btn" style="margin-top:5px !important; margin-left:-15px;">
+        <span class="sign-up-btn" style="margin-top:5px !important; margin-left:-75px;">
             <input id="submit-btn" type="submit" class="btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/>
          </span>
     </form>
@@ -103,6 +105,20 @@ if($this->uri->segment(2)!='edit'){
     <?php /* <a href="<?php echo base_url();?>user/verifyemailaddress/<?php echo sha1($email);?>" id="<?php echo $email;?>" class="verifyemail">Click here</a> to verfiy your email address. */?>
 
     <?php } ?>
+    </div>
+    
+    <div class="signUpRight" style="width:230px;display:inline-block;float:left;margin-top: 70px">
+        <h2 style="margin-left: -27px;">
+        Why sign up? 
+        </h2>
+        <div class="rightText" style="border:1px solid black;">
+        <!--<p>Connect with the perfect caregiver for your family on FrumCare. <br>  Get started by creating your free account now! <br></p>-->
+        <div>&check; Search quality caregivers in your area</div>
+        <div>&check; Set up search alerts and receive new caregiver profiles directly to your inbox</div>
+        <div>&check; Post a job and get contacted by caregivers in your area</div>
+        <div>&check; Get access to exciting new features helping you with your care needs</div>
+        </div>
+    </div>
 </div>
 
 <!-- Modal -->
@@ -168,7 +184,9 @@ if($this->uri->segment(2)!='edit'){
         //     getAccountCat(account_category,account_id);  //kiran
         // }        
         $('.acc_cat').change(function(){
+            $('.signUpRight').css('margin-top', '70px')
             getAccountCat($(this).val(),$(this).attr('id'));
+            leftText($(this).val(),$(this).attr('id'));
             $('.name').attr('placeholder', "Name");
         });
 
@@ -187,6 +205,7 @@ if($this->uri->segment(2)!='edit'){
         });
 
         $('.organization').click(function(){
+            $('.signUpRight').css('margin-top', '130px')
             $('.organizational_care').css('display','block');
             $('.name').attr('placeholder', "Name of organization");
             $('.parent').text('Organization Info');
@@ -194,6 +213,8 @@ if($this->uri->segment(2)!='edit'){
             $('.started').text('Organization Details');
             var careType = $('input[name=organization_care]:checked').val()
             getAccountCat(careType, 2)
+            leftText(3, 1);
+            
         });
 
         $('.acc_cat').click(function(){
@@ -227,6 +248,22 @@ if($this->uri->segment(2)!='edit'){
 
         })
     } 
+    
+    function leftText(ac, sb){
+        var parent = '<div>&check; Search Jobs in your area</div><div>&check; Set up search alerts and receive new job openings directly to your inbox</div><div>&check; Create a profile, list your skills and talents, add photos and more</div><div>&check; Get access to exciting new features and tools for caregivers</div>'
+        var job = '<div>&check; Search quality caregivers in your area</div><div>&check; Set up search alerts and receive new caregiver profiles directly to your inbox</div><div>&check; Post a job and get contacted by caregivers in your area</div><div>&check; Get access to exciting new features helping you with your care needs</div>'
+        var org = '<div>&check; Advertise your services to jewish families worldwide</div><div>&check; Post jobs and recruit employees / staff for your Organization</div><div>&check; Get access to exciting new tools to help you run your Organization</div>'
+        if(ac == 1){
+        $('.rightText').html(parent)
+        }
+        if(ac == 2){
+        $('.rightText').html(job)
+        }
+        if(ac == 3){
+        $('.rightText').html(org)
+        }
+        
+    }
 
      function getAccountCat(account_category,service_by){
         $.ajax({

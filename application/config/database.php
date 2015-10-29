@@ -48,6 +48,7 @@
 $active_group = 'default';
 $active_record = TRUE;
 
+
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'frumcare_ufrumc';
 $db['default']['password'] = '7!(oKvm[4G+G';
@@ -63,8 +64,6 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
-
-
 // blog database
 $db['wordpress']['hostname'] = 'localhost';
 $db['wordpress']['username'] = 'frumcare_ufrumc';
@@ -81,6 +80,5 @@ $db['wordpress']['dbcollat'] = 'utf8_general_ci';
 $db['wordpress']['swap_pre'] = '';
 $db['wordpress']['autoinit'] = TRUE;
 $db['wordpress']['stricton'] = FALSE;
-
 /* End of file database.php */
 /* Location: ./application/config/database.php */

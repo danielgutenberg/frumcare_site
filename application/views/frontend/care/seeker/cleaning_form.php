@@ -190,12 +190,12 @@ $user_detail = get_user(check_user());
             <div class="checkbox"><input type="checkbox" name="rate_type[]" value="1">Hourly Rate</div>-->
             <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
         </div>
-        <!--<div>-->
-        <!--    <label>Tell us about your needs</label>-->
-        <!--    <div class="form-field">-->
-        <!--    <textarea name="profile_description" class="required"><?php //echo isset($desc) ? $desc : '' ?></textarea>-->
-        <!--    </div>-->
-        <!--</div>-->
+        <div>
+            <label>Tell us about your needs</label>
+            <div class="form-field">
+            <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
+            </div>
+        </div>
 
         <h2>Additional Requirements</h2>
         <div>  

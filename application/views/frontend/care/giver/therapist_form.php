@@ -116,7 +116,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
          <div style="display:none">
                 <label>Your references details</label>
                 <div class="form-field not-required">
-                <textarea style="display:none" name="references_details" class="required"><?php echo isset($ref_det) ? $ref_det : '' ?></textarea>
+                <textarea style="display:none" name="references_details" class="txt"><?php echo isset($ref_det) ? $ref_det : '' ?></textarea>
                 </div>
             </div>
 
