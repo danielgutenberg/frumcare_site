@@ -109,7 +109,7 @@ if($this->uri->segment(2)!='edit'){
     
     <div class="signUpRight" style="width:230px;display:inline-block;float:left;margin-top: 70px">
         <h2>
-        Why Sign Up? 
+        Why sign up? 
         </h2>
         <div class="rightText" style="border:1px solid black;">
         <!--<p>Connect with the perfect caregiver for your family on FrumCare. <br>  Get started by creating your free account now! <br></p>-->
