@@ -107,13 +107,17 @@ if($this->uri->segment(2)!='edit'){
     <?php } ?>
     </div>
     
-    <div class="signUpRight" style="width:230px;display:inline-block;float:left;border:1px solid black;margin-top: 125px">
-        <!--<h2>Need a Caregiver?</h2>-->
+    <div class="signUpRight" style="width:230px;display:inline-block;float:left;margin-top: 70px">
+        <h2>
+        Why Sign Up? 
+        </h2>
+        <div class="rightText" style="border:1px solid black;">
         <!--<p>Connect with the perfect caregiver for your family on FrumCare. <br>  Get started by creating your free account now! <br></p>-->
         <div>&check; Search quality caregivers in your area</div>
         <div>&check; Set up search alerts and receive new caregiver profiles directly to your inbox</div>
         <div>&check; Post a job and get contacted by caregivers in your area</div>
         <div>&check; Get access to exciting new features helping you with your care needs</div>
+        </div>
     </div>
 </div>
 
@@ -180,7 +184,7 @@ if($this->uri->segment(2)!='edit'){
         //     getAccountCat(account_category,account_id);  //kiran
         // }        
         $('.acc_cat').change(function(){
-            $('.signUpRight').css('margin-top', '125px')
+            $('.signUpRight').css('margin-top', '70px')
             getAccountCat($(this).val(),$(this).attr('id'));
             leftText($(this).val(),$(this).attr('id'));
             $('.name').attr('placeholder', "Name");
@@ -201,7 +205,7 @@ if($this->uri->segment(2)!='edit'){
         });
 
         $('.organization').click(function(){
-            $('.signUpRight').css('margin-top', '185px')
+            $('.signUpRight').css('margin-top', '130px')
             $('.organizational_care').css('display','block');
             $('.name').attr('placeholder', "Name of organization");
             $('.parent').text('Organization Info');
@@ -209,7 +213,7 @@ if($this->uri->segment(2)!='edit'){
             $('.started').text('Organization Details');
             var careType = $('input[name=organization_care]:checked').val()
             getAccountCat(careType, 2)
-            leftText(1, 1);
+            leftText(3, 1);
             
         });
 
@@ -220,7 +224,6 @@ if($this->uri->segment(2)!='edit'){
 
         $('.org_caretype').change(function(){
             getAccountCat($(this).val(),$(this).attr('id'));
-            leftText($(this).val(),$(this).attr('id'));
         });
 
     });
@@ -249,11 +252,15 @@ if($this->uri->segment(2)!='edit'){
     function leftText(ac, sb){
         var parent = '<div>&check; Search Jobs in your area</div><div>&check; Set up search alerts and receive new job openings directly to your inbox</div><div>&check; Create a profile, list your skills and talents, add photos and more</div><div>&check; Get access to exciting new features and tools for caregivers</div>'
         var job = '<div>&check; Search quality caregivers in your area</div><div>&check; Set up search alerts and receive new caregiver profiles directly to your inbox</div><div>&check; Post a job and get contacted by caregivers in your area</div><div>&check; Get access to exciting new features helping you with your care needs</div>'
+        var org = '<div>&check; Advertise your services to jewish families worldwide</div><div>&check; Post jobs and recruit employees / staff for your Organization</div><div>&check; Get access to exciting new tools to help you run your Organization</div>'
         if(ac == 1){
-        $('.signUpRight').html(parent)
+        $('.rightText').html(parent)
         }
         if(ac == 2){
-        $('.signUpRight').html(job)
+        $('.rightText').html(job)
+        }
+        if(ac == 3){
+        $('.rightText').html(org)
         }
         
     }
