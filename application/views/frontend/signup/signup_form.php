@@ -55,16 +55,16 @@ if($this->uri->segment(2)!='edit'){
     
     <div class="sign-up-form" style="margin-left:50px">
         <form role="form" id="sign-up" action="<?php echo base_url($action) ?>" method="post">
-         <div class="care-type clearfix">I am a</div>
-                <div class="form-field">
-                        <div class="radio short"><input type="radio" name="account_category" value="2" <?php if($at == 2 ){?> checked="checked" <?php } ?> class="acc_cat" id="1"> Parent</div>
+         <div class="care-type clearfix" style="margin-left:210px">I am a</div>
+                <div class="form-field" style="width:800px">
+                        <div class="radio short" style="margin-left:210px"><input type="radio" name="account_category" value="2" <?php if($at == 2 ){?> checked="checked" <?php } ?> class="acc_cat" id="1"> Parent</div>
                         <div class="radio short"><input type="radio" name="account_category" value="1" <?php if($at == 1 ){?> checked="checked" <?php } ?> class="acc_cat" id="1"> Caregiver</div>
                         <div class="radio long"><input type="radio" name="account_category" value="3" <?php if($at == 3 ){?> checked="checked" <?php } ?> class="organization"> Caregiving Organization</div>
                 </div>
 
-                <div class="form-field organizational_care" <?php echo isset($at) && $at==3?'':'style="display:none"'?>>
-                    <div>What would you like to do?</div>
-                    <div class="radio"><input type="radio" name="organization_care" value="1" class="org_caretype required" id="2" checked="checked">Advertise My Service</div>
+                <div class="form-field organizational_care" <?php echo isset($at) && $at==3?'':'style="display:none; width:800px"'?>>
+                    <div style="margin-left:210px">What would you like to do?</div>
+                    <div class="radio" style="margin-left:210px"><input type="radio" name="organization_care" value="1" class="org_caretype required" id="2" checked="checked">Advertise My Service</div>
                     <div class="radio"><input type="radio" name="organization_care" value="2" class="org_caretype required" id="2">Find Workers</div>
                 </div>
         <div class="care-type clearfix">Care Type: 
@@ -110,9 +110,9 @@ if($this->uri->segment(2)!='edit'){
     <div class="signUpRight" style="width:230px;display:inline-block;float:left;border:1px solid black;margin-top: 125px">
         <!--<h2>Need a Caregiver?</h2>-->
         <!--<p>Connect with the perfect caregiver for your family on FrumCare. <br>  Get started by creating your free account now! <br></p>-->
-        <div>&check; Search quality caregivers in your area</div><br>
-        <div>&check; Set up search alerts and receive new caregiver profiles directly to your inbox</div><br>
-        <div>&check; Post a job and get contacted by caregivers in your area</div><br>
+        <div>&check; Search quality caregivers in your area</div>
+        <div>&check; Set up search alerts and receive new caregiver profiles directly to your inbox</div>
+        <div>&check; Post a job and get contacted by caregivers in your area</div>
         <div>&check; Get access to exciting new features helping you with your care needs</div>
     </div>
 </div>
@@ -180,6 +180,7 @@ if($this->uri->segment(2)!='edit'){
         //     getAccountCat(account_category,account_id);  //kiran
         // }        
         $('.acc_cat').change(function(){
+            $('.signUpRight').css('margin-top', '125px')
             getAccountCat($(this).val(),$(this).attr('id'));
             leftText($(this).val(),$(this).attr('id'));
             $('.name').attr('placeholder', "Name");
@@ -200,6 +201,7 @@ if($this->uri->segment(2)!='edit'){
         });
 
         $('.organization').click(function(){
+            $('.signUpRight').css('margin-top', '185px')
             $('.organizational_care').css('display','block');
             $('.name').attr('placeholder', "Name of organization");
             $('.parent').text('Organization Info');
@@ -208,6 +210,7 @@ if($this->uri->segment(2)!='edit'){
             var careType = $('input[name=organization_care]:checked').val()
             getAccountCat(careType, 2)
             leftText(1, 1);
+            
         });
 
         $('.acc_cat').click(function(){
@@ -244,8 +247,8 @@ if($this->uri->segment(2)!='edit'){
     } 
     
     function leftText(ac, sb){
-        var parent = '<div>&check; Search Jobs in your area</div><br><div>&check; Set up search alerts and receive new job openings directly to your inbox</div><br><div>&check; Create a profile, list your skills and talents, add photos and more</div><br><div>&check; Get access to exciting new features and tools for caregivers</div>'
-        var job = '<div>&check; Search quality caregivers in your area</div><br><div>&check; Set up search alerts and receive new caregiver profiles directly to your inbox</div><br><div>&check; Post a job and get contacted by caregivers in your area</div><br><div>&check; Get access to exciting new features helping you with your care needs</div>'
+        var parent = '<div>&check; Search Jobs in your area</div><div>&check; Set up search alerts and receive new job openings directly to your inbox</div><div>&check; Create a profile, list your skills and talents, add photos and more</div><div>&check; Get access to exciting new features and tools for caregivers</div>'
+        var job = '<div>&check; Search quality caregivers in your area</div><div>&check; Set up search alerts and receive new caregiver profiles directly to your inbox</div><div>&check; Post a job and get contacted by caregivers in your area</div><div>&check; Get access to exciting new features helping you with your care needs</div>'
         if(ac == 1){
         $('.signUpRight').html(parent)
         }
