@@ -115,7 +115,7 @@ if($this->uri->segment(2)!='edit'){
         <!--<p>Connect with the perfect caregiver for your family on FrumCare. <br>  Get started by creating your free account now! <br></p>-->
         <div>&check; Search quality caregivers in your area</div>
         <div>&check; Set up search alerts and receive new caregiver profiles directly to your inbox</div>
-        <div>&check; Post a job and get contacted by caregivers in your area</div>
+        <div>&check; Post jobs and get contacted by caregivers in your area</div>
         <div>&check; Get access to exciting new features helping you with your care needs</div>
         </div>
     </div>
@@ -254,7 +254,7 @@ if($this->uri->segment(2)!='edit'){
     
     function leftText(ac, sb){
         var parent = '<div>&check; Search Jobs in your area</div><div>&check; Set up search alerts and receive new job openings directly to your inbox</div><div>&check; Create a profile, list your skills and talents, add photos and more</div><div>&check; Get access to exciting new features and tools for caregivers</div>'
-        var job = '<div>&check; Search quality caregivers in your area</div><div>&check; Set up search alerts and receive new caregiver profiles directly to your inbox</div><div>&check; Post a job and get contacted by caregivers in your area</div><div>&check; Get access to exciting new features helping you with your care needs</div>'
+        var job = '<div>&check; Search quality caregivers in your area</div><div>&check; Set up search alerts and receive new caregiver profiles directly to your inbox</div><div>&check; Post jobs and get contacted by caregivers in your area</div><div>&check; Get access to exciting new features helping you with your care needs</div>'
         var org = '<div>&check; Advertise your services to jewish families worldwide</div><div>&check; Post jobs and recruit employees / staff for your Organization</div><div>&check; Get access to exciting new tools to help you run your Organization</div>'
         if(ac == 1){
         $('.rightText').html(parent)
