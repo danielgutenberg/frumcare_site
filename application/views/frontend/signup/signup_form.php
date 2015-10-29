@@ -108,7 +108,7 @@ if($this->uri->segment(2)!='edit'){
     </div>
     
     <div class="signUpRight" style="width:230px;display:inline-block;float:left;margin-top: 70px">
-        <h2>
+        <h2 style="margin-left: -27px;">
         Why sign up? 
         </h2>
         <div class="rightText" style="border:1px solid black;">
