@@ -38,7 +38,7 @@ if($this->uri->segment(2)!='edit'){
 
 <?php  } ?> 
 
-<div class="container sign-up-forms" style="width:850px";>
+<div class="container sign-up-forms" style="width:1250px";>
     <?php flash();?>
     <?php if(segment(3) == '') { ?>
     <h2>
@@ -51,20 +51,20 @@ if($this->uri->segment(2)!='edit'){
     <?php } else { ?>
     <h2>Edit your account</h2>
     <?php } ?>
-    <div class="signUpLeft" style="width:450px;display:inline-block;float:left">
+    <div class="signUpLeft" style="width:450px;display:inline-block;float:left;margin-left:400px;">
     
     <div class="sign-up-form" style="margin-left:50px">
         <form role="form" id="sign-up" action="<?php echo base_url($action) ?>" method="post">
-         <div class="care-type clearfix" style="margin-left:210px">I am a</div>
+         <div class="care-type clearfix">I am a</div>
                 <div class="form-field" style="width:800px">
-                        <div class="radio short" style="margin-left:210px"><input type="radio" name="account_category" value="2" <?php if($at == 2 ){?> checked="checked" <?php } ?> class="acc_cat" id="1"> Parent</div>
+                        <div class="radio short"><input type="radio" name="account_category" value="2" <?php if($at == 2 ){?> checked="checked" <?php } ?> class="acc_cat" id="1"> Parent</div>
                         <div class="radio short"><input type="radio" name="account_category" value="1" <?php if($at == 1 ){?> checked="checked" <?php } ?> class="acc_cat" id="1"> Caregiver</div>
                         <div class="radio long"><input type="radio" name="account_category" value="3" <?php if($at == 3 ){?> checked="checked" <?php } ?> class="organization"> Caregiving Organization</div>
                 </div>
 
                 <div class="form-field organizational_care" <?php echo isset($at) && $at==3?'':'style="display:none; width:800px"'?>>
-                    <div style="margin-left:210px">What would you like to do?</div>
-                    <div class="radio" style="margin-left:210px"><input type="radio" name="organization_care" value="1" class="org_caretype required" id="2" checked="checked">Advertise My Service</div>
+                    <div>What would you like to do?</div>
+                    <div class="radio"><input type="radio" name="organization_care" value="1" class="org_caretype required" id="2" checked="checked">Advertise My Service</div>
                     <div class="radio"><input type="radio" name="organization_care" value="2" class="org_caretype required" id="2">Find Workers</div>
                 </div>
         <div class="care-type clearfix">Care Type: 

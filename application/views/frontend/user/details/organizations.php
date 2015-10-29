@@ -56,11 +56,11 @@ $location = '';
         <?php
         } */
 
-        if(!empty($name)){?>
+        if(!empty($name_of_owner)){?>
         <tr>
             <td>Name of owner / operator</td>
             <td class="form-field">
-                <?php echo $name; ?>
+                <?php echo $name_of_owner; ?>
             </td>
         </tr>
         <?php }
