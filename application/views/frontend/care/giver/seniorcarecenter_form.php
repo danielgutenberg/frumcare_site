@@ -66,7 +66,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     <div> 
         <label>Age of owner / operator</label>
         <div class="form-field">
-        <input type="text" name="age" class="required number" value="<?php echo isset($age) ? $age : '' ?>"/>
+        <input type="text" name="age" class="txt number" value="<?php echo isset($age) ? $age : '' ?>"/>
         </div>
     </div>
 
@@ -109,7 +109,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <div>
                 <label>Year established</label>
                 <div class="form-field">
-                <select name="established" class="required">
+                <select name="established" class="txt">
                     <option value="">Select year established</option>
                     <?php for($i=1950;$i<=date('Y');$i++):?>
                     <option value="<?php echo $i?>"><?php echo $i;?></option>
@@ -121,21 +121,21 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <div>
                 <label>Certification</label>
                 <div class="form-field">
-                <input type="text" value="" name="certification" class="required">
+                <input type="text" value="" name="certification" class="txt">
                 </div>
             </div>
 
             <div>
                 <label>Number of patients / residents</label>
                 <div class="form-field">
-                <input type="text" value="" name="number_of_children" class="required number">
+                <input type="text" value="" name="number_of_children" class="txt number">
                 </div>
             </div>
 
             <div>
                 <label>Number of staff </label>
                 <div class="form-field">
-                <input type="text" value="" name="number_of_staff" class="required number">
+                <input type="text" value="" name="number_of_staff" class="txt number">
                 </div>
             </div>
 

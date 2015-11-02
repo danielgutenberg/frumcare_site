@@ -49,14 +49,14 @@ if(($this->uri->segment(2) != 'new_profile')){?>
      <div>
         <label>Phone</label>
         <div class="form-field">
-        <input type="text" name="contact_number" class="required" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact"/>
+        <input type="text" name="contact_number" class="txt" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact"/>
         </div>
     </div>
 
     <div>
         <label>Name of owner / operator</label>
         <div class="form-field">
-        <input type="text" name="name_of_owner" class="required" value=""/>
+        <input type="text" name="name_of_owner" class="txt" value=""/>
         </div>
     </div>
 
@@ -64,7 +64,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     <div> 
         <label>Age of owner / operator</label>
         <div class="form-field">
-        <input type="text" name="age" class="required number" value="<?php echo isset($age) ? $age : '' ?>"/>
+        <input type="text" name="age" class="txt number" value="<?php echo isset($age) ? $age : '' ?>"/>
         </div>
     </div>
 
@@ -99,7 +99,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <div>
                 <label>Year established</label>
                 <div class="form-field">
-                <select name="established" class="required">
+                <select name="established" class="txt">
                     <option value="">Select year established</option>
                     <?php for($i=1950;$i<=date('Y');$i++):?>
                     <option value="<?php echo $i?>"><?php echo $i;?></option>
@@ -111,7 +111,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <div>
                 <label>Certification</label>
                 <div class="form-field">
-                <input type="text" value="" name="certification" class="required">
+                <input type="text" value="" name="certification" class="txt">
                 </div>
             </div>
             <div>
