@@ -102,6 +102,9 @@ $oc = $this->session->userdata('organization_care');
                         <a href="<?php echo site_url();?>user/delete_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $row->care_type;?>" onclick="return confirm('Are you sure you want to archive this profile?')">
                         Archive &nbsp;
                     </td>
+                    <td width="10%">
+                        <?php if ($row->profile_status == 1) {echo 'Approved';} else {echo 'Pending';} ?>
+                    </td>
                     <?php } ?>
 
                     <!--<td width="20%">
