@@ -217,7 +217,7 @@
 $(document).ready(function(){
     $('#contact').mask('999-999-9999');
     
-    $('.btn').click(function(event) {
+    $('.btn-success').click(function(event) {
         event.preventDefault(); 
         if ($('#lat').val() == '') {
             window.scrollTo(0, $("#locationField").offset().top);
