@@ -297,4 +297,21 @@ $('.postjob').click(function(e){
 
     })
 });
+
+$(function(){
+    console.log('hello')
+    $("#locationField").keypress(function(event){
+        if ((event.charCode >= 47 && event.charCode <= 57) || // 0-9
+            (event.charCode >= 65 && event.charCode <= 90) || // A-Z
+            (event.charCode >= 97 && event.charCode <= 122)||
+            (event.charCode == 32 || event.charCode == 92)){
+                return true
+            } 
+            else {
+                alert("Please use only english letters");
+                event.preventDefault()
+            }
+            
+    });
+});
 </script>
