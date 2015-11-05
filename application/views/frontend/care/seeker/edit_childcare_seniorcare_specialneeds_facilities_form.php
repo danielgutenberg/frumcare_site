@@ -34,7 +34,11 @@
     $("#textbox1").ready(function(){
         $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
      });
-     
+     $('#autocomplete').on('click', function(){
+           $('#autocomplete').val('')
+           $('#lat').val('')
+           
+       })
      $(document).ready(function() {
        $('.btn').click(function(event) {
         event.preventDefault(); 
