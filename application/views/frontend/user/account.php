@@ -90,7 +90,7 @@
                             <input type="hidden" id="cityName" name="city" value="<?php echo isset($city)?$city:''?>"/>
                             <input type="hidden" id="stateName" name="state" value="<?php echo isset($state)?$state:''?>"/>
                             <input type="hidden" id="countryName" name="country" value="<?php echo isset($country)?$country:''?>"/>
-                            <input type="text" name="location" class="required" placeholder="Please enter a street address" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
+                            <input type="text" name="location" class="required" placeholder="Please enter a street address (For internal purposes only, full address will not be posted)" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
                         </div>
                         <span style="color:red;" id="error"> </span>
                     </div>
@@ -363,8 +363,12 @@
         $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
      });
      $(document).ready(function() {
-       $('#autocomplete').on('click', function(){$('#autocomplete').val('')})
-       $('.btn-success').click(function(event) {
+       $('#autocomplete').on('click', function(){
+           $('#autocomplete').val('')
+           $('#lat').val('')
+           
+       })
+       $('.sign-up-btn').click(function(event) {
         event.preventDefault();
         if ($('#lat').val() == '') {
             window.scrollTo(0, $("#locationField").offset().top);
