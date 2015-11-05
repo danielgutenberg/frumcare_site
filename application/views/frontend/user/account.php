@@ -364,7 +364,7 @@
      });
      $(document).ready(function() {
        $('#autocomplete').on('click', function(){$('#autocomplete').val('')})
-       $('.sign-up-btn').click(function(event) {
+       $('.btn-success').click(function(event) {
         event.preventDefault();
         if ($('#lat').val() == '') {
             window.scrollTo(0, $("#locationField").offset().top);
