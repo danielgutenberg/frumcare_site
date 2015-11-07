@@ -119,19 +119,19 @@ if($detail){
          <div>
             <label>Neighborhood / Street</label>
             <div>
-            <input type="text" name="neighbour" class="required" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>
+            <input type="text" name="neighbour" class="txt" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>
             </div>    
         </div>         
         <div>
             <label>Phone</label>
             <div class="form-field">
-            <input type="text" name="contact_number" class="required" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact_number"/>
+            <input type="text" name="contact_number" class="txt" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact_number"/>
             </div>
         </div>
     <div>
         <label>Age of patient</label>
         <div class="form-field">
-        <input type="text" name="age_group[]" class="required number" value="<?php if(isset($age_grp)){echo $age_grp;} ?>"/>
+        <input type="text" name="age_group[]" class="txt number" value="<?php if(isset($age_grp)){echo $age_grp;} ?>"/>
         </div>
     </div>
     
@@ -146,14 +146,14 @@ if($detail){
     <div>
         <label>Condition(s) of patient(Specify)</label>
         <div class="form-field">
-            <input type="text" name="conditions_of_patient" class="required" value="<?php echo $conditions_of_patient;?>">
+            <input type="text" name="conditions_of_patient" class="txt" value="<?php echo $conditions_of_patient;?>">
         </div>
     </div>
     
     <div>
         <label>Type of therapist wanted</label>
         <div class="form-field">
-        <input type="text" value="<?php echo isset($type_of_therapy) ? $type_of_therapy : '' ?>" name="type_of_therapy" class="required">
+        <input type="text" value="<?php echo isset($type_of_therapy) ? $type_of_therapy : '' ?>" name="type_of_therapy" class="txt">
         </div>
     </div>
     <div>

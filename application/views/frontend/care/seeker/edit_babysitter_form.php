@@ -39,7 +39,7 @@
            $('#autocomplete').val('')
            $('#lat').val('')
            
-       })
+       });
      $(document).ready(function() {
        $('.btn').click(function(event) {
         event.preventDefault(); 
@@ -139,13 +139,13 @@ if($detail){
          <div>
             <label>Neighborhood / Street</label>
             <div>
-            <input type="text" name="neighbour" class="required" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>
+            <input type="text" name="neighbour" class="txt" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>
             </div>    
         </div>         
         <div>
             <label>Phone</label>
             <div class="form-field">
-            <input type="text" name="contact_number" class="required" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact_number"/>
+            <input type="text" name="contact_number" class="txt" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact_number"/>
             </div>
         </div>
         <div>

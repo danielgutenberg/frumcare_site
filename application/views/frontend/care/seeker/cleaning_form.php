@@ -3,6 +3,11 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
 <script>
     $("#locationField").ready(function(){
+        $('#autocomplete').on('click', function(){
+           $('#autocomplete').val('')
+           $('#lat').val('')
+           
+       })
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['address']});
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
                     $("#cityName").val('');
@@ -109,13 +114,13 @@ $user_detail = get_user(check_user());
         <div>
             <label>Neighborhood / Street</label>
             <div>
-            <input type="text" name="neighbour" class="required" onFocus="geolocate()" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
+            <input type="text" name="neighbour" class="txt" onFocus="geolocate()" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
             </div>    
         </div>         
 				<div>
 					<label>Phone</label>
 					<div class="form-field">
-						<input type="text" name="contact_number" class="required" value="<?php echo isset($phone)? $phone:''; ?>"/>
+						<input type="text" name="contact_number" class="txt" value="<?php echo isset($phone)? $phone:''; ?>"/>
 					</div>
 				</div>
         <div>
@@ -221,7 +226,7 @@ $user_detail = get_user(check_user());
         <div>
             <label>Level of observance necessary</label>
             <div class="form-field">
-            <select name="religious_observance" class="required">
+            <select name="religious_observance" class="txt">
                 <option value="">Select</option>
                 <option value="Yeshivish/Chasidish">Yeshivish / Chasidish</option>
                 <option value="Orthodox/Modern Orthodox">Orthodox / Modern orthodox</option>

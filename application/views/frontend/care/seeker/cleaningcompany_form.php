@@ -3,6 +3,11 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
 <script>
     $("#locationField").ready(function(){
+        $('#autocomplete').on('click', function(){
+           $('#autocomplete').val('')
+           $('#lat').val('')
+           
+       })
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['address']});
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
                     $("#cityName").val('');
@@ -95,13 +100,13 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 				<div>
 					<label>Name of Organization</label>
 					<div class="form-field">
-						<input type="text" name="organization_name" value="<?php if(isset($fn)) echo $fn;?>" class="required">
+						<input type="text" name="organization_name" value="<?php if(isset($fn)) echo $fn;?>" class="txt">
 					</div>
 				</div>
 				<div>
                 <label>Contact name</label>
                 <div class="form-field">
-                <input type="text" name="first_name" placeholder="First name" class="required"/>
+                <input type="text" name="first_name" placeholder="First name" class="txt"/>
                 <?php /* <input type="text" name="last_name" placeholder="Last name" class="required" value="<?php if(isset($ln)) echo $ln;?>"/> */?>
                 </div>
             </div>
@@ -120,13 +125,13 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         <div>
             <label>Neighborhood / Street</label>
             <div>
-            <input type="text" name="neighbour" class="required" onFocus="geolocate()" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
+            <input type="text" name="neighbour" class="txt" onFocus="geolocate()" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
             </div>    
         </div>         
 		<div>
 			<label>Phone</label>
 			<div class="form-field">
-				<input type="text" name="contact_number" class="required" value="<?php echo isset($phone)? $phone:''; ?>"/>
+				<input type="text" name="contact_number" class="txt" value="<?php echo isset($phone)? $phone:''; ?>"/>
 			</div>
 		</div>
 				<div>

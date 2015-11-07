@@ -133,13 +133,13 @@ if($detail){
          <div>
             <label>Neighborhood / Street</label>
             <div>
-            <input type="text" name="neighbour" class="required" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>
+            <input type="text" name="neighbour" class="txt" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>
             </div>    
         </div>         
 	<div>
 		<label>Phone</label>
 		<div class="form-field">
-			<input type="text" name="contact_number" class="required" value="<?php echo isset($phone)? $phone:''; ?>"/>
+			<input type="text" name="contact_number" class="txt" value="<?php echo isset($phone)? $phone:''; ?>"/>
 		</div>
 	</div>
     <div>

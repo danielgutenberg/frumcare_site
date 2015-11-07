@@ -114,7 +114,7 @@ if($detail){
             <div>
                 <label>Name of Organization</label>
                 <div class="form-field">
-                    <input type="text" name="organization_name" value="<?php echo isset($organiztion_name) ? $organiztion_name : '' ?>" class="required">
+                    <input type="text" name="organization_name" value="<?php echo isset($organiztion_name) ? $organiztion_name : '' ?>" class="txt">
                 </div>
             </div>
             <div>
@@ -122,7 +122,7 @@ if($detail){
                 <div class="form-field">
                 <?php 
                     if($this->uri->segment(4)==25){?>
-                        <select name="organization_type" class="required">
+                        <select name="organization_type" class="txt">
                             <option value="">Select type of organization</option>
                             <option value="Day Care Center" <?php echo isset($organization_type) && $organization_type == 'Day Care Center' ? 'selected' : '' ?>>Day Care Center</option>
                             <option value="Nursery/ Kindergarten" <?php echo isset($organization_type) && $organization_type == 'Nursery/ Kindergarten' ? 'selected' : '' ?>>Nursery / Kindergarten</option>
@@ -133,7 +133,7 @@ if($detail){
                         </select><?php
                     }
                     if($this->uri->segment(4)==26){?>
-                        <select name="organization_type" class="required">
+                        <select name="organization_type" class="txt">
                             <option value="">Select type of organization</option>
                             <option value="Assisted living residence" <?php echo isset($organization_type) && $organization_type == 'Assisted living residence' ? 'selected' : '' ?>>Assisted living residence</option>
                             <option value="Senior care center/ nursing home" <?php echo isset($organization_type) && $organization_type == 'Senior care center/ nursing home' ? 'selected' : '' ?>>Senior care center / nursing home</option>
@@ -143,7 +143,7 @@ if($detail){
                         </select><?php
                     }
                     if($this->uri->segment(4)==27){?>
-                        <select name="organization_type" class="required">
+                        <select name="organization_type" class="txt">
                             <option value="">Select type of organization</option>
                             <option value="Special needs care center" <?php echo isset($organization_type) && $organization_type == 'Special needs care center' ? 'selected' : '' ?>>Special needs care center</option>
                             <option value="Special needs activities center" <?php echo isset($organization_type) && $organization_type == 'Special needs activities center' ? 'selected' : '' ?>>Special needs activities center</option>
@@ -157,7 +157,7 @@ if($detail){
             <div>
                 <label>Contact name</label>
                 <div class="form-field">
-               <input type="text" name="name" placeholder="name" class="required" value="<?php echo isset($contact_name)? $contact_name:''; ?>"/>
+               <input type="text" name="name" placeholder="name" class="txt" value="<?php echo isset($contact_name)? $contact_name:''; ?>"/>
                 </div>
             </div>
             <div>
@@ -175,13 +175,13 @@ if($detail){
          <div>
             <label>Neighborhood / Street</label>
             <div>
-            <input type="text" name="neighbour" class="required" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>
+            <input type="text" name="neighbour" class="txt" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>
             </div>    
         </div>         
             <div>
                 <label>Phone</label>
                 <div class="form-field">
-                <input type="text" name="contact_number" class="required" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact_number"/>
+                <input type="text" name="contact_number" class="txt" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact_number"/>
                 </div>
             </div>
             <div>

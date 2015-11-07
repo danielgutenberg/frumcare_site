@@ -106,13 +106,13 @@ if($detail){
 <div>
     <label>Name of Organization</label>
     <div class="form-field">
-        <input type="text" name="organization_name" value="<?php echo isset($organization_name) ? $organization_name : '' ?>" class="required">
+        <input type="text" name="organization_name" value="<?php echo isset($organization_name) ? $organization_name : '' ?>" class="txt">
     </div>
 </div>
 <div>
                 <label>Contact name</label>
                 <div class="form-field">
-                <input type="text" name="name" placeholder="Full Name" class="required" value="<?php echo isset($contact_name) ? $contact_name : '' ?>"/>
+                <input type="text" name="name" placeholder="Full Name" class="txt" value="<?php echo isset($contact_name) ? $contact_name : '' ?>"/>
                 <?php /* <input type="text" name="last_name" placeholder="Last name" class="required" value="<?php if(isset($ln)) echo $ln;?>"/> */?>
                 </div>
             </div>
@@ -131,13 +131,13 @@ if($detail){
          <div>
             <label>Neighborhood / Street</label>
             <div>
-            <input type="text" name="neighbour" class="required" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>
+            <input type="text" name="neighbour" class="txt" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>
             </div>    
         </div>         
             <div>
                 <label>Phone</label>
                 <div class="form-field">
-                <input type="text" name="contact_number" class="required" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact_number"/>
+                <input type="text" name="contact_number" class="txt" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact_number"/>
                 </div>
             </div>
 <div>
