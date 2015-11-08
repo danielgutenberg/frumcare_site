@@ -40,7 +40,6 @@
            $('#lat').val('')
            
        })
-     $(document).ready(function() {
        $('.btn').click(function(event) {
         event.preventDefault(); 
         if ($('#lat').val() == '') {
@@ -51,6 +50,8 @@
             $('#personal-details-form').submit()
         }
      });
+     $(document).ready(function() {
+       
     })
 </script>   
   <script>

@@ -15,6 +15,8 @@ $time = explode(',', $detail[0]['availability']);
 $date = isset($detail[0]['start_date']) ? $detail[0]['start_date'] : "0000-00-00";
 $rate = $detail[0]['rate'];
 $rate_type = explode(',',$detail[0]['rate_type']);
+
+    $profile_description = $detail[0]['profile_description'];
 ?>
 <?php $care_type = $this->uri->segment(4);?>
 <div class="container">

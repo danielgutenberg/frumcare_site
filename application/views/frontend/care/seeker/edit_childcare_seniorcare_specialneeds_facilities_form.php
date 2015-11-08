@@ -40,16 +40,7 @@
            
        })
      $(document).ready(function() {
-       $('.btn').click(function(event) {
-        event.preventDefault(); 
-        if ($('#lat').val() == '') {
-            window.scrollTo(0, $("#locationField").offset().top);
-            $("#locationField").css('border-color', 'red')
-           document.getElementById("error").innerHTML="Please click on location from dropdown";
-        } else {
-            $('#personal-details-form').submit()
-        }
-     });
+       
     })
 </script>  
   <script>
@@ -363,6 +354,17 @@ if($detail){
         $('#ImageFile1').trigger('click');
         $('#ImageFile1').on('change',uploadImage);
     });
+    
+    $('.btn').click(function(event) {
+        event.preventDefault(); 
+        if ($('#lat').val() == '') {
+            window.scrollTo(0, $("#locationField").offset().top);
+            $("#locationField").css('border-color', 'red')
+           document.getElementById("error").innerHTML="Please click on location from dropdown";
+        } else {
+            $('#personal-details-form').submit()
+        }
+     });
 
 
     function prepareUpload(event){

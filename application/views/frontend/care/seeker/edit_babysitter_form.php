@@ -34,6 +34,7 @@
     });
     $("#textbox1").ready(function(){
         $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
+        
      });
      $('#autocomplete').on('click', function(){
            $('#autocomplete').val('')
@@ -41,16 +42,7 @@
            
        });
      $(document).ready(function() {
-       $('.btn').click(function(event) {
-        event.preventDefault(); 
-        if ($('#lat').val() == '') {
-            window.scrollTo(0, $("#locationField").offset().top);
-            $("#locationField").css('border-color', 'red')
-           document.getElementById("error").innerHTML="Please click on location from dropdown";
-        } else {
-            $('#personal-details-form').submit()
-        }
-     });
+       
     })
 </script>
   <script>
@@ -377,6 +369,17 @@ function change_wage(val){
         e.preventDefault();
         $('#ImageFile').trigger('click');
     });
+    
+        $('.btn-success').click(function(event) {
+            event.preventDefault(); 
+            if ($('#lat').val() == '') {
+                window.scrollTo(0, $("#locationField").offset().top);
+                $("#locationField").css('border-color', 'red')
+               document.getElementById("error").innerHTML="Please click on location from dropdown";
+            } else {
+                $('#personal-details-form').submit()
+            }
+         });
     
 </script>
 
