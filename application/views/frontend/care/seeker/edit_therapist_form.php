@@ -40,7 +40,17 @@
            $('#autocomplete').val('')
            $('#lat').val('')
            
-       })
+       });
+       $('.btn').click(function(event) {
+        event.preventDefault(); 
+        if ($('#lat').val() == '') {
+            window.scrollTo(0, $("#locationField").offset().top);
+            $("#locationField").css('border-color', 'red')
+           document.getElementById("error").innerHTML="Please click on location from dropdown";
+        } else {
+            $('#personal-details-form').submit()
+        }
+     });
      $(document).ready(function() {
        $('.btn').click(function(event) {
         event.preventDefault(); 
