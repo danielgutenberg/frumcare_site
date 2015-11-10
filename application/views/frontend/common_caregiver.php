@@ -1,9 +1,7 @@
-<link href="<?php echo site_url(); ?>style.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
 <link rel="stylesheet" href="<?php echo base_url();?>css/jquery.raty.css">          
 <script src="<?php echo base_url();?>js/jquery.raty.js"></script>
 <script>
-    $("#locationField").ready(function(){        
+    $("#locationSearch").ready(function(){        
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], { types: ['address'] });
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
                     var place = autocomplete.getPlace();                    
@@ -182,7 +180,7 @@
     
     <div class="searchloader" style="display:none"></div>		
     Find a <?php $this->load->view('frontend/common/left_nav_title'); if($s1 == 'jobs') {echo 'Job';}?>  <br>
-    Near <t id="locationField">
+    Near <t id="locationSearch">
 		<input type="text" name="location" class="required" value="<?php echo $location['place'] ?>" placeholder="Please enter a street address" id="autocomplete" style="width: 229px;margin-left: 9px;"/>
 		<input type="hidden" id="lng" value="<?php echo $location['lng']?>">
 		<input type="hidden" id="lat" value="<?php echo $location['lat']?>">
@@ -204,7 +202,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.showgeolocation').click(function(){
-			$('#locationField').toggle();
+			$('#locationSearch').toggle();
 // 			$('#autocomplete').val('');
             $('#autocomplete').focus();
 		});

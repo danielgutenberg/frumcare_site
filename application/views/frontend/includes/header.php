@@ -311,7 +311,7 @@ $(function(){
     });
 });
 </script>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=places&language=en-AU"></script>
 <script>
     $("#locationField").ready(function(){
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['address']});
@@ -350,7 +350,7 @@ $(function(){
                     return true
                 } 
             else {
-                alert("Please use only english letters");
+                alert("Please use only english letters in the location search");
                 event.preventDefault()
             }
         });
