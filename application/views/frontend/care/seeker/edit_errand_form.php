@@ -1,73 +1,3 @@
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
-<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>                
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
-<script>
-    $("#locationField").ready(function(){
-        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['address']});
-            google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                    $("#cityName").val('');
-                    $("#stateName").val('');
-                    $("#countryName").val('');
-                    var place = autocomplete.getPlace();
-                    var lat = place.geometry.location.lat();
-                    var lng = place.geometry.location.lng();
-                    var i = 0;
-                      var len = place.address_components.length;
-                      while (i < len) {
-                        var ac = place.address_components[i];
-                        if (ac.types.indexOf('locality') >= 0 || ac.types.indexOf('sublocality') >=0 ) {
-                          $("#cityName").val(ac.long_name);
-                        }
-                        if (ac.types.indexOf('administrative_area_level_1') >= 0) {
-                          $("#stateName").val(ac.short_name);
-                        }
-                        if (ac.types.indexOf('country') >= 0) {
-                          $("#countryName").val(ac.long_name);
-                        }
-                        i++;
-                      }
-                    $("#lat").val(lat);
-                    $("#lng").val(lng);
-                    document.getElementById("error").innerHTML="";
-                });
-    });
-    $("#textbox1").ready(function(){
-        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-     });
-     $('#autocomplete').on('click', function(){
-           $('#autocomplete').val('')
-           $('#lat').val('')
-           
-       });
-       $('.btn').click(function(event) {
-        event.preventDefault(); 
-        if ($('#lat').val() == '') {
-            window.scrollTo(0, $("#locationField").offset().top);
-            $("#locationField").css('border-color', 'red')
-           document.getElementById("error").innerHTML="Please click on location from dropdown";
-        } else {
-            $('#personal-details-form').submit()
-        }
-     });
-     $(document).ready(function() {
-       $('.btn').click(function(event) {
-        event.preventDefault(); 
-        if ($('#lat').val() == '') {
-            window.scrollTo(0, $("#locationField").offset().top);
-            $("#locationField").css('border-color', 'red')
-           document.getElementById("error").innerHTML="Please click on location from dropdown";
-        } else {
-            $('#personal-details-form').submit()
-        }
-     });
-    })
-</script>
-  <script>
-  $(function() {
-    $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-  });
-  </script>
 <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
 <?php 
 $user_detail = get_user(check_user());
@@ -174,7 +104,7 @@ if($detail){
             <div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]" <?php if(in_array("Occassionally",$temp)){?> checked="checked"<?php }?>>Occassionally</div>
             <div class="checkbox"><input type="checkbox" value="Regularly" name="availability[]" <?php if(in_array("Regularly",$temp)){?> checked="checked"<?php }?>>Regularly</div>
             <div class="checkbox"><input type="checkbox" value="Asap" name="availability[]" <?php if(in_array("Asap",$temp)){?> checked="checked"<?php }?>> Asap</div>
-            <div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]" <?php if(in_array("Start Date",$temp)){?> checked="checked"<?php }?>> Start Date<input type="text" name="start_date" <?php if($date!='0000-00-00'){ echo 'value='.$date;}?> id="textbox1"/></div>
+            <div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]" <?php if(in_array("Start Date",$temp)){?> checked="checked"<?php }?>> Start Date<input type="text" name="start_date" <?php if($date!='0000-00-00'){ echo 'value='.$date;}?> id="dateTextbox"/></div>
             <div class="checkbox"><input type="checkbox" value="Morning" name="availability[]" <?php if(in_array("Morning",$temp)){?> checked="checked"<?php }?>> Morning</div>
             <div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]" <?php if(in_array("Afternoon",$temp)){?> checked="checked"<?php }?>>Afternoon</div>
             <div class="checkbox"><input type="checkbox" value="Evening" name="availability[]" <?php if(in_array("Evening",$temp)){?> checked="checked"<?php }?>> Evening</div>
@@ -250,7 +180,7 @@ if($detail){
     </div>
     
     <div>
-       <input type="submit" class="btn btn-success" value="Update"/>
+       <input id="careseekerButton" type="submit" class="btn btn-success" value="Update"/>
     </div>
     </div>
         </form>

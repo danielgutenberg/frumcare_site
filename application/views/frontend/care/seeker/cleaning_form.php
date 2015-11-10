@@ -1,59 +1,3 @@
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
-<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
-<script>
-    $("#locationField").ready(function(){
-        $('#autocomplete').on('click', function(){
-           $('#autocomplete').val('')
-           $('#lat').val('')
-           
-       })
-        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['address']});
-            google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                    $("#cityName").val('');
-                    $("#stateName").val('');
-                    $("#countryName").val('');
-                    var place = autocomplete.getPlace();
-                    var lat = place.geometry.location.lat();
-                    var lng = place.geometry.location.lng();
-                    var i = 0;
-                      var len = place.address_components.length;
-                      while (i < len) {
-                        var ac = place.address_components[i];
-                        if (ac.types.indexOf('locality') >= 0 || ac.types.indexOf('sublocality') >=0 ) {
-                          $("#cityName").val(ac.long_name);
-                        }
-                        if (ac.types.indexOf('administrative_area_level_1') >= 0) {
-                          $("#stateName").val(ac.short_name);
-                        }
-                        if (ac.types.indexOf('country') >= 0) {
-                          $("#countryName").val(ac.long_name);
-                        }
-                        i++;
-                      }
-                    $("#lat").val(lat);
-                    $("#lng").val(lng);
-                    document.getElementById("error").innerHTML="";
-                });
-    });
-    $("#textbox1").ready(function(){
-        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-     });
-     
-     $(document).ready(function() {
-       $('.btn').click(function(event) {
-        event.preventDefault(); 
-        if ($('#lat').val() == '') {
-            window.scrollTo(0, $("#locationField").offset().top);
-            $("#locationField").css('border-color', 'red')
-           document.getElementById("error").innerHTML="Please click on location from dropdown";
-        } else {
-            $('#personal-details-form').submit()
-            $('#newJob').submit()
-        }
-     });
-    })
-</script>
 <?php
 if(($this->uri->segment(2) != 'new_profile')){?>
 <ol class="progtrckr" data-progtrckr-steps="3">
@@ -74,7 +18,7 @@ $user_detail = get_user(check_user());
 <form action="<?php echo site_url();?>ad/add_careseeker_step2" method="post" id="personal-details-form">
 <?php }
     else{
-        $attributes = array('id' => 'newJob');
+        $attributes = array('id' => 'careseekerButton');
         echo form_open('user/addprofileconfirm', $attributes);
         if(!empty($record)){
             echo form_hidden('account_category',$record['ac_type']);
@@ -167,7 +111,7 @@ $user_detail = get_user(check_user());
                 <div class="checkbox"><input type="checkbox" value="Occasionally" name="availability[]"> Occasionally</div>
                 <div class="checkbox"><input type="checkbox" value="Regularly" name="availability[]"> Regularly</div>
                 <div class="checkbox"><input type="checkbox" value="Asap" name="availability[]"/> Asap</div>
-                <div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date <input  type="text" name="start_date" id="textbox1"/></div>
+                <div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date <input  type="text" name="start_date" id="dateTextbox"/></div>
                 <div class="checkbox"><input type="checkbox" value="Morning" name="availability[]"> Morning</div>
                 <div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]"> Afternoon</div>
                 <div class="checkbox"><input type="checkbox" value="Evening" name="availability[]"> Evening</div>
@@ -249,7 +193,7 @@ $user_detail = get_user(check_user());
             </div>
         </div>
          <div>
-            <input type="submit" class="btn btn-success" value="Save <?php if($this->uri->segment(2) != 'new_profile'){echo '& Continue';}?>"/>
+            <input id="careseekerButton" type="submit" class="btn btn-success" value="Save <?php if($this->uri->segment(2) != 'new_profile'){echo '& Continue';}?>"/>
         </div>
     </div>
     </form>
