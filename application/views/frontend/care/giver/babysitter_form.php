@@ -104,7 +104,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <label>Availability</label>
             <div class="form-field">
 				<div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]"/> Immediate</div>
-				<div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date <input  type="text" name="start_date" id="textbox1"/></div>
+				<div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date <input  type="text" name="start_date" id="dateTextbox"/></div>
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Occassionally"> <span>Occassionally</span></div>
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Regularly"> <span>Regularly</span></div>
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Morning"> <span>Morning</span></div>
@@ -193,9 +193,6 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 </form>
 </div>
 <script>
- $("#textbox1").ready(function(){        
-        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-     });
 $(document).ready(function(){    
         $('.chargetype').change(function(){
             if($(this).val() == 'hourly_rate')
@@ -228,6 +225,3 @@ $(document).ready(function(){
         $('#file_upload').trigger('click');
     });//CODE BY CHAND
 </script>
-
-<script type="text/javascript" src="<?php echo site_url("js/fileuploader.js")?>"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">

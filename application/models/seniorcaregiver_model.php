@@ -116,8 +116,6 @@
                 if($start_date)
 				$sql .= " and tbl_userprofile.start_date='".$start_date."'";
                 $sql .="  order by distance asc";
-                print_r($sql);
-            //exit($sql);
 			$query 	= $this->db->query($sql);
 			$res 	= $query->result_array();
 			if($res)

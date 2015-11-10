@@ -39,9 +39,9 @@
         else{
             $ipdata = $this->common_model->getIPData($this->ipaddress);
             if(is_array($ipdata)){
-                $latitude = $ipdata['lat'];
-                $longitude = $ipdata['lon'];
-                $location = isset($ipdata['city'])?$ipdata['city']:'your city';
+                $latitude = $ipdata['lat'] ? $ipdata['lat'] : 40.7;
+                $longitude = $ipdata['lon'] ? $ipdata['lon'] : 74;
+                $location = isset($ipdata['city'])?$ipdata['city']:'New York';
             }             
         }
         }

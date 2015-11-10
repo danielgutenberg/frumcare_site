@@ -1,51 +1,3 @@
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
-<script>
-    $("#locationField").ready(function(){
-        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['address']});
-            google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                    $("#cityName").val('');
-                    $("#stateName").val('');
-                    $("#countryName").val('');
-                    var place = autocomplete.getPlace();
-                    var lat = place.geometry.location.lat();
-                    var lng = place.geometry.location.lng();
-                    var i = 0;
-                      var len = place.address_components.length;
-                      while (i < len) {
-                        var ac = place.address_components[i];
-                        if (ac.types.indexOf('locality') >= 0 || ac.types.indexOf('sublocality') >=0 ) {
-                          $("#cityName").val(ac.long_name);
-                        }
-                        if (ac.types.indexOf('administrative_area_level_1') >= 0) {
-                          $("#stateName").val(ac.short_name);
-                        }
-                        if (ac.types.indexOf('country') >= 0) {
-                          $("#countryName").val(ac.long_name);
-                        }
-                        i++;
-                      }
-                    $("#lat").val(lat);
-                    $("#lng").val(lng);
-                    document.getElementById("error").innerHTML="";
-                });
-    });
-    $("#textbox1").ready(function(){
-        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-     });
-     
-     $(document).ready(function() {
-       $('.btn-success').click(function(event) {
-        event.preventDefault(); 
-        if ($('#lat').val() == '') {
-            window.scrollTo(0, $("#locationField").offset().top);
-            $("#locationField").css('border-color', 'red')
-           document.getElementById("error").innerHTML="Please click on location from dropdown";
-        } else {
-            $('#personal-details-form').submit()
-        }
-     });
-    })
-</script>
 <ol class="progtrckr" data-progtrckr-steps="3">
     <li class="progtrckr-done">Sign up</li>
     <li class="progtrckr-done">Organization Info</li>
@@ -181,14 +133,8 @@
 
 
         <br/>
-        <input type="submit" class="btn btn-success" value="Save & Continue"/>
+        <input id="careseekerButton" type="submit" class="btn btn-success" value="Save & Continue"/>
 
     </div>
 </form>
 </div>
-<script type="text/javascript" src="<?php echo site_url();?>js/jquery.ui.maskinput.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#contact').mask('999-999-9999');
-    });
-</script>

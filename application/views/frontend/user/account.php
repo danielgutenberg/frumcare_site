@@ -259,36 +259,15 @@
                         <button class="btn btn-default" id="upload1">Choose File</button>
                         <input type="file" name="ImageFile" id="ImageFile1" style="display: none;"> <div class="loader1"></div>
                     </div>
-                    <?php /* 
-                        $photo_url = site_url("images/plus.png");
-                        if(isset($profile_picture)){
-                            $photo_url = base_url('images/profile-picture/thumb/'.$profile_picture);
-                        } */
-                    ?>                   
-                    
-                    <?php /* <div class="upload-photo">
-                        <h2>Upload a photo</h2>
-                        <input type="hidden" id="file-name" name="profile_picture" value="<?php echo isset($profile_picture)?>">
-                        <div id="output"><img src="<?php echo $photo_url?>"></div>
-                        <label>Browse your computer to select a file to upload</label>
-                        <button class="btn btn-default" id="upload">Choose File</button>
-                        <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
-                    </div> */?>
-
-                    <?php } ?>
-                    </div>             
+                    <?php } ?>       
                     <div class="small-seperator"></div>
-                    <div class="sign-up-btn"><input id="submit-btn" type="submit" name="save" class="btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/></div>
+                    <div class="sign-up-btn"><input id="edit-account-button" type="submit" name="save" class="btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/></div>
                 </form>
             </div>
         </div>
 </div>
-
-<script type="text/javascript" src="<?php echo site_url();?>js/jquery.ui.maskinput.js"></script>
-
 <script type="text/javascript">
     $(function(){
-        $('#edituserdetails').validate();
         $('.verifyemail').on('click',function(e){
             e.preventDefault();
             var email = $(this).attr('id');
@@ -329,61 +308,7 @@
     });
 </script>
 
-<script>
-    $("#locationField").ready(function(){
-        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['address']});
-            google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                    $("#cityName").val('');
-                    $("#stateName").val('');
-                    $("#countryName").val('');
-                    var place = autocomplete.getPlace();
-                    var lat = place.geometry.location.lat();
-                    var lng = place.geometry.location.lng();
-                    var i = 0;
-                      var len = place.address_components.length;
-                      while (i < len) {
-                        var ac = place.address_components[i];
-                        if (ac.types.indexOf('locality') >= 0 || ac.types.indexOf('sublocality') >=0 ) {
-                          $("#cityName").val(ac.long_name);
-                        }
-                        if (ac.types.indexOf('administrative_area_level_1') >= 0) {
-                          $("#stateName").val(ac.short_name);
-                        }
-                        if (ac.types.indexOf('country') >= 0) {
-                          $("#countryName").val(ac.long_name);
-                        }
-                        i++;
-                      }
-                    $("#lat").val(lat);
-                    $("#lng").val(lng);
-                    document.getElementById("error").innerHTML="";
-                });
-    });
-     $("#textbox1").ready(function(){
-        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-     });
-     $(document).ready(function() {
-       $('#autocomplete').on('click', function(){
-           $('#autocomplete').val('')
-           $('#lat').val('')
-           
-       })
-       $('.sign-up-btn').click(function(event) {
-        event.preventDefault();
-        if ($('#lat').val() == '') {
-            window.scrollTo(0, $("#locationField").offset().top);
-            $("#locationField").css('border-color', 'red')
-           document.getElementById("error").innerHTML="Please click on location from dropdown";
-        } else {
-            $('#edituserdetails').submit()
-        }
-     });
-    });
-</script>
 
-<!-- for google map starts -->
-    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
 
 <!-- FILE UPLOAD -->
 <script type="text/javascript">

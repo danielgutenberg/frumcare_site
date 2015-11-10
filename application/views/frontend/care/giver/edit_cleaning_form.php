@@ -1,10 +1,3 @@
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
-<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
-<script>
-  $(function() {
-    $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-});
-</script>
 <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
 <?php
 $templookingtowork = explode(',', $detail[0]['looking_to_work']);
@@ -27,7 +20,7 @@ $rate_type = explode(',',$detail[0]['rate_type']);
    </div>
    <div class="dashboard-right float-right">
 
-    <form action="<?php echo site_url().'user/update_job_details/'.$care_type;?>" method="post">
+    <form action="<?php echo site_url().'user/update_job_details/'.$care_type;?>" method="post" id="personal-details-form">
         <div class="ad-form-container float-left">
             <div class="top-welcome">
                 <h2 class="step3">Edit Job Details</h2>
@@ -104,7 +97,7 @@ $rate_type = explode(',',$detail[0]['rate_type']);
                 <label>Availability</label>
                 <div class="form-field">                    
                     <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]" <?php if(in_array("Immediate",$time)){?> checked="checked"<?php }?>>Immediate</div>
-                    <div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]" <?php if(in_array("Start Date",$time)){?> checked="checked"<?php }?>> Start Date<input type="text" name="start_date" <?php if($date!='0000-00-00'){ echo 'value='.$date;}?> id="textbox1"/></div>
+                    <div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]" <?php if(in_array("Start Date",$time)){?> checked="checked"<?php }?>> Start Date<input type="text" name="start_date" <?php if($date!='0000-00-00'){ echo 'value='.$date;}?> id="dateTextbox"/></div>
                     <div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]" <?php if(in_array("Occassionally",$time)){?> checked="checked"<?php }?>> <span>Occassionally</span></div>
                     <div class="checkbox"><input type="checkbox" value="Regularly" name="availability[]" <?php if(in_array("Regularly",$time)){?> checked="checked"<?php }?>> <span>Regularly</span></div>
                     <div class="checkbox"><input type="checkbox" value="Morning" name="availability[]" <?php if(in_array('Morning', $time)){?> checked="checked" <?php }?>> <span>Morning</span></div>
@@ -135,41 +128,6 @@ $rate_type = explode(',',$detail[0]['rate_type']);
             <div id="output" class="loader"></div>
         </div>
         
-        
-    <!--    <h2>Additional Requirements</h2>-->
-    <!--    <div>-->
-    <!--    <label>Languages necessary</label>-->
-    <!--    <div class="form-field">-->
-    <!--        <div class="checkbox"><input type="checkbox" name="language[]" value="English" <?php if(in_array('English',$langtemp)){?> checked="checked"<?php } ?>> English</div>-->
-    <!--            <div class="checkbox"><input type="checkbox" name="language[]" value="Yiddish" <?php if(in_array('Yiddish',$langtemp)){?> checked="checked"<?php } ?>> Yiddish</div>-->
-    <!--            <div class="checkbox"><input type="checkbox" name="language[]" value="Hebrew" <?php if(in_array('Hebrew',$langtemp)){?> checked="checked"<?php } ?>> Hebrew</div>-->
-    <!--            <div class="checkbox"><input type="checkbox" name="language[]" value="Russian" <?php if(in_array('Russian',$langtemp)){?> checked="checked"<?php } ?>> Russian</div>-->
-    <!--            <div class="checkbox"><input type="checkbox" name="language[]" value="French" <?php if(in_array('French',$langtemp)){?> checked="checked"<?php } ?>> French</div>-->
-    <!--            <div class="checkbox"><input type="checkbox" name="language[]" value="Other" <?php if(in_array('Other',$langtemp)){?> checked="checked"<?php } ?>> Other</div>-->
-    <!--    </div>-->
-    <!--</div>-->
-
-    <!--    <div>-->
-    <!--            <label>Gender of helper wanted</label>-->
-    <!--            <div class="form-field">-->
-    <!--                <div class="radio"><input type="radio" value="1" name="gender_of_caregiver" <?php echo isset($gender_of_caregiver) && $gender_of_caregiver == '1' ? 'checked' : '' ?>> Male</div>-->
-    <!--                <div class="radio"><input type="radio" value="2" name="gender_of_caregiver" <?php echo isset($gender_of_caregiver) && $gender_of_caregiver == '2' ? 'checked' : '' ?>> Female</div>-->
-    <!--                <div class="radio"><input type="radio" value="3" name="gender_of_caregiver" <?php echo isset($gender_of_caregiver) && $gender_of_caregiver == '3' ? 'checked' : '' ?>> Either</div>-->
-    <!--            </div>-->
-    <!--        </div>-->
-
-    <!--    <div>-->
-    <!--        <label>Level of observance necessary</label>-->
-    <!--        <div class="form-field">-->
-    <!--        <select name="religious_observance">-->
-    <!--            <option value="">Select</option>-->
-    <!--            <option value="Yeshivish/ Chasidish" <?php echo isset($religious_observance) && $religious_observance == 'Yeshivish/ Chasidish' ? 'selected' : '' ?>>Yeshivish / Chasidish</option>-->
-    <!--            <option value="Orthodox/Modern Orthodox" <?php echo isset($religious_observance) && $religious_observance == 'Orthodox/Modern Orthodox' ? 'selected' : '' ?>>Orthodox / Modern Orthodox</option>-->
-    <!--            <option value="Familiar With Jewish Tradition" <?php echo isset($religious_observance) && $religious_observance == 'Familiar With Jewish Tradition' ? 'selected' : '' ?>>Familiar With Jewish Tradition</option>-->
-    <!--            <option value="Not Necessary" <?php echo isset($religious_observance) && $religious_observance == 'Not Necessary' ? 'selected' : '' ?>>Not Necessary</option>-->
-    <!--        </select>-->
-    <!--        </div>-->
-    <!--    </div>-->
         <h2>Skills</h2>
 
         <div class="checkbox-wrap">
@@ -209,21 +167,4 @@ $("#ref_check1").click(function(){
                      $(".refrence_file").hide(); 
              $('#file-name').val('');   
         });
-//     $(document).ready(function(){
-//      if($('#ckbox1').is(':checked')){
-//         $("#textbox1").show();
-//     }else{
-//         $("#textbox1").hide();
-//         $('#textbox1').val('');
-//     }
-
-//     $("#ckbox1").change(function(){
-//         if($('#ckbox1').is(':checked')){
-//             $("#textbox1").show();   
-//         }else{
-//             $("#textbox1").hide(); 
-//             $('#textbox1').val('');       
-//         }
-//     });
-// });
 </script>
