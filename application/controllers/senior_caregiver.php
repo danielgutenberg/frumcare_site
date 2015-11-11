@@ -145,6 +145,7 @@
             $data['available']				= $this->input->get('available',true);
             $data['start_date']             = $this->input->get('start_date',true);
             $data['smoker']	  			    = $this->input->get('smoker',true); 
+            $data['able_to_work']           = $this->input->get('able_to_work',true);
             
             $result = $this->seniorcaregiver->search($data,$latitude,$longitude);
                if(!$result)

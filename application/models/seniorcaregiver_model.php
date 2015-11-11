@@ -41,8 +41,8 @@
 				$vehicle			= $search['vehicle'];
 				$available 			= $search['available'];
                 $start_date         = $search['start_date'];
+                $able_to_work         = $search['able_to_work'];
 			}
-
 				$sql = "select tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* from tbl_user left outer join  tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_user.status = 1 and tbl_userprofile.profile_status=1 and tbl_userprofile.care_type=5";			
 
 				if($search['caregiverage_from'] && $search['caregiverage_to']){
@@ -59,9 +59,9 @@
 					$languages = explode(',',$language);
 					if(is_array($languages)){
 							$first = array_shift($languages);
-		                	$sql .= " and (FIND_IN_SET('$first' ,tbl_userprofile.language)";
+		                	$sql .= " and (FIND_IN_SET('$first' ,tbl_user.caregiver_language)";
 		                	foreach($languages as $data){
-	                    		$sql .= " or FIND_IN_SET('$data',tbl_userprofile.language)";
+	                    		$sql .= " or FIND_IN_SET('$data',tbl_user.caregiver_language)";
 		  	            	}
 		  	            	$sql .= ")";
 					}
@@ -81,6 +81,15 @@
 	                	}
 	                }
 	            }
+	            
+	            if($able_to_work!=''){
+					$works = explode(',',$able_to_work);
+					if(is_array($works)){
+						foreach($works as $work):
+							$sql .= " and find_in_set('$work',tbl_userprofile.willing_to_work)";
+						endforeach;
+					}
+				}
 
 				if($min_exp!=''){
 					$sql .= " and tbl_userprofile.experience >= $min_exp";
