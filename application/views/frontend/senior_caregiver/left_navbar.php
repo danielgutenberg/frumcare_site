@@ -208,7 +208,7 @@ $(function () {
 		    }).get();
 		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
 		    var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
-		    var available = $('.available_on_short_notice').is('.checked')?$('.available_on_short_notice').val():'';
+		    var available = $('.available_on_short_notice').is(':checked')?$('.available_on_short_notice').val():'';
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
             var lat = $('#lat').val();
             var lng = $('#lng').val();
@@ -268,7 +268,7 @@ $(function () {
 		    }).get();
 		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
 		    var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
-		    var available = $('.available_on_short_notice').is('.checked')?$('.available_on_short_notice').val():'';
+		    var available = $('.available_on_short_notice').is(':checked')?$('.available_on_short_notice').val():'';
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
             var lat = $('#lat').val();
             var lng = $('#lng').val();
@@ -327,7 +327,7 @@ $(function () {
 		    }).get();
 		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
 		    var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
-		    var available = $('.available_on_short_notice').is('.checked')?$('.available_on_short_notice').val():'';
+		    var available = $('.available_on_short_notice').is(':checked')?$('.available_on_short_notice').val():'';
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
             var lat = $('#lat').val();
             var lng = $('#lng').val();
@@ -392,7 +392,7 @@ $(function () {
 		    }).get();
 		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
 		    var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
-		    var available = $('.available_on_short_notice').is('.checked')?$('.available_on_short_notice').val():'';
+		    var available = $('.available_on_short_notice').is(':checked')?$('.available_on_short_notice').val():'';
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
             var lat = $('#lat').val();
             var lng = $('#lng').val();
@@ -478,7 +478,7 @@ $(function () {
 		    }).get();
 		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
 		    var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
-		    var available = $('.available_on_short_notice').is('.checked')?$('.available_on_short_notice').val():'';
+		    var available = $('.available_on_short_notice').is(':checked')?$('.available_on_short_notice').val():'';
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
             var lat = $('#lat').val();
             var lng = $('#lng').val();
@@ -547,7 +547,7 @@ $(function () {
             var start_date = $("#textbox1").val()?$("#textbox1").val():'';
 		    var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
 		  	var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
-		    var available = $('.available_on_short_notice').is('.checked')?$('.available_on_short_notice').val():'';
+		    var available = $('.available_on_short_notice').is(':checked')?$('.available_on_short_notice').val():'';
 	    	var care_type = $( ".care_type option:selected" ).val();
 	    	var lat = $('#lat').val();
             var lng = $('#lng').val();
