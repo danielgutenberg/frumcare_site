@@ -58,22 +58,29 @@
 				if($language!=''){
 					$languages = explode(',',$language);
 					if(is_array($languages)){
-						foreach($languages as $lang):
-							$sql .= " and find_in_set('$lang',tbl_userprofile.language)";
-						endforeach;
+							$first = array_shift($languages);
+		                	$sql .= " and (FIND_IN_SET('$first' ,tbl_userprofile.language)";
+		                	foreach($languages as $data){
+	                    		$sql .= " or FIND_IN_SET('$data',tbl_userprofile.language)";
+		  	            	}
+		  	            	$sql .= ")";
 					}
 
 				}
 
-				if($observance!=''){
-					$observances = explode(',',$observance);
-					if(is_array($observances)){
-						foreach($observances as $obs):
-							$sql .= " and find_in_set('$obs',tbl_userprofile.religious_observance)";
-						endforeach;
-					}
-
-				}
+				if($observance){
+	                $observance = explode(',',$observance);
+	                if(is_array($observance)){
+	                	if(!in_array('Any', $observance)) {
+	                		$first = array_shift($observance);
+		                	$sql .= " and (FIND_IN_SET('$first' ,tbl_user.caregiver_religious_observance)";
+		                	foreach($observance as $data){
+	                    		$sql .= " or FIND_IN_SET('$data',tbl_user.caregiver_religious_observance)";
+		  	            	}
+		  	            	$sql .= ")";
+	                	}
+	                }
+	            }
 
 				if($min_exp!=''){
 					$sql .= " and tbl_userprofile.experience >= $min_exp";
