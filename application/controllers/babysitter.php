@@ -13,59 +13,6 @@ class BabySitter extends CI_Controller{
         $this->load->model('common_care_model');
 	}
 
-	public function index(){
-	    
-        $item_per_page = 15;
-        $option = "distance";
-        $account_category = 1;
-        $care_type = 1;//blank for careseekers and caregiver
-        $title = "Babysitter";        
-        $distance = "unlimited";
-                             
-        $this->breadcrumbs->push($title, site_url().'#');
-        $this->breadcrumbs->unshift('Home', base_url());
-        
-	    $loc = $_GET;
-        if (isset($loc['location']) && isset($loc['lat']) && isset($loc['lng'])) {
-            $location = $loc['location'];
-            $latitude = $loc['lat'];
-            $longitude = $loc['lng'];
-        } else {                               
-        if(check_user()){
-            $locationdetails = $this->common_model->getMyLocation(check_user());
-            if(is_array($locationdetails)){
-                $latitude = ($locationdetails[0]['lat']);
-                $longitude = ($locationdetails[0]['lng']);
-                $location =  $locationdetails[0]['city']?$locationdetails[0]['city']:'your city';                                                                       
-            }
-        }
-        else{
-            $ipdata = $this->common_model->getIPData($this->ipaddress);
-            if(is_array($ipdata)){
-                $latitude = $ipdata['lat'];
-                $longitude = $ipdata['lon'];
-                $location = isset($ipdata['city'])?$ipdata['city']:'your city';
-            }             
-        }
-        }
-        $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
-        $userdata       = $this->common_care_model->sort($item_per_page,$latitude,$longitude,$option,$account_category,$care_type,$distance);
-        $get_total_rows = $this->common_care_model->getCount($latitude,$longitude,$account_category,$care_type,$distance);                                                         
-        $data = array(
-          				'main_content' 	    => 'frontend/common_caregiver',                            
-          				'title'			    => $title,
-                        'pages'             => ceil($get_total_rows/$item_per_page),
-                        'countries'         => $this->common_model->getCountries(),
-                        'userlogs'		    => $this->user_model->getUserLog(),
-                        'userdatas'		    => $userdata,
-                        'account_category'  => $account_category,
-                        'care_type'         => $care_type,
-                        'total_rows'        => $get_total_rows,
-                        'location'          => $locationdetails,                                     				              				              				                            
-          			);                      
-        $this->load->view(FRONTEND_TEMPLATE, $data);
-	}
-
 	public function autosearch(){
 		 $limit = 15;
 

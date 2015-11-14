@@ -395,4 +395,7 @@ $(function(){
     $(document).ready(function(){
         $('#contact_number').mask('999-999-9999');
     });
+    $(document).ready(function(){
+        $('#contact').mask('999-999-9999');
+    });
 </script>

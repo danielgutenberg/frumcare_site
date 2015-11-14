@@ -50,20 +50,6 @@ class User_model extends CI_Model
         return $res;
     }
 
-    function getAllDetails($acc_cat,$offset,$limit,$latitude,$longitude){
-        $sql = "SELECT tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id LEFT OUTER JOIN tbl_reviews ON tbl_user.id = tbl_reviews.user_id WHERE tbl_userprofile.account_category = $acc_cat and tbl_user.status = 1 and tbl_userprofile.profile_status = 1 ";
-        if($acc_cat == 3)
-            $sql .=" and tbl_userprofile.organization_care = 1";
-        $sql .=" having distance <50 ORDER BY distance ASC limit $offset, $limit";
-        $query = $this->db->query($sql);
-        $res = $query->result_array(); 
-        if($res){
-            return $res;    
-        }else{
-            return false;
-        }
-    }
-
     function getAllUserDetailsByCountry($offset,$limit,$country){
         $sql = "SELECT tbl_user. * , sum( tbl_reviews.review_rating ) as total_rating ,count( tbl_reviews.review_rating ) as number_of_reviews FROM tbl_user LEFT OUTER JOIN tbl_reviews ON tbl_user.id = tbl_reviews.profile_id where account_type = 1 and tbl_userprofile.account_category = 1 and tbl_user.status = 1 and tbl_userprofile.care_type !=7 and tbl_user.country = '$country' GROUP BY tbl_user.id ORDER BY tbl_user.id DESC limit $offset,$limit";
         $query = $this->db->query($sql);

@@ -1,20 +1,4 @@
-<script>
-    $('.rating-score').ready(function(){   
-        $('.rating-score').raty({
-        	path : '<?php echo site_url();?>img/',
-        	starHalf   : 'star-half.png',
-        	starOff    : 'star-off.png',
-        	starOn     : 'star-on.png',        	
-        	readOnly   : true,
-        	half       : true,
-        	space      : false,
-            score	   : function(){
-                            return $(this).attr('data-numbers');
-                         }
-        });
-     }); 
-</script>
-<?php 
+<?php
 	if(is_array($userdatas)){		
         foreach($userdatas as $key => $data){ 
 			$loca = '';

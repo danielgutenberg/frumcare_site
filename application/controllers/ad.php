@@ -971,11 +971,14 @@ class Ad extends CI_Controller
                 'latitude' => isset($p['lat'])? $p['lat'] : '',
                 'longitude' => isset($p['lng'])? $p['lng'] : '',
             );
+            $lat = isset($p['lat'])? $p['lat'] : '';
+            $lng = isset($p['lng'])? $p['lng'] : '';
+            $city = isset($p['city'])? $p['city'] : '';
             $insert_new = array(
                             'location' => isset($p['location'])? $p['location'] : '',
-                            'lat' => isset($p['lat'])? $p['lat'] : '',
-                            'lng' => isset($p['lng'])? $p['lng'] : '',
-                            'city' => isset($p['city'])? $p['city'] : '',
+                            'lat' => $lat,
+                            'lng' => $lng,
+                            'city' => $city,
                             'state' => isset($p['state'])? $p['state'] : '',
                             'country' => isset($p['country'])? $p['country'] : '',
                             'contact_number' => isset($p['contact_number'])? $p['contact_number'] : '',
@@ -1024,7 +1027,8 @@ class Ad extends CI_Controller
             }
             if($q){
                 $this->notifyUser();
-                $this->approveAds();
+                return $this->approveAds();
+                $this->sendRelevantAds($lat, $lng, $city);
 
                 $this->session->set_flashdata('success', 'Ad posted successfully. Your ad will be placed on the site after being approved by our team.');
                 redirect('user/dashboard');
@@ -1058,6 +1062,26 @@ class Ad extends CI_Controller
             exit();
             
         }
+    }
+    
+    function sendRelevantAds($lat = 43, $lng = 79, $city = 'Toronto')
+    {
+        $profile = $this->common_model->get_where('tbl_userprofile', array('user_id' => check_user()));
+        $ac = $profile[0]['account_category'];
+        $ct = $profile[0]['care_type'];
+        $location = ['lat' => $lat, 'lng' => $lng, 'place' => $city];
+        $userdata       = $this->common_care_model->sort(10 ,$lat,$lng,'distance', $ac , $ct, 3000);
+        $get_total_rows = count($userdata);                                                         
+        $data = array(
+  			'main_content' 	    => 'frontend/common_profile_list',
+            'countries'         => $this->common_model->getCountries(),
+            'userlogs'		    => $this->user_model->getUserLog(),
+            'userdatas'		    => array_slice($userdata, 0, 15),
+            'account_category'  => $ac,
+            'care_type'         => $ct,
+            'location'          => $location             				              				              				                            
+        );                      
+        $this->load->view(FRONTEND_TEMPLATE, $data);
     }
 
     function getLongitudeAndLatitude($address){
