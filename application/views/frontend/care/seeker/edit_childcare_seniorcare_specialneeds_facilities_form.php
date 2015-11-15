@@ -1,5 +1,6 @@
+
 <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
-<?php 
+<?php
 $user_detail = get_user(check_user());
 //print_r($usr);
 if($detail){
@@ -58,7 +59,7 @@ if($detail){
             <div>
                 <label>Type of Organization</label>
                 <div class="form-field">
-                <?php 
+                <?php
                     if($this->uri->segment(4)==25){?>
                         <select name="organization_type" class="txt">
                             <option value="">Select type of organization</option>
@@ -76,7 +77,7 @@ if($detail){
                             <option value="Assisted living residence" <?php echo isset($organization_type) && $organization_type == 'Assisted living residence' ? 'selected' : '' ?>>Assisted living residence</option>
                             <option value="Senior care center/ nursing home" <?php echo isset($organization_type) && $organization_type == 'Senior care center/ nursing home' ? 'selected' : '' ?>>Senior care center / nursing home</option>
                             <option value="Senior care agency" <?php echo isset($organization_type) && $organization_type == 'Senior care agency' ? 'selected' : '' ?>>Senior care agency</option>
-                            <option value="Rehab/therapy center" <?php echo isset($organization_type) && $organization_type == 'Rehab/therapy center' ? 'selected' : '' ?>>Rehab / therapy center</option>                            
+                            <option value="Rehab/therapy center" <?php echo isset($organization_type) && $organization_type == 'Rehab/therapy center' ? 'selected' : '' ?>>Rehab / therapy center</option>
                             <option value="Other" <?php echo isset($organization_type) && $organization_type == 'Other' ? 'selected' : '' ?>>Other</option>
                         </select><?php
                     }
@@ -89,7 +90,7 @@ if($detail){
                             <option value="Rehab/ therapy center" <?php echo isset($organization_type) && $organization_type == 'Rehab/ therapy center' ? 'selected' : '' ?>>Rehab/ therapy center</option>
                             <option value="Other" <?php echo isset($organization_type) && $organization_type == 'Other' ? 'selected' : '' ?>>Other</option>
                         </select><?php
-                    }?>  
+                    }?>
                 </div>
             </div>
             <div>
@@ -256,20 +257,20 @@ if($detail){
                 <div class="radio"><input type="radio" name="smoker" value="2" <?php if(in_array('2',$smoker)){?> checked="checked" <?php } ?>> No</div>
                 </div>
             </div>
- 
+
                <div>
                 <label>Upload Photo of Facility / Organization</label>
                     <?php
                         if(!empty($facility)){
                             $profile_picture = base_url('images/profile-picture/thumb/'.$facility);
                         }else{
-                            $profile_picture = site_url("images/plus.png");    
+                            $profile_picture = site_url("images/plus.png");
                         }
                      ?>
                 <div class="upload-photo">
                     <input type="hidden" id="file-name1" name="facility_pic" value="<?php if(isset($facility)) echo $facility;?>">
                     <div id="output1"><img src="<?php echo $profile_picture?>"></div>
-                    <button class="btn btn-default" id="upload1">Choose File</button>
+                    <a href="#" class="buttons btn-default" id="upload1">Choose File</a>
                     <input type="file" name="ImageFile1" id="ImageFile1" style="display: none;"> <div class="loader1"></div>
                 </div>
                 <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>
@@ -305,121 +306,12 @@ if($detail){
     
 
 
-    function prepareUpload(event){
-        var files;
-        var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
-        var link   = '<?php echo site_url("ad/upload_pp?files")?>';
 
-        files = event.target.files;
-        event.stopPropagation(); // Stop stuff happening
-        event.preventDefault(); // Totally stop stuff happening
 
-        // START A LOADING SPINNER HERE
 
-            // Create a formdata object and add the files
-            var data = new FormData();
-            $.each(files, function(key, value)
-            {
-                data.append(key, value);
-            });
-
-            $.ajax({
-                url: link,
-                type: 'POST',
-                beforesend: $('.loader').html(loader),
-                data: data,
-                cache: false,
-                dataType: 'json',
-                processData: false, // Don't process the files
-                contentType: false, // Set content type to false as jQuery will tell the server its a query string request
-                success: function(data, textStatus, jqXHR)
-                {
-                    if(typeof data.error === 'undefined')
-                    {
-                        // Success so call function to process the form
-                        if(data.type==1){
-                            $('#output').html(data.html);
-                            $('.loader').html('');
-                            $('#file-name').val(data.files);    
-                        }
-                        else{
-                            $('#output').html(data.files + ' selected');
-                            $('#file-name').val(data.files);
-                        }
-                        
-                    }
-                    else
-                    {
-                        // Handle errors here
-                        console.log('ERRORS: ' + data.error);
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown)
-                {
-                    // Handle errors here
-                    console.log('ERRORS: ' + textStatus);
-                    // STOP LOADING SPINNER
-                }
-            }); 
 
 
     }
 
-    function uploadImage(event){
-        var files;
-        var loader1 = '<img src="<?php echo site_url("images/loader.gif")?>">';
-        var link1   = '<?php echo site_url("ad/upload_pp?files")?>';
 
-        files = event.target.files;
-        event.stopPropagation(); // Stop stuff happening
-        event.preventDefault(); // Totally stop stuff happening
-
-            // START A LOADING SPINNER HERE
-
-            // Create a formdata object and add the files
-            var data = new FormData();
-            $.each(files, function(key, value)
-            {
-                data.append(key, value);
-            });
-
-            $.ajax({
-                url: link1,
-                type: 'POST',
-                beforesend: $('.loader1').html(loader1),
-                data: data,
-                cache: false,
-                dataType: 'json',
-                processData: false, // Don't process the files
-                contentType: false, // Set content type to false as jQuery will tell the server its a query string request
-                success: function(data, textStatus, jqXHR)
-                {
-                    if(typeof data.error === 'undefined')
-                    {
-                        // Success so call function to process the form
-                        if(data.type==1){
-                            $('#output1').html(data.html);
-                            $('.loader1').html('');
-                            $('#file-name1').val(data.files);    
-                        }
-                        else{
-                            $('#output1').html(data.files + ' selected');
-                            $('#file-name1').val(data.files);
-                        }
-                        
-                    }
-                    else
-                    {
-                        // Handle errors here
-                        console.log('ERRORS: ' + data.error);
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown)
-                {
-                    // Handle errors here
-                    console.log('ERRORS: ' + textStatus);
-                    // STOP LOADING SPINNER
-                }
-            }); 
-    }
 </script>

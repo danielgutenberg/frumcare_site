@@ -38,6 +38,7 @@
 		}
 	}
 
+
 	public function searchbylocation(){
         if($_GET){
             $latitude   = ($this->input->get('latitude',true));

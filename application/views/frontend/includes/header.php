@@ -136,6 +136,15 @@
             $('.left-search-panel h4').click(function(){
                $('.left-search-panel form').toggle();
             });
+
+            $('.search form').submit(function(){
+                if((this).closest('.dropdown input[type=text]').val()==''){
+                    return false;
+                }else{
+                    return true;
+                }
+            });
+
         });
     </script>
 
@@ -189,7 +198,7 @@
                             </div>
 
                             <div class="dropdown">
-                                <input type="text" name="search_for" value="" placeholder="Search" data-toggle="dropdown"/>
+                                <input type="text" name="search_for" value="" placeholder="Search" data-toggle="dropdown" required="required"/>
                                 <input type="hidden" value=""/>
                                 <button type="submit" class="submit"><i class="icon-search">&nbsp;</i></button>
 

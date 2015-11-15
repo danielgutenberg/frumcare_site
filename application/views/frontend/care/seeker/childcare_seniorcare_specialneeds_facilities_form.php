@@ -1,9 +1,10 @@
+
 <?php
    if(check_user()) {
    $u = get_user(check_user());
    $fn = ucfirst($u['organiztion_name']);
    $recorddata= get_account_details();
-   
+
    }
    ?>
 <?php
@@ -271,8 +272,8 @@
             <div class="upload-photo">
                <input type="hidden" id="file-name" name="facility_pic" value="">
                <div id="output"><img id="uploadedfile" src="<?php echo $photo_url?>"></div>
-               <button class="btn btn-default" id="upload">Choose File</button>
-               <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> 
+               <a href="#" class="buttons btn-default" id="upload">Choose File</a>
+               <input type="file" name="ImageFile" id="ImageFile" style="display: none;">
                <div class="loader"></div>
             </div>
             <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>

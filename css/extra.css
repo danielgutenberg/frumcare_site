@@ -1741,7 +1741,7 @@ html[xmlns] .clearfix {
 .share-profile-via {
 	/* background: url("../img/social-icons.png") no-repeat scroll 12px 25px; */
 	padding-bottom: 45px;
-	
+
 }
 .toggle-menu {
 	display: none;
@@ -2556,7 +2556,7 @@ input[type="radio"], input[type="checkbox"] {
 .child-senior-wrapper{
 	background: url(../img/how-it-1.png) no-repeat;
 	background-position: center center;
-	margin-top: 90px; 
+	margin-top: 90px;
 }
 .child-senior .title {
 	color: #ffffff;
@@ -2651,7 +2651,7 @@ input[type="radio"], input[type="checkbox"] {
 }
 .help-institutions-wrapper{
 	background: url(../img/how-it-2.png) no-repeat;
-	background-position: center center; 
+	background-position: center center;
 	height: 282px;
 }
 .help-institutions .title {
@@ -3854,7 +3854,7 @@ input[type="radio"], input[type="checkbox"] {
 		margin-left: 0;
 	}
 	.border-right{
-		border-right: none; 
+		border-right: none;
 	}
 	.padleft{
 		padding-left: 0;
@@ -4068,7 +4068,7 @@ input[type="radio"], input[type="checkbox"] {
 		color: #85bd30;
 	}
 	.banner .banner-item .banner-images{
-		text-align: center; 
+		text-align: center;
 	}
 	.dropdown-menu{
 		border: none;
@@ -4087,7 +4087,7 @@ input[type="radio"], input[type="checkbox"] {
 	.reviewDetails{
 		clear: both;
 	}
-	
+
 
 }
 @media (max-width: 360px) {
@@ -4260,5 +4260,6 @@ input[type="radio"], input[type="checkbox"] {
 .table tr td + td{
 	width: auto;
 }
+
 
 

@@ -52,8 +52,29 @@
                     } else {
                         $location1 = explode(',',$location);
                     }
-                    echo ceil($data['distance'])." Miles Away From ".$location1[0];  //location is passed from controller
-    	        	?>    
+
+                     //print_r($data);
+                    $lat = $data['lat'];
+                    $lng = $data['lng'];
+                    $json = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false&key=AIzaSyC8myVpwWYDd7r6A9vQRB31bk60iNBe3UU");
+                    $json_data = json_decode($json);
+
+                    //print_r($json_data);
+
+
+                    $formated_add=$json_data->results[5]->formatted_address;
+
+                    if(preg_match('/'.$location1[0].'/',$data['location'])){
+                        echo '0 Miles Away From '.$location1[0];
+                    }elseif(preg_match('/'.$location1[0].'/',$formated_add)){
+                        echo '0 Miles Away From '.$location1[0];
+
+                    }else{
+                        echo ceil($data['distance'])." Miles Away From ".$location1[0];  //location is passed from controller
+                    }
+
+
+    	        	?>
     	        </div>
 	        </div>
         	<div class="profile-list-details col-md-9 col-sm-9 col-xs-12">
@@ -62,7 +83,7 @@
 					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo ucfirst($data['organization_name']);?></a>
 				</span>	<?php } else { ?>
 				<span class="name">
-					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo ucfirst($data['name']);?></a>
+					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo $data['name'];?></a>
 				</span>
 				<?php } ?>
                 
@@ -79,7 +100,16 @@
                 } ?> <br /> <?php
                 
                 $type = Caretype_model::getCareTypeById($data['care_type']);
-                
+                $loca = '';
+                if ($data['city'] != '') {
+                    $loca .= $data['city'];
+                }
+                if ($data['state'] != '') {
+                    $loca .= ', ' . $data['state'];
+                }
+                if ($data['country'] != '') {
+                    $loca .= ', ' . $data['country'];
+                }
                 //for caregivers 
                 //if($data['care_type'] < 10){ 
                 if($data['care_type'] < 17){

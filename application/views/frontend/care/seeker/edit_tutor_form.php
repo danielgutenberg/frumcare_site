@@ -1,3 +1,4 @@
+
 <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
 <?php 
 $user_detail = get_user(check_user());

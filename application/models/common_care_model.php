@@ -1,39 +1,40 @@
 <?php
 class Common_care_model extends CI_Model
 {
+
     public function getIPData($ip){
         //$ip='119.6.144.74'; //ip of china
-        //$ip='202.166.205.143'; //ip of kathmandu        
+        //$ip='202.166.205.143'; //ip of kathmandu
         //$location = file_get_contents('http://freegeoip.net/json/'.$ip);
         //$ip='109.226.44.128';isareal
-        $location = @unserialize(file_get_contents('http://ip-api.com/php/'.$ip));                                
+        $location = @unserialize(file_get_contents('http://ip-api.com/php/'.$ip));
         if($location){
-            if(empty($location['city'])){            
+            if(empty($location['city'])){
                 $lat = $location['lat'];
-                $lng = $location['lon'];                                            
+                $lng = $location['lon'];
                 $json = file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false");
-                $json_data = json_decode($json);                                
-                $location['city'] = $json_data->results[3]->formatted_address;                                
-            }            
-            return $location;            
-        }                                                           
+                $json_data = json_decode($json);
+                $location['city'] = $json_data->results[3]->formatted_address;
+            }
+            return $location;
+        }
          else{
-            $new_data = @unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$ip));                        
+            $new_data = @unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$ip));
             if($new_data){
                 $location2 = array(
                             'lat'           => $new_data['geoplugin_latitude'],
                             'lon'           => $new_data['geoplugin_longitude'],
                             'city'          => $new_data['geoplugin_city'],
-                            'regionName'    => $new_data['geoplugin_regionName'],                            
+                            'regionName'    => $new_data['geoplugin_regionName'],
                             'country'       => $new_data['geoplugin_countryName'],
                         );
-                 if(empty($location2['city'])){            
+                 if(empty($location2['city'])){
                     $lat = $location2['lat'];
-                    $lng = $location2['lon'];                                            
+                    $lng = $location2['lon'];
                     $json2 = file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false");
-                    $json_data2 = json_decode($json2);                                
-                    $location2['city'] = $json_data2->results[3]->formatted_address;                                
-                }                                            
+                    $json_data2 = json_decode($json2);
+                    $location2['city'] = $json_data2->results[3]->formatted_address;
+                }
                 return $location2;
             }
             else{

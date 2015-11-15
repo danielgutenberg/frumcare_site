@@ -15,6 +15,7 @@ class Nursery extends CI_Controller{
         $this->load->model('caretype_model');
         $this->load->model('common_care_model');
     }
+
     
      public function searchbylocation(){
         if($_GET){

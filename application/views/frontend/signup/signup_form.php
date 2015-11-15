@@ -39,7 +39,8 @@ if($this->uri->segment(2)!='edit'){
 
 <?php  } ?> 
 
-<div class="container sign-up-forms">
+<div class="container sign-up-forms" style="width:850px";>
+    <div class="signUpLeft" style="width:400px;display:inline-block;float:left">
     <?php flash();?>
     <?php if(segment(3) == '') { ?>
     <h2>
@@ -119,6 +120,16 @@ if($this->uri->segment(2)!='edit'){
     <?php /* <a href="<?php echo base_url();?>user/verifyemailaddress/<?php echo sha1($email);?>" id="<?php echo $email;?>" class="verifyemail">Click here</a> to verfiy your email address. */?>
 
     <?php } ?>
+    </div>
+    
+    <div class="signUpRight" style="width:400px;display:inline-block;float:right">
+        <h2>Need a Caregiver?</h2>
+        <p>Connect with the perfect caregiver for your family on FrumCare. <br>  Get started by creating your free account now! <br></p>
+        <span>&check; Search quality caregivers in your area</span><br>
+        <span>&check; Set up search alerts and receive new caregiver profiles directly to your inbox</span><br>
+        <span>&check; Post a job and get contacted by caregivers in your area</span><br>
+        <span>&check; Get access to exciting new features helping you with your care needs</span>
+    </div>
 </div>
     
 
@@ -229,6 +240,7 @@ if($this->uri->segment(2)!='edit'){
 
         $('.org_caretype').change(function(){
             getAccountCat($(this).val(),$(this).attr('id'));
+            leftText($(this).val(),$(this).attr('id'));
         });
 
     });

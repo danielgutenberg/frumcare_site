@@ -5,7 +5,7 @@
     $this->load->view('frontend/search/left_navbar.php',$data);
  ?>
 
-<div class="right-caregivers">
+<div class="right-caregivers col-lg-9 col-md-9 col-sm-9 col-xs-12">
 	<div class="searchloader" style="display:none">
 	</div>
 	<h3>

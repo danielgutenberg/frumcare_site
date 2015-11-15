@@ -16,7 +16,7 @@ class Organizations_model extends CI_Model
         if($option == 'tbl_userprofile.id'){
             $order_type = 'desc';
         }        
-        $sql = "SELECT tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance,tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id  WHERE tbl_user.status = 1 and tbl_userprofile.profile_status = 1 ";                
+        $sql = "SELECT tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance,tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id  WHERE tbl_user.status = 1 and tbl_userprofile.profile_status = 1 and tbl_userprofile.photo_status = 1 and tbl_userprofile.photo_status=1";
         if($care_type !=''){
             if($care_type == 28) {
                 $sql.= " and FIND_IN_SET('Cleaning Company',tbl_userprofile.looking_to_work)";
@@ -72,7 +72,7 @@ class Organizations_model extends CI_Model
         if($option == 'tbl_userprofile.id'){
             $order_type = 'desc';
         }        
-        $sql = "SELECT tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance,tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id  WHERE tbl_user.status = 1 and tbl_userprofile.profile_status = 1 ";
+        $sql = "SELECT tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance,tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id  WHERE tbl_user.status = 1 and tbl_userprofile.profile_status = 1 and tbl_userprofile.photo_status = 1 ";
         if($care_type!=''){
             if($care_type == 28) {
                 $sql.= " and FIND_IN_SET('Cleaning Company',tbl_userprofile.looking_to_work)";
@@ -128,7 +128,7 @@ class Organizations_model extends CI_Model
                 die('Some error occured. We will fix it soon');
             }
         }
-        $sql = "SELECT tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance,tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id  WHERE tbl_user.status = 1 and tbl_userprofile.profile_status = 1 ";
+        $sql = "SELECT tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance,tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id  WHERE tbl_user.status = 1 and tbl_userprofile.profile_status = 1 and tbl_userprofile.photo_status = 1 ";
         if($care_type!=''){
             if($care_type == 28) {
                 $sql.= " and FIND_IN_SET('Cleaning Company',tbl_userprofile.looking_to_work)";
