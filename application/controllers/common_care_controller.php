@@ -42,6 +42,18 @@
     	    $this->load_ads(6, 'Special Needs Caregiver');
     	}
     	
+    	public function therapist() {
+    	    $this->load_ads(7, 'Therapist');
+    	}
+    	
+    	public function cleaning() {
+    	    $this->load_ads(8, 'Cleaning / household helpers');
+    	}
+    	
+    	public function errand_runner() {
+    	    $this->load_ads(9, 'Errand runner / odd jobs / personal assistant / driver');
+    	}
+    	
     	public function daycarecenter() {
     	    $this->load_ads(10, 'Day Care Center / Day Camp / Afternoon Activities');
     	}
@@ -54,6 +66,9 @@
     	    $this->load_ads(14, 'Special needs center', 3);
     	}
     	
+    	public function cleaninghousehold() {
+    	    $this->load_ads(15, 'Cleaning / household help company', 3);
+    	}
     	public function seniorcarecenter() {
     	    $this->load_ads(16, 'Assisted living / Senior Care Center / Nursing Home', 3);
     	}

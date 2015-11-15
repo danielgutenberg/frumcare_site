@@ -65,6 +65,7 @@ class Common_care_model extends CI_Model
             $able_to_work       = $search['able_to_work'];
             $distance           = $search['distance'];
             $sort_by            = $search['sort_by'];
+            $skills             = $search['skills'];
 		}
 		$sql = "select tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* from tbl_user left outer join  tbl_userprofile on tbl_user.id = tbl_userprofile.user_id left outer join tbl_care on tbl_care.id = tbl_userprofile.care_type where tbl_user.status = 1 and tbl_userprofile.profile_status=1";			
 
@@ -105,9 +106,17 @@ class Common_care_model extends CI_Model
             if(is_array($observance)){
             	if(!in_array('Any', $observance)) {
             		$first = array_shift($observance);
-                	$sql .= " and (FIND_IN_SET('$first' ,tbl_user.caregiver_religious_observance)";
+            		if ($first == 'Familiar With Jewish Tradition') {
+            			$sql .= " and (tbl_user.familartojewish = 1";
+            		} else {
+                		$sql .= " and (FIND_IN_SET('$first' ,tbl_user.caregiver_religious_observance)";
+            		}
                 	foreach($observance as $data){
-                		$sql .= " or FIND_IN_SET('$data',tbl_user.caregiver_religious_observance)";
+                		if ($data == 'Familiar With Jewish Tradition') {
+                			$sql .= " or tbl_user.familartojewish = 1";
+                		} else {
+                			$sql .= " or FIND_IN_SET('$data',tbl_user.caregiver_religious_observance)";
+                		}
   	            	}
   	            	$sql .= ")";
             	}
@@ -137,6 +146,16 @@ class Common_care_model extends CI_Model
 				endforeach;
 			}
 		}
+		
+		if($skills!=''){
+			$skills = explode(',',$skills);
+			if(is_array($skills)){
+				foreach($skills as $skill):
+					$sql .= " and find_in_set('$skill',tbl_userprofile.willing_to_work)";
+				endforeach;
+			}
+
+		}
 
 		if($min_exp!=''){
 			$sql .= " and tbl_userprofile.experience >= $min_exp";
@@ -165,6 +184,15 @@ class Common_care_model extends CI_Model
 				$sql .=" and find_in_set('$tran',tbl_userprofile.training)";
 			endforeach;
 		}
+		
+		if(!empty($search['extra_field']) && $search['extra_field'] !='undefined'){				
+            $extra_field = explode(',',$search['extra_field']);
+            if(is_array($extra_field)){
+                foreach($extra_field as $data){
+                    $sql .= " and FIND_IN_SET('$data',tbl_userprofile.extra_field)"; 
+                }
+            }
+        }
 
 		if($driver_license!=''){
 			$sql .=" and tbl_userprofile.driver_license=$driver_license";

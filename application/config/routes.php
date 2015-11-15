@@ -83,20 +83,21 @@ $route['caregivers/nursery-playgroup-drop-off-gan'] = 'common_care_controller/nu
 $route['caregivers/tutor-private-lessons'] = 'common_care_controller/tutor';
 $route['caregivers/senior-caregiver'] = 'common_care_controller/senior_caregiver';
 $route['caregivers/special-needs-caregiver'] = 'common_care_controller/special_needs_caregiver';
-$route['caregivers/therapists'] = 'therapists';
-$route['caregivers/cleaning-household-help'] = 'cleaning';
-$route['caregivers/errand-runner-odd-jobs-personal-assistant-driver'] = 'errand_runner';
+$route['caregivers/therapists'] = 'common_care_controller/therapist';
+$route['caregivers/cleaning-household-help'] = 'common_care_controller/cleaning';
+$route['caregivers/errand-runner-odd-jobs-personal-assistant-driver'] = 'common_care_controller/errand_runner';
+$route['caregivers/day-care-center-day-camp-afternoon-activities'] = 'common_care_controller/daycarecenter';
+$route['caregivers/senior-care-agency'] = 'common_care_controller/seniorcareagency';
+$route['caregivers/special-needs-center'] = 'common_care_controller/specialneedscenter';
+$route['caregivers/cleaning-household-help-company'] = 'common_care_controller/cleaninghousehold';
+$route['caregivers/assisted-living-senior-care-center-nursing-home'] = 'common_care_controller/seniorcarecenter';
 
 $route['caregivers/organizations'] = 'organizations';
 $route['caregivers/organizations/(:any)'] = 'organizations';
 
 // $route['test'] = 'ad/sendRelevantAds';
  
-$route['caregivers/day-care-center-day-camp-afternoon-activities'] = 'common_care_controller/daycarecenter';
-$route['caregivers/senior-care-agency'] = 'common_care_controller/seniorcareagency';
-$route['caregivers/special-needs-center'] = 'common_care_controller/specialneedscenter';
-$route['caregivers/cleaning-household-help-company'] = 'cleaninghousehold';
-$route['caregivers/assisted-living-senior-care-center-nursing-home'] = 'common_care_controller/seniorcarecenter';
+
 
 $route['jobs/all'] = 'careseekers';
 $route['jobs/babysitter'] = 'careseeker_babysitter';
