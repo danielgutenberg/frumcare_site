@@ -34,27 +34,16 @@
             if(is_array($locationdetails)){
                 $latitude = ($locationdetails[0]['lat']);
                 $longitude = ($locationdetails[0]['lng']);
-<<<<<<< HEAD
                 $location =  $locationdetails[0]['city']?$locationdetails[0]['city']:'your city';                                                                       
-=======
-                $location =  $locationdetails[0]['city']?$locationdetails[0]['city']:'your city';
->>>>>>> 38d1ccf3c47bbad03f867df6b39d2384593861aa
             }
         }
         else{
             $ipdata = $this->common_model->getIPData($this->ipaddress);
             if(is_array($ipdata)){
-<<<<<<< HEAD
                 $latitude = $ipdata['lat'] ? $ipdata['lat'] : 40.7;
                 $longitude = $ipdata['lon'] ? $ipdata['lon'] : 74;
                 $location = isset($ipdata['city'])?$ipdata['city']:'New York';
             }             
-=======
-                $latitude = $ipdata['lat'];
-                $longitude = $ipdata['lon'];
-                $location = isset($ipdata['city'])?$ipdata['city']:'your city';
-            }
->>>>>>> 38d1ccf3c47bbad03f867df6b39d2384593861aa
         }
         }
             $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
