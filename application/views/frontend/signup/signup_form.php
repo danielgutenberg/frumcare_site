@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 <link href="<?php echo site_url();?>css/progressbar.css" type="text/css" rel="stylesheet"/>
 <?php
 $action = 'signup/save_user';
@@ -52,51 +53,66 @@ if($this->uri->segment(2)!='edit'){
     <?php } else { ?>
     <h2>Edit your account</h2>
     <?php } ?>
-    <div class="sign-up-form" style="margin-left:50px">
-        <form role="form" id="sign-up" action="<?php echo base_url($action) ?>" method="post">
-         <div class="care-type clearfix">I am a</div>
-                <div class="form-field">
-                        <div class="radio short"><input type="radio" name="account_category" value="2" <?php if($at == 2 ){?> checked="checked" <?php } ?> class="acc_cat" id="1"> Parent</div>
-                        <div class="radio short"><input type="radio" name="account_category" value="1" <?php if($at == 1 ){?> checked="checked" <?php } ?> class="acc_cat" id="1"> Caregiver</div>
-                        <div class="radio long"><input type="radio" name="account_category" value="3" <?php if($at == 3 ){?> checked="checked" <?php } ?> class="organization"> Caregiving Organization</div>
-                </div>
-
-                <div class="form-field organizational_care" <?php echo isset($at) && $at==3?'':'style="display:none"'?>>
-                    <div>What would you like to do?</div>
-                    <div class="radio"><input type="radio" name="organization_care" value="1" class="org_caretype required" id="2" checked="checked">Advertise My Service</div>
-                    <div class="radio"><input type="radio" name="organization_care" value="2" class="org_caretype required" id="2">Find Workers</div>
-                </div>
-        <div class="care-type clearfix">Care Type: 
-            <div id="select_options"></div>
+    <div class="signUpRight col-md-3 col-md-offset-1 hidden-sm hidden-xs">
+        <h2 style="margin-left: -50px;">
+        Why sign up? 
+        </h2>
+        <div class="rightText" style="border:1px solid black;">
+        <!--<p>Connect with the perfect caregiver for your family on FrumCare. <br>  Get started by creating your free account now! <br></p>-->
+        <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Search quality caregivers in your area</div>
+        <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Set up search alerts and receive new caregiver profiles directly to your inbox</div>
+        <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Post jobs and get contacted by caregivers in your area</div>
+        <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Get access to exciting new features helping you with your care needs</div>
         </div>
-        
-        <span class="first-names">
-                <input type="text" name="name" placeholder="Name" class="required name" value="<?php echo (isset($name)) ? $name : '' ?>"/>
-        </span>
-        <span class="email-names"><input onblur="check_email(this.id)" id="email" type="text" name="email" placeholder="Email" class="required email" value="<?php echo (isset($email)) ? $email : '' ?>"/></span> 
+    </div>
+    <div class="sign-up-form col-md-4">
+        <form role="form" id="sign-up" action="<?php echo base_url($action) ?>" method="post">
+            <div class="care-type clearfix">I am a</div>
+            <div class="form-field">
+                    <div class="radio short"><input type="radio" name="account_category" value="2" <?php if($at == 2 ){?> checked="checked" <?php } ?> class="acc_cat" id="1"> Parent</div>
+                    <div class="radio short"><input type="radio" name="account_category" value="1" <?php if($at == 1 ){?> checked="checked" <?php } ?> class="acc_cat" id="1"> Caregiver</div>
+                    <div class="radio long"><input type="radio" name="account_category" value="3" <?php if($at == 3 ){?> checked="checked" <?php } ?> class="organization"> Caregiving Organization</div>
+            </div>
 
-        <span id="email_msg"></span>
+            <div class="form-field organizational_care" <?php echo isset($at) && $at==3?'':'style="display:none"'?>>
+                <div>What would you like to do?</div>
+                <div class="radio"><input type="radio" name="organization_care" value="1" class="org_caretype required" id="2" checked="checked">Advertise My Service</div>
+                <div class="radio"><input type="radio" name="organization_care" value="2" class="org_caretype required" id="2">Find Workers</div>
+            </div>
+            <div class="care-type clearfix">Care Type: 
+                <div id="select_options"></div>
+            </div>
         
-        <span class="create-pswrd"><input type="password" name="password" placeholder="Password" class="required" id="org_password" /></span>
+            <span class="first-names">
+                    <input style="width:330px" type="text" name="name" placeholder="Name" class="required name" value="<?php echo (isset($name)) ? $name : '' ?>"/>
+            </span>
+            <span class="email-names">
+                <input style="width:330px" onblur="check_email(this.id)" id="email" type="text" name="email" placeholder="Email" class="required email" value="<?php echo (isset($email)) ? $email : '' ?>"/>
+            </span> 
 
-        <span class="confirm-pswrd"><input type="password" name="confirm_password" placeholder="Confirm Password" class="required"/></span>
-
-        <div class="clearfix"></div>
+            <span id="email_msg"></span>
         
-      
+            <span class="create-pswrd">
+                <input style="width:330px" type="password" name="password" placeholder="Password" class="required" id="org_password" />
+            </span>
+
+            <span class="confirm-pswrd">
+                <input style="width:330px" type="password" name="confirm_password" placeholder="Confirm Password" class="required"/>
+            </span>
+
+            <div class="clearfix"></div>
     
-    
-        <div class="clearfix">
+            <div class="clearfix">
             <!--<input type="checkbox" name="agree" class="required"/>-->
             <span style="font-size:12px">By clicking on "Sign up" you agree to our <a href="<?php echo base_url();?>terms-of-use">Terms of use</a><br> and <a href="<?php echo base_url();?>privacy-policy">Privacy policy</a>
                 <!--<a href="javascript:void(0);" id="terms-and-conditions" class="terms" data-toggle="modal" data-target="#terms">Frumcare terms & conditions</a>-->
             </span>
         </div>
     
-        <span class="sign-up-btn" style="margin-top:5px !important; margin-left:-18px;">
-            <input id="submit-btn" type="submit" class="btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/>
-         </span>
-    </form>
+            <span class="sign-up-btn">
+                <input style="margin-left:-17px; margin-top:-50px;" id="submit-btn" type="submit" class="btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/>
+             </span>
+        </form>
     </div>
     <?php if(segment(3) != '') { ?>
     <a href="<?php echo base_url('login/get-password/'.sha1($email).'?redirect_uri='.urlencode(current_url())) ?>">Click here</a> to change your password.
@@ -115,6 +131,8 @@ if($this->uri->segment(2)!='edit'){
         <span>&check; Get access to exciting new features helping you with your care needs</span>
     </div>
 </div>
+    
+
 
 <!-- Modal -->
 <div class="modal fade" id="terms" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -137,12 +155,15 @@ if($this->uri->segment(2)!='edit'){
         var acc_category = $('input[name=account_category]:checked').val();
         if (acc_category == 1) {
             getAccountCat(1,1)
+            leftText(1, 1);
         }
         if (acc_category == 2) {
             getAccountCat(2,1)
+            leftText(2, 1);
         }
         if (acc_category == 3) {
             getAccountCat(1,2)
+            leftText(3, 1);
         }
         
     }
@@ -179,6 +200,7 @@ if($this->uri->segment(2)!='edit'){
         //     getAccountCat(account_category,account_id);  //kiran
         // }        
         $('.acc_cat').change(function(){
+            $('.signUpRight').css('margin-top', '70px')
             getAccountCat($(this).val(),$(this).attr('id'));
             leftText($(this).val(),$(this).attr('id'));
             $('.name').attr('placeholder', "Name");
@@ -199,6 +221,7 @@ if($this->uri->segment(2)!='edit'){
         });
 
         $('.organization').click(function(){
+            $('.signUpRight').css('margin-top', '130px')
             $('.organizational_care').css('display','block');
             $('.name').attr('placeholder', "Name of organization");
             $('.parent').text('Organization Info');
@@ -206,7 +229,8 @@ if($this->uri->segment(2)!='edit'){
             $('.started').text('Organization Details');
             var careType = $('input[name=organization_care]:checked').val()
             getAccountCat(careType, 2)
-            leftText(1, 1);
+            leftText(3, 1);
+            
         });
 
         $('.acc_cat').click(function(){
@@ -243,13 +267,17 @@ if($this->uri->segment(2)!='edit'){
     } 
     
     function leftText(ac, sb){
-        var parent = '<h2>Looking for a Care Job?</h2><p>Find a well paying job on FrumCare! <br>  Hundreds of families in YOUR area are looking for trustworthy caregivers just like you. <br> Sign up and connect with families now!</p><span>&check; Search Jobs in your area</span><br><span>&check; Set up search alerts and receive new job openings directly to your inbox</span><br><span>&check; Create a profile, list your skills and talents, add photos and more</span><br><span>&check; Get access to exciting new features and tools for caregivers</span>'
-        var job = '<h2>Need a Caregiver?</h2><p>Connect with the perfect caregiver for your family on FrumCare. <br>  Get started by creating your free account now! <br></p><span>&check; Search quality caregivers in your area</span><br><span>&check; Set up search alerts and receive new caregiver profiles directly to your inbox</span><br><span>&check; Post a job and get contacted by caregivers in your area</span><br><span>&check; Get access to exciting new features helping you with your care needs</span>'
+        var parent = '<div><span style="color:yellowgreen; font-weight:bold">&check;</span> Search Jobs in your area</div><div><span style="color:yellowgreen; font-weight:bold">&check;</span> Set up search alerts and receive new job openings directly to your inbox</div><div><span style="color:yellowgreen; font-weight:bold">&check;</span> Create a profile, list your skills and talents, add photos and more</div><div><span style="color:yellowgreen; font-weight:bold">&check;</span> Get access to exciting new features and tools for caregivers</div>'
+        var job = '<div><span style="color:yellowgreen; font-weight:bold">&check;</span> Search quality caregivers in your area</div><div><span style="color:yellowgreen; font-weight:bold">&check;</span> Set up search alerts and receive new caregiver profiles directly to your inbox</div><div><span style="color:yellowgreen; font-weight:bold">&check;</span> Post jobs and get contacted by caregivers in your area</div><div><span style="color:yellowgreen; font-weight:bold">&check;</span> Get access to exciting new features helping you with your care needs</div>'
+        var org = '<div><span style="color:yellowgreen; font-weight:bold">&check;</span> Advertise your services to jewish families worldwide</div><div><span style="color:yellowgreen; font-weight:bold">&check;</span> Post jobs and recruit employees / staff for your Organization</div><div><span style="color:yellowgreen; font-weight:bold">&check;</span> Get access to exciting new tools to help you run your Organization</div>'
         if(ac == 1){
-        $('.signUpRight').html(parent)
+        $('.rightText').html(parent)
         }
         if(ac == 2){
-        $('.signUpRight').html(job)
+        $('.rightText').html(job)
+        }
+        if(ac == 3){
+        $('.rightText').html(org)
         }
         
     }

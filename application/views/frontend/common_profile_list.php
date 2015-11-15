@@ -1,26 +1,16 @@
-<script>
-    $('.rating-score').ready(function(){   
-        $('.rating-score').raty({
-        	path : '<?php echo site_url();?>img/',
-        	starHalf   : 'star-half.png',
-        	starOff    : 'star-off.png',
-        	starOn     : 'star-on.png',        	
-        	readOnly   : true,
-        	half       : true,
-        	space      : false,
-            score	   : function(){
-                            return $(this).attr('data-numbers');
-                         }
-        });
-     }); 
-</script>
-<?php 
+<?php
 	if(is_array($userdatas)){		
-        foreach($userdatas as $key => $data){
-
-
-
-
+        foreach($userdatas as $key => $data){ 
+			$loca = '';
+                if ($data['city'] != '') {
+                    $loca .= $data['city'];
+                }
+                if ($data['state'] != '') {
+                    $loca .= ', ' . $data['state'];
+                }
+                if ($data['country'] != '') {
+                    $loca .= ', ' . $data['country'];
+                }
 			$reviewData = Review_model::countReviewById($data['id']);
             $navigate = $data['care_type']>16?'jobs':'caregivers'; ?> 	
             <div class="profile-list clearfix usual row">
@@ -90,7 +80,7 @@
         	<div class="profile-list-details col-md-9 col-sm-9 col-xs-12">
                 <?php if ($data['account_category'] == 3) {?>
                 <span class="name">
-					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo $data['organization_name'];?></a>
+					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo ucfirst($data['organization_name']);?></a>
 				</span>	<?php } else { ?>
 				<span class="name">
 					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo $data['name'];?></a>

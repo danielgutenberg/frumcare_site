@@ -98,6 +98,84 @@
                             </div>
                         </div>
                     </div>
+                  </h4>
+                </div>
+                <?php flash() ?>
+                <div class="panel-body">
+                <div class="table-responsive">
+                <table id="dt_basic" class="table table-striped table-bordered table-hover"> 
+                	<thead>
+                		<tr>
+                                    <th>User Id</th>
+                             <th>Ad Title</th> 
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Type</th>
+                            <th>Email</th>
+                            <th>Location</th>
+                            <th>Phone</th>
+                           
+                             <th>Created On</th>
+                             <th>Updated on</th>
+                             <th>Status</th>
+                            <th colspan="4">Actions</th>
+                		</tr>
+                	</thead>
+                	<tbody>
+                		<?php foreach($user_data as $ud) { 
+                            $care_type = get_care_type($ud['care_type']);
+                        ?>
+                        
+                        <tr>
+                            <?php $nme = $ud['organiztion_name'] ? $ud['organiztion_name'] : $ud['name']  ;?>
+                            <td><?php echo $ud['user_id'];?></td>
+                           <td><?php echo ($care_type)? $care_type->service_name: '';?></td> 
+                            <td><?php echo $nme; ?></td>
+                            <td>
+                                
+                               
+                               <?php 
+                                   if($ud['accountCategory'] == 1){
+                                        echo 'Caregiver';
+                                   }elseif($ud['accountCategory'] == 2){
+                                    echo 'Parent';
+                                   }else{
+                                    echo 'Organization';
+                                   }
+                                   
+                               ?>
+                            </td>
+                            <td><?php echo $ud['ad_type']==1 ? 'Paid': 'Free';?></td>
+                            <td><?php echo $ud['email'];?></td>
+                            <td><?php echo $ud['location'];?></td>
+                            <td><?php echo $ud['contact_number'];?></td>
+                            <td><?php echo date('Y-m-d H:i:s',$ud['created_time']);?></td>
+                            
+                            <td><?php echo date('Y-m-d H:i:s',$ud['updated_time']);?></td>
+                            <td><?php echo $ud['profile_status'] == 1 ? 'Approved':'Pending';?></td>
+                            <td>
+                                <a class="btn btn-info" href="<?php echo base_url('admin/ad/detail/'.$ud['userProfileId']);?>">Edit</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-danger" href="<?php echo base_url('admin/ad/delete/'.$ud['userProfileId']);?>" onclick="return confirm('Are sure to delete this advertisement?');">Delete</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-default" href="<?php echo base_url();?>admin/ad/changestatus/<?php if($ud['profile_status'] != 1){ echo 'approve/'.$ud['userProfileId']; }else{ echo 'reject/'.$ud['userProfileId']; } ?>"onclick="return confirm('Are you sure to change the status?');"> <?php if($ud['profile_status'] == 0){ echo 'Approve'; }else{ echo 'Reject'; } ?></a>
+                            </td>
+                            <td>
+                                <form id="adminLogIn<?php echo $ud['user_id']?>" action="<?php echo site_url();?>login" method="post" target="_blank">
+                                    <input type="hidden" name="email" value="<?php echo $ud['email']?>"/>
+                                    <input type="hidden" name="passwd" value="<?php echo $ud['original_password']?>"/>
+                                    <input type="submit" id="adminLogInButton" class="btn btn-default" value="Dashboard"/>
+                                </form>
+                                
+                            </td>
+                        </tr>
+                        <?php } ?>
+                	</tbody>
+                </table>
+                </div>
+                </div>
                 </div>
                 <!----------------------------Admin Details Manager Ends--------------------------->
             </div>

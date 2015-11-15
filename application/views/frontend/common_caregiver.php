@@ -1,72 +1,18 @@
-<link href="<?php echo site_url(); ?>style.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
-<link rel="stylesheet" href="<?php echo base_url();?>css/jquery.raty.css">
+<link rel="stylesheet" href="<?php echo base_url();?>css/jquery.raty.css">          
 <script src="<?php echo base_url();?>js/jquery.raty.js"></script>
 <script>
-
-
-    $("#locationField").ready(function(){
+    $("#locationSearch").ready(function(){        
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], { types: ['address'] });
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                    var place = autocomplete.getPlace();
-                    var lat = place.geometry.location.lat();
-                    var lng = place.geometry.location.lng();
-                    $("#lat").val(lat);
-                    $("#lng").val(lng);
-                    $("#place").val(place.formatted_address);
-                    $(".searchloader").fadeIn("fast");
-                    var x = $('#sort_by_select').val();
-                    var y = $('#autocomplete').val();
-                    var z = $("#per_page").val();
-                    var lat = $('#lat').val();
-                    var lng = $('#lng').val();
-                    var miles = $("#sort_by_miles").val();
-                    var ac = "<?php echo $account_category ?>";
-                    var care_type = "<?php echo $care_type ?>";
-
-
-                    if(y!=''){
-                        $("#showgeolocation1").text(y);
-                        $("#locationaddress").text(y);
-                        $.post('<?php echo site_url()?>common_care_controller/sort',{'miles':miles,'option':x,'per_page':z,'lat':lat,'lng':lng,'location':y,'account_category':ac,'care_type':care_type,'total_page':$('#total').text()},function(msg){
-                            $(".searchloader").fadeOut("fast");
-    				  			var json = jQuery.parseJSON(msg);
-    							var pagenum = json.num;
-    							var pagedata = json.userdatas;
-    							//console.log(json);
-                                if(json.num>1){
-                                    json.pagination = '<a href="#" class="paginate_click in-active" id="previous">previous</a>' + json.pagination  + '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
-
-                                }else{
-                                    json.pagination = '</div>';
-                                }
-                                    $('#list_container').html(pagedata);
-    							$('#total').text(json.total_rows);
-                                $('.navigations').html(json.pagination);
-
-                        });
-                    }
-                    else{
-                        var y = $("#showgeolocation1").text();
-                        $.post('<?php echo site_url()?>common_care_controller/sort',{'miles':miles,'option':x,'per_page':z,'location':y,'account_category':ac,'care_type':care_type,'total_page':$('#total').text()},function(msg){
-                            $(".searchloader").fadeOut("fast");
-    				  			var json = jQuery.parseJSON(msg);
-                                //console.log(json);
-    							var pagenum = json.num;
-    							var pagedata = json.userdatas;
-    							if(pagenum>1){
-                                    json.pagination = '<a href="#" class="paginate_click in-active" id="previous">previous</a>' + json.pagination  + '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
-                                }else{
-                                    json.pagination = '</div>';
-                                }
-
-    							$('#list_container').html(pagedata);
-    							$('#total').text(json.total_rows);
-                                $('.navigations').html(json.pagination);
-
-                        });
-                    }
-                });
+                var place = autocomplete.getPlace();                    
+                var lat = place.geometry.location.lat();
+                var lng = place.geometry.location.lng();                                
+                $("#lat").val(lat);
+                $("#lng").val(lng);
+                $("#place").val(place.formatted_address);
+                $(".searchloader").fadeIn("fast");
+                filterCaregivers();
+            });                              
     });
 </script>
 <div class="container">
@@ -78,11 +24,11 @@
         $left_navbar='all_jobs';
 
     if( $s1=='caregivers' && ($s2 == 'all'|| $s2 =='') )
-        $left_navbar='all';
-
+        $left_navbar='caregivers';
+        
     if( $s1=='caregivers' && $s2 == 'organizations')
-        $left_navbar='all';
-
+        $left_navbar='caregivers';
+                                
     if($s2 == 'babysitter'){
         if($s1 == 'caregivers')
             $left_navbar='babysitter';
@@ -186,7 +132,7 @@
     }
     if(isset($left_navbar)){
 
-        $this->load->view('frontend/'.$left_navbar.'/left_navbar');
+        $this->load->view('frontend/left_navbar/' . $left_navbar, array('care_type' => $care_type));
 
     }
     else{
@@ -198,16 +144,15 @@
 
     <div class="searchloader" style="display:none"></div>
     Find a <?php $this->load->view('frontend/common/left_nav_title'); if($s1 == 'jobs') {echo 'Job';}?>  <br>
-    Near <t id="locationField">
-		<input type="text" name="location" class="required" value="<?php echo $location['place'] ?>" id="autocomplete" style="width: 229px;margin-left: 9px;"/>
+    Near <t id="locationSearch">
+		<input type="text" name="location" class="required" value="<?php echo $location['place'] ?>" placeholder="Please enter a street address" id="autocomplete" style="width: 229px;margin-left: 9px;"/>
 		<input type="hidden" id="lng" value="<?php echo $location['lng']?>">
 		<input type="hidden" id="lat" value="<?php echo $location['lat']?>">
 		<input type="hidden" id="place" value="<?php echo $location['place']?>">
 		<input type="hidden" id="pagenum" value="">
-		<!--<input type="button" value="Change Location" class="btn btn-primary" id="change_location"">-->
-	</t>
-    within
-    <select name="sort_by_miles" id="sort_by_miles">
+	</t>        
+    within            
+    <select name="sort_by_miles" id="sort_by_miles">        
         <option value="1">1 Miles</option>
         <option value="2">2 Miles</option>
         <option value="5">5 Miles</option>
@@ -215,17 +160,7 @@
         <option value="25">25 Miles</option>
         <option value="50">50 Miles</option>
         <option value="unlimited" selected="selected">Unlimited Miles</option>
-    </select>
-
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('.showgeolocation').click(function(){
-			$('#locationField').toggle();
-// 			$('#autocomplete').val('');
-            $('#autocomplete').focus();
-		});
-	})
-</script>
+    </select>   
 	<h3>
 		<span id="total"><?php echo $total_rows ?></span>
         <?php
@@ -267,9 +202,10 @@
 	</div>
 <?php
 $pagination	= '';
-
-if($pages > 1){
-	$pagination .= '<a href="#" class="paginate_click in-active" id="previous">previous</a>';
+if ($pages > 5) {
+    $pages = 5;
+}
+if ($pages > 1) {	
 	for($i = 1; $i<=$pages; $i++)
 	{
 
@@ -280,156 +216,245 @@ if($pages > 1){
         }
 
 	}
-	$pagination .= '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
-	//$pagination .= '</ul>';
-}
-
-
-
+	$pagination .= '<a href="#" class="paginate_click in-active" id="next">next</a>';
+} 
 ?>
-
-    <div class="navigations"><?php echo $pagination;?>
+    <div class="navigations"></div>
 	<div class="clearfix margin-bot"></div>
 	<div id="list_container" class="">
-	<?php //print_rr($userdatas);?>
-    <?php $this->load->view('frontend/common_profile_list', array('userdatas'=>$userdatas,'userlogs'=>$userlogs));
-     ?>
+    <?php $this->load->view('frontend/common_profile_list', array('userdatas'=>$userdatas,'userlogs'=>$userlogs));?>
 	</div>
-	<div class="navigations"><?php echo $pagination; ?></div>
+	<div class="navigations"></div>
 	</div>
-</div>
-<script type="text/javascript">
-		$(document).ready(function(){
-		    var plc = $('#place').val()
-		    var pag = parseInt($('.paginate_click.active').text())
-		    $('#pagenum').val(pag)
-		    $('#autocomplete').val(plc)
-		    $('#pagenum').val(pag)
-		    $('#locationaddress').val(plc)
-		    $('#autocomplete').on('click', function(){$('#autocomplete').val('')})
-            //for sort by location, per page
-            $(document).on('change','#sort_by_select,#per_page,#sort_by_miles',function(){
-                $(".searchloader").fadeIn("fast");
-                var x = $('#sort_by_select').val();
-                var y = $('#autocomplete').val();
-                var z = $("#per_page").val();
-                var miles = $("#sort_by_miles").val();
-                var lat = $('#lat').val();
-                var lng = $('#lng').val();
-                var ac = "<?php echo $account_category ?>";
-                var care_type = "<?php echo $care_type ?>";
-                if(y!=''){
-                    $.post('<?php echo site_url()?>common_care_controller/sort',{'miles':miles,'option':x,'per_page':z,'lat':lat,'lng':lng,'location':y,'account_category':ac,'care_type':care_type,'total_page':'<?php echo $total_rows ?>'},function(msg){
-                        $(".searchloader").fadeOut("fast");
-			  			var json = jQuery.parseJSON(msg);
-						var pagenum = json.num;
-						var pagedata = json.userdatas;
-                        if(pagenum>1){
-                            json.pagination = '<a href="#" class="paginate_click in-active" id="previous">previous</a>' + json.pagination  + '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
+</div> 
+<script>
+    function filterCaregivers() {
+        var per_page = $("#per_page").val();
+        var distance = $("#sort_by_miles").val();
+        var sort_by = $('#sort_by_select').val();
+		var care_type = $('.care_type').val() ? $('.care_type').val() : '';
+        var caregiverage_from = $('.caregiverage_from').val() ? $('.caregiverage_from').val() : '';
+        var caregiverage_to = $('.caregiverage_to').val() ? $('.caregiverage_to').val() : '';
+        var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
+        var lang = $('.lang:checked').map(function(_, el) {
+	        return $(el).val();
+	    }).get();
+        var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+	    var observance = $('.observance:checked').map(function(_, el) {
+	        return $(el).val();
+	    }).get();
 
-                        }else{
-                            json.pagination = '</div>';
+	    var carelocations = $('.carelocation:checked').map(function(_, el) {
+	        return $(el).val();
+	    }).get();
 
-                        }
-						$('#list_container').html(pagedata);
-						$('#total').text(json.total_rows);
-                        $('.navigations').html(json.pagination);
-
-
-                    });
+	    var trainings = $('.training:checked').map(function(_, el) {
+	        return $(el).val();
+	    }).get();
+	    var skills = $('.skills:checked').map(function(_, el) {
+	        return $(el).val();
+	    }).get();
+	    var able_to_work = $('.able_to_work:checked').map(function(_, el) {
+	        return $(el).val();
+	    }).get();
+        var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+	    var min_exp = $('.year_experience').val() ? $('.year_experience').val() : '';
+	    var availability = $('.availability:checked').map(function(_, el) {
+	        return $(el).val();
+	    }).get();
+	    var number_of_children = $('.number_of_children').val() ? $('.number_of_children').val() : '';
+        var morenum = $('.morenum:checked').map(function(_, el) {
+	        return $(el).val();
+	    }).get();
+	    var age_group = $('.age_group:checked').map(function(_, el) {
+	        return $(el).val();
+	    }).get();
+        var looking_to_work = $('.looking_to_work:checked').map(function(_, el) {
+	        return $(el).val();
+	    }).get();
+        var year_experience = $('.year_experience:checked').map(function(_, el) {
+	        return $(el).val();
+	    }).get();
+	    var pick_up_child = $('.pick_up_child').is(':checked') ? $('.pick_up_child').val() : '';
+        var cook = $('.cook').is(':checked') ? $('.cook').val():'';
+        var basic_housework = $('.basic_housework').is(':checked') ? $('.basic_housework').val() :'';
+        var homework_help = $('.homework_help').is(':checked') ? $('.homework_help').val() :'';
+        var bed_children = $('.bed_children').is(':checked') ? $('.bed_children').val() :'';
+        var bath_children = $('.bath_children').is(':checked') ? $('.bath_children').val() :'';
+        var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accepts_insurance]:checked').val():'';
+	    var cook = $('.cook').is(':checked') ? $('.cook').val():'';
+        var basic_housework = $('.basic_housework').is(':checked') ? $('.basic_housework').val() :'';
+        var homework_help = $('.homework_help').is(':checked') ? $('.homework_help').val() :'';
+        var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
+	    var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
+	    var available = $('.available_on_short_notice').is(':checked')?$('.available_on_short_notice').val():'';
+        var start_date = $("#textbox1").val()?$("#textbox1").val():'';
+        var extra_field = $('.extra_field:checked').map(function(_, el) {
+	        return $(el).val();
+	    }).get();
+        var lat = $('#lat').val();
+        var lng = $('#lng').val();
+        var location = $('#place').val();
+        var pagenum = $('#pagenum').val() ? $('#pagenum').val(): 1;
+		$.ajax({
+			type:"get",
+			url:"<?php echo site_url();?>common_care_controller/search",
+			data:"care_type="+care_type+"&skills="+skills+"&per_page="+per_page+"&distance="+distance+"&sort_by="+sort_by+"&pagenum="+pagenum+"&bath_children="+bath_children+"&bed_children="+bed_children+"&pick_up_child="+pick_up_child+"&cook="+cook+"&basic_housework="+basic_housework+"&homework_help="+homework_help+"&lat="+lat+"&lng="+lng+"&location="+location+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&carelocation="+carelocations+"&trainings="+trainings+"&able_to_work="+able_to_work+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&start_date="+start_date+"&smoker="+smoker+"&extra_field="+extra_field+"&accept_insurance="+accept_insurance,
+			success:function(done){
+				$(".searchloader").fadeOut("fast");
+				var json = jQuery.parseJSON(done);
+ 				var pagenum = json.num;
+ 				var pagedata = json.userdatas;
+				$('#list_container').html(pagedata);
+				$('#total').text(json.total);
+                $('.navigations').html(json.pagination);
+                if (json.location) {
+                	$('#locationaddress').text(json.location)
                 }
-                else{
-                    var y = $("#showgeolocation1").text();
-                    $.post('<?php echo site_url()?>common_care_controller/sort',{'miles':miles,'option':x,'per_page':z,'location':y,'account_category':ac,'care_type':care_type,'total_page':'<?php echo $total_rows ?>'},function(msg){
-                        $(".searchloader").fadeOut("fast");
-			  			var json = jQuery.parseJSON(msg);
-						var pagenum = json.num;
-						var pagedata = json.userdatas;
-                        if(pagenum>1){
-                            json.pagination = '<a href="#" class="paginate_click in-active" id="previous">previous</a>' + json.pagination  + '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
-
-                        }else{
-                            json.pagination = '</div>';
-
-                        }
-						//json.pagination = '<a href="#" class="paginate_click in-active" id="previous">previous</a>' + json.pagination  + '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
-						$('#list_container').html(pagedata);
-						$('#total').text(json.total_rows);
-                        $('.navigations').html(json.pagination);
-
-
-                    });
-                }
-
-            });
-
-            $('#autocomplete').change(function(e){
-                   e.stopImmediatePropagation();
-                   $(this).focus();
-            });
-
-            //for pagination
-            $(document).on('click','.paginate_click',function (e) {
-                $('.searchloader').fadeIn("fast");
-                var x = $('#sort_by_select').val();
-                var y = $('#autocomplete').val();
-                var z = $("#per_page").val();
-                var lat = $('#lat').val();
-                var lng = $('#lng').val();
-                var miles = $("#sort_by_miles").val();
-                var ac = "<?php echo $account_category ?>";
-                var care_type = "<?php echo $care_type ?>";
-                var previous = '<a href="#" class="paginate_click in-active">previous</a>'
-                var next = '<a href="#" class="paginate_click in-active">next</a>'
-                if ($(this).attr("id") == 'previous') {
-                    var page_num = parseInt($('.paginate_click.active').attr('id').split('-')[0]) - 1
-                    if (page_num == 0) {
-                        page_num = 1
-                    }
-                } else if ($(this).attr("id") == 'next') {
-                    var page_num = parseInt($('.paginate_click.active').attr('id').split('-')[0]) + 1
-                    if (page_num == $('.paginate_click').length - 1) {
-                        page_num = $('.paginate_click').length - 2
-                    }
-                } else {
-                    var clicked_id = $(this).attr("id").split("-"); //ID of clicked element, split() to get page number.
-        		    var page_num = parseInt(clicked_id[0]); //clicked_id[0] holds the page number we need
-                }
-
-        		$('.paginate_click').removeClass('active'); //remove any active class
-                $('.paginate_click').addClass('in-active'); //remove any active class
-                if(y!=''){
-            		$.post("<?php echo site_url();?>common_care_controller/fetch_pages", {'miles':miles,'page':(page_num-1),'option':x,'per_page':z,'lat':lat,'lng':lng,'location':y,'account_category':ac,'care_type':care_type,'total_page':$('#total').text()}, function(msg){
-                       $('.searchloader').fadeOut("fast");
-                        var json = jQuery.parseJSON(msg);
-        				var pagenum = json.num;
-        				var pagedata = json.userdatas;
-        				$('#list_container').html(pagedata);
-        				$('#total').text(json.total_rows);
-                        // $('.navigations').html(json.pagination);
-            		});
-                }
-                else{
-                    var y = $("#showgeolocation1").text();
-                    $.post("<?php echo site_url();?>common_care_controller/fetch_pages", {'miles':miles,'page':(page_num-1),'option':x,'per_page':z,'location':y,'account_category':ac,'care_type':care_type,'total_page':$('#total').text()}, function(msg){
-                       $('.searchloader').fadeOut("fast");
-                        var json = jQuery.parseJSON(msg);
-        				var pagenum = json.num;
-        				var pagedata = json.userdatas;
-        				$('#list_container').html(pagedata);
-        				$('#total').text(json.total_rows);
-                        // $('.navigations').html(json.pagination);
-            		});
-                }
-                var element = parseInt(page_num)
-                $('.paginate_click').eq(element).removeClass('in-active');
-        		$('.paginate_click').eq(element).addClass('active'); //add active class to currently clicked element (style purpose)
-        		var pag = parseInt($('.paginate_click.active').text())
-		    $('#pagenum').val(pag)
-        		document.body.scrollTop = document.documentElement.scrollTop = 0;
-        		return false; //prevent going to herf link
-        	});
-
+			}
 		});
+	}
+	
+	$(document).ready(function(){
+	    var plc = $('#place').val()
+	    $('#autocomplete').val(plc)
+	    $('#locationaddress').val(plc)
+	    filterCaregivers();
+        $('.neighbour,.caregiverage_from,.caregiverage_to').blur(function(){
+            $(".searchloader").fadeIn("fast");
+            $('#pagenum').val(1);
+            filterCaregivers();
+		});        
+        
+        $('.accept_insurance,.number_of_children,.year_experience,.age_group,#textbox1,.sub_care,#per_page,#sort_by_miles,#sort_by_select').change(function(){
+			$(".searchloader").fadeIn("fast");
+			$('#pagenum').val(1);
+            filterCaregivers();
+		});
+              
+		$('.skills,.extra_field,.gender,.smoker,.lang,.observance,.homework_help,.on_short_notice,.sick_child_care,.morenum,.basic_housework,.vehicle,.looking_to_work,.year_experience,.training,.availability,.driver_license,.pick_up_child,.cook,.carelocation').click(function(){
+            $(".searchloader").fadeIn("fast");
+            $('#pagenum').val(1);
+            filterCaregivers();
+		});
+        
+        //for pagination
+        $(document).on('click','.paginate_click',function (e) {
+            if ($(this).attr("id") == 'previous') {
+                var page_num = parseInt($('.paginate_click.active').attr('id').split('-')[0]) - 1
+                if (page_num == 0) {
+                    page_num = 1
+                }
+            } else if ($(this).attr("id") == 'next') {
+                var page_num = parseInt($('.paginate_click.active').attr('id').split('-')[0]) + 1
+                if (page_num == $('.paginate_click').length - 1) {
+                    page_num = $('.paginate_click').length - 2
+                }
+            } else {
+                var clicked_id = $(this).attr("id").split("-"); //ID of clicked element, split() to get page number.
+    		    var page_num = parseInt(clicked_id[0]); //clicked_id[0] holds the page number we need 
+            }
+            
+	        $('#pagenum').val(page_num)
+    		filterCaregivers()
+    	});
+        
+        
+         $("#chkbox1").click(function(){
+            if($('#chkbox1').is(':checked')){
+                $("#textbox1").show();
+                $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();   
+            }else{
+                //$("#textbox1").hide(); 
+                $('#textbox1').val('');
+                $(".searchloader").fadeIn("fast");
+                filterCaregivers();
+
+            }       
+         });	
+
+		// onpress esc key hide the loader
+		$(document).on('keyup',function(evt) {
+		    if (evt.keyCode == 27) {
+		       $(".searchloader").fadeOut("fast");
+		    }
+		});
+	});
 </script>
 
+<script>
+    $(document).ready(function() {
+	
+    	var $myDialog = $('<div></div>')
+        .html('Are you sure you want to save this search?')
+        .dialog({
+        autoOpen: false,
+        title: 'Save Search',
+        buttons: {
+            "OK": function () {
+                $(this).dialog("close");
+        		var care_type = $('.care_type').val();
+        		var caregiverage_from = $('.caregiverage_from').val() ? $('.caregiverage_from').val() : '';
+                var caregiverage_to = $('.caregiverage_to').val() ? $('.caregiverage_to').val() : '';
+        		var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
+        	    var willing = $(this).val();
+                var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
+        		var lang = $('.lang:checked').map(function(_, el) {
+        	       	return $(el).val();
+        	    }).get();
+        	    var observance = $('.observance:checked').map(function(_, el) {
+        	       	return $(el).val();
+        	    }).get();
+        	    var age_group = $('.age_group:checked').map(function(_, el) {
+        	       	return $(el).val();
+        	    }).get();
+        	    var lat = $('#lat').val();
+                var lng = $('#lng').val();
+                var location = $('#place').val();
+                var distance = $('#sort_by_miles').val();
+        	    $.ajax({
+        	    	type:"post",
+        	    	url:"<?php echo site_url();?>common_care_controller/savesearch",
+        	    	data:"lat="+lat+"&lng="+lng+"&location="+location+"&distance="+distance+"&care_type="+care_type+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
+        	    	success:function(done){
+           				//console.log(done);
+                        alert('Search saved to search alerts section in your dashboard');
+        	    	}
+        	    });
+            },  
+            "Cancel": function () {
+                $(this).dialog("close");
+                return false;
+            }
+        }
+    });
+    
+    var $myDialog2 = $('<div></div>')
+        .html('Please login to save searches')
+        .dialog({
+        autoOpen: false,
+        title: 'Save Search',
+        buttons: {
+          "OK": function () {
+            $(this).dialog("close");
+            window.location = '<?php echo site_url()?>login?url='+ btoa('<?php echo uri_string(); ?>');
+          },
+          "Cancel": function () {
+            $(this).dialog("close");
+            return false;
+          }
+        }
+      });
+      
+    	$('.searchs').click(function(e){
+    		e.preventDefault();
+    		var site_url = "<?php echo site_url();?>";
+            var user_id = "<?php echo check_user(); ?>";
+            if(user_id != "")        
+                return $myDialog.dialog('open'); //replace the div id with the id of the button/form
+            else
+                return $myDialog2.dialog('open');
+            });
+
+ });
+</script>

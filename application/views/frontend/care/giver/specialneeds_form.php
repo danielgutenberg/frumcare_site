@@ -29,7 +29,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <label>Year established</label>
                 <div class="form-field">
                 
-                <select name="established" class="required">
+                <select name="established" class="txt">
                     <option value="">Select year established</option>
                     <?php for($i=1950;$i<=date('Y');$i++):?>
                     <option value="<?php echo $i?>"><?php echo $i;?></option>
@@ -47,7 +47,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 				<div>
 					<label>Years of experience</label>
 					<div class="form-field">
-						<select name="experience" class="required">
+						<select name="experience" class="txt">
 							<option value="">Select years of experience</option>
 							<option value="1" <?php echo isset($exp) && $exp == 1 ? 'selected' : '' ?>>1 year</option>
 							<option value="2" <?php echo isset($exp) && $exp == 2 ? 'selected' : '' ?>>2 years</option>
@@ -80,7 +80,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <div class="rate-select">
                     <label>Rate</label>
                     <div class="form-field">
-                        <select name="rate" class="required rate">
+                        <select name="rate" class="txt rate">
                             <option value="">Select rate</option>
                             <option value="5-10">$5-$10 / Hr</option>
                             <option value="10-15">$10-$15 / Hr</option>
@@ -114,7 +114,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 				<div>
 					<label>Tell us about yourself (Short description not cv)</label>
 					<div class="form-field">
-						<textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
+						<textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
 					</div>
 				</div>
 				<div>

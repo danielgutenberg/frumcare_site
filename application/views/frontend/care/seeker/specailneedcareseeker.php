@@ -23,7 +23,7 @@
 			</div>
 		</div>
 		<div>
-<label>Location</label>
+<label>Location </label>
 <div id="locationField">
     <input type="hidden" id="lat" name="lat"/>
     <input type="hidden" id="lng" name="lng"/> 
@@ -79,7 +79,7 @@
 		<div>
 			<label>Tell us about needs</label>
 			<div class="form-field">
-				<textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
+				<textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
 			</div>
 		</div>
 

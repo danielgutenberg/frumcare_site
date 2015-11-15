@@ -228,6 +228,9 @@ class Ad extends CI_Controller
                 'location'              => isset($p['location'])?$p['location']:'',
                 'lat'                   => isset($p['lat'])?$p['lat']:'',
                 'lng'                   => isset($p['lng'])?$p['lng']:'',
+                'city'              => isset($p['city'])?$p['city']:'',
+                'state'                   => isset($p['state'])?$p['state']:'',
+                'country'                   => isset($p['country'])?$p['country']:'',
                 'neighbour'             => isset($p['neighbour'])?$p['neighbour']:'',
                 'name_of_owner'         => isset($p['name_of_owner'])?$p['name_of_owner']:'',
                 'profile_picture_owner' => isset($p['profile_picture_owner'])?$p['profile_picture_owner']:'',
@@ -1094,29 +1097,21 @@ FrumCare.com
                 $insert['contact_name'] = $p['name'];
             }
 
-
-            $loc=explode(',',$p['location']);
-            unset($loc[0]);
-            $p['location']=implode(',',$loc);
-
-
-               $response =  $this->getLongitudeAndLatitude($p['location']);
-                if($response){
-                    $lat        = $response->results[0]->geometry->location->lat;
-                    $long       = $response->results[0]->geometry->location->lng;
-                    $country    = $response->results[0]->address_components[1]->long_name;
-                }else{
-                    $lat   = 0;
-                    $long   = 0;
-                }
-
-
+            //   $response =  $this->getLongitudeAndLatitude($p['location']);
+            //     if($response){
+            //         $lat        = $response->results[0]->geometry->location->lat;
+            //         $long       = $response->results[0]->geometry->location->lng;
+            //         $country    = $response->results[0]->address_components[1]->long_name;
+            //     }else{
+            //         $lat   = 0;
+            //         $long   = 0;
+            //     }
+               
             //   $geodata = array(
             //         'lat' => $lat,
             //         'lng' => $long,
             //         'country' => $country,
             //     );
-
 
             //     //insert location for profile as well
             //     $geodata1 = array(
@@ -1172,6 +1167,26 @@ FrumCare.com
             exit();
 
         }
+    }
+    
+    function sendRelevantAds($lat = 43, $lng = 79, $city = 'Toronto')
+    {
+        $profile = $this->common_model->get_where('tbl_userprofile', array('user_id' => check_user()));
+        $ac = $profile[0]['account_category'];
+        $ct = $profile[0]['care_type'];
+        $location = ['lat' => $lat, 'lng' => $lng, 'place' => $city];
+        $userdata       = $this->common_care_model->sort(10 ,$lat,$lng,'distance', $ac , $ct, 3000);
+        $get_total_rows = count($userdata);                                                         
+        $data = array(
+  			'main_content' 	    => 'frontend/common_profile_list',
+            'countries'         => $this->common_model->getCountries(),
+            'userlogs'		    => $this->user_model->getUserLog(),
+            'userdatas'		    => array_slice($userdata, 0, 15),
+            'account_category'  => $ac,
+            'care_type'         => $ct,
+            'location'          => $location             				              				              				                            
+        );                      
+        $this->load->view(FRONTEND_TEMPLATE, $data);
     }
 
     function getLongitudeAndLatitude($address){

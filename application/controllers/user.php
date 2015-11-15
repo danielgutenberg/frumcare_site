@@ -1112,6 +1112,15 @@ class User extends CI_Controller
                     if(isset($p['lng']) && !empty($p['lng'])){
                         $update_user['lng'] = $p['lng'];
                     }
+                    if(isset($p['city']) && !empty($p['city'])){
+                        $update_user['city'] = $p['city'];
+                    }
+                    if(isset($p['state']) && !empty($p['state'])){
+                        $update_user['state'] = $p['state'];
+                    }
+                    if(isset($p['country']) && !empty($p['country'])){
+                        $update_user['country'] = $p['country'];
+                    }
                      if(isset($p['name']) && !empty($p['name'])){
                         $update_user['name'] = $p['name'];
                     }
@@ -1739,8 +1748,11 @@ class User extends CI_Controller
                     $insert1 = array(
                         'marital_status' => isset($_POST['marital_status'])?$_POST['marital_status']:'',
                         'location' => isset($_POST['location'])?$_POST['location']:'',
-                        'lat'      => isset($_POST['lat'])?$_POST['lat']:'',
-                        'lng'      =>  isset($_POST['lng'])?$_POST['lng']:'',
+                        'lat' => isset($_POST['lat'])?$_POST['lat']:'',
+                        'lng' => isset($_POST['lng'])?$_POST['lng']:'',
+                        'city' => isset($_POST['city'])?$_POST['city']:'',
+                        'state' => isset($_POST['state'])?$_POST['state']:'',
+                        'country' => isset($_POST['country'])?$_POST['country']:'',
                         'zip'      => isset($_POST['zip'])?$_POST['zip']:'',
                         'age'      =>  isset($_POST['age'])?$_POST['age']:'',
                         'gender'   => isset($_POST['gender'])?$_POST['gender']:'',

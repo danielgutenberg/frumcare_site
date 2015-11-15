@@ -120,6 +120,7 @@ $(function () {
                 var locationaddress = 'careseeker_errandrunner';           
             if(pagelink == '--select--')
                 var locationaddress = 'careseekers'; 
+                console.log(locationaddress);
             location.href = '<?php echo site_url();?>'+locationaddress;
             
             if(pagelink == 'Workers / staff for childcare facility')

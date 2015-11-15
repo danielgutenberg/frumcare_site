@@ -65,7 +65,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     <div> 
         <label>Age of owner / operator</label>
         <div class="form-field">
-        <input type="text" name="age" class="required number" value="<?php echo isset($age) ? $age : '' ?>"/>
+        <input type="text" name="age" class="txt number" value="<?php echo isset($age) ? $age : '' ?>"/>
         </div>
     </div>
 
@@ -147,14 +147,14 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     <div>
         <label>Number of patients</label>
         <div class="form-field">
-        <input type="text" value="" name="number_of_children" class="required number">
+        <input type="text" value="" name="number_of_children" class="txt number">
         </div>
     </div>
 
     <div>
         <label>Number of staff</label>
         <div class="form-field">
-        <input type="text" value="" name="number_of_staff" class="required number">
+        <input type="text" value="" name="number_of_staff" class="txt number">
         </div>
     </div>
 
@@ -172,7 +172,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     <div>
         <label>Tell us about your organization / facilities / staff</label>
         <div class="form-field">
-        <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
+        <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
         </div>
     </div>
 

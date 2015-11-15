@@ -2,7 +2,7 @@
     <table class="table table-striped borderbottom">
         <?php
         $cross = "<img src='".site_url()."img/cross.png'>";
-        $tick  = "<img src='".site_url()."img/nut-list.png'>";  
+        $tick  = "<img src='".site_url()."img/nut-list.png'>";   
         $location = '';
         if ($city != '') {
             $location .= $city;

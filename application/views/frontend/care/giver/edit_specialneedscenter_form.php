@@ -36,7 +36,7 @@
     <div>
         <label>Year established</label>
         <div class="form-field">
-        <select name="established" class="required">
+        <select name="established" class="txt">
             <option value="">Select year established</option>
             <?php for($i=1950;$i<=date('Y');$i++):?>
             <option value="<?php echo $i?>" <?php if($established == $i){?> selected="selected" <?php } ?>><?php echo $i;?></option>
@@ -48,7 +48,7 @@
     <div>
         <label>Certification</label>
         <div class="form-field">
-        <input type="text" value="<?php echo isset($certification) ? $certification : '' ?>" name="certification" class="required">
+        <input type="text" value="<?php echo isset($certification) ? $certification : '' ?>" name="certification" class="txt">
         </div>
     </div>
 
@@ -84,14 +84,14 @@
     <div>
         <label>Number of patients</label>
         <div class="form-field">
-        <input type="text" value="<?php echo isset($number_of_children) ? $number_of_children : '' ?>" name="number_of_children" class="required number">
+        <input type="text" value="<?php echo isset($number_of_children) ? $number_of_children : '' ?>" name="number_of_children" class="txt number">
         </div>
     </div>
 
     <div>
         <label>Number of staff</label>
         <div class="form-field">
-        <input type="text" value="<?php echo isset($number_of_staff) ? $number_of_staff : '' ?>" name="number_of_staff" class="required number">
+        <input type="text" value="<?php echo isset($number_of_staff) ? $number_of_staff : '' ?>" name="number_of_staff" class="txt number">
         </div>
     </div>
 
@@ -106,7 +106,7 @@
             <div>
         <label>Tell us about your organization / facilities / staff</label>
         <div class="form-field">
-        <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
+        <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
         </div>
     </div>
 
@@ -139,7 +139,7 @@
     <div style="display:none">
         <label>Your references details</label>
         <div class="form-field">
-        <textarea style="display:none" name="references_details" class="required"><?php echo isset($ref_det) ? $ref_det : '' ?></textarea>
+        <textarea style="display:none" name="references_details" class="txt"><?php echo isset($ref_det) ? $ref_det : '' ?></textarea>
         </div>
     </div>
         <br/ >

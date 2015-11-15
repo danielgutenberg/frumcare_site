@@ -406,6 +406,37 @@ class Common_Model extends CI_Model
         else
             return false;
     }
+    
+    function get_location()
+    {
+        if(check_user()){
+            $locationdetails = $this->getMyLocation(check_user());
+            if($locationdetails){
+                $latitude = ($locationdetails[0]['lat']);
+                $longitude = ($locationdetails[0]['lng']);
+                $location =  isset($locationdetails[0]['city'])?$locationdetails[0]['city']:'your city';
+            }
+            if (!$latitude) {
+                return $this->getLocationFromId($this->ipaddress);
+            }
+            
+        }
+        else{
+            return $this->getLocationFromId($this->ipaddress);
+        }
+        
+        return ['latitude' => $latitude, 'longitude' => $longitude, 'location' => $location];
+    }
+    
+    function getLocationFromId($address)
+    {
+        $ipdata = $this->getIPData($address);
+        $latitude = isset($ipdata['lat']) ? $ipdata['lat'] : 31;
+        $longitude = isset($ipdata['lon']) ? $ipdata['lon'] : 35;
+        $location = isset($ipdata['city']) ? $ipdata['city'] : 'your city';
+        
+        return ['latitude' => $latitude, 'longitude' => $longitude, 'location' => $location];
+    }
 
 
 }

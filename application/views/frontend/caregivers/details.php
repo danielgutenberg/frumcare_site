@@ -109,6 +109,8 @@
                 if ($recordData['country'] != '') {
                     $loca .= ', ' . $recordData['country'];
                 }?>
+                <?php $location_array = explode(',',$recordData['location']); ?>
+                <?php $formated_location = (isset($location_array[0])?$location_array[0]:"").', '.(isset($location_array[1])?$location_array[1]:""); ?> 
                 <span class="location-wrap"><?php echo $loca.'<span>Location</span>';?></span>
                 <?php
                 }
@@ -145,9 +147,19 @@
                    <span class="care-type-wrap"><?php if ($recordData['experience']==6) {echo '5+ <span>Years in Practice</span>';} else {echo $recordData['experience']. ' <span>Years in Practice</span>'; }?></span>
                 <div class="clearfix margin-bots"></div>
                 <?php if(!empty($recordData['location'])){ ?>
+                <?php $loca = '';
+                if ($recordData['city'] != '') {
+                    $loca .= $recordData['city'];
+                }
+                if ($recordData['state'] != '') {
+                    $loca .= ', ' . $recordData['state'];
+                }
+                if ($recordData['country'] != '') {
+                    $loca .= ', ' . $recordData['country'];
+                }?>
                     <?php $location_array = explode(',',$recordData['location']); ?>
-                    <?php $formated_location = (isset($location_array[0])?$location_array[0]:"").', '.(isset($location_array[1])?$location_array[1]:""); ?>
-                    <span class="location-wrap"><?php echo $formated_location.'<span>Location</span>';?></span>
+                    <?php $formated_location = (isset($location_array[0])?$location_array[0]:"").', '.(isset($location_array[1])?$location_array[1]:""); ?> 
+                    <span class="location-wrap"><?php echo $loca.'<span>Location</span>';?></span>
                     <?php
                 } ?>
                 <span class="care-type-wrap">
@@ -159,6 +171,7 @@
 }
 if($this->uri->segment(4)>16){
     if(!empty($recordData['location'])){ ?>
+        <?php $location_array = explode(',',$recordData['location']); ?>
         <?php $loca = '';
                 if ($recordData['city'] != '') {
                     $loca .= $recordData['city'];
@@ -306,7 +319,13 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
     //   || ($this->uri->segment(4)>16 && $this->uri->segment(4) < 24)
        ){ ?>
        <h2> Meet 
-            <?php echo ucfirst($recordData['name']);?>
+            <?php 
+            if ($this->uri->segment(4) < 10) { 
+                echo ucfirst($recordData['name']);
+            } else {
+                echo ucfirst($recordData['organization_name']);
+            }
+            ?>
         </h2>
         <?php
         }
@@ -465,7 +484,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
           }
           if(($recordData['care_type'] > 9 && $recordData['care_type'] < 17 ) || ($recordData['care_type'] > 24)){ ?>
           <span class="view-availability-btn">
-              <a href="#" class="btn btn-primary viewcontactdetails">Contact <?php echo $recordData['name'] ?></a>
+              <a href="#" class="btn btn-primary viewcontactdetails">Contact <?php echo $recordData['organization_name'] ?></a>                                               
           </span>
           <?php
       }

@@ -67,7 +67,7 @@ $oc = $this->session->userdata('organization_care');
                         }
                     ?>
                     <?php
-                        if($ac == 3 && $oc == 1){?>
+                        if($ac == 3){?>
                             <br />
                             <a href="<?php echo site_url('user/details/'.sha1(check_user()))?>" class="btn btn-info">Edit Organization Info</a>
                             <?php
@@ -87,22 +87,27 @@ $oc = $this->session->userdata('organization_care');
                 <tr>
                     <td width="35%"><?php echo $row->service_name;?></td>
                     <td width="15%"><a href="<?php echo site_url();?>user/edit_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $row->care_type;?>">Edit <?php echo $profile ?></a></td>
-                    <td width="15%">
-                        <a href="<?php echo site_url();?>user/hide_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $row->care_type;?>" onclick="return confirm('Are you sure to hide?')">
-                            Hide &nbsp;
-                        </a>
+                    <!--<td width="15%">-->
+                    <!--    <a href=" <?php /*echo site_url();*/?>user/hide_profile/<?/*php echo $this->session->userdata['current_user'];*/?>/<?php /*echo $row->care_type;*/?>" onclick="return confirm('Are you sure to hide?')">-->
+                    <!--        Hide &nbsp;-->
+                    <!--    </a>-->
+                    <!--</td>-->
+                    <td width="10%">
+                        <?php if ($row->profile_status == 1) {echo 'Approved';} else {echo 'Pending';} ?>
                     </td>
                     <?php if ($row->profile_status == 2) { ?>
                         <td width="15%">
                             <a href="<?php echo site_url();?>user/unarchive_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $row->care_type;?>" onclick="return confirm('Are you sure you want to activate this profile?')">
                             Unarchive &nbsp;
                         </td>
-                    <?php } else { ?>
+                    <?php } else if ($row->profile_status == 1){ ?>
                     <td width="15%">
                         <a href="<?php echo site_url();?>user/delete_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $row->care_type;?>" onclick="return confirm('Are you sure you want to archive this profile?')">
                         Archive &nbsp;
                     </td>
                     <?php } ?>
+                    
+                    
 
                     <!--<td width="20%">
 

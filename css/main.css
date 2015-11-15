@@ -5230,6 +5230,9 @@ body {
   .ad-form-container textarea.required {
     height: 210px;
   }
+  .ad-form-container textarea.txt {
+    height: 210px;
+  }
   .dashboard-right .table td {
     line-height: 33px;
   }

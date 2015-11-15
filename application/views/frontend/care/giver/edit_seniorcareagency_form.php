@@ -30,7 +30,7 @@
             <div>
                 <label>Year established</label>
                 <div class="form-field">
-                <select name="established" class="required">
+                <select name="established" class="txt">
                     <option value="">Select year established</option>
                     <?php for($i=1950;$i<=date('Y');$i++):?>
                     <option value="<?php echo $i?>" <?php if($i == $established){?> selected="selected" <?php }?>><?php echo $i;?></option>
@@ -42,7 +42,7 @@
             <div>
                 <label>Certification</label>
                 <div class="form-field">
-                <input type="text" value="<?php echo isset($certification) ? $certification : '' ?>" name="certification" class="required">
+                <input type="text" value="<?php echo isset($certification) ? $certification : '' ?>" name="certification" class="txt">
                 </div>
             </div>
             <div>
@@ -73,7 +73,7 @@
             <div>
                 <label>Tell us about your organization</label>
                 <div class="form-field">
-                <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
+                <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
                 </div>
             </div>
 

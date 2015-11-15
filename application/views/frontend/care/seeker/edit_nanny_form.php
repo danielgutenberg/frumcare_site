@@ -1,61 +1,4 @@
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
-<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
-<script>
-    $("#locationField").ready(function(){
-        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['address']});
-            google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                   $("#cityName").val('');
-                    $("#stateName").val('');
-                    $("#countryName").val('');
-                    var place = autocomplete.getPlace();
-                    var lat = place.geometry.location.lat();
-                    var lng = place.geometry.location.lng();
-                    var i = 0;
-                      var len = place.address_components.length;
-                      while (i < len) {
-                        var ac = place.address_components[i];
-                        if (ac.types.indexOf('locality') >= 0 || ac.types.indexOf('sublocality') >=0 ) {
-                          $("#cityName").val(ac.long_name);
-                        }
-                        if (ac.types.indexOf('administrative_area_level_1') >= 0) {
-                          $("#stateName").val(ac.short_name);
-                        }
-                        if (ac.types.indexOf('country') >= 0) {
-                          $("#countryName").val(ac.long_name);
-                        }
-                        i++;
-                      }
-                    $("#lat").val(lat);
-                    $("#lng").val(lng);
-                    document.getElementById("error").innerHTML="";
-                });
-    });
-     $("#textbox1").ready(function(){
-        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-     });
 
-     $(document).ready(function() {
-       $('.btn').click(function(event) {
-
-
-        event.preventDefault();
-        if ($('#lat').val() == '') {
-            window.scrollTo(0, $("#locationField").offset().top);
-            $("#locationField").css('border-color', 'red')
-           document.getElementById("error").innerHTML="Please click on location from dropdown";
-        } else {
-            $('#personal-details-form').submit()
-        }
-     });
-    })
-</script>
-  <script>
-  $(function() {
-    $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-  });
-  </script>
 <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
 <?php
 $user_detail = get_user(check_user());
@@ -130,28 +73,28 @@ if($detail){
                 <div class="checkbox"><input type="checkbox" value="Live Out" name="looking_to_work[]" <?php if(in_array('Live Out',$looking_to_work)){?> checked="checked" <?php } ?>> Live Out</div>
             </div>
         </div>
-        <div>
-            <label>Location</label>
+       <div>
+            <label>Location </label>
             <div id="locationField">
                 <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
                 <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/>
                 <input type="hidden" id="cityName" name="city" value="<?php echo isset($city)?$city:''?>"/>
                 <input type="hidden" id="stateName" name="state" value="<?php echo isset($state)?$state:''?>"/>
                 <input type="hidden" id="countryName" name="country" value="<?php echo isset($country)?$country:''?>"/>
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
-            </div>
+                <input type="text" name="location" class="required" placeholder="Please enter a street address" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
+            </div> 
              <span style="color:red;" id="error"> </span>
         </div>
-        <!-- <div>-->
-        <!--    <label>Neighborhood / Street</label>-->
-        <!--    <div>-->
-        <!--    <input type="text" name="neighbour" class="required" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>-->
-        <!--    </div>-->
-        <!--</div>-->
+         <div>
+            <label>Neighborhood / Street</label>
+            <div>
+            <input type="text" name="neighbour" class="txt" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>
+            </div>    
+        </div>         
         <div>
             <label>Phone</label>
             <div class="form-field">
-            <input type="text" name="contact_number" class="required" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact_number"/>
+            <input type="text" name="contact_number" class="txt" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact_number"/>
             </div>
         </div>
         <div>
@@ -189,7 +132,7 @@ if($detail){
                 <div class="checkbox"><input type="checkbox" value="Regularly" name="availability[]" <?php if(in_array("Regularly",$temp)){?> checked="checked"<?php }?>>Regularly</div>
                 <div class="checkbox"><input type="checkbox" value="Asap" name="availability[]" <?php if(in_array("Asap",$temp)){?> checked="checked"<?php }?>/> Asap</div>
                 <div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1" <?php if(in_array("Start Date",$temp)){?> checked="checked"<?php }?>/>Start Date
-                <input  type="text" name="start_date" id="textbox1" value="<?php echo isset($date)?$date:''?>"/></div>
+                <input  type="text" name="start_date" id="dateTextbox" value="<?php echo isset($date)?$date:''?>"/></div>
                 <div class="checkbox"><input type="checkbox" value="Morning" name="availability[]" <?php if(in_array("Morning",$temp)){?> checked="checked"<?php }?>> Morning</div>
                 <div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]" <?php if(in_array("Afternoon",$temp)){?> checked="checked"<?php }?>>Afternoon</div>
                 <div class="checkbox"><input type="checkbox" value="Evening" name="availability[]" <?php if(in_array("Evening",$temp)){?> checked="checked"<?php }?> > Evening</div>
@@ -245,7 +188,7 @@ if($detail){
         <div>
             <label>Tell us about your needs</label>
             <div class="form-field">
-            <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
+            <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
             </div>
         </div>
 
@@ -350,7 +293,7 @@ if($detail){
             <br />
 
             <div>
-                <input type="submit" class="btn btn-success" value="Update"/>
+                <input id="careseekerButton" type="submit" class="btn btn-success" value="Update"/>
             </div>
 
         </div>
@@ -358,39 +301,6 @@ if($detail){
 </div>
 </div>
 
-<script type="text/javascript">
-function change_wage(val){
-    if(val==1){
-        $('#wage').removeAttr('name');
-        $('#wage').attr('name', 'hourly_rate');
-    }
-    else if(val=2){
-        $('#wage').removeAttr('name');
-        $('#wage').attr('name', 'monthly_rate');
-    }else if(val=3){
-       $('#wage').removeAttr('name');
-        $('#wage').attr('name', 'room_and_board_rate');
-    }
-}
-    $(document).ready(function(){
-       // if($('#ckbox1').is(':checked')){
-       //      $("#textbox1").show();
-       // }else{
-       //      $("#textbox1").hide();
-       //      $('#textbox1').val('');
-       // }
-
-       //  $("#ckbox1").change(function(){
-       //      if($('#ckbox1').is(':checked')){
-       //          $("#textbox1").show();
-       //      }else{
-       //          $("#textbox1").hide();
-       //          $('#textbox1').val('');
-       //      }
-       //  });
-    });
-
-</script>
 <!-- FILE UPLOAD -->
 
 

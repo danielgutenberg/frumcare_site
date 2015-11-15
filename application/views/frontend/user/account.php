@@ -72,7 +72,7 @@
                         <div>
                             <label>Type of Organization</label>
                             <select name="sub_care">
-                                <option>--Select Type of Organzation--</option>
+                                <option value="">--Select Type of Organzation--</option>
                                 <option value="day care center" <?php echo $user_data['sub_care'] == 'assisted living' ? 'selected="selected"' : '' ?> >Assisted living</option>
                                 <option value="day camp" <?php echo $user_data['sub_care'] == 'senior care center' ? 'selected="selected"' : '' ?>>Senior care center</option>
                                 <option value="afternoon activities" <?php echo $user_data['sub_care'] == 'nursing home' ? 'selected="selected"' : '' ?>>Nursing home</option>
@@ -82,7 +82,7 @@
                             </select>
                         </div> <?php
                     } ?>
-                    <div class="first-names">
+                     <div class="first-names">
                         <label>Location</label>
                         <div id="locationField">
                             <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
@@ -90,7 +90,7 @@
                             <input type="hidden" id="cityName" name="city" value="<?php echo isset($city)?$city:''?>"/>
                             <input type="hidden" id="stateName" name="state" value="<?php echo isset($state)?$state:''?>"/>
                             <input type="hidden" id="countryName" name="country" value="<?php echo isset($country)?$country:''?>"/>
-                            <input type="text" name="location" class="required" placeholder="Please enter a complete street address" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
+                            <input type="text" name="location" class="required" placeholder="Please enter a street address (For internal purposes only, full address will not be posted)" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
                         </div>
                         <span style="color:red;" id="error"> </span>
                     </div>
@@ -110,7 +110,7 @@
                     <div class="small-seperator"></div>
                     <div class="first-names">
                         <label>Phone</label>
-                        <input type="text" name="contact_number" id="conatct" placeholder="Contact Number" class="required" value="<?php echo (isset($phone[1])) ? $phone[1] : '' ?>"/>
+                        <input type="text" name="contact_number" id="conatct" placeholder="Contact Number" class="required" value="<?php echo (isset($phone[1])) ? $phone[1] : $user_data['contact_number'] ?>"/>
                     </div>
                     <div class="small-seperator"></div>
 
@@ -147,7 +147,7 @@
                     <?php } ?>
                     
                     
-                    
+                    <input type="hidden" name="save"/>
 
                     <div class="small-seperator"></div>
                     <div class="first-names">
@@ -259,36 +259,15 @@
                         <button class="btn btn-default" id="upload1">Choose File</button>
                         <input type="file" name="ImageFile" id="ImageFile1" style="display: none;"> <div class="loader1"></div>
                     </div>
-                    <?php /* 
-                        $photo_url = site_url("images/plus.png");
-                        if(isset($profile_picture)){
-                            $photo_url = base_url('images/profile-picture/thumb/'.$profile_picture);
-                        } */
-                    ?>                   
-                    
-                    <?php /* <div class="upload-photo">
-                        <h2>Upload a photo</h2>
-                        <input type="hidden" id="file-name" name="profile_picture" value="<?php echo isset($profile_picture)?>">
-                        <div id="output"><img src="<?php echo $photo_url?>"></div>
-                        <label>Browse your computer to select a file to upload</label>
-                        <button class="btn btn-default" id="upload">Choose File</button>
-                        <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
-                    </div> */?>
-
-                    <?php } ?>
-                    </div>             
+                    <?php } ?>       
                     <div class="small-seperator"></div>
-                    <div class="sign-up-btn"><input id="submit-btn" type="submit" name="save" class="btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/></div>
+                    <div class="sign-up-btn"><input id="edit-account-button" type="submit" name="save" class="btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/></div>
                 </form>
             </div>
         </div>
 </div>
-
-<script type="text/javascript" src="<?php echo site_url();?>js/jquery.ui.maskinput.js"></script>
-
 <script type="text/javascript">
     $(function(){
-        $('#edituserdetails').validate();
         $('.verifyemail').on('click',function(e){
             e.preventDefault();
             var email = $(this).attr('id');
@@ -329,62 +308,8 @@
     });
 </script>
 
-    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
-
-     <script>
-    $("#locationField").ready(function(){
-        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['address']});
-            google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                    $("#cityName").val('');
-                    $("#stateName").val('');
-                    $("#countryName").val('');
-                    var place = autocomplete.getPlace();
-                    var lat = place.geometry.location.lat();
-                    var lng = place.geometry.location.lng();
-                    var i = 0;
-                      var len = place.address_components.length;
-                      while (i < len) {
-                        var ac = place.address_components[i];
-                        if (ac.types.indexOf('locality') >= 0 || ac.types.indexOf('sublocality') >=0 ) {
-                          $("#cityName").val(ac.long_name);
-                        }
-                        if (ac.types.indexOf('administrative_area_level_1') >= 0) {
-                          $("#stateName").val(ac.short_name);
-                        }
-                        if (ac.types.indexOf('country') >= 0) {
-                          $("#countryName").val(ac.long_name);
-                        }
-                        i++;
-                      }
-                    $("#lat").val(lat);
-                    $("#lng").val(lng);
-                    document.getElementById("error").innerHTML="";
-                });
-    });
-     $("#textbox1").ready(function(){
-        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-     });
-
-     $(document).ready(function() {
-       $('.sign-up-btn').click(function(event) {
-        event.preventDefault();
-        if ($('#lat').val() == '') {
-            window.scrollTo(0, $("#locationField").offset().top);
-            $("#locationField").css('border-color', 'red')
-           document.getElementById("error").innerHTML="Please click on location from dropdown";
-        } else {
-            $('#edituserdetails').submit()
-        }
-     });
-    });
-
-</script>
 
 
-<script>
-
-</script>
 <!-- FILE UPLOAD -->
 <script type="text/javascript">
 	var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';

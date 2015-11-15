@@ -1,61 +1,4 @@
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
-<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
-<script>
-    $("#locationField").ready(function(){
-        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['address']});
-            google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                    $("#cityName").val('');
-                    $("#stateName").val('');
-                    $("#countryName").val('');
-                    var place = autocomplete.getPlace();
-                    var lat = place.geometry.location.lat();
-                    var lng = place.geometry.location.lng();
-                    var i = 0;
-                      var len = place.address_components.length;
-                      while (i < len) {
-                        var ac = place.address_components[i];
-                        if (ac.types.indexOf('locality') >= 0 || ac.types.indexOf('sublocality') >=0 ) {
-                          $("#cityName").val(ac.long_name);
-                        }
-                        if (ac.types.indexOf('administrative_area_level_1') >= 0) {
-                          $("#stateName").val(ac.short_name);
-                        }
-                        if (ac.types.indexOf('country') >= 0) {
-                          $("#countryName").val(ac.long_name);
-                        }
-                        i++;
-                      }
-                    $("#lat").val(lat);
-                    $("#lng").val(lng);
-                    document.getElementById("error").innerHTML="";
-                });
-    });
-     $("#textbox1").ready(function(){
-        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-     });
 
-     $(document).ready(function() {
-       $('.btn').click(function(event) {
-        event.preventDefault();
-        if ($('#lat').val() == '') {
-            window.scrollTo(0, $("#locationField").offset().top);
-            $("#locationField").css('border-color', 'red')
-           document.getElementById("error").innerHTML="Please click on location from dropdown";
-        } else {
-            $('#personal-details-form').submit()
-        }
-     });
-    })
-</script>
-  <script>
-  // $(function() {
-  //   $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-  // });
-$(document).ready(function(){
-     $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-})
-  </script>
 <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
 <?php
 $user_detail = get_user(check_user());
@@ -110,7 +53,7 @@ if($detail){
             <div>
                 <label>Name of Organization</label>
                 <div class="form-field">
-                    <input type="text" name="organization_name" value="<?php echo isset($organiztion_name) ? $organiztion_name : '' ?>" class="required">
+                    <input type="text" name="organization_name" value="<?php echo isset($organiztion_name) ? $organiztion_name : '' ?>" class="txt">
                 </div>
             </div>
             <div>
@@ -118,7 +61,7 @@ if($detail){
                 <div class="form-field">
                 <?php
                     if($this->uri->segment(4)==25){?>
-                        <select name="organization_type" class="required">
+                        <select name="organization_type" class="txt">
                             <option value="">Select type of organization</option>
                             <option value="Day Care Center" <?php echo isset($organization_type) && $organization_type == 'Day Care Center' ? 'selected' : '' ?>>Day Care Center</option>
                             <option value="Nursery/ Kindergarten" <?php echo isset($organization_type) && $organization_type == 'Nursery/ Kindergarten' ? 'selected' : '' ?>>Nursery / Kindergarten</option>
@@ -129,7 +72,7 @@ if($detail){
                         </select><?php
                     }
                     if($this->uri->segment(4)==26){?>
-                        <select name="organization_type" class="required">
+                        <select name="organization_type" class="txt">
                             <option value="">Select type of organization</option>
                             <option value="Assisted living residence" <?php echo isset($organization_type) && $organization_type == 'Assisted living residence' ? 'selected' : '' ?>>Assisted living residence</option>
                             <option value="Senior care center/ nursing home" <?php echo isset($organization_type) && $organization_type == 'Senior care center/ nursing home' ? 'selected' : '' ?>>Senior care center / nursing home</option>
@@ -139,7 +82,7 @@ if($detail){
                         </select><?php
                     }
                     if($this->uri->segment(4)==27){?>
-                        <select name="organization_type" class="required">
+                        <select name="organization_type" class="txt">
                             <option value="">Select type of organization</option>
                             <option value="Special needs care center" <?php echo isset($organization_type) && $organization_type == 'Special needs care center' ? 'selected' : '' ?>>Special needs care center</option>
                             <option value="Special needs activities center" <?php echo isset($organization_type) && $organization_type == 'Special needs activities center' ? 'selected' : '' ?>>Special needs activities center</option>
@@ -153,31 +96,31 @@ if($detail){
             <div>
                 <label>Contact name</label>
                 <div class="form-field">
-               <input type="text" name="name" placeholder="name" class="required" value="<?php echo isset($contact_name)? $contact_name:''; ?>"/>
+               <input type="text" name="name" placeholder="name" class="txt" value="<?php echo isset($contact_name)? $contact_name:''; ?>"/>
                 </div>
             </div>
             <div>
-            <label>Location</label>
+            <label>Location </label>
             <div id="locationField">
                 <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
                 <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/>
                 <input type="hidden" id="cityName" name="city" value="<?php echo isset($city)?$city:''?>"/>
                 <input type="hidden" id="stateName" name="state" value="<?php echo isset($state)?$state:''?>"/>
                 <input type="hidden" id="countryName" name="country" value="<?php echo isset($country)?$country:''?>"/>
-                <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
-            </div>
+                <input type="text" name="location" class="required" placeholder="Please enter a street address" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
+            </div> 
              <span style="color:red;" id="error"> </span>
         </div>
-        <div>
+         <div>
             <label>Neighborhood / Street</label>
             <div>
-               <input type="text" name="neighbour" class="required" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
-            </div>
-         </div>
+            <input type="text" name="neighbour" class="txt" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>
+            </div>    
+        </div>         
             <div>
                 <label>Phone</label>
                 <div class="form-field">
-                <input type="text" name="contact_number" class="required" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact_number"/>
+                <input type="text" name="contact_number" class="txt" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact_number"/>
                 </div>
             </div>
             <div>
@@ -225,13 +168,13 @@ if($detail){
                          <br>
                          <br>
                         <div class="checkbox"><input type="checkbox" value="Asap" name="availability[]" <?php if(in_array("Asap",$temp)){?> checked="checked"<?php }?>> Asap</div>
-                        <div class="checkbox"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]" <?php if(in_array("Start Date",$temp)){?> checked="checked"<?php }?>>Start Date<input type="text" name="start_date" <?php if($date!='0000-00-00'){ echo 'value='.$date;}?> id="textbox1"/></div>
+                        <div class="checkbox"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]" <?php if(in_array("Start Date",$temp)){?> checked="checked"<?php }?>>Start Date<input type="text" name="start_date" <?php if($date!='0000-00-00'){ echo 'value='.$date;}?> id="dateTextbox"/></div>                                        
                 </div>
             </div>
             <div>
                 <label>Details</label>
                 <div class="form-field">
-                <textarea name="profile_description" class="required"><?php echo isset($profile_description) ? $profile_description : '' ?></textarea>
+                <textarea name="profile_description" class="txt"><?php echo isset($profile_description) ? $profile_description : '' ?></textarea>
                 </div>
             </div>
 
@@ -334,7 +277,7 @@ if($detail){
             </div>
 
             <div>
-                   <input type="submit" class="btn btn-success" value="Update"/>
+                   <input id="careseekerButton" type="submit" class="btn btn-success" value="Update"/>
             </div>
         </div>
     </form>
@@ -348,6 +291,20 @@ if($detail){
     })
     var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
     var link = '<?php echo site_url("ad/upload_pp?files")?>';
+    $('#upload,#output').click(function(e){
+        e.preventDefault();
+        $('#ImageFile').trigger('click');
+        $('#ImageFile').on('change',prepareUpload);
+    });
+
+    $('#upload1,#output1').click(function(e){
+        e.preventDefault();
+        $('#ImageFile1').trigger('click');
+        $('#ImageFile1').on('change',uploadImage);
+    });
+    
+    
+
 
 
 

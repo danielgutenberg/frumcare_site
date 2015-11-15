@@ -40,7 +40,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 
             <label>Number of children willing to care for</label>
             <div class="form-field">
-                <div class="checkbox"><input type="text" value="" name="number_of_children" class="required number"/></div>
+                <div class="checkbox"><input type="text" value="" name="number_of_children" class="txt number"/></div>
                 <div class="checkbox"><input type="checkbox" value="twins" name="optional_number[]"/>Twins</div>
                 <div class="checkbox"><input type="checkbox" value="triplets" name="optional_number[]"/>Triplets</div>
             </div>
@@ -60,7 +60,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         <div>
             <label>Years of experience</label>
             <div class="form-field">
-            <select name="experience" class="required">
+            <select name="experience" class="txt">
                 <option value="">Select years of experience</option>
                 <option value="1" <?php echo isset($exp) && $exp == 1 ? 'selected' : '' ?>>1 year</option>
                 <option value="2" <?php echo isset($exp) && $exp == 2 ? 'selected' : '' ?>>2 years</option>
@@ -83,7 +83,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         <div class="rate-select">
             <label>Rate</label>
             <div class="form-field">
-                <select name="rate" class="required rate">
+                <select name="rate" class="txt rate">
                     <option value="">Select rate</option>
                     <option value="5-10">$5-$10 / Hr</option>
                     <option value="10-15">$10-$15 / Hr</option>
@@ -104,7 +104,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <label>Availability</label>
             <div class="form-field">
 				<div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]"/> Immediate</div>
-				<div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date <input  type="text" name="start_date" id="textbox1"/></div>
+				<div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date <input  type="text" name="start_date" id="dateTextbox"/></div>
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Occassionally"> <span>Occassionally</span></div>
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Regularly"> <span>Regularly</span></div>
                 <div class="checkbox"><input type="checkbox" name="availability[]" value="Morning"> <span>Morning</span></div>
@@ -119,7 +119,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         <div>
             <label>Tell us about yourself (Short description not cv)</label>
             <div class="form-field">
-            <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
+            <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
             </div>
         </div>
         <div>
@@ -141,14 +141,14 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         <div style="display:none">
             <label>Your references details</label>
             <div class="form-field not-required">
-            <textarea style="display:none" name="references_details" class="required"><?php echo isset($ref_det) ? $ref_det : '' ?></textarea>
+            <textarea style="display:none" name="references_details" class="txt"><?php echo isset($ref_det) ? $ref_det : '' ?></textarea>
             </div>
         </div>
         <div style="display:none">
             <label>Agree to background check?</label>
             <div class="form-field not-required">
-                <div class="radio"><input type="radio" value="1" name="bg_check" class="required" <?php echo isset($bg_check) && $bg_check == 1 ? 'checked' : '' ?>/> Yes</div>
-                <div class="radio"><input type="radio" value="2" name="bg_check" class="required" <?php echo isset($bg_check) && $bg_check == 2 ? 'checked' : '' ?> checked/> No</div>
+                <div class="radio"><input type="radio" value="1" name="bg_check"  <?php echo isset($bg_check) && $bg_check == 1 ? 'checked' : '' ?>/> Yes</div>
+                <div class="radio"><input type="radio" value="2" name="bg_check"  <?php echo isset($bg_check) && $bg_check == 2 ? 'checked' : '' ?> checked/> No</div>
             </div>
             <div>What's this? <a href="#">learn more</a></div>
         </div>
@@ -193,10 +193,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 </form>
 </div>
 <script>
- $("#textbox1").ready(function(){
-        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-     });
-$(document).ready(function(){
+$(document).ready(function(){    
         $('.chargetype').change(function(){
             if($(this).val() == 'hourly_rate')
                 $('.rate').attr('name','hourly_rate');
@@ -228,6 +225,3 @@ $(document).ready(function(){
         $('#file_upload').trigger('click');
     });//CODE BY CHAND
 </script>
-
-<script type="text/javascript" src="<?php echo site_url("js/fileuploader.js")?>"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">

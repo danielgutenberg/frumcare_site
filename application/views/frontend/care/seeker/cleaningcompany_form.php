@@ -1,54 +1,4 @@
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
-<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
-<script>
-    $("#locationField").ready(function(){
-        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['address']});
-            google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                    $("#cityName").val('');
-                    $("#stateName").val('');
-                    $("#countryName").val('');
-                    var place = autocomplete.getPlace();
-                    var lat = place.geometry.location.lat();
-                    var lng = place.geometry.location.lng();
-                    var i = 0;
-                      var len = place.address_components.length;
-                      while (i < len) {
-                        var ac = place.address_components[i];
-                        if (ac.types.indexOf('locality') >= 0 || ac.types.indexOf('sublocality') >=0 ) {
-                          $("#cityName").val(ac.long_name);
-                        }
-                        if (ac.types.indexOf('administrative_area_level_1') >= 0) {
-                          $("#stateName").val(ac.short_name);
-                        }
-                        if (ac.types.indexOf('country') >= 0) {
-                          $("#countryName").val(ac.long_name);
-                        }
-                        i++;
-                      }
-                    $("#lat").val(lat);
-                    $("#lng").val(lng);
-                    document.getElementById("error").innerHTML="";
-                });
-    });
-     $("#textbox1").ready(function(){
-        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-     });
 
-     $(document).ready(function() {
-       $('.btn').click(function(event) {
-        event.preventDefault();
-        if ($('#lat').val() == '') {
-            window.scrollTo(0, $("#locationField").offset().top);
-            $("#locationField").css('border-color', 'red')
-           document.getElementById("error").innerHTML="Please click on location from dropdown";
-        } else {
-            $('#personal-details-form').submit()
-            $('#newJob').submit()
-        }
-     });
-    });
-</script>
 <?php
 if(check_user()) {
 	$u = get_user(check_user());
@@ -73,7 +23,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 	<?php if(($this->uri->segment(2) != 'new_profile')){?>
 	<form action="<?php echo site_url();?>ad/add_careseeker_step2" method="post" id="personal-details-form">
 		<?php }else{
-			$attributes = array('id' => 'newJob');
+			$attributes = array('id' => 'careseekerButton');
             echo form_open('user/addprofileconfirm', $attributes);
 			if(!empty($record)){
 				echo form_hidden('account_category',$record['ac_type']);
@@ -95,38 +45,38 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 				<div>
 					<label>Name of Organization</label>
 					<div class="form-field">
-						<input type="text" name="organization_name" value="<?php if(isset($fn)) echo $fn;?>" class="required">
+						<input type="text" name="organization_name" value="<?php if(isset($fn)) echo $fn;?>" class="txt">
 					</div>
 				</div>
 				<div>
                 <label>Contact name</label>
                 <div class="form-field">
-                <input type="text" name="first_name" placeholder="First name" class="required"/>
+                <input type="text" name="first_name" placeholder="First name" class="txt"/>
                 <?php /* <input type="text" name="last_name" placeholder="Last name" class="required" value="<?php if(isset($ln)) echo $ln;?>"/> */?>
                 </div>
             </div>
             <div>
-<label>Location</label>
-<div id="locationField">
-    <input type="hidden" id="lat" name="lat"/>
-    <input type="hidden" id="lng" name="lng"/>
-    <input type="hidden" id="cityName" name="city"/>
-    <input type="hidden" id="stateName" name="state"/>
-    <input type="hidden" id="countryName" name="country"/>
-    <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
-<span style="color:red;" id="error"> </span>
-</div>
-</div>
-        <!--     <div>-->
-        <!--    <label>Neighborhood / Street</label>-->
-        <!--    <div>-->
-        <!--    <input type="text" name="neighbour" class="required" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />-->
-        <!--    </div>-->
-        <!--</div>-->
+            <label>Location </label>
+            <div id="locationField">
+                <input type="hidden" id="lat" name="lat"/>
+                <input type="hidden" id="lng" name="lng"/>
+            <input type="hidden" id="cityName" name="city"/>
+            <input type="hidden" id="stateName" name="state"/>
+            <input type="hidden" id="countryName" name="country"/>
+                <input type="text" name="location" class="required" placeholder="Please enter a street address" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
+            </div>
+            <span style="color:red;" id="error"> </span>
+        </div>
+        <div>
+            <label>Neighborhood / Street</label>
+            <div>
+            <input type="text" name="neighbour" class="txt" onFocus="geolocate()" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
+            </div>    
+        </div>         
 		<div>
 			<label>Phone</label>
 			<div class="form-field">
-				<input type="text" name="contact_number" class="required" value="<?php echo isset($phone)? $phone:''; ?>"/>
+				<input type="text" name="contact_number" class="txt" value="<?php echo isset($phone)? $phone:''; ?>"/>
 			</div>
 		</div>
 				<div>
@@ -188,7 +138,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <div>
                 <label>Details</label>
                 <div class="form-field">
-                    <textarea name="profile_description" class=""></textarea>
+                    <textarea name="profile_description" class="txt"></textarea>
                 </div>
             </div>
 
@@ -244,7 +194,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 					</div>
 				</div>
 				<div>
-					<input type="submit" class="btn btn-success" value="Save <?php if($this->uri->segment(2) != 'new_profile'){echo '& Continue';}?>"/>
+					<input id="careseekerButton" type="submit" class="btn btn-success" value="Save <?php if($this->uri->segment(2) != 'new_profile'){echo '& Continue';}?>"/>
 				</div>
 			</div>
 		</form>

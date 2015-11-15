@@ -58,7 +58,7 @@
             <div>
                 <label>Years of experience</label>
                 <div class="form-field">
-                    <select name="experience" class="required">
+                    <select name="experience" class="txt">
                         <option value="">Select years of experience</option>
                         <option value="1" <?php echo isset($exp) && $exp == 1 ? 'selected' : '' ?>>1 year</option>
                         <option value="2" <?php echo isset($exp) && $exp == 2 ? 'selected' : '' ?>>2 years</option>
@@ -91,7 +91,7 @@
             <div>
                 <label>Rate</label>
                 <div class="form-field">
-                    <select name="rate" class="required">
+                    <select name="rate" class="txt">
                         <option value="">Select rate</option>
                         <option value="5-10" <?php echo isset($rate) && $rate == '5-10' ? 'selected' : '' ?>>$5-$10/Hr</option>
                         <option value="10-15" <?php echo isset($rate) && $rate == '10-15' ? 'selected' : '' ?>>$10-$15/Hr</option>
@@ -112,7 +112,7 @@
             <div>
                 <label>Tell us about yourself (Short description not cv)</label>
                 <div class="form-field">
-                    <textarea name="profile_description" class="required"><?php echo isset($desc) ? $desc : '' ?></textarea>
+                    <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
                 </div>
             </div>
             <div>
@@ -133,7 +133,7 @@
             <div style="display:none">
                 <label>Your references details</label>
                 <div class="form-field not-required">
-                    <textarea style="display:none" name="references_details" class="required"><?php echo isset($ref_det) ? $ref_det : '' ?></textarea>
+                    <textarea style="display:none" name="references_details" class="txt"><?php echo isset($ref_det) ? $ref_det : '' ?></textarea>
                 </div>
             </div>
             <div style="display:none;">
