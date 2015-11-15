@@ -93,26 +93,27 @@ class Common_care_model extends CI_Model
     function filter($search,$latitude,$longitude)
     {
         if(is_array($search)){
-			$care_type  		= $search['care_type'];
-			$neighbour 			= $search['neighbour'];
-			$caregiverage_from 	= $search['caregiverage_from'];
-			$caregiverage_to 	= $search['caregiverage_to'];
-			$gender 			= $search['gender'];
-			$language 			= $search['language'];
-			$observance 		= $search['observance'];
-			$min_exp 			= $search['min_exp'];
-			$availability		= $search['availability'];
-			$carelocation 		= $search['carelocation'];
-			$trainings 			= $search['trainings'];
-			$able_to_work		= $search['able_to_work'];
-			$driver_license		= $search['driver_license'];
-			$vehicle			= $search['vehicle'];
-			$available 			= $search['available'];
-            $start_date         = $search['start_date'];
-            $able_to_work       = $search['able_to_work'];
-            $distance           = $search['distance'];
-            $sort_by            = $search['sort_by'];
-            $skills             = $search['skills'];
+			$care_type  		  = $search['care_type'];
+			$neighbour 			  = $search['neighbour'];
+			$caregiverage_from 	  = $search['caregiverage_from'];
+			$caregiverage_to 	  = $search['caregiverage_to'];
+			$gender_of_caregiver  = $search['gender_of_caregiver'];
+			$gender_of_careseeker = $search['gender_of_careseeker'];
+			$language 			  = $search['language'];
+			$observance 		  = $search['observance'];
+			$min_exp 			  = $search['min_exp'];
+			$availability		  = $search['availability'];
+			$carelocation 		  = $search['carelocation'];
+			$trainings 			  = $search['trainings'];
+			$able_to_work		  = $search['able_to_work'];
+			$driver_license		  = $search['driver_license'];
+			$vehicle			  = $search['vehicle'];
+			$available 			  = $search['available'];
+            $start_date           = $search['start_date'];
+            $able_to_work         = $search['able_to_work'];
+            $distance             = $search['distance'];
+            $sort_by              = $search['sort_by'];
+            $skills               = $search['skills'];
 		}
 		$sql = "select tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* from tbl_user left outer join  tbl_userprofile on tbl_user.id = tbl_userprofile.user_id left outer join tbl_care on tbl_care.id = tbl_userprofile.care_type where tbl_user.status = 1 and tbl_userprofile.profile_status=1";			
 
@@ -120,19 +121,50 @@ class Common_care_model extends CI_Model
 		    $sql .= " and tbl_care.service_type = 1";
 		}
 		
+		if ($care_type == 'jobs') {
+		    $sql .= " and tbl_care.service_type = 2";
+		}
+		
 		if ($care_type > 0) {
 		    $sql .= "  and tbl_userprofile.care_type=$care_type";
 		}
 		
-		
+		if(!empty($search['number_of_children']) && $search['number_of_children'] !='undefined'){				
+            $sql .= " and tbl_userprofile.number_of_children <=".$search['number_of_children'];
+        }
+        if(!empty($search['morenum']) && $search['morenum'] !='undefined'){				
+            $optional_number = explode(',',$search['morenum']);
+            if(is_array($optional_number)){
+                foreach($optional_number as $data){
+                    $sql .= " and FIND_IN_SET('$data',tbl_userprofile.optional_number)"; 
+                }
+            }
+        }
+        if(!empty($search['age_group']) && $search['age_group'] !='undefined'){				
+            $age_group = explode(',',$search['age_group']);
+             if(is_array($age_group)){
+                 $first = array_shift($age_group);
+            	 $sql .= " and (FIND_IN_SET('$first',tbl_userprofile.age_group)";
+            	 foreach($age_group as $data){
+            		 $sql .= " or FIND_IN_SET('$data',tbl_userprofile.age_group)";
+              	 }
+              	 $sql .= ")";
+            }
+        }
+        if(!empty($search['rate']) && $search['rate'] !='undefined'){
+                $sql .= " and tbl_userprofile.rate ='".$search['rate']. "'";
+            }
 		if($search['caregiverage_from'] && $search['caregiverage_to']){
             $sql .= " and tbl_user.age between ".$search['caregiverage_from'].' and '.$search['caregiverage_to'];
         }
         if($search['smoker']!=''){
 		    $sql .= " and tbl_userprofile.smoker=".$search['smoker'];
         }
-		if($search['gender'] && $search['gender'] != 3 ){                
-		     $sql .=" and tbl_user.gender=".$search['gender'];
+		if($search['gender_of_caregiver'] && $search['gender_of_caregiver'] != 3 ){                
+		     $sql .=" and tbl_user.gender=".$search['gender_of_caregiver'];
+		}
+		if($search['gender_of_careseeker'] && $search['gender_of_careseeker'] != 3 ){                
+		     $sql .=" and tbl_userprofile.gender=".$search['gender_of_careseeker'];
 		}
 
 		if($language!=''){
@@ -147,6 +179,15 @@ class Common_care_model extends CI_Model
 			}
 
 		}
+		if(!empty($search['subject']) && $search['subject'] !='undefined'){				
+                 $subject = explode(',',$search['subject']);
+                  if(is_array($subject)){
+                        foreach($subject as $data){
+                            $data1 = mysql_real_escape_string($data);
+                            $sql .= " and FIND_IN_SET('$data1',tbl_userprofile.subjects)"; 
+  	                     }
+                    }
+            }
 
 		if($observance){
             $observance = explode(',',$observance);
@@ -220,7 +261,7 @@ class Common_care_model extends CI_Model
 			$locations = explode(',',$carelocation);
 			if(is_array($locations)){
 				foreach($locations as $location):
-					$sql .=" and find_in_set('$location',tbl_userprofile.looking_to_work)";
+					$sql .=" and FIND_IN_SET('$location',tbl_userprofile.looking_to_work)";
 				endforeach;	
 			}
 		}
@@ -237,6 +278,15 @@ class Common_care_model extends CI_Model
             if(is_array($extra_field)){
                 foreach($extra_field as $data){
                     $sql .= " and FIND_IN_SET('$data',tbl_userprofile.extra_field)"; 
+                }
+            }
+        }
+        
+        if($search['looking_to_work'] !=''){				
+            $locations = explode(',',$search['looking_to_work']);
+            if(is_array($locations)){
+                foreach($locations as $data){
+                    $sql .= " and FIND_IN_SET(\"$data\",tbl_userprofile.looking_to_work)"; 
                 }
             }
         }

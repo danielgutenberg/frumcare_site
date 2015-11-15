@@ -18,6 +18,10 @@
     	    $this->load_ads('caregivers', 'Caregivers');
     	}
     	
+    	public function careseekers() {
+    	    $this->load_ads('jobs', 'Jobs', 2);
+    	}
+    	
     	public function babysitter() {
     	    $this->load_ads(1, 'Babysitter');
     	}
@@ -69,15 +73,69 @@
     	public function cleaninghousehold() {
     	    $this->load_ads(15, 'Cleaning / household help company', 3);
     	}
+    	
     	public function seniorcarecenter() {
     	    $this->load_ads(16, 'Assisted living / Senior Care Center / Nursing Home', 3);
     	}
     	
+    	public function careseeker_babysitter()
+    	{
+    	    $this->load_ads(17, 'Babysitter jobs', 2);
+    	}
+    	
+    	public function careseeker_nanny()
+    	{
+    	    $this->load_ads(18, 'Nanny jobs', 2);
+    	}
+    	
+    	public function careseeker_tutor()
+    	{
+    	    $this->load_ads(19, 'Tutor / private lessons jobs', 2);
+    	}
+    	
+    	public function careseeker_seniorcaregiver()
+    	{
+    	    $this->load_ads(20, 'Senior caregiver jobs', 2);
+    	}
+    	
+    	public function careseeker_errandrunner()
+    	{
+    	    $this->load_ads(21, 'Errand runner /odd jobs /personal assistant /driver jobs', 2);
+    	}
+    	
+    	public function careseeker_specialneedscaregiver()
+    	{
+    	    $this->load_ads(22, 'Special needs caregiver jobs', 2);
+    	}
+    	
+    	public function careseeker_cleaninghousehold()
+    	{
+    	    $this->load_ads(24, 'Cleaning / household help jobs', 2);
+    	}
+    	
+    	public function careseeker_childcarefacility()
+    	{
+    	    $this->load_ads(25, 'Workers / staff for childcare facility jobs', 3);
+    	}
+    	
+    	public function careseeker_seniorcarefacility()
+    	{
+    	    $this->load_ads(26, 'Workers / staff for senior care facility jobs', 3);
+    	}
+    	
+    	public function careseeker_specialneedsfacility()
+    	{
+    	    $this->load_ads(27, 'Workers / staff for special needs facility jobs', 3);
+    	}
+    	
+    	public function careseeker_cleaningcompany()
+    	{
+    	    $this->load_ads(28, 'Workers for cleaning company jobs', 3);
+    	}
     	
     	public function load_ads($care, $title, $account_category = 1) {
     	    $item_per_page = 15;
             $option = "distance";
-            $account_category = 1;
             $distance = "unlimited";                     
             $this->breadcrumbs->push($title, site_url().'#');
             $this->breadcrumbs->unshift('Home', base_url());

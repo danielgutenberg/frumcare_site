@@ -174,7 +174,7 @@
         ?>
         <span id="locationaddress"><?php echo $location['place'];?></span>
 	</h3>
-
+    
 	<?php if(($account_category == 1) || ($care_type < 17 && $care_type > 0)){
         $ac = $account_category==3?3:1; ?>
         <div class="want-top"><p>Want Caregivers to Contact you?<a href='<?php echo site_url()."signup?ac=$ac"?>' class="btn btn-primary ml10 btn-xs">Post a Job for free</a></p></div>
@@ -232,10 +232,12 @@ if ($pages > 1) {
         var per_page = $("#per_page").val();
         var distance = $("#sort_by_miles").val();
         var sort_by = $('#sort_by_select').val();
-		var care_type = $('.care_type').val() ? $('.care_type').val() : '';
+		var care_type = $('#careId').val();
+		var rate = $('.rate').val();
         var caregiverage_from = $('.caregiverage_from').val() ? $('.caregiverage_from').val() : '';
         var caregiverage_to = $('.caregiverage_to').val() ? $('.caregiverage_to').val() : '';
-        var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
+        var gender_of_caregiver = $('.gender_of_caregiver').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
+        var gender_of_careseeker = $('.gender_of_careseeker').is(':checked')?$('input[name=gender_of_careseeker]:checked').val():'';
         var lang = $('.lang:checked').map(function(_, el) {
 	        return $(el).val();
 	    }).get();
@@ -275,6 +277,9 @@ if ($pages > 1) {
         var year_experience = $('.year_experience:checked').map(function(_, el) {
 	        return $(el).val();
 	    }).get();
+	    var subject = $('.subject:checked').map(function(_, el) {
+            return $(el).val();
+        }).get();
 	    var pick_up_child = $('.pick_up_child').is(':checked') ? $('.pick_up_child').val() : '';
         var cook = $('.cook').is(':checked') ? $('.cook').val():'';
         var basic_housework = $('.basic_housework').is(':checked') ? $('.basic_housework').val() :'';
@@ -299,7 +304,7 @@ if ($pages > 1) {
 		$.ajax({
 			type:"get",
 			url:"<?php echo site_url();?>common_care_controller/search",
-			data:"care_type="+care_type+"&skills="+skills+"&per_page="+per_page+"&distance="+distance+"&sort_by="+sort_by+"&pagenum="+pagenum+"&bath_children="+bath_children+"&bed_children="+bed_children+"&pick_up_child="+pick_up_child+"&cook="+cook+"&basic_housework="+basic_housework+"&homework_help="+homework_help+"&lat="+lat+"&lng="+lng+"&location="+location+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender="+gender+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&carelocation="+carelocations+"&trainings="+trainings+"&able_to_work="+able_to_work+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&start_date="+start_date+"&smoker="+smoker+"&extra_field="+extra_field+"&accept_insurance="+accept_insurance,
+			data:"care_type="+care_type+"&subject="+subject+"&rate="+rate+"&skills="+skills+"&per_page="+per_page+"&distance="+distance+"&sort_by="+sort_by+"&pagenum="+pagenum+"&bath_children="+bath_children+"&bed_children="+bed_children+"&pick_up_child="+pick_up_child+"&cook="+cook+"&basic_housework="+basic_housework+"&homework_help="+homework_help+"&lat="+lat+"&lng="+lng+"&location="+location+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender_of_careseeker="+gender_of_careseeker+"&gender_of_caregiver="+gender_of_caregiver+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&carelocation="+carelocations+"&trainings="+trainings+"&able_to_work="+able_to_work+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&start_date="+start_date+"&smoker="+smoker+"&extra_field="+extra_field+"&accept_insurance="+accept_insurance,
 			success:function(done){
 				$(".searchloader").fadeOut("fast");
 				var json = jQuery.parseJSON(done);
@@ -326,13 +331,13 @@ if ($pages > 1) {
             filterCaregivers();
 		});        
         
-        $('.accept_insurance,.number_of_children,.year_experience,.age_group,#textbox1,.sub_care,#per_page,#sort_by_miles,#sort_by_select').change(function(){
+        $('.rate,.accept_insurance,.number_of_children,.year_experience,.age_group,#textbox1,.sub_care,#per_page,#sort_by_miles,#sort_by_select').change(function(){
 			$(".searchloader").fadeIn("fast");
 			$('#pagenum').val(1);
             filterCaregivers();
 		});
               
-		$('.skills,.extra_field,.gender,.smoker,.lang,.observance,.homework_help,.on_short_notice,.sick_child_care,.morenum,.basic_housework,.vehicle,.looking_to_work,.year_experience,.training,.availability,.driver_license,.pick_up_child,.cook,.carelocation').click(function(){
+		$('.subject,.skills,.extra_field,.gender_of_caregiver,.gender_of_careseeker,.smoker,.lang,.observance,.homework_help,.on_short_notice,.sick_child_care,.morenum,.basic_housework,.vehicle,.looking_to_work,.year_experience,.training,.availability,.driver_license,.pick_up_child,.cook,.carelocation').click(function(){
             $(".searchloader").fadeIn("fast");
             $('#pagenum').val(1);
             filterCaregivers();
@@ -340,6 +345,7 @@ if ($pages > 1) {
         
         //for pagination
         $(document).on('click','.paginate_click',function (e) {
+            $(".searchloader").fadeIn("fast");
             if ($(this).attr("id") == 'previous') {
                 var page_num = parseInt($('.paginate_click.active').attr('id').split('-')[0]) - 1
                 if (page_num == 0) {
@@ -393,7 +399,7 @@ if ($pages > 1) {
         buttons: {
             "OK": function () {
                 $(this).dialog("close");
-        		var care_type = $('.care_type').val();
+        		var care_type = $('#careId').val();
         		var caregiverage_from = $('.caregiverage_from').val() ? $('.caregiverage_from').val() : '';
                 var caregiverage_to = $('.caregiverage_to').val() ? $('.caregiverage_to').val() : '';
         		var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
