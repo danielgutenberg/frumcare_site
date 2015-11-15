@@ -75,7 +75,7 @@ $route['admin/user/profile/view/(:any)'] = 'admin/user/viewprofile/$1';
 //$route['caregivers/organization']	     = 'caregivers';
 $route['careseekers/organization']	     = 'careseekers';
 
-//Routes by kiran
+//Routes for Caregivers Search pages
 $route['caregivers/all'] = 'common_care_controller';
 $route['caregivers/babysitter'] = 'common_care_controller/babysitter';
 $route['caregivers/nanny-au-pair'] = 'common_care_controller/nanny';
@@ -92,27 +92,21 @@ $route['caregivers/special-needs-center'] = 'common_care_controller/specialneeds
 $route['caregivers/cleaning-household-help-company'] = 'common_care_controller/cleaninghousehold';
 $route['caregivers/assisted-living-senior-care-center-nursing-home'] = 'common_care_controller/seniorcarecenter';
 
-$route['caregivers/organizations'] = 'organizations';
-$route['caregivers/organizations/(:any)'] = 'organizations';
-
-// $route['test'] = 'ad/sendRelevantAds';
- 
-
-
-$route['jobs/all'] = 'careseekers';
-$route['jobs/babysitter'] = 'careseeker_babysitter';
-$route['jobs/nanny-au-pair'] = 'careseeker_nanny';
-$route['jobs/tutor-private-lessons'] = 'careseeker_tutor';
-$route['jobs/senior-caregiver'] = 'careseeker_seniorcaregiver';
-$route['jobs/special-needs-caregiver'] = 'careseeker_specialneedscaregiver';
+//Routes for Jobs Search pages
+$route['jobs/all'] = 'common_care_controller/careseekers';
+$route['jobs/babysitter'] = 'common_care_controller/careseeker_babysitter';
+$route['jobs/nanny-au-pair'] = 'common_care_controller/careseeker_nanny';
+$route['jobs/tutor-private-lessons'] = 'common_care_controller/careseeker_tutor';
+$route['jobs/senior-caregiver'] = 'common_care_controller/careseeker_seniorcaregiver';
+$route['jobs/special-needs-caregiver'] = 'common_care_controller/careseeker_specialneedscaregiver';
 $route['jobs/therapists'] = 'careseeker_therapist';
-$route['jobs/cleaning-household-help'] = 'careseeker_cleaninghousehold';
-$route['jobs/errand-runner-odd-jobs-personal-assistant-driver'] = 'careseeker_errandrunner';
+$route['jobs/cleaning-household-help'] = 'common_care_controller/careseeker_cleaninghousehold';
+$route['jobs/errand-runner-odd-jobs-personal-assistant-driver'] = 'common_care_controller/careseeker_errandrunner';
 
-$route['jobs/workers-staff-for-childcare-facility'] = 'careseeker_childcarefacility';
-$route['jobs/workers-staff-for-senior-care-facility'] = 'careseeker_seniorcarefacility';
-$route['jobs/workers-staff-for-special-needs-facility'] = 'careseeker_specialneedsfacility';
-$route['jobs/workers-for-cleaning-company'] = 'careseeker_cleaningcompany';
+$route['jobs/workers-staff-for-childcare-facility'] = 'common_care_controller/careseeker_childcarefacility';
+$route['jobs/workers-staff-for-senior-care-facility'] = 'common_care_controller/careseeker_seniorcarefacility';
+$route['jobs/workers-staff-for-special-needs-facility'] = 'common_care_controller/careseeker_specialneedsfacility';
+$route['jobs/workers-for-cleaning-company'] = 'common_care_controller/careseeker_cleaningcompany';
 
 $route['caregivers/workers-staff-for-childcare-facility'] = 'careseeker_childcarefacility';
 $route['caregivers/workers-staff-for-senior-care-facility'] = 'careseeker_seniorcarefacility';
@@ -120,6 +114,11 @@ $route['caregivers/workers-staff-for-special-needs-facility'] = 'careseeker_spec
 $route['caregivers/workers-for-cleaning-company'] = 'careseeker_cleaningcompany';
 
 $route['jobs/details/(:any)'] = 'careseekers/details';
+
+$route['caregivers/organizations'] = 'organizations';
+$route['caregivers/organizations/(:any)'] = 'organizations';
+
+// $route['test'] = 'ad/sendRelevantAds';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
