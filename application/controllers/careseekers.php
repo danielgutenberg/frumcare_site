@@ -13,7 +13,6 @@
 			$this->ipaddress = $_SERVER['REMOTE_ADDR'];
 		}
         public function index(){
-            //echo 'working'; exit;
             $item_per_page = 15;
             $option = "distance";
             $account_category = 2;
@@ -50,8 +49,6 @@
 
             $userdata       = $this->common_care_model->sort($item_per_page,$latitude,$longitude,$option,$account_category,$care_type,$distance);
             $get_total_rows = count($userdata);
-            //$user=array_slice($userdata, 0 ,15);
-            //print_r($user); exit;
             $data = array(
               				'main_content' 	    => 'frontend/common_caregiver',
               				'title'			    => $title,

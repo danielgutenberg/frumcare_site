@@ -344,25 +344,7 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         }
         ?>
     </p>
-    <div class="map">
-        <?php $loca = '';
-                if ($recordData['city'] != '') {
-                    $loca .= $recordData['city'];
-                }
-                if ($recordData['state'] != '') {
-                    $loca .= ', ' . $recordData['state'];
-                }
-                if ($recordData['country'] != '') {
-                    $loca .= ', ' . $recordData['country'];
-                }?>
-        <h2>Map Location (<?php echo $loca; ?>)</h2>
-
-
-
-
-        <div id="map"></div>
-
-    </div>
+    
 </div>
 <?php
 if($recordData['care_type'] < 10){?>
@@ -584,7 +566,25 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 </ul>
 <?php } ?>
 </div>
+<div class="map">
+        <?php $loca = '';
+                if ($recordData['city'] != '') {
+                    $loca .= $recordData['city'];
+                }
+                if ($recordData['state'] != '') {
+                    $loca .= ', ' . $recordData['state'];
+                }
+                if ($recordData['country'] != '') {
+                    $loca .= ', ' . $recordData['country'];
+                }?>
+        <h2>Map Location (<?php echo $loca; ?>)</h2>
 
+
+
+
+        <div id="map"></div>
+
+    </div>
 							<?php /*
 							<div class="education-major-wrap">
 								<div class="education-major">
@@ -795,8 +795,8 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
         div: '#map',
         lat: 31.7963186,
         lng: 35.175359,
-        width: '500px',
-        height: '500px'
+        width: '235px',
+        height: '250px'
 
     });
 
