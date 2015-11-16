@@ -90,7 +90,7 @@ class Common_care_model extends CI_Model
          }    
     }
     
-    function filter($search,$latitude,$longitude)
+    function filter($search,$latitude,$longitude, $organization)
     {
         if(is_array($search)){
 			$care_type  		  = $search['care_type'];
@@ -115,6 +115,7 @@ class Common_care_model extends CI_Model
             $sort_by              = $search['sort_by'];
             $skills               = $search['skills'];
 		}
+		
 		$sql = "select tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* from tbl_user left outer join  tbl_userprofile on tbl_user.id = tbl_userprofile.user_id left outer join tbl_care on tbl_care.id = tbl_userprofile.care_type where tbl_user.status = 1 and tbl_userprofile.profile_status=1";			
 
 		if ($care_type == 'caregivers') {
@@ -248,7 +249,9 @@ class Common_care_model extends CI_Model
 		if($min_exp!=''){
 			$sql .= " and tbl_userprofile.experience >= $min_exp";
 		}
-
+        if ($organization) {
+		    $sql .= " and (FIND_IN_SET('Caregiving institution',tbl_userprofile.looking_to_work) OR FIND_IN_SET('Cleaning Company',tbl_userprofile.looking_to_work))";
+		}
 		if($availability!=''){
 			$times = explode(',',$availability);
 			if(is_array($times)){

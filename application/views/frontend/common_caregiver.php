@@ -19,7 +19,7 @@
 <?php
     $s1 = $this->uri->segment(1); // must be caregivers, jobs, organization
     $s2 = $this->uri->segment(2); // must be care type, job type
-
+    $s3 = $this->uri->segment(3);
     if($s1=='jobs' && ($s2 == 'all'|| $s2 ==''))
         $left_navbar='all_jobs';
 
@@ -111,6 +111,28 @@
         elseif($s1 == 'jobs')
             $left_navbar='careseeker_childcarefacility';
     }
+    
+    if($s1 == 'caregivers' && $s2 == 'organizations' && $s3 == 'workers-staff-for-childcare-facility'){        
+            $left_navbar='organization_childcare';
+    }
+            
+    if($s1 == 'caregivers' && $s2 == 'organizations' && $s3 == 'workers-staff-for-senior-care-facility'){       
+        $left_navbar='organization_senior_caregiver';       
+    }        
+    if( $s1 == 'caregivers' && $s2 == 'organizations' && $s3 == 'workers-staff-for-special-needs-facility'){
+        
+            $left_navbar='organization_special_needs_caregiver';
+        
+    }        
+    if( $s1 == 'caregivers' && $s2 == 'organizations' && $s3 == 'workers-for-cleaning-company'){        
+            $left_navbar='organization_cleaning';            
+    }
+    if( $s1=='caregivers' && $s2 == 'organizations' && $s3 == '') {
+        $left_navbar='all';
+    }   
+    if( $s1=='caregivers' && $s2 == 'organizations' && $s3 == 'all') {
+        $left_navbar='all';
+    }
 
     if($s2 == 'workers-staff-for-senior-care-facility'){
         if($s1 == 'caregivers')
@@ -143,7 +165,11 @@
     <br />
 
     <div class="searchloader" style="display:none"></div>
+    <?php if ($care_type < 10 && $account_category == 3) {?>
+    Find Workers for your <?php $this->load->view('frontend/common/left_nav_title');?>  <br>
+    <?php } else {?>
     Find a <?php $this->load->view('frontend/common/left_nav_title'); if($s1 == 'jobs') {echo 'Job';}?>  <br>
+    <?php } ?>
     Near <t id="locationSearch">
 		<input type="text" name="location" class="required" value="<?php echo $location['place'] ?>" placeholder="Please enter a street address" id="autocomplete" style="width: 229px;margin-left: 9px;"/>
 		<input type="hidden" id="lng" value="<?php echo $location['lng']?>">
@@ -175,11 +201,10 @@
         <span id="locationaddress"><?php echo $location['place'];?></span>
 	</h3>
     
-	<?php if(($account_category == 1) || ($care_type < 17 && $care_type > 0)){
+	<?php if($care_type < 17 && $care_type > 0){
         $ac = $account_category==3?3:1; ?>
         <div class="want-top"><p>Want Caregivers to Contact you?<a href='<?php echo site_url()."signup?ac=$ac"?>' class="btn btn-primary ml10 btn-xs">Post a Job for free</a></p></div>
-    <?php }
-        if(($account_category == 2) || ($care_type > 16 && $care_type < 29) ){
+    <?php } else {
             $ac = $account_category==3?3:2; ?>
         <div class="want-top"><p>Want Employers to Contact you?<a href='<?php echo site_url()."signup?ac=$ac"?>' class="btn btn-primary ml10 btn-xs">Create a Profile for free</a></p></div>
     <?php } ?>
