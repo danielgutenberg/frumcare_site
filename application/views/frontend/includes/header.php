@@ -107,8 +107,8 @@
     <script src="<?php echo base_url('js/select.js') ?>"></script>
     <script src="<?php echo base_url();?>js/jquery.ui.maskinput.js"></script>
     <script type="text/javascript" src="<?php echo site_url();?>js/jquery-ui.js"></script>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
-    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
+    <!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
+    <!--<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
     <link href="<?php echo site_url();?>css/jquery-ui.css" type="text/css" rel="stylesheet">
         <script src="<?php echo base_url('js/vendor/modernizr-2.6.2-respond-1.1.0.min.js') ?>"></script>
 
@@ -403,8 +403,5 @@ $(function(){
 <script>
     $(document).ready(function(){
         $('#contact_number').mask('999-999-9999');
-    });
-    $(document).ready(function(){
-        $('#contact').mask('999-999-9999');
     });
 </script>
