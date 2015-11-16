@@ -108,15 +108,10 @@ $route['jobs/workers-staff-for-senior-care-facility'] = 'common_care_controller/
 $route['jobs/workers-staff-for-special-needs-facility'] = 'common_care_controller/careseeker_specialneedsfacility';
 $route['jobs/workers-for-cleaning-company'] = 'common_care_controller/careseeker_cleaningcompany';
 
-$route['caregivers/workers-staff-for-childcare-facility'] = 'careseeker_childcarefacility';
-$route['caregivers/workers-staff-for-senior-care-facility'] = 'careseeker_seniorcarefacility';
-$route['caregivers/workers-staff-for-special-needs-facility'] = 'careseeker_specialneedsfacility';
-$route['caregivers/workers-for-cleaning-company'] = 'careseeker_cleaningcompany';
-
 $route['jobs/details/(:any)'] = 'careseekers/details';
 
-$route['caregivers/organizations'] = 'organizations';
-$route['caregivers/organizations/(:any)'] = 'organizations';
+$route['caregivers/organizations'] = 'common_care_controller/organizations';
+$route['caregivers/organizations/(:any)'] = 'common_care_controller/organizations/$1';
 
 // $route['test'] = 'ad/sendRelevantAds';
 

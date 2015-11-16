@@ -133,7 +133,33 @@
     	    $this->load_ads(28, 'Workers for cleaning company jobs', 3);
     	}
     	
-    	public function load_ads($care, $title, $account_category = 1) {
+    	public function organizations($care = null)
+    	{
+    	    $title = 'Workers / Staff';
+            $care_type = 'organizations'; 
+    	    if( $care == 'workers-staff-for-childcare-facility' ) {
+                $title = "Workers / Staff for childcare facility";
+                $care_type = 1;
+            }
+            elseif( $care == 'workers-staff-for-senior-care-facility') {
+                $title = "Workers / Staff for senior care facility";
+                $care_type = 5;
+            }
+            
+            elseif( $care == 'workers-staff-for-special-needs-facility') {
+                $title = "Workers / Staff for special needs facility";
+                $care_type = 6;
+            }
+            
+            elseif( $care == 'workers-for-cleaning-company') {
+                $title = "Workers for cleaning company";
+                $care_type = 8;
+            }
+            
+            $this->load_ads($care_type, $title, 3, true);
+    	}
+    	
+    	public function load_ads($care, $title, $account_category = 1, $organization = false) {
     	    $item_per_page = 15;
             $option = "distance";
             $distance = "unlimited";                     
@@ -158,7 +184,7 @@
                 'sort_by'   => $option,
                 'per_page'  => $item_per_page
             ];
-            $userdata = $this->common_care_model->filter($data,$latitude,$longitude);
+            $userdata = $this->common_care_model->filter($data,$latitude,$longitude, $organization);
             
             $get_total_rows = count($userdata);
             $data = array(
@@ -195,7 +221,12 @@
                 $location = $results['location'];
     		}
     		$data = $this->input->get(NULL, true);
-    		$result = $this->common_care_model->filter($data,$latitude,$longitude);
+    		if ($this->input->get('care_type') > 30) {
+    		    $data['care_type'] = $this->input->get('care_type') - 30;
+    		    $result = $this->common_care_model->filter($data,$latitude,$longitude, true);
+    		} else {
+    		    $result = $this->common_care_model->filter($data,$latitude,$longitude);
+    		}
             if(!$result) {
                 $total = 0;
             } else {
