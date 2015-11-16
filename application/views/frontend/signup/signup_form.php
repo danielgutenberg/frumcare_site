@@ -39,8 +39,7 @@ if($this->uri->segment(2)!='edit'){
 
 <?php  } ?> 
 
-<div class="container sign-up-forms" style="width:850px";>
-    <div class="signUpLeft" style="width:400px;display:inline-block;float:left">
+<div class="container sign-up-forms">
     <?php flash();?>
     <?php if(segment(3) == '') { ?>
     <h2>
@@ -120,15 +119,6 @@ if($this->uri->segment(2)!='edit'){
     <?php /* <a href="<?php echo base_url();?>user/verifyemailaddress/<?php echo sha1($email);?>" id="<?php echo $email;?>" class="verifyemail">Click here</a> to verfiy your email address. */?>
 
     <?php } ?>
-    </div>
-    
-    <div class="signUpRight" style="width:400px;display:inline-block;float:right">
-        <h2>Need a Caregiver?</h2>
-        <p>Connect with the perfect caregiver for your family on FrumCare. <br>  Get started by creating your free account now! <br></p>
-        <span>&check; Search quality caregivers in your area</span><br>
-        <span>&check; Set up search alerts and receive new caregiver profiles directly to your inbox</span><br>
-        <span>&check; Post a job and get contacted by caregivers in your area</span><br>
-        <span>&check; Get access to exciting new features helping you with your care needs</span>
     </div>
 </div>
     
@@ -282,45 +272,42 @@ if($this->uri->segment(2)!='edit'){
         
     }
 
-     function getAccountCat(account_category,service_by){
-        $.ajax({
-                type:"post",
-                url:"<?php echo site_url();?>ad/getCareType",
-                data:"care_type="+account_category+"&service_by="+service_by,
-                dataType:"json",
-                success:function(done){
-                   if(done){
-                    $('#select_options').html(done).show();
-                   }
-                   if(account_category == 1){
-                    var organization = $('.organization:checked').val();
-                        $('.msg').text('Type of care you provide');
-                        if(organization == 3){
-                            $('.parent').text('Organization Info');
-                            $('.personal').css('display','none');
-                            $('.started').text('Organization Details');
-                        }else{
-                            $('.parent').text('Personal Details');
-                            $('.personal').css('display','inline-block');
-                            $('.started').text('Start Getting Calls');    
-                        }
-                   }
-                   if(account_category == 2){
-                       var organization = $('.organization:checked').val();
-
-                        $('.msg').text('Type of care you are seeking');
-                        if(organization == 3){
-                            $('.parent').text('Job Details');
-                            $('.personal').css('display','none');
-                            $('.started').text('Start Getting Calls');    
-                        }else{
-                            $('.parent').text('Job Details');
-                            $('.personal').css('display','none');
-                            $('.started').text('Start Getting Calls');    
-                        }
+    function getAccountCat(account_category,service_by){
+        var parent_options = '<select id="care_type" class="required" name="care_type"><option value="" class="msg">Type of care you are seeking</option><option value="17_1">Babysitter</option><option value="18_1">Nanny / Au-pair</option><option value="19_1">Tutor / private lessons</option><option value="20_1">Senior caregiver</option><option value="22_1">Special needs caregiver</option><option value="24_1">Cleaning / household help</option><option value="21_1">Errand runner / odd jobs / personal assistant / driver</option></select>'
+        var caregiver_options = '<select id="care_type" class="required" name="care_type"><option value="" class="msg">Type of care you provide</option><option value="1_1">Babysitter</option><option value="2_1">Nanny / Au-pair</option><option value="3_1">Nursery / Playgroup / Drop off / Gan</option><option value="4_1">Tutor / Private lessons</option><option value="5_1">Senior Caregiver</option><option value="6_1">Special needs caregiver</option><option value="7_1">Therapist</option><option value="8_1">Cleaning / household help</option><option value="9_1">Errand runner / odd jobs / personal assistant / driver</option></select>'
+        var caregiver_organization_options = '<select id="care_type" class="required" name="care_type"><option value="" class="msg">Type of care you provide</option><option value="10_2">Day Care Center / Day Camp / Afternoon Activities</option><option value="13_2">Senior Care Agency</option><option value="16_2">Assisted living / Senior Care Center / Nursing Home</option><option value="14_2">Special needs center</option><option value="15_2">Cleaning / household help company</option></select>'
+        var find_worker_options = '<select id="care_type" class="required" name="care_type"><option value="" class="msg">Type of care you are seeking</option><option value="25_2">Workers / staff for childcare facility</option><option value="26_2">Workers / staff for senior care facility</option><option value="27_2">Workers / staff for special needs facility</option><option value="28_2">Workers for cleaning company</option></select>'
+        
+        if(account_category == 1) {
+            var organization = $('.organization:checked').val();
+            $('.msg').text('Type of care you provide');
+            if(organization == 3) {
+                $('#select_options').html(caregiver_organization_options).show();
+                $('.parent').text('Organization Info');
+                $('.personal').css('display','none');
+                $('.started').text('Organization Details');
+            } else {
+                $('#select_options').html(caregiver_options).show();
+                $('.parent').text('Personal Details');
+                $('.personal').css('display','inline-block');
+                $('.started').text('Start Getting Calls');    
+            }
+        }
+        if(account_category == 2){
+           var organization = $('.organization:checked').val();
+            $('.msg').text('Type of care you are seeking');
+            if(organization == 3){
+                $('#select_options').html(find_worker_options).show();
+                $('.parent').text('Job Details');
+                $('.personal').css('display','none');
+                $('.started').text('Start Getting Calls');    
+            }else{
+                $('#select_options').html(parent_options).show();
+                $('.parent').text('Job Details');
+                $('.personal').css('display','none');
+                $('.started').text('Start Getting Calls');    
+            }
                         
-                   }
-                }
-        });
+       }
     }
 </script>
