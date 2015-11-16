@@ -1,5 +1,4 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-<link href="<?php echo site_url();?>css/progressbar.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" href="<?php echo base_url('css/bootstrap-responsive.min.css') ?>"><link href="<?php echo site_url();?>css/progressbar.css" type="text/css" rel="stylesheet"/>
 <?php
 $action = 'signup/save_user';
 if(segment(3) != '') {
