@@ -4874,8 +4874,8 @@ body {
 }
 
 .testimonials_title {
-  font-size: 62px;
-  text-transform: uppercase;
+  font-size: 40px;
+  /*text-transform: uppercase;*/
   color: #27aae1;
   text-align: center;
   margin: 48px 0 40px;
