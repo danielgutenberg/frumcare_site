@@ -128,10 +128,10 @@
             $left_navbar='organization_cleaning';            
     }
     if( $s1=='caregivers' && $s2 == 'organizations' && $s3 == '') {
-        $left_navbar='all';
+        $left_navbar='organizations';
     }   
     if( $s1=='caregivers' && $s2 == 'organizations' && $s3 == 'all') {
-        $left_navbar='all';
+        $left_navbar='organizations';
     }
 
     if($s2 == 'workers-staff-for-senior-care-facility'){
