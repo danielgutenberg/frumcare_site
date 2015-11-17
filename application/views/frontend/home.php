@@ -287,31 +287,8 @@
         <section class="client-say">
             <div class="container">
                 <div class="row">
-                <h2 class="title">Like our site? Questions? Comments? We're Listening!</h2>
-
-
-                <?php /*<div class="toll-info-chat">
-                    <span class="toll-num">Toll:111-222-333</span>
-                    <br/>
-                    <span class="info-com">info@frumcare.com</span>
-                    <br/>
-                    <span class="chats-wrap">Chat</span>
-                </div> */?>
-                <div class="contact-form-help col-sm-12 col-xs-12" style="">
-                  <span>Contact Form </span>
-
-                  <form action="<?php echo site_url();?>help/send_message" method="post" name="contact" id="contact-form">
-                     <div><span class="contact-form-name"><input type="text" name="name" placeholder="Name" ></span>
-
-                         <span class="contact-form-email"><input type="text" name="email" placeholder="Email" ></span>
-                     </div>			<span class="contact-form-message"><textarea name="message" placeholder="Write a message"></textarea></span>
-                     <div class="clearfix"></div>
-                     <span class="contact-submit-btn"><input type="submit" name="submit_now" value="Submit Now" id="submit_now" /></span>
-                 </form>
-
-             </div>
-
-             <h2 class="title">What People Says About Us</h2>
+                
+                <h2 class="title">What people are saying about us</h2>
 
              <div class="col-md-6 col-sm-6 col-xs-12" style="border-right:1px solid #ccc;">
 
@@ -342,6 +319,32 @@
                     </article>
 
              </div>
+                
+                <h2 class="title">Like our site? Questions? Comments? We're Listening!</h2>
+
+
+                <?php /*<div class="toll-info-chat">
+                    <span class="toll-num">Toll:111-222-333</span>
+                    <br/>
+                    <span class="info-com">info@frumcare.com</span>
+                    <br/>
+                    <span class="chats-wrap">Chat</span>
+                </div> */?>
+                <div class="contact-form-help col-sm-12 col-xs-12" style="">
+                  <span>Contact Form </span>
+
+                  <form action="<?php echo site_url();?>help/send_message" method="post" name="contact" id="contact-form">
+                     <div><span class="contact-form-name"><input type="text" name="name" placeholder="Name" ></span>
+
+                         <span class="contact-form-email"><input type="text" name="email" placeholder="Email" ></span>
+                     </div>			<span class="contact-form-message"><textarea name="message" placeholder="Write a message"></textarea></span>
+                     <div class="clearfix"></div>
+                     <span class="contact-submit-btn"><input type="submit" name="submit_now" value="Submit Now" id="submit_now" /></span>
+                 </form>
+
+             </div>
+
+             
 
 
                 </div>
