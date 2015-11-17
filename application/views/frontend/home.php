@@ -319,7 +319,7 @@
                     </article>
 
              </div>
-                </div
+                </div>
                 <h2 class="title" style="font-size: 62px;">Like our site? Questions? Comments? We're Listening!</h2>
 
 
