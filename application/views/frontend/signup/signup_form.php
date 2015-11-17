@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?php echo base_url('css/bootstrap-responsive.min.css') ?>"><link href="<?php echo site_url();?>css/progressbar.css" type="text/css" rel="stylesheet"/>
+<link href="<?php echo site_url();?>css/progressbar.css" type="text/css" rel="stylesheet"/>
 <?php
 $action = 'signup/save_user';
 if(segment(3) != '') {
@@ -38,19 +38,21 @@ if($this->uri->segment(2)!='edit'){
 
 <?php  } ?> 
 
-<div class="container sign-up-forms">
-    <?php flash();?>
-    <?php if(segment(3) == '') { ?>
-    <h2>
-        Create your account
-    </h2>
-    <p>
-        Sign up now for Frumcare. Already have an <br/>account?
-        <a href="<?php echo base_url('login') ?>">Log In</a>
-    </p>
-    <?php } else { ?>
-    <h2>Edit your account</h2>
-    <?php } ?>
+<div class="container sign-up-forms" style="width:1170px">
+    <div class="col-xs-5 col-md-offset-4" >
+        <?php flash();?>
+        <?php if(segment(3) == '') { ?>
+        <h2 style="margin-right:80px">
+            Create your account
+        </h2>
+        <p style="text-align:center; margin-right:80px">
+            Sign up now for Frumcare. Already have an <br/>account?
+            <a href="<?php echo base_url('login') ?>">Log In</a>
+        </p>
+        <?php } else { ?>
+        <h2>Edit your account</h2>
+        <?php } ?>
+    </div>
     <div class="signUpRight col-md-3 col-md-offset-1 hidden-sm hidden-xs">
         <h2 style="margin-left: -50px;">
         Why sign up? 
@@ -63,10 +65,10 @@ if($this->uri->segment(2)!='edit'){
         <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Get access to exciting new features helping you with your care needs</div>
         </div>
     </div>
-    <div class="sign-up-form col-md-4">
+    <div class="sign-up-form col-md-5">
         <form role="form" id="sign-up" action="<?php echo base_url($action) ?>" method="post">
-            <div class="care-type clearfix">I am a</div>
-            <div class="form-field">
+            <div class="care-type col-xs-12">I am a</div>
+            <div class="form-field col-xs-12">
                     <div class="radio short"><input type="radio" name="account_category" value="2" <?php if($at == 2 ){?> checked="checked" <?php } ?> class="acc_cat" id="1"> Parent</div>
                     <div class="radio short"><input type="radio" name="account_category" value="1" <?php if($at == 1 ){?> checked="checked" <?php } ?> class="acc_cat" id="1"> Caregiver</div>
                     <div class="radio long"><input type="radio" name="account_category" value="3" <?php if($at == 3 ){?> checked="checked" <?php } ?> class="organization"> Caregiving Organization</div>
@@ -77,39 +79,45 @@ if($this->uri->segment(2)!='edit'){
                 <div class="radio"><input type="radio" name="organization_care" value="1" class="org_caretype required" id="2" checked="checked">Advertise My Service</div>
                 <div class="radio"><input type="radio" name="organization_care" value="2" class="org_caretype required" id="2">Find Workers</div>
             </div>
-            <div class="care-type clearfix">Care Type: 
+            <div class="care-type col-xs-12">Care Type: 
                 <div id="select_options"></div>
             </div>
         
-            <span class="first-names">
+            <div class="col-xs-12">
+                <span class="first-names">
                     <input style="width:330px" type="text" name="name" placeholder="Name" class="required name" value="<?php echo (isset($name)) ? $name : '' ?>"/>
-            </span>
-            <span class="email-names">
+                </span>
+            </div>
+            <div class="col-xs-12">
+                <span class="email-names">
                 <input style="width:330px" onblur="check_email(this.id)" id="email" type="text" name="email" placeholder="Email" class="required email" value="<?php echo (isset($email)) ? $email : '' ?>"/>
             </span> 
-
-            <span id="email_msg"></span>
-        
-            <span class="create-pswrd">
+            </div>
+            <div class="col-xs-12">
+                <span id="email_msg"></span>
+            </div>
+            <div class="col-xs-12">
+                <span class="create-pswrd">
                 <input style="width:330px" type="password" name="password" placeholder="Password" class="required" id="org_password" />
             </span>
-
-            <span class="confirm-pswrd">
+            </div>
+            <div class="col-xs-12">
+                <span class="confirm-pswrd">
                 <input style="width:330px" type="password" name="confirm_password" placeholder="Confirm Password" class="required"/>
             </span>
-
-            <div class="clearfix"></div>
-    
-            <div class="clearfix">
-            <!--<input type="checkbox" name="agree" class="required"/>-->
-            <span style="font-size:12px">By clicking on "Sign up" you agree to our <a href="<?php echo base_url();?>terms-of-use">Terms of use</a><br> and <a href="<?php echo base_url();?>privacy-policy">Privacy policy</a>
-                <!--<a href="javascript:void(0);" id="terms-and-conditions" class="terms" data-toggle="modal" data-target="#terms">Frumcare terms & conditions</a>-->
-            </span>
+            </div>
+            <div class="col-xs-12">
+                <span style="font-size:12px">By clicking on "Sign up" you agree to our <a href="<?php echo base_url();?>terms-of-use">Terms of use</a><br> and <a href="<?php echo base_url();?>privacy-policy">Privacy policy</a>
+             </span>
+             </div>
+            <div class="col-xs-12">
+                 <span class="sign-up-btn" style="text-align:inherit">
+                     <input style="margin-top:-50px;" id="submit-btn" type="submit" class="btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/>
+                 </span>
+            </div>
         </div>
     
-            <span class="sign-up-btn">
-                <input style="margin-left:-17px; margin-top:-50px;" id="submit-btn" type="submit" class="btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/>
-             </span>
+            
         </form>
     </div>
     <?php if(segment(3) != '') { ?>
