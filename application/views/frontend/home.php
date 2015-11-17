@@ -288,7 +288,7 @@
             <div class="container">
                 <div class="row">
                 
-                <h2 class="title" style="font-size: 62px;">What people are saying about us</h2>
+                <h2 class="title testimonials_title" style="font-size: 62px;">What people are saying about us</h2>
 
              <div class="col-md-6 col-sm-6 col-xs-12" style="border-right:1px solid #ccc;">
 
@@ -320,7 +320,7 @@
 
              </div>
                 </div>
-                <h2 class="title" style="font-size: 62px;">Like our site? Questions? Comments? We're Listening!</h2>
+                <h2 class="title" style="font-size: 40px;">Like our site? Questions? Comments? We're Listening!</h2>
 
 
                 <?php /*<div class="toll-info-chat">
