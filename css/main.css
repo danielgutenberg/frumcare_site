@@ -4872,8 +4872,16 @@ body {
 .client-say {
   padding: 45px 0 0;
 }
+
+.testimonials_title {
+  font-size: 62px;
+  text-transform: uppercase;
+  color: #27aae1;
+  text-align: center;
+  margin: 48px 0 40px;
+}
 .client-say .title {
-  font-size: 61px;
+  font-size: 40px;
   /*text-transform: uppercase;*/
   color: #27aae1;
   text-align: center;
