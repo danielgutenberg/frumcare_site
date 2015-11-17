@@ -288,7 +288,7 @@
             <div class="container">
                 <div class="row">
                 
-                <h2 class="testimonials_title">What people are saying about us</h2>
+                <h2 class="testimonials_title" style="text-transform: capitalize; font-size:40px">What people are saying about us</h2>
 
              <div class="col-md-6 col-sm-6 col-xs-12" style="border-right:1px solid #ccc;">
 
