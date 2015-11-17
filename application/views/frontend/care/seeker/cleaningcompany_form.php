@@ -1,3 +1,4 @@
+
 <?php
 if(check_user()) {
 	$u = get_user(check_user());
@@ -10,13 +11,13 @@ if(check_user()) {
     $zip = $user_detail['zip'];
 }
 ?>
-<?php 
+<?php
 if(($this->uri->segment(2) != 'new_profile')){?>
 <ol class="progtrckr" data-progtrckr-steps="3">
     <li class="progtrckr-done">Sign up</li>
     <li class="progtrckr-done">Job Details</li>
-    <li class="progtrckr-todo">Start Getting Calls</li>    
-</ol> 
+    <li class="progtrckr-todo">Start Getting Calls</li>
+</ol>
 <?php } ?>
 <div class="container">
 	<?php if(($this->uri->segment(2) != 'new_profile')){?>
@@ -81,7 +82,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 				<div>
 					<label>Position you are looking to fill</label>
 					<div class="form-field">
-						<input type="text" name="job_position" class=""/> 
+						<input type="text" name="job_position" class="required"/>
 					</div>
 				</div>
 
@@ -111,10 +112,10 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <div class="form-field">
                 <div class="checkbox"><input type="checkbox" value="Full Time" name="availability[]"> Full Time</div>
                 <div class="checkbox"><input type="checkbox" value="Part Time" name="availability[]"> Part Time</div>
-                <div class="checkbox"><input type="checkbox" value="Substitute" name="availability[]"> Substitute</div>                
+                <div class="checkbox"><input type="checkbox" value="Substitute" name="availability[]"> Substitute</div>
                 <div class="checkbox"><input type="checkbox" value="Asap" name="availability[]"/> Asap</div>
                 <div class="checkbox"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date
-                 <input  type="text" name="start_date" id="textbox1" autocomplete="off"/></div>      
+                 <input  type="text" name="start_date" id="textbox1" autocomplete="off"/></div>
                 <label>Days / Hours</label>
                 <br>
                  <label style="width:25%">Sun</label><input type="text" name="sunday_from" class="time" style="width:25%"> to  <input type="text" name="sunday_to" class="time" style="width:25%">
@@ -208,7 +209,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 			}
 			else if(val=2){
 				$('#wage').removeAttr('name');
-				$('#wage').attr('name', 'monthly_rate');    
+				$('#wage').attr('name', 'monthly_rate');
 			}
 		}
 	</script>

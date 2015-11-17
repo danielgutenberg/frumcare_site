@@ -1,3 +1,4 @@
+
 <div class="container">
 <?php 
 if(($this->uri->segment(2) != 'new_profile')){?>
@@ -32,9 +33,15 @@ $user_detail = get_user(check_user());
         </div>
         <?php } ?>
         <div>
+<<<<<<< HEAD
             <label>Location </label>
             <div id="locationField">
                 <input type="hidden" id="lat" name="lat"/>
+=======
+<label>Location</label>
+<div id="locationField">
+    <input type="hidden" id="lat" name="lat"/>
+>>>>>>> 38d1ccf3c47bbad03f867df6b39d2384593861aa
                 <input type="hidden" id="lng" name="lng"/>
             <input type="hidden" id="cityName" name="city"/>
             <input type="hidden" id="stateName" name="state"/>

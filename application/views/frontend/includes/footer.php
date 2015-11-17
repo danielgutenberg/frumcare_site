@@ -11,7 +11,7 @@
                             <li><a href="<?php echo site_url();?>blog">Blog</a></li>
                             <!--<li><a href="<?php echo site_url();?>terms-of-use">Terms of Use</a></li>-->
                             <!--<li><a href="<?php echo site_url();?>privacy-policy">Privacy Policy</a></li>-->
-                            
+
                         </ul>
                     </nav>
                 </div>
@@ -92,6 +92,8 @@
                                 </span>
                             </span>
                         </a>
+
+
                         <a href="https://www.instagram.com" target="_blank" class="flip-link-container">
                             <span class="flip-link">
                                 <span class="front">
@@ -117,18 +119,47 @@
 
 
 
-<script>
+
+
+
+<script type="text/javascript">
+
+function removePic(){
+        $('#file-name').attr('value','');
+        var lodr='<?php echo site_url("images/plus.png")?>';
+        $('#output img').attr('src',lodr);
+        $('#upload').css({'display':'inline-block'});
+        $('#remove').remove();
+        return false;
+
+    }
+
+
+    function removePics(){
+        $('#file-name1').attr('value','');
+        var lodr='<?php echo site_url("images/plus.png")?>';
+        $('#output1 img').attr('src',lodr);
+        $('#upload1').css({'display':'inline-block'});
+        $('#remove').remove();
+        return false;
+
+    }
+
+
     $(function(){
-        
+
+
+
+
         $("#subscribe").click(function(){
             var subName = $("#sub_name").val();
             var subEmail = $("#sub_email").val();
             var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-            
-            
+
+
             if(subName == ''){
                 $(".errorName").html("Please type your name").css("color","red");
-                
+
             }else if(subEmail == ''){
                 $(".errorEmail").html("Please type your email").css("color","red");
             }else if(!emailReg.test( subEmail )){
@@ -153,9 +184,205 @@
                     }
             });
             }
-            
+
         });
     });
+
+
+$(function()
+{
+
+    $('#locationField #autocomplete').change(function(){
+        $('#lat').val('');
+        $('#lng').val('');
+    });
+
+    $('#upload').click(function(){
+        $('#ImageFile').trigger('click');
+        return false;
+
+    });
+
+    $('#output').click(function(){
+        $('#ImageFile').trigger('click');
+
+    });
+
+
+    $('#upload1').click(function(){
+        //alert('working');
+        $('#ImageFile1').trigger('click');
+        return false;
+
+    });
+
+    $('#output1').click(function(){
+
+        $('#ImageFile1').trigger('click');
+
+    });
+
+
+
+    // Variable to store your files
+    var files;
+
+    // Add events
+
+    $('#ImageFile').on('change',prepareUpload1);
+
+    $('#ImageFile1').on('change',prepareUpload2);
+    //$('form').on('submit', uploadFiles);
+
+    // Grab the files and set them to our variable
+    function prepareUpload1(event){
+
+        var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
+
+        var link = '<?php echo site_url("ad/upload_pp?files")?>';
+        files = event.target.files;
+        event.stopPropagation(); // Stop stuff happening
+        event.preventDefault(); // Totally stop stuff happening
+
+        // START A LOADING SPINNER HERE
+
+        // Create a formdata object and add the files
+        var data = new FormData();
+        $.each(files, function(key, value)
+        {
+            data.append(key, value);
+        });
+
+        $.ajax({
+            url: link,
+            type: 'POST',
+            beforesend: $('.loader').html(loader),
+            data: data,
+            cache: false,
+            dataType: 'json',
+            processData: false, // Don't process the files
+            contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+            success: function(data, textStatus, jqXHR)
+            {
+                if(typeof data.error === 'undefined')
+                {
+                    // Success so call function to process the form
+                    if(data.type==1){
+                        $('#output').html(data.html);
+                        $('.loader').html('');
+                        $('#file-name').val(data.files);
+                        $('#upload').css({'display':'none'});
+                        $('<a class="buttons btn-default" href="#" id="remove" onclick="return removePic();" style="margin:0 10px;">Remove File</a>').insertAfter('#output');
+
+                            /**************** #file1 upload script *************************/
+
+                            $('#output1').html(data.html);
+                            $('.loader1').html('');
+                            $('#file-name1').val(data.files);
+                            $('#upload1').css({'display':'none'});
+                            $('<a class="buttons btn-default" href="#" id="remove" onclick="return removePics();" style="margin:10px 10px;">Remove File</a>').insertAfter('#output1');
+
+                            //$this->session->set_userdata('newupload',1);
+
+                    }
+                    else{
+                        $('#output').html(data.files + ' selected');
+                        $('#file-name').val(data.files);
+                                            }
+
+
+                }
+                else
+                {
+                    // Handle errors here
+                    console.log('ERRORS: ' + data.error);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown)
+            {
+                // Handle errors here
+                console.log('ERRORS: ' + textStatus);
+                // STOP LOADING SPINNER
+            }
+        });
+    }
+
+
+    ////////////////// second image upload ////////////////////////////////
+
+
+    // Grab the files and set them to our variable
+    function prepareUpload2(event){
+
+        var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
+
+        var link = '<?php echo site_url("ad/upload_pp?files")?>';
+        files = event.target.files;
+        event.stopPropagation(); // Stop stuff happening
+        event.preventDefault(); // Totally stop stuff happening
+
+        // START A LOADING SPINNER HERE
+
+        // Create a formdata object and add the files
+        var data = new FormData();
+        $.each(files, function(key, value)
+        {
+            data.append(key, value);
+        });
+
+        $.ajax({
+            url: link,
+            type: 'POST',
+            beforesend: $('.loader1').html(loader),
+            data: data,
+            cache: false,
+            dataType: 'json',
+            processData: false, // Don't process the files
+            contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+            success: function(data, textStatus, jqXHR)
+            {
+                if(typeof data.error === 'undefined')
+                {
+                    // Success so call function to process the form
+                    if(data.type==1){
+
+                        $('#output1').html(data.html);
+                        $('.loader1').html('');
+                        $('#file-name1').val(data.files);
+                        $('#upload1').css({'display':'none'});
+                        $('<a class="buttons btn-default" href="#" id="remove" onclick="return removePics();" style="margin:10px 10px;">Remove File</a>').insertAfter('#output1');
+
+                        //$this->session->set_userdata('newupload',1);
+
+                    }
+                    else{
+                        $('#output').html(data.files + ' selected');
+                        $('#file-name').val(data.files);
+                    }
+
+
+                }
+                else
+                {
+                    // Handle errors here
+                    console.log('ERRORS: ' + data.error);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown)
+            {
+                // Handle errors here
+                console.log('ERRORS: ' + textStatus);
+                // STOP LOADING SPINNER
+            }
+        });
+    }
+
+
+});
+
+<!-- FILE UPLOAD -->
+
+
 </script>
 </body>
 </html>

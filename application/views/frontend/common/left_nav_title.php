@@ -1,15 +1,15 @@
 <?php if($this->uri->segment(1) == 'caregivers') { ?>
     <?php if($this->uri->segment(2) == 'organizations') { ?>        
-        <select name="service" class="care_type_organizations" style="width:230px">
+        <select id="careId" name="service" class="care_type_organizations" style="width:230px">
             <option value="organizations">--select--</option> 
-            <option value="25" <?php if(segment(3) == 'workers-staff-for-childcare-facility'){?> selected="selected" <?php }?>>Childcare facility</option>
-            <option value="26" <?php if(segment(3) == 'workers-staff-for-senior-care-facility'){?> selected="selected" <?php }?> >Senior care facility</option>
-            <option value="27" <?php if(segment(3) == 'workers-staff-for-special-needs-facility'){?> selected="selected" <?php }?>>Special needs facility</option>
-            <option value="28" <?php if(segment(3) == 'workers-for-cleaning-company'){?> selected="selected" <?php }?>>Cleaning company</option>
+            <option value="31" <?php if(segment(3) == 'workers-staff-for-childcare-facility'){?> selected="selected" <?php }?>>Childcare facility</option>
+            <option value="35" <?php if(segment(3) == 'workers-staff-for-senior-care-facility'){?> selected="selected" <?php }?> >Senior care facility</option>
+            <option value="36" <?php if(segment(3) == 'workers-staff-for-special-needs-facility'){?> selected="selected" <?php }?>>Special needs facility</option>
+            <option value="38" <?php if(segment(3) == 'workers-for-cleaning-company'){?> selected="selected" <?php }?>>Cleaning company</option>
         </select>     
     <?php } 
     else { ?>
-        <select name="service" class="service care_type" style="width:230px">
+        <select id="careId" name="service" class="service care_type" style="width:230px">
             <option value="caregivers">--select--</option> 
             <option value="1" <?php if(segment(2) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
             <option value="2" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>
@@ -25,16 +25,16 @@
             <option value="8" <?php if(segment(2) == 'cleaning-household-help'){?> selected="selected" <?php }?>>Cleaning / household help</option>
             <option value="15" <?php if(segment(2) == 'cleaning-household-help-company'){?> selected="selected" <?php }?>>Cleaning / household help company</option>
             <option value="9" <?php if(segment(2) == 'errand-runner-odd-jobs-personal-assistant-driver'){?> selected="selected" <?php }?>>Errand runner / odd jobs / personal assistant / driver</option>                    																													
-            <option value="25" <?php if(segment(2) == 'workers-staff-for-childcare-facility'){?> selected="selected" <?php }?>>Workers / Staff for childcare facility</option>
-            <option value="26" <?php if(segment(2) == 'workers-staff-for-senior-care-facility'){?> selected="selected" <?php }?> >Workers / Staff for senior care facility</option>
-            <option value="27" <?php if(segment(2) == 'workers-staff-for-special-needs-facility'){?> selected="selected" <?php }?>>Workers / Staff for special needs facility</option>
-            <option value="28" <?php if(segment(2) == 'workers-for-cleaning-company'){?> selected="selected" <?php }?>>Workers for cleaning company</option>
+            <option value="31" <?php if(segment(2) == 'workers-staff-for-childcare-facility'){?> selected="selected" <?php }?>>Workers / Staff for childcare facility</option>
+            <option value="35" <?php if(segment(2) == 'workers-staff-for-senior-care-facility'){?> selected="selected" <?php }?> >Workers / Staff for senior care facility</option>
+            <option value="36" <?php if(segment(2) == 'workers-staff-for-special-needs-facility'){?> selected="selected" <?php }?>>Workers / Staff for special needs facility</option>
+            <option value="38" <?php if(segment(2) == 'workers-for-cleaning-company'){?> selected="selected" <?php }?>>Workers for cleaning company</option>
         </select>
     <?php } ?>
 <?php } ?>
 
 <?php if($this->uri->segment(1) == 'jobs') { ?>    
-    <select name="service" class="service jobtype" style="width:230px">
+    <select id="careId" name="service" class="service jobtype" style="width:230px">
         <option value="jobs">--select--</option> 
         <option value="17" <?php if(segment(2) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
     	<option value="18" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>        
@@ -123,13 +123,13 @@
             	var locationaddress = 'therapists';
              if(pagelink == '24')
             	var locationaddress = 'cleaning-household-help';            
-             if(pagelink == '25')
+             if(pagelink == '25' || pagelink == '31')
                 var locationaddress = 'workers-staff-for-childcare-facility';
-            if(pagelink == '26')
+            if(pagelink == '26' || pagelink == '35')
                 var locationaddress = 'workers-staff-for-senior-care-facility';
-            if(pagelink == '27')
+            if(pagelink == '27' || pagelink == '36')
                 var locationaddress = 'workers-staff-for-special-needs-facility';
-             if(pagelink == '28')
+             if(pagelink == '28' || pagelink == '38')
                 var locationaddress = 'workers-for-cleaning-company';
             
             if(pagelink == 'caregivers')
@@ -140,15 +140,13 @@
                 var locationaddress = 'all';
             
             if(type == 'caregivers')    
-                if (pagelink == '26' || pagelink == '25' || pagelink == '27' || pagelink == '28') {
+                if (pagelink == '31' || pagelink == '35' || pagelink == '36' || pagelink == '38') {
                     location.href = '<?php echo site_url();?>caregivers/organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
                 } else {
                     location.href = '<?php echo site_url();?>caregivers/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
                 }
             if(type == 'jobs')                    
                 location.href = '<?php echo site_url();?>jobs/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
-            if(type == 'organizations')                    
-                location.href = '<?php echo site_url();?>organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
             if(type == 'organization_job')
                 location.href = '<?php echo site_url();?>caregivers/organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
         } //end of navigate

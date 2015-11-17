@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 <link href="<?php echo site_url();?>css/progressbar.css" type="text/css" rel="stylesheet"/>
 <?php
 $action = 'signup/save_user';
@@ -39,19 +38,21 @@ if($this->uri->segment(2)!='edit'){
 
 <?php  } ?> 
 
-<div class="container sign-up-forms">
-    <?php flash();?>
-    <?php if(segment(3) == '') { ?>
-    <h2>
-        Create your account
-    </h2>
-    <p>
-        Sign up now for Frumcare. Already have an <br/>account?
-        <a href="<?php echo base_url('login') ?>">Log In</a>
-    </p>
-    <?php } else { ?>
-    <h2>Edit your account</h2>
-    <?php } ?>
+<div class="container sign-up-forms" style="width:1170px">
+    <div class="col-xs-5 col-md-offset-4" >
+        <?php flash();?>
+        <?php if(segment(3) == '') { ?>
+        <h2 style="margin-right:80px">
+            Create your account
+        </h2>
+        <p style="text-align:center; margin-right:80px">
+            Sign up now for Frumcare. Already have an <br/>account?
+            <a href="<?php echo base_url('login') ?>">Log In</a>
+        </p>
+        <?php } else { ?>
+        <h2>Edit your account</h2>
+        <?php } ?>
+    </div>
     <div class="signUpRight col-md-3 col-md-offset-1 hidden-sm hidden-xs">
         <h2 style="margin-left: -50px;">
         Why sign up? 
@@ -64,10 +65,10 @@ if($this->uri->segment(2)!='edit'){
         <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Get access to exciting new features helping you with your care needs</div>
         </div>
     </div>
-    <div class="sign-up-form col-md-4">
+    <div class="sign-up-form col-md-5">
         <form role="form" id="sign-up" action="<?php echo base_url($action) ?>" method="post">
-            <div class="care-type clearfix">I am a</div>
-            <div class="form-field">
+            <div class="care-type col-xs-12">I am a</div>
+            <div class="form-field col-xs-12">
                     <div class="radio short"><input type="radio" name="account_category" value="2" <?php if($at == 2 ){?> checked="checked" <?php } ?> class="acc_cat" id="1"> Parent</div>
                     <div class="radio short"><input type="radio" name="account_category" value="1" <?php if($at == 1 ){?> checked="checked" <?php } ?> class="acc_cat" id="1"> Caregiver</div>
                     <div class="radio long"><input type="radio" name="account_category" value="3" <?php if($at == 3 ){?> checked="checked" <?php } ?> class="organization"> Caregiving Organization</div>
@@ -78,39 +79,45 @@ if($this->uri->segment(2)!='edit'){
                 <div class="radio"><input type="radio" name="organization_care" value="1" class="org_caretype required" id="2" checked="checked">Advertise My Service</div>
                 <div class="radio"><input type="radio" name="organization_care" value="2" class="org_caretype required" id="2">Find Workers</div>
             </div>
-            <div class="care-type clearfix">Care Type: 
+            <div class="care-type col-xs-12">Care Type: 
                 <div id="select_options"></div>
             </div>
         
-            <span class="first-names">
+            <div class="col-xs-12">
+                <span class="first-names">
                     <input style="width:330px" type="text" name="name" placeholder="Name" class="required name" value="<?php echo (isset($name)) ? $name : '' ?>"/>
-            </span>
-            <span class="email-names">
+                </span>
+            </div>
+            <div class="col-xs-12">
+                <span class="email-names">
                 <input style="width:330px" onblur="check_email(this.id)" id="email" type="text" name="email" placeholder="Email" class="required email" value="<?php echo (isset($email)) ? $email : '' ?>"/>
             </span> 
-
-            <span id="email_msg"></span>
-        
-            <span class="create-pswrd">
+            </div>
+            <div class="col-xs-12">
+                <span id="email_msg"></span>
+            </div>
+            <div class="col-xs-12">
+                <span class="create-pswrd">
                 <input style="width:330px" type="password" name="password" placeholder="Password" class="required" id="org_password" />
             </span>
-
-            <span class="confirm-pswrd">
+            </div>
+            <div class="col-xs-12">
+                <span class="confirm-pswrd">
                 <input style="width:330px" type="password" name="confirm_password" placeholder="Confirm Password" class="required"/>
             </span>
-
-            <div class="clearfix"></div>
-    
-            <div class="clearfix">
-            <!--<input type="checkbox" name="agree" class="required"/>-->
-            <span style="font-size:12px">By clicking on "Sign up" you agree to our <a href="<?php echo base_url();?>terms-of-use">Terms of use</a><br> and <a href="<?php echo base_url();?>privacy-policy">Privacy policy</a>
-                <!--<a href="javascript:void(0);" id="terms-and-conditions" class="terms" data-toggle="modal" data-target="#terms">Frumcare terms & conditions</a>-->
-            </span>
+            </div>
+            <div class="col-xs-12">
+                <span style="font-size:12px">By clicking on "Sign up" you agree to our <a href="<?php echo base_url();?>terms-of-use">Terms of use</a><br> and <a href="<?php echo base_url();?>privacy-policy">Privacy policy</a>
+             </span>
+             </div>
+            <div class="col-xs-12">
+                 <span class="sign-up-btn" style="text-align:inherit">
+                     <input style="margin-top:-50px;" id="submit-btn" type="submit" class="btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/>
+                 </span>
+            </div>
         </div>
     
-            <span class="sign-up-btn">
-                <input style="margin-left:-17px; margin-top:-50px;" id="submit-btn" type="submit" class="btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/>
-             </span>
+            
         </form>
     </div>
     <?php if(segment(3) != '') { ?>
@@ -119,6 +126,7 @@ if($this->uri->segment(2)!='edit'){
     <?php /* <a href="<?php echo base_url();?>user/verifyemailaddress/<?php echo sha1($email);?>" id="<?php echo $email;?>" class="verifyemail">Click here</a> to verfiy your email address. */?>
 
     <?php } ?>
+    </div>
 </div>
     
 
@@ -229,6 +237,7 @@ if($this->uri->segment(2)!='edit'){
 
         $('.org_caretype').change(function(){
             getAccountCat($(this).val(),$(this).attr('id'));
+            leftText($(this).val(),$(this).attr('id'));
         });
 
     });
@@ -270,45 +279,42 @@ if($this->uri->segment(2)!='edit'){
         
     }
 
-     function getAccountCat(account_category,service_by){
-        $.ajax({
-                type:"post",
-                url:"<?php echo site_url();?>ad/getCareType",
-                data:"care_type="+account_category+"&service_by="+service_by,
-                dataType:"json",
-                success:function(done){
-                   if(done){
-                    $('#select_options').html(done).show();
-                   }
-                   if(account_category == 1){
-                    var organization = $('.organization:checked').val();
-                        $('.msg').text('Type of care you provide');
-                        if(organization == 3){
-                            $('.parent').text('Organization Info');
-                            $('.personal').css('display','none');
-                            $('.started').text('Organization Details');
-                        }else{
-                            $('.parent').text('Personal Details');
-                            $('.personal').css('display','inline-block');
-                            $('.started').text('Start Getting Calls');    
-                        }
-                   }
-                   if(account_category == 2){
-                       var organization = $('.organization:checked').val();
-
-                        $('.msg').text('Type of care you are seeking');
-                        if(organization == 3){
-                            $('.parent').text('Job Details');
-                            $('.personal').css('display','none');
-                            $('.started').text('Start Getting Calls');    
-                        }else{
-                            $('.parent').text('Job Details');
-                            $('.personal').css('display','none');
-                            $('.started').text('Start Getting Calls');    
-                        }
+    function getAccountCat(account_category,service_by){
+        var parent_options = '<select id="care_type" class="required" name="care_type"><option value="" class="msg">Type of care you are seeking</option><option value="17_1">Babysitter</option><option value="18_1">Nanny / Au-pair</option><option value="19_1">Tutor / private lessons</option><option value="20_1">Senior caregiver</option><option value="22_1">Special needs caregiver</option><option value="24_1">Cleaning / household help</option><option value="21_1">Errand runner / odd jobs / personal assistant / driver</option></select>'
+        var caregiver_options = '<select id="care_type" class="required" name="care_type"><option value="" class="msg">Type of care you provide</option><option value="1_1">Babysitter</option><option value="2_1">Nanny / Au-pair</option><option value="3_1">Nursery / Playgroup / Drop off / Gan</option><option value="4_1">Tutor / Private lessons</option><option value="5_1">Senior Caregiver</option><option value="6_1">Special needs caregiver</option><option value="7_1">Therapist</option><option value="8_1">Cleaning / household help</option><option value="9_1">Errand runner / odd jobs / personal assistant / driver</option></select>'
+        var caregiver_organization_options = '<select id="care_type" class="required" name="care_type"><option value="" class="msg">Type of care you provide</option><option value="10_2">Day Care Center / Day Camp / Afternoon Activities</option><option value="13_2">Senior Care Agency</option><option value="16_2">Assisted living / Senior Care Center / Nursing Home</option><option value="14_2">Special needs center</option><option value="15_2">Cleaning / household help company</option></select>'
+        var find_worker_options = '<select id="care_type" class="required" name="care_type"><option value="" class="msg">Type of care you are seeking</option><option value="25_2">Workers / staff for childcare facility</option><option value="26_2">Workers / staff for senior care facility</option><option value="27_2">Workers / staff for special needs facility</option><option value="28_2">Workers for cleaning company</option></select>'
+        
+        if(account_category == 1) {
+            var organization = $('.organization:checked').val();
+            $('.msg').text('Type of care you provide');
+            if(organization == 3) {
+                $('#select_options').html(caregiver_organization_options).show();
+                $('.parent').text('Organization Info');
+                $('.personal').css('display','none');
+                $('.started').text('Organization Details');
+            } else {
+                $('#select_options').html(caregiver_options).show();
+                $('.parent').text('Personal Details');
+                $('.personal').css('display','inline-block');
+                $('.started').text('Start Getting Calls');    
+            }
+        }
+        if(account_category == 2){
+           var organization = $('.organization:checked').val();
+            $('.msg').text('Type of care you are seeking');
+            if(organization == 3){
+                $('#select_options').html(find_worker_options).show();
+                $('.parent').text('Job Details');
+                $('.personal').css('display','none');
+                $('.started').text('Start Getting Calls');    
+            }else{
+                $('#select_options').html(parent_options).show();
+                $('.parent').text('Job Details');
+                $('.personal').css('display','none');
+                $('.started').text('Start Getting Calls');    
+            }
                         
-                   }
-                }
-        });
+       }
     }
 </script>

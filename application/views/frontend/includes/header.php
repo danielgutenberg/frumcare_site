@@ -107,8 +107,8 @@
     <script src="<?php echo base_url('js/select.js') ?>"></script>
     <script src="<?php echo base_url();?>js/jquery.ui.maskinput.js"></script>
     <script type="text/javascript" src="<?php echo site_url();?>js/jquery-ui.js"></script>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
-    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
+    <!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
+    <!--<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
     <link href="<?php echo site_url();?>css/jquery-ui.css" type="text/css" rel="stylesheet">
         <script src="<?php echo base_url('js/vendor/modernizr-2.6.2-respond-1.1.0.min.js') ?>"></script>
 
@@ -136,6 +136,15 @@
             $('.left-search-panel h4').click(function(){
                $('.left-search-panel form').toggle();
             });
+
+            $('.search form').submit(function(){
+                if((this).closest('.dropdown input[type=text]').val()==''){
+                    return false;
+                }else{
+                    return true;
+                }
+            });
+
         });
     </script>
 
@@ -189,7 +198,7 @@
                             </div>
 
                             <div class="dropdown">
-                                <input type="text" name="search_for" value="" placeholder="Search" data-toggle="dropdown"/>
+                                <input type="text" name="search_for" value="" placeholder="Search" data-toggle="dropdown" required="required"/>
                                 <input type="hidden" value=""/>
                                 <button type="submit" class="submit"><i class="icon-search">&nbsp;</i></button>
 

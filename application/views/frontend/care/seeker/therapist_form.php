@@ -1,3 +1,4 @@
+
 <?php 
 if(($this->uri->segment(2) != 'new_profile')){?>
 <ol class="progtrckr" data-progtrckr-steps="3">

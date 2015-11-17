@@ -32,10 +32,15 @@ class Review_model extends CI_Model{
 
 
 	public function add_review($post){
+		$this->db->where('id',$post['current_user']);
+		$user = $this->db->get('tbl_user')->result_array();
+		$name = explode(' ', trim($user[0]['name']))[0];
+		
+		
 		$data = array(
 			'user_id' 			=> $post['current_user'],
 			'profile_id' 		=> $post['profile'],
-			'name'				=> $post['title'],
+			'name'				=> $name,
             'user_profile_id'   => $post['new_id'],
 			'description'		=> $post['review_description'],
 			'created_date'		=> $post['date_time'],
@@ -53,7 +58,7 @@ class Review_model extends CI_Model{
             $msg = "Review has been successfully saved";
         }else{
             $update = array(
-                        'name'				=> $post['title'],
+                        'name'				=> $name,
                         'description'		=> $post['review_description'],
                         'created_date'      => $post['date_time'],
                         'review_rating' 	=> $post['score'],  

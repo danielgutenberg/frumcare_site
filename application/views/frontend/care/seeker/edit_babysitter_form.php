@@ -1,3 +1,4 @@
+
 <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
 <?php
 $user_detail = get_user(check_user());
@@ -91,7 +92,7 @@ if($detail){
         <div>
             <label>Number of children</label>
             <div class="form-field">
-            <input type="text" value="<?php echo isset($number_of_children) ? $number_of_children : '' ?>" name="number_of_children" class="number">            
+            <input type="text" value="<?php echo isset($number_of_children) ? $number_of_children : '' ?>" name="number_of_children" class="number">
             </div>
         </div>
 
@@ -116,14 +117,14 @@ if($detail){
             <div class="form-field">
                 <div class="checkbox"><input type="checkbox" value="0-3" name="age_group[]" <?php if(in_array('0-3',$age_group)){?> checked="checked" <?php } ?>/> 0-3 months</div>
                 <div class="checkbox"><input type="checkbox" value="3-6" name="age_group[]" <?php if(in_array('3-6',$age_group)){?> checked="checked" <?php } ?>/> 3-6 months</div>
-                <div class="checkbox"><input type="checkbox" value="6-12" name="age_group[]" <?php if(in_array('6-12',$age_group)){?> checked="checked" <?php } ?>/> 6-12 months</div>                
+                <div class="checkbox"><input type="checkbox" value="6-12" name="age_group[]" <?php if(in_array('6-12',$age_group)){?> checked="checked" <?php } ?>/> 6-12 months</div>
                 <div class="checkbox"><input type="checkbox" value="1-3" name="age_group[]" <?php if(in_array('1-3',$age_group)){?> checked="checked" <?php } ?>/> 1 to 3 years</div>
                 <div class="checkbox"><input type="checkbox" value="3-5" name="age_group[]" <?php if(in_array('3-5',$age_group)){?> checked="checked" <?php } ?>/> 3 to 5 years</div>
                 <div class="checkbox"><input type="checkbox" value="6-11" name="age_group[]" <?php if(in_array('6-11',$age_group)){?> checked="checked" <?php } ?>/> 6 to 11 years</div>
                 <div class="checkbox"><input type="checkbox" value="12+" name="age_group[]" <?php if(in_array('12+',$age_group)){?> checked="checked" <?php } ?>/> 12+ years</div>
             </div>
         </div>
-       
+
         <div>
             <label>When you need care</label>
             <div class="form-field">
@@ -137,7 +138,7 @@ if($detail){
             <div class="checkbox"><input type="checkbox" value="Evening" name="availability[]" <?php if(in_array("Evening",$temp)){?> checked="checked"<?php }?>> Evening</div>
             <div class="checkbox"><input type="checkbox" value="Weekends Fri./ Sun." name="availability[]" <?php if(in_array("Weekends Fri./ Sun.",$temp)){?> checked="checked"<?php }?>> Weekends Fri. / Sun.</div>
             <div class="checkbox"><input type="checkbox" value="Night Nurse" name="availability[]" <?php if(in_array("Night Nurse",$temp)){?> checked="checked"<?php }?>> Night Nurse</div>
-            <div class="checkbox"><input type="checkbox" value="Shabbos" name="availability[]" <?php if(in_array("Shabbos",$temp)){ ?> checked="checked" <?php }?>> Shabbos</div>            
+            <div class="checkbox"><input type="checkbox" value="Shabbos" name="availability[]" <?php if(in_array("Shabbos",$temp)){ ?> checked="checked" <?php }?>> Shabbos</div>
             <div class="checkbox"><input type="checkbox" value="Vacation Sitter" name="availability[]" <?php if(in_array("Vacation Sitter",$temp)){?> checked="checked"<?php }?>>Vacation Sitter</div>
             </div>
         </div>
@@ -179,7 +180,7 @@ if($detail){
                 <div class="checkbox"><input type="checkbox" name="rate_type[]" value="1" <?php if(in_array('1',$rate_type)){?> checked="checked" <?php }?> >Hourly Rate</div>-->
                 <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2" <?php if(in_array('2',$rate_type)){?> checked="checked" <?php }?> >Monthly Rate Available</div>
         </div>
-        
+
         <div>
             <label>Tell us about your needs</label>
             <div class="form-field">
@@ -255,7 +256,7 @@ if($detail){
                 <input type="checkbox" value="1" name="references" <?php echo isset($references) && $references == 1 ? 'checked' : ''?>> <label>Must have references</label>
             </div>
           <div>
-                
+
             </div>
         </div>
 
@@ -273,7 +274,7 @@ if($detail){
                 <div class="upload-photo">
                     <input type="hidden" id="file-name" name="photo_of_child" value="<?php if(isset($photo)) echo $photo;?>">
                     <div id="output"><img src="<?php echo $photo_url?>"></div>
-                    <button class="btn btn-default" id="upload">Choose File</button>
+                    <a href="#" class="buttons btn-default" id="upload">Choose File</a>
                     <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
                 </div>
                 <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>
@@ -285,23 +286,5 @@ if($detail){
   </form>
 </div>
 </div>
-
-
-
-
-<!-- FILE UPLOAD -->
-<script type="text/javascript">
-    var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
-    var link = '<?php echo site_url("ad/upload_pp?files")?>';
-    $('#upload').click(function(e){
-        e.preventDefault();
-        $('#ImageFile').trigger('click');
-    });
-
-    $('#output').click(function(e){
-        e.preventDefault();
-        $('#ImageFile').trigger('click');
-    });
-</script>
 
 <script type="text/javascript" src="<?php echo site_url("js/fileuploader.js")?>"></script>

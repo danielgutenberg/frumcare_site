@@ -3,10 +3,10 @@
     ?>
     <div class="caregivers-details">
       <h3>
-       <?php 
+       <?php
        $type = Caretype_model::getCareTypeById($recordData['care_type']);
        echo $type[0]['service_name'];
-       
+
        if($recordData['care_type']>16){
         echo " Job";
     }
@@ -30,45 +30,45 @@
                 <?php } ?>
 
     </div>
-    <!--div>
-        <?php if($this->uri->segment(4) <17 ){ ?>						
+    <div>
+        <?php if($this->uri->segment(4) <17 ){ ?>
         <?php $reviews = $number_reviews['number_reviews']; ?>
         <div class="rating-score" id="<?php echo ($number_reviews['total_review']/($reviews>0?$reviews:1));?>"></div>
 
-        (<?php echo number_format($reviews);?> reviews) 
+        (<?php echo number_format($reviews);?> reviews)
 
-        <?php 
+        <?php
                         if($this->session->userdata('current_user')!=$care_id){ //condition for blocking own review and rating
                             if(isset($this->session->userdata['current_user']) && $recordData['care_type']<17){?>
-                            <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal" id="<?php echo $this->session->userdata['current_user'];?>">Write a review</a> | 
-                            <a href="<?php echo site_url();?>review/allreviews/<?php echo sha1($recordData['id']);?>">See all reviews</a>                         
+                            <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal" id="<?php echo $this->session->userdata['current_user'];?>">Write a review</a> |
+                            <a href="<?php echo site_url();?>review/allreviews/<?php echo sha1($recordData['id']);?>">See all reviews</a>
                             <?php }
                             else{
-                                if($recordData['care_type']<17){                                    
+                                if($recordData['care_type']<17){
                                     ?>
                                     |<a href="javascript:void(0)" id="not_login">Write a review</a>|
-                                    <a href="<?php echo site_url();?>review/allreviews/<?php echo sha1($recordData['id']);?>">See all reviews</a>                                
+                                    <a href="<?php echo site_url();?>review/allreviews/<?php echo sha1($recordData['id']);?>">See all reviews</a>
                                     <?php
-                                }                                                          
+                                }
                             }
-                        }?> 							                        
+                        }?>
                         <?php
                     }?>
 
-                </div>-->
-                <?php 
+                </div>
+                <?php
                 if($this->uri->segment(4)>0 && $this->uri->segment(4)<10){
-                   if($recordData['care_type'] != 7){ 
-                       if(!empty($recordData['age'])){ ?>	
+                   if($recordData['care_type'] != 7){
+                       if(!empty($recordData['age'])){ ?>
                                    <span class="age-wrap"><?php echo $recordData['age']. '<span>Age</span>';?></span>
                                    <?php
-                               }else{ ?>                    	
+                               }else{ ?>
                                <span class="age-wrap"><?php echo 'N/A'. '<span>Age</span>';?></span>
                                <?php
                            }
                         if($this->uri->segment(4) == 3) {
-                            if(!empty($recordData['rate'])){ ?>                                                        
-                       
+                            if(!empty($recordData['rate'])){ ?>
+
                        <span class="hour-wrap"><?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
                        <?php
                        }
@@ -76,9 +76,9 @@
                        <span class="hour-wrap"><?php echo 'N/A'.'<span>Cost</span>'; ?></span>
                        <?php
                    } } else {
-                            
-                            
-                       if(!empty($recordData['rate'])){ ?>                                                        
+
+
+                       if(!empty($recordData['rate'])){ ?>
                        <?php $rate_type = $recordData['rate_type']==2?' / Hr':' / Hr'?>
                        <span class="hour-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Rate</span>'; ?></span>
                        <?php
@@ -87,15 +87,15 @@
                        <span class="hour-wrap"><?php echo 'N/A'.'<span>Rate</span>'; ?></span>
                        <?php
                    }}
-                   if(!empty($recordData['experience'])){ ?>               
+                   if(!empty($recordData['experience'])){ ?>
                    <span class="experience-wrap"><?php if ($recordData['experience']==6) {echo '5+ <span>Years of Experience</span>';} else {echo $recordData['experience']. ' <span>Years of Experience</span>'; }?></span>
                    <?php
                 }
                 else{ ?>
                 <span class="experience-wrap"><?php echo 'N/A'. ' <span>Years of Experience</span>';?></span>
-                <?php   
-                }                
-                ?>                             	        			    			
+                <?php
+                }
+                ?>
                 <div class="clearfix margin-bots"></div>
                 <?php
                 if(!empty($recordData['location'])){ ?>
@@ -116,22 +116,22 @@
                 }
                 else{ ?>
                 <span class="location-wrap"><?php echo 'N/A'.'<span>Location</span>';?></span>
-                <?php 
+                <?php
                 }
                 ?>
                 <span class="care-type-wrap">
-                    <?php 
+                    <?php
                     echo ucwords($type[0]['service_name']).'<span>Care Type</span>';
                     ?>
                 </span>
-                <?php                           
+                <?php
                     $availablility = explode(',',$recordData['availability']);
-                    $start_date = $recordData['start_date'];                    
+                    $start_date = $recordData['start_date'];
                     $start_date_array = explode('-',$start_date);
                     $formated_start_date = $start_date_array[1].'/'.$start_date_array[2].'/'.$start_date_array[0];
                     if(in_array('Immediate',$availablility)){?>
                         <span class="location-wrap"><?php echo 'Immediately'.'<span>Availability</span>';?></span>
-                        <?php    
+                        <?php
                     }
                     else if(isset($start_date) && $start_date !='0000-00-00'){ ?>
                     <span class="location-wrap"><?php echo $formated_start_date.'<span>Availability</span>';?></span>
@@ -142,8 +142,8 @@
                     }
                 }
             else{ ?>
-                <span class="location-wrap"><?php echo isset($recordData['type_of_therapy']) ? $recordData['type_of_therapy'] : "N/A"; 
-                    echo '<span>Type of therapy</span>'; ?></span>              
+                <span class="location-wrap"><?php echo isset($recordData['type_of_therapy']) ? $recordData['type_of_therapy'] : "N/A";
+                    echo '<span>Type of therapy</span>'; ?></span>
                    <span class="care-type-wrap"><?php if ($recordData['experience']==6) {echo '5+ <span>Years in Practice</span>';} else {echo $recordData['experience']. ' <span>Years in Practice</span>'; }?></span>
                 <div class="clearfix margin-bots"></div>
                 <?php if(!empty($recordData['location'])){ ?>
@@ -163,13 +163,13 @@
                     <?php
                 } ?>
                 <span class="care-type-wrap">
-                    <?php 
+                    <?php
                     echo ucwords($type[0]['service_name']).'<span>Care Type</span>';
                     ?>
-                </span>                                
-            <?php }                                                                			    			
+                </span>
+            <?php }
 }
-if($this->uri->segment(4)>16){                 
+if($this->uri->segment(4)>16){
     if(!empty($recordData['location'])){ ?>
         <?php $location_array = explode(',',$recordData['location']); ?>
         <?php $loca = '';
@@ -188,7 +188,7 @@ if($this->uri->segment(4)>16){
     }
     else{ ?>
         <span class="age-wrap"><?php echo 'N/A'.'<span>Location</span>';?></span>
-        <?php 
+        <?php
     } ?>
     <span class="hour-wrap">
         <?php echo ucwords($type[0]['service_name']).'<span>Job Type</span>'; ?>
@@ -198,20 +198,20 @@ if($this->uri->segment(4)>16){
         <?php $rate_type = $recordData['rate_type']==2?' / Hr':' / Hr'?>
         <span class="experience-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Wage</span>'; ?></span>
         <?php
-    }                                
+    }
     else{ ?>
         <span class="experience-wrap"><?php echo 'N/A'.'<span>Wage</span>'; ?></span>
         <?php
     }?>
     <div class="clearfix margin-bots"></div>
-    <?php                              
+    <?php
     $availablility = explode(',',$recordData['availability']);
     $start_date = $recordData['start_date'];
     $start_date_array = explode('-',$start_date);
     $formated_start_date = $start_date_array[1].'/'.$start_date_array[2].'/'.$start_date_array[0];
     if(in_array('Immediate',$availablility)){?>
         <span class="location-wrap"><?php echo 'Immediate'.'<span>Job Start Date</span>';?></span>
-        <?php    
+        <?php
     }
     else if(isset($start_date) && $start_date !='0000-00-00'){ ?>
         <span class="location-wrap"><?php echo $formated_start_date.'<span>Job Start Date</span>';?></span>
@@ -229,8 +229,8 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
             <?php
         }else{ ?>
         <span class="age-wrap"><?php echo 'N/A'.'<span>Type of Organization</span>';?></span>
-        <?php 
-        } 
+        <?php
+        }
         if(!empty($recordData['location'])){ ?>
         <?php $loca = '';
                 if ($recordData['city'] != '') {
@@ -246,8 +246,8 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
             <?php
         }else{ ?>
         <span class="hour-wrap"><?php echo 'N/A'.'<span>Location</span>';?></span>
-        <?php 
-        } 
+        <?php
+        }
         if(!empty($recordData['established'])){ ?>
         <span class="experience-wrap"><?php echo $recordData['established'].'<span>Year Established</span>';?></span>
         <?php
@@ -260,17 +260,17 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         <div class="clearfix margin-bots"></div>
         <?php
         if(!empty($recordData['rate'])){ ?>
-        
+
         <span class="age-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
         <?php
-        }                                
+        }
         else{ ?>
         <span class="age-wrap"><?php echo 'N/A'.'<span>Cost</span>'; ?></span>
         <?php
         }
-        
-    } else { 
-    
+
+    } else {
+
         if(!empty($recordData['location'])){ ?>
         <?php $loca = '';
                 if ($recordData['city'] != '') {
@@ -286,8 +286,8 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
             <?php
         }else{ ?>
         <span class="age-wrap"><?php echo 'N/A'.'<span>Location</span>';?></span>
-        <?php 
-        } 
+        <?php
+        }
         if(!empty($recordData['established'])){ ?>
         <span class="hour-wrap"><?php echo $recordData['established'].'<span>Year Established</span>';?></span>
         <?php
@@ -297,18 +297,18 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         <?php
         }
         ?>
-        
+
         <?php
         if(!empty($recordData['rate'])){ ?>
         <span class="experience-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
         <?php
-        }                                
+        }
         else{ ?>
         <span class="experience-wrap"><?php echo 'N/A'.'<span>Cost</span>'; ?></span>
         <?php
         }
     }
-    
+
 }
 ?>
 </div>
@@ -327,40 +327,41 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
             }
             ?>
         </h2>
-        <?php 
+        <?php
         }
         else{ ?>
-        <h2> Job description</h2> 
+        <h2> Job description</h2>
         <?php
     }?>
     <br />
     <p>
-        <?php 
+        <?php
         if(!empty($recordData['profile_description'])){
             echo nl2br($recordData['profile_description']);
         }
         else{
-            echo "Description not available";   
+            echo "Description not available";
         }
-        ?>	
+        ?>
     </p>
-</div>        
-<?php 
+    
+</div>
+<?php
 if($recordData['care_type'] < 10){?>
-<div >                        
+<div >
     <?php $this->load->view('frontend/user/details/individual_caregiver',$recordData)?>
 </div>
 <?php
 }?>
-<?php 
+<?php
 if(($recordData['care_type'] > 9 && $recordData['care_type'] < 17 ) || ($recordData['care_type'] > 24)){ ?>
-<div>                    
+<div>
     <?php $this->load->view('frontend/user/details/organizations',$recordData) ?>
 </div>
-<?php            
+<?php
 }
 if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
-<div>                    
+<div>
     <?php $this->load->view('frontend/user/details/job_posters',$recordData)?>
 </div>
 <?php
@@ -376,10 +377,10 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
             }
             ?>
         </h2>
-        <?php                       
+        <?php
         if($similar_types!=''){
             foreach($similar_types as $caregiver){
-                $navigate = $caregiver['care_type']>16?'jobs':'caregivers'; ?>					 							            
+                $navigate = $caregiver['care_type']>16?'jobs':'caregivers'; ?>
                 <div class="similar-care-providers care-providers1 col-md-3 col-sm-4 col-xs-6 col-lg-2">
                     <a href="<?php echo site_url().$navigate; ?>/details/<?php echo $caregiver['uri'];?>/<?php echo $caregiver['care_type'];?>" >
                         <div class="imgs">
@@ -389,16 +390,16 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                             <img src="<?php echo site_url();?>images/no-image.jpg" />
                             <?php } ?>
                         </div>
-                
+
                         <div class="name-care-providers">
                             <?php echo trim($caregiver['name']);?><?php echo '&nbsp;';?>
                         </div>
-                
+
                         <div class="service-care-providers">
                             <?php foreach($care_type as $type){
                               if($caregiver['care_type'] == $type['id'])
                                echo ucwords($type['service_name']);
-                            };?>	
+                            };?>
                         </div>
                         <div class="rating-score"></div>
                         <div class="care-hours">
@@ -411,22 +412,22 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                         </div>
                     </a>
                 </div>
-                <?php  
+                <?php
             }
         } ?>
-    </div>            		
-</div>        
+    </div>
+</div>
 
-        
-        
+
+
         <div class="right-sidebar-details col-lg-3 col-md-4 col-sm-4 col-xs-12">
    <?php if($caregiver['care_type'] != 7) { ?>
-   <p> 
-    Last Signed in: 
-    <?php 
+   <p>
+    Last Signed in:
+    <?php
 					$dbDate = $userlog['login_time']; // Database date
-					$endDate = time(); 
-					$diff = $endDate - $dbDate; 
+					$endDate = time();
+					$diff = $endDate - $dbDate;
 					$days = floor($diff/86400);
 					$hours = floor(($diff-$days*86400)/(60 * 60));
 					$min = floor(($diff-($days*86400+$hours*3600))/60);
@@ -439,7 +440,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 					?>
 				</p>
 				<?php } ?>
-				<?php 
+				<?php
 				if(isset($this->session->userdata['current_user'])){
 					$id = $this->session->userdata['current_user'];
 				}else{
@@ -459,7 +460,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                   <a href="#" class="btn btn-primary viewcontactdetails"> Contact <?php echo $recordData['name']; ?> </a>                       </span>
                   <br />
               <span class="view-availability-btn">
-                  <a href="#" class="btn btn-primary timetable">View job hours</a>                                               
+                  <a href="#" class="btn btn-primary timetable">View job hours</a>
               </span>
               <?php
           }
@@ -468,11 +469,11 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
               <a href="#" class="btn btn-primary viewcontactdetails">Contact <?php echo $recordData['organization_name'] ?></a>                                               
           </span>
           <?php
-      } 
+      }
       ?>
       <?php if(segment(4) == 7){ ?>
         <br />
-      <?php } ?> 
+      <?php } ?>
       <div class="verification-sidebar">
          <h2>Verifications</h2>
          <ul class="contacts-verified">
@@ -498,7 +499,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
       <ul class="check-training">
 						<!-- <li class="bbc">Basic Background Check<span>(Not Run)</span></li>
 						<li class="mvrc">Motor Vehicle Records Check<span>(Not Run)</span></li> -->
-                        <?php 
+                        <?php
                             //$training = explode(',', $recordData['training']);
                         ?>
                         <?php /*
@@ -508,7 +509,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                         <?php /*
                             if(in_array('CPR',$training)){
                                 $cpr = "CPR Training";
-                            } 
+                            }
                             if(in_array('First Aid', $training)){
                                 $training = "First Aid Training";
                             }
@@ -527,45 +528,53 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                         <li class="fat" title="<?php if(in_array('First Aid',$training)){?> CPR Training <?php } ?>">First Aid Training</li>
                         <li class="bbc">Senior Care Training</li>
                         <li class="bbc">Special Needs Training</li>
-                        <li class="bbc">Other Training</li> 
+                        <li class="bbc">Other Training</li>
                     </ul>                    */ ?>
-                    <?php 															    
+                    <?php
                     $training = explode(',', $recordData['training']);
                     if(in_array(strtolower('CPR'), array_map('strtolower',$training))){?>
                     <li class="fat" title="Training">CPR Training</li>
-                    <?php 
+                    <?php
                 }
                 if(in_array(strtolower('First Aid'), array_map('strtolower',$training))){ ?>
                 <li class="cprt" title="Training">First Aid Training</li>
-                <?php 
-            } 										
+                <?php
+            }
             if(in_array(strtolower('Nanny/ Babysitter Course'), array_map('strtolower',$training))){?>
             <li class="bbc" title="Training" >Nanny / Babysitter Course</li>
-            <?php 
+            <?php
         }
         if(in_array(strtolower('Senior Care Training'), array_map('strtolower',$training))){?>
         <li class="bbc" title="Training" >Senior Care Training</li>
-        <?php 
+        <?php
     }
     if(in_array(strtolower('Special Needs Training'), array_map('strtolower',$training))){
       ?>
       <li class="bbc" title="Training">Special Needs Training</li>
-      <?php 
+      <?php
   }
   if(in_array(strtolower('degree'), array_map('strtolower',$training))){
       ?>
       <li class="bbc" title="Training">Degree</li>
-      <?php 
-  }                                        
+      <?php
+  }
   if(in_array(strtolower('Other'), array_map('strtolower',$training))){
       ?>
       <li class="bbc" title="Training">Other Training</li>
-      <?php 
+      <?php
   }?>
 </ul>
 <?php } ?>
 </div>
+<div class="map verification-sidebar">
+        <h2>Location</h2>
 
+
+
+
+        <div id="map"></div>
+
+    </div>
 							<?php /*
 							<div class="education-major-wrap">
 								<div class="education-major">
@@ -577,7 +586,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 							</div> */?>
 							<div class="share-profile-wrap">
 								<div class="share-profile">
-									<?php 
+									<?php
                                     if($recordData['care_type']<17){
                                         $profile = ' profile';
                                         $title = 'Favorite';
@@ -596,17 +605,17 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                                       <span class='st_email_large' displayText='Email'></span>
                                       <span><img src="<?php echo site_url();?>img/instagramsquare.png" alt="Smiley face" height="36" width="36" style="margin-bottom: 23px;"></span>
                                   </div>
-                              </div> 
-                          </div>                                                        
+                              </div>
+                          </div>
                           <div class="favourite-profile-wrap">
                             <div class="favourite-profile">
-                                <h2><?php echo $title;?> this <?php echo $profile; ?></h2>                                
+                                <h2><?php echo $title;?> this <?php echo $profile; ?></h2>
                                 <div class="texts">Save this <?php echo $profile; ?> to the list of favorites in your Frumcare account.</div>
-                                
+
                                 <div class="share-profile-wrap">
-                                <a href="javascript:void(0);" class="favorite btn btn-primary" style="color:#8C8C8C;" id="<?php echo $recordData['id'];?>">Favorite this <?php echo $profile; ?></a>                                                                
+                                <a href="javascript:void(0);" class="favorite btn btn-primary" style="color:#8C8C8C;" id="<?php echo $recordData['id'];?>">Favorite this <?php echo $profile; ?></a>
                                 </div>
-                            </div>                             
+                            </div>
                         </div>
                     </div>
 
@@ -621,45 +630,43 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                     </div>
                     <div class="modal-body">
                         <form class="usersreviewform">
-                         <table>
-                          <tr>
-                           <td><label>Your name</label></td>
-                           <td><input type="text" name="title" placeholder="Enter your name" value=""></td>
-                       </tr>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label>Rate</label>
+                                    </td>
+                                    <td>
+                                        <div id="half" style="cursor: pointer;"></div>
+                                    </td>
+                                </tr>
+                       
+                                <tr>
+                                    <td><label>Review</label></td>
+                                    <td>
+                                        <textarea name="review_description" class="required"></textarea>
+                                    </td>
+                                </tr>
 
-                       <tr>
-                           <td><label>Description</label></td>
-                           <td>
-                            <textarea name="review_description" class="required"></textarea>
-                        </td>
-                    </tr>
+                    
+                                <tr>
+                                    <td>
+                                        <input type="hidden" name="current_user" value="<?php echo @$this->session->userdata['current_user'];?>"/>
+                                    </td>
+                                    <td>
+                                        <input type="hidden" name="new_id" value="<?php echo $recordData['user_id']?>"/>
+                                        <input type="hidden" name="profile" value="<?php echo $recordData['id'];?>">
+                                        <input type="hidden" name="date_time" value="<?php echo date('Y-m-d H:i:s')?>">
+                                        <input type="hidden" name="acc_category" value="<?php echo $recordData['account_category'];?>">
+                                        <input type="hidden" name="care_type" value="<?php echo $recordData['care_type'];?>">
+                                    </td>
+                                </tr>
+                            </table>
 
-                    <tr>
-                       <td><label>Rate</label></td>
-                       <td>
-                        <div id="half" style="cursor: pointer;">								
-                        </div>
-                    </td>
-                </tr>	
-                <tr>
-                   <td>
-                    <input type="hidden" name="current_user" value="<?php echo @$this->session->userdata['current_user'];?>"/>        					
-                </td>
-                <td>
-                    <input type="hidden" name="new_id" value="<?php echo $recordData['user_id']?>"/>
-                    <input type="hidden" name="profile" value="<?php echo $recordData['id'];?>">
-                    <input type="hidden" name="date_time" value="<?php echo date('Y-m-d H:i:s')?>">
-                    <input type="hidden" name="acc_category" value="<?php echo $recordData['account_category'];?>">
-                    <input type="hidden" name="care_type" value="<?php echo $recordData['care_type'];?>">
-                </td>
-            </tr>	
-        </table>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary save">Save changes</button>
-      </div>
-  </form>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary save">Save changes</button>
+                          </div>
+                      </form>
   <div class="reviewsuccess" style="display:none;"><p>Review has been successfully saved.</p></div>
 </div>
 
@@ -696,7 +703,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
        $('form.usersreviewform').hide();
 							//$('.reviewsuccess').show();
                             $('.reviewsuccess').html(msg);
-                            $('.reviewsuccess').show();                                                        
+                            $('.reviewsuccess').show();
                         }
                     });
  });
@@ -719,7 +726,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
       readOnly : true,
       half  : true,
       space : false
-  }); 
+  });
  });
 
     $('.viewcontactdetails').on('click',function(){
@@ -742,12 +749,12 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
           type:"post",
           url:"<?php echo site_url();?>caregivers/favorite",
           data:"profile_id="+profile_id+"&user_id="+user_id,
-          success:function(fav){           
+          success:function(fav){
            alert('Profile added to your favourite list');
        }
    });
     }
-    else{                        
+    else{
         window.location = '<?php echo site_url()?>login?url='+ btoa('<?php echo uri_string(); ?>');
     }
 });
@@ -762,22 +769,60 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 <!-- scroll js starts -->
 <script src="<?php echo site_url();?>js/jquery.localScroll.min.js"></script>
 <script src="<?php echo site_url();?>js/jquery.scrollTo.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript" src="<?php echo base_url();?>js/gmaps.js"></script>
+
+
+
 <!-- scroll js ends -->
 <script>
 	$(document).ready(function(){
+
+
+         var map = new GMaps({
+        div: '#map',
+        lat: 31.7963186,
+        lng: 35.175359,
+        width: '235px',
+        height: '250px'
+
+    });
+
+
+         GMaps.geocode({
+          address: "<?php echo $recordData['location'];?>",
+          callback: function(results, status){
+            if(status=='OK'){
+              var latlng = results[0].geometry.location;
+              map.setCenter(latlng.lat(), latlng.lng());
+              map.addMarker({
+                lat: latlng.lat(),
+                lng: latlng.lng(),
+                title: "<?php echo $recordData['Location'];?>",
+                infoWindow: {
+                  content: "<span class='info_text'><?php echo $recordData['Location'];?></span>",
+                }
+              });
+            }
+          }
+       });
+
+
+
+
 		$.localScroll();
         $(".timetable").click(function(){
             var divPosition = $('#availability1').offset();
-            if(divPosition){            
+            if(divPosition){
                 $('html, body').animate({scrollTop: divPosition.top-15}, "slow");
             }else
             {
-                alert('This profile does not have any availability');    
-            }          
+                alert('This profile does not have any availability');
+            }
         });
-        
-        $("#not_login").click(function(){                       
-            window.location = '<?php echo site_url()?>login?url='+ btoa('<?php echo uri_string(); ?>');            
+
+        $("#not_login").click(function(){
+            window.location = '<?php echo site_url()?>login?url='+ btoa('<?php echo uri_string(); ?>');
         });
     });
 </script>

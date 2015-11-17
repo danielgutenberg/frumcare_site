@@ -1127,6 +1127,15 @@ class User extends CI_Controller
                      if(isset($p['neighbour']) && !empty($p['neighbour'])){
                         $update_user['neighbour'] = $p['neighbour'];
                     }
+                    if(isset($p['city']) && !empty($p['city'])){
+                        $update_user['city'] = $p['city'];
+                    }
+                    if(isset($p['state']) && !empty($p['state'])){
+                        $update_user['state'] = $p['state'];
+                    }
+                    if(isset($p['country']) && !empty($p['country'])){
+                        $update_user['country'] = $p['country'];
+                    }
                     if(isset($p['zip']) && !empty($p['zip'])){
                         $update_user['zip'] = $p['zip'];
                     }
@@ -1726,8 +1735,7 @@ class User extends CI_Controller
       }
 
       public function account($id_hash = '' ){
-            // print_r($_POST);
-            if(isset($_POST['save'])){
+            
                  if(isset($_POST['language'])){
                     $lang = join(',',$_POST['language']);
                  }
@@ -1748,11 +1756,13 @@ class User extends CI_Controller
                         'zip'      => isset($_POST['zip'])?$_POST['zip']:'',
                         'age'      =>  isset($_POST['age'])?$_POST['age']:'',
                         'gender'   => isset($_POST['gender'])?$_POST['gender']:'',
+                        'city'      => isset($_POST['city'])?$_POST['city']:'',
+                        'state'      =>  isset($_POST['state'])?$_POST['state']:'',
+                        'country'   => isset($_POST['country'])?$_POST['country']:'',
                         'contact_number' => isset($number)?$number:'',
                         'caregiver_language'      => isset($lang)?$lang:'',
                         'caregiver_religious_observance'  => isset($_POST['religious_observance'])?$_POST['religious_observance']:'',
                         'familartojewish' => isset($_POST['familartojewish'])?$_POST['familartojewish']:'',
-                        'neighbour' => isset($_POST['neighborhood'])?$_POST['neighborhood']:'',
                         'profile_picture' => isset($_POST['profile_picture'])?$_POST['profile_picture']:'',
                         'profile_picture_owner'=> isset($_POST['profile_picture_owner'])?$_POST['profile_picture_owner']:'',
                         'name_of_owner' => isset($_POST['name_of_owner'])?$_POST['name_of_owner']:'',
@@ -1802,7 +1812,7 @@ class User extends CI_Controller
 
                         redirect('user/details/'.$id_hash);                        
 
-            }
+            
       }
       
       public function job_or_profile(){

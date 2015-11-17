@@ -8,7 +8,7 @@ class Common_Model extends CI_Model
         return $q->result_array();
     }
 
-    public function insert($table_name, $data, $return_id = false){   
+    public function insert($table_name, $data, $return_id = false){
         $q = $this->db->insert($table_name, $data);
         if($return_id)
             return $this->db->insert_id();
@@ -93,7 +93,7 @@ class Common_Model extends CI_Model
         $sql = "select * from tbl_countries";
         $query = $this->db->query($sql);
         $res = $query->result_array();
-        return $res;   
+        return $res;
     }
 
     public function getCareType(){
@@ -126,7 +126,7 @@ class Common_Model extends CI_Model
         }else{
                $val = $uri;
                return $val;
-        }        
+        }
     }
 
     public function getAllUserLogs(){
@@ -148,9 +148,9 @@ class Common_Model extends CI_Model
                           'charset' => 'iso-8859-1',
                           'wordwrap' => TRUE
                         );
-                        
+
         $this->load->library('email',$config);
-        $this->email->set_newline("\r\n");      
+        $this->email->set_newline("\r\n");
         $this->email->from('info@frumcare.com', 'FRUMCARE');
         $this->email->to($email);
         $this->email->subject($subject);
@@ -176,7 +176,7 @@ class Common_Model extends CI_Model
 
     public function pager($limit,$url){
         $this->load->library('pagination');
-        
+
         $config['base_url'] = $url;
         $config['total_rows'] =  $this->db->where('status', 1)->count_all_results('tbl_user');
         $config['per_page'] = $limit;
@@ -198,9 +198,9 @@ class Common_Model extends CI_Model
         $config['first_tag_close'] = '</span>';
         $config['last_tag_open'] = '<span class="in-active">';
         $config['last_tag_close'] = '</span>';
-        
+
         $this->pagination->initialize($config);
-        
+
         return $this->pagination->create_links();
 
     }
@@ -211,51 +211,51 @@ class Common_Model extends CI_Model
         $res = $query->result_array();
             if($res)
                 return $res;
-            else 
+            else
                 return false;
 
     }
 
     public function getIPData($ip){
         //$ip='119.6.144.74'; //ip of china
-        //$ip='202.166.205.143'; //ip of kathmandu        
+        //$ip='202.166.205.143'; //ip of kathmandu
         //$location = file_get_contents('http://freegeoip.net/json/'.$ip);
         //$ip='109.226.44.128';isareal
-        $location = @unserialize(file_get_contents('http://ip-api.com/php/'.$ip));                                
+        $location = @unserialize(file_get_contents('http://ip-api.com/php/'.$ip));
         if($location){
-            if(empty($location['city'])){            
+            if(empty($location['city'])){
                 $lat = $location['lat'];
-                $lng = $location['lon'];                                            
+                $lng = $location['lon'];
                 $json = file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false");
-                $json_data = json_decode($json);                                
-                $location['city'] = $json_data->results[3]->formatted_address;                                
-            }            
-            return $location;            
-        }                                                           
+                $json_data = json_decode($json);
+                $location['city'] = $json_data->results[3]->formatted_address;
+            }
+            return $location;
+        }
          else{
-            $new_data = @unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$ip));                        
+            $new_data = @unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$ip));
             if($new_data){
                 $location2 = array(
                             'lat'           => $new_data['geoplugin_latitude'],
                             'lon'           => $new_data['geoplugin_longitude'],
                             'city'          => $new_data['geoplugin_city'],
-                            'regionName'    => $new_data['geoplugin_regionName'],                            
+                            'regionName'    => $new_data['geoplugin_regionName'],
                             'country'       => $new_data['geoplugin_countryName'],
                         );
-                 if(empty($location2['city'])){            
+                 if(empty($location2['city'])){
                     $lat = $location2['lat'];
-                    $lng = $location2['lon'];                                            
+                    $lng = $location2['lon'];
                     $json2 = file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false");
-                    $json_data2 = json_decode($json2);                                
-                    $location2['city'] = $json_data2->results[3]->formatted_address;                                
-                }                                            
+                    $json_data2 = json_decode($json2);
+                    $location2['city'] = $json_data2->results[3]->formatted_address;
+                }
                 return $location2;
             }
             else{
-                return false;    
-                            
-            }                                                                         
-         }    
+                return false;
+
+            }
+         }
     }
 
     function getLongitudeAndLatitude($address){
@@ -267,7 +267,7 @@ class Common_Model extends CI_Model
       }else{
         return false;
       }
-        
+
     }
 
 
@@ -275,7 +275,7 @@ class Common_Model extends CI_Model
         if($lat2 == '')
                 $lat2 = 0;
           if($lon2 == '')
-                $lon2 = 0;   
+                $lon2 = 0;
           $theta = $lon1 - $lon2;
           $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
           $dist = acos($dist);
@@ -292,6 +292,21 @@ class Common_Model extends CI_Model
             }
     }
 
+    public function getAllAdImages(){
+        $sql= "SELECT * FROM tbl_user LEFT JOIN tbl_userprofile ON tbl_userprofile.user_id=tbl_user.id WHERE tbl_userprofile.photo=1 ORDER BY tbl_userprofile.id desc";
+        //$sql    = "select id, name, profile_picture, profile_picture_status from tbl_user order by id desc";
+        $query  = $this->db->query($sql);
+        $res    = $query->result_array();
+        //print_r($res); exit;
+        if($res){
+            return $res;
+        }else{
+            return false;
+        }
+
+    }
+
+
     public function getAllProfileImages(){
         $sql    = "select id, name, profile_picture, profile_picture_status from tbl_user order by id desc";
         $query  = $this->db->query($sql);
@@ -301,7 +316,6 @@ class Common_Model extends CI_Model
         }else{
             return false;
         }
-
     }
 
     public function getSEODATA(){
@@ -310,7 +324,7 @@ class Common_Model extends CI_Model
         $res    = $query->row_array();
         if($res)
             return $res;
-        else 
+        else
             return false;
     }
 
@@ -323,11 +337,11 @@ class Common_Model extends CI_Model
         else
             return false;
     }
-    
+
     function subscribe(){
         $sub_name = $_GET['sub_name'];
         $sub_email = $_GET['sub_email'];
-        
+
         $insert = array(
             'name' => $sub_name,
             'email' => $sub_email,
@@ -339,7 +353,7 @@ class Common_Model extends CI_Model
             $this->db->insert('tbl_newlettersubscription',$insert);
             return true;
         }
-        
+
     }
 
     public function getAdAdminEmails(){
@@ -372,7 +386,7 @@ class Common_Model extends CI_Model
         else
             return false;
     }
-    
+
     public function getMyLocation($user_id){
         $sql    = "select lat,lng,location, city from tbl_user where  id = $user_id";
         $query  = $this->db->query($sql);
@@ -381,7 +395,7 @@ class Common_Model extends CI_Model
             return $res;
         else
             return false;
-    } 
+    }
 
     public function getEmailAddressById($uri){
         $sql = "select * from tbl_user where uri = '$uri' and status = 1";
@@ -391,6 +405,37 @@ class Common_Model extends CI_Model
             return $res;
         else
             return false;
+    }
+    
+    function get_location()
+    {
+        if(check_user()){
+            $locationdetails = $this->getMyLocation(check_user());
+            if($locationdetails){
+                $latitude = ($locationdetails[0]['lat']);
+                $longitude = ($locationdetails[0]['lng']);
+                $location =  isset($locationdetails[0]['city'])?$locationdetails[0]['city']:'your city';
+            }
+            if (!$latitude) {
+                return $this->getLocationFromId($this->ipaddress);
+            }
+            
+        }
+        else{
+            return $this->getLocationFromId($this->ipaddress);
+        }
+        
+        return ['latitude' => $latitude, 'longitude' => $longitude, 'location' => $location];
+    }
+    
+    function getLocationFromId($address)
+    {
+        $ipdata = $this->getIPData($address);
+        $latitude = isset($ipdata['lat']) ? $ipdata['lat'] : 31;
+        $longitude = isset($ipdata['lon']) ? $ipdata['lon'] : 35;
+        $location = isset($ipdata['city']) ? $ipdata['city'] : 'your city';
+        
+        return ['latitude' => $latitude, 'longitude' => $longitude, 'location' => $location];
     }
 
 
