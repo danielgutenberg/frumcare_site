@@ -221,7 +221,7 @@
                 $location = $results['location'];
     		}
     		$data = $this->input->get(NULL, true);
-    		if ($this->input->get('care_type') > 30) {
+    		if ($this->input->get('care_type') > 30 || $this->input->get('care_type') == 'organizations') {
     		    $data['care_type'] = $this->input->get('care_type') - 30;
     		    $result = $this->common_care_model->filter($data,$latitude,$longitude, true);
     		} else {
