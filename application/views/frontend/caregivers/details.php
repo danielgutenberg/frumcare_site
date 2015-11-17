@@ -566,18 +566,8 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 </ul>
 <?php } ?>
 </div>
-<div class="map">
-        <?php $loca = '';
-                if ($recordData['city'] != '') {
-                    $loca .= $recordData['city'];
-                }
-                if ($recordData['state'] != '') {
-                    $loca .= ', ' . $recordData['state'];
-                }
-                if ($recordData['country'] != '') {
-                    $loca .= ', ' . $recordData['country'];
-                }?>
-        <h2>Map Location (<?php echo $loca; ?>)</h2>
+<div class="map verification-sidebar">
+        <h2>Location</h2>
 
 
 
@@ -640,45 +630,43 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                     </div>
                     <div class="modal-body">
                         <form class="usersreviewform">
-                         <table>
-                          <tr>
-                           <td><label>Your name</label></td>
-                           <td><input type="text" name="title" placeholder="Enter your name" value=""></td>
-                       </tr>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label>Rate</label>
+                                    </td>
+                                    <td>
+                                        <div id="half" style="cursor: pointer;"></div>
+                                    </td>
+                                </tr>
+                       
+                                <tr>
+                                    <td><label>Review</label></td>
+                                    <td>
+                                        <textarea name="review_description" class="required"></textarea>
+                                    </td>
+                                </tr>
 
-                       <tr>
-                           <td><label>Description</label></td>
-                           <td>
-                            <textarea name="review_description" class="required"></textarea>
-                        </td>
-                    </tr>
+                    
+                                <tr>
+                                    <td>
+                                        <input type="hidden" name="current_user" value="<?php echo @$this->session->userdata['current_user'];?>"/>
+                                    </td>
+                                    <td>
+                                        <input type="hidden" name="new_id" value="<?php echo $recordData['user_id']?>"/>
+                                        <input type="hidden" name="profile" value="<?php echo $recordData['id'];?>">
+                                        <input type="hidden" name="date_time" value="<?php echo date('Y-m-d H:i:s')?>">
+                                        <input type="hidden" name="acc_category" value="<?php echo $recordData['account_category'];?>">
+                                        <input type="hidden" name="care_type" value="<?php echo $recordData['care_type'];?>">
+                                    </td>
+                                </tr>
+                            </table>
 
-                    <tr>
-                       <td><label>Rate</label></td>
-                       <td>
-                        <div id="half" style="cursor: pointer;">
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                   <td>
-                    <input type="hidden" name="current_user" value="<?php echo @$this->session->userdata['current_user'];?>"/>
-                </td>
-                <td>
-                    <input type="hidden" name="new_id" value="<?php echo $recordData['user_id']?>"/>
-                    <input type="hidden" name="profile" value="<?php echo $recordData['id'];?>">
-                    <input type="hidden" name="date_time" value="<?php echo date('Y-m-d H:i:s')?>">
-                    <input type="hidden" name="acc_category" value="<?php echo $recordData['account_category'];?>">
-                    <input type="hidden" name="care_type" value="<?php echo $recordData['care_type'];?>">
-                </td>
-            </tr>
-        </table>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary save">Save changes</button>
-      </div>
-  </form>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary save">Save changes</button>
+                          </div>
+                      </form>
   <div class="reviewsuccess" style="display:none;"><p>Review has been successfully saved.</p></div>
 </div>
 
