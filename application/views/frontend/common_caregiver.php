@@ -362,7 +362,7 @@ if ($pages > 1) {
             filterCaregivers();
 		});
               
-		$('.subject,.skills,.extra_field,.gender_of_caregiver,.gender_of_careseeker,.smoker,.lang,.observance,.homework_help,.on_short_notice,.sick_child_care,.morenum,.basic_housework,.vehicle,.looking_to_work,.year_experience,.training,.availability,.driver_license,.pick_up_child,.cook,.carelocation').click(function(){
+		$('.subject,.skills,.extra_field,.gender,.gender_of_caregiver,.gender_of_careseeker,.smoker,.lang,.observance,.homework_help,.on_short_notice,.sick_child_care,.morenum,.basic_housework,.vehicle,.looking_to_work,.year_experience,.training,.availability,.driver_license,.pick_up_child,.cook,.carelocation').click(function(){
             $(".searchloader").fadeIn("fast");
             $('#pagenum').val(1);
             filterCaregivers();
