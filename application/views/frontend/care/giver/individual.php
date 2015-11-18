@@ -38,14 +38,14 @@
         </div>
     </div>
 
-	 <?php if( segment(6) != 7) { ?>
+	 
 	    <div>
 	        <label>Age</label>
 	        <div class="form-field">
 	        <input type="text" name="age" class="txt number" value="<?php echo isset($age) ? $age : '' ?>"/>
 	        </div>
 	    </div>
-	   <?php } ?>
+	  
 
     <div>
         <label>Gender</label>
@@ -54,8 +54,7 @@
           <div class="radio-half"><input type="radio" value="2" name="gender" <?php echo isset($gender) && $gender == 2 ? 'checked' : '' ?>> Female</div>
         </div>
     </div>
-    <?php
-        if( segment(6) != 7) { ?>
+        
             <div>
                 <label>Marital status</label>
                 <div class="form-field">
@@ -64,8 +63,7 @@
                     <div class="radio-half"><input type="radio" name="marital_status" value="3"> Divorced</div>
                     <div class="radio-half"><input type="radio" name="marital_status" value="4"> Widowed</div>
                 </div>
-            </div> <?php
-        } ?>
+            </div> 
 
 
     <div>
@@ -79,8 +77,6 @@
             <div class="checkbox"><input type="checkbox" name="language[]" value="Other"> Other</div>
         </div>
     </div>
-    <?php
-        if( segment(6) != 7) { ?>
             <div>
                 <label>I am a smoker</label>
                 <div class="form-field">
@@ -88,9 +84,7 @@
                 <div class="radio-half"><input type="radio" name="smoker" value="2" checked> No</div>
                 <div class="radio-half"><input type="radio" name="smoker" value="3"> Yes, but not at work</div>
                 </div>
-            </div> <?php
-        } ?>
- <?php if( segment(6) != 7) { ?>
+            </div>
     <div>
         <label>Level of religious observance</label>
         <div class="form-field">
@@ -103,15 +97,12 @@
         </select>
         </div>
     </div>
-    <?php } ?>
     <div class="familar" style="display:none;">
         <label></label>
         <div class="form-field">
             <input type="checkbox" name="familartojewish" value="1"> Familiar with Jewish Tradition
         </div>
     </div>
-     <?php
-        if( segment(6) != 7) { ?>
             <div>
                 <label>Level of education</label>
                 <div class="form-field">
@@ -129,13 +120,7 @@
                 <div class="form-field">
                     <input type="text" name="educational_institution" value="<?php echo isset($edu_ins) ? $edu_ins : '' ?>">
                 </div>
-            </div> <?php
-        } ?>
-    <?php /* <div>
-        <label>Major Subject</label>
-        <div class="form-field">
-        <input type="text" name="major_subject" value="" class="required">
-    </div> */?>
+            </div>
 
     </div>
 
