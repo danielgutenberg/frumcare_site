@@ -60,7 +60,6 @@
           } ?>    
                 
     <?php 
-    if($care_type != 7){
         if(!empty($age)){
     ?>
         <tr>
@@ -74,7 +73,6 @@
         </tr>
     <?php
         }
-    } 
     ?>
           
     <?php if(!empty($gender)){?>
@@ -93,7 +91,7 @@
                 </tr>
             <?php
           } ?>
-    <?php if(!empty($marital_status) && $care_type != 7){?>
+    <?php if(!empty($marital_status)){?>
     <tr>
         <td>Marital status</td>
         <td >
@@ -112,7 +110,7 @@
         </td>
     </tr>
     <?php }
-    elseif($care_type != 7){
+    else{
             ?>
                 <tr>
                     <td >Marital status </td>
@@ -133,8 +131,6 @@
                 <div ><?php if(in_array("Other",$language)){ echo $tick; }else{ echo $cross; }?> Other</div>                                                            
             </td>
         </tr>    
-        
-    <?php if ($care_type != 7) { ?>
     <?php if(($smoke==1 || $smoke==3)){?>
     <tr>
         <td>Smoker</td>
@@ -150,9 +146,8 @@
                     <td><?php echo "No"?></td>
                 </tr>
             <?php
-          } }?>
+          } ?>
     <?php 
-    if($care_type != 7){
         if(!empty($caregiver_religious_observance)){?>
         <tr>
             <td>Level of religious observance</td>
@@ -171,9 +166,8 @@
         </tr>
             <?php
         } 
-    }
     ?>    
-    <?php if(!empty($education_level) && $care_type != 7){?>
+    <?php if(!empty($education_level)){?>
     <tr>
         <td>Level of education</td>
         <td >
@@ -183,7 +177,7 @@
         </td>
     </tr>
     <?php }
-     elseif($care_type != 7){
+     else{
             ?>
                 <tr>
                     <td >Level of education </td>
@@ -191,7 +185,7 @@
                 </tr>
             <?php
           } ?>
-    <?php if(!empty($educational_institution) && $care_type != 7){?>
+    <?php if(!empty($educational_institution)){?>
     <tr>
         <td>Educational institutions attended</td>
         <td >
@@ -199,7 +193,7 @@
         </td>
     </tr>
     <?php }
-    elseif($care_type != 7){
+    else {
             ?>
                 <tr>
                     <td >Educational institutions attended </td>
