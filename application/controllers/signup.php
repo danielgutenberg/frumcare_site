@@ -39,6 +39,10 @@ class Signup extends CI_Controller
     }
 
     function save_user($id = ''){
+        if (!isset($_POST['care_type'])) {
+            $this->session->set_flashdata('msg', 'Please enter a care type.');
+            redirect('signup');
+        }
        if($_POST) {
             $data = $_POST;
             $uri = $this->common_model->create_slug(trim($data['name']));

@@ -1,22 +1,18 @@
-<div class="">
+<div class="container">
     <div class="padding-10">
         <div class="row">
-            <div class="">
                 <?php flash();?>
-                <!--Admin Details Manager-->
                 <div class="panel-group" id="accordion">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h1 class="txt-color-blueDark">
                                 <i class="fa fa-lg fa-fw fa-user"></i> <span>Ad Manager</span>
-
                             </h1>
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse in">
                             <div class="panel-body">
                                 <div class="table-responsive">
-                            <!-- <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-hover" id="example"> -->
-                                    <table id="dt_basic" class="table table-striped table-bordered table-hover">
+                            <table id="dt_basic" class="table table-striped table-bordered table-hover">
                                         <thead>
                                             <tr>
                                                 <th>User Id</th>
