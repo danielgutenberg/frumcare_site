@@ -101,15 +101,14 @@
     <link rel="icon" href="<?php echo site_url("img/favicon.ico")?>" type="image/x-icon">
     <script src="<?php echo base_url('js/jquery-1.11.1.min.js') ?>"></script>
     <script src="<?php echo base_url('js/jquery.validate.js') ?>"></script>
-
     <script src="<?php echo base_url('js/jgrowl.js') ?>"></script>
     <script src="<?php echo base_url('js/vendor/bootstrap.min.js') ?>"></script>
     <script src="<?php echo base_url('js/select.js') ?>"></script>
     <script src="<?php echo base_url();?>js/jquery.ui.maskinput.js"></script>
-    <script type="text/javascript" src="<?php echo site_url();?>js/jquery-ui.js"></script>
+    
     <!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
     <!--<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
-    <link href="<?php echo site_url();?>css/jquery-ui.css" type="text/css" rel="stylesheet">
+    <!--<link href="<?php echo site_url();?>css/jquery-ui.css" type="text/css" rel="stylesheet">-->
         <script src="<?php echo base_url('js/vendor/modernizr-2.6.2-respond-1.1.0.min.js') ?>"></script>
 
         <!-- Facebook Conversion Code for Caregiver leads -->
