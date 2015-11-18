@@ -187,7 +187,7 @@
         <option value="50">50 Miles</option>
         <option value="unlimited" selected="selected">Unlimited Miles</option>
     </select>   
-	<h3>
+	<h3 class="total_rows hidden" style="margin-bottom: 0px">
 		<span id="total"><?php echo $total_rows ?></span>
         <?php
           if( $total_rows > 1 && substr($title,-1) == 'y' ){
@@ -209,7 +209,7 @@
         <div class="want-top"><p>Want Employers to Contact you?<a href='<?php echo site_url()."signup?ac=$ac"?>' class="btn btn-primary ml10 btn-xs">Create a Profile for free</a></p></div>
     <?php } ?>
 
-	<div class="select-relevance">
+	<div class="select-relevance" style="margin-top:14px">
             <select name="sort_by_select" id="sort_by_select">
                 <option value="distance">Sort by distance</option>
                 <option value="tbl_userprofile.id">Sort by latest</option>
@@ -254,6 +254,7 @@ if ($pages > 1) {
 </div> 
 <script>
     function filterCaregivers() {
+        $(".searchloader").fadeIn("fast");
         var per_page = $("#per_page").val();
         var distance = $("#sort_by_miles").val();
         var sort_by = $('#sort_by_select').val();
@@ -338,6 +339,7 @@ if ($pages > 1) {
 				$('#list_container').html(pagedata);
 				$('#total').text(json.total);
                 $('.navigations').html(json.pagination);
+                $('.total_rows').removeClass('hidden')
                 if (json.location) {
                 	$('#locationaddress').text(json.location)
                 }
@@ -351,19 +353,16 @@ if ($pages > 1) {
 	    $('#locationaddress').val(plc)
 	    filterCaregivers();
         $('.neighbour,.caregiverage_from,.caregiverage_to').blur(function(){
-            $(".searchloader").fadeIn("fast");
             $('#pagenum').val(1);
             filterCaregivers();
 		});        
         
         $('.rate,.accept_insurance,.number_of_children,.year_experience,.age_group,#textbox1,.sub_care,#per_page,#sort_by_miles,#sort_by_select').change(function(){
-			$(".searchloader").fadeIn("fast");
 			$('#pagenum').val(1);
             filterCaregivers();
 		});
               
 		$('.subject,.skills,.extra_field,.gender,.gender_of_caregiver,.gender_of_careseeker,.smoker,.lang,.observance,.homework_help,.on_short_notice,.sick_child_care,.morenum,.basic_housework,.vehicle,.looking_to_work,.year_experience,.training,.availability,.driver_license,.pick_up_child,.cook,.carelocation').click(function(){
-            $(".searchloader").fadeIn("fast");
             $('#pagenum').val(1);
             filterCaregivers();
 		});
