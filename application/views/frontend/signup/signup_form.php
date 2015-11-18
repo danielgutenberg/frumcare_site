@@ -80,7 +80,18 @@ if($this->uri->segment(2)!='edit'){
                 <div class="radio"><input type="radio" name="organization_care" value="2" class="org_caretype required" id="2">Find Workers</div>
             </div>
             <div class="care-type col-xs-12">Care Type: 
-                <div id="select_options"></div>
+                <div id="select_options">
+                    <select id="care_type" class="required" name="care_type" style="width:330px">
+                        <option value="" class="msg">Type of care you are seeking</option>
+                        <option value="17_1">Babysitter</option>
+                        <option value="18_1">Nanny / Au-pair</option>
+                        <option value="19_1">Tutor / private lessons</option>
+                        <option value="20_1">Senior caregiver</option>
+                        <option value="22_1">Special needs caregiver</option>
+                        <option value="24_1">Cleaning / household help</option>
+                        <option value="21_1">Errand runner / odd jobs / personal assistant / driver</option>
+                    </select>
+                </div>
             </div>
         
             <div class="col-xs-12">
@@ -98,7 +109,7 @@ if($this->uri->segment(2)!='edit'){
             </div>
             <div class="col-xs-12">
                 <span class="create-pswrd">
-                <input style="width:330px" type="password" name="password" placeholder="Password" class="required" id="org_password" />
+                <input style="width:330px" type="password" name="password" placeholder="Choose a Password" class="required" id="org_password" />
             </span>
             </div>
             <div class="col-xs-12">
@@ -301,7 +312,7 @@ if($this->uri->segment(2)!='edit'){
             }
         }
         if(account_category == 2){
-           var organization = $('.organization:checked').val();
+          var organization = $('.organization:checked').val();
             $('.msg').text('Type of care you are seeking');
             if(organization == 3){
                 $('#select_options').html(find_worker_options).show();
@@ -315,6 +326,6 @@ if($this->uri->segment(2)!='edit'){
                 $('.started').text('Start Getting Calls');    
             }
                         
-       }
+      }
     }
 </script>
