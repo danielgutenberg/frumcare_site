@@ -367,6 +367,11 @@ $(function(){
             $('#autocomplete').val('')
             $('#lat').val('')
         });
+        
+        $('#locationSearch').on('click', function(){
+            $('#autocomplete').val('')
+            $('#lat').val('')
+        });
     });
     
 </script>

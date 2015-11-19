@@ -27,45 +27,17 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <div>
                 <label>Looking to work in</label>
                 <div class="form-field">
-                    <div class="checkbox"><input type="checkbox" value="Private home" name="looking_to_work[]"> <span>Private home</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Business/Office" name="looking_to_work[]"> <span>Business / Office</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Cleaning company" name="looking_to_work[]"> <span>Cleaning company</span></div>                
+                    <?php 
+                    $this->load->view('frontend/care/giver/fields/work_location/private_home');
+                    $this->load->view('frontend/care/giver/fields/work_location/business');
+                    $this->load->view('frontend/care/giver/fields/work_location/cleaning_company');
+                    $this->load->view('frontend/care/giver/fields/work_location/mothers_helper');
+                    ?>                
                 </div>
             </div>
             
-            <div>
-                <label>Years of experience</label>
-                <div class="form-field">
-                <select name="experience" class="txt">
-                    <option value="">Select years of experience</option>
-                    <option value="1" <?php echo isset($exp) && $exp == 1 ? 'selected' : '' ?>>1 year</option>
-                    <option value="2" <?php echo isset($exp) && $exp == 2 ? 'selected' : '' ?>>2 years</option>
-                    <option value="3" <?php echo isset($exp) && $exp == 3 ? 'selected' : '' ?>>3 years</option>
-                    <option value="4" <?php echo isset($exp) && $exp == 4 ? 'selected' : '' ?>>4 years</option>
-                    <option value="6" <?php echo isset($exp) && $exp == 6 ? 'selected' : '' ?>>5+ years</option>
-                </select>
-                </div>
-            </div>
-            <div class="rate-select">
-                <label>Rate</label>
-                <div class="form-field">
-                    <select name="rate" class="txt rate">
-                        <option value="">Select rate</option>
-                        <option value="5-10">$5-$10 / Hr</option>
-                        <option value="10-15">$10-$15 / Hr</option>
-                        <option value="15-25">$15-$25 / Hr</option>
-                        <option value="25-35">$25-$35 / Hr</option>
-                        <option value="35-45">$35-$45 / Hr</option>
-                        <option value="45-55">$45-$55 / Hr</option>
-                        <option value="55+">$55+ / Hr</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <!--<label>Check one or more</label>-->
-                <!--<div class="checkbox"><input type="checkbox" name="rate_type[]" value="1">Hourly Rate</div>-->
-                <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
-            </div>
+            <?php $this->load->view('frontend/care/giver/fields/experience'); ?>
+            <?php $this->load->view('frontend/care/giver/fields/rate'); ?>
             <div>
                 <label>Specialize in</label>
                 <div class="form-field">
@@ -84,7 +56,20 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             </div>
             <div>
                 <label>Availability</label>
-                <div class="form-field">                    
+                <div class="form-field">   
+                    <?php 
+    				$this->load->view('frontend/care/giver/fields/availability/immediate');
+    				$this->load->view('frontend/care/giver/fields/availability/start_date');
+    				$this->load->view('frontend/care/giver/fields/availability/occasional');
+    				$this->load->view('frontend/care/giver/fields/availability/regular');
+    				$this->load->view('frontend/care/giver/fields/availability/morning');
+    				$this->load->view('frontend/care/giver/fields/availability/afternoon');
+    				$this->load->view('frontend/care/giver/fields/availability/evening');
+    				$this->load->view('frontend/care/giver/fields/availability/weekend');
+    				$this->load->view('frontend/care/giver/fields/availability/shabbos');
+    				$this->load->view('frontend/care/giver/fields/availability/night_nurse');
+    				$this->load->view('frontend/care/giver/fields/availability/vacation_sitter');
+    				?>
                     <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]"/> Immediate</div>
                     <div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date <input  type="text" name="start_date" id="textbox1"/></div>
                     <div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]"> <span>Occassionally</span></div>

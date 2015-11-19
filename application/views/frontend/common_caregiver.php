@@ -494,7 +494,7 @@ if ($pages > 1) {
     function PulseAnimation()
     {
     	$('.mainsearch').animate({
-    		opacity: 0.3
+    		opacity: 0.3,
     	}, 500, function() {
     		$('.mainsearch').animate({
     			opacity: 1

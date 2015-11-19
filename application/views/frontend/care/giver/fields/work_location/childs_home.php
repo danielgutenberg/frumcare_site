@@ -1,0 +1,1 @@
+<div class="checkbox"><input type="checkbox" value="Child's home" name="looking_to_work[]"> <span>Child's home</span></div>
