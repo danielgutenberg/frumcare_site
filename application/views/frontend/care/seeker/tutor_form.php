@@ -18,7 +18,7 @@ $user_detail = get_user(check_user());
 <?php if(($this->uri->segment(2) != 'new_profile')){?>
 <form action="<?php echo site_url();?>ad/add_careseeker_step2" method="post" id="personal-details-form">
  <?php }else{
-    $attributes = array('id' => 'careseekerButton');
+    $attributes = array('id' => 'personal-details-form');
     echo form_open('user/addprofileconfirm', $attributes);
     if(!empty($record)){
     echo form_hidden('account_category',$record['ac_type']);
@@ -33,15 +33,9 @@ $user_detail = get_user(check_user());
         </div>
         <?php } ?>
         <div>
-<<<<<<< HEAD
             <label>Location </label>
             <div id="locationField">
                 <input type="hidden" id="lat" name="lat"/>
-=======
-<label>Location</label>
-<div id="locationField">
-    <input type="hidden" id="lat" name="lat"/>
->>>>>>> 38d1ccf3c47bbad03f867df6b39d2384593861aa
                 <input type="hidden" id="lng" name="lng"/>
             <input type="hidden" id="cityName" name="city"/>
             <input type="hidden" id="stateName" name="state"/>

@@ -18,7 +18,7 @@ $user_detail = get_user(check_user());
 <div class="container">
 <form action="<?php echo site_url();?>ad/add_careseeker_step2" method="post" id="personal-details-form">
 	<?php }else{
-		$attributes = array('id' => 'careseekerButton');
+		$attributes = array('id' => 'personal-details-form');
     	echo form_open('user/addprofileconfirm', $attributes);
 		if(!empty($record)){
 			echo form_hidden('account_category',$record['ac_type']);

@@ -125,11 +125,10 @@ class Ad extends CI_Controller
                 redirect('ad/add_step2/'.$category.'/'.$type.'/'.$this->session->userdata('log_id'),'refresh');
 
     }
-
-    function upload_pp($a){
+    
+    function upload_pp($a = true){
         if ($a) {
-            $file = $this->imageupload_lib->upload('profile-picture', 100, 300, true);
-            $q = $this->common_model->update('tbl_user', ['profile_picture' => $file], array('id' => $a));
+            $this->common_model->update('tbl_user', ['profile_picture' => $file], array('id' => check_user()));
         }
         $this->imageupload_lib->upload('profile-picture', 100, 300);
     }
