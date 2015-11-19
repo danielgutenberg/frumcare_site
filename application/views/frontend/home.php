@@ -57,7 +57,7 @@
                                 <span class="looking-for-care">Looking for care?</span><br/>
                                 Find quality Caregivers in your area
                             </h2>
-                            <a href="<?php echo site_url('caregivers');?>" class="place-ad-link link-block">FIND A CAREGIVER</a>
+                            <a href="<?php echo site_url('caregivers/all');?>" class="place-ad-link link-block">FIND A CAREGIVER</a>
                         </div>
                     </div>
                     <div class="col-half">
