@@ -13,8 +13,8 @@
 	 	<form method="post" id="left-nav" action="">
  			<div>
 	 			<label>Care Location</label>
-	 			<div class="checkbox"><input type="checkbox" value="Caregiver's home" class="looking_to_work">Child's home</div>
-	 			<div class="checkbox"><input type="checkbox" value="My home" class="looking_to_work">Caregivers home</div>
+	 			<div class="checkbox"><input type="checkbox" value="My home" class="looking_to_work">Child's home</div>
+	 			<div class="checkbox"><input type="checkbox" value="Caregiver's home" class="looking_to_work">Caregivers home</div>
 	 			<div class="checkbox"><input type="checkbox" value="Mother's helper" class="looking_to_work">Mother's helper</div>
 	 		</div>
    	        <div class="select-services">
