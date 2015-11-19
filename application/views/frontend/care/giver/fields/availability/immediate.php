@@ -1,0 +1,1 @@
+<div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]"/> Immediate</div>

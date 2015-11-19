@@ -28,13 +28,13 @@
         <div>
             <label>Neighborhood</label>
             <div>
-            <input type="text" name="neighbour" class="required" onFocus="geolocate()" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
+            <input type="text" name="neighbour" class="txt" onFocus="geolocate()" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
             </div>    
         </div>         
      <div>
         <label>Phone</label>
         <div class="form-field">
-        <input type="text" name="contact_number" class="required" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact"/>
+        <input type="text" name="contact_number" class="txt" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact"/>
         </div>
     </div>
 

@@ -10,7 +10,6 @@
                 $("#lat").val(lat);
                 $("#lng").val(lng);
                 $("#place").val(place.formatted_address);
-                $(".searchloader").fadeIn("fast");
                 filterCaregivers();
             });                              
     });
@@ -164,7 +163,7 @@
 <div class="right-caregivers col-lg-9 col-md-9 col-sm-9 col-xs-12">
     <br />
 
-    <div class="searchloader" style="display:none"></div>
+    <div class="searchloader mainsearch" style="display:none"></div>
     <?php if ($care_type < 10 && $account_category == 3) {?>
     Find Workers for your <?php $this->load->view('frontend/common/left_nav_title');?>  <br>
     <?php } else {?>
@@ -187,7 +186,7 @@
         <option value="50">50 Miles</option>
         <option value="unlimited" selected="selected">Unlimited Miles</option>
     </select>   
-	<h3>
+	<h3 class="total_rows hidden" style="margin-bottom: 0px">
 		<span id="total"><?php echo $total_rows ?></span>
         <?php
           if( $total_rows > 1 && substr($title,-1) == 'y' ){
@@ -209,7 +208,7 @@
         <div class="want-top"><p>Want Employers to Contact you?<a href='<?php echo site_url()."signup?ac=$ac"?>' class="btn btn-primary ml10 btn-xs">Create a Profile for free</a></p></div>
     <?php } ?>
 
-	<div class="select-relevance">
+	<div class="select-relevance" style="margin-top:14px">
             <select name="sort_by_select" id="sort_by_select">
                 <option value="distance">Sort by distance</option>
                 <option value="tbl_userprofile.id">Sort by latest</option>
@@ -254,6 +253,9 @@ if ($pages > 1) {
 </div> 
 <script>
     function filterCaregivers() {
+        $(".searchloader").fadeIn("fast");
+        window.continue_pulse = true;
+        PulseAnimation()
         var per_page = $("#per_page").val();
         var distance = $("#sort_by_miles").val();
         var sort_by = $('#sort_by_select').val();
@@ -331,6 +333,7 @@ if ($pages > 1) {
 			url:"<?php echo site_url();?>common_care_controller/search",
 			data:"care_type="+care_type+"&subject="+subject+"&rate="+rate+"&skills="+skills+"&per_page="+per_page+"&distance="+distance+"&sort_by="+sort_by+"&pagenum="+pagenum+"&bath_children="+bath_children+"&bed_children="+bed_children+"&pick_up_child="+pick_up_child+"&cook="+cook+"&basic_housework="+basic_housework+"&homework_help="+homework_help+"&lat="+lat+"&lng="+lng+"&location="+location+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender_of_careseeker="+gender_of_careseeker+"&gender_of_caregiver="+gender_of_caregiver+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&carelocation="+carelocations+"&trainings="+trainings+"&able_to_work="+able_to_work+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&start_date="+start_date+"&smoker="+smoker+"&extra_field="+extra_field+"&accept_insurance="+accept_insurance,
 			success:function(done){
+			    window.continue_pulse = false
 				$(".searchloader").fadeOut("fast");
 				var json = jQuery.parseJSON(done);
  				var pagenum = json.num;
@@ -338,6 +341,7 @@ if ($pages > 1) {
 				$('#list_container').html(pagedata);
 				$('#total').text(json.total);
                 $('.navigations').html(json.pagination);
+                $('.total_rows').removeClass('hidden')
                 if (json.location) {
                 	$('#locationaddress').text(json.location)
                 }
@@ -351,19 +355,16 @@ if ($pages > 1) {
 	    $('#locationaddress').val(plc)
 	    filterCaregivers();
         $('.neighbour,.caregiverage_from,.caregiverage_to').blur(function(){
-            $(".searchloader").fadeIn("fast");
             $('#pagenum').val(1);
             filterCaregivers();
 		});        
         
         $('.rate,.accept_insurance,.number_of_children,.year_experience,.age_group,#textbox1,.sub_care,#per_page,#sort_by_miles,#sort_by_select').change(function(){
-			$(".searchloader").fadeIn("fast");
 			$('#pagenum').val(1);
             filterCaregivers();
 		});
               
 		$('.subject,.skills,.extra_field,.gender,.gender_of_caregiver,.gender_of_careseeker,.smoker,.lang,.observance,.homework_help,.on_short_notice,.sick_child_care,.morenum,.basic_housework,.vehicle,.looking_to_work,.year_experience,.training,.availability,.driver_license,.pick_up_child,.cook,.carelocation').click(function(){
-            $(".searchloader").fadeIn("fast");
             $('#pagenum').val(1);
             filterCaregivers();
 		});
@@ -488,4 +489,20 @@ if ($pages > 1) {
             });
 
  });
+</script>
+<script>
+    function PulseAnimation()
+    {
+    	$('.mainsearch').animate({
+    		opacity: 0.3,
+    	}, 500, function() {
+    		$('.mainsearch').animate({
+    			opacity: 1
+    		}, 500, function() {
+    			if(window.continue_pulse) {
+    				PulseAnimation();
+    			}
+    		})
+    	});
+    }
 </script>

@@ -184,16 +184,16 @@
                 'sort_by'   => $option,
                 'per_page'  => $item_per_page
             ];
-            $userdata = $this->common_care_model->filter($data,$latitude,$longitude, $organization);
+            // $userdata = $this->common_care_model->filter($data,$latitude,$longitude, $organization);
             
             $get_total_rows = count($userdata);
             $data = array(
       			'main_content' 	    => 'frontend/common_caregiver',                            
       			'title'			    => $title,
                 'pages'             => ceil($get_total_rows/$item_per_page),
-                'countries'         => $this->common_model->getCountries(),
-                'userlogs'		    => $this->user_model->getUserLog(),
-                'userdatas'		    => array_slice($userdata, 0, 15),
+                // 'countries'         => $this->common_model->getCountries(),
+                // 'userlogs'		    => $this->user_model->getUserLog(),
+                'userdatas'		    => [],
                 'account_category'  => $account_category,
                 'care_type'         => $care,
                 'total_rows'        => $get_total_rows,

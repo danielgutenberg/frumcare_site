@@ -1,0 +1,1 @@
+<div class="checkbox"><input type="checkbox" name="availability[]" value="Night Nurse"> <span>Night Nurse</span></div>
