@@ -1,9 +1,6 @@
 RewriteEngine On
 
-<<<<<<< Updated upstream
 RewriteBase /dev/
-=======
->>>>>>> Stashed changes
 #RewriteRule ^sitemap\.xml$ sitemap.php [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
