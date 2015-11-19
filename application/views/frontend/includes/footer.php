@@ -239,8 +239,8 @@ $(function()
 
         var link = '<?php echo site_url("ad/upload_pp?files")?>';
         files = event.target.files;
-        // event.stopPropagation(); // Stop stuff happening
-        // event.preventDefault(); // Totally stop stuff happening
+        event.stopPropagation(); // Stop stuff happening
+        event.preventDefault(); // Totally stop stuff happening
 
         // START A LOADING SPINNER HERE
 
@@ -319,8 +319,8 @@ $(function()
 
         var link = '<?php echo site_url("ad/upload_pp?files")?>';
         files = event.target.files;
-        // event.stopPropagation(); // Stop stuff happening
-        // event.preventDefault(); // Totally stop stuff happening
+        event.stopPropagation(); // Stop stuff happening
+        event.preventDefault(); // Totally stop stuff happening
 
         // START A LOADING SPINNER HERE
 

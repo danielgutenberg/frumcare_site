@@ -17,9 +17,9 @@ $user_detail = get_user(check_user());
 
 <div class="container">
 	<?php if(($this->uri->segment(2) != 'new_profile')){?>
-	<form action="<?php echo site_url();?>ad/add_careseeker_step2" method="post">
+	<form action="<?php echo site_url();?>ad/add_careseeker_step2" method="post" id="personal-details-form">
 		<?php }else{
-			$attributes = array('id' => 'careseekerButton');
+			$attributes = array('id' => 'personal-details-form');
             echo form_open('user/addprofileconfirm', $attributes);
 			if(!empty($record)){
 				echo form_hidden('account_category',$record['ac_type']);
@@ -67,7 +67,7 @@ $user_detail = get_user(check_user());
 				<div>
 					<label>Number of children</label>
 					<div class="form-field">
-						<input type="text" value="" name="number_of_children" class="required number">
+						<input type="text" value="" name="number_of_children" class="txt number">
 					</div>
                     <div class="checkbox"><input type="checkbox" value="twins" name="optional_number[]"> Twins</div>
                     <div class="checkbox"><input type="checkbox" value="triplets" name="optional_number[]"> Triplets</div>
@@ -114,7 +114,7 @@ $user_detail = get_user(check_user());
         	<div>
         		<label>Level of observance necessary</label>
         		<div class="form-field">
-        			<select name="religious_observance" class="required">
+        			<select name="religious_observance" class="txt">
         				<option value="">Select</option>
         				<option value="Yeshivish/Chasidish">Yeshivish / Chasidish</option>
         				<option value="Orthodox/Modern Orthodox">Orthodox / Modern orthodox</option>
@@ -133,7 +133,7 @@ $user_detail = get_user(check_user());
         	<div class="rate-select">
                 <label>Wage</label>
                 <div class="form-field">
-                    <select name="rate" class="required rate">
+                    <select name="rate" class="txt rate">
                         <option value="">Select wage</option>
                         <option value="5-10">$5-$10 / Hr</option>
                         <option value="10-15">$10-$15 / Hr</option>
