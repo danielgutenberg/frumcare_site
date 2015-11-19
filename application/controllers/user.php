@@ -1147,8 +1147,14 @@ class User extends CI_Controller
                         $this->common_model->update('tbl_user',$update_user,array('id' => $this->session->userdata('current_user')));
                     }
                     $profile = $this->job_or_profile();
-                    $this->session->set_flashdata('info', "New $profile successfully added. Your $profile will be placed on the site after being approved by our team.");
-                    redirect('user/profile');
+                    if ($profile == 'job') {
+                        $link = anchor('jobs/all', 'here');
+                    } else {
+                        $link = anchor('caregivers/all', 'here');
+                    }
+                    $message = 'Ad posted successfully. Your ad will be placed on the site after being approved by our team. <br> <span style="margin-left:159px">Click ' . $link . ' to search caregivers in your area<span>';
+                    $this->session->set_flashdata('success', $message);
+                    redirect('user/dashboard');   
                 }
                 else{
                     $profile = $this->job_or_profile();
