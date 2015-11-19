@@ -51,7 +51,7 @@
                         <ul>
                             <li><input type="text" id="sub_name" name="sub_name" placeholder="Name" class="form-control input-sm"/></li><span class="errorName"></span>
                             <li><input type="email" id="sub_email" name="sub_email" placeholder="Email" class="form-control input-sm" required/></li><span class="errorEmail"></span>
-                            <li><input type="button" id="subscribe" value="Subscribe" class="btn btn-primary btn-sm"/></li>
+                            <!--<li><input type="button" id="subscribe" value="Subscribe" class="btn btn-primary btn-sm"/></li>-->
                         </ul>
                     </nav>
                 </div>
@@ -188,50 +188,48 @@ function removePic(){
         });
     });
 
-
 $(function()
 {
 
-    $('#locationField #autocomplete').change(function(){
-        $('#lat').val('');
-        $('#lng').val('');
-    });
-
-    $('#upload').click(function(){
-        $('#ImageFile').trigger('click');
-        return false;
-
-    });
-
-    $('#output').click(function(){
-        $('#ImageFile').trigger('click');
-
-    });
-
-
-    $('#upload1').click(function(){
-        //alert('working');
-        $('#ImageFile1').trigger('click');
-        return false;
-
-    });
-
-    $('#output1').click(function(){
-
-        $('#ImageFile1').trigger('click');
-
-    });
-
-
-
-    // Variable to store your files
-    var files;
-
-    // Add events
-
-    $('#ImageFile').on('change',prepareUpload1);
-
-    $('#ImageFile1').on('change',prepareUpload2);
+    function setListeners() {
+        $('#locationField #autocomplete').change(function(){
+            $('#lat').val('');
+            $('#lng').val('');
+        });
+    
+        $('#upload').click(function(){
+            $('#ImageFile').trigger('click');
+            return false;
+    
+        });
+    
+        $('#output').click(function(){
+            $('#ImageFile').trigger('click');
+    
+        });
+    
+    
+        $('#upload1').click(function(){
+            //alert('working');
+            $('#ImageFile1').trigger('click');
+            return false;
+    
+        });
+    
+        $('#output1').click(function(){
+    
+            $('#ImageFile1').trigger('click');
+    
+        });
+    
+        // Add events
+    
+        $('#ImageFile').on('change',prepareUpload1);
+    
+        $('#ImageFile1').on('change',prepareUpload2);
+    }
+    
+    setListeners();
     //$('form').on('submit', uploadFiles);
 
     // Grab the files and set them to our variable
@@ -241,8 +239,8 @@ $(function()
 
         var link = '<?php echo site_url("ad/upload_pp?files")?>';
         files = event.target.files;
-        event.stopPropagation(); // Stop stuff happening
-        event.preventDefault(); // Totally stop stuff happening
+        // event.stopPropagation(); // Stop stuff happening
+        // event.preventDefault(); // Totally stop stuff happening
 
         // START A LOADING SPINNER HERE
 
@@ -269,7 +267,7 @@ $(function()
                     // Success so call function to process the form
                     if(data.type==1){
                         $('#output').html(data.html);
-                        $('.loader').html('');
+                        $('.loader').addClass('hidden');
                         $('#file-name').val(data.files);
                         $('#upload').css({'display':'none'});
                         $('<a class="buttons btn-default" href="#" id="remove" onclick="return removePic();" style="margin:0 10px;">Remove File</a>').insertAfter('#output');
@@ -297,9 +295,12 @@ $(function()
                     // Handle errors here
                     console.log('ERRORS: ' + data.error);
                 }
+                
+                setListeners();
             },
             error: function(jqXHR, textStatus, errorThrown)
             {
+                setListeners();
                 // Handle errors here
                 console.log('ERRORS: ' + textStatus);
                 // STOP LOADING SPINNER
@@ -318,8 +319,8 @@ $(function()
 
         var link = '<?php echo site_url("ad/upload_pp?files")?>';
         files = event.target.files;
-        event.stopPropagation(); // Stop stuff happening
-        event.preventDefault(); // Totally stop stuff happening
+        // event.stopPropagation(); // Stop stuff happening
+        // event.preventDefault(); // Totally stop stuff happening
 
         // START A LOADING SPINNER HERE
 
@@ -367,9 +368,12 @@ $(function()
                     // Handle errors here
                     console.log('ERRORS: ' + data.error);
                 }
+                
+                setListeners();
             },
             error: function(jqXHR, textStatus, errorThrown)
             {
+                setListeners();
                 // Handle errors here
                 console.log('ERRORS: ' + textStatus);
                 // STOP LOADING SPINNER
