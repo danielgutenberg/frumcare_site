@@ -127,10 +127,9 @@ class Ad extends CI_Controller
     }
     
     function upload_pp($a = true){
-        if ($a) {
-            $this->common_model->update('tbl_user', ['profile_picture' => $file], array('id' => check_user()));
-        }
-        $this->imageupload_lib->upload('profile-picture', 100, 300);
+        $data = $this->imageupload_lib->upload('profile-picture', 100, 300);
+        $this->common_model->update('tbl_user', ['profile_picture' => $data['files']], array('id' => check_user()));
+        echo json_encode($data);
     }
 
     function send_confirmation($to, $name)
