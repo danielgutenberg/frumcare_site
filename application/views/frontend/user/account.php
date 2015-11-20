@@ -97,10 +97,10 @@
                     <!--<div class="small-seperator"></div>-->
                     
 
-                    <!--<div class="first-names">-->
-                    <!--    <label>Neighborhood / Street</label>-->
-                    <!--    <input type="text" name="neighborhood" placeholder="Neighborhood" class="required" value="<?php echo (isset($neighbourhood)) ? $neighbourhood : '' ?>"/>-->
-                    <!--</div>-->
+                    <div class="first-names">
+                        <label>Neighborhood / Street</label>
+                        <input type="text" name="neighborhood" placeholder="Neighborhood" class="required" value="<?php echo (isset($neighbourhood)) ? $neighbourhood : '' ?>"/>
+                    </div>
 
                     <?php /*
                     <div class="first-names">
