@@ -83,32 +83,29 @@
         <meta name="keywords" content="<?php echo $seodata['meta_keywords'];?>">
 
 
-        <link href="<?php echo site_url();?>css/bootstrap.css" type="text/css" rel="stylesheet">
+        
 
         <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="<?php echo base_url('css/main.css') ?>">
         <link rel="stylesheet" href="<?php echo base_url('css/jgrowl.css') ?>">
-        <!-- <link rel="stylesheet" href="<?php //echo base_url('css/my-style.css') ?>"> -->
         <link rel="stylesheet" href="<?php echo base_url('css/extra.css') ?>">
-        <link href="<?php echo site_url();?>css/progressbar.css" type="text/css" rel="stylesheet" />
-        <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
-    <!--[if lt IE 9]>
-    <script src="//s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
-    <script src="//html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>
-    <![endif]-->
-    <link rel="shortcut icon" href="<?php echo site_url("img/favicon.ico")?>" type="image/x-icon">
-    <link rel="icon" href="<?php echo site_url("img/favicon.ico")?>" type="image/x-icon">
-    <script src="<?php echo base_url('js/jquery-1.11.1.min.js') ?>"></script>
-    <script src="<?php echo base_url('js/jquery.validate.js') ?>"></script>
-    <script src="<?php echo base_url('js/jgrowl.js') ?>"></script>
-    <script src="<?php echo base_url('js/vendor/bootstrap.min.js') ?>"></script>
-    <script src="<?php echo base_url('js/select.js') ?>"></script>
-    <script src="<?php echo base_url();?>js/jquery.ui.maskinput.js"></script>
-    <script src="<?php echo site_url();?>js/jquery-ui.js"></script>
-    <!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
-    <!--<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
-    <!--<link href="<?php echo site_url();?>css/jquery-ui.css" type="text/css" rel="stylesheet">-->
+        <link rel="stylesheet" href="<?php echo site_url('css/bootstrap.css') ?>" type="text/css" >
+        <link rel="stylesheet" href="<?php echo site_url('css/progressbar.css') ?>" type="text/css"  />
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' type='text/css'>
+        <!--[if lt IE 9]>
+        <script src="//s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
+        <script src="//html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>
+        <![endif]-->
+        <link rel="shortcut icon" href="<?php echo site_url("img/favicon.ico")?>" type="image/x-icon">
+        <link rel="icon" href="<?php echo site_url("img/favicon.ico")?>" type="image/x-icon">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+        <script src="<?php echo base_url('js/jgrowl.js') ?>"></script>
+        <script src="<?php echo base_url('js/vendor/bootstrap.min.js') ?>"></script>
+        <script src="<?php echo base_url('js/select.js') ?>"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js">
         <script src="<?php echo base_url('js/vendor/modernizr-2.6.2-respond-1.1.0.min.js') ?>"></script>
 
         <!-- Facebook Conversion Code for Caregiver leads -->
@@ -127,26 +124,6 @@
             window._fbq.push(['track', '6030516600835', {'value':'0.01','currency':'ILS'}]);
         </script>
         <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6030516600835&amp;cd[value]=0.01&amp;cd[currency]=ILS&amp;noscript=1" /></noscript>
-
-
-
-    <script>
-        $('document').ready(function(){
-            $('.left-search-panel h4').click(function(){
-               $('.left-search-panel form').toggle();
-            });
-
-            $('.search form').submit(function(){
-                if((this).closest('.dropdown input[type=text]').val()==''){
-                    return false;
-                }else{
-                    return true;
-                }
-            });
-
-        });
-    </script>
-
 </head>
 <body onload="initialize()">
 
@@ -222,12 +199,6 @@
             <nav>
                 <div class="toggle-menu">Menu</div>
                 <ul class="primary-nav">
-                           <!--  <li><a href="<?php echo site_url();?>parents">Parents</a></li>
-                            <li><a href="<?php echo site_url();?>caregivers">Caregivers</a></li>
-                            <li><a href="<?php echo site_url();?>instutions">Institutions</a></li>
-                            <li><a href="<?php echo site_url();?>therapists">Therapists</a></li>
-                            <li><a href="<?php echo site_url("blog")?>">Blog</a></li> -->
-
                             <li>
                                 <div class="dropdown">
                                   <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
@@ -403,7 +374,7 @@ $(function(){
         $( "#dateTextbox" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
     });
 </script>
-<script type="text/javascript" src="<?php echo site_url();?>js/jquery.ui.maskinput.js"></script>
+
 <script>
     $(document).ready(function(){
         $('#contact_number').mask('999-999-9999');

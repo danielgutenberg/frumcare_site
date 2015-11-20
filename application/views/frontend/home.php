@@ -351,9 +351,6 @@
                 </div>
             </section>
         </main>
-
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
-        <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
         <script src="<?php echo site_url(); ?>js/notifIt.js" type="text/javascript"></script>
         <link href="<?php echo site_url(); ?>css/notifIt.css" type="text/css" rel="stylesheet">
         <script type="text/javascript">
