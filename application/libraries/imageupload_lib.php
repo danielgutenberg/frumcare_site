@@ -91,7 +91,7 @@ class Imageupload_lib {
                 $thumb = $NewImageName;
                 $html = '<div><img src="'.site_url("images/{$folder}/thumb/{$thumb}").'" alt="Thumbnail"></div>';
                 $data =array('files' => $thumb, 'html'=> $html, 'type' => 1);
-                echo json_encode($data);
+                return $data;
                 /*
                 // Insert info into database table!
                 mysql_query("INSERT INTO myImageTable (ImageName, ThumbName, ImgPath)
