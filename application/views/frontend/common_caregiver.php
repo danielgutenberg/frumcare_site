@@ -246,7 +246,7 @@ if ($pages > 1) {
     <div class="navigations"></div>
 	<div class="clearfix margin-bot"></div>
 	<div id="list_container" class="">
-    <?php $this->load->view('frontend/common_profile_list', array('userdatas'=>$userdatas,'userlogs'=>$userlogs));?>
+    <?php $this->load->view('frontend/common_profile_list', array('userdatas'=>$userdatas,'userlogs'=>$userlogs, 'location' => $location));?>
 	</div>
 	<div class="navigations"></div>
 	</div>
