@@ -30,15 +30,7 @@
                 <div class="checkbox"><input type="checkbox" value="6-11" name="age_group[]"  class="age_group"> 6 to 11 years</div>
                 <div class="checkbox"><input type="checkbox" value="12+" name="age_group[]"  class="age_group"> 12+ years</div>
 	 		</div>
-	 		<div>
-	 			<label>Languages</label>
-	 			<div class="checkbox"><input type="checkbox" name="languages[]" value="English" class="lang">English</div>
-	 			<div class="checkbox"><input type="checkbox" name="languages[]" value="Yiddish" class="lang">Yiddish</div>
-	 			<div class="checkbox"><input type="checkbox" name="languages[]" value="Hebrew" class="lang">Hebrew</div>
-	 			<div class="checkbox"><input type="checkbox" name="languages[]" value="Russian" class="lang">Russian</div>
-	 			<div class="checkbox"><input type="checkbox" name="languages[]" value="French" class="lang">French</div>
-	 			<div class="checkbox"><input type="checkbox" name="languages[]" value="Other" class="lang">Other</div>
-	 		</div>	 		
+	 		<?php $this->load->view('frontend/left_navbar/fields/languages'); ?> 		
 	 		<div>
 		 		<div class="educationss" colspan="2">
 		 		<input type="hidden" name="category" value="" id="care_type">

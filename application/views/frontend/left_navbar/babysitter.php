@@ -35,6 +35,7 @@
 	 		$this->load->view('frontend/left_navbar/fields/age_of_children');
 	 		$this->load->view('frontend/left_navbar/fields/minimum_experience');
 	 		$this->load->view('frontend/left_navbar/fields/training');
+	 		$this->load->view('frontend/left_navbar/fields/when_you_need_care');
 	 		?>
 		 	<div>
 		 		<label>Abilities and skills</label>
