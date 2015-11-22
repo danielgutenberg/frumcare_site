@@ -1,4 +1,32 @@
 <?php
+$careType = [
+ '1' => 'Babysitter',
+ '2' => 'Nanny / Au-pair',
+ '3' => 'Nursery / Playgroup / Drop off / Gan',
+ '4' => 'Tutor / Private lessons',
+ '5' => 'Senior Caregiver',
+ '6' => 'Special needs caregiver',
+ '7' => 'Therapist',
+ '8' => 'Cleaning / household help',
+ '9' => 'Errand runner / odd jobs / personal assistant',
+ '10' => 'Day Care Center / Day Camp / Afternoon Activities',
+ '13' => 'Senior Care Agency',
+ '14' => 'Special needs center',
+ '15' => 'Cleaning / household help company',
+ '16' => 'Assisted living / Senior Care Center / Nursing Home',
+ '17' => 'Babysitter',
+ '18' => 'Nanny / Au-pair',
+ '19' => 'Tutor / private lessons',
+ '20' => 'Senior caregiver',
+ '21' => 'Errand runner / odd jobs / personal assistant / driver',
+ '22' => 'Special needs caregiver',
+ '24' => 'Cleaning / household help',
+ '25' => 'Workers / staff for childcare facility',
+ '26' => 'Workers / staff for senior care facility',
+ '27' => 'Workers / staff for special needs facility',
+ '28' => 'Workers for cleaning company',
+ '29' => 'Therapist'
+ ];
 	if(is_array($userdatas)){		
         foreach($userdatas as $key => $data){ 
 			$loca = '';
@@ -11,7 +39,7 @@
                 if ($data['country'] != '') {
                     $loca .= ', ' . $data['country'];
                 }
-			$reviewData = Review_model::countReviewById($data['id']);
+// 			$reviewData = Review_model::countReviewById($data['id']);
             $navigate = $data['care_type']>16?'jobs':'caregivers'; ?> 	
             <div class="profile-list clearfix usual row">
             <div class="profile-img-wrap col-md-3 col-sm-3 col-xs-12"> <?php
@@ -53,24 +81,10 @@
                         $location1 = explode(',',$location);
                     }
 
-                     //print_r($data);
-                    $lat = $data['lat'];
-                    $lng = $data['lng'];
-                    $json = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&sensor=false&key=AIzaSyC8myVpwWYDd7r6A9vQRB31bk60iNBe3UU");
-                    $json_data = json_decode($json);
-
-                    //print_r($json_data);
-
-
-                    $formated_add=$json_data->results[5]->formatted_address;
-
                     if(preg_match('/'.$location1[0].'/',$data['location'])){
                         echo '0 Miles Away From '.$location1[0];
-                    }elseif(preg_match('/'.$location1[0].'/',$formated_add)){
-                        echo '0 Miles Away From '.$location1[0];
-
                     }else{
-                        echo ceil($data['distance'])." Miles Away From ".$location1[0];  //location is passed from controller
+                        echo ceil($data['distance'])." Miles Away From " . $location['place'];  //location is passed from controller
                     }
 
 
@@ -80,26 +94,15 @@
         	<div class="profile-list-details col-md-9 col-sm-9 col-xs-12">
                 <?php if ($data['account_category'] == 3) {?>
                 <span class="name">
-					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo ucfirst($data['organization_name']);?></a>
+					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo ucwords($data['organization_name']);?></a>
 				</span>	<?php } else { ?>
 				<span class="name">
-					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo $data['name'];?></a>
+					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo ucwords($data['name']);?></a>
 				</span>
 				<?php } ?>
-                
-                
+                <br>
                 <?php
-                //for job posters
-                if($data['care_type'] < 17 ){ ?>
-                    <!--<div class="review_rating">
-                        <?php 
-                        $reviews = $reviewData['number_reviews'];?>
-                        <div class="rating-score" data-numbers="<?php echo ($reviewData['total_review']/($reviews>0?$reviews:1));?>"></div>
-				       (<?php echo number_format($reviews);?> reviews) 
-			        </div>--> <?php 
-                } ?> <br /> <?php
-                
-                $type = Caretype_model::getCareTypeById($data['care_type']);
+                $type = $careType[$data['care_type']];
                 $loca = '';
                 if ($data['city'] != '') {
                     $loca .= $data['city'];
@@ -113,13 +116,13 @@
                 //for caregivers 
                 //if($data['care_type'] < 10){ 
                 if($data['care_type'] < 17){
-                    echo $type[0]['service_name'].' - '.$loca;                                
+                    echo $type .' - '.$loca;                                
                 } 
                 
                 //for job posters
                 //if($data['care_type'] < 25 && $data['care_type'] > 16){ 
                 if($data['care_type'] > 16){
-                    echo $type[0]['service_name'].' needed - '.$loca;                                                               
+                    echo $type .' needed - '.$loca;                                                               
                 } 
                 
                 //for caregivers
