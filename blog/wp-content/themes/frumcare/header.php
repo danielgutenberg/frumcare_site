@@ -27,6 +27,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="title" content="Read Our Collection of Jewish Caregiver News!">
+<meta name="description" content="FrumCare brings you the latest in caregiving news for caregivers seeking jobs and families seekng caregivers in the Jewish community">
 <title><?php wp_title( '|', true, 'right' ); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
