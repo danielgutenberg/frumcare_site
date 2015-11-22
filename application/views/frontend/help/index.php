@@ -45,16 +45,6 @@
                      <div class="clearfix"></div>
                      <span class="contact-submit-btn"><input type="submit" name="submit_now" value="Submit Now" id="submit_now" /></span>
                  </form>
-	<!--	<span>Contact Form </span>-->
-		
-	<!--	<form action="<?php echo site_url();?>help/send_message" method="post" name="contact" id="contact-form">-->
-	<!--		<div><span class="contact-form-name"><input type="text" name="name" placeholder="Name"></span>-->
-			
-	<!--		<span class="contact-form-email"><input type="text" name="email" placeholder="Email"></span>-->
-	<!--</div>			<span class="contact-form-message"><textarea name="message" placeholder="Write a message"></textarea></span>-->
-	<!--	<div class="clearfix"></div>-->
-	<!--		<span class="contact-submit-btn"><input type="submit" name="submit_now" value="Submit Now" /></span>-->
-	<!--	</form>-->
 
 </div>
 	</div>

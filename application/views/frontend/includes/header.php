@@ -105,7 +105,7 @@
         <script src="<?php echo base_url('js/vendor/bootstrap.min.js') ?>"></script>
         <script src="<?php echo base_url('js/select.js') ?>"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
         <script src="<?php echo base_url('js/vendor/modernizr-2.6.2-respond-1.1.0.min.js') ?>"></script>
 
         <!-- Facebook Conversion Code for Caregiver leads -->
