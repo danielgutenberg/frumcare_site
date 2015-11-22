@@ -21,15 +21,15 @@
         $this->load->model('common_model');
         if($title=='Register'){
 
-            $seodata=array('meta_title'=>'Create a Caregiver, Parent or Institution Profile on FrumCare','meta_desc'=>'Caregivers, parents & institutions: Create a free profile & find suitable caregivers & caregiver jobs in the frum community. Advertising opportunities available too!','meta_keywords'=>'');
+            $seodata=array('meta_title'=>'Create a Caregiver, Parent or Institution Profile on FrumCare','meta_desc'=>'Caregivers, parents & institutions: create a free profile & find suitable caregivers & caregiver jobs in the Jewish community. Advertising opportunities available too!','meta_keywords'=>'');
 
         }
         elseif($title=='Caregivers'){
-            $seodata=array('meta_title'=>'Find The Perfect Nanny Or Senior Caregiver with FrumCare','meta_desc'=>'Frumcare is the only online tool to find the perfect nanny, babysitter or senior caregiver in the Jewish community.','meta_keywords'=>'');
+            $seodata=array('meta_title'=>'Find a Jewish Babysitter, Nanny or Senior Caregiver - FrumCare','meta_desc'=>'Frumcare is the only online tool to find the perfect nanny, babysitter or senior caregiver in the Jewish community.','meta_keywords'=>'');
 
         }
         elseif($title=='Jobs'){
-            $seodata=array('meta_title'=>'Find a Caregiver Job In Your Area','meta_desc'=>'Our searchable database of babysitting, senior caregiver jobs & more helps you find a suitable job in the Jewish community, in just the right location.','meta_keywords'=>'');
+            $seodata=array('meta_title'=>'Find A Local Caregiver Job In The Jewish Community - FrumCare','meta_desc'=>'Our searchable database of babysitting, senior caregiver jobs & more helps you find a suitable job in the Jewish community, in just the right location.','meta_keywords'=>'');
 
         }
         elseif($title=='Workers / Staff'){
@@ -37,20 +37,20 @@
 
         }
         elseif($title=='Therapist'){
-            $seodata=array('meta_title'=>'Find Therapists Serving the Jewish Community ','meta_desc'=>'Frum Care brings you qualified therapists sensitive to the needs of the Jewish community.','meta_keywords'=>'');
+            $seodata=array('meta_title'=>'Find Jewish Therapists Serving the Jewish Community - FrumCare ','meta_desc'=>'Frum Care brings you qualified therapists sensitive to the needs of the Jewish community.','meta_keywords'=>'');
 
         }
 
         elseif($title=='Help'){
-            $seodata=array('meta_title'=>'Contact Us','meta_desc'=>'Contact us for more information or if we can help you in anyway.','meta_keywords'=>'');
+            $seodata=array('meta_title'=>'Contact Us','meta_desc'=>'Contact us if you need more information or help finding Jewish babysitters & Jewish jobs or if we can help you in anyway.','meta_keywords'=>'');
 
         }
         elseif($title=='How it works'){
-            $seodata=array('meta_title'=>'Learn How FrumCare Works','meta_desc'=>'The ins and outs of our online tool for caregivers, job seekers and families seeking in home help.','meta_keywords'=>'');
+            $seodata=array('meta_title'=>'Learn How FrumCare Works','meta_desc'=>'The ins and outs of our online tool for caregivers, job seekers and Jewish families seeking in home help.','meta_keywords'=>'');
 
         }
         elseif($title=='Safety Guide - For Families'){
-            $seodata=array('meta_title'=>'A Safety Guide for Families seeking household help','meta_desc'=>'Whether you are seeking a babysitter, housekeeper, childcare or elderly care, FrumCare provides a safety guide to having a positive and safe experience.','meta_keywords'=>'');
+            $seodata=array('meta_title'=>'A Safety Guide for Families seeking household help','meta_desc'=>'Whether you are seeking a Jewish babysitter, housekeeper, childcare or elderly care, FrumCare provides a safety guide to having a positive and safe experience for your Jewish home.','meta_keywords'=>'');
 
         }
         elseif($title=='Safety Guide - For Caregivers'){
