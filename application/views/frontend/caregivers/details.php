@@ -13,117 +13,132 @@
     ?>
 </h3>
 <div class="left-sidebar-details col-lg-9 col-md-8 col-sm-8 col-xs-12">
-   <div class="profile-img col-lg-4 col-md-4 col-sm-6 col-sm-12"><?php if($recordData['profile_picture']!= '' && file_exists('images/profile-picture/'.$recordData['profile_picture'])) {?>
-    <img class="img-responsive" src="<?php echo site_url();?>images/profile-picture/<?php echo $recordData['profile_picture'];?>">
-<?php } else {
+    <div class="profile-img col-lg-4 col-md-4 col-sm-4 col-sm-6 col-xs-6">
+        <?php if($recordData['profile_picture']!= '' && file_exists('images/profile-picture/'.$recordData['profile_picture'])) {?>
+            <img class="img-responsive" src="<?php echo site_url();?>images/profile-picture/<?php echo $recordData['profile_picture'];?>">
+        <?php } else {
             if($recordData['photo_of_child']!= '' && file_exists('images/profile-picture/'.$recordData['photo_of_child'])) { ?>
                 <img class="img-responsive" src="<?php echo site_url();?>images/profile-picture/<?php echo $recordData['photo_of_child'];?>">
-                <?php } else { ?>
-    <img class="img-responsive" src="<?php echo site_url("images/no-image.jpg")?>">
-<?php }}?></div>
-<div class="details-right-caregive col-lg-8 col-md-8 col-sm-12 col-xs-12">
-    <div class="profile-name-details">
-        <?php if ($recordData['organiztion_name']) { ?>
-        <span style="font-size:30px;"><?php echo ucfirst($recordData['organiztion_name']);?> </span>
-        <?php } else { ?>
-                <span style="font-size:30px;"><?php echo ucfirst($recordData['name']);?> </span>
-                <?php } ?>
-
+            <?php } else { ?>
+                <img class="img-responsive" src="<?php echo site_url("images/no-image.jpg")?>">
+        <?php }
+        }?>
     </div>
-    <div>
-        <?php if($this->uri->segment(4) <17 ){ ?>
-        <?php $reviews = $number_reviews['number_reviews']; ?>
-        <div class="rating-score" id="<?php echo ($number_reviews['total_review']/($reviews>0?$reviews:1));?>"></div>
-
-        (<?php echo number_format($reviews);?> reviews)
-
-        <?php
-                        if($this->session->userdata('current_user')!=$care_id){ //condition for blocking own review and rating
-                            if(isset($this->session->userdata['current_user']) && $recordData['care_type']<17){?>
+    <div class="details-right-caregive col-lg-8 col-md-12 col-sm-12 col-xs-12">
+        <div class="profile-name-details">
+            <?php if ($recordData['organiztion_name']) { ?>
+                <span style="font-size:30px;"><?php echo ucfirst($recordData['organiztion_name']);?> </span>
+            <?php } else { ?>
+                <span style="font-size:30px;"><?php echo ucfirst($recordData['name']);?> </span>
+            <?php } ?>
+        </div>
+        <div>
+            <?php if($this->uri->segment(4) <17 ){ ?>
+                    <?php $reviews = $number_reviews['number_reviews']; ?>
+                    <div class="rating-score" id="<?php echo ($number_reviews['total_review']/($reviews>0?$reviews:1));?>"></div>
+    
+                    (<?php echo number_format($reviews);?> reviews)
+    
+                    <?php
+                    if($this->session->userdata('current_user')!=$care_id){ //condition for blocking own review and rating
+                        if(isset($this->session->userdata['current_user']) && $recordData['care_type']<17){?>
                             <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal" id="<?php echo $this->session->userdata['current_user'];?>">Write a review</a> |
                             <a href="<?php echo site_url();?>review/allreviews/<?php echo sha1($recordData['id']);?>">See all reviews</a>
-                            <?php }
-                            else{
-                                if($recordData['care_type']<17){
-                                    ?>
-                                    |<a href="javascript:void(0)" id="not_login">Write a review</a>|
-                                    <a href="<?php echo site_url();?>review/allreviews/<?php echo sha1($recordData['id']);?>">See all reviews</a>
-                                    <?php
-                                }
+                        <?php } else {
+                            if($recordData['care_type']<17){
+                                ?>
+                                |<a href="javascript:void(0)" id="not_login">Write a review</a>|
+                                <a href="<?php echo site_url();?>review/allreviews/<?php echo sha1($recordData['id']);?>">See all reviews</a>
+                                <?php
                             }
-                        }?>
-                        <?php
+                        }
                     }?>
+                    <?php
+                }?>
 
-                </div>
+        </div>
+                
                 <?php
+                
                 if($this->uri->segment(4)>0 && $this->uri->segment(4)<10){
-                   if($recordData['care_type'] != 7){
-                       if(!empty($recordData['age'])){ ?>
+                   if($recordData['care_type'] != 7){ ?>
+                       <div class="col-xs-4">
+                       <?php if(!empty($recordData['age'])){ ?>
                                    <span class="age-wrap"><?php echo $recordData['age']. '<span>Age</span>';?></span>
                                    <?php
                                }else{ ?>
                                <span class="age-wrap"><?php echo 'N/A'. '<span>Age</span>';?></span>
                                <?php
-                           }
-                        if($this->uri->segment(4) == 3) {
-                            if(!empty($recordData['rate'])){ ?>
+                           } ?>
+                           </div>
+                           <div class="col-xs-4">
+                        <?php if($this->uri->segment(4) == 3) {
+                                if(!empty($recordData['rate'])){ ?>
+    
+                                   <span class="hour-wrap"><?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
+                                <?php
+                                } else{ ?>
+                                   <span class="hour-wrap"><?php echo 'N/A'.'<span>Cost</span>'; ?></span>
+                                <?php }
+                                } else {
 
-                       <span class="hour-wrap"><?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
-                       <?php
-                       }
-                       else{ ?>
-                       <span class="hour-wrap"><?php echo 'N/A'.'<span>Cost</span>'; ?></span>
-                       <?php
-                   } } else {
 
-
-                       if(!empty($recordData['rate'])){ ?>
-                       <?php $rate_type = $recordData['rate_type']==2?' / Hr':' / Hr'?>
-                       <span class="hour-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Rate</span>'; ?></span>
-                       <?php
-                       }
-                       else{ ?>
-                       <span class="hour-wrap"><?php echo 'N/A'.'<span>Rate</span>'; ?></span>
-                       <?php
-                   }}
-                   if(!empty($recordData['experience'])){ ?>
-                   <span class="experience-wrap"><?php if ($recordData['experience']==6) {echo '5+ <span>Years of Experience</span>';} else {echo $recordData['experience']. ' <span>Years of Experience</span>'; }?></span>
-                   <?php
-                }
-                else{ ?>
-                <span class="experience-wrap"><?php echo 'N/A'. ' <span>Years of Experience</span>';?></span>
-                <?php
-                }
-                ?>
+                                   if(!empty($recordData['rate'])){ ?>
+                                   <?php $rate_type = $recordData['rate_type']==2?' / Hr':' / Hr'?>
+                                       <span class="hour-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Rate</span>'; ?></span>
+                                    <?php
+                                    }
+                                   else{ ?>
+                                       <span class="hour-wrap"><?php echo 'N/A'.'<span>Rate</span>'; ?></span>
+                                     <?php
+                                    }
+                                } ?>
+                            </div>
+                   
+                   <div class="col-xs-4">
+                   <?php if(!empty($recordData['experience'])){ ?>
+                           <span class="experience-wrap"><?php if ($recordData['experience']==6) {echo '5+ <span>Years of Experience</span>';} else {echo $recordData['experience']. ' <span>Years of Experience</span>'; }?></span>
+                    <?php
+                        }   
+                        else{ ?>
+                            <span class="experience-wrap"><?php echo 'N/A'. ' <span>Years of Experience</span>';?></span>
+                        <?php
+                        }
+                        ?>
+                    </div>
                 <div class="clearfix margin-bots"></div>
-                <?php
-                if(!empty($recordData['location'])){ ?>
-                <?php $loca = '';
-                if ($recordData['city'] != '') {
-                    $loca .= $recordData['city'];
-                }
-                if ($recordData['state'] != '') {
-                    $loca .= ', ' . $recordData['state'];
-                }
-                if ($recordData['country'] != '') {
-                    $loca .= ', ' . $recordData['country'];
-                }?>
-                <?php $location_array = explode(',',$recordData['location']); ?>
-                <?php $formated_location = (isset($location_array[0])?$location_array[0]:"").', '.(isset($location_array[1])?$location_array[1]:""); ?> 
-                <span class="location-wrap"><?php echo $loca.'<span>Location</span>';?></span>
-                <?php
-                }
-                else{ ?>
-                <span class="location-wrap"><?php echo 'N/A'.'<span>Location</span>';?></span>
-                <?php
-                }
-                ?>
+                <div class="col-xs-4">
+                    <?php
+                    if(!empty($recordData['location'])){ ?>
+                    <?php $loca = '';
+                    if ($recordData['city'] != '') {
+                        $loca .= $recordData['city'];
+                    }
+                    if ($recordData['state'] != '') {
+                        $loca .= ', ' . $recordData['state'];
+                    }
+                    if ($recordData['country'] != '') {
+                        $loca .= ', ' . $recordData['country'];
+                    }?>
+                    <?php $location_array = explode(',',$recordData['location']); ?>
+                    <?php $formated_location = (isset($location_array[0])?$location_array[0]:"").', '.(isset($location_array[1])?$location_array[1]:""); ?> 
+                    <span class="location-wrap"><?php echo $loca.'<span>Location</span>';?></span>
+                    <?php
+                    }
+                    else{ ?>
+                    <span class="location-wrap"><?php echo 'N/A'.'<span>Location</span>';?></span>
+                    <?php
+                    }
+                    ?>
+                </div>
+                <div class="col-xs-4">
                 <span class="care-type-wrap">
                     <?php
                     echo ucwords($type[0]['service_name']).'<span>Care Type</span>';
                     ?>
                 </span>
+                </div>
+                <div class="col-xs-4">
                 <?php
                     $availablility = explode(',',$recordData['availability']);
                     $start_date = $recordData['start_date'];
@@ -139,13 +154,20 @@
                     }else{ ?>
                     <span class="location-wrap"><?php echo 'N/A'.'<span>Availability</span>';?></span>
                     <?php
-                    }
-                }
+                    } ?>
+                    </div>
+            <?php   }
             else{ ?>
-                <span class="location-wrap"><?php echo isset($recordData['type_of_therapy']) ? $recordData['type_of_therapy'] : "N/A";
+                <div class="col-xs-2"></div>
+                <div class="col-xs-4">
+                    <span class="location-wrap"><?php echo isset($recordData['type_of_therapy']) ? $recordData['type_of_therapy'] : "N/A";
                     echo '<span>Type of therapy</span>'; ?></span>
+                </div>
+                <div class="col-xs-4">
                    <span class="care-type-wrap"><?php if ($recordData['experience']==6) {echo '5+ <span>Years in Practice</span>';} else {echo $recordData['experience']. ' <span>Years in Practice</span>'; }?></span>
+                </div>
                 <div class="clearfix margin-bots"></div>
+                <div class="col-xs-2"></div>
                 <?php if(!empty($recordData['location'])){ ?>
                 <?php $loca = '';
                 if ($recordData['city'] != '') {
@@ -159,18 +181,23 @@
                 }?>
                     <?php $location_array = explode(',',$recordData['location']); ?>
                     <?php $formated_location = (isset($location_array[0])?$location_array[0]:"").', '.(isset($location_array[1])?$location_array[1]:""); ?> 
-                    <span class="location-wrap"><?php echo $loca.'<span>Location</span>';?></span>
+                    <div class="col-xs-4">
+                        <span class="location-wrap"><?php echo $loca.'<span>Location</span>';?></span>
+                    </div>
                     <?php
                 } ?>
-                <span class="care-type-wrap">
-                    <?php
-                    echo ucwords($type[0]['service_name']).'<span>Care Type</span>';
-                    ?>
-                </span>
+                <div class="col-xs-4">
+                    <span class="care-type-wrap">
+                        <?php
+                        echo ucwords($type[0]['service_name']).'<span>Care Type</span>';
+                        ?>
+                    </span>
+                </div>
             <?php }
 }
-if($this->uri->segment(4)>16){
-    if(!empty($recordData['location'])){ ?>
+if($this->uri->segment(4)>16){ ?>
+    <div class="col-xs-4">
+    <?php if(!empty($recordData['location'])){ ?>
         <?php $location_array = explode(',',$recordData['location']); ?>
         <?php $loca = '';
                 if ($recordData['city'] != '') {
@@ -190,9 +217,13 @@ if($this->uri->segment(4)>16){
         <span class="age-wrap"><?php echo 'N/A'.'<span>Location</span>';?></span>
         <?php
     } ?>
+    </div>
+    <div class="col-xs-4">
     <span class="hour-wrap">
         <?php echo ucwords($type[0]['service_name']).'<span>Job Type</span>'; ?>
     </span>
+    </div>
+    <div class="col-xs-4">
     <?php
     if(!empty($recordData['rate'])){ ?>
         <?php $rate_type = $recordData['rate_type']==2?' / Hr':' / Hr'?>
@@ -203,7 +234,9 @@ if($this->uri->segment(4)>16){
         <span class="experience-wrap"><?php echo 'N/A'.'<span>Wage</span>'; ?></span>
         <?php
     }?>
+    </div>
     <div class="clearfix margin-bots"></div>
+    <div class="col-xs-4">
     <?php
     $availablility = explode(',',$recordData['availability']);
     $start_date = $recordData['start_date'];
@@ -220,18 +253,22 @@ if($this->uri->segment(4)>16){
     else{ ?>
         <span class="location-wrap"><?php echo 'N/A'.'<span>Job Start Date</span>';?></span>
     <?php
-    }
-}
+    } ?>
+    </div>
+<?php }
 if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
-    if($this->uri->segment(4) == 10 || $this->uri->segment(4) == 16) {
-        if(!empty($recordData['sub_care'])){ ?>
+    if($this->uri->segment(4) == 10 || $this->uri->segment(4) == 16) { ?>
+        <div class="col-xs-4">
+        <?php if(!empty($recordData['sub_care'])){ ?>
             <span class="age-wrap"><?php echo $recordData['sub_care'].'<span>Type of Organization</span>';?></span>
             <?php
         }else{ ?>
         <span class="age-wrap"><?php echo 'N/A'.'<span>Type of Organization</span>';?></span>
         <?php
-        }
-        if(!empty($recordData['location'])){ ?>
+        } ?>
+        </div>
+        <div class="col-xs-4">
+        <?php if(!empty($recordData['location'])){ ?>
         <?php $loca = '';
                 if ($recordData['city'] != '') {
                     $loca .= $recordData['city'];
@@ -247,8 +284,10 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         }else{ ?>
         <span class="hour-wrap"><?php echo 'N/A'.'<span>Location</span>';?></span>
         <?php
-        }
-        if(!empty($recordData['established'])){ ?>
+        } ?>
+        </div>
+        <div class="col-xs-4">
+        <?php if(!empty($recordData['established'])){ ?>
         <span class="experience-wrap"><?php echo $recordData['established'].'<span>Year Established</span>';?></span>
         <?php
         }
@@ -257,7 +296,9 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         <?php
         }
         ?>
+        </div>
         <div class="clearfix margin-bots"></div>
+        <div class="col-xs-4">
         <?php
         if(!empty($recordData['rate'])){ ?>
 
@@ -267,11 +308,13 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         else{ ?>
         <span class="age-wrap"><?php echo 'N/A'.'<span>Cost</span>'; ?></span>
         <?php
-        }
+        } ?>
+        </div>
 
-    } else {
-
-        if(!empty($recordData['location'])){ ?>
+    <?php } else { ?>
+    
+        <div class="col-xs-4">
+        <?php if(!empty($recordData['location'])){ ?>
         <?php $loca = '';
                 if ($recordData['city'] != '') {
                     $loca .= $recordData['city'];
@@ -287,8 +330,10 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         }else{ ?>
         <span class="age-wrap"><?php echo 'N/A'.'<span>Location</span>';?></span>
         <?php
-        }
-        if(!empty($recordData['established'])){ ?>
+        } ?>
+        </div>
+        <div class="col-xs-4">
+        <?php if(!empty($recordData['established'])){ ?>
         <span class="hour-wrap"><?php echo $recordData['established'].'<span>Year Established</span>';?></span>
         <?php
         }
@@ -297,7 +342,8 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         <?php
         }
         ?>
-
+        </div>
+        <div class="col-xs-4">
         <?php
         if(!empty($recordData['rate'])){ ?>
         <span class="experience-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
@@ -306,8 +352,9 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         else{ ?>
         <span class="experience-wrap"><?php echo 'N/A'.'<span>Cost</span>'; ?></span>
         <?php
-        }
-    }
+        } ?>
+        </div>
+    <?php }
 
 }
 ?>
