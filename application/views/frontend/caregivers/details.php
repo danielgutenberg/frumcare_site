@@ -62,6 +62,7 @@
                 
                 if($this->uri->segment(4)>0 && $this->uri->segment(4)<10){
                    if($recordData['care_type'] != 7){ ?>
+                       <div class="row" style="width:425px">
                        <div class="col-xs-4">
                        <?php if(!empty($recordData['age'])){ ?>
                                    <span class="age-wrap"><?php echo $recordData['age']. '<span>Age</span>';?></span>
@@ -156,8 +157,10 @@
                     <?php
                     } ?>
                     </div>
+                    </div>
             <?php   }
             else{ ?>
+                <div class="row" style="width:425px">
                 <div class="col-xs-2"></div>
                 <div class="col-xs-4">
                     <span class="location-wrap"><?php echo isset($recordData['type_of_therapy']) ? $recordData['type_of_therapy'] : "N/A";
@@ -193,9 +196,11 @@
                         ?>
                     </span>
                 </div>
+                </div>
             <?php }
 }
 if($this->uri->segment(4)>16){ ?>
+    <div class="row" style="width:425px">
     <div class="col-xs-4">
     <?php if(!empty($recordData['location'])){ ?>
         <?php $location_array = explode(',',$recordData['location']); ?>
@@ -255,9 +260,11 @@ if($this->uri->segment(4)>16){ ?>
     <?php
     } ?>
     </div>
+    </div>
 <?php }
 if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
     if($this->uri->segment(4) == 10 || $this->uri->segment(4) == 16) { ?>
+        <div class="row" style="width:425px">
         <div class="col-xs-4">
         <?php if(!empty($recordData['sub_care'])){ ?>
             <span class="age-wrap"><?php echo $recordData['sub_care'].'<span>Type of Organization</span>';?></span>
@@ -310,9 +317,10 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         <?php
         } ?>
         </div>
+        </div>
 
     <?php } else { ?>
-    
+        <div class="row" style="width:425px">
         <div class="col-xs-4">
         <?php if(!empty($recordData['location'])){ ?>
         <?php $loca = '';
@@ -353,6 +361,7 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         <span class="experience-wrap"><?php echo 'N/A'.'<span>Cost</span>'; ?></span>
         <?php
         } ?>
+        </div>
         </div>
     <?php }
 
@@ -826,11 +835,11 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 	$(document).ready(function(){
 
 
-         var map = new GMaps({
+    var map = new GMaps({
         div: '#map',
         lat: 31.7963186,
         lng: 35.175359,
-        width: '235px',
+        // width: '235px',
         height: '250px'
 
     });
