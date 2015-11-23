@@ -1,6 +1,6 @@
 <?php echo $this->breadcrumbs->show();?>
 			<h3><?php echo 'Therapists';?></h3>  			
-	  		<div class="left-search-panel">
+	  		<div class="left-search-panel col-lg-3 col-md-3 col-sm-3 col-xs-12">
 	 	<h4>Advanced Search</h4>
 	 	<form method="post" id="left-nav" action="">
 	 		<!--<div>
@@ -46,15 +46,10 @@
 		 	</div>
 
 
-	 		<div>
-		 		<div class="educationss" colspan="2">
-		 		<input type="hidden" name="category" value="" id="care_type">
-			 		<div colspan="2" class="search-btns">
-				 		<input type="submit" class="btn btn-primary searchs" data-toggle="tooltip" data-placement="left" title="Save your search. Setup email alerts and be the first to see new profiles that have your search criteria." value="Save this Search" name="searchs">
-				 	</div>
+	 		<?php
+		 	$this->load->view('frontend/left_navbar/fields/save_search');
+		 	?>
 
 			</form>
 		</div>
-</div>	 
-	  </div>
 
