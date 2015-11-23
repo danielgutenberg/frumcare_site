@@ -51,7 +51,7 @@
                         <ul>
                             <li><input type="text" id="sub_name" name="sub_name" placeholder="Name" class="form-control input-sm"/></li><span class="errorName"></span>
                             <li><input type="email" id="sub_email" name="sub_email" placeholder="Email" class="form-control input-sm" required/></li><span class="errorEmail"></span>
-                            <!--<li><input type="button" id="subscribe" value="Subscribe" class="btn btn-primary btn-sm"/></li>-->
+                            <li><input type="button" id="subscribe" value="Subscribe" class="btn btn-primary btn-sm"/></li>
                         </ul>
                     </nav>
                 </div>
@@ -155,7 +155,6 @@ function removePic(){
             var subName = $("#sub_name").val();
             var subEmail = $("#sub_email").val();
             var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-
 
             if(subName == ''){
                 $(".errorName").html("Please type your name").css("color","red");

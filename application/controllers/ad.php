@@ -903,23 +903,23 @@ class Ad extends CI_Controller
             }
 
             $insert_new = array(
-                            'location' => isset($p['location'])? $p['location'] : '',
-                            'lng' => isset($p['lng'])? $p['lng'] : '',
-                            'lat' => isset($p['lat'])? $p['lat'] : '',
-                            'city' => isset($p['city'])? $p['city'] : '',
-                            'state' => isset($p['state'])? $p['state'] : '',
-                            'country' => isset($p['country'])? $p['country'] : '',
-                            'contact_number' => isset($p['contact_number'])? $p['contact_number'] : '',
-                            'age' => isset($p['age'])? $p['age'] : '',
-                            'gender' => isset($p['gender'])? $p['gender'] : '',
-                            'familartojewish' => isset($p['familarwithjewish'])?$p['familarwithjewish']:'',
-                            'zip'               => isset($p['zip'])?$p['zip']:'',
-                            'neighbour'         => isset($p['neighbour'])?$p['neighbour']:'',
-                            'caregiver_religious_observance' => isset($p['religious_observance']) ? $p['religious_observance'] : '',
-                            'smoke' => isset($p['smoker']) ? $p['smoker'] : 2,
-                            'hasAd'    => 1,
-                            'profile_picture'=>$p['profile_picture']
-                            );
+                'location' => isset($p['location'])? $p['location'] : '',
+                'lng' => isset($p['lng'])? $p['lng'] : '',
+                'lat' => isset($p['lat'])? $p['lat'] : '',
+                'city' => isset($p['city'])? $p['city'] : '',
+                'state' => isset($p['state'])? $p['state'] : '',
+                'country' => isset($p['country'])? $p['country'] : '',
+                'contact_number' => isset($p['contact_number'])? $p['contact_number'] : '',
+                'age' => isset($p['age'])? $p['age'] : '',
+                'gender' => isset($p['gender'])? $p['gender'] : '',
+                'familartojewish' => isset($p['familarwithjewish'])?$p['familarwithjewish']:'',
+                'zip'               => isset($p['zip'])?$p['zip']:'',
+                'neighbour'         => isset($p['neighbour'])?$p['neighbour']:'',
+                'caregiver_religious_observance' => isset($p['religious_observance']) ? $p['religious_observance'] : '',
+                'smoke' => isset($p['smoker']) ? $p['smoker'] : 2,
+                'hasAd'    => 1,
+                'profile_picture'=>$p['profile_picture']
+            );
             if (isset($p['name'])){
                 $uri = $this->common_model->create_slug($p['name']);
                 //$insert['uri'] = $p['uri'];
@@ -927,41 +927,15 @@ class Ad extends CI_Controller
                 $insert_new['uri'] = $uri;
                 $insert['contact_name'] = $p['name'];
             }
-
-            //   $response =  $this->getLongitudeAndLatitude($p['location']);
-            //     if ($response){
-            //         $lat        = $response->results[0]->geometry->location->lat;
-            //         $long       = $response->results[0]->geometry->location->lng;
-            //         $country    = $response->results[0]->address_components[1]->long_name;
-            //     }else{
-            //         $lat   = 0;
-            //         $long   = 0;
-            //     }
-               
-            //   $geodata = array(
-            //         'lat' => $lat,
-            //         'lng' => $long,
-            //         'country' => $country,
-            //     );
-
-            //     //insert location for profile as well
-            //     $geodata1 = array(
-            //         'latitude' => $lat,
-            //         'longitude' => $long,
-            //     );
+            
             if (check_user()) {
                $q = $this->common_model->update('tbl_userprofile', $insert, array('user_id' => check_user()));
-            //   $q = $this->common_model->update('tbl_userprofile', $geodata1, array('user_id' => check_user(), ));
-            //   $q = $this->common_model->update('tbl_user', $geodata, array('id' => check_user()));
                $q = $this->common_model->update('tbl_user', $insert_new, array('id' => check_user())); //by kiran
             }
             if ($q){
-
                 if (isset($p['photo_of_child'])){
-
                     $this->notifyNewImage();
                 }
-
                 $this->notifyUser();
                 $this->approveAds();
                 $link = anchor('caregivers/all', 'here');

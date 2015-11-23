@@ -275,6 +275,8 @@
             }else{
                 var url = "<?php echo site_url();?>";
                 var trimmed_url = url.replace(url.substr(url.lastIndexOf('/') + 1), '');
+                console.log(trimmed_url);
+                exit();
                 $.ajax({
                     'url' : trimmed_url+"/welcome/subscribe",
                     'type' : 'get',
