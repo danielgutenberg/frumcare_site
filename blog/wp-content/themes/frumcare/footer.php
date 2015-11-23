@@ -166,7 +166,7 @@
     </div>
 <!-- modal popup ends -->
 
-<script src="<?php echo $ciurl;?>/js/jquery.validate.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
 <script src="<?php echo $ciurl;?>/js/vendor/bootstrap.min.js"></script>
 <script>
     $(function(){
@@ -276,7 +276,6 @@
                 var url = "<?php echo site_url();?>";
                 var trimmed_url = url.replace(url.substr(url.lastIndexOf('/') + 1), '');
                 console.log(trimmed_url);
-                exit();
                 $.ajax({
                     'url' : trimmed_url+"/welcome/subscribe",
                     'type' : 'get',
