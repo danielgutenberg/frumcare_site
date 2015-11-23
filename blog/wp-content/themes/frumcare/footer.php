@@ -280,6 +280,7 @@
                     'url' : trimmed_url+"/welcome/subscribe",
                     'type' : 'get',
                     'data' : "sub_name="+subName+"&sub_email="+subEmail,
+                    dataType: 'jsonp',
                     success:function(msg){
                         if(msg == 1){
                             $(".error").html("You have successfully subscribed").css("color","white");
