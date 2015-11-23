@@ -166,7 +166,7 @@
     </div>
 <!-- modal popup ends -->
 
-<script src="<?php echo $ciurl;?>/js/jquery.validate.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
 <script src="<?php echo $ciurl;?>/js/vendor/bootstrap.min.js"></script>
 <script>
     $(function(){
