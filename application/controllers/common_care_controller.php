@@ -23,15 +23,15 @@
     	}
     	
     	public function babysitter() {
-    	    $this->load_ads(1, 'Babysitter');
+    	    $this->load_ads(1, 'Babysitters');
     	}
     	
     	public function nanny() {
-    	    $this->load_ads(2, 'Nanny / Au-pair');
+    	    $this->load_ads(2, 'Nanny / Au-pairs');
     	}
     	
     	public function nursery() {
-    	    $this->load_ads(3, 'Nursery / Playgroup / Drop off / Gan');
+    	    $this->load_ads(3, 'Nursery / Playgroup / Drop off / Gans');
     	}
     	
     	public function tutor() {
@@ -39,15 +39,15 @@
     	}
     	
     	public function senior_caregiver() {
-    	    $this->load_ads(5, 'Senior Caregiver');
+    	    $this->load_ads(5, 'Senior Caregivers');
     	}
     	
     	public function special_needs_caregiver() {
-    	    $this->load_ads(6, 'Special Needs Caregiver');
+    	    $this->load_ads(6, 'Special Needs Caregivers');
     	}
     	
     	public function therapist() {
-    	    $this->load_ads(7, 'Therapist');
+    	    $this->load_ads(7, 'Therapists');
     	}
     	
     	public function cleaning() {
@@ -55,7 +55,7 @@
     	}
     	
     	public function errand_runner() {
-    	    $this->load_ads(9, 'Errand runner / odd jobs / personal assistant / driver');
+    	    $this->load_ads(9, 'Errand runner / odd jobs / personal assistant / drivers');
     	}
     	
     	public function daycarecenter() {
@@ -63,19 +63,19 @@
     	}
     	
     	public function seniorcareagency() {
-    	    $this->load_ads(13, 'Senior Care Agency', 3);
+    	    $this->load_ads(13, 'Senior Care Agencies', 3);
     	}
     	
     	public function specialneedscenter() {
-    	    $this->load_ads(14, 'Special needs center', 3);
+    	    $this->load_ads(14, 'Special needs centers', 3);
     	}
     	
     	public function cleaninghousehold() {
-    	    $this->load_ads(15, 'Cleaning / household help company', 3);
+    	    $this->load_ads(15, 'Cleaning / household help companies', 3);
     	}
     	
     	public function seniorcarecenter() {
-    	    $this->load_ads(16, 'Assisted living / Senior Care Center / Nursing Home', 3);
+    	    $this->load_ads(16, 'Assisted living / Senior Care Center / Nursing Homes', 3);
     	}
     	
     	public function careseeker_babysitter()
@@ -138,21 +138,21 @@
     	    $title = 'Workers / Staff';
             $care_type = 'organizations'; 
     	    if( $care == 'workers-staff-for-childcare-facility' ) {
-                $title = "Workers / Staff for childcare facility";
+                $title = "Workers / Staff for childcare facilityies";
                 $care_type = 1;
             }
             elseif( $care == 'workers-staff-for-senior-care-facility') {
-                $title = "Workers / Staff for senior care facility";
+                $title = "Workers / Staff for senior care facilities";
                 $care_type = 5;
             }
             
             elseif( $care == 'workers-staff-for-special-needs-facility') {
-                $title = "Workers / Staff for special needs facility";
+                $title = "Workers / Staff for special needs facilities";
                 $care_type = 6;
             }
             
             elseif( $care == 'workers-for-cleaning-company') {
-                $title = "Workers for cleaning company";
+                $title = "Workers for cleaning companies";
                 $care_type = 8;
             }
             
