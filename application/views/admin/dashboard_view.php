@@ -181,6 +181,9 @@
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6"><a title="Notification Manager" href="<?php echo $notification;?>"><i class="fa fa-lg fa-fw fa-bell"></i><span class="menu-item-parent">Notification Manager</span></a>
             <div class="icon-title">Notification Manager</div>
         </div>
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6"><a title="Subscriptions" href="<?php echo site_url().'admin/subscriptions';?>"><i class="fa fa-lg fa-fw fa-envelope"></i><span class="menu-item-parent">Newsletter Subscriptions</span></a>
+            <div class="icon-title">Newsletter Subscriptions</div>
+        </div>
         </div>
 
             </div>
