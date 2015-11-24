@@ -167,6 +167,9 @@
             <li>
               <a href="<?php echo $notification;?>" title="Notification Manager"><i class="fa fa-lg fa-fw fa-bell"></i><span class="menu-item-parent">Notification Manager</span></a>
             </li>
+            <li>
+              <a href="<?php echo site_url().'admin/subscriptions';?>" title="Newsletter Subscriptions"><i class="fa fa-lg fa-fw fa-envelope"></i><span class="menu-item-parent">Newsletter Subscriptions</span></a>
+            </li>
         </ul>
       </nav>
       <span class="minifyme"> <i class="fa fa-arrow-circle-left hit"></i> </span>
