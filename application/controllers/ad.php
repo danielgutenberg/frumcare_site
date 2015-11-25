@@ -975,15 +975,23 @@ class Ad extends CI_Controller
         $userdata       = $this->common_care_model->sort(10 ,$lat,$lng,'distance', $ac , $ct, 3000);
         $get_total_rows = count($userdata);                                                         
         $data = array(
-  			'main_content' 	    => 'frontend/common_profile_list',
-            'countries'         => $this->common_model->getCountries(),
-            'userlogs'		    => $this->user_model->getUserLog(),
-            'userdatas'		    => array_slice($userdata, 0, 15),
-            'account_category'  => $ac,
+            'userdatas'		    => array_slice($userdata, 0, 4),
             'care_type'         => $ct,
             'location'          => $location             				              				              				                            
         );                      
-        $this->load->view(FRONTEND_TEMPLATE, $data);
+        
+        $msg = $this->load->view('frontend/email/ads_to_new_user', $data, true);
+
+        $param = array(
+            'subject'     => 'A new profile has been added in Frumcare.com, approval required',
+            'from'        => SITE_EMAIL,
+            'from_name'   => SITE_NAME,
+            'replyto'     => SITE_EMAIL,
+            'replytoname' => SITE_NAME,
+            'sendto'      => 'danielguten@gmail.com',
+            'message'     => $msg
+        );
+        sendemail($param);
     }
 
     function getLongitudeAndLatitude($address){

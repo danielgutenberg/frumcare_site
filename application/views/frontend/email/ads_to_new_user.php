@@ -1,5 +1,5 @@
 <?php
-    $navigate = $recordData['care_type']>16?'jobs':'caregivers';
+    $navigate = $care_type > 16 ? 'jobs' : 'caregivers';
 ?>
 <strong>Hi There,</strong>
 <br />
@@ -8,7 +8,10 @@
     </div>
 <br />
 
-<?php $this->load->view('frontend/common_profile_list', array('userdatas'=>$userdatas,'userlogs'=>$userlogs));?>
+<?php $this->load->view('frontend/common_profile_list', array('userdatas'=>$userdatas));?>
+
+<div style="font-family:Arial, Helvetica, sans-serif; font-size:13px; margin-bottom:5px;"><a href="<?php echo site_url() . $navigate . '/all';?>">Click here</a> to see more ads</div>
+
 
 Thanks,
 <br />
