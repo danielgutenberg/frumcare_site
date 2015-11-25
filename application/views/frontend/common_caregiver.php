@@ -187,7 +187,7 @@
         <option value="unlimited" selected="selected">Unlimited Miles</option>
     </select>   
 	<h3 class="total_rows hidden" style="margin-bottom: 0px">
-		<span id="total"><?php echo $total_rows ?></span>
+		<span id="total"></span>
         <?php
           if( $total_rows > 1 && substr($title,-1) == 'y' ){
             $ntitle = substr($title,0,-1);
@@ -224,29 +224,9 @@
 				</select>
 			</span>
 	</div>
-<?php
-$pagination	= '';
-if ($pages > 5) {
-    $pages = 5;
-}
-if ($pages > 1) {	
-	for($i = 1; $i<=$pages; $i++)
-	{
-
-		if($i==1){
-            $pagination .= ' <a href="#" class="paginate_click active" id="'.$i.'-page" >'.$i.'</a> ';
-        }else{
-            $pagination .= ' <a href="#" class="paginate_click in-active" id="'.$i.'-page">'.$i.'</a> ';
-        }
-
-	}
-	$pagination .= '<a href="#" class="paginate_click in-active" id="next">next</a>';
-} 
-?>
     <div class="navigations"></div>
 	<div class="clearfix margin-bot"></div>
 	<div id="list_container" class="">
-    <?php $this->load->view('frontend/common_profile_list', array('userdatas'=>$userdatas,'userlogs'=>$userlogs, 'location' => $location));?>
 	</div>
 	<div class="navigations"></div>
 	</div>
