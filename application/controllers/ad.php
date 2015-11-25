@@ -8,6 +8,7 @@ class Ad extends CI_Controller
         $this->load->model('common_model');
         $this->load->library('breadcrumbs');
         $this->load->library('fileupload_lib');
+        $this->load->library('email');
         $this->load->model('payment_model');
         $this->load->model('user_model');
         $this->load->model('caretype_model');
@@ -983,7 +984,7 @@ class Ad extends CI_Controller
         $msg = $this->load->view('frontend/email/ads_to_new_user', $data, true);
 
         $param = array(
-            'subject'     => 'A new profile has been added in Frumcare.com, approval required',
+            'subject'     => 'Thank you for joining FrumCare. Here are some ads in your area',
             'from'        => SITE_EMAIL,
             'from_name'   => SITE_NAME,
             'replyto'     => SITE_EMAIL,
@@ -991,7 +992,16 @@ class Ad extends CI_Controller
             'sendto'      => 'danielguten@gmail.com',
             'message'     => $msg
         );
-        sendemail($param);
+        $config['mailtype'] = 'html';
+
+        $this->email->initialize($config);
+        $this->email->from(SITE_EMAIL, SITE_NAME);
+        $this->email->to('danielguten@gmail.com');
+        
+        $this->email->subject('Thank you for joining FrumCare. Here are some ads in your area');
+        $this->email->message($msg);	
+        
+        $this->email->send();
     }
 
     function getLongitudeAndLatitude($address){
