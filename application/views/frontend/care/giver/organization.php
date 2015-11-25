@@ -32,7 +32,7 @@
      <div>
         <label>Phone</label>
         <div class="form-field">
-        <input type="text" name="contact_number" class="required" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact"/>
+        <input type="text" name="contact_number" class="required" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact_number"/>
         </div>
     </div>
 
