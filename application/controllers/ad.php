@@ -154,10 +154,7 @@ class Ad extends CI_Controller
         if ($this->uri->segment(3) == 'organization')
             $view = 'frontend/care/giver/organization';
 
-        if ($this->uri->segment(3) == 'careseeker' && $this->uri->segment(4) == 'individual')
-            $view = $this->careseeker();
-        
-        if ($this->uri->segment(3) == 'careseeker' && $this->uri->segment(4) == 'organization')
+        if ($this->uri->segment(3) == 'careseeker')
             $view = $this->careseeker();
 
         $data = array(
@@ -167,7 +164,53 @@ class Ad extends CI_Controller
 
         $this->load->view(FRONTEND_TEMPLATE, $data);
     }
+    
+    public function careseeker(){
+        if (check_user()){
+            $a = get_account_details();
+            $id = $a->care_type;
+            if ($id == 10){
+              return $data['main_content'] = 'frontend/care/giver/daycarecenter_form';
+            }
+            if ($id == 13){
+              return  $data['main_content'] = 'frontend/care/giver/seniorcareagency_form';
+            }
+            if ($id == 14){
+              return  $data['main_content'] = 'frontend/care/giver/specialneedscenter_form';
+            }
+            if ($id == 15){
+               return $data['main_content'] = 'frontend/care/giver/cleaningcompany_form';
+            }
+            if ($id == 16){
+              return  $data['main_content'] = 'frontend/care/giver/seniorcarecenter_form';
+            }
 
+            if ($id == 17)
+                return $data['main_content'] = 'frontend/care/seeker/babysitter_form';
+            if ($id == 18)
+                return $data['main_content'] = 'frontend/care/seeker/nanny_form';
+            if ($id == 19)
+                return $data['main_content'] = 'frontend/care/seeker/tutor_form';
+            if ($id == 20)
+                return $data['main_content'] = 'frontend/care/seeker/senior_form';
+            if ($id == 21)
+                return $data['main_content'] = 'frontend/care/seeker/errand_form';
+            if ($id == 22)
+               return $data['main_content'] = 'frontend/care/seeker/specailneedcareseeker_form';
+            if ($id == 23)
+                return $data['main_content'] = 'frontend/care/seeker/therapist_form';
+            if ($id == 24)
+                return $data['main_content'] = 'frontend/care/seeker/cleaning_form';
+            if ($id == 25)
+                return $data['main_content'] = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
+            if ($id == 26)
+                return $data['main_content'] = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
+             if ($id == 27)
+                return $data['main_content'] = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
+            if ($id == 28)
+                return $data['main_content'] = 'frontend/care/seeker/cleaningcompany_form';
+        }
+    }
 
     public function registeruserdetails(){
         if ($_POST) {
@@ -322,8 +365,8 @@ class Ad extends CI_Controller
         }
     }
 
-
-    function savejobdetails(){
+    function savejobdetails()
+    {
         if ($_POST) {
             $p = $_POST;
             $language = false;
@@ -670,53 +713,6 @@ class Ad extends CI_Controller
 
     }
 
-    public function careseeker(){
-        if (check_user()){
-            $a = get_account_details();
-            $id = $a->care_type;
-            if ($id == 10){
-              return $data['main_content'] = 'frontend/care/giver/daycarecenter_form';
-            }
-            if ($id == 13){
-              return  $data['main_content'] = 'frontend/care/giver/seniorcareagency_form';
-            }
-            if ($id == 14){
-              return  $data['main_content'] = 'frontend/care/giver/specialneedscenter_form';
-            }
-            if ($id == 15){
-               return $data['main_content'] = 'frontend/care/giver/cleaningcompany_form';
-            }
-            if ($id == 16){
-              return  $data['main_content'] = 'frontend/care/giver/seniorcarecenter_form';
-            }
-
-            if ($id == 17)
-                return $data['main_content'] = 'frontend/care/seeker/babysitter_form';
-            if ($id == 18)
-                return $data['main_content'] = 'frontend/care/seeker/nanny_form';
-            if ($id == 19)
-                return $data['main_content'] = 'frontend/care/seeker/tutor_form';
-            if ($id == 20)
-                return $data['main_content'] = 'frontend/care/seeker/senior_form';
-            if ($id == 21)
-                return $data['main_content'] = 'frontend/care/seeker/errand_form';
-            if ($id == 22)
-               return $data['main_content'] = 'frontend/care/seeker/specailneedcareseeker_form';
-            if ($id == 23)
-                return $data['main_content'] = 'frontend/care/seeker/therapist_form';
-            if ($id == 24)
-                return $data['main_content'] = 'frontend/care/seeker/cleaning_form';
-            if ($id == 25)
-                return $data['main_content'] = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
-            if ($id == 26)
-                return $data['main_content'] = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
-             if ($id == 27)
-                return $data['main_content'] = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
-            if ($id == 28)
-                return $data['main_content'] = 'frontend/care/seeker/cleaningcompany_form';
-        }
-    }
-
     function add_careseeker_step2(){
         if ($_POST) {
             $p = $_POST;
@@ -760,8 +756,6 @@ class Ad extends CI_Controller
             if (isset($p['rate_type'])){
                 $rate_type = join(',',$p['rate_type']);
             }
-
-
 
             if (isset($p['photo_of_child'])){
                 $p['profile_picture']=$p['photo_of_child'];
@@ -893,13 +887,11 @@ class Ad extends CI_Controller
                 'latitude' => isset($p['lat'])? $p['lat'] : '',
             );
 
-
             if (isset($p['photo_of_child'])){
 
                 $insert['newphoto']=1;
                 $insert['photo']=1;
                 $insert['photo_status']=0;
-
             }
 
             $insert_new = array(

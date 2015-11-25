@@ -660,8 +660,12 @@ class User_model extends CI_Model
             if(isset($p['extra_field'])){
                 $extra_field = join(',',$p['extra_field']);
             }
+            
+            $this->db->where(array('user_id'=>$id,'care_type'=>$care_type));
+            $res = $this->db->get('tbl_userprofile');
+            $oldProfile = $res->result_array()[0];
 
-            if ($p['profile_description'] || $p['file'] || $p['pdf'] || $p['facility_pic']) {
+            if ($p['profile_description'] != $oldProfile['profile_description'] || $p['file'] != $oldProfile['file'] || $p['pdf'] != $oldProfile['pdf'] || $p['facility_pic'] != $oldProfile['facility_pic']) {
                 $profileStatus = 0;
                 $email = 1;
             }
@@ -785,7 +789,8 @@ class User_model extends CI_Model
                     }
                 }
             }
-
+            
+            return $email;
     }
 
     public function getUserPackage($uid){
