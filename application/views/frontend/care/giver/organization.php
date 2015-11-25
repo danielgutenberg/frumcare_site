@@ -11,18 +11,6 @@
         <h1 class="step2">
             Step 2: Organization Info 
         </h1>
-    <!--<div>-->
-    <!--        <label>Name of Organization</label>-->
-    <!--        <div class="form-field">-->
-    <!--           <input type="text" name="organization_name" value="<?php //if(isset($fn)) echo $fn;?>" class="required">-->
-    <!--        </div>-->
-    <!--     </div>-->
-    <!--        <div>-->
-    <!--        <label>Contact name</label>-->
-    <!--        <div class="form-field">-->
-    <!--           <input type="text" name="name" placeholder="name" class="required" value="<?php //echo isset($name)? $name:''; ?>"/>-->
-    <!--        </div>-->
-    <!--     </div>-->
     <div>
             <label>Location</label>
             <div id="locationField">
@@ -40,13 +28,7 @@
             <div>
             <input type="text" name="neighbour" class="required" onFocus="geolocate()" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
             </div>    
-        </div>         
-
-    <!--<div>-->
-    <!--    <label>Zip</label>-->
-    <!--    <div><input type="text" name="zip" class="required" value="" /> </div>-->
-    <!--</div>-->
-
+        </div>  
      <div>
         <label>Phone</label>
         <div class="form-field">
@@ -125,7 +107,6 @@
    
 
     <div>   
-        <!-- <label>Shul membership</label> -->
         <div class="form-field">
         <input type="hidden" name="account_category" value="<?php echo $cat;?>">
         <input type="hidden" name="account_type" value="<?php echo $type;?>">
