@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="<?php echo base_url();?>css/jquery.raty.css"> 
-<script src="<?php echo base_url();?>js/jquery.raty.js"></script>
 <script>
     $("#locationSearch").ready(function(){        
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], { types: ['address'] });
