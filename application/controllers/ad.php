@@ -992,16 +992,16 @@ class Ad extends CI_Controller
             'sendto'      => 'danielguten@gmail.com',
             'message'     => $msg
         );
-        $config['mailtype'] = 'html';
+        // $config['mailtype'] = 'html';
 
-        $this->email->initialize($config);
-        $this->email->from(SITE_EMAIL, SITE_NAME);
-        $this->email->to('danielguten@gmail.com');
+        // $this->email->initialize($config);
+        // $this->email->from(SITE_EMAIL, SITE_NAME);
+        // $this->email->to('danielguten@gmail.com');
         
-        $this->email->subject('Thank you for joining FrumCare. Here are some ads in your area');
-        $this->email->message($msg);	
+        // $this->email->subject('Thank you for joining FrumCare. Here are some ads in your area');
+        // $this->email->message($msg);	
         
-        $this->email->send();
+        // $this->email->send();
     }
 
     function getLongitudeAndLatitude($address){
