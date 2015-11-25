@@ -82,30 +82,28 @@
         <meta name="description" content="<?php echo $seodata['meta_desc'];?>">
         <meta name="keywords" content="<?php echo $seodata['meta_keywords'];?>">
 
-
-        
-
-        <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="<?php echo base_url('css/all.css') ?>">
+        <link rel="shortcut icon" href="<?php echo site_url("img/favicon.ico")?>" type="image/x-icon">
+        <link rel="icon" href="<?php echo site_url("img/favicon.ico")?>" type="image/x-icon">
         
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' type='text/css'>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-        <!--[if lt IE 9]>
-        <script src="//s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
-        <script src="//html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>
-        <![endif]-->
-        <link rel="shortcut icon" href="<?php echo site_url("img/favicon.ico")?>" type="image/x-icon">
-        <link rel="icon" href="<?php echo site_url("img/favicon.ico")?>" type="image/x-icon">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Varela+Round' type='text/css'>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' type='text/css'>
+        <link rel="stylesheet" href="<?php echo base_url('css/main.css') ?>">
+        <link rel="stylesheet" href="<?php echo base_url('css/jgrowl.css') ?>">
+        <link rel="stylesheet" href="<?php echo base_url('css/extra.css') ?>">
+        <link rel="stylesheet" href="<?php echo site_url('css/bootstrap.css') ?>" type="text/css">
+        <link rel="stylesheet" href="<?php echo site_url('css/progressbar.css') ?>" type="text/css">
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        
         <script src="<?php echo base_url('js/jgrowl.js') ?>"></script>
         <script src="<?php echo base_url('js/vendor/bootstrap.min.js') ?>"></script>
         <script src="<?php echo base_url('js/select.js') ?>"></script>
         <script src="<?php echo base_url('js/vendor/modernizr-2.6.2-respond-1.1.0.min.js') ?>"></script>
-        <script src="<?php echo base_url('js/jquery.raty.js') ?>"></script>
 
         <!-- Facebook Conversion Code for Caregiver leads -->
         <script>(function() {
@@ -138,10 +136,6 @@
 
 
     <div class="page-loader-modal"></div>
-<!--[if lt IE 9]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience.</p>
-    <![endif]-->
     <div id="site-wrapper">
         <header class="header">
             <div class="top-bar clearfix">
