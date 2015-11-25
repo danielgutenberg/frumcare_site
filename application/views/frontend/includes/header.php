@@ -93,6 +93,7 @@
         <link rel="stylesheet" href="<?php echo site_url('css/bootstrap.css') ?>" type="text/css" >
         <link rel="stylesheet" href="<?php echo site_url('css/progressbar.css') ?>" type="text/css"  />
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' type='text/css'>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <!--[if lt IE 9]>
         <script src="//s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
         <script src="//html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>
