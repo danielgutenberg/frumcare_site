@@ -87,11 +87,8 @@
 
         <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="<?php echo base_url('css/main.css') ?>">
-        <link rel="stylesheet" href="<?php echo base_url('css/jgrowl.css') ?>">
-        <link rel="stylesheet" href="<?php echo base_url('css/extra.css') ?>">
-        <link rel="stylesheet" href="<?php echo site_url('css/bootstrap.css') ?>" type="text/css" >
-        <link rel="stylesheet" href="<?php echo site_url('css/progressbar.css') ?>" type="text/css"  />
+        <link rel="stylesheet" href="<?php echo base_url('css/all.css') ?>">
+        
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' type='text/css'>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <!--[if lt IE 9]>
@@ -102,12 +99,13 @@
         <link rel="icon" href="<?php echo site_url("img/favicon.ico")?>" type="image/x-icon">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
         <script src="<?php echo base_url('js/jgrowl.js') ?>"></script>
         <script src="<?php echo base_url('js/vendor/bootstrap.min.js') ?>"></script>
         <script src="<?php echo base_url('js/select.js') ?>"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
         <script src="<?php echo base_url('js/vendor/modernizr-2.6.2-respond-1.1.0.min.js') ?>"></script>
+        <script src="<?php echo base_url('js/jquery.raty.js') ?>"></script>
 
         <!-- Facebook Conversion Code for Caregiver leads -->
         <script>(function() {
