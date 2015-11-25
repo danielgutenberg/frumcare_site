@@ -101,6 +101,7 @@
         <link rel="shortcut icon" href="<?php echo site_url("img/favicon.ico")?>" type="image/x-icon">
         <link rel="icon" href="<?php echo site_url("img/favicon.ico")?>" type="image/x-icon">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
         <script src="<?php echo base_url('js/jgrowl.js') ?>"></script>
         <script src="<?php echo base_url('js/vendor/bootstrap.min.js') ?>"></script>
         <script src="<?php echo base_url('js/select.js') ?>"></script>
