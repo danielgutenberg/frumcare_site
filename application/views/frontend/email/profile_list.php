@@ -41,7 +41,7 @@ $careType = [
                 }
 // 			$reviewData = Review_model::countReviewById($data['id']);
             $navigate = $data['care_type']>16?'jobs':'caregivers'; ?> 	
-            <div style="margin-right: -15px; margin-left:-15px; border-bottom: 1px solid #cccccc; padding-bottom: 20px; padding-top: 20px; padding-left: 10px;">
+            <div style="margin-right: -15px; margin-left:-15px; padding-bottom: 20px; padding-top: 20px; padding-left: 10px;">
             <div class="profile-img-wrap col-md-3 col-sm-3 col-xs-12" style="width:15%; float:left"> <?php
                 if($data['profile_picture']!="" && file_exists('images/profile-picture/'.$data['profile_picture'])) {?>
                     <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
