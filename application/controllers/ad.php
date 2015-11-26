@@ -264,6 +264,7 @@ class Ad extends CI_Controller
             if (check_user()) {
                 $q = $this->common_model->update('tbl_user', $insert_new, array('id' => check_user()));
                 $q = $this->common_model->update('tbl_userprofile', $insert, array('user_id' => check_user()));
+                $this->sendRelevantAds($insert_new['lat'], $insert_new['lng'], $insert_new['city']);
             }
 
             if ($p['account_category'] == 1)
@@ -968,9 +969,37 @@ class Ad extends CI_Controller
     
     function sendRelevantAds($lat = 43, $lng = 79, $city = 'Toronto')
     {
+        $correspondingTypes = [
+            "1" => 17,
+            "2" => 18,
+            "3" => 17,
+            "4" => 19,
+            "5" => 20,
+            "6" => 22,
+            "7" => 29,
+            "8" => 24,
+            "9" => 21,
+            "10" => 18,
+            "13" => 26,
+            "14" => 27,
+            "15" => 28,
+            "16" => 26,
+            "17" => 1,
+            "18" => 2,
+            "19" => 4,
+            "20" => 5,
+            "21" => 9,
+            "22" => 6,
+            "24" => 8,
+            "25" => 1,
+            "26" => 5,
+            "27" => 6,
+            "28" => 8,
+            "29" => 7
+        ];
         $profile = $this->common_model->get_where('tbl_userprofile', array('user_id' => check_user()));
         $ac = $profile[0]['account_category'];
-        $ct = $profile[0]['care_type'];
+        $ct = $correspondingTypes[$profile[0]['care_type']];
         $location = ['lat' => $lat, 'lng' => $lng, 'place' => $city];
         $userdata       = $this->common_care_model->sort(10 ,$lat,$lng,'distance', $ac , $ct, 3000);
         $get_total_rows = count($userdata);                                                         
