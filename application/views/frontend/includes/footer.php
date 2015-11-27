@@ -225,10 +225,12 @@ $(function()
 
     // Grab the files and set them to our variable
     function prepareUpload1(event){
-
         var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
-
-        var link = '<?php echo site_url("ad/upload_pp?files")?>';
+        if ($('#file-name').attr('name') == 'profile_picture') {
+            var link = '<?php echo site_url("ad/upload_pp/?files")?>';
+        } else {
+            var link = '<?php echo site_url("ad/upload_pp/false?files")?>';
+        }
         files = event.target.files;
         event.stopPropagation(); // Stop stuff happening
         event.preventDefault(); // Totally stop stuff happening
@@ -308,7 +310,11 @@ $(function()
 
         var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
 
-        var link = '<?php echo site_url("ad/upload_pp?files")?>';
+        if ($('#file-name1').attr('name') == 'profile_picture') {
+            var link = '<?php echo site_url("ad/upload_pp/?files")?>';
+        } else {
+            var link = '<?php echo site_url("ad/upload_pp/false?files")?>';
+        }
         files = event.target.files;
         event.stopPropagation(); // Stop stuff happening
         event.preventDefault(); // Totally stop stuff happening

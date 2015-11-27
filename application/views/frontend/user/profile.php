@@ -48,17 +48,7 @@ $oc = $this->session->userdata('organization_care');
             <div class="profile-left">
 	            <div id="output">
 	                <?php $this->load->view('frontend/user/photo_upload') ?>
-	                <!--<a href="#"><img src="<?php echo $photo_url?>"/></a>-->
-	            </div>
-		        <!--<div class="upload-btns">-->
-		        <!--    <button class="btn btn-default" id="upload">Select File</button>-->
-		        <!--    <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>-->
-
-		        <!--    <input type="hidden" id="file-name" name="profile_picture" value="<?php if(isset($photo)) echo $photo;?>" />-->
-		        <!--    <input type="hidden" id="user_id" name="user_id" value="<?php echo check_user();?>" />-->
-		        <!--    <input type="hidden" id="status" name="profile_picture_status" value="<?php if(isset($photo_status)) echo $photo_status ? $photo_status:'0';?>" />-->
-
-		            <!-- <input type="submit" name="save_image" class="btn btn-info" value="Save Image" /> -->                    
+	            </div>              
                     <?php
                         if($ac == 1){?>
                             <br />

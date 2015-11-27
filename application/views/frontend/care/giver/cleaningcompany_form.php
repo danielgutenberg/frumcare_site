@@ -26,85 +26,20 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         <h1 class="step3">Step 3: Organization Details</h1>
     </div>
     <?php } ?>
-    <!--<div>-->
-    <!--    <label>Year established</label>-->
-    <!--    <div class="form-field">-->
-    <!--        <select name="established" class="required">-->
-    <!--            <option value="">Select year established</option>-->
-    <!--            <?php for($i=1950;$i<=date('Y');$i++):?>-->
-    <!--                <option value="<?php //echo $i?>"><?php //echo $i;?></option>-->
-    <!--            <?php endfor;?>-->
-    <!--        </select>-->
-    <!--    </div>-->
-    <!--</div>-->
-
     <?php if($this->uri->segment(2) == 'new_profile') { ?>
              <h1>Organization Info</h1>
-             <div>
-        <label>Location</label>
-        <div id="locationField">
-            <input type="hidden" id="lat" name="lat"/>
-            <input type="hidden" id="lng" name="lng"/>
-            <input type="text" name="location" class="required" id="autocomplete" required/>
-        </div>
-    </div>
-
-    <div>
-        <label>Neighborhood / Street</label>
-        <div>
-            <input type="text" name="neighbour" class="required" value=""/>
-        </div>
-    </div>
-
-    <!--<div>-->
-    <!--    <label>Zip</label>-->
-    <!--    <div><input type="text" name="zip" class="required" value="" /> </div>-->
-    <!--</div>-->
-
-     <div>
-        <label>Phone</label>
-        <div class="form-field">
-        <input type="text" name="contact_number" class="required" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact"/>
-        </div>
-    </div>
-
-    <div>
-        <label>Name of owner / operator</label>
-        <div class="form-field">
-        <input type="text" name="name_of_owner" class="required" value=""/>
-        </div>
-    </div>
-
-
-    <div>
-        <label>Age of owner / operator</label>
-        <div class="form-field">
-        <input type="text" name="age" class="required number" value="<?php echo isset($age) ? $age : '' ?>"/>
-        </div>
-    </div>
-
-     <div>
-        <label>Gender</label>
-        <div class="form-field">
-            <div class="radio"><input type="radio" value="1" name="gender" checked> Male</div>
-            <div class="radio"><input type="radio" value="2" name="gender" <?php echo isset($gender) && $gender == 2 ? 'checked' : '' ?>> Female </iv>
-        </div>
-    </div>
-
-    <div>
-        <label>Level of religious observance</label>
-        <div class="form-field">
-        <select name="religious_observance">
-            <option value="">Select</option>
-            <option value="Yeshivish/ Chasidish">Yeshivish / Chasidish</option>
-            <option value="Orthodox/ Modern Orthodox">Orthodox / Modern Orthodox</option>
-            <option value="Other">Other</option>
-            <option value="Not Jewish">Not Jewish</option>
-        </select>
-        </div>
-    </div>
-
-    <?php   $this->load->view('frontend/care/photo_upload_owner');  ?>
+        <?php 
+            $this->load->view('frontend/care/giver/fields/location');
+            $this->load->view('frontend/care/giver/fields/neighborhood'); 
+            $this->load->view('frontend/care/giver/fields/phone'); 
+            $this->load->view('frontend/care/giver/fields/name_of_owner'); 
+            $this->load->view('frontend/care/giver/fields/age_of_owner'); 
+            $this->load->view('frontend/care/giver/fields/gender');
+            $this->load->view('frontend/care/giver/fields/languages_spoken');  
+            $this->load->view('frontend/care/giver/fields/religious_observance');
+            $this->load->view('frontend/care/photo_upload', ['photo_name' => 'facility_pic', 'upload_title' => "Upload owner's photo"]);
+            $this->load->view('frontend/care/giver/fields/account_category_type'); 
+        ?>
     <h1>Organization Details</h1><?php }?>
 
     <div>
@@ -169,20 +104,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
     </div>
     <div>
-        <!--	<div>-->
-        <!--    <label>References</label>-->
-        <!--    <div class="form-field not-required">-->
-        <!--    <div class="radio"><input type="radio" id="ref_check1" value="1" name="references" class="required" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?>/> Yes</div>-->
-        <!--    <div class="radio"><input type="radio" id="ref_check2" value="2" name="references" class="required" <?php echo isset($ref) && $ref == 2 ? 'checked' : '' ?> checked/> No</div>-->
-        <!--    </div>-->
-        <!--</div>-->
-        <!--<div class="refrence_file" style="display:none;">-->
-        <!--    <label></label>-->
-        <!--    <input type="hidden" id="file-name" name="file">-->
-        <!--    <button class="btn btn-primary" id="select_file">Select File</button>-->
-        <!--    <input type="file" name="file_upload" id="file_upload" style="display: none;"> -->
-        <!--    <div id="output" class="loader"></div>-->
-        <!--</div>-->
+        
         <label>Tell us about your organization</label>
         <div class="form-field">
             <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
@@ -190,15 +112,6 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     </div>
     <?php   $photo_url = site_url("images/plus.png");  ?>
 
-            <!--<div class="upload-photo">-->
-            <!--    <h2>Upload photo of facility / organization</h2>-->
-            <!--    <input type="hidden" id="file-name" name="profile_picture" value="">-->
-            <!--    <div id="output"><img src="<?php echo $photo_url?>"></div>-->
-            <!--    <label>Browse your computer to select a file to upload</label>-->
-            <!--    <button class="btn btn-default" id="upload">Choose File</button>-->
-            <!--    <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>-->
-            <!--    <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>-->
-            <!--</div>-->
     <div>
         <input type="submit" class="btn btn-success" value="Save <?php if($this->uri->segment(2) != 'new_profile'){echo '& Continue';}?>"/>
     </div>

@@ -28,70 +28,18 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <?php if($this->uri->segment(2) == 'new_profile') { ?>
              <h1>Organization Info</h1>
              <div>
-        <label>Location</label>
-        <div id="locationField">
-            <input type="hidden" id="lat" name="lat"/>
-            <input type="hidden" id="lng" name="lng"/> 
-            <input type="text" name="location" class="required" id="autocomplete" required/>
-        </div>    
-    </div>
-
-    <div>
-        <label>Neighborhood / Street</label>
-        <div>
-            <input type="text" name="neighbour" class="required" value=""/>
-        </div>    
-    </div>
-
-    <!--<div>-->
-    <!--    <label>Zip</label>-->
-    <!--    <div><input type="text" name="zip" class="required" value="" /> </div>-->
-    <!--</div>-->
-
-     <div>
-        <label>Phone</label>
-        <div class="form-field">
-        <input type="text" name="contact_number" class="required" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact"/>
-        </div>
-    </div>
-
-    <div>
-        <label>Name of owner / operator</label>
-        <div class="form-field">
-        <input type="text" name="name_of_owner" class="required" value=""/>
-        </div>
-    </div>
-
-
-    <div> 
-        <label>Age of owner / operator</label>
-        <div class="form-field">
-        <input type="text" name="age" class="txt number" value="<?php echo isset($age) ? $age : '' ?>"/>
-        </div>
-    </div>
-
-     <div>
-        <label>Gender</label>
-        <div class="form-field">
-            <div class="radio"><input type="radio" value="1" name="gender" checked> Male</div>
-            <div class="radio"><input type="radio" value="2" name="gender" <?php echo isset($gender) && $gender == 2 ? 'checked' : '' ?>> Female </iv>
-        </div>
-    </div>
-
-    <div> 
-        <label>Level of religious observance</label>
-        <div class="form-field">
-        <select name="religious_observance">
-            <option value="">Select</option>
-            <option value="Yeshivish/ Chasidish">Yeshivish / Chasidish</option>
-            <option value="Orthodox/ Modern Orthodox">Orthodox / Modern Orthodox</option>
-            <option value="Other">Other</option>
-            <option value="Not Jewish">Not Jewish</option>
-        </select>
-        </div>
-    </div>
-    
-    <?php   $this->load->view('frontend/care/photo_upload_owner');  ?> 
+        <?php 
+            $this->load->view('frontend/care/giver/fields/location');
+            $this->load->view('frontend/care/giver/fields/neighborhood'); 
+            $this->load->view('frontend/care/giver/fields/phone'); 
+            $this->load->view('frontend/care/giver/fields/name_of_owner'); 
+            $this->load->view('frontend/care/giver/fields/age_of_owner'); 
+            $this->load->view('frontend/care/giver/fields/gender');
+            $this->load->view('frontend/care/giver/fields/languages_spoken');  
+            $this->load->view('frontend/care/giver/fields/religious_observance');
+            $this->load->view('frontend/care/photo_upload', ['photo_name' => 'facility_pic', 'upload_title' => "Upload owner's photo"]);
+            $this->load->view('frontend/care/giver/fields/account_category_type'); 
+        ?>
     <h1>Organization Details</h1><?php }?>
             <div>
                 <label>Type of Organization</label>
@@ -136,18 +84,6 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <label>Number of staff </label>
                 <div class="form-field">
                 <input type="text" value="" name="number_of_staff" class="txt number">
-                </div>
-            </div>
-
-            <div>
-                <label>Languages Spoken</label>
-                <div class="form-field">
-                    <div class="checkbox"><input type="checkbox" name="language[]" value="English"> English</div>
-                    <div class="checkbox"><input type="checkbox" name="language[]" value="Yiddish"> Yiddish</div>
-                    <div class="checkbox"><input type="checkbox" name="language[]" value="Hebrew"> Hebrew</div>
-                    <div class="checkbox"><input type="checkbox" name="language[]" value="Russian"> Russian</div>                    
-                    <div class="checkbox"><input type="checkbox" name="language[]" value="French"> French</div>                    
-                    <div class="checkbox"><input type="checkbox" name="language[]" value="Other"> Other</div>
                 </div>
             </div>
             <div>

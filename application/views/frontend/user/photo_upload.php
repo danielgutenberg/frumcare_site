@@ -10,6 +10,7 @@ if(check_user()) {
     }}
 ?>
 <div class="upload-photo">
+    <input type="hidden" id="file-name1" name="profile_picture" value="<?php if(isset($photo)) echo $photo;?>">
     <div id="output1" style="margin-bottom: 20px"><img src="<?php echo $photo_url;?>"></div>
     <?php if ($photo_url != site_url("images/plus.png")) { ?>
         <a class="buttons btn-default" href="#" id="remove" onclick="return removePics();" style="margin:0 10px;">Remove File</a>
