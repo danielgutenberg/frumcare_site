@@ -247,7 +247,14 @@ $careType = [
                         <?php  } ?>
                         <?php if($data['rate']){?>
 							<li>							
-								<?php echo "$".str_replace("t","-",$data['rate']); ?>
+								<?php 
+								if($data['rate'] == 'ILS') {
+								    echo "&#8362;"; 
+								} else {
+								    echo '$';
+								}
+								echo str_replace("t","-",$data['rate']);
+								?>
                                 <?php echo $data['rate_type']==1?" per hour":" per hour"; ?>						
 							</li>
                         <?php  } ?>
@@ -268,8 +275,16 @@ $careType = [
                         
                         
                         <?php if($data['rate']){?>
-							<li>							
-								<?php echo $data['care_type']==3 ? $data['rate'] : "$".str_replace("t","-",$data['rate']); ?>
+							<li>
+							    <?php 
+								if($data['currency'] == 'ILS') {
+								    $r = "&#8362;"; 
+								} else {
+								    $r = '$';
+								}
+								$r .= str_replace("t","-",$data['rate']);
+								?>							
+								<?php echo $data['care_type']==3 ? $data['rate'] : $r ?>
                                 <?php echo $data['care_type']==3 ? "" : " per hour"; ?>						
 							</li>
                         <?php  

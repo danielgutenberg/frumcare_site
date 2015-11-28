@@ -82,14 +82,12 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 				?>
 	       </div>
         </div>
-        <div>
-            <label>Tell us about yourself (Short description not cv)</label>
-            <div class="form-field">
-            <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
-            </div>
-        </div>
-        <?php $this->load->view('frontend/care/giver/fields/references'); ?>
-        <?php $this->load->view('frontend/care/giver/fields/background'); ?>
+        
+        <?php
+            $this->load->view('frontend/care/giver/fields/about_yourself');
+            $this->load->view('frontend/care/giver/fields/references');
+            $this->load->view('frontend/care/giver/fields/background'); 
+        ?>
         
 
         <h2>Abilities and skills</h2>

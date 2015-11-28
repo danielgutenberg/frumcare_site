@@ -77,26 +77,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 					</div>
 				</div>
 
-				<div class="rate-select">
-		            <label>Rate</label>
-		            <div class="form-field">
-		                <select name="rate" class="txt rate">
-		                    <option value="">Select rate</option>
-		                    <option value="5-10">$5-$10 / Hr</option>
-		                    <option value="10-15">$10-$15 / Hr</option>
-		                    <option value="15-25">$15-$25 / Hr</option>
-		                    <option value="25-35">$25-$35 / Hr</option>
-		                    <option value="35-45">$35-$45 / Hr</option>
-		                    <option value="45-55">$45-$55 / Hr</option>
-		                    <option value="56">$55+/Hr</option>
-		                </select>		      			        		
-		            </div>
-       			</div>
-                <div>
-                    <!--<div class="checkbox"><input type="checkbox" name="rate_type[]" value="1">Hourly Rate</div>-->
-                    <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
-                    <div class="checkbox"><input type="checkbox" value="3" name="rate_type[]">Room and Board Available</div>
-                </div>        
+				<?php $this->load->view('frontend/care/giver/fields/rate'); ?>       
 				<div>
 					<label>Availability</label>
 					<div class="form-field">
@@ -119,20 +100,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 						<textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
 					</div>
 				</div>
-				<div>
-					<label>References</label>
-					<div class="form-field not-required">
-						<div class="radio"><input type="radio" value="1" name="references" class="required" id="ref_check1" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?> /> Yes</div>
-						<div class="radio"><input type="radio" value="2" name="references" class="required" id="ref_check2" <?php echo isset($ref) && $ref == 2 ? 'checked' : '' ?> checked /> No</div>
-                    </div>
-				</div>
-				<div class="refrence_file" style="display:none;">
-		            <label></label>
-		            <input type="hidden" id="file-name" name="file">
-		            <button class="btn btn-primary" id="select_file">Select File</button>
-		            <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
-		            <div id="output" class="loader"></div>
-        		</div>
+				<?php $this->load->view('frontend/care/giver/fields/references'); ?>
 				<div style="display:none;">
 					<label>Agree to background check?</label>
 					<div class="form-field not-required">

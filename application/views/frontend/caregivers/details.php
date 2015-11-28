@@ -1,3 +1,10 @@
+<?php
+if($recordData['currency'] == 'ILS') {
+    $symbol = "&#8362;"; 
+} else {
+    $symbol = '$';
+}
+?>
 <div class="container">
 	<?php echo $this->breadcrumbs->show();
     ?>
@@ -79,7 +86,7 @@
                         <?php if($this->uri->segment(4) == 3) {
                                 if(!empty($recordData['rate'])){ ?>
     
-                                   <span class="hour-wrap"><?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
+                                   <span class="hour-wrap"><?php echo $symbol . $recordData['rate'] . $rate_type.'<span>Cost</span>'; ?></span>
                                 <?php
                                 } else{ ?>
                                    <span class="hour-wrap"><?php echo 'N/A'.'<span>Cost</span>'; ?></span>
@@ -89,7 +96,7 @@
 
                                    if(!empty($recordData['rate'])){ ?>
                                    <?php $rate_type = $recordData['rate_type']==2?' / Hr':' / Hr'?>
-                                       <span class="hour-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Rate</span>'; ?></span>
+                                       <span class="hour-wrap"><?php echo $symbol . $recordData['rate'].$rate_type.'<span>Rate</span>'; ?></span>
                                     <?php
                                     }
                                    else{ ?>
@@ -235,7 +242,7 @@ if($this->uri->segment(4)>16){ ?>
     <?php
     if(!empty($recordData['rate'])){ ?>
         <?php $rate_type = $recordData['rate_type']==2?' / Hr':' / Hr'?>
-        <span class="experience-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Wage</span>'; ?></span>
+        <span class="experience-wrap"><?php echo $symbol . $recordData['rate'].$rate_type.'<span>Wage</span>'; ?></span>
         <?php
     }
     else{ ?>
@@ -312,7 +319,7 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         <?php
         if(!empty($recordData['rate'])){ ?>
 
-        <span class="age-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
+        <span class="age-wrap"><?php echo $symbol . $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
         <?php
         }
         else{ ?>
@@ -357,7 +364,7 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         <div class="col-xs-4">
         <?php
         if(!empty($recordData['rate'])){ ?>
-        <span class="experience-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
+        <span class="experience-wrap"><?php echo $symbol . $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
         <?php
         }
         else{ ?>

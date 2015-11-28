@@ -67,32 +67,11 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 </select>
                 </div>
             </div>
-            <div>
-                <label>Rate</label>
-                <div class="form-field">
-                    <select name="rate" class="txt rate">
-                        <option value="5-10">$5-$10 / Hr</option>
-                            <option value="10-15">$10-$15 / Hr</option>
-                            <option value="15-25">$15-$25 / Hr</option>
-                            <option value="25-35">$25-$35 / Hr</option>
-                            <option value="35-45">$35-$45 / Hr</option>
-                            <option value="45-55">$45-$55 / Hr</option>
-                            <option value="55+">$55+ / Hr</option>
-                    </select>
-                </div>
-            </div>
-      
-            <div>
-                <!--<div class="checkbox"><input type="checkbox" name="rate_type[]" value="1">Hourly Rate</div>-->
-                <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
-            </div>
-            <div>
-                <label>Tell us about yourself (Short description not cv)</label>
-                <div class="form-field">
-                <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
-                </div>
-            </div>
-            <?php $this->load->view('frontend/care/giver/fields/references') ?>
+            <?php 
+                $this->load->view('frontend/care/giver/fields/rate');
+                $this->load->view('frontend/care/giver/fields/about_yourself');
+                $this->load->view('frontend/care/giver/fields/references'); 
+            ?>
 
             <h2>Abilities and skill</h2>
             <div class="checkbox-wrap">

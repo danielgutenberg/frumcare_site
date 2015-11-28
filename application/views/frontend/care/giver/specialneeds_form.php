@@ -24,19 +24,6 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 					<h1 class="step3">Step 3: Job Details</h1>
 				</div>
 				<?php } ?>
-				
-				<div style="display:none;">
-                <label>Year established</label>
-                <div class="form-field">
-                
-                <select name="established" class="txt">
-                    <option value="">Select year established</option>
-                    <?php for($i=1950;$i<=date('Y');$i++):?>
-                    <option value="<?php echo $i?>"><?php echo $i;?></option>
-                    <?php endfor;?>
-                </select>
-                </div>
-            </div>
 				<div>
 					<label>Looking to work in</label>
 					<div class="form-field">
@@ -77,25 +64,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 					</div>
 				</div>
 
-                <div class="rate-select">
-                    <label>Rate</label>
-                    <div class="form-field">
-                        <select name="rate" class="txt rate">
-                            <option value="">Select rate</option>
-                            <option value="5-10">$5-$10 / Hr</option>
-                            <option value="10-15">$10-$15 / Hr</option>
-                            <option value="15-25">$15-$25 / Hr</option>
-                            <option value="25-35">$25-$35 / Hr</option>
-                            <option value="35-45">$35-$45 / Hr</option>
-                            <option value="45-55">$45-$55 / Hr</option>
-                            <option value="55+">$55+ / Hr</option>
-                        </select>
-                    </div>
-                </div>
-                <div>
-                    <!--<div class="checkbox"><input type="checkbox" name="rate_type[]" value="1">Hourly Rate</div>-->
-                    <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
-                </div>
+                <?php $this->load->view('frontend/care/giver/fields/rate'); ?>
 				<div>
 					<label>Availability</label>
 					<div class="form-field">
