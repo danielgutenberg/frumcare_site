@@ -37,7 +37,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             $this->load->view('frontend/care/giver/fields/gender');
             $this->load->view('frontend/care/giver/fields/languages_spoken');  
             $this->load->view('frontend/care/giver/fields/religious_observance');
-            $this->load->view('frontend/care/photo_upload', ['photo_name' => 'facility_pic', 'upload_title' => "Upload owner's photo"]);
+            $this->load->view('frontend/care/photo_upload', ['photo_name' => 'profile_picture_owner', 'upload_title' => "Upload owner's photo"]);
             $this->load->view('frontend/care/giver/fields/account_category_type'); 
         ?>
     <h1>Organization Details</h1><?php }?>
@@ -115,34 +115,9 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 </div>
             </div>
 
-            <div>
-            <label>References</label>
-            <div class="form-field not-required">
-            <div class="radio"><input type="radio" id="ref_check1" value="1" name="references" class="required" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?>/> Yes</div>
-            <div class="radio"><input type="radio" id="ref_check2" value="2" name="references" class="required" <?php echo isset($ref) && $ref == 2 ? 'checked' : '' ?> checked/> No</div>
-            </div>
-        </div>
-        <div class="refrence_file" style="display:none;">
-            <label></label>
-            <input type="hidden" id="file-name" name="file">
-            <button class="btn btn-primary" id="select_file">Select File</button>
-            <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
-            <div id="output" class="loader"></div>
-        </div>
+            <?php $this->load->view('frontend/care/giver/fields/references') ?>
 
-            <?php 
-                $photo_url = site_url("images/plus.png");
-            ?>                   
-                    
-            <div class="upload-photo" style="display:none;">
-                <h2>Upload Photo of Facility / Organization</h2>
-                <input type="hidden" id="file-name" name="facility_pic" value="<?php echo isset($profile_picture)?>">
-                <div id="output"><img src="<?php echo $photo_url?>"></div>
-                <label>Browse your computer to select a file to upload</label>
-                <button class="btn btn-default" id="upload">Choose File</button>
-                <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
-                <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>
-            </div>
+            <?php $this->load->view('frontend/care/photo_upload', ['photo_name' => 'facility_pic', 'upload_title' => "Upload Photo of Facility / Organization"]); ?>  
 
 
             <div>

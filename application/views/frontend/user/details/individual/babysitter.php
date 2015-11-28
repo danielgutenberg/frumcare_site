@@ -164,22 +164,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
 		    else {?><td>N/A</td><?php }?> 
 		
 	</tr> 
-    <?php
-    if($references==1){?>
-    <!--<tr>-->
-    <!--	<td >References Details</td>-->
-    <!--	<td >-->
-    		
-    <!--	</td>-->
-    <!--</tr>-->
-    <?php }
-    else{ ?>
-            <!--<tr>-->
-            <!--    <td>References Details</td>-->
-            <!--    <td>N/A</td>-->
-            <!--</tr>-->
-        <?php            
-        } ?>
+
     
     <tr style="display:none">
     	<td >Agree to Background Check?</td>

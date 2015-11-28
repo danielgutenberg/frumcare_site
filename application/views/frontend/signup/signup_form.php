@@ -198,34 +198,12 @@ if($this->uri->segment(2)!='edit'){
             $('.personal').hide();
             $('.name').attr('placeholder', "Name");
             $('.started').text('Start Getting Calls');
-        }
-            
-
-        // var account_id = $('.acc_cat').attr('id');
-        // if($('.org_caretype').is(':checked'))
-        //     getAccountCat(1,2);
-        // else {            
-        //     getAccountCat(account_category,account_id);  //kiran
-        // }        
+        }       
         $('.acc_cat').change(function(){
             $('.signUpRight').css('margin-top', '70px')
             getAccountCat($(this).val(),$(this).attr('id'));
             leftText($(this).val(),$(this).attr('id'));
             $('.name').attr('placeholder', "Name");
-        });
-
-        $('.terms').on('click',function(e){
-            e.preventDefault();
-            var  slug = $(this).attr('id');
-            $.ajax({
-                    type:"post",
-                    url:"<?php echo site_url();?>"+slug,
-                    data:"slug="+slug,
-                    success:function(done){
-                        $('#terms .modal-body').html(done);
-                    }
-            });
-
         });
 
         $('.organization').click(function(){
@@ -328,4 +306,30 @@ if($this->uri->segment(2)!='edit'){
                         
       }
     }
+    
+    $('#sign-up').validate({
+		 rules:{
+		 	agree:"required",
+		 	org_password:{
+		 		required:true,
+		 		minlenght:5
+		 	},
+	 	    confirm_password: {
+                required: true,
+                minlength: 5,
+                equalTo: "#org_password"
+
+            },
+		 },
+		 messages:{
+		 	agree:"Please accept your terms & condtions to continue.",
+		 	 org_password: {
+                required: "Please enter password",
+            },
+            confirm_password: {
+                required: "Please enter confirm password",
+                equalTo: "Please enter the same password as above"
+            },
+		 }
+    });
 </script>

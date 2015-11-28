@@ -5,34 +5,31 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
 <div class="table-responsive">
 	<table class="table table-striped borderbottom">
 		
-		
-		<?php if(!empty($established)){?>
-		<tr>    	
+		<tr>
+		<?php if(!empty($established)){?>  	
 			<td>Year Established </td>
 			<td>
 				<div class="details-info"><?php echo $established; ?></div>
 			</td>
-			
-		</tr>
          <?php }  
                 else{ ?>
                     <td>Year Established</td>
                     <td>N/A</td>
 		<?php } ?>
-		
+		</tr>
+		<tr>
 		<?php if(!empty($certification)){?>
-		<tr>    	
+		   	
 			<td>Certification </td>
 			<td>
 				<div class="details-info"><?php echo $certification; ?></div>
 			</td>
-			
-		</tr>
          <?php }  
                 else{ ?>
                     <td>Certification</td>
                     <td>N/A</td>
 		<?php } ?>
+		</tr>
 		
 		<?php if(!empty($language)){ ?>
 		<?php $language = explode(',',$language); ?>
@@ -49,8 +46,10 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
 		</tr>
          <?php }  
                 else{ ?>
+                <tr>
                     <td>Languages Spoken</td>
                     <td>N/A</td>
+                </tr>
 		<?php } ?>
 		
 		<?php if(!empty($willing_to_work)){
@@ -67,8 +66,10 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
 			</tr>
              <?php }  
                 else{ ?>
+                <tr>
                     <td>Specialize in</td>
                     <td>N/A</td>
+                    </tr>
 			<?php } ?>
 			
             <tr>

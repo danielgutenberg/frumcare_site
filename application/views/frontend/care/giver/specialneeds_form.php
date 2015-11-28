@@ -117,20 +117,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 						<textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
 					</div>
 				</div>
-				<div>
-            <label>References</label>
-            <div class="form-field not-required">
-            <div class="radio"><input type="radio" id="ref_check1" value="1" name="references" class="required" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?>/> Yes</div>
-            <div class="radio"><input type="radio" id="ref_check2" value="2" name="references" class="required" <?php echo isset($ref) && $ref == 2 ? 'checked' : '' ?> checked/> No</div>
-            </div>
-        </div>
-        <div class="refrence_file" style="display:none;">
-            <label></label>
-            <input type="hidden" id="file-name" name="file">
-            <button class="btn btn-primary" id="select_file">Select File</button>
-            <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
-            <div id="output" class="loader"></div>
-        </div>
+				<?php $this->load->view('frontend/care/giver/fields/references') ?>
 
 
                 <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>
@@ -164,54 +151,4 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 			</div>
 		</form>
 	</div>
-	<script>
-     $("#textbox1").ready(function(){        
-        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-     });
-		$(document).ready(function(){			 
-	       // if($('#ckbox1').is(':checked')){
-	       //      $("#textbox1").show();
-	       // }else{
-	       //      $("#textbox1").hide();
-	       //      $('#textbox1').val('');
-	       // }
 
-	        // $("#ckbox1").change(function(){
-	        //     if($('#ckbox1').is(':checked')){
-	        //         $("#textbox1").show();   
-	        //     }else{
-	        //         $("#textbox1").hide(); 
-	        //         $('#textbox1').val('');       
-	        //     }
-	        // });
-
-            $("#ref_check1").click(function(){
-            	$(".refrence_file").show();   
-       	 });
-
-        $("#ref_check2").click(function(){
-            //  	$.ajax({
-			         // type: "POST",
-			         // url: "<?php //echo base_url(); ?>user/delete_ref_file",
-			         // data: {file_name : $("#output").text()},
-			         // success: function(r){
-            //             $('#output').html(r);
-			         // }
-		          // });
-                    $(".refrence_file").hide(); 
-             		$('#file-name').val('');   
-        });
-
-		});
-	</script>
-	<!-- FILE UPLOAD -->
-<script type="text/javascript">
-    var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
-    var link = '<?php echo site_url("user/uploadfile?files")?>';
-    $('#select_file').click(function(e){
-        e.preventDefault();
-        $('#file_upload').trigger('click');
-    });//CODE BY Kiran
-</script>
-
-<script type="text/javascript" src="<?php echo site_url("js/fileuploader.js")?>"></script>

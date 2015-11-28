@@ -20,7 +20,7 @@
             $this->load->view('frontend/care/giver/fields/gender');
             $this->load->view('frontend/care/giver/fields/languages_spoken');  
             $this->load->view('frontend/care/giver/fields/religious_observance');
-            $this->load->view('frontend/care/photo_upload', ['photo_name' => 'facility_pic', 'upload_title' => "Upload owner's photo"]);
+            $this->load->view('frontend/care/photo_upload', ['photo_name' => 'profile_picture_owner', 'upload_title' => "Upload owner's photo"]);
             $this->load->view('frontend/care/giver/fields/account_category_type'); 
         ?>
 

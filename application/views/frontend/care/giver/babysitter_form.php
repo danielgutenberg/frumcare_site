@@ -131,36 +131,3 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         </div>
 </form>
 </div>
-<script>
-$(document).ready(function(){    
-        $('.chargetype').change(function(){
-            if($(this).val() == 'hourly_rate')
-                $('.rate').attr('name','hourly_rate');
-
-            if($(this).val() == 'monthly_rate')
-                $('.rate').attr('name','monthly_rate');
-
-        });
-
-        $('#ref_check1').click(function(){
-            $('.refrence_file').show();
-        });
-
-        $('#ref_check2').click(function(){
-            $('.refrence_file').hide();
-            $('#output').text('');
-            $('#file-name').val('');
-        });
-
-    });
-</script>
-
-<!-- FILE UPLOAD -->
-<script type="text/javascript">
-    var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
-    var link = '<?php echo site_url("user/uploadfile?files")?>';
-    $('#select_file').click(function(e){
-        e.preventDefault();
-        $('#file_upload').trigger('click');
-    });//CODE BY CHAND
-</script>
