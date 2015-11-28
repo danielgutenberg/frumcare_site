@@ -27,72 +27,20 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <?php if($this->uri->segment(2) == 'new_profile') { ?>
              <h1>Organization Info</h1>
              <div>
-        <label>Location</label>
-        <div id="locationField">
-            <input type="hidden" id="lat" name="lat"/>
-            <input type="hidden" id="lng" name="lng"/> 
-            <input type="text" name="location" class="required" id="autocomplete" required/>
-        </div>    
-    </div>
+            <?php 
+                $this->load->view('frontend/care/giver/fields/location');
+                $this->load->view('frontend/care/giver/fields/neighborhood'); 
+                $this->load->view('frontend/care/giver/fields/phone'); 
+                $this->load->view('frontend/care/giver/fields/name_of_owner'); 
+                $this->load->view('frontend/care/giver/fields/age_of_owner'); 
+                $this->load->view('frontend/care/giver/fields/gender');
+                $this->load->view('frontend/care/giver/fields/languages_spoken');  
+                $this->load->view('frontend/care/giver/fields/religious_observance');
+                $this->load->view('frontend/care/photo_upload', ['photo_name' => 'profile_picture_owner', 'upload_title' => "Upload owner's photo"]);
+                $this->load->view('frontend/care/giver/fields/account_category_type'); 
+            ?>
+            <h1>Organization Details</h1><?php }?>
 
-    <div>
-        <label>Neighborhood / Street</label>
-        <div>
-            <input type="text" name="neighbour" class="required" value=""/>
-        </div>    
-    </div>
-
-    <!--<div>-->
-    <!--    <label>Zip</label>-->
-    <!--    <div><input type="text" name="zip" class="required" value="" /> </div>-->
-    <!--</div>-->
-
-     <div>
-        <label>Phone</label>
-        <div class="form-field">
-        <input type="text" name="contact_number" class="required" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact"/>
-        </div>
-    </div>
-
-    <div>
-        <label>Name of owner / operator</label>
-        <div class="form-field">
-        <input type="text" name="name_of_owner" class="required" value=""/>
-        </div>
-    </div>
-
-            <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>
-            <input type="hidden" name="account_type2" value="<?php echo $this->uri->segment(4);?>"/>
-
-
-
-    <div> 
-        <label>Age of owner / operator</label>
-        <div class="form-field">
-        <input type="text" name="age" class="required number" value="<?php echo isset($age) ? $age : '' ?>"/>
-        </div>
-    </div>
-
-     <div>
-        <label>Gender</label>
-        <div class="form-field">
-            <div class="radio"><input type="radio" value="1" name="gender" checked> Male</div>
-            <div class="radio"><input type="radio" value="2" name="gender" <?php echo isset($gender) && $gender == 2 ? 'checked' : '' ?>> Female </iv>
-        </div>
-    </div>
-    
-    <?php   $this->load->view('frontend/care/photo_upload_owner');  ?> 
-    <h1>Organization Details</h1><?php }?>
-                
-                
-        <!--    <div>    -->
-        <!--    <label>Location</label>-->
-        <!--    <div id="locationField">-->
-        <!--        <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>-->
-        <!--        <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/> -->
-        <!--        <input type="text" name="location" class="required" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>"/>-->
-        <!--    </div>    -->
-        <!--</div>-->
             <div>
                 <label>Type of Organization</label>
                 <select name="sub_care">
@@ -179,24 +127,10 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 
                 <br>
                 <br>
-
-                <input type="hidden" id="pdf-name" name="pdf">
-                <button class="btn btn-primary" id="pdf_file">Please select pdf file</button>
-                <input type="file" name="pdf_upload" id="pdf_upload" style="display: none;"> 
-                <div id="output1" class="loader1"></div>
-            
+                <?php $this->load->view('frontend/care/second_file_upload', ['file' => 'pdf']); ?>
                 </div>
             </div>
-            <?php $photo_url = site_url("images/plus.png");?>
-             <div class="upload-photo"> 
-                <h2>Upload photo of facility / organization</h2>
-                <input type="hidden" id="pic-name" name="facility_pic" value="">
-                <div id="output2"><img src="<?php echo $photo_url;?>"></div>
-                <label>Browse your computer to select a file to upload</label>
-                <button class="btn btn-default" id="upload">Choose File</button>
-                <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader2"></div>
-                <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>
-            </div>
+           
 
             
             <div>
@@ -205,39 +139,15 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
                 </div>
             </div>
-            <div>
-                <label>References</label>
-                <div class="form-field">
-                <div class="radio"><input type="radio" value="1" name="references" id="ref_check1" class="required" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?>/> Yes</div>
-                <div class="radio"><input type="radio" value="2" name="references" id="ref_check2" class="required" <?php echo isset($ref) && $ref == 2 ? 'checked' : '' ?> checked/> No</div>
-                </div>
-            </div>
+            <?php $this->load->view('frontend/care/giver/fields/references') ?>
 
-            <!--  company logo starts here -->
-                <?php  /* $this->load->view('frontend/care/photo_upload'); */ ?>
-            <!-- company logo ends here -->
-
-
-            <div class="refrence_file" style="display: none;">
-                <label></label>
-                <input type="hidden" id="file-name" name="file" >
-                <button class="btn btn-primary" id="select_file">Select File</button>
-                <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
-                <div id="output" class="loader"></div>
-            </div>
+            <?php $this->load->view('frontend/care/photo_upload', ['photo_name' => 'facility_pic', 'upload_title' => "Upload Photo of Facility / Organization"]); ?> 
             <div>
             <label>Cost</label>
             <div class="form-field">
                 <input type="text" name="rate" value="">
             </div>
         </div>
-
-            <!--<div style="display:none">-->
-            <!--    <label>Your references details</label>-->
-            <!--    <div class="form-field">-->
-            <!--    <textarea style="display:none" name="references_details" class="required"><?php echo isset($ref_det) ? $ref_det : '' ?></textarea>-->
-            <!--    </div>-->
-            <!--</div>-->
             <br/>
             <div>
                 <input type="submit" class="btn btn-success" value="Save <?php if($this->uri->segment(2) != 'new_profile'){echo '& Continue';}?>"/>
@@ -246,237 +156,3 @@ if(($this->uri->segment(2) != 'new_profile')){?>
    </form>
 </div>
 
-<script>
-    $(document).ready(function(){
-        $('body').removeAttr("onload");
-         $("#ref_check1").click(function(){
-            if($('#ref_check1').is(':checked')){
-                $('.refrence_file').show();   
-            }
-        });
-        $("#ref_check2").click(function(){
-            if($("#ref_check2").is(':checked')){
-                $('.refrence_file').hide(); 
-                $('#upload_ref').val('');       
-            }
-        });
-        $("#ref_check1").click(function(){
-            $(".refrence_file").show();   
-        });
-        $("#ref_check2").click(function(){
-                $.ajax({
-                     type: "POST",
-                     url: "<?php echo base_url(); ?>user/delete_ref_file",
-                     data: {file_name : $("#output").text()},
-                     success: function(r){
-                        $('#output').html(r);
-                     }
-                  });
-                     $(".refrence_file").hide(); 
-             $('#file-name').val('');   
-        });
-});
-</script>
-<script type="text/javascript">
-    $('#select_file').click(function(e){
-        e.preventDefault();
-        $('#file_upload').trigger('click');
-        $(document).on('change', '#file_upload', prepareUpload);
-        
-    });//CODE BY Kiran
-    
-    $('#pdf_file').click(function(e){
-        e.preventDefault();
-        $('#pdf_upload').trigger('click');
-        $(document).on('change', '#pdf_upload', prepareUpload1);
-    });
-
-
-     $('#upload,#output2').click(function(e){
-        e.preventDefault();
-        $('#ImageFile').trigger('click');
-        $(document).on('change', '#ImageFile', prepareUpload2);
-     })
-    
-     function prepareUpload(event){
-        var loader  = '<img src="<?php echo site_url("images/loader.gif")?>">';
-        var link    = '<?php echo site_url("user/uploadfile?files")?>';
-        
-
-        var files = event.target.files;
-        event.stopPropagation(); // Stop stuff happening
-        event.preventDefault(); // Totally stop stuff happening
-
-        // START A LOADING SPINNER HERE
-
-        // Create a formdata object and add the files
-        var data = new FormData();
-        $.each(files, function(key, value)
-        {
-            data.append(key, value);
-        });
-        $.ajax({
-            url: link,
-            type: 'POST',
-            beforesend: $('.loader').html(loader),
-            data: data,
-            cache: false,
-            dataType: 'json',
-            processData: false, // Don't process the files
-            contentType: false, // Set content type to false as jQuery will tell the server its a query string request
-            success: function(data, textStatus, jqXHR)
-            {
-                if(typeof data.error === 'undefined')
-                {
-                    // Success so call function to process the form
-                    if(data.type==1){
-                        $('#output').html(data.html);
-                        $('.loader').html('');
-                        $('#file-name').val(data.files);    
-                    }
-                    else{
-                        $('#output').html(data.files + ' selected');
-                        $('#file-name').val(data.files);
-                    }
-                    
-                }
-                else
-                {
-                    // Handle errors here
-                    console.log('ERRORS: ' + data.error);
-                }
-            },
-            error: function(jqXHR, textStatus, errorThrown)
-            {
-                // Handle errors here
-                console.log('ERRORS: ' + textStatus);
-                // STOP LOADING SPINNER
-            }
-        });
-    }
-    // try uploadind pdf file
-
-    function prepareUpload1(event){
-        var loader1 = '<img src="<?php echo site_url("images/loader.gif")?>">';
-        var link1 = '<?php echo site_url("user/uploadfile?files")?>';
-
-        var validExtensions = ['pdf','PDF']; //array of valid extensions
-        var fileName = $('#pdf_upload').val();
-        var fileNameExt = fileName.substr(fileName.lastIndexOf('.') + 1);
-        if ($.inArray(fileNameExt, validExtensions) == -1){
-           alert("Invalid file type. Please upload pdf file only");
-           return false;
-        }
-
-
-        var files = event.target.files;
-        event.stopPropagation(); // Stop stuff happening
-        event.preventDefault(); // Totally stop stuff happening
-
-        // START A LOADING SPINNER HERE
-
-        // Create a formdata object and add the files
-        var data = new FormData();
-        $.each(files, function(key, value)
-        {
-            data.append(key, value);
-        });
-        $.ajax({
-            url: link1,
-            type: 'POST',
-            beforesend: $('.loader1').html(loader1),
-            data: data,
-            cache: false,
-            dataType: 'json',
-            processData: false, // Don't process the files
-            contentType: false, // Set content type to false as jQuery will tell the server its a query string request
-            success: function(data, textStatus, jqXHR)
-            {
-                if(typeof data.error === 'undefined')
-                {
-                    // Success so call function to process the form
-                    if(data.type==1){
-                        $('#output1').html(data.html);
-                        $('.loader1').html('');
-                        $('#pdf-name').val(data.files);    
-                    }
-                    else{
-                        $('#output1').html(data.files + ' selected');
-                        $('#pdf-name').val(data.files);
-                    }
-                    
-                }
-                else
-                {
-                    // Handle errors here
-                    console.log('ERRORS: ' + data.error);
-                }
-            },
-            error: function(jqXHR, textStatus, errorThrown)
-            {
-                // Handle errors here
-                console.log('ERRORS: ' + textStatus);
-                // STOP LOADING SPINNER
-            }
-        });
-    }
-
-    // upload profile picture from here
-
-    function prepareUpload2(event){
-        var file; 
-        var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
-        var link = '<?php echo site_url("ad/upload_pp?files")?>';
-        // Grab the files and set them to our variable
-            files = event.target.files;
-            event.stopPropagation(); // Stop stuff happening
-            event.preventDefault(); // Totally stop stuff happening
-
-            // START A LOADING SPINNER HERE
-
-            // Create a formdata object and add the files
-            var data = new FormData();
-            $.each(files, function(key, value)
-            {
-                data.append(key, value);
-            });
-            $.ajax({
-                url: link,
-                type: 'POST',
-                beforesend: $('.loader2').html(loader),
-                data: data,
-                cache: false,
-                dataType: 'json',
-                processData: false, // Don't process the files
-                contentType: false, // Set content type to false as jQuery will tell the server its a query string request
-                success: function(data, textStatus, jqXHR)
-                {
-                    if(typeof data.error === 'undefined')
-                    {
-                        // Success so call function to process the form
-                        if(data.type==1){
-                            $('#output2').html(data.html);
-                            $('.loader2').html('');
-                            $('#pic-name').val(data.files);    
-                        }
-                        else{
-                            $('#output2').html(data.files + ' selected');
-                            $('#pic-name').val(data.files);
-                        }
-                        
-                    }
-                    else
-                    {
-                        // Handle errors here
-                        console.log('ERRORS: ' + data.error);
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown)
-                {
-                    // Handle errors here
-                    console.log('ERRORS: ' + textStatus);
-                    // STOP LOADING SPINNER
-                }
-            });
-    }
-</script>

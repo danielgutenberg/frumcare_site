@@ -123,9 +123,11 @@ class Ad extends CI_Controller
        redirect('ad/add_step2/'.$category.'/'.$type.'/'.$this->session->userdata('log_id'),'refresh');
     }
     
-    function upload_pp($a = true){
+    function upload_pp($a = 'update'){
         $data = $this->imageupload_lib->upload('profile-picture', 100, 300);
-        $this->common_model->update('tbl_user', ['profile_picture' => $data['files']], array('id' => check_user()));
+        if ($a == 'update') {
+            $this->common_model->update('tbl_user', ['profile_picture' => $data['files']], array('id' => check_user()));
+        }
         echo json_encode($data);
     }
 
@@ -419,6 +421,7 @@ class Ad extends CI_Controller
                 'language'            => $language,
                 'looking_to_work'     => $looking_to_work,
                 'type_of_therapy'     => isset($p['type_of_therapy']) ? $p['type_of_therapy'] : '',
+                'currency'            => isset($p['currency']) ? $p['currency'] : '',
                 'licence_information' => isset($p['licence_information']) ? $p['licence_information'] : '',
                 'accept_insurance'    => isset($p['accept_insurance']) ? $p['accept_insurance'] : 2,
                 'established'         => isset($p['established']) ? $p['established'] : '',

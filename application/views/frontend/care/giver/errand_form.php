@@ -38,58 +38,28 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 						</select>
 					</div>
 				</div>
-				<div class="rate-select">
-		            <label>Rate</label>
-		            <div class="form-field">
-		                <select name="rate" class="txt rate">
-		                    <option value="">Select rate</option>
-		                    <option value="5-10">$5-$10 / Hr</option>
-		                    <option value="10-15">$10-$15 / Hr</option>
-		                    <option value="15-25">$15-$25 / Hr</option>
-		                    <option value="25-35">$25-$35 / Hr</option>
-		                    <option value="35-45">$35-$45 / Hr</option>
-		                    <option value="45-55">$45-$55 / Hr</option>
-		                    <option value="55+">$55+ / Hr</option>
-		                </select>
-                    </div>
-        		</div>
-                <div>
-                    <!--<div class="checkbox"><input type="checkbox" name="rate_type[]" value="1">Hourly Rate</div>-->
-                    <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
-                </div>
-		<div>
-			<label>Availability</label>
-			<div class="form-field">
-				<div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]"/> Immediate</div>
-				<div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]"> <span>Start Date</span> <input type="inbox" id="textbox1" value="" name="start_date"></div>
-				<div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]"> <span>Occassionally</span></div>
-				<div class="checkbox"><input type="checkbox" value="Regularly" name="availability[]"> <span>Regularly</span></div>
-                <div class="checkbox"><input type="checkbox" value="Morning" name="availability[]"> <span>Morning</span></div>
-                <div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]"> <span>Afternoon</span></div>				
-				<div class="checkbox"><input type="checkbox" value="Evening" name="availability[]"> <span>Evening</span></div>				
-				<div class="checkbox"><input type="checkbox" value="Weekends Fri./Sun." name="availability[]"> <span>Weekends Fri./Sun.</span></div>
-                <div class="checkbox"><input type="checkbox" value="Saturday" name="availability[]"> <span>Saturday</span></div>
-			</div>
-		</div>
+				<?php $this->load->view('frontend/care/giver/fields/rate'); ?>
+				<div>
+					<label>Availability</label>
+					<div class="form-field">
+						<div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]"/> Immediate</div>
+						<div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]"> <span>Start Date</span> <input type="inbox" id="textbox1" value="" name="start_date"></div>
+						<div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]"> <span>Occassionally</span></div>
+						<div class="checkbox"><input type="checkbox" value="Regularly" name="availability[]"> <span>Regularly</span></div>
+		                <div class="checkbox"><input type="checkbox" value="Morning" name="availability[]"> <span>Morning</span></div>
+		                <div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]"> <span>Afternoon</span></div>				
+						<div class="checkbox"><input type="checkbox" value="Evening" name="availability[]"> <span>Evening</span></div>				
+						<div class="checkbox"><input type="checkbox" value="Weekends Fri./Sun." name="availability[]"> <span>Weekends Fri./Sun.</span></div>
+		                <div class="checkbox"><input type="checkbox" value="Saturday" name="availability[]"> <span>Saturday</span></div>
+					</div>
+				</div>
 				<div>
 					<label>Tell us about yourself (Short description not cv)</label>
 					<div class="form-field">
 						<textarea name="profile_description" class="txt"></textarea>
 					</div>
 				</div>
-				<div>
-					<label>References</label>
-					<div class="form-field not-required">
-					<div class="radio"><input type="radio" value="1" name="references" class="required" id="ref_check1" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?> /> Yes</div>
-						<div class="radio"><input type="radio" value="2" name="references" class="required" id="ref_check2" <?php echo isset($ref) && $ref == 2 ? 'checked' : '' ?> checked /> No</div>
-					</div>
-				</div>
-                <div class="refrence_file" style="display:none;">
-		            <input type="hidden" id="file-name" name="file">
-		            <button class="btn btn-primary" id="select_file">Select File</button>
-		            <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
-		            <div id="output" class="loader"></div>
-        		</div>
+				<?php $this->load->view('frontend/care/giver/fields/references'); ?>
 				
 				<div style="display:none;">
 					<label>Agree to background check?</label>
@@ -123,42 +93,4 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 			</div>
 		</form>
 	</div>
-	<script>
-     $("#textbox1").ready(function(){        
-        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-     });
-		$(document).ready(function(){
-		  //$("textbox1").hide();			
-			// if($('#ckbox1').is(':checked')){
-			// 	$("#textbox1").show();
-			// }else{
-			// 	$("#textbox1").hide();
-			// 	$('#textbox1').val('');
-			// }
 
-			// $("#ckbox1").change(function(){
-			// 	if($('#ckbox1').is(':checked')){
-			// 		$("#textbox1").show();   
-			// 	}else{
-			// 		$("#textbox1").hide(); 
-			// 		$('#textbox1').val('');       
-			// 	}
-			// });
-
-			$('.charge').change(function(){
-				$('.rate').attr('name',$(this).val());
-			});
-            $('#ref_check1').click(function(){
-            $('.refrence_file').show();
-        });
-
-        $('#ref_check2').click(function(){
-            $('.refrence_file').hide();
-            $('#output').text('');
-            $('#file-name').val('');
-        });
-
-
-		});
-	</script>
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->

@@ -1,3 +1,10 @@
+<?php
+if($recordData['currency'] == 'ILS') {
+    $symbol = "&#8362;"; 
+} else {
+    $symbol = '$';
+}
+?>
 <div class="container">
 	<?php echo $this->breadcrumbs->show();
     ?>
@@ -14,14 +21,17 @@
 </h3>
 <div class="left-sidebar-details col-lg-9 col-md-8 col-sm-8 col-xs-12">
     <div class="profile-img col-lg-4 col-md-4 col-sm-4 col-sm-6 col-xs-6">
-        <?php if($recordData['profile_picture']!= '' && file_exists('images/profile-picture/'.$recordData['profile_picture'])) {?>
-            <img class="img-responsive" src="<?php echo site_url();?>images/profile-picture/<?php echo $recordData['profile_picture'];?>">
+        <?php if($recordData['facility_pic']!= '' && file_exists('images/profile-picture/'.$recordData['facility_pic'])) {?>
+            <img class="img-responsive" src="<?php echo site_url();?>images/profile-picture/<?php echo $recordData['facility_pic'];?>">
         <?php } else {
             if($recordData['photo_of_child']!= '' && file_exists('images/profile-picture/'.$recordData['photo_of_child'])) { ?>
                 <img class="img-responsive" src="<?php echo site_url();?>images/profile-picture/<?php echo $recordData['photo_of_child'];?>">
+                <?php } else {
+            if($recordData['profile_picture']!= '' && file_exists('images/profile-picture/'.$recordData['profile_picture'])) { ?>
+                <img class="img-responsive" src="<?php echo site_url();?>images/profile-picture/<?php echo $recordData['profile_picture'];?>">
             <?php } else { ?>
                 <img class="img-responsive" src="<?php echo site_url("images/no-image.jpg")?>">
-        <?php }
+        <?php }}
         }?>
     </div>
     <div class="details-right-caregive col-lg-8 col-md-12 col-sm-12 col-xs-12">
@@ -76,7 +86,7 @@
                         <?php if($this->uri->segment(4) == 3) {
                                 if(!empty($recordData['rate'])){ ?>
     
-                                   <span class="hour-wrap"><?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
+                                   <span class="hour-wrap"><?php echo $symbol . $recordData['rate'] . $rate_type.'<span>Cost</span>'; ?></span>
                                 <?php
                                 } else{ ?>
                                    <span class="hour-wrap"><?php echo 'N/A'.'<span>Cost</span>'; ?></span>
@@ -86,7 +96,7 @@
 
                                    if(!empty($recordData['rate'])){ ?>
                                    <?php $rate_type = $recordData['rate_type']==2?' / Hr':' / Hr'?>
-                                       <span class="hour-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Rate</span>'; ?></span>
+                                       <span class="hour-wrap"><?php echo $symbol . $recordData['rate'].$rate_type.'<span>Rate</span>'; ?></span>
                                     <?php
                                     }
                                    else{ ?>
@@ -232,7 +242,7 @@ if($this->uri->segment(4)>16){ ?>
     <?php
     if(!empty($recordData['rate'])){ ?>
         <?php $rate_type = $recordData['rate_type']==2?' / Hr':' / Hr'?>
-        <span class="experience-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Wage</span>'; ?></span>
+        <span class="experience-wrap"><?php echo $symbol . $recordData['rate'].$rate_type.'<span>Wage</span>'; ?></span>
         <?php
     }
     else{ ?>
@@ -309,7 +319,7 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         <?php
         if(!empty($recordData['rate'])){ ?>
 
-        <span class="age-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
+        <span class="age-wrap"><?php echo $symbol . $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
         <?php
         }
         else{ ?>
@@ -354,7 +364,7 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         <div class="col-xs-4">
         <?php
         if(!empty($recordData['rate'])){ ?>
-        <span class="experience-wrap">$<?php echo $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
+        <span class="experience-wrap"><?php echo $symbol . $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
         <?php
         }
         else{ ?>

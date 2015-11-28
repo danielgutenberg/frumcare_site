@@ -123,10 +123,40 @@ if($detail){
                 </div>
             </div>
             <div class="form-field">
-                <!--<label>Check one or more</label>-->
-                <!--<div class="checkbox"><input type="checkbox" value="1" name="rate_type[]" <?php if(in_array('1',$rate_type)){?> checked="checked" <?php } ?>>Hourly Rate</div>-->
                 <div class="checkbox"><input type="checkbox" value="2" name="rate_type[]" <?php if(in_array('2',$rate_type)){?> checked="checked" <?php } ?>>Monthly Rate Available</div>
                 <div class="checkbox"><input type="checkbox" value="3" name="rate_type[]" <?php if(in_array('3',$rate_type)){?> checked="checked" <?php } ?>>Room and Board Available</div>
+            </div>
+            <div class="rate-select">
+                <label>Currency</label>
+                <div class="form-field">
+                    <select name="currency" class="txt rate">
+            		  <!--<option value="">Select Currency</option>-->
+            		  <!--<option value="AUD">Australian Dollar</option>-->
+            		  <!--<option value="BRL">Brazilian Real </option>-->
+            		  <!--<option value="CAD">Canadian Dollar</option>-->
+            		  <!--<option value="CZK">Czech Koruna</option>-->
+            		  <!--<option value="DKK">Danish Krone</option>-->
+            		  <!--<option value="EUR">Euro</option>-->
+            		  <!--<option value="HKD">Hong Kong Dollar</option>-->
+            		  <!--<option value="HUF">Hungarian Forint </option>-->
+            		  <option value="ILS">&#8362; Israeli New Sheqel</option>
+            		  <!--<option value="JPY">Japanese Yen</option>-->
+            		  <!--<option value="MYR">Malaysian Ringgit</option>-->
+            		  <!--<option value="MXN">Mexican Peso</option>-->
+            		  <!--<option value="NOK">Norwegian Krone</option>-->
+            		  <!--<option value="NZD">New Zealand Dollar</option>-->
+            		  <!--<option value="PHP">Philippine Peso</option>-->
+            		  <!--<option value="PLN">Polish Zloty</option>-->
+            		  <!--<option value="GBP">Pound Sterling</option>-->
+            		  <!--<option value="SGD">Singapore Dollar</option>-->
+            		  <!--<option value="SEK">Swedish Krona</option>-->
+            		  <!--<option value="CHF">Swiss Franc</option>-->
+            		  <!--<option value="TWD">Taiwan New Dollar</option>-->
+            		  <!--<option value="THB">Thai Baht</option>-->
+            		  <!--<option value="TRY">Turkish Lira</option>-->
+            		  <option value="USD" SELECTED="YES">&#36; U.S. Dollar</option>
+                    </select>
+                </div>
             </div>
             
             <div>

@@ -43,27 +43,33 @@ $careType = [
             $navigate = $data['care_type']>16?'jobs':'caregivers'; ?> 	
             <div class="profile-list clearfix usual row">
             <div class="profile-img-wrap col-md-3 col-sm-3 col-xs-12"> <?php
-                if($data['profile_picture']!="" && file_exists('images/profile-picture/'.$data['profile_picture'])) {?>
+                if($data['facility_pic']!="" && file_exists('images/profile-picture/'.$data['facility_pic'])) {?>
                     <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
     		            <div id="profile_image">
-    		            	<img src="<?php echo site_url("images/profile-picture/{$data['profile_picture']}")?>">
+    		            	<img src="<?php echo site_url("images/profile-picture/{$data['facility_pic']}")?>">
     		            </div>
-    	            </a><?php }
-                else {  
-                    if($data['photo_of_child']!="" && file_exists('images/profile-picture/'.$data['photo_of_child'])) {?>
+    	            </a><?php } else {
+                    if($data['profile_picture']!="" && file_exists('images/profile-picture/'.$data['profile_picture'])) {?>
                         <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
         		            <div id="profile_image">
-        		            	<img src="<?php echo site_url("images/profile-picture/{$data['photo_of_child']}")?>">
+        		            	<img src="<?php echo site_url("images/profile-picture/{$data['profile_picture']}")?>">
         		            </div>
-        	            </a><?php } else { ?>
-                
-                
-                    <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
-			            <div id="profile_image">
-			            	<img src="<?php echo site_url("images/no-image.jpg")?>">
-                        </div>
-                    </a><?php 
-                }} ?>
+        	            </a><?php }
+                    else {  
+                        if($data['photo_of_child']!="" && file_exists('images/profile-picture/'.$data['photo_of_child'])) {?>
+                            <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
+            		            <div id="profile_image">
+            		            	<img src="<?php echo site_url("images/profile-picture/{$data['photo_of_child']}")?>">
+            		            </div>
+            	            </a><?php } else { ?>
+                    
+                    
+                        <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
+    			            <div id="profile_image">
+    			            	<img src="<?php echo site_url("images/no-image.jpg")?>">
+                            </div>
+                        </a><?php 
+                }}} ?>
     	        <!--<div class="basic-background"><?php 
                     if($data['agree_bg_check']  == 1) 
     		        	echo "<a href='#'>Basic Background Check</a>";
@@ -241,27 +247,18 @@ $careType = [
                         <?php  } ?>
                         <?php if($data['rate']){?>
 							<li>							
-								<?php echo "$".str_replace("t","-",$data['rate']); ?>
+								<?php 
+								if($data['rate'] == 'ILS') {
+								    echo "&#8362;"; 
+								} else {
+								    echo '$';
+								}
+								echo str_replace("t","-",$data['rate']);
+								?>
                                 <?php echo $data['rate_type']==1?" per hour":" per hour"; ?>						
 							</li>
                         <?php  } ?>
                     <?php  } ?>
-                    
-                    <?php /*
-				 	<li><?php echo $data['experience'];?> years of paid experience</li>
-
-				 	<?php if($data['on_short_notice'] == 1){ ?>
-				 	<li> Available with short notice</li>
-				 	<?php }?>
-
-				 	<?php if($data['driver_license'] == 1){ ?>
-				 	<li> Has a driver's license</li>
-				 	<?php }?>
-
-				 	<?php if($data['homework_help'] == 1){ ?>
-				 	<li> Will provide homework help</li>
-				 	<?php }?>
-                    */ ?>					 	
 
 					<?php 
                     
@@ -278,8 +275,16 @@ $careType = [
                         
                         
                         <?php if($data['rate']){?>
-							<li>							
-								<?php echo $data['care_type']==3 ? $data['rate'] : "$".str_replace("t","-",$data['rate']); ?>
+							<li>
+							    <?php 
+								if($data['currency'] == 'ILS') {
+								    $r = "&#8362;"; 
+								} else {
+								    $r = '$';
+								}
+								$r .= str_replace("t","-",$data['rate']);
+								?>							
+								<?php echo $data['care_type']==3 ? $data['rate'] : $r ?>
                                 <?php echo $data['care_type']==3 ? "" : " per hour"; ?>						
 							</li>
                         <?php  
@@ -314,59 +319,9 @@ $careType = [
                                Available <?php echo $start_date_arr[1].'/'.$start_date_arr[2].'/'.$start_date_arr[0]; ?> 
                             </li>
                         <?php  } ?>                             
-                        <?php /* if($data['driver_license'] == 1){ ?>
-					 	<li> I have a Drivers license </li>
-					 	<?php }?>
-                        
-                        <?php if($data['vehicle'] == 1){ ?>
-                            <li>I have a Vehicle</li>
-					 	<?php }?>
-                                                     
-                        <?php if($data['pick_up_child'] == 1){ ?>
-                            <li> Able to pick up kids from school</li>
-					 	<?php }?>
-                        
-                        <?php if($data['cook'] == 1){ ?>
-                            <li>Able to cook and prepare food</li>
-					 	<?php }?>
-                        <?php if($data['basic_housework'] == 1){ ?>
-                            <li>Able to do light housework/ cleaning</li>
-					 	<?php }?>
-                        <?php if($data['homework_help'] == 1){ ?>
-                            <li>Able to help with homework</li>
-					 	<?php }?>
-                        <?php if($data['sick_child_care'] == 1){ ?>
-                            <li>Able to care for sick child</li>
-					 	<?php }?>
-                        <?php if($data['on_short_notice'] == 1){ ?>
-                            <li>Available on short notice</li>
-					 	<?php }?>
-                        <?php if($data['bath_children'] == 1){ ?>
-                            <li>Able to bathe children</li>
-					 	<?php }?>
-                         <?php if($data['bed_children'] == 1){ ?>
-                            <li>Able to put children to bed</li>
-					 	<?php } */ ?>                           					 	        
+                                             					 	        
                     <?php } ?>
-                    <?php /*
-                    <?php if($data['job_type'] == 1){ ?>
-				 	<li> Available full time</li>
-				 	<?php }?>
-
-				 	<?php if($data['job_type'] == 2){ ?>
-				 	<li> Available part time</li>
-				 	<?php }?>
-
-				 	<?php if($data['number_of_children']){ ?>
-				 		<li>Will Care upto <?php echo $data['number_of_children'];?> children</li>
-				 	<?php } ?>
-
-				 	<?php if($data['availability']){ ?>
-				 		<li>Available on <?php echo $data['availability'];?></li>
-				 	<?php } ?>
-
-				 	<li>Has Special needs experience</li>
-                    */ ?>
+                    
 				</div>
                 <div style="clear:both"></div>
 				 	<a href="<?php echo site_url().$navigate; ?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" >See full Profile</a>

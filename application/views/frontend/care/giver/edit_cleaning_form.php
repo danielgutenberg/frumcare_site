@@ -57,25 +57,7 @@ $rate_type = explode(',',$detail[0]['rate_type']);
                 </div>
             </div>
 
-            <div class="rate-select">
-                <label>Rate</label>
-                <div class="form-field">
-                    <select name="rate" class="txt rate">
-                        <option value="">Select rate</option>
-                    <option value="5-10" <?php echo isset($rate) && $rate == '5-10' ? 'selected' : '' ?>>$5-$10 / Hr</option>
-                    <option value="10-15" <?php echo isset($rate) && $rate == '10-15' ? 'selected' : '' ?>>$10-$15 / Hr</option>
-                    <option value="15-25" <?php echo isset($rate) && $rate == '15-25' ? 'selected' : '' ?>>$15-$25 / Hr</option>
-                    <option value="25-35" <?php echo isset($rate) && $rate == '25-35' ? 'selected' : '' ?>>$25-$35 / Hr</option>
-                    <option value="35-45" <?php echo isset($rate) && $rate == '35-45' ? 'selected' : '' ?>>$35-$45 / Hr</option>
-                    <option value="45-55" <?php echo isset($rate) && $rate == '45-55' ? 'selected' : '' ?>>$45-$55 / Hr</option>
-                    <option value="55+" <?php echo isset($rate) && $rate == '55+' ? 'selected' : '' ?>>$55+ / Hr</option></select>
-                </div>
-            </div>
-            <div>
-                <!--<label>Check one or more</label>-->
-                <!--<div class="checkbox"><input type="checkbox" name="rate_type[]" value="1">Hourly Rate</div>-->
-                <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
-            </div>
+            <?php $this->load->view('frontend/care/giver/fields/rate'); ?>
 
             <div>
                 <label>Specialize in</label>

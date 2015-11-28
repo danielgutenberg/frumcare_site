@@ -67,59 +67,11 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 </select>
                 </div>
             </div>
-            <div>
-                <label>Rate</label>
-                <div class="form-field">
-                    <select name="rate" class="txt rate">
-                        <option value="5-10">$5-$10 / Hr</option>
-                            <option value="10-15">$10-$15 / Hr</option>
-                            <option value="15-25">$15-$25 / Hr</option>
-                            <option value="25-35">$25-$35 / Hr</option>
-                            <option value="35-45">$35-$45 / Hr</option>
-                            <option value="45-55">$45-$55 / Hr</option>
-                            <option value="55+">$55+ / Hr</option>
-                    </select>
-                </div>
-            </div>
-      
-            <div>
-                <!--<div class="checkbox"><input type="checkbox" name="rate_type[]" value="1">Hourly Rate</div>-->
-                <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
-            </div>
-            <div>
-                <label>Tell us about yourself (Short description not cv)</label>
-                <div class="form-field">
-                <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
-                </div>
-            </div>
-            <div>
-            <label>References</label>
-            <div class="form-field not-required">
-            <div class="radio"><input type="radio" id="ref_check1" value="1" name="references" class="required" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?>/> Yes</div>
-            <div class="radio"><input type="radio" id="ref_check2" value="2" name="references" class="required" <?php echo isset($ref) && $ref == 2 ? 'checked' : '' ?> checked/> No</div>
-            </div>
-        </div>
-
-        <div class="refrence_file" style="display:none;">
-            <label></label>
-            <input type="hidden" id="file-name" name="file">
-            <button class="btn btn-primary" id="select_file">Select File</button>
-            <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
-            <div id="output" class="loader"></div>
-        </div>
-            <div style="display:none">
-                <label>Your references details</label>
-                <div class="form-field">
-                <textarea style="display:none" name="references_details" class="txt"><?php echo isset($ref_det) ? $ref_det : '' ?></textarea>
-                </div>
-            </div>
-            <div style="display:none;">
-                <label>Agree to background check?</label>
-                <div class="form-field">
-                    <div class="radio"><input type="radio" value="1" name="bg_check" class="required" <?php echo isset($bg_check) && $bg_check == 1 ? 'checked' : '' ?>/> Yes</div>
-                    <div class="radio"><input type="radio" value="2" name="bg_check" class="required" <?php echo isset($bg_check) && $bg_check == 2 ? 'checked' : '' ?> checked/> No</div>
-                </div>
-            </div>
+            <?php 
+                $this->load->view('frontend/care/giver/fields/rate');
+                $this->load->view('frontend/care/giver/fields/about_yourself');
+                $this->load->view('frontend/care/giver/fields/references'); 
+            ?>
 
             <h2>Abilities and skill</h2>
             <div class="checkbox-wrap">
@@ -142,17 +94,3 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         </div>
     </form>
 </div>
-<script>
-         $('#ref_check1').click(function(){
-            $('.refrence_file').show();
-        });
-
-        $('#ref_check2').click(function(){
-            $('.refrence_file').hide();
-            $('#output').text('');
-            $('#file-name').val('');
-        });
- $("#textbox1").ready(function(){        
-        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-     });
-</script>

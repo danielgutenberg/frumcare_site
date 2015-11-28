@@ -1,6 +1,11 @@
 <?php
 $cross = "<img src='".site_url()."img/cross.png'> ";
 $tick  = "<img src='".site_url()."img/nut-list.png'> ";
+if($currency == 'ILS') {
+    $symbol = "&#8362;"; 
+} else {
+    $symbol = '$';
+}
 ?>
 <!-- Start Babysitter-->    
 <div class="table-responsive">
@@ -109,7 +114,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
     <tr>
     	<td >Rate</td>
     	<td >
-            <?php echo $rate . ' / Hr'; 
+            <?php echo $symbol . $rate . ' / Hr'; 
             $type = explode(',',$rate_type);
             ?>
             <!--<div class="details-info"><?php if(in_array('1',$type)){echo $tick; }else{echo $cross; } ?>  Hourly Rate</div>-->
@@ -164,22 +169,7 @@ $tick  = "<img src='".site_url()."img/nut-list.png'> ";
 		    else {?><td>N/A</td><?php }?> 
 		
 	</tr> 
-    <?php
-    if($references==1){?>
-    <!--<tr>-->
-    <!--	<td >References Details</td>-->
-    <!--	<td >-->
-    		
-    <!--	</td>-->
-    <!--</tr>-->
-    <?php }
-    else{ ?>
-            <!--<tr>-->
-            <!--    <td>References Details</td>-->
-            <!--    <td>N/A</td>-->
-            <!--</tr>-->
-        <?php            
-        } ?>
+
     
     <tr style="display:none">
     	<td >Agree to Background Check?</td>

@@ -87,20 +87,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
                 </div>
             </div>
-            	<div>
-            <label>References</label>
-            <div class="form-field not-required">
-            <div class="radio"><input type="radio" id="ref_check1" value="1" name="references" class="required" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?>/> Yes</div>
-            <div class="radio"><input type="radio" id="ref_check2" value="2" name="references" class="required" <?php echo isset($ref) && $ref == 2 ? 'checked' : '' ?> checked/> No</div>
-            </div>
-        </div>
-        <div class="refrence_file" style="display:none;">
-            <label></label>
-            <input type="hidden" id="file-name" name="file">
-            <button class="btn btn-primary" id="select_file">Select File</button>
-            <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
-            <div id="output" class="loader"></div>
-        </div>
+            <?php $this->load->view('frontend/care/giver/fields/references'); ?>
 
             <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>
             <input type="hidden" name="account_type2" value="<?php echo $this->uri->segment(4);?>"/>
@@ -126,39 +113,3 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         </div>
     </form>
 </div>
-<script type="text/javascript">
- $("#textbox1").ready(function(){        
-        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-     });
-    $(document).ready(function(){    
-        
-        $("#ref_check2").click(function(){
-            if($("#ref_check2").is(':checked')){
-                $('.refrence_file').hide(); 
-                $('#upload_ref').val('');       
-            }
-        });
-        $("#ref_check1").click(function(){
-            $(".refrence_file").show();   
-        });
-       // if($('#ckbox1').is(':checked')){
-       //      $("#textbox1").show();
-       // }else{
-       //      $("#textbox1").hide();
-       //      $('#textbox1').val('');
-       // }
-
-       //  $("#ckbox1").change(function(){
-       //      if($('#ckbox1').is(':checked')){
-       //          $("#textbox1").show();   
-       //      }else{
-       //          $("#textbox1").hide(); 
-       //          $('#textbox1').val('');       
-       //      }
-       //  });
-        // change monthly rate and hourly rate
-        $('.charge').change(function(){
-            $('.rate').attr('name',$(this).val());
-        });
-    });
-</script>

@@ -1,4 +1,5 @@
 .htaccess
 /nbproject/private/
 images/profile-picture
+uploads/
 application/config/database.php

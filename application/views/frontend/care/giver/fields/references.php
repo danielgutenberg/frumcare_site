@@ -6,17 +6,27 @@
     </div>
 </div>
 
-<div class="refrence_file">
-    <label></label>
-    <input type="hidden" id="file-name" name="file">
-    <button class="btn btn-primary" id="select_file">Select File</button>
-    <input type="file" name="file_upload" id="file_upload" style="display: none;">
-    <div id="output" class="loader"></div>
+<div class="refrence_file" style="display:none">
+    <?php $this->load->view('frontend/care/file_upload'); ?>
 </div>
 
-<div style="display:none">
-    <label>Your references details</label>
-    <div class="form-field not-required">
-    <textarea style="display:none" name="references_details" class="txt"><?php echo isset($ref_det) ? $ref_det : '' ?></textarea>
-    </div>
-</div>
+
+<script>
+    $(document).ready(function(){
+        $("#ref_check1").click(function(){
+            $(".refrence_file").show();   
+        });
+        $("#ref_check2").click(function(){
+            $.ajax({
+                 type: "POST",
+                 url: "<?php echo base_url(); ?>user/delete_ref_file",
+                 data: {file_name : $("#output").text()},
+                 success: function(r){
+                    $('#output').html(r);
+                 }
+              });
+            $(".refrence_file").hide(); 
+            $('#file-name').val('');   
+        });
+});
+</script>
