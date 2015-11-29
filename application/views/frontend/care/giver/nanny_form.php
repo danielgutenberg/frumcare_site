@@ -77,7 +77,56 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 					</div>
 				</div>
 
-				<?php $this->load->view('frontend/care/giver/fields/rate'); ?>       
+				<div class="rate-select">
+	                <label>Rate</label>
+	                <div class="form-field">
+	                    <select name="currency" class="txt rate">
+	            		  <option value="">Select Currency</option>
+	            		  <!--<option value="AUD">Australian Dollar</option>-->
+	            		  <!--<option value="BRL">Brazilian Real </option>-->
+	            		  <!--<option value="CAD">Canadian Dollar</option>-->
+	            		  <!--<option value="CZK">Czech Koruna</option>-->
+	            		  <!--<option value="DKK">Danish Krone</option>-->
+	            		  <!--<option value="EUR">Euro</option>-->
+	            		  <!--<option value="HKD">Hong Kong Dollar</option>-->
+	            		  <!--<option value="HUF">Hungarian Forint </option>-->
+	            		  <option value="ILS" <?php if($currency == 'ILS') {?>selected<?php } ?>>&#8362; Israeli New Sheqel</option>
+	            		  <!--<option value="JPY">Japanese Yen</option>-->
+	            		  <!--<option value="MYR">Malaysian Ringgit</option>-->
+	            		  <!--<option value="MXN">Mexican Peso</option>-->
+	            		  <!--<option value="NOK">Norwegian Krone</option>-->
+	            		  <!--<option value="NZD">New Zealand Dollar</option>-->
+	            		  <!--<option value="PHP">Philippine Peso</option>-->
+	            		  <!--<option value="PLN">Polish Zloty</option>-->
+	            		  <!--<option value="GBP">Pound Sterling</option>-->
+	            		  <!--<option value="SGD">Singapore Dollar</option>-->
+	            		  <!--<option value="SEK">Swedish Krona</option>-->
+	            		  <!--<option value="CHF">Swiss Franc</option>-->
+	            		  <!--<option value="TWD">Taiwan New Dollar</option>-->
+	            		  <!--<option value="THB">Thai Baht</option>-->
+	            		  <!--<option value="TRY">Turkish Lira</option>-->
+	            		  <option value="USD" <?php if($currency == 'USD') {?>selected<?php } ?>>&#36; U.S. Dollar</option>
+	                    </select>
+	                </div>
+	                
+	                
+	                <div class="form-field">
+	                    <select name="rate" class="txt">
+	                        <option value="">Select rate</option>
+	                        <option value="5-10" <?php echo isset($rate) && $rate == '5-10' ? 'selected' : '' ?>>5-10/Hr</option>
+	                        <option value="10-15" <?php echo isset($rate) && $rate == '10-15' ? 'selected' : '' ?>>10-15/Hr</option>
+	                        <option value="15-25" <?php echo isset($rate) && $rate == '15-25' ? 'selected' : '' ?>>15-25/Hr</option>
+	                        <option value="25-35" <?php echo isset($rate) && $rate == '25-35' ? 'selected' : '' ?>>25-35/Hr</option>
+	                        <option value="35-45" <?php echo isset($rate) && $rate == '35-45' ? 'selected' : '' ?>>35-45/Hr</option>
+	                        <option value="45-55" <?php echo isset($rate) && $rate == '45-55' ? 'selected' : '' ?>>45-55/Hr</option>
+	                        <option value="55+" <?php echo isset($rate) && $rate == '56' ? 'selected' : '' ?>>55+/Hr</option>
+	                    </select>                                  
+	                </div>
+	            </div>
+	            <div class="form-field">
+	                <div class="checkbox"><input type="checkbox" value="2" name="rate_type[]" <?php if(in_array('2',$rate_type)){?> checked="checked" <?php } ?>>Monthly Rate Available</div>
+	                <div class="checkbox"><input type="checkbox" value="3" name="rate_type[]" <?php if(in_array('3',$rate_type)){?> checked="checked" <?php } ?>>Room and Board Available</div>
+	            </div>      
 				<div>
 					<label>Availability</label>
 					<div class="form-field">
@@ -145,58 +194,3 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 			</div>
 		</form>
 	</div>
-	<script>
-     $("#textbox1").ready(function(){        
-        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-     });
-$(document).ready(function(){    
-       // if($('#ckbox1').is(':checked')){
-       //      $("#textbox1").show();
-       // }else{
-       //      $("#textbox1").hide();
-       //      $('#textbox1').val('');
-       // }
-
-       //  $("#ckbox1").change(function(){
-       //      if($('#ckbox1').is(':checked')){
-       //          $("#textbox1").show();   
-       //      }else{
-       //          $("#textbox1").hide(); 
-       //          $('#textbox1').val('');       
-       //      }
-       //  });
-
-        $('.chargetype').change(function(){
-            if($(this).val() == 'hourly_rate')
-                $('.rate').attr('name','hourly_rate');
-
-            if($(this).val() == 'monthly_rate')
-                $('.rate').attr('name','monthly_rate');
-            
-        });
-
-        $('#ref_check1').click(function(){
-            $('.refrence_file').show();
-        });
-
-        $('#ref_check2').click(function(){
-            $('.refrence_file').hide();
-            $('#output').text('');
-            $('#file-name').val('');
-        });
-
-    });
-</script>
-
-<!-- FILE UPLOAD -->
-<script type="text/javascript">
-    var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
-    var link = '<?php echo site_url("user/uploadfile?files")?>';
-    $('#select_file').click(function(e){
-         e.preventDefault();
-         $('#file_upload').trigger('click');
-     });//CODE BY CHAND
-</script>
-
-<script type="text/javascript" src="<?php echo site_url("js/fileuploader.js")?>"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
