@@ -3,10 +3,15 @@ $photo_url = site_url("images/plus.png");
 if(check_user()) {
     $current_user = get_user(check_user());
     $photo = $current_user['profile_picture'];
+    if ($picture_type) {
+        $photo = $detail[0][$picture_type];
+    }
+    $choseFile = 'display:inline-block';
     $display = 'display:none';
     if($photo!="") {
         $photo_url = base_url('images/profile-picture/thumb/'.$photo);
         $display = 'display:inline-block';
+        $choseFile = 'display:none';
     }
         
 }
@@ -21,8 +26,8 @@ if ($upload_title) {
     <input type="hidden" id="file-name" name="<?php echo $photo_name;?>" value="<?php if(isset($photo)) echo $photo;?>">
     <div id="output"><img src="<?php echo $photo_url?>"></div>
     <a class="buttons btn-default" href="#" id="remove" onclick="return removePic();" style="margin:0 10px; <?php echo $display ?>">Remove File</a>
-    <label>Browse your computer to select a file to upload</label>
-    <a class="buttons btn-default" id="upload">Choose File</a>
+    <label id="browse_text" style="<?php echo $choseFile;?>">Browse your computer to select a file to upload</label>
+    <a class="buttons btn-default" style="<?php echo $choseFile;?>" id="upload">Choose File</a>
     <input type="file" name="ImageFile" id="ImageFile" style="display: none;">
     <div class="loader"></div>
 </div>
@@ -34,6 +39,7 @@ function removePic(){
     var lodr='<?php echo site_url("images/plus.png")?>';
     $('#output img').attr('src',lodr);
     $('#upload').css({'display':'inline-block'});
+    $('#browse_text').css({'display':'inline-block'});
     $('#remove').css({'display':'none'});
     return false;
 
@@ -106,6 +112,7 @@ $(function()
                         $('.loader').addClass('hidden');
                         $('#file-name').val(data.files);
                         $('#upload').css({'display':'none'});
+                        $('#browse_text').css({'display':'none'});
                         $('#remove').css({'display':'inline-block'});
                     } else {
                         $('#output').html(data.files + ' selected');

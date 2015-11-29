@@ -44,30 +44,11 @@ $user_detail = get_user(check_user());
         </div>
         <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>
             <input type="hidden" name="account_type2" value="<?php echo $this->uri->segment(4);?>"/>
-        <div>
-            <label>Location </label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat"/>
-                <input type="hidden" id="lng" name="lng"/>
-            <input type="hidden" id="cityName" name="city"/>
-            <input type="hidden" id="stateName" name="state"/>
-            <input type="hidden" id="countryName" name="country"/>
-                <input type="text" name="location" class="required" placeholder="Please enter a street address" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
-            </div>
-            <span style="color:red;" id="error"> </span>
-        </div>
-        <div>
-            <label>Neighborhood / Street</label>
-            <div>
-            <input type="text" name="neighbour" class="txt" onFocus="geolocate()" value="<?php echo isset($neighbour)? $neighbour:''; ?>" />
-            </div>    
-        </div>         
-				<div>
-					<label>Phone</label>
-					<div class="form-field">
-						<input type="text" name="contact_number" class="txt" value="<?php echo isset($phone)? $phone:''; ?>"/>
-					</div>
-				</div>
+       <?php 
+            $this->load->view('frontend/care/giver/fields/location');
+            $this->load->view('frontend/care/giver/fields/neighborhood'); 
+            $this->load->view('frontend/care/giver/fields/phone'); 
+         ?>
         <div>
             <label>Number of rooms</label>
             <div class="form-field">
@@ -120,26 +101,7 @@ $user_detail = get_user(check_user());
                 <div class="checkbox"><input type="checkbox" value="Saturday" name="availability[]"> Saturday</div>
             </div>
         </div>
-        <div class="rate-select">
-            <label>Wage</label>
-            <div class="form-field">
-                <select name="rate" class="rate">
-                    <option value="">Select wage</option>
-                    <option value="5-10">$5-$10 / Hr</option>
-                    <option value="10-15">$10-$15 / Hr</option>
-                    <option value="15-25">$15-$25 / Hr</option>
-                    <option value="25-35">$25-$35 / Hr</option>
-                    <option value="35-45">$35-$45 / Hr</option>
-                    <option value="45-55">$45-$55 / Hr</option>
-                    <option value="55+">$55+ / Hr</option>
-                </select>
-            </div>
-        </div>
-        <div>
-            <!--<label>Check one or more</label>
-            <div class="checkbox"><input type="checkbox" name="rate_type[]" value="1">Hourly Rate</div>-->
-            <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2">Monthly Rate Available</div>
-        </div>
+        <?php $this->load->view('frontend/care/seeker/fields/wage'); ?>
         <div>
             <label>Tell us about your needs</label>
             <div class="form-field">

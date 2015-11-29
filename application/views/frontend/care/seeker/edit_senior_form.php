@@ -66,30 +66,11 @@ if($detail){
                     <div class="checkbox"><input type="checkbox" value="Live out" name="looking_to_work[]" <?php if(in_array('Live out',$looking_to_work)){?> checked="checked" <?php } ?>> Live out</div>
                 </div>
             </div>
-             <div>
-            <label>Location </label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/>
-                <input type="hidden" id="cityName" name="city" value="<?php echo isset($city)?$city:''?>"/>
-                <input type="hidden" id="stateName" name="state" value="<?php echo isset($state)?$state:''?>"/>
-                <input type="hidden" id="countryName" name="country" value="<?php echo isset($country)?$country:''?>"/>
-                <input type="text" name="location" class="required" placeholder="Please enter a street address" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
-            </div> 
-             <span style="color:red;" id="error"> </span>
-        </div>
-         <div>
-            <label>Neighborhood / Street</label>
-            <div>
-            <input type="text" name="neighbour" class="txt" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>
-            </div>    
-        </div>         
-        <div>
-            <label>Phone</label>
-            <div class="form-field">
-            <input type="text" name="contact_number" class="txt" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact_number"/>
-            </div>
-        </div>
+        <?php 
+            $this->load->view('frontend/care/giver/fields/location');
+            $this->load->view('frontend/care/giver/fields/neighborhood'); 
+            $this->load->view('frontend/care/giver/fields/phone'); 
+         ?>
             <div>
                 <label>Age of senior</label>
                 <div class="form-field">
@@ -178,26 +159,7 @@ if($detail){
                 </div>
             </div>
 
-            <div class="rate-select">
-            <label>Wage</label>
-            <div class="form-field">
-            <select name="rate" class="">
-                <option value="">Select rate</option>
-                <option value="5-10" <?php echo isset($rate) && $rate == '5-10' ? 'selected' : '' ?>>$5-$10 / Hr</option>
-                <option value="10-15" <?php echo isset($rate) && $rate == '10-15' ? 'selected' : '' ?>>$10-$15 / Hr</option>
-                <option value="15-25" <?php echo isset($rate) && $rate == '15-25' ? 'selected' : '' ?>>$15-$25 / Hr</option>
-                <option value="25-35" <?php echo isset($rate) && $rate == '25-35' ? 'selected' : '' ?>>$25-$35 / Hr</option>
-                <option value="35-45" <?php echo isset($rate) && $rate == '35-45' ? 'selected' : '' ?>>$35-$45 / Hr</option>
-                <option value="45-55" <?php echo isset($rate) && $rate == '45-55' ? 'selected' : '' ?>>$45-$55 / Hr</option>
-                <option value="55+" <?php echo isset($rate) && $rate == '55+' ? 'selected' : '' ?>>$55+ / Hr</option>
-            </select>
-            </div>
-        </div>
-        <div>
-            <!--<label>Check one or more</label>
-            <div class="checkbox"><input type="checkbox" name="rate_type[]" value="1" <?php if(in_array('1',$rate_type)){?> checked="checked" <?php }?> >Hourly Rate</div>-->
-            <div class="checkbox"><input type="checkbox" name="rate_type[]" value="2" <?php if(in_array('2',$rate_type)){?> checked="checked" <?php }?> >Monthly Rate Available</div>
-        </div>
+           <?php $this->load->view('frontend/care/seeker/fields/wage'); ?>
             <div>
                 <label>Smoking acceptable</label>
                 <div class="form-field">

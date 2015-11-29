@@ -1033,7 +1033,8 @@ class User extends CI_Controller
                     'hours_to'=> isset($p['hours_to'])?$p['hours_to']:'',
                     'facility_pic' => $facility_pic,
                     'sub_care'              => isset($p['sub_care']) ? $p['sub_care'] : '',
-                    'extra_field'       => isset($extra_field) ? $extra_field : ''
+                    'extra_field'       => isset($extra_field) ? $extra_field : '',
+                    'currency'            => isset($p['currency']) ? $p['currency'] : 'USD',
                 );
     
                 $q = $this->user_model->insert_new_profile($insert);

@@ -49,9 +49,8 @@ $active_group = 'default';
 $active_record = TRUE;
 
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'frumcare_ufrumc';
-$db['default']['password'] = '7!(oKvm[4G+G';
+$db['default']['hostname'] = 'danielguten-demosis-1373854';
+$db['default']['username'] = 'danielguten';
 $db['default']['database'] = 'frumcare_db_frumcare';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
@@ -65,9 +64,8 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 // blog database
-$db['wordpress']['hostname'] = 'localhost';
-$db['wordpress']['username'] = 'frumcare_ufrumc';
-$db['wordpress']['password'] = '7!(oKvm[4G+G';
+$db['wordpress']['hostname'] = 'danielguten-demosis-1373854';
+$db['wordpress']['username'] = 'danielguten';
 $db['wordpress']['database'] = 'frumcare_db_blogfrumcare';
 $db['wordpress']['dbdriver'] = 'mysql';
 $db['wordpress']['dbprefix'] = '';
