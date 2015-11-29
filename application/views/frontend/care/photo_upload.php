@@ -36,6 +36,7 @@ if ($upload_title) {
 <script>
 function removePic(){
     $('#file-name').attr('value','');
+    $('#ImageFile').attr('value','');
     var lodr='<?php echo site_url("images/plus.png")?>';
     $('#output img').attr('src',lodr);
     $('#upload').css({'display':'inline-block'});

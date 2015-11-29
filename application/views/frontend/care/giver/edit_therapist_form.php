@@ -1,21 +1,44 @@
 <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
-<?php 
-if($detail){
-    $type_of_therapy = $detail[0]['type_of_therapy'];
-    $certification = $detail[0]['certification'];
+<?php
+	$facility = $detail[0]['facility_pic'];
+	$number_of_staff = $detail[0]['number_of_staff'];
+	$certification = $detail[0]['certification'];
+	$established   = $detail[0]['established'];
+	$lookingtowork = explode(',', $detail[0]['looking_to_work']);
+	$age_group = explode(',',$detail[0]['age_group']);
     $exp = $detail[0]['experience'];
-    $licence_information = $detail[0]['licence_information'];
-    $hr_rate 		 = $detail[0]['hourly_rate'];
-    $ins = $detail[0]['accept_insurance'];
-    $desc 			 = $detail[0]['profile_description'];
-    $ref 			 = $detail[0]['references'];
+	$training = explode(',', $detail[0]['training']);
+	$availability = explode(',', $detail[0]['availability']);
+	$bg_check = $detail[0]['agree_bg_check'];
+	$driver_license = $detail[0]['driver_license'];
+	$vehicle = $detail[0]['vehicle'];
+	$pick_up_child = $detail[0]['pick_up_child'];
+	$cook		= $detail[0]['cook'];
+	$basic_housework = $detail[0]['basic_housework'];
+	$homework_help = $detail[0]['homework_help'];
+	$sick_child_care = $detail[0]['sick_child_care'];
+	$on_short_notice = $detail[0]['on_short_notice'];
+    $number_of_children = $detail[0]['number_of_children'];
+    $profile_description = $detail[0]['profile_description'];
+    $ref_det = $detail[0]['references_details'];
+    $date = $detail[0]['start_date'];
+    $optional_number = explode(',',$detail[0]['optional_number']);
     $reference_file  = $detail[0]['reference_file'];
+	$ref = $detail[0]['references'];
     $rate = $detail[0]['rate'];
-    $rate_type = explode(',', $detail[0]['rate_type']);
-    
-}
+    $rate_type = explode(',',$detail[0]['rate_type']);
+    $care_type = $this->uri->segment(4);
+    $willingtowork = explode(',' , $detail[0]['willing_to_work']);
+	$hr_rate 		 = $detail[0]['hourly_rate'];
+	$facility           = $detail[0]['facility_pic'];
+	$wash = $detail[0]['wash'];
+    $iron = $detail[0]['iron'];
+    $fold = $detail[0]['fold'];
+    $bath_children = $detail[0]['bath_children'];
+    $bed_children = $detail[0]['bed_children'];
+    $extra_field = explode(',',$detail[0]['extra_field']);
+    $currency = $detail[0]['currency'];
 ?>
-<?php $care_type = $this->uri->segment(4);?>
 <div class="container">
 
 <?php echo $this->breadcrumbs->show();?>
@@ -58,16 +81,7 @@ if($detail){
             <input type="text" value="<?php echo isset($certification) ? $certification : '' ?>" name="certification" class="txt">
             </div>
         </div>
-        
-        <?php /*
-        <div>
-            <label>License information</label>
-            <div class="form-field">
-            <input type="text" value="<?php echo isset($licence_information) ? $licence_information : '' ?>" name="licence_information" class="required">
-            </div>
-        </div>
-        */ ?>
-            <?php $this->load->view('frontend/care/giver/fields/rate'); ?>
+            <?php $this->load->view('frontend/care/giver/fields/rate', ['rate' => $rate, 'currency' => $currency]); ?>
             
             <div>
             <label>Accepts insurance</label>
@@ -82,34 +96,11 @@ if($detail){
                 <input type="text" name="payment_option" value="<?php echo $detail[0]['payment_option'];?>">
             </div>
         </div>
-        <div>
-            <label>Tell us about yourself (Short description not cv)</label>
-            <div class="form-field">
-            <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
-            </div>
-        </div>
-        <div style="display: none;">
-            <label>References</label>
-            <div class="form-field not-required">
-            <div class="radio"><input type="radio" value="1" id="ref_check1" name="references" class="required" <?php echo isset($reference_file) && $ref =='1'?'checked':''?>/> Yes</div>
-            <div class="radio"><input type="radio" value="2" id="ref_check2" name="references" class="required" <?php echo isset($ref) && $ref != '1' ? 'checked' : '' ?> /> No</div>
-            </div>
-        </div>
-        
-        <div class="refrence_file" <?php echo isset($reference_file) && $ref =='1' ?"style='display:none;'":"style='display:none;'" ?>>
-            <label></label>
-            <input type="hidden" id="file-name" name="file" value="<?php echo isset($reference_file)?$reference_file:'' ?>">
-            <button class="btn btn-primary" id="select_file">Select File</button>
-            <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
-            <div id="output" class="loader"><?php echo isset($reference_file)?$reference_file:'' ?></div>
-        </div>
-        
-        <div style="display:none">
-            <label>Your references details</label>
-            <div class="form-field not-required">
-            <textarea style="display:none" name="references_details" class="txt"><?php echo isset($ref_det) ? $ref_det : '' ?></textarea>
-            </div>
-        </div>
+        <?php
+            $this->load->view('frontend/care/giver/fields/about_yourself' ,['profile_description' => $profile_description]);
+            $this->load->view('frontend/care/giver/fields/references', ['reference_file' => $reference_file, 'ref' => $ref]);
+            $this->load->view('frontend/care/giver/fields/background'); 
+        ?>
         <div>
             <input type="submit" class="btn btn-success" value="Update"/>
         </div>
@@ -117,33 +108,3 @@ if($detail){
 </form>
 </div>
 </div>
-<script>
-    $(document).ready(function(){
-        $("#ref_check1").click(function(){
-            $(".refrence_file").show();   
-        });
-        $("#ref_check2").click(function(){
-             	$.ajax({
-			         type: "POST",
-			         url: "<?php echo base_url(); ?>user/delete_ref_file",
-			         data: {file_name : $("#output").text()},
-			         success: function(r){
-                        $('#output').html(r);
-			         }
-		          });
-                     $(".refrence_file").hide(); 
-             $('#file-name').val('');   
-        });
-    });
-</script>
-<!-- FILE UPLOAD -->
-<script type="text/javascript">
-    var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
-    var link = '<?php echo site_url("user/uploadfile?files")?>';
-    $('#select_file').click(function(e){
-        e.preventDefault();
-        $('#file_upload').trigger('click');
-    });//CODE BY Kiran
-</script>
-
-<script type="text/javascript" src="<?php echo site_url("js/fileuploader.js")?>"></script>

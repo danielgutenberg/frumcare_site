@@ -69,7 +69,7 @@ if($currency == 'ILS') {
                 <div class="details-info"><?php if(in_array('1-3', $age)){ echo $tick; }else{echo $cross; }?> 1 to 3 years</div>
                 <div class="details-info"><?php if(in_array('3-5', $age)){ echo $tick; }else{echo $cross; }?> 3 to 5 years</div>
                 <div class="details-info"><?php if(in_array('6-11', $age)){ echo $tick; }else{echo $cross; }?> 6 to 11 years</div>
-                <div class="details-info"><?php if(in_array('12+', $age)){ echo $tick; }else{echo $cross; }?> 12+ years</div>            
+                <div class="details-info"><?php if(in_array('13', $age)){ echo $tick; }else{echo $cross; }?> 12+ years</div>            
             </td>
         </tr>
         <?php }

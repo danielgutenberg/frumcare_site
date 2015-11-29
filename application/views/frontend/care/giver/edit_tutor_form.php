@@ -1,34 +1,44 @@
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/><!--for datepicker-->
-<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script><!--for datepicker-->
-<script>
-  $(function() {
-    $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-});
-</script>
 <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
-<?php 
-if($detail){
-  $subjects 		= explode(',', $detail[0]['subjects']);
-  $availability 	= explode(',',$detail[0]['availability']);
-  $exp 			= $detail[0]['experience'];
-  $training 		= explode(',', $detail[0]['training']);
-  $hr_rate 		= $detail[0]['hourly_rate'];
-  $desc 			= $detail[0]['profile_description'];
-  $ref 			= $detail[0]['references'];
-  $bg_check 		= $detail[0]['agree_bg_check'];
-  $time           = explode(',', $detail[0]['availability']);
-  $ref_det        = $detail[0]['references_details'];
-  $driver_license = $detail[0]['driver_license'];
-  $vehicle        = $detail[0]['vehicle'];
-  $on_short_notice = $detail[0]['on_short_notice'];
-  $date = isset($detail[0]['start_date']) ? $detail[0]['start_date'] : "0000-00-00";
-  $reference_file  = $detail[0]['reference_file'];
-  $rate = $detail[0]['rate'];
-  $rate_type = explode(',',$detail[0]['rate_type']);
-  $lookingtowork      = explode(',', $detail[0]['looking_to_work']);
-}
+<?php
+	$facility = $detail[0]['facility_pic'];
+	$number_of_staff = $detail[0]['number_of_staff'];
+	$certification = $detail[0]['certification'];
+	$established   = $detail[0]['established'];
+	$lookingtowork = explode(',', $detail[0]['looking_to_work']);
+	$age_group = explode(',',$detail[0]['age_group']);
+    $exp = $detail[0]['experience'];
+	$training = explode(',', $detail[0]['training']);
+	$availability = explode(',', $detail[0]['availability']);
+	$bg_check = $detail[0]['agree_bg_check'];
+	$driver_license = $detail[0]['driver_license'];
+	$vehicle = $detail[0]['vehicle'];
+	$pick_up_child = $detail[0]['pick_up_child'];
+	$cook		= $detail[0]['cook'];
+	$basic_housework = $detail[0]['basic_housework'];
+	$homework_help = $detail[0]['homework_help'];
+	$sick_child_care = $detail[0]['sick_child_care'];
+	$on_short_notice = $detail[0]['on_short_notice'];
+    $number_of_children = $detail[0]['number_of_children'];
+    $profile_description = $detail[0]['profile_description'];
+    $ref_det = $detail[0]['references_details'];
+    $date = $detail[0]['start_date'];
+    $optional_number = explode(',',$detail[0]['optional_number']);
+    $reference_file  = $detail[0]['reference_file'];
+	$ref = $detail[0]['references'];
+    $rate = $detail[0]['rate'];
+    $rate_type = explode(',',$detail[0]['rate_type']);
+    $care_type = $this->uri->segment(4);
+    $willingtowork = explode(',' , $detail[0]['willing_to_work']);
+	$hr_rate 		 = $detail[0]['hourly_rate'];
+	$facility           = $detail[0]['facility_pic'];
+	$wash = $detail[0]['wash'];
+    $iron = $detail[0]['iron'];
+    $fold = $detail[0]['fold'];
+    $bath_children = $detail[0]['bath_children'];
+    $bed_children = $detail[0]['bed_children'];
+    $extra_field = explode(',',$detail[0]['extra_field']);
+    $currency = $detail[0]['currency'];
 ?>
-<?php $care_type = $this->uri->segment(4);?>
 <div class="container">
 
     <?php echo $this->breadcrumbs->show();?>
@@ -64,15 +74,15 @@ if($detail){
             <div>
                 <label>Availability</label>
                 <div class="form-field">
-                    <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]" <?php if(in_array("Immediate",$time)){?> checked="checked"<?php }?>>Immediately</div>
-                    <div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]" <?php if(in_array("Start Date",$time)){?> checked="checked"<?php }?> class="check">Start Date <input type="text" name="start_date" <?php if($date!='0000-00-00'){ echo 'value='.$date;}?> id="textbox1" /></div>
-                    <div class="checkbox"><input type="checkbox" value="occassionally" name="availability[]" <?php if(in_array('occassionally', $time)){?> checked="checked" <?php }?>> <span>Occassionally</span></div>
-                    <div class="checkbox"><input type="checkbox" value="regularly" name="availability[]" <?php if(in_array('regularly', $time)){?> checked="checked" <?php }?>> <span>Regularly</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Morning" name="availability[]" <?php if(in_array('Morning', $time)){?> checked="checked" <?php }?>> <span>Morning</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]" <?php if(in_array('Afternoon', $time)){?> checked="checked" <?php }?>> <span>Afternoon</span></div>                    
-                    <div class="checkbox"><input type="checkbox" value="Evening" name="availability[]" <?php if(in_array('Evening', $time)){?> checked="checked" <?php }?>> <span>Evening</span></div>                    
-                    <div class="checkbox"><input type="checkbox" name="availability[]" value="Weekends fri/sun" <?php if(in_array('Weekends fri/sun', $time)){?> checked="checked" <?php }?>> <span>Weekends fri/sun</span></div>
-                    <div class="checkbox"><input type="checkbox" value="By Appointment" name="availability[]" <?php if(in_array('By Appointment', $time)){?> checked="checked" <?php }?>> <span>By Appointment</span></div>
+                    <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]" <?php if(in_array("Immediate",$availability)){?> checked="checked"<?php }?>>Immediately</div>
+                    <div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]" <?php if(in_array("Start Date",$availability)){?> checked="checked"<?php }?> class="check">Start Date <input type="text" name="start_date" <?php if($date!='0000-00-00'){ echo 'value='.$date;}?> id="textbox1" /></div>
+                    <div class="checkbox"><input type="checkbox" value="occassionally" name="availability[]" <?php if(in_array('occassionally', $availability)){?> checked="checked" <?php }?>> <span>Occassionally</span></div>
+                    <div class="checkbox"><input type="checkbox" value="regularly" name="availability[]" <?php if(in_array('regularly', $availability)){?> checked="checked" <?php }?>> <span>Regularly</span></div>
+                    <div class="checkbox"><input type="checkbox" value="Morning" name="availability[]" <?php if(in_array('Morning', $availability)){?> checked="checked" <?php }?>> <span>Morning</span></div>
+                    <div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]" <?php if(in_array('Afternoon', $availability)){?> checked="checked" <?php }?>> <span>Afternoon</span></div>                    
+                    <div class="checkbox"><input type="checkbox" value="Evening" name="availability[]" <?php if(in_array('Evening', $availability)){?> checked="checked" <?php }?>> <span>Evening</span></div>                    
+                    <div class="checkbox"><input type="checkbox" name="availability[]" value="Weekends fri/sun" <?php if(in_array('Weekends fri/sun', $availability)){?> checked="checked" <?php }?>> <span>Weekends fri/sun</span></div>
+                    <div class="checkbox"><input type="checkbox" value="By Appointment" name="availability[]" <?php if(in_array('By Appointment', $availability)){?> checked="checked" <?php }?>> <span>By Appointment</span></div>
                 </div>
             </div>
 
@@ -89,13 +99,13 @@ if($detail){
                     </select>
                 </div>
             </div>
-            <?php $this->load->view('frontend/care/giver/fields/rate'); ?>
+            <?php $this->load->view('frontend/care/giver/fields/rate', ['rate' => $rate, 'currency' => $currency]); ?>
             
             <?php
-                $this->load->view('frontend/care/giver/fields/about_yourself');
-                $this->load->view('frontend/care/giver/fields/references');
-                $this->load->view('frontend/care/giver/fields/background'); 
-            ?>
+	            $this->load->view('frontend/care/giver/fields/about_yourself' ,['profile_description' => $profile_description]);
+	            $this->load->view('frontend/care/giver/fields/references', ['reference_file' => $reference_file, 'ref' => $ref]);
+	            $this->load->view('frontend/care/giver/fields/background'); 
+	        ?>
 
             <h2>Abilities and skills</h2>
 
@@ -117,49 +127,3 @@ if($detail){
  </form>
 </div>
 </div>
-
-<script>
-    $(document).ready(function(){
-    //    if($('#ckbox1').is(':checked')){
-    //     $("#textbox1").show();
-    // }else{
-    //     $("#textbox1").hide();
-    //     $('#textbox1').val('');
-    // }
-
-    // $("#ckbox1").change(function(){
-    //     if($('#ckbox1').is(':checked')){
-    //         $("#textbox1").show();   
-    //     }else{
-    //         $("#textbox1").hide(); 
-    //         $('#textbox1').val('');       
-    //     }
-    // });
-    $("#ref_check1").click(function(){
-            $(".refrence_file").show();   
-        });
-        $("#ref_check2").click(function(){
-             	$.ajax({
-			         type: "POST",
-			         url: "<?php echo base_url(); ?>user/delete_ref_file",
-			         data: {file_name : $("#output").text()},
-			         success: function(r){
-                        $('#output').html(r);
-			         }
-		          });
-                     $(".refrence_file").hide(); 
-             $('#file-name').val('');   
-        });
-});
-</script>
-<!-- FILE UPLOAD -->
-<script type="text/javascript">
-    var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
-    var link = '<?php echo site_url("user/uploadfile?files")?>';
-    $('#select_file').click(function(e){
-        e.preventDefault();
-        $('#file_upload').trigger('click');
-    });//CODE BY Kiran
-</script>
-
-<script type="text/javascript" src="<?php echo site_url("js/fileuploader.js")?>"></script>

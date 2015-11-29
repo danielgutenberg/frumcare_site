@@ -24,11 +24,11 @@ if($recordData['currency'] == 'ILS') {
         <?php if($recordData['facility_pic']!= '' && file_exists('images/profile-picture/'.$recordData['facility_pic'])) {?>
             <img class="img-responsive" src="<?php echo site_url();?>images/profile-picture/<?php echo $recordData['facility_pic'];?>">
         <?php } else {
-            if($recordData['photo_of_child']!= '' && file_exists('images/profile-picture/'.$recordData['photo_of_child'])) { ?>
-                <img class="img-responsive" src="<?php echo site_url();?>images/profile-picture/<?php echo $recordData['photo_of_child'];?>">
-                <?php } else {
             if($recordData['profile_picture']!= '' && file_exists('images/profile-picture/'.$recordData['profile_picture'])) { ?>
                 <img class="img-responsive" src="<?php echo site_url();?>images/profile-picture/<?php echo $recordData['profile_picture'];?>">
+                <?php } else {
+            if($recordData['photo_of_child']!= 0 && file_exists('images/profile-picture/'.$recordData['photo_of_child'])) { ?>
+                <img class="img-responsive" src="<?php echo site_url();?>images/profile-picture/<?php echo $recordData['photo_of_child'];?>">
             <?php } else { ?>
                 <img class="img-responsive" src="<?php echo site_url("images/no-image.jpg")?>">
         <?php }}
@@ -95,8 +95,9 @@ if($recordData['currency'] == 'ILS') {
 
 
                                    if(!empty($recordData['rate'])){ ?>
-                                   <?php $rate_type = $recordData['rate_type']==2?' / Hr':' / Hr'?>
-                                       <span class="hour-wrap"><?php echo $symbol . $recordData['rate'].$rate_type.'<span>Rate</span>'; ?></span>
+                                    <?php $rate_type = $recordData['rate_type']==2?' / Hr':' / Hr'?>
+                                    <?php if ($recordData['rate']==56) $recordData['rate'] = '55+' ?>
+                                       <span class="hour-wrap"><?php echo $symbol . $recordData['rate'] . $rate_type.'<span>Rate</span>'; ?></span>
                                     <?php
                                     }
                                    else{ ?>
@@ -242,6 +243,7 @@ if($this->uri->segment(4)>16){ ?>
     <?php
     if(!empty($recordData['rate'])){ ?>
         <?php $rate_type = $recordData['rate_type']==2?' / Hr':' / Hr'?>
+        <?php if ($recordData['rate']==56) $recordData['rate'] = '55+' ?>
         <span class="experience-wrap"><?php echo $symbol . $recordData['rate'].$rate_type.'<span>Wage</span>'; ?></span>
         <?php
     }
@@ -318,7 +320,7 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         <div class="col-xs-4">
         <?php
         if(!empty($recordData['rate'])){ ?>
-
+        <?php if ($recordData['rate']==56) $recordData['rate'] = '55+' ?>
         <span class="age-wrap"><?php echo $symbol . $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
         <?php
         }
@@ -364,6 +366,7 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
         <div class="col-xs-4">
         <?php
         if(!empty($recordData['rate'])){ ?>
+        <?php if ($recordData['rate']==56) $recordData['rate'] = '55+' ?>
         <span class="experience-wrap"><?php echo $symbol . $recordData['rate'].$rate_type.'<span>Cost</span>'; ?></span>
         <?php
         }

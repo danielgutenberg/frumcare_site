@@ -29,6 +29,7 @@ $careType = [
  ];
 	if(is_array($userdatas)){		
         foreach($userdatas as $key => $data){ 
+			if ($data['rate']==56) $data['rate'] = '55+';
 			$loca = '';
                 if ($data['city'] != '') {
                     $loca .= $data['city'];
@@ -39,7 +40,6 @@ $careType = [
                 if ($data['country'] != '') {
                     $loca .= ', ' . $data['country'];
                 }
-// 			$reviewData = Review_model::countReviewById($data['id']);
             $navigate = $data['care_type']>16?'jobs':'caregivers'; ?> 	
             <div class="profile-list clearfix usual row">
             <div class="profile-img-wrap col-md-3 col-sm-3 col-xs-12"> <?php
@@ -56,7 +56,7 @@ $careType = [
         		            </div>
         	            </a><?php }
                     else {  
-                        if($data['photo_of_child']!="" && file_exists('images/profile-picture/'.$data['photo_of_child'])) {?>
+                        if($data['photo_of_child']!= 0 && file_exists('images/profile-picture/'.$data['photo_of_child'])) {?>
                             <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
             		            <div id="profile_image">
             		            	<img src="<?php echo site_url("images/profile-picture/{$data['photo_of_child']}")?>">
@@ -218,12 +218,7 @@ $careType = [
                             <?php }
                             
                          } ?>
-                       <?php /*if($data['rate']){?>
-							<li>							
-								<?php echo "$".str_replace("t","-",$data['rate']); ?>
-                                <?php echo $data['rate_type']==1?" per hour":" per month"; ?>						
-							</li>
-                        <?php  } */?>
+
                     
                     <?php  } ?>
 

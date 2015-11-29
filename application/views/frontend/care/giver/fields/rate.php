@@ -23,6 +23,7 @@
     <label>Currency</label>
     <div class="form-field">
         <select name="currency" class="txt rate">
+		  <option value="USD" <?php if($currency == 'USD') {?>selected<?php } ?>>&#36; U.S. Dollar</option>
 		  <!--<option value="">Select Currency</option>-->
 		  <!--<option value="AUD">Australian Dollar</option>-->
 		  <!--<option value="BRL">Brazilian Real </option>-->
@@ -32,7 +33,7 @@
 		  <!--<option value="EUR">Euro</option>-->
 		  <!--<option value="HKD">Hong Kong Dollar</option>-->
 		  <!--<option value="HUF">Hungarian Forint </option>-->
-		  <option value="ILS">&#8362; Israeli New Sheqel</option>
+		  <option value="ILS" <?php if($currency == 'ILS') {?>selected<?php } ?>>&#8362; Israeli New Sheqel</option>
 		  <!--<option value="JPY">Japanese Yen</option>-->
 		  <!--<option value="MYR">Malaysian Ringgit</option>-->
 		  <!--<option value="MXN">Mexican Peso</option>-->
@@ -47,7 +48,6 @@
 		  <!--<option value="TWD">Taiwan New Dollar</option>-->
 		  <!--<option value="THB">Thai Baht</option>-->
 		  <!--<option value="TRY">Turkish Lira</option>-->
-		  <option value="USD" SELECTED="YES">&#36; U.S. Dollar</option>
         </select>
     </div>
 </div>
