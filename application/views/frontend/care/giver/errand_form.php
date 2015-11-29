@@ -42,32 +42,24 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 				<div>
 					<label>Availability</label>
 					<div class="form-field">
-						<div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]"/> Immediate</div>
-						<div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]"> <span>Start Date</span> <input type="inbox" id="textbox1" value="" name="start_date"></div>
-						<div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]"> <span>Occassionally</span></div>
-						<div class="checkbox"><input type="checkbox" value="Regularly" name="availability[]"> <span>Regularly</span></div>
-		                <div class="checkbox"><input type="checkbox" value="Morning" name="availability[]"> <span>Morning</span></div>
-		                <div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]"> <span>Afternoon</span></div>				
-						<div class="checkbox"><input type="checkbox" value="Evening" name="availability[]"> <span>Evening</span></div>				
-						<div class="checkbox"><input type="checkbox" value="Weekends Fri./Sun." name="availability[]"> <span>Weekends Fri./Sun.</span></div>
-		                <div class="checkbox"><input type="checkbox" value="Saturday" name="availability[]"> <span>Saturday</span></div>
+						<?php 
+							$this->load->view('frontend/care/giver/fields/availability/immediate');
+							$this->load->view('frontend/care/giver/fields/availability/start_date');
+							$this->load->view('frontend/care/giver/fields/availability/occasional');
+							$this->load->view('frontend/care/giver/fields/availability/regular');
+							$this->load->view('frontend/care/giver/fields/availability/morning');
+							$this->load->view('frontend/care/giver/fields/availability/afternoon');
+							$this->load->view('frontend/care/giver/fields/availability/evening');
+							$this->load->view('frontend/care/giver/fields/availability/weekend');
+							$this->load->view('frontend/care/giver/fields/availability/shabbos');
+						?>
 					</div>
 				</div>
-				<div>
-					<label>Tell us about yourself (Short description not cv)</label>
-					<div class="form-field">
-						<textarea name="profile_description" class="txt"></textarea>
-					</div>
-				</div>
-				<?php $this->load->view('frontend/care/giver/fields/references'); ?>
-				
-				<div style="display:none;">
-					<label>Agree to background check?</label>
-					<div class="form-field not-required">
-						<div class="radio"><input type="radio" value="1" name="bg_check" class="required" <?php echo isset($bg_check) && $bg_check == 1 ? 'checked' : '' ?>/> Yes</div>
-						<div class="radio"><input type="radio" value="2" name="bg_check" class="required" <?php echo isset($bg_check) && $bg_check == 2 ? 'checked' : '' ?> checked/> No</div>
-					</div>
-				</div>
+				<?php
+		            $this->load->view('frontend/care/giver/fields/about_yourself');
+		            $this->load->view('frontend/care/giver/fields/references');
+		            $this->load->view('frontend/care/giver/fields/background'); 
+		        ?>
 
 
                 <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>

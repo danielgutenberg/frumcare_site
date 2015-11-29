@@ -1,1 +1,2 @@
-<div class="checkbox"><input type="checkbox" name="availability[]" value="Occassionally"> <span>Occassionally</span></div>
+<div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]" <?php if(in_array('Occassionally', $availability)){?> checked="checked" <?php }?>> <span>Occassionally</span></div>
+                

@@ -1,28 +1,5 @@
-<link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
-<?php
-    if($detail){
-        $lookingtowork = explode(',',$detail[0]['looking_to_work']);
-        //$age_grp = $detail[0]['age_group'];
-        $age_group = explode(',',$detail[0]['age_group']);
-        $lang = explode(',',$detail[0]['language']);
-        $training = explode(',',$detail[0]['training']);
-        $exp = $detail[0]['experience'];
-        $hr_rate = $detail[0]['hourly_rate'];
-        $availability = explode(',', $detail[0]['availability']);
-        $desc = $detail[0]['profile_description'];
-        $ref  = $detail[0]['references'];
-        $estd = $detail[0]['established'];
-        $certification = $detail[0]['certification'];
-        $number_of_children = $detail[0]['number_of_children'];
-        $number_of_staff = $detail[0]['number_of_staff'];
-        $ref_det            = $detail[0]['references_details'];
-        $reference_file = $detail[0]['reference_file'];
-        $rate = $detail[0]['rate'];
-        $rate_type = $detail[0]['rate_type'];
-        $facility = $detail[0]['facility_pic'];
-    }
-?>
-<?php $care_type = $this->uri->segment(4);?>
+<?php $this->load->view('frontend/care/giver/edit_variables'); ?>
+
 <div class="container">
 
 <?php echo $this->breadcrumbs->show();?>
@@ -60,7 +37,7 @@
                 <select name="established" class="required">
                     <option value="">Select year established</option>
                     <?php for($i=1950;$i<=date('Y');$i++):?>
-                    <option value="<?php echo $i?>" <?php if($estd == $i){?> selected="selected" <?php }?>><?php echo $i;?></option>
+                    <option value="<?php echo $i?>" <?php if($established == $i){?> selected="selected" <?php }?>><?php echo $i;?></option>
                     <?php endfor;?>
                 </select>
                 </div>
@@ -100,41 +77,7 @@
             </div>
 
 
-            <div>
-                <label>Days / Hours</label>
-                <div class="form-field">
-                <br>
-                 <label style="width:25%">Sun</label><input type="text" name="sunday_from" class="time" style="width:25%" value="<?php echo $detail[0]['sunday_from'];?>"> to  <input type="text" name="sunday_to" class="time" style="width:25%" value="<?php echo $detail[0]['sunday_to'];?>">
-                 <br>
-                 <br>
-                 <label style="width:25%">Mon-Thu</label><input type="text" name="mid_days_from" value="<?php echo $detail[0]['mid_days_from'];?>" class="time" style="width:25%"> to  <input type="text" name="mid_days_to" class="time" style="width:25%" value="<?php echo $detail[0]['mid_days_from'];?>">
-                 <br>
-                 <br>
-                 <label style="width:25%">Fri</label><input type="text" name="friday_from" value="<?php echo $detail[0]['friday_from'];?>" style="width:25%" class="time"> to <input type="text" name="friday_to" class="time" style="width:25%" value="<?php echo $detail[0]['friday_to'];?>">
-                 <div class="checkbox"><input type="checkbox" name="extended_hrs_available" value="1" <?php if($detail[0]['extended_hrs'] == 1){?> checked="checked" <?php }?> > Extended Hours Available</div>
-                 <div class="checkbox"><input type="checkbox" name="flexible_hours" value="1" <?php if($detail[0]['flexible_hours'] == 1){?> checked="checked" <?php }?>> Flexible Hours</div>
-
-                 <br>
-                 <label>Vacation Days (Please specify vacation days)</label>
-                 <br>
-                 <input type="text" name="vacation_days" value="<?php echo $detail[0]['vacation_days'];?>" placeholder="Vacation Days">
-
-                <br>
-                <br>
-
-                <input type="hidden" id="pdf-name" name="pdf" value="<?php echo $detail[0]['pdf'];?>">
-                <button class="btn btn-primary" id="pdf_file">Please select pdf file</button>
-                <input type="file" name="pdf_upload" id="pdf_upload" style="display: none;">
-                <div id="output1" class="loader1">
-                        <?php if(isset($detail[0]['pdf'])){
-                            echo $detail[0]['pdf'];
-                        }else{
-                            echo 'No file';
-                        }
-                        ?>
-                </div>
-                </div>
-            </div>
+            <?php $this->load->view('frontend/care/giver/fields/days_hours'); ?>
 
 
             <?php 
@@ -151,32 +94,11 @@
             <div>
                 <label>Tell us about your organization / facilities / activities</label>
                 <div class="form-field">
-                <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
+                <textarea name="profile_description" class="txt"><?php echo isset($profile_description) ? $profile_description : '' ?></textarea>
                 </div>
             </div>
 
-            <div>
-                <label>References</label>
-                <div class="form-field">
-                <div class="radio"><input type="radio" value="1" name="references" id="ref_check1" class="required" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?>/> Yes</div>
-                <div class="radio"><input type="radio" value="2" name="references" id="ref_check2" class="required" <?php echo isset($ref) && $ref == 2 ? 'checked' : '' ?> /> No</div>
-                </div>
-            </div>
-
-            <div class="refrence_file" <?php echo isset($reference_file) && $ref =='1' ?"":"" ?>>
-            <label></label>
-            <input type="hidden" id="file-name" name="file" value="<?php echo isset($reference_file)?$reference_file:'' ?>">
-            <button class="btn btn-primary" id="select_file">Select File</button>
-            <input type="file" name="file_upload" id="file_upload" style="display: none;">
-            <div id="output" class="loader">
-                    <?php if(isset($reference_file))
-                        echo $reference_file;
-                    else
-                        echo 'No files';
-                    ?>
-
-                </div>
-        </div>
+            <?php $this->load->view('frontend/care/giver/fields/references'); ?>
             <div>
             <label>Cost</label>
             <div class="form-field">

@@ -1,1 +1,2 @@
-<div class="checkbox"><input type="checkbox" value="Child's home" name="looking_to_work[]"> <span>Child's home</span></div>
+<div class="checkbox"><input type="checkbox" value="Child's home" name="looking_to_work[]" <?php if(in_array("Child's home", $lookingtowork)){?>checked="checked"<?php }?>>Child's home</div>  
+                

@@ -1,13 +1,14 @@
 <div>
     <label>References</label>
     <div class="form-field not-required">
-    <div class="radio"><input type="radio" id="ref_check1" value="1" name="references" class="required"/> Yes</div>
-    <div class="radio"><input type="radio" id="ref_check2" value="2" name="references" class="required" checked/> No</div>
+    <div class="radio"><input type="radio" value="1" id="ref_check1" name="references" class="required" <?php echo isset($reference_file) && $ref =='1'?'checked':''?>/> Yes</div>
+    <div class="radio"><input type="radio" value="2" id="ref_check2" name="references" class="required" <?php echo isset($ref) && $ref != '1' ? 'checked' : '' ?> /> No</div>
+            
     </div>
 </div>
 
-<div class="refrence_file" style="display:none">
-    <?php $this->load->view('frontend/care/file_upload'); ?>
+<div class="refrence_file" <?php echo isset($reference_file) && $ref =='1' ?"":"style='display:none;'" ?>>
+    <?php $this->load->view('frontend/care/reference_upload'); ?>
 </div>
 
 

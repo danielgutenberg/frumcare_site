@@ -25,6 +25,7 @@ if($detail){
   $reference_file  = $detail[0]['reference_file'];
   $rate = $detail[0]['rate'];
   $rate_type = explode(',',$detail[0]['rate_type']);
+  $lookingtowork      = explode(',', $detail[0]['looking_to_work']);
 }
 ?>
 <?php $care_type = $this->uri->segment(4);?>
@@ -90,40 +91,11 @@ if($detail){
             </div>
             <?php $this->load->view('frontend/care/giver/fields/rate'); ?>
             
-            <div>
-                <label>Tell us about yourself (Short description not cv)</label>
-                <div class="form-field">
-                    <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
-                </div>
-            </div>
-            <div>
-            <label>References</label>
-            <div class="form-field not-required">
-            <div class="radio"><input type="radio" value="1" id="ref_check1" name="references" class="required" <?php echo isset($reference_file) && $ref =='1'?'checked':''?>/> Yes</div>
-            <div class="radio"><input type="radio" value="2" id="ref_check2" name="references" class="required" <?php echo isset($ref) && $ref != '1' ? 'checked' : '' ?> /> No</div>
-            </div>
-        </div>
-        
-        <div class="refrence_file" <?php echo isset($reference_file) && $ref =='1' ?"":"style='display:none;'" ?>>
-            <label></label>
-            <input type="hidden" id="file-name" name="file" value="<?php echo isset($reference_file)?$reference_file:'' ?>">
-            <button class="btn btn-primary" id="select_file">Select File</button>
-            <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
-            <div id="output" class="loader"><?php echo isset($reference_file)?$reference_file:'' ?></div>
-        </div>
-            <div style="display:none">
-                <label>Your references details</label>
-                <div class="form-field">
-                    <textarea style="display:none" name="references_details" class="txt"><?php echo isset($ref_det) ? $ref_det : '' ?></textarea>
-                </div>
-            </div>
-            <div style="display:none;">
-                <label>Agree to background check?</label>
-                <div class="form-field">
-                    <div class="radio"><input type="radio" value="1" name="bg_check" class="required" <?php echo isset($bg_check) && $bg_check == 1 ? 'checked' : '' ?>/> Yes</div>
-                    <div class="radio"><input type="radio" value="2" name="bg_check" class="required" <?php echo isset($bg_check) && $bg_check == 2 ? 'checked' : '' ?> /> No</div>
-                </div>
-            </div>
+            <?php
+                $this->load->view('frontend/care/giver/fields/about_yourself');
+                $this->load->view('frontend/care/giver/fields/references');
+                $this->load->view('frontend/care/giver/fields/background'); 
+            ?>
 
             <h2>Abilities and skills</h2>
 

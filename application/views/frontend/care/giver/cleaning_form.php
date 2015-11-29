@@ -28,10 +28,10 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <label>Looking to work in</label>
                 <div class="form-field">
                     <?php 
-                    $this->load->view('frontend/care/giver/fields/work_location/private_home');
-                    $this->load->view('frontend/care/giver/fields/work_location/business');
-                    $this->load->view('frontend/care/giver/fields/work_location/cleaning_company');
-                    $this->load->view('frontend/care/giver/fields/work_location/mothers_helper');
+                        $this->load->view('frontend/care/giver/fields/work_location/private_home');
+                        $this->load->view('frontend/care/giver/fields/work_location/business');
+                        $this->load->view('frontend/care/giver/fields/work_location/cleaning_company');
+                        $this->load->view('frontend/care/giver/fields/work_location/mothers_helper');
                     ?>                
                 </div>
             </div>
@@ -67,27 +67,14 @@ if(($this->uri->segment(2) != 'new_profile')){?>
     				$this->load->view('frontend/care/giver/fields/availability/evening');
     				$this->load->view('frontend/care/giver/fields/availability/weekend');
     				$this->load->view('frontend/care/giver/fields/availability/shabbos');
-    				$this->load->view('frontend/care/giver/fields/availability/night_nurse');
-    				$this->load->view('frontend/care/giver/fields/availability/vacation_sitter');
     				?>
-                    <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]"/> Immediate</div>
-                    <div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date <input  type="text" name="start_date" id="textbox1"/></div>
-                    <div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]"> <span>Occassionally</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Regularly" name="availability[]"> <span>Regularly</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Morning" name="availability[]"> <span>Morning</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]"> <span>Afternoon</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Evening" name="availability[]"> <span>Evening</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Weekends Fri./ Sun." name="availability[]"> <span>Weekends Fri./ Sun.</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Saturday" name="availability[]"> <span>Saturday</span></div>
                 </div>
             </div>
-            <div>
-                <label>Tell us about yourself (Short description not cv)</label>
-                <div class="form-field">
-                <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
-                </div>
-            </div>
-            <?php $this->load->view('frontend/care/giver/fields/references'); ?>
+            <?php
+                $this->load->view('frontend/care/giver/fields/about_yourself');
+                $this->load->view('frontend/care/giver/fields/references');
+                $this->load->view('frontend/care/giver/fields/background'); 
+            ?>
 
             <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>
             <input type="hidden" name="account_type2" value="<?php echo $this->uri->segment(4);?>"/>
