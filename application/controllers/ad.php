@@ -421,7 +421,7 @@ class Ad extends CI_Controller
                 'language'            => $language,
                 'looking_to_work'     => $looking_to_work,
                 'type_of_therapy'     => isset($p['type_of_therapy']) ? $p['type_of_therapy'] : '',
-                'currency'            => isset($p['currency']) ? $p['currency'] : '',
+                'currency'            => isset($p['currency']) ? $p['currency'] : 'USD',
                 'licence_information' => isset($p['licence_information']) ? $p['licence_information'] : '',
                 'accept_insurance'    => isset($p['accept_insurance']) ? $p['accept_insurance'] : 2,
                 'established'         => isset($p['established']) ? $p['established'] : '',
@@ -889,6 +889,7 @@ class Ad extends CI_Controller
                 'contact_name' => isset($p['name']) ? $p['name'] : '',
                 'longitude' => isset($p['lng'])? $p['lng'] : '',
                 'latitude' => isset($p['lat'])? $p['lat'] : '',
+                'currency'            => isset($p['currency']) ? $p['currency'] : 'USD',
             );
 
             if (isset($p['photo_of_child'])){

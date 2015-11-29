@@ -68,19 +68,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                     <div class="checkbox"><input type="checkbox" value="Other" name="training[]"> <span>Other</span></div>                
                 </div>
             </div>
-            <div>
-                <label>Years of experience</label>
-                <div class="form-field">
-                <select name="experience" class="txt">
-                    <option value="">Select years of experience</option>
-                    <option value="1" <?php echo isset($exp) && $exp == 1 ? 'selected' : '' ?>>1 year</option>
-                    <option value="2" <?php echo isset($exp) && $exp == 2 ? 'selected' : '' ?>>2 years</option>
-                    <option value="3" <?php echo isset($exp) && $exp == 3 ? 'selected' : '' ?>>3 years</option>
-                    <option value="4" <?php echo isset($exp) && $exp == 4 ? 'selected' : '' ?>>4 years</option>
-                    <option value="6" <?php echo isset($exp) && $exp == 6 ? 'selected' : '' ?>>5+ years</option>
-                </select>
-                </div>
-            </div>
+            <?php $this->load->view('frontend/care/giver/fields/experience'); ?>
 
             <div>
                 <label>Cost</label>
@@ -88,58 +76,12 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                       <input type="text" name="rate" value=""> 
                 </div>
             </div>
-            <div>
-                <label>Days / Hours</label>
-                <div class="form-field">
-                 <label style="width:25%">Sun</label><input type="text" name="sunday_from" class="time" style="width:25%"> to  <input type="text" name="sunday_to" class="time" style="width:25%">
-                 <br>
-                 <br>
-                 <label style="width:25%">Mon-Thu</label><input type="text" name="mid_days_from" class="time" style="width:25%"> to  <input type="text" name="mid_days_to" class="time" style="width:25%">
-                 <br>
-                 <br>
-                 <label style="width:25%">Fri</label><input type="text" name="friday_from" style="width:25%" class="time"> to <input type="text" name="friday_to" class="time" style="width:25%">
-                 <div class="checkbox"><input type="checkbox" name="extended_hrs_available" value="1"> Extended Hours Available</div>
-                 <div class="checkbox"><input type="checkbox" name="flexible_hours" value="1"> Flexible Hours</div>
-
-                 <br>
-                 <label>Vacation Days (Please specify vacation days)</label>
-                 <br>
-                 <input type="text" name="vacation_days" value="" placeholder="Vacation Days">
-
-                <br>
-                <br>
-
-                 <input type="hidden" id="pdf-name" name="pdf">
-                <button class="btn btn-primary" id="pdf_file">Please select pdf file</button>
-                <input type="file" name="pdf_upload" id="pdf_upload" style="display: none;"> 
-                <div id="output1" class="loader1"></div>
-
-                
-            
-                 
-                </div>
-            </div>
-            <div>
-                <label>Tell us about yourself (Short description not cv)</label>
-                <div class="form-field">
-                <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
-                </div>
-            </div>
-            <div>
-                <label>References</label>
-                <div class="form-field not-required">
-                <div class="radio"><input type="radio" value="1" id="ref_check1" name="references" class="required" <?php echo isset($ref) && $ref == 1 ? 'checked' : '' ?>/> Yes</div>
-                <div class="radio"><input type="radio" value="2" id="ref_check2" name="references" class="required" <?php echo isset($ref) && $ref == 2 ? 'checked' : '' ?> checked/> No</div>
-                </div>
-            </div>
-
-            <div class="refrence_file" style="display:none;">
-                <label></label>
-                <input type="hidden" id="file-name" name="file">
-                <button class="btn btn-primary" id="select_file">Select File</button>
-                <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
-                <div id="output" class="loader"></div>
-            </div>
+            <?php
+                $this->load->view('frontend/care/giver/fields/days_hours');
+                $this->load->view('frontend/care/giver/fields/about_yourself');
+                $this->load->view('frontend/care/giver/fields/references');
+                $this->load->view('frontend/care/giver/fields/background'); 
+            ?>
 
             <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>
             <input type="hidden" name="account_type2" value="<?php echo $this->uri->segment(4);?>"/>

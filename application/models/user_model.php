@@ -679,6 +679,7 @@ class User_model extends CI_Model
                 'caregiverage_from'  => isset($p['caregiverage_from'])?$p['caregiverage_from']:0,
                 'caregiverage_to'  => isset($p['caregiverage_from'])?$p['caregiverage_to']:0,
                 'type_of_therapy' => isset($p['type_of_therapy']) ? $p['type_of_therapy'] : '',
+                'currency' => isset($p['currency']) ? $p['currency'] : 'USD',
                 'licence_information' => isset($p['licence_information']) ? $p['licence_information'] : '',
                 'accept_insurance' => isset($p['accept_insurance']) ? $p['accept_insurance'] : 2,
                 'established' => isset($p['established']) ? $p['established'] : '',

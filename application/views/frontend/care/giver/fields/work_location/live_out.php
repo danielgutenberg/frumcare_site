@@ -1,0 +1,2 @@
+<div class="checkbox"><input type="checkbox" value="Live out" name="looking_to_work[]" <?php if(in_array('Live out',$lookingtowork)){?> checked="checked" <?php } ?>> <span>Live out</span></div>
+                

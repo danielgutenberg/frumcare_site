@@ -127,89 +127,9 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 </div>
             </div>
 
-            <!--<div style="display:none">-->
-            <!--    <label>Your references details</label>-->
-            <!--    <div class="form-field">-->
-            <!--    <textarea style="display:none" name="references_details" class="required"><?php echo isset($ref_det) ? $ref_det : '' ?></textarea>-->
-            <!--</div>-->
-
             
             <br />
                 <input type="submit" class="btn btn-success" value="Save <?php if($this->uri->segment(2) != 'new_profile'){echo '& Continue';}?>"/>
             </div>        
     </form>
 </div>
-
-<script type="text/javascript">
- $('#ref_check1').click(function(){
-        $('.refrence_file').show();
-    });
- 
- $('#select_file').click(function(e){
-        e.preventDefault();
-        $('#file_upload,#output').trigger('click');
-        $(document).on('change', '#file_upload', prepareUpload);
-        
-    });//CODE BY Kiran
-    
-    $('#pdf_file').click(function(e){
-        e.preventDefault();
-        $('#pdf_upload').trigger('click');
-        $(document).on('change', '#pdf_upload', prepareUpload1);
-    });
-     function prepareUpload(event){
-         var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
-        var link = '<?php echo site_url("user/uploadfile?files")?>';
-
-        var files = event.target.files;
-        event.stopPropagation(); // Stop stuff happening
-        event.preventDefault(); // Totally stop stuff happening
-
-        // START A LOADING SPINNER HERE
-
-        // Create a formdata object and add the files
-        var data = new FormData();
-        $.each(files, function(key, value)
-        {
-            data.append(key, value);
-        });
-        $.ajax({
-            url: link,
-            type: 'POST',
-            beforesend: $('.loader').html(loader),
-            data: data,
-            cache: false,
-            dataType: 'json',
-            processData: false, // Don't process the files
-            contentType: false, // Set content type to false as jQuery will tell the server its a query string request
-            success: function(data, textStatus, jqXHR)
-            {
-                if(typeof data.error === 'undefined')
-                {
-                    // Success so call function to process the form
-                    if(data.type==1){
-                        $('#output').html(data.html);
-                        $('.loader').html('');
-                        $('#file-name').val(data.files);    
-                    }
-                    else{
-                        $('#output').html(data.files + ' selected');
-                        $('#file-name').val(data.files);
-                    }
-                    
-                }
-                else
-                {
-                    // Handle errors here
-                    console.log('ERRORS: ' + data.error);
-                }
-            },
-            error: function(jqXHR, textStatus, errorThrown)
-            {
-                // Handle errors here
-                console.log('ERRORS: ' + textStatus);
-                // STOP LOADING SPINNER
-            }
-        });
-    }
-</script>

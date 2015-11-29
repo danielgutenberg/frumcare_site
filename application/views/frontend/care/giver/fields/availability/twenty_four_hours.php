@@ -1,0 +1,2 @@
+<div class="checkbox"><input type="checkbox" value="24 hr care" name="availability[]" <?php if(in_array('24 hr care', $availability)){?> checked="checked" <?php }?>> <span>24 hr care</span></div>
+                

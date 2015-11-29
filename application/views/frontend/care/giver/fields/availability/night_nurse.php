@@ -1,1 +1,2 @@
-<div class="checkbox"><input type="checkbox" name="availability[]" value="Night Nurse"> <span>Night Nurse</span></div>
+<div class="checkbox"><input type="checkbox" value="Night Nurse" name="availability[]" <?php if(in_array('Night Nurse', $availability)){?> checked="checked" <?php }?>> <span>Night Nurse</span></div>                    
+                

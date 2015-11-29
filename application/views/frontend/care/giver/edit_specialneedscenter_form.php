@@ -1,23 +1,5 @@
-    <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
-<?php
-	if($detail){
-		$established 		= $detail[0]['established'];
-		$certification 		= $detail[0]['certification'];
-		$willing_to_work	= explode(',',$detail[0]['willing_to_work']);
-		$lang 				= explode(',', $detail[0]['language']);
-		$number_of_children	= $detail[0]['number_of_children'];
-		$number_of_staff 	= $detail[0]['number_of_staff'];
-		$ref 				= $detail[0]['references'];
-		$ref_det 			= $detail[0]['references_details'];
-		$desc 				= $detail[0]['profile_description'];
-		$hr_rate 			= $detail[0]['hourly_rate'];
-        $rate = $detail[0]['rate'];
-        $rate_type = explode(',',$detail[0]['rate_type']);
-        $facility  = $detail[0]['facility_pic'];
-	}
-?>
+<?php $this->load->view('frontend/care/giver/edit_variables'); ?>
 
-<?php $care_type = $this->uri->segment(4);?>
 <div class="container">
 
 <?php echo $this->breadcrumbs->show();?>
@@ -49,18 +31,6 @@
         <label>Certification</label>
         <div class="form-field">
         <input type="text" value="<?php echo isset($certification) ? $certification : '' ?>" name="certification" class="txt">
-        </div>
-    </div>
-
-     <div>
-        <label>Languages Spoken</label>
-        <div class="form-field">
-            <div class="checkbox"><input type="checkbox" name="language[]" value="English" <?php if(in_array('English', $lang)){?> checked="checked" <?php }?>> English</div>
-            <div class="checkbox"><input type="checkbox" name="language[]" value="Yiddish" <?php if(in_array('Yiddish', $lang)){?> checked="checked" <?php }?>> Yiddish</div>
-            <div class="checkbox"><input type="checkbox" name="language[]" value="Hebrew" <?php if(in_array('Hebrew', $lang)){?> checked="checked" <?php }?>> Hebrew</div>
-            <div class="checkbox"><input type="checkbox" name="language[]" value="Russian" <?php if(in_array('Russian',$lang)){?> checked="checked" <?php }?>> Russian</div>
-            <div class="checkbox"><input type="checkbox" name="language[]" value="French" <?php if(in_array('French', $lang)){?> checked="checked" <?php }?>> French</div>
-            <div class="checkbox"><input type="checkbox" name="language[]" value="Other" <?php if(in_array('Other', $lang)){?> checked="checked" <?php }?>> Other</div>
         </div>
     </div>
 
@@ -106,28 +76,14 @@
             <div>
         <label>Tell us about your organization / facilities / staff</label>
         <div class="form-field">
-        <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
+        <textarea name="profile_description" class="txt"><?php echo isset($profile_description) ? $profile_description : '' ?></textarea>
         </div>
     </div>
 
 
 
-        <?php
-            if(!empty($facility)){
-                $photo_url = base_url('images/profile-picture/thumb/'.$facility);
-            }else{
-                $photo_url = base_url('images/plus.png');
-            }
-        ?>
-            <div class="upload-photo">
-                <h2>Upload Photo of Facility / Organization</h2>
-                <input type="hidden" id="file-name" name="facility_pic" value="<?php echo $facility;?>">
-                <div id="output"><img src="<?php echo $photo_url?>"></div>
-                <label>Browse your computer to select a file to upload</label>
-                <button class="btn btn-default" id="upload">Choose File</button>
-                <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
-                <p>Please make sure your photo is appropriate for our site and sensitive to Jewish Tradition.</p>
-            </div>
+        <?php $this->load->view('frontend/care/photo_upload', ['photo_name' => 'facility_pic', 'upload_title' => "Upload Photo of Facility / Organization"]); ?>               
+
 
             <div>
                 <label> Payment Options(specify)</label>
@@ -135,14 +91,6 @@
                     <input type="text" name="payment_option" value="<?php echo $detail[0]['payment_option'];?>">
                 </div>
             </div>
-
-    <div style="display:none">
-        <label>Your references details</label>
-        <div class="form-field">
-        <textarea style="display:none" name="references_details" class="txt"><?php echo isset($ref_det) ? $ref_det : '' ?></textarea>
-        </div>
-    </div>
-        <br/ >
     <div>
           <input type="submit" class="btn btn-success" value="Update"/>
     </div>
@@ -151,65 +99,3 @@
     </form>
 </div>
 </div>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('body').removeAttr('onload');
-    });
-    $("#ref_check1").click(function(){
-            $(".refrence_file").show();
-        });
-
-
-
-
-
-
-</script>
-
-<?php /* <script>
-$(document).ready(function(){
-    $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-
-       if($('#ckbox1').is(':checked')){
-            $("#textbox1").show();
-       }else{
-            $("#textbox1").hide();
-            $('#textbox1').val('');
-       }
-
-        $("#ckbox1").change(function(){
-            if($('#ckbox1').is(':checked')){
-                $("#textbox1").show();
-            }else{
-                $("#textbox1").hide();
-                $('#textbox1').val('');
-            }
-        });
-  $("#ref_check1").click(function(){
-            $(".refrence_file").show();
-        });
-        $("#ref_check2").click(function(){
-             	$.ajax({
-			         type: "POST",
-			         url: "<?php echo base_url(); ?>user/delete_ref_file",
-			         data: {file_name : $("#output").text()},
-			         success: function(r){
-                        $('#output').html(r);
-			         }
-		          });
-                     $(".refrence_file").hide();
-             $('#file-name').val('');
-        });
-});
-</script>
-<!-- FILE UPLOAD -->
-<script type="text/javascript">
-    var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
-    var link = '<?php echo site_url("user/uploadfile?files")?>';
-    $('#select_file').click(function(e){
-        e.preventDefault();
-        $('#file_upload').trigger('click');
-    });//CODE BY Kiran
-</script>
-
-<script type="text/javascript" src="<?php echo site_url("js/fileuploader.js")?>"></script> */?>

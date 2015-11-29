@@ -1,33 +1,5 @@
-  <script>
-      $(function() {
-        $( "#textbox1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-    });
-  </script>
-  <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
-  <?php 
-  if($detail){
-    $looking_to_work = explode(',', $detail[0]['looking_to_work']);
-    $exp  				= $detail[0]['experience'];
-    $tempwillingtowork  = explode(',' ,$detail[0]['willing_to_work']);
-    $hr_rate 			= $detail[0]['hourly_rate'];
-    $tempavailability   = explode(',' , $detail[0]['availability']);
-    $desc 				= $detail[0]['profile_description'];
-    $ref 				= $detail[0]['references'];
-    $ref_det 			= $detail[0]['references_details'];
-    $bg_check			= $detail[0]['agree_bg_check'];
-    $training		 = explode(',', $detail[0]['training']);
-    $time = explode(',', $detail[0]['availability']);
-    $driver_license = $detail[0]['driver_license'];
-    $vehicle = $detail[0]['vehicle'];
-    $on_short_notice = $detail[0]['on_short_notice'];
-    $date = isset($detail[0]['start_date']) ? $detail[0]['start_date'] : "0000-00-00";
-    $reference_file  = $detail[0]['reference_file'];
-     $rate = $detail[0]['rate'];
-    $rate_type = explode(',',$detail[0]['rate_type']);
+<?php $this->load->view('frontend/care/giver/edit_variables'); ?>
 
-} 
-?>
-<?php $care_type = $this->uri->segment(4);?>
 <div class="container">
 
     <?php echo $this->breadcrumbs->show();?>
@@ -46,14 +18,16 @@
 
             
             <div>
-                <label>Looking to work in</label>
-                <div class="form-field">
-                    <div class="checkbox"><input type="checkbox" value="Home of senior" name="looking_to_work[]" <?php if(in_array('Home of senior',$looking_to_work)){?> checked="checked" <?php } ?>> <span>Home of senior</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Live In" name="looking_to_work[]" <?php if(in_array('Live In',$looking_to_work)){?> checked="checked" <?php } ?>> <span>Live In</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Live Out" name="looking_to_work[]" <?php if(in_array('Live Out',$looking_to_work)){?> checked="checked" <?php } ?>> <span>Live Out</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Caregiving institution" name="looking_to_work[]" <?php if(in_array('Caregiving institude',$looking_to_work)){?> checked="checked" <?php } ?>> <span>Caregiving Institution</span></div>                    
-                </div>
-            </div>
+				<label>Looking to work in</label>
+				<div class="form-field">
+					<?php 
+	                    $this->load->view('frontend/care/giver/fields/work_location/home_of_senior');
+	                    $this->load->view('frontend/care/giver/fields/work_location/line_in');
+	                    $this->load->view('frontend/care/giver/fields/work_location/live_out');
+	                    $this->load->view('frontend/care/giver/fields/work_location/caregiving_institution');
+	                ?>
+				</div>
+			</div>
             
             <div>
                 <label>Years of experience</label>
@@ -81,65 +55,38 @@
             <div>
                 <label>Able to work with</label>
                 <div class="form-field">                    
-                    <div class="checkbox"><input type="checkbox" value="Alz./ Dementia" name="willing_to_work[]" <?php if(in_array('Alz./ Dementia', $tempwillingtowork)){?> checked="checked"<?php }?>> <span>Alz./ Dementia</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Sight loss" name="willing_to_work[]" <?php if(in_array('Sight loss', $tempwillingtowork)){?> checked="checked"<?php }?>> <span>Sight loss</span></div>                                        
-                    <div class="checkbox"><input type="checkbox" value="Hearing loss" name="willing_to_work[]" <?php if(in_array('Hearing loss', $tempwillingtowork)){?> checked="checked"<?php }?>> <span>Hearing loss</span></div>
-                    <div class="checkbox"><input type="checkbox" value="Wheelchair bound" name="willing_to_work[]" <?php if(in_array('Wheelchair bound', $tempwillingtowork)){?> checked="checked"<?php }?>> <span>Wheelchair bound</span></div>                                        	
-                    <div class="checkbox"><input type="checkbox" value="Able To Tend To Personal Hygiene of Senior" name="willing_to_work[]" <?php if(in_array('Able To Tend To Personal Hygiene of Senior', $tempwillingtowork)){?> checked="checked"<?php }?>><span>Able To Tend To Personal Hygiene of Senior</span></div>						
-                </div>
-            </div>
-            <?php $this->load->view('frontend/care/giver/fields/rate'); ?>
-            
-            <div>
-                <label>Tell us about yourself (Short description not cv)</label>
-                <div class="form-field">
-                    <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
-                </div>
-            </div>
-            <div>
-            <label>References</label>
-            <div class="form-field not-required">
-            <div class="radio"><input type="radio" value="1" id="ref_check1" name="references" class="required" <?php echo isset($reference_file) && $ref =='1'?'checked':''?>/> Yes</div>
-            <div class="radio"><input type="radio" value="2" id="ref_check2" name="references" class="required" <?php echo isset($ref) && $ref != '1' ? 'checked' : '' ?> /> No</div>
-            </div>
-        </div>
-        
-        <div class="refrence_file" <?php echo isset($reference_file) && $ref =='1' ?"":"style='display:none;'" ?>>
-            <label></label>
-            <input type="hidden" id="file-name" name="file" value="<?php echo isset($reference_file)?$reference_file:'' ?>">
-            <button class="btn btn-primary" id="select_file">Select File</button>
-            <input type="file" name="file_upload" id="file_upload" style="display: none;"> 
-            <div id="output" class="loader"><?php echo isset($reference_file)?$reference_file:'' ?></div>
-        </div>
-            <div style="display:none">
-                <label>Your references details</label>
-                <div class="form-field not-required">
-                    <textarea style="display:none" name="references_details" class="txt"><?php echo isset($ref_det) ? $ref_det : '' ?></textarea>
-                </div>
-            </div>
-            <div style="display:none;">
-                <label>Agree to background check?</label>
-                <div class="form-field not-required">
-                    <div class="radio"><input type="radio" value="1" name="bg_check" class="required" <?php echo isset($bg_check) && $bg_check == 1 ? 'checked' : '' ?>/> Yes</div>
-                    <div class="radio"><input type="radio" value="2" name="bg_check" class="required" <?php echo isset($bg_check) && $bg_check == 2 ? 'checked' : '' ?> /> No</div>
+                    <div class="checkbox"><input type="checkbox" value="Alz./ Dementia" name="willing_to_work[]" <?php if(in_array('Alz./ Dementia', $willingtowork)){?> checked="checked"<?php }?>> <span>Alz./ Dementia</span></div>
+                    <div class="checkbox"><input type="checkbox" value="Sight loss" name="willing_to_work[]" <?php if(in_array('Sight loss', $willingtowork)){?> checked="checked"<?php }?>> <span>Sight loss</span></div>                                        
+                    <div class="checkbox"><input type="checkbox" value="Hearing loss" name="willing_to_work[]" <?php if(in_array('Hearing loss', $willingtowork)){?> checked="checked"<?php }?>> <span>Hearing loss</span></div>
+                    <div class="checkbox"><input type="checkbox" value="Wheelchair bound" name="willing_to_work[]" <?php if(in_array('Wheelchair bound', $willingtowork)){?> checked="checked"<?php }?>> <span>Wheelchair bound</span></div>                                        	
+                    <div class="checkbox"><input type="checkbox" value="Able To Tend To Personal Hygiene of Senior" name="willing_to_work[]" <?php if(in_array('Able To Tend To Personal Hygiene of Senior', $willingtowork)){?> checked="checked"<?php }?>><span>Able To Tend To Personal Hygiene of Senior</span></div>						
                 </div>
             </div>
             <div>
                 <label>Availability</label>
                 <div class="form-field">
-                    <div class="checkbox"><input type="checkbox" value="Immediate" name="availability[]" <?php if(in_array("Immediate",$time)){?> checked="checked"<?php }?>>Immediate</div>
-                    <div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]" <?php if(in_array("Start Date",$time)){?> checked="checked"<?php }?>>Start Date <input type="text" name="start_date" <?php if($date!='0000-00-00'){ echo 'value='.$date;}?> id="textbox1"/></div>
-                    <div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]" <?php if(in_array('Occassionally', $time)){?> checked="checked" <?php }?>> <span>Occassionally</span></div>
-					<div class="checkbox"><input type="checkbox" value="Regularly" name="availability[]" <?php if(in_array('Regularly', $time)){?> checked="checked" <?php }?>> <span>Regularly</span></div>
-					<div class="checkbox"><input type="checkbox" value="Morning" name="availability[]" <?php if(in_array('Morning', $time)){?> checked="checked" <?php }?>> <span>Morning</span></div>
-					<div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]" <?php if(in_array('Afternoon', $time)){?> checked="checked" <?php }?>> <span>Afternoon</span></div>
-					<div class="checkbox"><input type="checkbox" value="Evening" name="availability[]" <?php if(in_array('Evening', $time)){?> checked="checked" <?php }?>> <span>Evening</span></div>
-					<div class="checkbox"><input type="checkbox" value="Overnight" name="availability[]" <?php if(in_array('Overnight', $time)){?> checked="checked" <?php }?>><span>Overnight</span></div>
-					<div class="checkbox"><input type="checkbox" value="Weekends Fri./Sun." name="availability[]" <?php if(in_array('Weekends Fri./Sun.', $time)){?> checked="checked" <?php }?>> <span>Weekends Fri./Sun.</span></div>
-					<div class="checkbox"><input type="checkbox" value="Shabbos" name="availability[]" <?php if(in_array('Shabbos', $time)){?> checked="checked" <?php }?>><span>Shabbos</span></div>
-					<div class="checkbox"><input type="checkbox" value="24 hr care" name="availability[]" <?php if(in_array('24 hr care', $time)){?> checked="checked" <?php }?>> <span>24 hr care</span></div>
-                </div>
+                    <?php 
+						$this->load->view('frontend/care/giver/fields/availability/immediate');
+						$this->load->view('frontend/care/giver/fields/availability/start_date');
+						$this->load->view('frontend/care/giver/fields/availability/occasional');
+						$this->load->view('frontend/care/giver/fields/availability/regular');
+						$this->load->view('frontend/care/giver/fields/availability/morning');
+						$this->load->view('frontend/care/giver/fields/availability/afternoon');
+						$this->load->view('frontend/care/giver/fields/availability/evening');
+						$this->load->view('frontend/care/giver/fields/availability/overnight');
+						$this->load->view('frontend/care/giver/fields/availability/weekend');
+						$this->load->view('frontend/care/giver/fields/availability/shabbos');
+						$this->load->view('frontend/care/giver/fields/availability/twenty_four_hours');
+					?>
+				</div>
             </div>
+            <?php
+                $this->load->view('frontend/care/giver/fields/rate');
+                $this->load->view('frontend/care/giver/fields/about_yourself');
+                $this->load->view('frontend/care/giver/fields/references');
+                $this->load->view('frontend/care/giver/fields/background'); 
+            ?>
+            
 
             <h2>Abilities (check if yes)</h2>
 
@@ -161,34 +108,3 @@
     </form>
 </div>
 </div>
-<script>
-    $(document).ready(function(){
-    $("#ref_check1").click(function(){
-            $(".refrence_file").show();   
-        });
-        $("#ref_check2").click(function(){
-             	$.ajax({
-			         type: "POST",
-			         url: "<?php echo base_url(); ?>user/delete_ref_file",
-			         data: {file_name : $("#output").text()},
-			         success: function(r){
-                        $('#output').html(r);
-			         }
-		          });
-                     $(".refrence_file").hide(); 
-             $('#file-name').val('');   
-        });
-});
-</script>
-<!-- FILE UPLOAD -->
-<script type="text/javascript">
-    var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
-    var link = '<?php echo site_url("user/uploadfile?files")?>';
-    $('#select_file').click(function(e){
-        e.preventDefault();
-        $('#file_upload').trigger('click');
-    });//CODE BY Kiran
-</script>
-
-<script type="text/javascript" src="<?php echo site_url("js/fileuploader.js")?>"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">

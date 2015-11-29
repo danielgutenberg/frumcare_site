@@ -46,8 +46,10 @@ if(($this->uri->segment(2) != 'new_profile')){?>
         <label>We clean</label>
         <div class="form-field">
             <div class="first-block-checkbox">
-                <div><input type="checkbox" value="Home" name="looking_to_work[]"> <span>Homes</span></div>
-                <div><input type="checkbox" value="Business" name="looking_to_work[]"> <span>Office / Business</span></div>
+                <?php 
+                    $this->load->view('frontend/care/giver/fields/work_location/private_home');
+                    $this->load->view('frontend/care/giver/fields/work_location/business');
+                ?>
             </div>
 
         </div>

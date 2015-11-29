@@ -31,10 +31,10 @@ if(($this->uri->segment(2) != 'new_profile')){?>
             <label>Looking to work in</label>
             <div class="form-field">
                 <?php 
-                $this->load->view('frontend/care/giver/fields/work_location/my_home');
-                $this->load->view('frontend/care/giver/fields/work_location/childs_home');
-                $this->load->view('frontend/care/giver/fields/work_location/caregiving_institution');
-                $this->load->view('frontend/care/giver/fields/work_location/mothers_helper');
+                    $this->load->view('frontend/care/giver/fields/work_location/my_home');
+                    $this->load->view('frontend/care/giver/fields/work_location/childs_home');
+                    $this->load->view('frontend/care/giver/fields/work_location/caregiving_institution');
+                    $this->load->view('frontend/care/giver/fields/work_location/mothers_helper');
                 ?>
             </div>
         </div>

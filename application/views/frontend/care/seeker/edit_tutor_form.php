@@ -47,30 +47,11 @@ if($detail){
         <div class="top-welcome">
             <h2>Edit Job Details</h2>
         </div>
-       <div>
-            <label>Location </label>
-            <div id="locationField">
-                <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/>
-                <input type="hidden" id="cityName" name="city" value="<?php echo isset($city)?$city:''?>"/>
-                <input type="hidden" id="stateName" name="state" value="<?php echo isset($state)?$state:''?>"/>
-                <input type="hidden" id="countryName" name="country" value="<?php echo isset($country)?$country:''?>"/>
-                <input type="text" name="location" class="required" placeholder="Please enter a street address" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
-            </div> 
-             <span style="color:red;" id="error"> </span>
-        </div>
-         <div>
-            <label>Neighborhood / Street</label>
-            <div>
-            <input type="text" name="neighbour" class="txt" value="<?php echo isset($neighbour) ? $neighbour : '' ?>"/>
-            </div>    
-        </div>         
-        <div>
-            <label>Phone</label>
-            <div class="form-field">
-            <input type="text" name="contact_number" class="txt" value="<?php echo isset($phone) ? $phone : '' ?>" id="contact_number"/>
-            </div>
-        </div>
+        <?php 
+            $this->load->view('frontend/care/giver/fields/location');
+            $this->load->view('frontend/care/giver/fields/neighborhood'); 
+            $this->load->view('frontend/care/giver/fields/phone'); 
+         ?>
         <div>
             <label>Ages of student</label>
             <div class="form-field">
@@ -115,6 +96,8 @@ if($detail){
                 <div class="checkbox"><input type="checkbox" value="By appointment" name="availability[]" <?php if(in_array("By appointment",$temp)){?> checked="checked"<?php }?>>By appointment</div> 
             </div>
         </div>
+        
+        <?php $this->load->view('frontend/care/seeker/fields/wage'); ?>
         <!--<div>-->
         <!--    <label>Tell us about your needs</label>-->
         <!--    <div class="form-field">-->

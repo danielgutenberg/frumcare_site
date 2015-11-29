@@ -1,1 +1,2 @@
-<div class="checkbox"><input type="checkbox" name="availability[]" value="Weekends fri/sun"> <span>Weekends fri / sun</span></div>
+<div class="checkbox"><input type="checkbox" value="Weekends fri/sun" name="availability[]"<?php if(in_array('Weekends fri/sun', $availability)){?> checked="checked" <?php }?>> <span>Weekends fri/sun</span></div>
+                
