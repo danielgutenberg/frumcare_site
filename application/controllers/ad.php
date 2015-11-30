@@ -935,6 +935,7 @@ class Ad extends CI_Controller
                 }
                 $this->notifyUser();
                 $this->approveAds();
+                $this->sendRelevantAds($insert_new['lat'], $insert_new['lng'], $insert_new['city']);
                 $link = anchor('caregivers/all', 'here');
                 $message = 'Ad posted successfully. Your ad will be placed on the site after being approved by our team. <br> <span style="margin-left:159px">Click ' . $link . ' to search caregivers in your area<span>';
                 $this->session->set_flashdata('success', $message);
