@@ -2,7 +2,7 @@
     <label>Rate</label>
     <div class="form-field">
         <select name="currency" class="txt rate">
-          <option value="">Select Currency</option>
+          <option value="">Select currency</option>
 		  <option value="USD" <?php if($currency == 'USD') {?>selected<?php } ?>>&#36; U.S. Dollar</option>
 		  <!--<option value="">Select Currency</option>-->
 		  <!--<option value="AUD">Australian Dollar</option>-->

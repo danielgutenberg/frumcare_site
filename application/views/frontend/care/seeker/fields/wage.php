@@ -3,7 +3,7 @@
     
        <div class="form-field">
         <select name="currency" class="txt rate">
-		  <option value="">Select Currency</option>
+		  <option value="">Select currency</option>
 		  <!--<option value="AUD">Australian Dollar</option>-->
 		  <!--<option value="BRL">Brazilian Real </option>-->
 		  <!--<option value="CAD">Canadian Dollar</option>-->
