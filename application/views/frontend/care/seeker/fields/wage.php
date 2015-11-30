@@ -12,7 +12,7 @@
 		  <!--<option value="EUR">Euro</option>-->
 		  <!--<option value="HKD">Hong Kong Dollar</option>-->
 		  <!--<option value="HUF">Hungarian Forint </option>-->
-		  <option value="ILS">&#8362; Israeli New Sheqel</option>
+		  <option value="ILS" <?php if($currency == 'ILS') {?>selected<?php } ?>>&#8362; Israeli New Sheqel</option>
 		  <!--<option value="JPY">Japanese Yen</option>-->
 		  <!--<option value="MYR">Malaysian Ringgit</option>-->
 		  <!--<option value="MXN">Mexican Peso</option>-->
@@ -27,7 +27,7 @@
 		  <!--<option value="TWD">Taiwan New Dollar</option>-->
 		  <!--<option value="THB">Thai Baht</option>-->
 		  <!--<option value="TRY">Turkish Lira</option>-->
-		  <option value="USD" SELECTED="YES">&#36; U.S. Dollar</option>
+		  <option value="USD" <?php if($currency == 'USD') {?>selected<?php } ?>>&#36; U.S. Dollar</option>
         </select>
     </div>
     
@@ -35,13 +35,13 @@
     <div class="form-field">
         <select name="rate" class="">
             <option value="">Select rate</option>
-            <option value="5-10" <?php echo isset($rate) && $rate == '5-10' ? 'selected' : '' ?>>$5-$10 / Hr</option>
-            <option value="10-15" <?php echo isset($rate) && $rate == '10-15' ? 'selected' : '' ?>>$10-$15 / Hr</option>
-            <option value="15-25" <?php echo isset($rate) && $rate == '15-25' ? 'selected' : '' ?>>$15-$25 / Hr</option>
-            <option value="25-35" <?php echo isset($rate) && $rate == '25-35' ? 'selected' : '' ?>>$25-$35 / Hr</option>
-            <option value="35-45" <?php echo isset($rate) && $rate == '35-45' ? 'selected' : '' ?>>$35-$45 / Hr</option>
-            <option value="45-55" <?php echo isset($rate) && $rate == '45-55' ? 'selected' : '' ?>>$45-$55 / Hr</option>
-            <option value="55+" <?php echo isset($rate) && $rate == '55+' ? 'selected' : '' ?>>$55+ / Hr</option>
+            <option value="5-10" <?php echo isset($rate) && $rate == '5-10' ? 'selected' : '' ?>>5-10 / Hr</option>
+            <option value="10-15" <?php echo isset($rate) && $rate == '10-15' ? 'selected' : '' ?>>10-15 / Hr</option>
+            <option value="15-25" <?php echo isset($rate) && $rate == '15-25' ? 'selected' : '' ?>>15-25 / Hr</option>
+            <option value="25-35" <?php echo isset($rate) && $rate == '25-35' ? 'selected' : '' ?>>25-35 / Hr</option>
+            <option value="35-45" <?php echo isset($rate) && $rate == '35-45' ? 'selected' : '' ?>>35-45 / Hr</option>
+            <option value="45-55" <?php echo isset($rate) && $rate == '45-55' ? 'selected' : '' ?>>45-55 / Hr</option>
+            <option value="56" <?php echo isset($rate) && $rate == '56' ? 'selected' : '' ?>>55+ / Hr</option>
         </select>
     </div>
 </div>
