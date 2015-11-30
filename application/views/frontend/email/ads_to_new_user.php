@@ -11,7 +11,7 @@
 <?php $this->load->view('frontend/email/profile_list', array('userdatas'=>$userdatas));?>
 
 <br />
-<div style="text-align:center;font-family:Arial, Helvetica, sans-serif; font-size:18px; margin-bottom:5px;"><a href="<?php echo site_url() . $navigate . '/all';?>">Click here</a> to see more ads</div>
+<div style="text-align:center;font-family:Arial, Helvetica, sans-serif; font-size:18px; margin-bottom:5px;"><a href="<?php echo site_url() . $navigate . '/all';?>">Click here</a> to see more <?php echo $ad; ?></div>
 
 
 Thanks,

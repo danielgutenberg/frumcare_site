@@ -1006,7 +1006,7 @@ class Ad extends CI_Controller
         $name = explode(' ', $user[0]['name'])[0];
         $ac = $profile[0]['account_category'];
         $ct = $correspondingTypes[$profile[0]['care_type']];
-        $ad = $profile[0]['care_type'] > 16 ? 'jobs' : 'ads'; 
+        $ad = $profile[0]['care_type'] > 16 ? 'ads' : 'jobs'; 
         $location = ['lat' => $lat, 'lng' => $lng, 'place' => $city];
         $userdata       = $this->common_care_model->sort(10 ,$lat,$lng,'distance', $ac , $ct, 3000);
         $get_total_rows = count($userdata);                                                         
