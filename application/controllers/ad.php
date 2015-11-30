@@ -1002,21 +1002,26 @@ class Ad extends CI_Controller
             "29" => 7
         ];
         $profile = $this->common_model->get_where('tbl_userprofile', array('user_id' => check_user()));
+        $user = $this->common_model->get_where('tbl_user', array('id' => check_user()));
+        $name = explode(' ', $user[0]['name'])[0];
         $ac = $profile[0]['account_category'];
         $ct = $correspondingTypes[$profile[0]['care_type']];
+        $ad = $profile[0]['care_type'] > 16 ? 'jobs' : 'ads'; 
         $location = ['lat' => $lat, 'lng' => $lng, 'place' => $city];
         $userdata       = $this->common_care_model->sort(10 ,$lat,$lng,'distance', $ac , $ct, 3000);
         $get_total_rows = count($userdata);                                                         
         $data = array(
             'userdatas'		    => array_slice($userdata, 0, 4),
             'care_type'         => $ct,
-            'location'          => $location             				              				              				                            
+            'location'          => $location,
+            'ad'                => $ad,
+            'name'              => $name
         );                      
         
         $msg = $this->load->view('frontend/email/ads_to_new_user', $data, true);
 
         $param = array(
-            'subject'     => 'Thank you for joining Frumcare.com, here are a few ads in your area',
+            'subject'     => 'Thank you for joining FrumCare.com, here are a few ' . $ad . ' in your area',
             'from'        => SITE_EMAIL,
             'from_name'   => SITE_NAME,
             'replyto'     => SITE_EMAIL,
