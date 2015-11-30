@@ -984,11 +984,11 @@ class Ad extends CI_Controller
             "7" => 29,
             "8" => 24,
             "9" => 21,
-            "10" => 18,
+            "10" => 20,
             "13" => 26,
             "14" => 27,
-            "15" => 28,
-            "16" => 26,
+            "15" => 24,
+            "16" => 20,
             "17" => 1,
             "18" => 2,
             "19" => 4,
@@ -1002,12 +1002,40 @@ class Ad extends CI_Controller
             "28" => 8,
             "29" => 7
         ];
+        $careNames = [
+            "1" => 'babysitter',
+            "2" => 'nanny-au-pair',
+            "3" => 'babysitter',
+            "4" => 'tutor-private-lessons',
+            "5" => 'senior-caregiver',
+            "6" => 'special-needs-caregiver',
+            "7" => 'therapists',
+            "8" => 'cleaning-household-help',
+            "9" => 'errand-runner-odd-jobs-personal-assistant-driver',
+            "10" => 'nanny-au-pair',
+            "13" => 'senior-caregiver',
+            "14" => 'special-needs-caregiver',
+            "15" => 'cleaning-household-help',
+            "16" => 'senior-caregiver',
+            "17" => 'babysitter',
+            "18" => 'nanny-au-pair',
+            "19" => 'tutor-private-lessons',
+            "20" => 'senior-caregiver',
+            "21" => 'errand-runner-odd-jobs-personal-assistant-driver',
+            "22" => 'special-needs-caregiver',
+            "24" => 'cleaning-household-help',
+            "25" => 'babysitter',
+            "26" => 'senior-caregiver',
+            "27" => 'special-needs-caregiver',
+            "28" => 'cleaning-household-help',
+            "29" => 'therapists'
+        ];
         $profile = $this->common_model->get_where('tbl_userprofile', array('user_id' => check_user()));
         $user = $this->common_model->get_where('tbl_user', array('id' => check_user()));
         $name = explode(' ', $user[0]['name'])[0];
         $ac = $profile[0]['account_category'];
         $ct = $correspondingTypes[$profile[0]['care_type']];
-        $ad = $profile[0]['care_type'] > 16 ? 'ads' : 'jobs'; 
+        $ad = $profile[0]['care_type'] > 16 ? 'caregivers' : 'jobs'; 
         $location = ['lat' => $lat, 'lng' => $lng, 'place' => $city];
         $userdata       = $this->common_care_model->sort(10 ,$lat,$lng,'distance', $ac , $ct, 3000);
         $get_total_rows = count($userdata);                                                         
@@ -1016,7 +1044,8 @@ class Ad extends CI_Controller
             'care_type'         => $ct,
             'location'          => $location,
             'ad'                => $ad,
-            'name'              => $name
+            'name'              => $name,
+            'care_name'         => $careNames[$profile[0]['care_type']]
         );                      
         
         $msg = $this->load->view('frontend/email/ads_to_new_user', $data, true);
