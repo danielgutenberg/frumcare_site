@@ -34,6 +34,7 @@ if($detail){
     $city = $user_detail['city'];
     $state = $user_detail['state'];
     $country = $user_detail['country'];
+    $currency = $detail[0]['currency'];
 }
 ?>
 
@@ -60,9 +61,17 @@ if($detail){
             </div>
         </div>
         <?php 
-            $this->load->view('frontend/care/giver/fields/location');
-            $this->load->view('frontend/care/giver/fields/neighborhood'); 
-            $this->load->view('frontend/care/giver/fields/phone'); 
+            $data = [
+                'address' => $address,
+                'lat' => $lat,
+                'lng' => $lng,
+                'city' => $city,
+                'state' => $state,
+                'country' => $country
+            ];
+            $this->load->view('frontend/care/giver/fields/location', $data);
+            $this->load->view('frontend/care/giver/fields/neighborhood', ['neighbour' => $neighbour]); 
+            $this->load->view('frontend/care/giver/fields/phone', ['phone' => $phone]); 
          ?>
         <div>
             <label>Number of rooms</label>
@@ -116,7 +125,7 @@ if($detail){
                 <div class="checkbox"><input type="checkbox" value="Saturday" name="availability[]" <?php if(in_array("Saturday",$temp)){?> checked="checked"<?php }?>> Saturday</div>    
             </div>
         </div>
-        <?php $this->load->view('frontend/care/seeker/fields/wage'); ?>       
+        <?php $this->load->view('frontend/care/seeker/fields/wage', ['rate' => $rate, 'currency' => $currency]); ?>       
 
         <h2>Additional Requirements</h2>
         <div>

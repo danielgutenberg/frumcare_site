@@ -31,6 +31,7 @@ if($detail){
     $city = $user_detail['city'];
     $state = $user_detail['state'];
     $country = $user_detail['country'];
+    $currency = $detail[0]['currency'];
 }
 ?>
 <?php $care_type = $this->uri->segment(4);?>

@@ -36,6 +36,7 @@ if($detail){
     $city = $user_detail['city'];
     $state = $user_detail['state'];
     $country = $user_detail['country'];
+    $currency = $detail[0]['currency'];
 }
 ?>
 <?php $care_type = $this->uri->segment(4);?>
@@ -60,9 +61,17 @@ if($detail){
         </div>
     </div>
         <?php 
-            $this->load->view('frontend/care/giver/fields/location');
-            $this->load->view('frontend/care/giver/fields/neighborhood'); 
-            $this->load->view('frontend/care/giver/fields/phone'); 
+            $data = [
+                'address' => $address,
+                'lat' => $lat,
+                'lng' => $lng,
+                'city' => $city,
+                'state' => $state,
+                'country' => $country
+            ];
+            $this->load->view('frontend/care/giver/fields/location', $data);
+            $this->load->view('frontend/care/giver/fields/neighborhood', ['neighbour' => $neighbour]); 
+            $this->load->view('frontend/care/giver/fields/phone', ['phone' => $phone]); 
          ?>
     <div>
         <label>Age of person requiring care</label>
@@ -103,7 +112,7 @@ if($detail){
 			<div class="checkbox"><input type="checkbox" value="24 hr care" name="availability[]" <?php if(in_array("24 hr care",$time)){?> checked="checked"<?php }?>> <span>24 hr care</span></div>
         </div>
     </div>
-    <?php $this->load->view('frontend/care/seeker/fields/wage'); ?>
+    <?php $this->load->view('frontend/care/seeker/fields/wage', ['rate' => $rate, 'currency' => $currency]); ?>
     <div>
         <label>Tell us about needs</label>
         <div class="form-field">

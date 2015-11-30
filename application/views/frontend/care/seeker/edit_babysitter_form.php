@@ -35,6 +35,7 @@ if($detail){
     $caregiverage_from = $detail[0]['caregiverage_from'];
     $caregiverage_to = $detail[0]['caregiverage_to'];
     $rate = $detail[0]['rate'];
+    $currency = $detail[0]['currency'];
     $rate_type = explode(',',$detail[0]['rate_type']);
     $lat = $user_detail['lat'];
     $lng = $user_detail['lng'];  
@@ -66,9 +67,17 @@ if($detail){
             </div>
         </div>
         <?php 
-            $this->load->view('frontend/care/giver/fields/location');
-            $this->load->view('frontend/care/giver/fields/neighborhood'); 
-            $this->load->view('frontend/care/giver/fields/phone'); 
+            $data = [
+                'address' => $address,
+                'lat' => $lat,
+                'lng' => $lng,
+                'city' => $city,
+                'state' => $state,
+                'country' => $country
+            ];
+            $this->load->view('frontend/care/giver/fields/location', $data);
+            $this->load->view('frontend/care/giver/fields/neighborhood', ['neighbour' => $neighbour]); 
+            $this->load->view('frontend/care/giver/fields/phone', ['phone' => $phone]); 
          ?>
         <div>
             <label>Number of children</label>
@@ -141,7 +150,7 @@ if($detail){
             <input type="text" name="caregiverage_from" value="<?php echo isset($caregiverage_from)?$caregiverage_from:'';?>" placeholder="Age From" style="width:25%" class=""> to  <input type="text" name="caregiverage_to" value="<?php echo isset($caregiverage_to)?$caregiverage_to:'';?>" placeholder="Age To" style="width:25%" class="">
             </div>
         </div>
-        <?php $this->load->view('frontend/care/seeker/fields/wage'); ?>
+        <?php $this->load->view('frontend/care/seeker/fields/wage', ['rate' => $rate, 'currency' => $currency]); ?>
 
         <div>
             <label>Tell us about your needs</label>
