@@ -29,7 +29,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 					<div class="form-field">
 						<?php 
 		                    $this->load->view('frontend/care/giver/fields/work_location/home_of_senior');
-		                    $this->load->view('frontend/care/giver/fields/work_location/line_in');
+		                    $this->load->view('frontend/care/giver/fields/work_location/live_in');
 		                    $this->load->view('frontend/care/giver/fields/work_location/live_out');
 		                    $this->load->view('frontend/care/giver/fields/work_location/caregiving_institution');
 		                ?>

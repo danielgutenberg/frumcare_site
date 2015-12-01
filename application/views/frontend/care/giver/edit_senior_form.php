@@ -62,7 +62,7 @@
 				<div class="form-field">
 					<?php 
 	                    $this->load->view('frontend/care/giver/fields/work_location/home_of_senior', ['lookingtowork' => $lookingtowork]);
-	                    $this->load->view('frontend/care/giver/fields/work_location/line_in', ['lookingtowork' => $lookingtowork]);
+	                    $this->load->view('frontend/care/giver/fields/work_location/live_in', ['lookingtowork' => $lookingtowork]);
 	                    $this->load->view('frontend/care/giver/fields/work_location/live_out', ['lookingtowork' => $lookingtowork]);
 	                    $this->load->view('frontend/care/giver/fields/work_location/caregiving_institution', ['lookingtowork' => $lookingtowork]);
 	                ?>
