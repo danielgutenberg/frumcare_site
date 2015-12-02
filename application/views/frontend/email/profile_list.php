@@ -41,7 +41,7 @@ $careType = [
                 }
 // 			$reviewData = Review_model::countReviewById($data['id']);
             $navigate = $data['care_type']>16?'jobs':'caregivers'; ?> 	
-            <div style="margin-right: -15px; margin-left:-15px; width: 300px; height: 360px; border: 2px solid black; padding-bottom: 20px; padding-top: 20px; padding-left: 10px;">
+            <div style="margin-right: -15px; margin-left:-15px; width: 300px; height: 370px; border: 2px solid black; padding-bottom: 20px; padding-top: 20px; padding-left: 10px;">
             <div class="profile-img-wrap col-md-3 col-sm-3 col-xs-12" style="width:25%; float:left"> <?php
                 if($data['profile_picture']!="" && file_exists('images/profile-picture/'.$data['profile_picture'])) {?>
                     <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
@@ -82,9 +82,9 @@ $careType = [
                     }
 
                     if(preg_match('/'.$location1[0].'/',$data['location'])){
-                        echo '0 Miles Away From' . $data['city'];
+                        echo '0 Miles Away From ' . $data['city'];
                     }else{
-                        echo ceil($data['distance'])." Miles Away From" . $data['city'];  //location is passed from controller
+                        echo ceil($data['distance'])." Miles Away From " . $data['city'];  //location is passed from controller
                     }
 
 
