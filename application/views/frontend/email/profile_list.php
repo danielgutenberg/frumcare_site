@@ -41,26 +41,26 @@ $careType = [
                 }
 // 			$reviewData = Review_model::countReviewById($data['id']);
             $navigate = $data['care_type']>16?'jobs':'caregivers'; ?> 	
-            <div style="margin-right: -15px; margin-left:-15px; width: 520px; height: 360px; border: 2px solid black; padding-bottom: 20px; padding-top: 20px; padding-left: 10px;">
-            <div class="profile-img-wrap col-md-3 col-sm-3 col-xs-12" style="width:15%; float:left"> <?php
+            <div style="margin-right: -15px; margin-left:-15px; width: 300px; height: 360px; border: 2px solid black; padding-bottom: 20px; padding-top: 20px; padding-left: 10px;">
+            <div class="profile-img-wrap col-md-3 col-sm-3 col-xs-12" style="width:25%; float:left"> <?php
                 if($data['profile_picture']!="" && file_exists('images/profile-picture/'.$data['profile_picture'])) {?>
                     <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
     		            <div id="profile_image">
-    		            	<img style="height:55px; width:55px" src="<?php echo site_url("images/profile-picture/{$data['profile_picture']}")?>">
+    		            	<img style="height:65px; width:65px" src="<?php echo site_url("images/profile-picture/{$data['profile_picture']}")?>">
     		            </div>
     	            </a><?php }
                 else {  
                     if($data['photo_of_child']!="" && file_exists('images/profile-picture/'.$data['photo_of_child'])) {?>
                         <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
         		            <div id="profile_image">
-        		            	<img style="height:55px; width:55px" src="<?php echo site_url("images/profile-picture/{$data['photo_of_child']}")?>">
+        		            	<img style="height:65px; width:65px" src="<?php echo site_url("images/profile-picture/{$data['photo_of_child']}")?>">
         		            </div>
         	            </a><?php } else { ?>
                 
                 
                     <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
 			            <div id="profile_image">
-			            	<img style="height:55px; width:55px" src="<?php echo site_url("images/no-image.jpg")?>">
+			            	<img style="height:65px; width:65px" src="<?php echo site_url("images/no-image.jpg")?>">
                         </div>
                     </a><?php 
                 }} ?>
@@ -91,7 +91,7 @@ $careType = [
     	        	?>
     	        </div>
 	        </div>
-        	<div style="float:left; width:85%;">
+        	<div style="float:left; width:75%;">
                 <?php if ($data['account_category'] == 3) {?>
                 <span style="color: #525252;display: inline-block;font-family: 'Lato',sans-serif;font-size: 29px;font-weight: 400;margin-bottom: 4px;margin-left: 0;margin-right: 8px;">
 					<a style="color: #525252;display: inline-block;font-family: 'Lato',sans-serif;font-size: 29px;font-weight: 400;margin-bottom: 4px;margin-left: 0;margin-right: 8px;" href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo ucwords($data['organization_name']);?></a>
@@ -141,7 +141,7 @@ $careType = [
 				
 				<div style="color: #525252;font-family: 'Lato',sans-serif;font-size: 14px;font-weight: 400;line-height: 19px;margin-bottom: 3px;margin-top: 10px;box-sizing:border-box;display: block;">
 					<?php if(!empty($data['profile_description'])) { ?>
-                    <?php echo substr(trim($data['profile_description']), 0, 250)." .....";?>
+                    <?php echo substr(trim($data['profile_description']), 0, 170)." .....";?>
                     <?php } 
                     else {
                         echo "Description not available";
