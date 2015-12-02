@@ -41,26 +41,26 @@ $careType = [
                 }
 // 			$reviewData = Review_model::countReviewById($data['id']);
             $navigate = $data['care_type']>16?'jobs':'caregivers'; ?> 	
-            <div style="margin-right: -15px; margin-left:-15px; height: 230px; border: 2px solid black; padding-bottom: 20px; padding-top: 20px; padding-left: 10px;">
+            <div style="margin-right: -15px; margin-left:-15px; width: 520px; height: 295px; border: 2px solid black; padding-bottom: 20px; padding-top: 20px; padding-left: 10px;">
             <div class="profile-img-wrap col-md-3 col-sm-3 col-xs-12" style="width:15%; float:left"> <?php
                 if($data['profile_picture']!="" && file_exists('images/profile-picture/'.$data['profile_picture'])) {?>
                     <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
     		            <div id="profile_image">
-    		            	<img style="height:100px; width:100px" src="<?php echo site_url("images/profile-picture/{$data['profile_picture']}")?>">
+    		            	<img style="height:50px; width:50px" src="<?php echo site_url("images/profile-picture/{$data['profile_picture']}")?>">
     		            </div>
     	            </a><?php }
                 else {  
                     if($data['photo_of_child']!="" && file_exists('images/profile-picture/'.$data['photo_of_child'])) {?>
                         <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
         		            <div id="profile_image">
-        		            	<img style="height:100px; width:100px" src="<?php echo site_url("images/profile-picture/{$data['photo_of_child']}")?>">
+        		            	<img style="height:50px; width:50px" src="<?php echo site_url("images/profile-picture/{$data['photo_of_child']}")?>">
         		            </div>
         	            </a><?php } else { ?>
                 
                 
                     <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
 			            <div id="profile_image">
-			            	<img style="height:100px; width:100px" src="<?php echo site_url("images/no-image.jpg")?>">
+			            	<img style="height:50px; width:50px" src="<?php echo site_url("images/no-image.jpg")?>">
                         </div>
                     </a><?php 
                 }} ?>
