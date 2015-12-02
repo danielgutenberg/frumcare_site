@@ -46,21 +46,21 @@ $careType = [
                 if($data['profile_picture']!="" && file_exists('images/profile-picture/'.$data['profile_picture'])) {?>
                     <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
     		            <div id="profile_image">
-    		            	<img style="height:50px; width:50px" src="<?php echo site_url("images/profile-picture/{$data['profile_picture']}")?>">
+    		            	<img style="height:70px; width:70px" src="<?php echo site_url("images/profile-picture/{$data['profile_picture']}")?>">
     		            </div>
     	            </a><?php }
                 else {  
                     if($data['photo_of_child']!="" && file_exists('images/profile-picture/'.$data['photo_of_child'])) {?>
                         <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
         		            <div id="profile_image">
-        		            	<img style="height:50px; width:50px" src="<?php echo site_url("images/profile-picture/{$data['photo_of_child']}")?>">
+        		            	<img style="height:70px; width:70px" src="<?php echo site_url("images/profile-picture/{$data['photo_of_child']}")?>">
         		            </div>
         	            </a><?php } else { ?>
                 
                 
                     <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
 			            <div id="profile_image">
-			            	<img style="height:50px; width:50px" src="<?php echo site_url("images/no-image.jpg")?>">
+			            	<img style="height:70px; width:70px" src="<?php echo site_url("images/no-image.jpg")?>">
                         </div>
                     </a><?php 
                 }} ?>
@@ -174,7 +174,7 @@ $careType = [
 					} ?> 
 			    </h5>
 			    <?php } ?>
-				<div style="display: inline-block; margin-left: 15px; width: 225px; float: left;box-sizing:border-box;"> <?php 
+				<div style="display: inline-block; margin-left: -15px; width: 225px; float: left;box-sizing:border-box;"> <?php 
                     
                     //for caregivers
                     if($data['care_type'] <10 ) { ?>
@@ -208,7 +208,7 @@ $careType = [
                     
                     <?php  } ?>
 
-                    </div><div style="display: inline-block; margin-left: 15px; width: 225px; float: left;box-sizing:border-box;">
+                    </div><div style="display: inline-block; margin-left: -15px; width: 225px; float: left;box-sizing:border-box;">
                                         
                     <?php 
                     
