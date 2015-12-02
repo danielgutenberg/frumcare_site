@@ -309,7 +309,11 @@ class Common_care_model extends CI_Model
         if($distance != "unlimited"){
             $sql.=" having distance <= $distance";
         }
-        $sql.= " order by $option $sort_by";
+        $order_type = 'asc';
+        if($sort_by == 'tbl_userprofile.id'){
+            $order_type = 'desc';
+        }
+        $sql.= " order by $sort_by $order_type";
 		$query 	= $this->db->query($sql);
 		$res 	= $query->result_array();
 		if($res)
