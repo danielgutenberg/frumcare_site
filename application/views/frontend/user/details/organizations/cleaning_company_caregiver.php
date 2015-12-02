@@ -2,7 +2,12 @@
   <table class="table table-striped">
     <?php
     $cross = "<img src='".site_url()."img/cross.png'>";
-    $tick  = "<img src='".site_url()."img/nut-list.png'>";    
+    $tick  = "<img src='".site_url()."img/nut-list.png'>";   
+    if($currency == 'ILS') {
+    $symbol = "&#8362;"; 
+} else {
+    $symbol = '$';
+}
     ?>
     
     
@@ -86,7 +91,7 @@
       $type = "Monthly Rate";
     ?>
     <td>Rate</td>
-    <td><div class="details-info"><?php echo $rate.' / Hr ';?></div></td>
+    <td><div class="details-info"><?php echo $symbol . $rate.' / Hr ';?></div></td>
     <?php }  
                 else{ ?>
                     <td>Rate</td>

@@ -13,6 +13,11 @@
         if ($country != '') {
             $location .= ', ' . $country;
         }
+        if($currency == 'ILS') {
+    $symbol = "&#8362;"; 
+} else {
+    $symbol = '$';
+}
         ?>
         
         <?php if(!empty($location)){ ?>
@@ -33,30 +38,12 @@
           } ?>
         
         
-        <?php if(!empty($zip)){ ?>
-        <!--<tr>-->
-        <!--    <td>zip</td>-->
-        <!--    <td>-->
-        <!--        <?php //echo $zip; ?>-->
-        <!--    </td>-->
-        <!--</tr>-->
-        <?php }
-        else{
-            ?>
-                <!--<tr>-->
-                <!--    <td >zip </td>-->
-                <!--    <td>N/A</td>-->
-                <!--</tr>-->
-            <?php
-          } ?>
-        
-        
-        
+
         <?php if(!empty($rate)){ ?>    
         <tr>
             <td>Wage</td>
             <td >
-            <?php echo $rate . '/Hr'; 
+            <?php echo $symbol . $rate . '/Hr'; 
             $type = explode(',',$rate_type);
             ?>
             <!--<div class="details-info"><?php if(in_array('1',$type)){echo $tick; }else{echo $cross; } ?>  Hourly Rate</div>-->

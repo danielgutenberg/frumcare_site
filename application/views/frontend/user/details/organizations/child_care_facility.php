@@ -1,6 +1,11 @@
 <?php
 $cross = " <img src='".site_url()."img/cross.png'>";
 $tick  = " <img src='".site_url()."img/nut-list.png'>";
+if($currency == 'ILS') {
+    $symbol = "&#8362;"; 
+} else {
+    $symbol = '$';
+}
 ?>
 <div class="table-responsive">
 	<table class="table table-striped">
@@ -13,7 +18,7 @@ $tick  = " <img src='".site_url()."img/nut-list.png'>";
         <tr>
             <td>Wage</td>
             <td >
-            <?php echo $rate . ' / Hr'; 
+            <?php echo $symbol . $rate . ' / Hr'; 
             $type = explode(',',$rate_type);
             ?>
             <!--<div class="details-info"><?php if(in_array('1',$type)){echo $tick; }else{echo $cross; } ?>  Hourly Rate</div>-->

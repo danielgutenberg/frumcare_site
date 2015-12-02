@@ -13,6 +13,11 @@
         if ($country != '') {
             $location .= ', ' . $country;
         }
+        if($currency == 'ILS') {
+            $symbol = "&#8362;"; 
+        } else {
+            $symbol = '$';
+        }
         ?>
         
         <?php if(!empty($location)){ ?>
