@@ -82,9 +82,9 @@ $careType = [
                     }
 
                     if(preg_match('/'.$location1[0].'/',$data['location'])){
-                        echo '0 Miles Away';
+                        echo '0 Miles Away From' . $data['city'];
                     }else{
-                        echo ceil($data['distance'])." Miles Away";  //location is passed from controller
+                        echo ceil($data['distance'])." Miles Away From" . $data['city'];  //location is passed from controller
                     }
 
 
@@ -294,6 +294,7 @@ $careType = [
 				 	<a style="background: none repeat scroll 0 0 #85bd30;border: medium none;font-size: 16px;margin-left: -8px;margin-top: 30px;width: 162px;color: #fff;" href="<?php echo site_url().$navigate; ?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" >See full Profile</a>
 			</div>
 		</div>
+		<br><br>
 		<div style="line-height: 1.42857143;color: #6a6a6a; font-family: 'Varela Round', 'Helvetica Neue', Helvetica, Arial, sans-serif;display:block;font-size: 14px;"></div>
         <?php 		
 		} //end of foreach
