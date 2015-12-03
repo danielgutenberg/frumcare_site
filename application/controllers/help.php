@@ -103,7 +103,7 @@ class Help extends CI_Controller{
             $this->load->library('email',$config);
             $this->email->set_newline("\r\n"); 			
 			$this->email->from('noreply@frumcare.com', 'FRUMCARE');
-			$this->email->to($receiveremail);
+			$this->email->to('info@frumcare.com');
 			$this->email->reply_to($emaildata['email']);
 			$this->email->subject('Help Needed');
 			$this->email->message($this->load->view('emails/contactus', $emaildata, true));
