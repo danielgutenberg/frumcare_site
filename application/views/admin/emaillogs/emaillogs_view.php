@@ -14,6 +14,7 @@
                         <table id="dt_basic" class="table table-striped table-bordered table-hover">
                         <thead>
                                 <tr class="success">
+                                    <th style="display:none"></th>
                                     <th>Subject</th>
                                     <th>Sent By</th>
                                     <th>Sent To</th>
@@ -34,6 +35,7 @@
                                     {
                                         ?>
                                         <tr>
+                                            <td style="display:none"><?php echo 100000000000000 - strtotime($cat['sent_date'])?></td>
                                             <td><?php echo $cat['email_subject'];?></td>
                                             <td><?php echo $cat['sent_by'];?></td>
                                             <td><?php echo $cat['sent_to'];?></td>

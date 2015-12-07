@@ -20,6 +20,7 @@
                            <!--  <div class="dt-top-row"><div id="dt_basic_length" class="dataTables_length"><span class="smart-form"><label style="width:60px" class="select"><select name="dt_basic_length" size="1" aria-controls="dt_basic"><option value="10" selected="selected">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select><i></i></label></span></div><div class="dataTables_filter" id="dt_basic_filter"><div class="input-group"><span class="input-group-addon"><i class="fa fa-search"></i></span><input type="text" placeholder="Filter" class="form-control" aria-controls="dt_basic"></div></div> -->
                                 <thead>
                         		<tr>
+                        		    <th style="display:none"></th>
                         			<th>User Id</th>
                         			<th>Name</th>
                                     <th>Category</th>
@@ -35,6 +36,7 @@
                         	<tbody>
                         		<?php foreach($user_data as $ud) { ?>
                                 <tr>
+                                    <td style="display:none"><?php echo 100000000000000 - strtotime($ud['created_time'])?></td>
                                     <td><?php echo $ud['user_id'];?></td>
                                     <td><?php echo $ud['name'] ?></td>
                                     <td>

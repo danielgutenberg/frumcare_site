@@ -26,6 +26,10 @@
                                     //print_r($cat);
                                     ?>
                                         <tr>
+                                            <th>Email Sent Date</th>
+                                            <td><?php echo $cat['sent_date'];?></td>
+                                        </tr>
+                                        <tr>
                                             <th>Email Subject</th>
                                             <td class="email_subject"><?php echo $cat['email_subject'];?></td>
                                         </tr>
@@ -37,10 +41,7 @@
                                             <th>Email Sent To</th>
                                             <td class="sent_to"><?php echo $cat['sent_to'];?></td>
                                         </tr>
-                                        <tr>
-                                            <th>Email Sent Date</th>
-                                            <td><?php echo $cat['sent_date'];?></td>
-                                        </tr>
+                                        
                                         <tr>
                                             <th>Email Content</th>
                                             <td class="content"><?php echo $cat['email_content'];?></td>
