@@ -118,25 +118,9 @@ $careType = [
                 }
                 if($data['care_type'] > 16){
                     echo $type .' needed - '.$loca;                                                               
-                } 
+                } ?>
                 
-                //for caregivers
-                if($data['care_type'] <10 ) {
-                    $training_arr = explode(',',$data['training']); ?>
-                    <div style="float: right;height: 41px;margin-top: -28px;width: 168px;margin-right: 10px;box-sizing:border-box;display: block;">                            
-                        <?php if(isset($data['driver_license']) && $data['driver_license'] == 1){ ?>
-                            <img src="<?php echo site_url()?>img/car-badge.png" title="Has a vehicle"/>
-                        <?php } ?>
-                        
-                        <?php if(in_array(strtolower('First Aid'), array_map('strtolower',$training_arr))){ ?>
-                            <img src="<?php echo site_url()?>img/first-aid-badge.png" title="Has first aid training"/>
-                        <?php } ?>
-                        
-                        <?php if(in_array(strtolower('CPR'), array_map('strtolower',$training_arr))){ ?>
-                            <img src="<?php echo site_url()?>img/health-badge.png" title="Has CPR training"/>
-                        <?php } ?>
-                    </div> <?php 
-                } ?>                        
+               
 				<div style="border-bottom: 1px dashed #cccccc;box-sizing:border-box;display:block"></div>
 				
 				<div style="color: #525252;font-family: 'Lato',sans-serif;font-size: 14px;font-weight: 400;line-height: 19px;margin-bottom: 3px;margin-top: 10px;box-sizing:border-box;display: block;">
