@@ -1011,7 +1011,6 @@ class Ad extends CI_Controller
         
         $user_id = check_user();
         $profile = $this->common_model->get_where('tbl_userprofile', array('user_id' => $user_id));
-        print_r($profile[0]['care_type']);
         $data = array(
             'user_id'               => $user_id, 
             'care_type'             => $correspondingTypes[$profile[0]['care_type']],
@@ -1021,7 +1020,6 @@ class Ad extends CI_Controller
             'distance'              => 30,
             'createAlert'           => 1
         );
-        print_r($data);
         $q = $this->db->insert('tbl_searchhistory',$data);
     }
     
