@@ -84,10 +84,11 @@
         function add(){
             var data = '';
             if ($('.forwardform').css('display') == 'none') {
-                data = $('#replyemail').serializeArray();
+                data = $('#replyemailForm').serializeArray();
             } else {
-                data = $('#forwardemail').serializeArray();
+                data = $('#forwardemailForm').serializeArray();
             }
+            console.log(data);
             var $myRequest = $.ajax({
                 type:"post",
                 url:"<?php echo site_url();?>admin/emaillogs/reply",
@@ -138,7 +139,7 @@
 <!-- reply email starts-->
 <div id="dialog_simple">
     <div class="replyform" style="display:none;">
-        <form method="post" action="" id="replyemail">
+        <form method="post" action="" id="replyemailForm">
                 <table>
                     <tr>
                         <th>To:</th>
@@ -166,7 +167,7 @@
 
 
     <div class="forwardform" style="display:none;">
-            <form method="post" action="" id="forwardemail">
+            <form method="post" action="" id="forwardemailForm">
                 <table> 
                     <tr>
                         <th>To</th>    
