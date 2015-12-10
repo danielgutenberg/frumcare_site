@@ -72,8 +72,8 @@ class Emaillogs extends CI_Controller
             $this->email->subject($subject);
             $this->email->message($message);
             
-            $this->email->send();
-            
+            $a = $this->email->send();
+            echo $a;
             //echo $this->email->print_debugger();
 
         }

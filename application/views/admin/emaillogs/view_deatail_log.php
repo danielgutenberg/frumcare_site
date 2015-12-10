@@ -82,10 +82,16 @@
         });
 
         function add(){
+            var data = '';
+            if ($('.forwardform').css('display') == 'none') {
+                data = $('#replyemail').serializeArray();
+            } else {
+                data = $('#forwardemail').serializeArray();
+            }
             var $myRequest = $.ajax({
                 type:"post",
                 url:"<?php echo site_url();?>admin/emaillogs/reply",
-                data : $('#replyemail').serializeArray(),
+                data : data,
                 success:function(msg){
                     $('#dialog_simple').dialog("close");
                 }
