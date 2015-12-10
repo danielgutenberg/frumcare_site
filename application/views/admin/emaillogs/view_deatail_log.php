@@ -165,7 +165,7 @@
                     <tr>
                         <th>To</th>    
                         <td>
-                            <input type="text" name="receiver" class="form-control" />
+                            <input type="text" name="send_to" class="form-control" />
                         </td>
                     </tr>
                     <tr>
@@ -177,7 +177,7 @@
                     <tr>
                         <th>Message</th>
                         <td>
-                            <textarea name="message" rows="5" cols="20" class="message"></textarea>
+                            <textarea name="email_content" rows="5" cols="20" class="message"></textarea>
                         </td>
                     </tr>
                 </table>
