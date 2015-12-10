@@ -1,6 +1,8 @@
 <?php if (!defined('BASEPATH'))exit('No direct script access allowed');
 class Ad extends CI_Controller
 {
+    
+    
     function __construct()
     {
         parent::__construct();
@@ -11,11 +13,13 @@ class Ad extends CI_Controller
         $this->load->model('payment_model');
         $this->load->model('user_model');
         $this->load->model('caretype_model');
+        $this->load->model('common_model');
         $this->load->model('review_model');
         $this->load->model('common_care_model');
         $this->load->model('email_template_model');
         $this->load->model('refrence_model');
         $this->load->helper('url');
+        
     }
 
     function index(){
@@ -267,6 +271,7 @@ class Ad extends CI_Controller
                 $q = $this->common_model->update('tbl_user', $insert_new, array('id' => check_user()));
                 $q = $this->common_model->update('tbl_userprofile', $insert, array('user_id' => check_user()));
                 $this->sendRelevantAds($insert_new['lat'], $insert_new['lng'], $insert_new['city']);
+                $this->setUpInitialAlert($insert_new['city'], $insert_new['lat'], $insert_new['lng']);
             }
 
             if ($p['account_category'] == 1)
@@ -936,6 +941,7 @@ class Ad extends CI_Controller
                 $this->notifyUser();
                 $this->approveAds();
                 $this->sendRelevantAds($insert_new['lat'], $insert_new['lng'], $insert_new['city']);
+                $this->setUpInitialAlert($insert_new['city'], $insert_new['lat'], $insert_new['lng']);
                 $link = anchor('caregivers/all', 'here');
                 $message = 'Ad posted successfully. Your ad will be placed on the site after being approved by our team. <br> <span style="margin-left:159px">Click ' . $link . ' to search caregivers in your area<span>';
                 $this->session->set_flashdata('success', $message);
@@ -972,6 +978,53 @@ class Ad extends CI_Controller
         }
     }
     
+    function setUpInitialAlert($location, $lat, $lng)
+    {
+        $correspondingTypes = [
+            "1" => 17,
+            "2" => 18,
+            "3" => 17,
+            "4" => 19,
+            "5" => 20,
+            "6" => 22,
+            "7" => 29,
+            "8" => 24,
+            "9" => 21,
+            "10" => 20,
+            "13" => 26,
+            "14" => 27,
+            "15" => 24,
+            "16" => 20,
+            "17" => 1,
+            "18" => 2,
+            "19" => 4,
+            "20" => 5,
+            "21" => 9,
+            "22" => 6,
+            "24" => 8,
+            "25" => 1,
+            "26" => 5,
+            "27" => 6,
+            "28" => 8,
+            "29" => 7
+        ];
+        
+        $user_id = check_user();
+        $profile = $this->common_model->get_where('tbl_userprofile', array('user_id' => $user_id));
+        print_r($profile[0]['care_type']);
+        $data = array(
+            'user_id'               => $user_id, 
+            'care_type'             => $correspondingTypes[$profile[0]['care_type']],
+            'lat'                   => $lat,
+            'long'                  => $lng,
+            'location'              => $location,
+            'distance'              => 30,
+            'createAlert'           => 1
+        );
+        print_r($data);
+        $q = $this->db->insert('tbl_searchhistory',$data);
+    }
+    
     function sendRelevantAds($lat = 43, $lng = 79, $city = 'Toronto')
     {
         $correspondingTypes = [
@@ -1002,6 +1055,7 @@ class Ad extends CI_Controller
             "28" => 8,
             "29" => 7
         ];
+        
         $careNames = [
             "1" => 'babysitter',
             "2" => 'nanny-au-pair',

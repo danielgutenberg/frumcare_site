@@ -292,6 +292,7 @@ $(function(){
             $("#stateName").val('');
             $("#countryName").val('');
             var place = autocomplete.getPlace();
+            $('.locationName').val(place.formatted_address)
             var lat = place.geometry.location.lat();
             var lng = place.geometry.location.lng();
             var i = 0;

@@ -849,11 +849,22 @@ class User_model extends CI_Model
         else
             return false;
     }
+    
+    public function getAlert($user_id, $id)
+    {
+        $sql    = "select tbl_searchhistory.*, tbl_care.service_name from tbl_searchhistory join tbl_care on tbl_searchhistory.care_type = tbl_care.id where user_id = $user_id and tbl_searchhistory.id = $id and  searcheddate < NOW() order by searcheddate desc";
+        $query  = $this->db->query($sql);
+        $res    = $query->result_array();
+        if($res)
+            return $res;
+        else
+            return false;
+    }
 
     public function getCurrentSearches($uid){
         $sql = "select *  from tbl_searchhistory where user_id = $uid  and searcheddate = CURDATE() order by id desc";
         $query  = $this->db->query($sql);
-        $res    = $query->result_array();
+        $res    = $query->row_array();
         if($res)
             return $res;
         else

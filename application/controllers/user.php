@@ -1382,6 +1382,108 @@ class User extends CI_Controller
 
         $this->load->view(FRONTEND_TEMPLATE,$data);
       }
+      
+      public function edit_search($id)
+      {
+            $user_id = $this->session->userdata['current_user'];
+            $distance = $this->input->post('distance', true) == 'unlimited' ? 99999 : $this->input->post('distance', true);
+            $data = array(
+                'user_id'               => $user_id, 
+                'gender_of_caregiver'   => $this->input->post('gender',true),
+                'smoker'                => $this->input->post('smoker',true),
+                'language'              => $this->input->post('lang',true),
+                // 'observance'            => $this->input->post('observance',true),
+                'number_of_children'    => $this->input->post('number_of_children',true),
+                'morenum'               => $this->input->post('morenum',true),
+                'age_group'             => $this->input->post('age_group',true),
+                'looking_to_work'       => $this->input->post('year_experience',true),
+                'driver_license'        => $this->input->post('driver_license',true),
+                'vehicle'               => $this->input->post('vehicle',true),
+                'pick_up_child'         => $this->input->post('pick_up_child',true),
+                'cook'                  => $this->input->post('cook',true),
+                'basic_housework'       => $this->input->post('basic_housework',true),
+                'homework_help'         => $this->input->post('homework_help',true),
+                'on_short_notice'       => $this->input->post('on_short_notice',true),
+                'caregiverage_from'     => $this->input->post('caregiverage_from',true),
+                'caregiverage_to'       => $this->input->post('caregiverage_to',true),
+                'start_date'            => $this->input->post('start_date',true),
+                'care_type'             => $this->input->post('care_type',true) > 0 ? $this->input->post('care_type',true) : 0,
+                'lat'                   => $this->input->post('lat', true),
+                'long'                  => $this->input->post('lng', true),
+                'location'              => $this->input->post('location', true),
+                'distance'              => $distance,
+                'createAlert'           => 1
+            );
+            print_r($data);
+            $this->db->where(array('user_id' => $user_id, 'id' => $id));
+            $this->db->update('tbl_searchhistory', $data);
+      }
+      
+      public function add_new_alert($care_type = null)
+        {
+            $this->breadcrumbs->push('Create New', site_url().'#');
+            $this->breadcrumbs->unshift('My Searches', site_url().'user/searches');
+            $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
+    
+            $current_user = $this->session->userdata['current_user'];
+            $record['care_type'] = $care_type;
+    
+            $data = array(
+                'title'         => 'Search History',
+                'main_content'  => 'frontend/user/add_new_alert',
+                'user'          =>  $current_user,
+                'record'          =>  $record
+            );
+    
+            $this->load->view(FRONTEND_TEMPLATE,$data);
+        }
+      
+        public function edit_alert($id, $caretype)
+        {
+            $careNames = [
+                "1" => 'babysitter',
+                "2" => 'nanny-au-pair',
+                "3" => 'babysitter',
+                "4" => 'tutor-private-lessons',
+                "5" => 'senior-caregiver',
+                "6" => 'special-needs-caregiver',
+                "7" => 'therapists',
+                "8" => 'cleaning-household-help',
+                "9" => 'errand-runner-odd-jobs-personal-assistant-driver',
+                "10" => 'nanny-au-pair',
+                "13" => 'senior-caregiver',
+                "14" => 'special-needs-caregiver',
+                "15" => 'cleaning-household-help',
+                "16" => 'senior-caregiver',
+                "17" => 'babysitter',
+                "18" => 'nanny-au-pair',
+                "19" => 'tutor-private-lessons',
+                "20" => 'senior-caregiver',
+                "21" => 'errand-runner-odd-jobs-personal-assistant-driver',
+                "22" => 'special-needs-caregiver',
+                "24" => 'cleaning-household-help',
+                "25" => 'babysitter',
+                "26" => 'senior-caregiver',
+                "27" => 'special-needs-caregiver',
+                "28" => 'cleaning-household-help',
+                "29" => 'therapists'
+            ];
+            
+            $this->breadcrumbs->push('My Searches', site_url().'#');
+            $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
+    
+            $current_user = $this->session->userdata['current_user'];
+            $record = $this->user_model->getAlert($current_user, $id)[0];
+            $record['care_slug'] = $careNames[$record['care_type']];
+    
+            $data = array(
+                'title'         => 'Search History',
+                'main_content'  => 'frontend/user/edit_alert',
+                'record'        =>  $record
+            );
+    
+            $this->load->view(FRONTEND_TEMPLATE,$data);
+        }
 
       public function createalert($id)
       {
