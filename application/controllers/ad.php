@@ -1089,29 +1089,31 @@ class Ad extends CI_Controller
         $ct = $correspondingTypes[$profile[0]['care_type']];
         $ad = $profile[0]['care_type'] > 16 ? 'caregivers' : 'jobs'; 
         $location = ['lat' => $lat, 'lng' => $lng, 'place' => $city];
-        $userdata       = $this->common_care_model->sort(10 ,$lat,$lng,'distance', $ac , $ct, 3000);
-        $get_total_rows = count($userdata);                                                         
-        $data = array(
-            'userdatas'		    => array_slice($userdata, 0, 4),
-            'care_type'         => $ct,
-            'location'          => $location,
-            'ad'                => $ad,
-            'name'              => $name,
-            'care_name'         => $careNames[$profile[0]['care_type']]
-        );                      
-        
-        $msg = $this->load->view('frontend/email/ads_to_new_user', $data, true);
-
-        $param = array(
-            'subject'     => 'Thank you for joining FrumCare.com, here are a few ' . $ad . ' in your area',
-            'from'        => SITE_EMAIL,
-            'from_name'   => SITE_NAME,
-            'replyto'     => SITE_EMAIL,
-            'replytoname' => SITE_NAME,
-            'sendto'      => 'danielguten@gmail.com',
-            'message'     => $msg
-        );
-        sendemail($param);
+        $userdata       = $this->common_care_model->sort(10 ,$lat,$lng,'distance', $ac , $ct, 30);
+        $get_total_rows = count($userdata);  
+        if ($get_total_rows > 0) {
+            $data = array(
+                'userdatas'		    => array_slice($userdata, 0, 4),
+                'care_type'         => $ct,
+                'location'          => $location,
+                'ad'                => $ad,
+                'name'              => $name,
+                'care_name'         => $careNames[$profile[0]['care_type']]
+            );                      
+            
+            $msg = $this->load->view('frontend/email/ads_to_new_user', $data, true);
+    
+            $param = array(
+                'subject'     => 'Thank you for joining FrumCare.com, here are a few ' . $ad . ' in your area',
+                'from'        => SITE_EMAIL,
+                'from_name'   => SITE_NAME,
+                'replyto'     => SITE_EMAIL,
+                'replytoname' => SITE_NAME,
+                'sendto'      => 'danielguten@gmail.com',
+                'message'     => $msg
+            );
+            sendemail($param);
+        }
     }
 
     function getLongitudeAndLatitude($address){
