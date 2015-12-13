@@ -37,7 +37,7 @@
                 <option <?php if ($record['care_type'] == 28) echo 'selected' ?> value="28">Workers for cleaning company</option>
             </select>
         </div>
-<?php if ($care != null) { ?>
+<?php if ($record['care_type'] != null) { ?>
         <div id="locationField">Location
             <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
             <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/>
@@ -136,11 +136,11 @@
     	    }).get();
     	    var lat = $('#lat').val();
             var lng = $('#lng').val();
-            var location = $('#cityName').val();
+            var location = $('.locationName').val();
             var distance = $('#sort_by_miles').val();
     	    $.ajax({
     	    	type:"post",
-    	    	url:"<?php echo site_url();?>user/edit_search/" + id,
+    	    	url:"<?php echo site_url();?>user/add_alert",
     	    	data:"lat="+lat+"&lng="+lng+"&location="+location+"&distance="+distance+"&care_type="+care_type+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
     	    	success:function(done){
        				//console.log(done);

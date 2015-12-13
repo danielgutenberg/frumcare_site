@@ -841,7 +841,7 @@ class User_model extends CI_Model
     }
 
     public function getHistory($uid){
-        $sql    = "select tbl_searchhistory.*, tbl_care.service_name from tbl_searchhistory join tbl_care on tbl_searchhistory.care_type = tbl_care.id where user_id = $uid and  searcheddate < NOW() order by searcheddate desc";
+        $sql    = "select tbl_searchhistory.*, tbl_care.service_name from tbl_searchhistory join tbl_care on tbl_searchhistory.care_type = tbl_care.id where user_id = $uid and createAlert = 1 and searcheddate < NOW() order by searcheddate desc";
         $query  = $this->db->query($sql);
         $res    = $query->result_array();
         if($res)
