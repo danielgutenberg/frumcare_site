@@ -1,5 +1,5 @@
 <input type="hidden" id="pdf-name2" name="pdf" value="<?php echo $detail[0]['pdf'];?>">
-<button class="btn btn-primary" id="pdf_file2">Please select pdf file</button>
+<button class="btn btn-primary" id="pdf_file2">Upload References</button>
 <input type="file" name="pdf_upload" id="pdf_upload2" style="display: none;"> 
 <div id="output2" class="pdfloader2">
     <?php if(isset($detail[0]['pdf'])){
