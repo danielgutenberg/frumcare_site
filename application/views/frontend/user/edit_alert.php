@@ -68,26 +68,26 @@
         "2" => 'nanny',
         "3" => 'nursery',
         "4" => 'tutor',
-        "5" => 'seniorcaregiver',
-        "6" => 'specialneedscaregiver',
+        "5" => 'senior_caregiver',
+        "6" => 'special_needs_caregiver',
         "7" => 'therapists',
         "8" => 'cleaning',
         "9" => 'errand_runner',
-        "10" => 'nanny-au-pair',
+        "10" => 'careseeker_nanny',
         "13" => 'careseeker_seniorcaregiver',
         "14" => 'careseeker_specialneedscaregiver',
-        "15" => 'cleaning-household-help',
+        "15" => 'cleaninghousehold',
         "16" => 'careseeker_senior_caregiver',
         "17" => 'careseeker_babysitter',
         "18" => 'careseeker_nanny',
         "19" => 'careseeker_tutor',
         "20" => 'careseeker_seniorcaregiver',
         "21" => 'careseeker_errandrunner',
-        "22" => 'specialneedscaregiver',
+        "22" => 'special_needs_caregiver',
         "24" => 'careseeker_cleaninghousehold',
         "25" => 'babysitter',
-        "26" => 'seniorcaregiver',
-        "27" => 'specialneedscaregiver',
+        "26" => 'senior_caregiver',
+        "27" => 'special_needs_caregiver',
         "28" => 'cleaning',
         "29" => 'therapists'
     ];
@@ -103,11 +103,30 @@
 </div>
 </div>
 <script>
+    var $dialog = $('<div></div>')
+        .html('Search alert edited successfully.  You will receive an email as soon as new profiles with your search criteria are placed on the site.')
+        .dialog({
+        autoOpen: false,
+        modal: true,
+        title: 'Search Created',
+        close: function() {
+            location.href = '<?php echo site_url();?>' + 'user/searches/'
+            $(".searchloader").fadeIn("fast");
+        },
+        buttons: {
+          "OK": function () {
+            $(this).dialog("close");
+            location.href = '<?php echo site_url();?>' + 'user/searches/'
+            $(".searchloader").fadeIn("fast");
+          },
+        }
+      });
 	$(document).ready(function(){
 	    $('h3').remove()
 	    $('h4').remove()
 	    $('.breadcrumb:eq(1)').remove()
 		$('.searchs').click(function(e){
+		    $(".searchloader").fadeIn("fast");
 		    e.preventDefault();
 		    if ($('#lat').val() == '') {
                 window.scrollTo(0, $("#locationField").offset().top);
@@ -141,8 +160,8 @@
     	    	url:"<?php echo site_url();?>user/edit_search/" + id,
     	    	data:"lat="+lat+"&lng="+lng+"&location="+location+"&distance="+distance+"&care_type="+care_type+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
     	    	success:function(done){
-       				//console.log(done);
-                    alert('Search saved to search alerts section in your dashboard');
+       			    $(".searchloader").fadeOut("fast");
+                    return $dialog.dialog('open');
     	    	}
     	    });
 		});
