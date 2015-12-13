@@ -28,18 +28,23 @@
         else{
             ?>
             <tr>
+                <th style="width:20px">#</th>
                 <th>Care Type</th>
                 <th>Near</th>
                 <th>Distance</th>
                 <th>Actions</th>
             </tr>
             <?php
+            $i = 1;
             foreach($record as $rec)
             {
             
             $id = $rec['id'];
             ?>
             <tr>
+                <td style="width:20px">
+                    <?php echo $i ?>
+                </td>
                 <td>
                     <?php echo $rec['service_name'] ?>
                 </td>
@@ -55,6 +60,7 @@
                 </td>
             </tr>
             <?php
+            $i++;
             }
             }
         ?>
