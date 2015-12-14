@@ -38,6 +38,7 @@
     $bed_children = $detail[0]['bed_children'];
     $extra_field = explode(',',$detail[0]['extra_field']);
     $currency = $detail[0]['currency'];
+    $type_of_therapy = $detail[0]['type_of_therapy'];
 ?>
 <div class="container">
 
