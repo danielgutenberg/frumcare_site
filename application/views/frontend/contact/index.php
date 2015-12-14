@@ -1,7 +1,7 @@
 <div class="container">
     <div class="sign_up_save">    
         <div class="leftalign">            
-            <h2>Contact by Phone</h2>
+            <h2>Contact by phone</h2>
             <div class="contact-profile">
                 <label>Contact Number</label>
                 <label><?php echo isset($user['contact_number'])?$user['contact_number']:"Contact number not available";?></label>
