@@ -8,11 +8,17 @@
 	<div class="dashboard-right float-right">
 
 		<div class="top-welcome">
-			<h2>Search Alerts</h2>
+			<h2>My Search Alerts</h2>
 		</div>
 		<div style="margin-bottom:10px">
-		    <button class="btn btn-default"><a href="<?php echo site_url();?>user/add_new_alert">Create New Alert</a></button>
+		    <?php if(count($record) >=1) {
+		        echo 'You have created ' . count($record) . ' search alert';
+		        if(!count($record) == 1) {
+		            echo 's';
+		        }
+		    }?>
 		</div>
+		
 		
 
 
@@ -38,7 +44,11 @@
             $i = 1;
             foreach($record as $rec)
             {
-            
+            $job = '';
+            $jobs = [10, 13, 14, 17,18, 19, 20, 21];
+            if (in_array($rec['care_type'], $jobs)) {
+                $job = ' Job';
+            }
             $id = $rec['id'];
             ?>
             <tr>
@@ -46,7 +56,7 @@
                     <?php echo $i ?>
                 </td>
                 <td>
-                    <?php echo $rec['service_name'] ?>
+                    <?php echo $rec['service_name'] . $job?>
                 </td>
                 <td>
                     <?php echo $rec['location'] ?>
@@ -55,8 +65,8 @@
                     <?php echo $rec['distance'] . ' miles' ?>
                 </td>
                 <td>
-                    <button><a href="<?php echo site_url();?>user/removealert/<?php echo $id; ?>">Cancel</a></button>
-                    <button><a href="<?php echo site_url();?>user/edit_alert/<?php echo $id; ?>/<?php echo $rec['care_type']?>">Edit</a></button>
+                    <button style="width:62px"><a href="<?php echo site_url();?>user/edit_alert/<?php echo $id; ?>/<?php echo $rec['care_type']?>">Edit</a></button>
+                    <button style="width:62px"><a href="<?php echo site_url();?>user/removealert/<?php echo $id; ?>">Cancel</a></button>
                 </td>
             </tr>
             <?php
@@ -65,6 +75,10 @@
             }
         ?>
     </table>
+    
+    <div style="margin-bottom:10px">
+		    <button class="btn btn-default"><a href="<?php echo site_url();?>user/add_new_alert">Create New Alert</a></button>
+		</div>
 
 </div>
 </div>

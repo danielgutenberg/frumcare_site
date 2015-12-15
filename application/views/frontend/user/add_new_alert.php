@@ -1,7 +1,10 @@
 <link href="<?php echo site_url();?>css/user.css" rel="stylesheet" type="text/css">
 <div class="container">
 <?php echo $this->breadcrumbs->show();?>
-	<div class="">
+	<div class="dashboard-left float-left">
+		 <?php $this->load->view('frontend/user/dashboard_nav');?>
+	</div>
+	<div class="dashboard-right float-right">
 		<div class="top-welcome">
 			<h2>Create Alert</h2>
 		</div>
@@ -127,6 +130,11 @@
 	    $('h3').remove()
 	    $('h4').remove()
 	    $('.breadcrumb:eq(1)').remove();
+	     $('.left-search-panel').removeClass('col-xs-12')
+	    $('.left-search-panel').removeClass('col-sm-3 ')
+	    $('.left-search-panel').removeClass('col-md-3 ')
+	    $('.left-search-panel').removeClass('col-lg-3 ')
+	    $('.left-search-panel').addClass('col-xs-5')
 		$('.searchs').click(function(e){
 	        $(".searchloader").fadeIn("fast");
 		    e.preventDefault();
