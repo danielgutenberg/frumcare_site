@@ -243,7 +243,7 @@ $careType = [
                         <?php if($data['rate']){?>
 							<li>							
 								<?php 
-								if($data['rate'] == 'ILS') {
+								if($data['currency'] == 'ILS') {
 								    echo "&#8362;"; 
 								} else {
 								    echo '$';
