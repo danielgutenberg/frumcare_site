@@ -13,7 +13,7 @@
 		<div style="margin-bottom:10px">
 		    <?php if(count($record) >=1) {
 		        echo 'You have created ' . count($record) . ' search alert';
-		        if(!count($record) == 1) {
+		        if(count($record) > 1) {
 		            echo 's';
 		        }
 		    }?>
