@@ -613,7 +613,7 @@ class Ad extends CI_Controller
         );
         print_r($param);
         print_r($details);
-        print_r($user);
+        print_r($this->uri->segment(3));
         return;
         sendemail($param);
 
