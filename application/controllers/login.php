@@ -194,7 +194,7 @@ class Login extends CI_Controller
                 'replyto' => SITE_REPLY_TO_EMAIL,
                 'replytoname' => SITE_NAME,
                 'sendto' => $email,
-                'subject' => 'Password retrive request',
+                'subject' => 'Password retrieve request',
                 'message' => $msg
             );
             sendemail($params);
