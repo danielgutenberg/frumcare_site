@@ -611,10 +611,6 @@ class Ad extends CI_Controller
             'sendto'      => $sendto,
             'message'     => $msg
         );
-        print_r($param);
-        print_r($details);
-        print_r($this->uri->segment(3));
-        return;
         sendemail($param);
 
         $this->sendSearchAlert($details, $id);
