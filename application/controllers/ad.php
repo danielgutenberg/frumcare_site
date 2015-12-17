@@ -600,9 +600,7 @@ class Ad extends CI_Controller
 
         $user = get_user($user_id);
         $sendto = $user['email'];
-
         $details = $this->user_model->getUserDetailsById($user_id,$id);
-
         $msg = $this->load->view('emails/adApproved', array('name' => $details['name']), true);
         $param = array(
             'subject'     => 'Ad Approved',
@@ -613,6 +611,10 @@ class Ad extends CI_Controller
             'sendto'      => $sendto,
             'message'     => $msg
         );
+        print_r($param);
+        print_r($details);
+        print_r($user);
+        return;
         sendemail($param);
 
         $this->sendSearchAlert($details, $id);
