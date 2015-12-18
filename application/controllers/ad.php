@@ -613,7 +613,7 @@ class Ad extends CI_Controller
         );
         sendemail($param);
 
-        // $this->sendSearchAlert($details, $id);
+        $this->sendSearchAlert($details, $id);
 
         redirect('ad/success','refresh');
 
