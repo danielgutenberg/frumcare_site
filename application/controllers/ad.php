@@ -33,6 +33,127 @@ class Ad extends CI_Controller
 
         $this->load->view(FRONTEND_TEMPLATE,$data);
     }
+    
+    function sendOutMassInitialAlerts()
+    {
+        $correspondingTypes = [
+            "1" => 17,
+            "2" => 18,
+            "3" => 17,
+            "4" => 19,
+            "5" => 20,
+            "6" => 22,
+            "7" => 29,
+            "8" => 24,
+            "9" => 21,
+            "10" => 20,
+            "13" => 26,
+            "14" => 27,
+            "15" => 24,
+            "16" => 20,
+            "17" => 1,
+            "18" => 2,
+            "19" => 4,
+            "20" => 5,
+            "21" => 9,
+            "22" => 6,
+            "24" => 8,
+            "25" => 1,
+            "26" => 5,
+            "27" => 6,
+            "28" => 8,
+            "29" => 7
+        ];
+        $q = $this->db->query('Select * from tbl_userprofile where care_type > 0');
+        $data = $q->result_array();
+        $i = 0;
+        $emails = [];
+        foreach ($data as $profile) {
+            $user_id = $profile['user_id'];
+            $user = $this->common_model->get_where('tbl_user', array('id' => $user_id))[0];
+            if ($profile['care_type'] != 3 && $user['lat'] <> 0 && $user['lng'] <> 0 && isset($user['location'])) {
+                $lat = $user['lat'];
+                $lng = $user['lng'];
+                $location = $user['location'];
+                
+                $data = array(
+                    'user_id'               => $user_id, 
+                    'care_type'             => $correspondingTypes[$profile['care_type']],
+                    'lat'                   => $lat,
+                    'long'                  => $lng,
+                    'location'              => $location,
+                    'distance'              => 30,
+                    'createAlert'           => 1
+                );
+                $q = $this->db->insert('tbl_searchhistory',$data);
+                
+                $careNames = [
+                    "1" => 'babysitter',
+                    "2" => 'nanny-au-pair',
+                    "3" => 'babysitter',
+                    "4" => 'tutor-private-lessons',
+                    "5" => 'senior-caregiver',
+                    "6" => 'special-needs-caregiver',
+                    "7" => 'therapists',
+                    "8" => 'cleaning-household-help',
+                    "9" => 'errand-runner-odd-jobs-personal-assistant-driver',
+                    "10" => 'nanny-au-pair',
+                    "13" => 'senior-caregiver',
+                    "14" => 'special-needs-caregiver',
+                    "15" => 'cleaning-household-help',
+                    "16" => 'senior-caregiver',
+                    "17" => 'babysitter',
+                    "18" => 'nanny-au-pair',
+                    "19" => 'tutor-private-lessons',
+                    "20" => 'senior-caregiver',
+                    "21" => 'errand-runner-odd-jobs-personal-assistant-driver',
+                    "22" => 'special-needs-caregiver',
+                    "24" => 'cleaning-household-help',
+                    "25" => 'babysitter',
+                    "26" => 'senior-caregiver',
+                    "27" => 'special-needs-caregiver',
+                    "28" => 'cleaning-household-help',
+                    "29" => 'therapists'
+                ];
+                $name = explode(' ', $user['name'])[0];
+                $ac = $profile['account_category'];
+                $ct = $correspondingTypes[$profile['care_type']];
+                $ad = $profile['care_type'] > 16 ? 'caregivers' : 'jobs'; 
+                $location = ['lat' => $lat, 'lng' => $lng, 'place' => $user['city']];
+                $userdata       = $this->common_care_model->sort(10 ,$lat,$lng,'distance', $ac , $ct, 30);
+                $get_total_rows = count($userdata);  
+                if ($get_total_rows > 0) {
+                    $data = array(
+                        'userdatas'		    => array_slice($userdata, 0, 4),
+                        'care_type'         => $ct,
+                        'location'          => $location,
+                        'ad'                => $ad,
+                        'name'              => $name,
+                        'care_name'         => $careNames[$profile['care_type']]
+                    );                      
+                    
+                    $msg = $this->load->view('frontend/email/ads_to_new_user', $data, true);
+            
+                    $param = array(
+                        'subject'     => 'Check out our new feature!',
+                        'from'        => SITE_EMAIL,
+                        'from_name'   => SITE_NAME,
+                        'replyto'     => SITE_EMAIL,
+                        'replytoname' => SITE_NAME,
+                        'sendto'      => $user['email'],
+                        'message'     => $msg
+                    );
+                    sendemail($param);
+                    $i++;
+                    $emails[] = $user['email'];
+                }
+                
+                
+            }
+            
+        }
+        print_rr($emails);
+    }
 
 
     // first step
