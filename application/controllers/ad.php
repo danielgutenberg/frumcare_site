@@ -1228,7 +1228,7 @@ class Ad extends CI_Controller
                 'from_name'   => SITE_NAME,
                 'replyto'     => SITE_EMAIL,
                 'replytoname' => SITE_NAME,
-                'sendto'      => 'danielguten@gmail.com',
+                'sendto'      => $user[0]['email'],
                 'message'     => $msg
             );
             sendemail($param);

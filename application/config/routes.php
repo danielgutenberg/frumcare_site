@@ -113,7 +113,7 @@ $route['jobs/details/(:any)'] = 'careseekers/details';
 $route['caregivers/organizations'] = 'common_care_controller/organizations';
 $route['caregivers/organizations/(:any)'] = 'common_care_controller/organizations/$1';
 
-$route['testfordaniel'] = 'ad/sendOutMassInitialAlerts';
+// $route['testfordaniel'] = 'ad/sendOutMassInitialAlerts';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
