@@ -293,17 +293,18 @@ class Ad extends CI_Controller
     public function sendSearchAlerts($id)
     {
         $details = $this->ad_model->getProfile($id);
-        $alerts = $this->user_model->getSearchAlerts($details['latitude'], $details['longitude'], $details['care_type']);
+        $alerts = $this->user_model->getSearchAlerts($details['lat'], $details['lng'], $details['care_type']);
         foreach ($alerts as $alert) {
             if ($alert['distance'] < $alert['dist']) {
                 break 1;
             }
-            if ($alert['gender'] > 0 && $alert['gender'] != $details['gender']) {
-                break 1;
-            }
-            if ($alert['year_experience'] > 0 and $alert['year_experience'] > $details['experience']) {
-                break 1;
-            }
+            // if ($alert['gender'] > 0 && $alert['gender'] != $details['gender']) {
+            //     break 1;
+            // }
+            // if ($alert['year_experience'] > 0 and $alert['year_experience'] > $details['experience']) {
+            //     break 1;
+            // }
+
             $id = $alert['user_id'];
             $email = $this->user_model->getUserName($id)['email'];
             $data['main_content']   = 'frontend/caregivers/details';
@@ -318,13 +319,14 @@ class Ad extends CI_Controller
             $data['care_type']      = $this->caretype_model->getAllCareType();
             $data['refrences']      = $this->refrence_model->getLatestRefrences($details['id']);
             $data['care_id']        = $details['id'];
-            
+
             $msg = $this->load->view('frontend/email/searchAlert', $data, true);
+
             $param = array(
                 'subject'     => 'A new profile has been added in Frumcare.com that matches your search',
                 'from'        => SITE_EMAIL,
                 'from_name'   => SITE_NAME,
-                'replyto'     => SITE_REPLY_TO_EMAIL,
+                'replyto'     => SITE_EMAIL,
                 'replytoname' => SITE_NAME,
                 'sendto'      => $email,
                 'message'     => $msg
