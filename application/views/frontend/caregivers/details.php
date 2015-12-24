@@ -819,7 +819,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
           url:"<?php echo site_url();?>caregivers/favorite",
           data:"profile_id="+profile_id+"&user_id="+user_id,
           success:function(fav){
-           alert('Profile added to your favourite list');
+           alert('Profile added to your favorites list');
        }
    });
     }
