@@ -85,6 +85,7 @@ class Login extends CI_Controller
         } else {
             if (1) {
                 try {
+                    print_r('got here');
                     $user_profile = $this->facebook->api('/me');
                     print_rr($user_profile);
                     $logoutUrl = $this->facebook->getLogoutUrl(array('next' => FB_LOGOUT));
@@ -97,7 +98,7 @@ class Login extends CI_Controller
                     $this->session->set_userdata($sess);
                     redirect('user/dashboard');
                 } catch (FacebookApiException $e) {
-                    error_log($e);
+                    print_rr($e);
                     $userFB = null;
                 }
             }
