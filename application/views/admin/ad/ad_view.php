@@ -36,7 +36,7 @@
                         	<tbody>
                         		<?php foreach($user_data as $ud) { ?>
                                 <tr>
-                                    <td style="display:none"><?php echo 100000 - strtotime($ud['id'])?></td>
+                                    <td style="display:none"><?php echo 100000 - $ud['id']?></td>
                                     <td><?php echo $ud['user_id'];?></td>
                                     <td><?php echo $ud['name'] ?></td>
                                     <td>
