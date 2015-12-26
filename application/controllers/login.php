@@ -85,6 +85,8 @@ class Login extends CI_Controller
                         'allowSignedRequest' => false
                     );
                     $this->load->library("facebook", $config);
+                           
+                    $this->facebook->getUser();
                     $user_profile = $this->facebook->api('/me');
                     print_rr($user_profile);
                     $logoutUrl = $this->facebook->getLogoutUrl(array('next' => FB_LOGOUT));
