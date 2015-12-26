@@ -83,7 +83,7 @@ class Login extends CI_Controller
                     redirect('login');
             }
         } else {
-            if (isset($_GET['code'])) {
+            if (1) {
                 try {
                     $user_profile = $this->facebook->api('/me');
                     print_rr($user_profile);
