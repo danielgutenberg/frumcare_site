@@ -86,7 +86,7 @@ class Login extends CI_Controller
                     );
                     $this->load->library("facebook", $config);
                            
-                    $this->facebook->getUser();
+                    print_r($this->facebook->getUser());
                     $user_profile = $this->facebook->api('/me');
                     print_rr($user_profile);
                     $logoutUrl = $this->facebook->getLogoutUrl(array('next' => FB_LOGOUT));
