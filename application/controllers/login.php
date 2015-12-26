@@ -83,10 +83,10 @@ class Login extends CI_Controller
                     redirect('login');
             }
         } else {
-            print_r($this->facebook->getUser());
-            if ($this->userFB) {
+            if (isset($_GET['code'])) {
                 try {
                     $user_profile = $this->facebook->api('/me');
+                    print_rr($user_profile);
                     $logoutUrl = $this->facebook->getLogoutUrl(array('next' => FB_LOGOUT));
                     $sess = array(
                         'fb_logout' => $logoutUrl,
