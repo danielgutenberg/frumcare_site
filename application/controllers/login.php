@@ -104,6 +104,8 @@ class Login extends CI_Controller
             // }
             // else{
                 $helper = $this->facebook->getRedirectLoginHelper();
+                $accessToken = $helper->getAccessToken();
+                $this->facebook->setDefaultAccessToken($accessToken);
                 $permissions = ['email', 'user_likes']; // optional
                 $loginUrl = $helper->getLoginUrl('http://www.frumcare.com/dev/login/ffb', $permissions);
                 $user_profile = null;
@@ -120,9 +122,7 @@ class Login extends CI_Controller
     
     function ffb()
     {
-         $fb = new Facebook\Facebook(['app_id' => FACEBOOK_APPID,
-          'app_secret' => FACEBOOK_APPSECRET,
-          'default_graph_version' => 'v2.2']);
+         $fb = $this->facebook;
 
         $helper = $fb->getRedirectLoginHelper();
         try {
