@@ -1,4 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+require 'vendor/.composer/autoload.php';
+
 class Login extends CI_Controller
 {
     function __construct()
@@ -7,6 +9,12 @@ class Login extends CI_Controller
         $this->load->model('user_model');
         $this->load->model('common_model');
         //facebook and twitter setting
+        
+        $this->facebook = new Facebook\Facebook([
+          'app_id' => FACEBOOK_APPID,
+          'app_secret' => FACEBOOK_APPSECRET,
+          'default_graph_version' => 'v2.2',
+        ]);
  
         $this->load->library('twitteroauth');
         //facebook and twitter setting
@@ -14,12 +22,6 @@ class Login extends CI_Controller
 
     function index()
     {
-        $config = array(
-            'appId' => FACEBOOK_APPID,
-            'secret' => FACEBOOK_APPSECRET,
-            'allowSignedRequest' => false
-        );
-        $this->load->library("facebook", $config);
         if($_POST) {
             $user_data  = getBrowser();
             $data       = $_POST;
@@ -102,7 +104,9 @@ class Login extends CI_Controller
                 }
             }
             else{
-                $loginUrl = $this->facebook->getLoginUrl(array('scope' => 'email'));
+                $helper = $this->facebook->getRedirectLoginHelper();
+                $permissions = ['email', 'user_likes']; // optional
+                $loginUrl = $helper->getLoginUrl('http://www.frumcare.com/dev/login/ffb', $permissions);
                 $user_profile = null;
             }
             $data =  array(
@@ -113,6 +117,16 @@ class Login extends CI_Controller
             $data['title'] = 'Login';
             $this->load->view(FRONTEND_TEMPLATE, $data);
         }
+    }
+    
+    function ffb()
+    {
+         $helper = $this->facebook->getRedirectLoginHelper();
+         $accessToken = $helper->getAccessToken();
+         $this->facebook->setDefaultAccessToken($accessToken);
+         
+         print_rr($this->facebook->get('/me'));
+         
     }
 
     function twitter()
