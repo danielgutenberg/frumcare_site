@@ -1,5 +1,4 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-require 'vendor/.composer/autoload.php';
 
 class Login extends CI_Controller
 {
@@ -85,30 +84,30 @@ class Login extends CI_Controller
                     redirect('login');
             }
         } else {
-            if ($this->facebook->getUser()) {
-                try {
-                    $user_profile = $this->facebook->api('/me');
-                    print_rr($user_profile);
-                    $logoutUrl = $this->facebook->getLogoutUrl(array('next' => FB_LOGOUT));
-                    $sess = array(
-                        'fb_logout' => $logoutUrl,
-                        'fb_id' => $user_profile['id'],
-                        'fb_name' => $user_profile['name'],
-                        'fb_email' => $user_profile['email']
-                    );
-                    $this->session->set_userdata($sess);
-                    redirect('user/dashboard');
-                } catch (FacebookApiException $e) {
-                    print_rr($e);
-                    $userFB = null;
-                }
-            }
-            else{
+            // if ($this->facebook->getUser()) {
+            //     try {
+            //         $user_profile = $this->facebook->api('/me');
+            //         print_rr($user_profile);
+            //         $logoutUrl = $this->facebook->getLogoutUrl(array('next' => FB_LOGOUT));
+            //         $sess = array(
+            //             'fb_logout' => $logoutUrl,
+            //             'fb_id' => $user_profile['id'],
+            //             'fb_name' => $user_profile['name'],
+            //             'fb_email' => $user_profile['email']
+            //         );
+            //         $this->session->set_userdata($sess);
+            //         redirect('user/dashboard');
+            //     } catch (FacebookApiException $e) {
+            //         print_rr($e);
+            //         $userFB = null;
+            //     }
+            // }
+            // else{
                 $helper = $this->facebook->getRedirectLoginHelper();
                 $permissions = ['email', 'user_likes']; // optional
                 $loginUrl = $helper->getLoginUrl('http://www.frumcare.com/dev/login/ffb', $permissions);
                 $user_profile = null;
-            }
+            // }
             $data =  array(
                 'userFB' => $user_profile,
                 'loginUrl' => $loginUrl

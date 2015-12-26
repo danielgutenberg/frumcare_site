@@ -214,6 +214,8 @@ if (defined('ENVIRONMENT'))
 if (function_exists('date_default_timezone_set'))
 date_default_timezone_set('America/New_York');
 
+include "application/vendor/autoload.php";
+
 require_once BASEPATH.'core/CodeIgniter.php';
 
 /* End of file index.php */
