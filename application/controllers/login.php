@@ -126,7 +126,7 @@ class Login extends CI_Controller
 
         $helper = $fb->getRedirectLoginHelper();
         try {
-          $accessToken = $helper->getAccessToken();
+          print_rr($this->facebook->get('/me'));
         } catch(Facebook\Exceptions\FacebookResponseException $e) {
           // When Graph returns an error
           echo 'Graph returned an error: ' . $e->getMessage();
@@ -143,7 +143,7 @@ class Login extends CI_Controller
          $accessToken = $helper->getAccessToken();
          $this->facebook->setDefaultAccessToken($accessToken);
          print_rr($accessToken);
-         print_rr($this->facebook->get('/me'));
+         
          
     }
 
