@@ -126,7 +126,7 @@ class Login extends CI_Controller
 
         $helper = $fb->getRedirectLoginHelper();
         try {
-          print_rr($helper->getAccessToken());
+          $token = $helper->getAccessToken();
         } catch(Facebook\Exceptions\FacebookResponseException $e) {
           // When Graph returns an error
           echo 'Graph returned an error: ' . $e->getMessage();
@@ -136,13 +136,8 @@ class Login extends CI_Controller
           echo 'Facebook SDK returned an error: ' . $e->getMessage();
           exit;
         }
-         
-         
-         print_r('got here');
-         $helper = $this->facebook->getRedirectLoginHelper();
-         $accessToken = $helper->getAccessToken();
-         $this->facebook->setDefaultAccessToken($accessToken);
-         print_rr($accessToken);
+         $this->facebook->setDefaultAccessToken($token);
+         print_rr($this->facebook->get('/me'));
          
          
     }
