@@ -120,10 +120,11 @@ class Login extends CI_Controller
     
     function ffb()
     {
+         print_r('got here');
          $helper = $this->facebook->getRedirectLoginHelper();
          $accessToken = $helper->getAccessToken();
          $this->facebook->setDefaultAccessToken($accessToken);
-         
+         print_rr($accessToken);
          print_rr($this->facebook->get('/me'));
          
     }
