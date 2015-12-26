@@ -7,12 +7,7 @@ class Login extends CI_Controller
         $this->load->model('user_model');
         $this->load->model('common_model');
         //facebook and twitter setting
-        $config = array(
-            'appId' => FACEBOOK_APPID,
-            'secret' => FACEBOOK_APPSECRET,
-            'allowSignedRequest' => false
-        );
-        $this->load->library("facebook", $config);
+        
         $this->userFB = $this->facebook->getUser();
         $this->load->library('twitteroauth');
         //facebook and twitter setting
@@ -85,7 +80,12 @@ class Login extends CI_Controller
         } else {
             if (1) {
                 try {
-                    $this->facebook->getAccessToken();
+                    $config = array(
+                        'appId' => FACEBOOK_APPID,
+                        'secret' => FACEBOOK_APPSECRET,
+                        'allowSignedRequest' => false
+                    );
+                    $this->load->library("facebook", $config);
                     $user_profile = $this->facebook->api('/me');
                     print_rr($user_profile);
                     $logoutUrl = $this->facebook->getLogoutUrl(array('next' => FB_LOGOUT));
