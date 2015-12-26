@@ -7,8 +7,7 @@ class Login extends CI_Controller
         $this->load->model('user_model');
         $this->load->model('common_model');
         //facebook and twitter setting
-        
-        $this->userFB = $this->facebook->getUser();
+ 
         $this->load->library('twitteroauth');
         //facebook and twitter setting
     }
