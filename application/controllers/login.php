@@ -14,6 +14,12 @@ class Login extends CI_Controller
 
     function index()
     {
+        $config = array(
+            'appId' => FACEBOOK_APPID,
+            'secret' => FACEBOOK_APPSECRET,
+            'allowSignedRequest' => false
+        );
+        $this->load->library("facebook", $config);
         if($_POST) {
             $user_data  = getBrowser();
             $data       = $_POST;
@@ -77,16 +83,8 @@ class Login extends CI_Controller
                     redirect('login');
             }
         } else {
-            if (1) {
+            if ($this->facebook->getUser()) {
                 try {
-                    $config = array(
-                        'appId' => FACEBOOK_APPID,
-                        'secret' => FACEBOOK_APPSECRET,
-                        'allowSignedRequest' => false
-                    );
-                    $this->load->library("facebook", $config);
-                           
-                    print_r($this->facebook->getUser());
                     $user_profile = $this->facebook->api('/me');
                     print_rr($user_profile);
                     $logoutUrl = $this->facebook->getLogoutUrl(array('next' => FB_LOGOUT));
