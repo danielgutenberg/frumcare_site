@@ -120,6 +120,24 @@ class Login extends CI_Controller
     
     function ffb()
     {
+         $fb = new Facebook\Facebook(['app_id' => FACEBOOK_APPID,
+          'app_secret' => FACEBOOK_APPSECRET,
+          'default_graph_version' => 'v2.2']);
+
+        $helper = $fb->getRedirectLoginHelper();
+        try {
+          $accessToken = $helper->getAccessToken();
+        } catch(Facebook\Exceptions\FacebookResponseException $e) {
+          // When Graph returns an error
+          echo 'Graph returned an error: ' . $e->getMessage();
+          exit;
+        } catch(Facebook\Exceptions\FacebookSDKException $e) {
+          // When validation fails or other local issues
+          echo 'Facebook SDK returned an error: ' . $e->getMessage();
+          exit;
+        }
+         
+         
          print_r('got here');
          $helper = $this->facebook->getRedirectLoginHelper();
          $accessToken = $helper->getAccessToken();
