@@ -83,6 +83,7 @@ class Login extends CI_Controller
                     redirect('login');
             }
         } else {
+            print_rr($this->userFB);
             if ($this->userFB) {
                 try {
                     $user_profile = $this->facebook->api('/me');
