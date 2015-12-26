@@ -85,7 +85,7 @@ class Login extends CI_Controller
         } else {
             if (1) {
                 try {
-                    print_r('got here');
+                    $this->facebook->getAccessToken();
                     $user_profile = $this->facebook->api('/me');
                     print_rr($user_profile);
                     $logoutUrl = $this->facebook->getLogoutUrl(array('next' => FB_LOGOUT));
