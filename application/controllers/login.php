@@ -106,7 +106,7 @@ class Login extends CI_Controller
                 $helper = $this->facebook->getRedirectLoginHelper();
                 // $accessToken = $helper->getAccessToken();
                 // $this->facebook->setDefaultAccessToken($accessToken);
-                $permissions = ['scope' => 'email']; // optional
+                $permissions = ['email', 'user_likes']; // optional
                 $loginUrl = $helper->getLoginUrl('http://www.frumcare.com/dev/login/ffb', $permissions);
                 $user_profile = null;
             // }
@@ -137,7 +137,7 @@ class Login extends CI_Controller
           exit;
         }
          $this->facebook->setDefaultAccessToken($token);
-         print_rr($this->facebook->getUser());
+         print_rr($this->facebook->get('/me'));
          
          
     }
