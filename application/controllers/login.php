@@ -151,7 +151,8 @@ class Login extends CI_Controller
             $twitteroauth = $this->twitteroauth->create(YOUR_CONSUMER_KEY, YOUR_CONSUMER_SECRET, $_SESSION['oauth_token'], $_SESSION['oauth_token_secret']);
             $access_token = $twitteroauth->getAccessToken($_GET['oauth_verifier']);
             $_SESSION['access_token'] = $access_token;
-            $user_info = $twitteroauth->get('account/verify_credentials');
+            $user_info = $twitteroauth->get('account/verify_credentials', ['include_email' => true]);
+            print_rr($user_info);
             if (isset($user_info->error)) {
                 $this->session->set_flashdata('info', 'Sorry, we couldn\'t log you in with your twitter account.');
                 redirect('login');
