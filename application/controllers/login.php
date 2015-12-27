@@ -23,7 +23,7 @@ class Login extends CI_Controller
     {
         $user_data  = getBrowser();
         $log = array(
-            'user_id' => $user['id'],
+            'current_user' => $user['id'],
             'login_time' => time(), 
             'login_browser' => $user_data['name'].' '.$user_data['version'],
             'login_os' => $user_data['platform'],
