@@ -162,9 +162,7 @@ class Login extends CI_Controller
             redirect('login');
         }
         $this->setSessionInfo($user);
-        // redirect('user/dashboard');
-        $this->session->set_flashdata('info', 'Thank you');
-            redirect('login');
+        redirect('user/dashboard');
     }
 
     function twitter()
