@@ -137,7 +137,7 @@ class Login extends CI_Controller
           exit;
         }
          $this->facebook->setDefaultAccessToken($token);
-         print_rr($this->facebook->get('/me'));
+         print_rr($this->facebook->get('/me?fields=email'));
          
          
     }
