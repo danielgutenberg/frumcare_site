@@ -149,7 +149,7 @@ class Login extends CI_Controller
         try {
         $email = $user_profile->email;
         
-        print_rr($user_profile);
+        print_rr($user_profile->decodedBody);
         $user = $this->user_model->getSocialLoginUser($email);
         print_rr($user);
             
