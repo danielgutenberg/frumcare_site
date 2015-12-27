@@ -21,7 +21,6 @@ class Login extends CI_Controller
 
     private function setSessionInfo($user)
     {
-        print_rr($user);
         $user_data  = getBrowser();
         $log = array(
             'user_id' => $user['id'],
@@ -163,6 +162,7 @@ class Login extends CI_Controller
             redirect('login');
         }
         $this->setSessionInfo($user);
+        print_r('hello');
         redirect('user/dashboard');
          
          
