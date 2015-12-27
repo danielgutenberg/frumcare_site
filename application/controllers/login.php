@@ -107,7 +107,7 @@ class Login extends CI_Controller
                 // $accessToken = $helper->getAccessToken();
                 // $this->facebook->setDefaultAccessToken($accessToken);
                 $permissions = ['email', 'user_likes']; // optional
-                $loginUrl = $helper->getLoginUrl('http://www.frumcare.com/dev/login/ffb', $permissions);
+                $loginUrl = $helper->getLoginUrl(siteurl('login/ffb'), $permissions);
                 $user_profile = null;
             // }
             $data =  array(
