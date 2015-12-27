@@ -136,7 +136,7 @@ class Login extends CI_Controller
         try {
             $token = $helper->getAccessToken();
             $default = $this->facebook->setDefaultAccessToken($token);
-            $user_profile = $this->facebook->get('/me?fields=email,name,id');
+            $user_profile = $this->facebook->get('/me?fields=email,name,id')->getDecodedBody();
         } catch(Facebook\Exceptions\FacebookResponseException $e) {
           // When Graph returns an error
           echo 'Graph returned an error: ' . $e->getMessage();
@@ -147,9 +147,7 @@ class Login extends CI_Controller
           exit;
         }
         try {
-        $email = $user_profile->email;
-        
-        print_rr($user_profile->getDecodedBody());
+        $email = $user_profile['email'];
         $user = $this->user_model->getSocialLoginUser($email);
         print_rr($user);
             
