@@ -134,7 +134,7 @@ class User_model extends CI_Model
     }
 
     public function getUserName($u_id){
-        $sql    = "select name,email from tbl_user where id=$u_id";
+        $sql    = "select * from tbl_user where id=$u_id";
         $query  = $this->db->query($sql);
         $res    = $query->row_array();
         if($res) return $res;

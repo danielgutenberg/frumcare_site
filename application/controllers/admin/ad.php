@@ -306,7 +306,8 @@ class Ad extends CI_Controller
             // }
 
             $id = $alert['user_id'];
-            $email = $this->user_model->getUserName($id)['email'];
+            $user = $this->user_model->getUserName($id);
+            $email = $user['email'];
             $data['main_content']   = 'frontend/caregivers/details';
             $data['recordData']     = $details;
             $data['title']          = 'Caregivers Details';
@@ -319,6 +320,46 @@ class Ad extends CI_Controller
             $data['care_type']      = $this->caretype_model->getAllCareType();
             $data['refrences']      = $this->refrence_model->getLatestRefrences($details['id']);
             $data['care_id']        = $details['id'];
+            
+            $careNames = [
+                "1" => 'babysitter',
+                "2" => 'nanny-au-pair',
+                "3" => 'babysitter',
+                "4" => 'tutor-private-lessons',
+                "5" => 'senior-caregiver',
+                "6" => 'special-needs-caregiver',
+                "7" => 'therapists',
+                "8" => 'cleaning-household-help',
+                "9" => 'errand-runner-odd-jobs-personal-assistant-driver',
+                "10" => 'nanny-au-pair',
+                "13" => 'senior-caregiver',
+                "14" => 'special-needs-caregiver',
+                "15" => 'cleaning-household-help',
+                "16" => 'senior-caregiver',
+                "17" => 'babysitter',
+                "18" => 'nanny-au-pair',
+                "19" => 'tutor-private-lessons',
+                "20" => 'senior-caregiver',
+                "21" => 'errand-runner-odd-jobs-personal-assistant-driver',
+                "22" => 'special-needs-caregiver',
+                "24" => 'cleaning-household-help',
+                "25" => 'babysitter',
+                "26" => 'senior-caregiver',
+                "27" => 'special-needs-caregiver',
+                "28" => 'cleaning-household-help',
+                "29" => 'therapists'
+            ];
+            $name = explode(' ', $user['name'])[0];
+            $ac = $details['account_category'];
+            $ct = $correspondingTypes[$details['care_type']];
+            $ad = $details['care_type'] > 16 ? 'caregivers' : 'jobs'; 
+            $location = ['lat' => $details['lat'], 'lng' => $details['lng'], 'place' => $user['city']];
+            
+            $data['care_type'] = $ct;
+            $data['location'] = $location;
+            $data['ad'] = $ad;
+            $data['name'] = $name;
+            $data['care_name'] = $careNames[$details['care_type']];
 
             $msg = $this->load->view('frontend/email/searchAlert', $data, true);
 
