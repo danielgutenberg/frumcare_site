@@ -136,8 +136,7 @@ class Login extends CI_Controller
         try {
             print_rr($token = $helper->getAccessToken());
             $default = $this->facebook->setDefaultAccessToken($token);
-            print_rr($default);
-            $user_profile = $this->facebook->api('/me?fields=email,name,id');
+            $user_profile = $this->facebook->get('/me?fields=email,name,id');
             print_rr($user_profile);
         } catch(Facebook\Exceptions\FacebookResponseException $e) {
           // When Graph returns an error
