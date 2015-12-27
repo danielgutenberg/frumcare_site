@@ -137,22 +137,18 @@ class Login extends CI_Controller
           exit;
         }
          $this->facebook->setDefaultAccessToken($token);
-        try {
-            $user_profile = $this->facebook->api('/me?fields=email,id,name');
-            print_rr($user_profile);
-            $logoutUrl = $this->facebook->getLogoutUrl(array('next' => FB_LOGOUT));
-            $sess = array(
-                'fb_logout' => $logoutUrl,
-                'fb_id' => $user_profile['id'],
-                'fb_name' => $user_profile['name'],
-                'fb_email' => $user_profile['email']
-            );
-            $this->session->set_userdata($sess);
-            redirect('user/dashboard');
-        } catch (FacebookApiException $e) {
-            print_rr($e);
-            $userFB = null;
-        }
+        
+        $user_profile = $this->facebook->api('/me?fields=email,name');
+        print_rr($user_profile);
+        $logoutUrl = $this->facebook->getLogoutUrl(array('next' => FB_LOGOUT));
+        $sess = array(
+            'fb_logout' => $logoutUrl,
+            'fb_id' => $user_profile['id'],
+            'fb_name' => $user_profile['name'],
+            'fb_email' => $user_profile['email']
+        );
+        $this->session->set_userdata($sess);
+        redirect('user/dashboard');
          
          
     }
