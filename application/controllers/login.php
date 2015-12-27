@@ -146,10 +146,15 @@ class Login extends CI_Controller
           echo 'Facebook SDK returned an error: ' . $e->getMessage();
           exit;
         }
-        $email = $user_profile['email'];
+        try {
+        $email = $user_profile->email;
         print_r($email);
         $user = $this->user_model->getSocialLoginUser($email);
         print_rr($user);
+            
+        } catch (\Exception $e) {
+            $e->getMessage();
+        }
         $logoutUrl = $this->facebook->getLogoutUrl(array('next' => FB_LOGOUT));
         $sess = array(
             'fb_logout' => $logoutUrl,
