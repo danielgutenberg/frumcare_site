@@ -19,7 +19,7 @@ class Login extends CI_Controller
         //facebook and twitter setting
     }
 
-    private function setSessionInfo($user)
+    private function setSessionInfo($user, $facebook = false, $logoutUrl = null)
     {
         $user_data  = getBrowser();
         $log = array(
@@ -34,7 +34,7 @@ class Login extends CI_Controller
         $log_id = $this->common_model->insert('tbl_user_logs', $log, true);
         $log_id = sha1($log_id);
 
-        $ac_cat = $this->user_model->get_my_account_category($q['id']);
+        $ac_cat = $this->user_model->get_my_account_category($user['id']);
         
         $sess = array(
             'current_user' => $user['id'],
@@ -42,6 +42,9 @@ class Login extends CI_Controller
             'account_category' => $ac_cat[0]['account_category'],
             'organization_care' => $ac_cat[0]['organization_care']
         );
+        if ($facebook) {
+            $sess['fb_logout'] = $logoutUrl;
+        }
 
         $this->session->sess_expiration = '14400';
         $this->session->set_userdata($sess);
@@ -161,7 +164,8 @@ class Login extends CI_Controller
             $this->session->set_flashdata('info', 'Please register for the site with your email and then you can benefit from the one click login from facebook in the future');
             redirect('login');
         }
-        $this->setSessionInfo($user);
+        $logoutUrl = $this->facebook->getLogoutUrl(array('next' => site_url('logout')));
+        $this->setSessionInfo($user, true, $logoutUrl);
         redirect('user/dashboard');
     }
 
@@ -230,7 +234,6 @@ class Login extends CI_Controller
         $this->session->unset_userdata('care');
         $this->session->unset_userdata('log_id');
         $this->session->unset_userdata('account_category');
-        $this->facebook->destroySession();
         redirect('/');
     }
 
