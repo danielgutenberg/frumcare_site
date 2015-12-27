@@ -135,6 +135,8 @@ class Login extends CI_Controller
         $helper = $fb->getRedirectLoginHelper();
         try {
             $token = $helper->getAccessToken();
+            $default = $this->facebook->setDefaultAccessToken($token);
+            print_rr($default);
             $user_profile = $this->facebook->api('/me?fields=email,name,id');
             print_rr($user_profile);
         } catch(Facebook\Exceptions\FacebookResponseException $e) {
