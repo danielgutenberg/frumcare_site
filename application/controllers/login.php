@@ -135,7 +135,7 @@ class Login extends CI_Controller
     
     function ffb()
     {
-         $fb = $this->facebook;
+        $fb = $this->facebook;
 
         $helper = $fb->getRedirectLoginHelper();
         try {
@@ -164,8 +164,7 @@ class Login extends CI_Controller
         $this->setSessionInfo($user);
         print_r('hello');
         redirect('user/dashboard');
-         
-         
+        print_r('redirect didnt do anything');
     }
 
     function twitter()
