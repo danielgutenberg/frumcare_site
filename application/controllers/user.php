@@ -27,6 +27,7 @@ class User extends CI_Controller
     function dashboard()
     {
         $id = $this->session->userdata['current_user'];
+        print_rr($id);
         $this->breadcrumbs->push('Dashboard', site_url().'#');
         $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
         if (! $id) {
