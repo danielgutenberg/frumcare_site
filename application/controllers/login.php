@@ -164,7 +164,7 @@ class Login extends CI_Controller
             $this->session->set_flashdata('info', 'Please register for the site with your email and then you can benefit from the one click login from facebook in the future');
             redirect('login');
         }
-        $logoutUrl = $helper->getLogoutUrl(array('next' => site_url('logout')));
+        $logoutUrl = $helper->getLogoutUrl($token, array('next' => site_url('logout')));
         $this->setSessionInfo($user, true, $logoutUrl);
         redirect('user/dashboard');
     }
