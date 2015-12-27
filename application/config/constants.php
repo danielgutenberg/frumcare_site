@@ -51,7 +51,7 @@ define('FB_LOGOUT', 'http://localhost/frumcare/logout');*/
 
 // live details test details
 define('FACEBOOK_APPID', '1084852534881766');
-define('FACEBOOK_APPSECRET', '7e00ba03a8b75b133598f951c5da5c60');
+define('FACEBOOK_APPSECRET', 'aa4431992877191893a2658d8e151261');
 define('FB_LOGOUT', 'http://newedgedesign.com/clients/frumcare/logout');
 
 
