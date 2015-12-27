@@ -23,7 +23,7 @@ class Login extends CI_Controller
     {
         $user_data  = getBrowser();
         $log = array(
-            'current_user' => $user['id'],
+            'user_id' => $user['id'],
             'login_time' => time(), 
             'login_browser' => $user_data['name'].' '.$user_data['version'],
             'login_os' => $user_data['platform'],
@@ -37,7 +37,7 @@ class Login extends CI_Controller
         $ac_cat = $this->user_model->get_my_account_category($q['id']);
         
         $sess = array(
-            'current_user' => $q['id'],
+            'current_user' => $user['id'],
             'log_id' => $log_id,
             'account_category' => $ac_cat[0]['account_category'],
             'organization_care' => $ac_cat[0]['organization_care']
