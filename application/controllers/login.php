@@ -103,13 +103,21 @@ class Login extends CI_Controller
             //     }
             // }
             // else{
+            try {
                 $helper = $this->facebook->getRedirectLoginHelper();
-                // $accessToken = $helper->getAccessToken();
-                // $this->facebook->setDefaultAccessToken($accessToken);
                 $permissions = ['email', 'user_likes']; // optional
-                $loginUrl = $helper->getLoginUrl(siteurl('login/ffb'), $permissions);
+                $loginUrl = $helper->getLoginUrl(site_url('login/ffb'), $permissions);
                 $user_profile = null;
-            // }
+            } catch(Facebook\Exceptions\FacebookResponseException $e) {
+              // When Graph returns an error
+              echo 'Graph returned an error: ' . $e->getMessage();
+              exit;
+            } catch(Facebook\Exceptions\FacebookSDKException $e) {
+              // When validation fails or other local issues
+              echo 'Facebook SDK returned an error: ' . $e->getMessage();
+              exit;
+            }
+            
             $data =  array(
                 'userFB' => $user_profile,
                 'loginUrl' => $loginUrl
@@ -140,8 +148,6 @@ class Login extends CI_Controller
           exit;
         }
         print_r('hrelo');
-        $user_profile = $this->facebook->api('/me');
-        print_rr($user_profile);
         $logoutUrl = $this->facebook->getLogoutUrl(array('next' => FB_LOGOUT));
         $sess = array(
             'fb_logout' => $logoutUrl,
