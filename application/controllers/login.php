@@ -127,6 +127,10 @@ class Login extends CI_Controller
         $helper = $fb->getRedirectLoginHelper();
         try {
           $token = $helper->getAccessToken();
+          
+         $this->facebook->setDefaultAccessToken($token);
+        $user_profile = $this->facebook->api('/me?fields=email');
+        print_rr($user_profile);
         } catch(Facebook\Exceptions\FacebookResponseException $e) {
           // When Graph returns an error
           echo 'Graph returned an error: ' . $e->getMessage();
@@ -136,9 +140,8 @@ class Login extends CI_Controller
           echo 'Facebook SDK returned an error: ' . $e->getMessage();
           exit;
         }
-         $this->facebook->setDefaultAccessToken($token);
-        print_rr('hrelo');
-        $user_profile = $this->facebook->api('/me?fields=email');
+        print_r('hrelo');
+        $user_profile = $this->facebook->api('/me');
         print_rr($user_profile);
         $logoutUrl = $this->facebook->getLogoutUrl(array('next' => FB_LOGOUT));
         $sess = array(
