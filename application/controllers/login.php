@@ -44,6 +44,7 @@ class Login extends CI_Controller
         );
         if ($facebook) {
             $sess['fb_logout'] = $logoutUrl;
+            $sess['fb_id'] = $user['id'];
         }
 
         $this->session->sess_expiration = '14400';
