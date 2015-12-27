@@ -19,38 +19,44 @@ class Login extends CI_Controller
         //facebook and twitter setting
     }
 
+    private function setSessionInfo($user)
+    {
+        print_rr($user);
+        $user_data  = getBrowser();
+        $log = array(
+            'user_id' => $user['id'],
+            'login_time' => time(), 
+            'login_browser' => $user_data['name'].' '.$user_data['version'],
+            'login_os' => $user_data['platform'],
+            'login_ip' => $_SERVER['REMOTE_ADDR'],
+            'logout_time' => time(),
+        );
+
+        $log_id = $this->common_model->insert('tbl_user_logs', $log, true);
+        $log_id = sha1($log_id);
+
+        $ac_cat = $this->user_model->get_my_account_category($q['id']);
+        
+        $sess = array(
+            'current_user' => $q['id'],
+            'log_id' => $log_id,
+            'account_category' => $ac_cat[0]['account_category'],
+            'organization_care' => $ac_cat[0]['organization_care']
+        );
+
+        $this->session->sess_expiration = '14400';
+        $this->session->set_userdata($sess);
+    }
+    
     function index()
     {
         if($_POST) {
-            $user_data  = getBrowser();
             $data       = $_POST;
             $q          = $this->user_model->validate_user($data);
 
             if($q) {
                 $q = $q[0];
-                $log = array(
-                    'user_id' => $q['id'],
-                    'login_time' => time(), 
-                    'login_browser' => $user_data['name'].' '.$user_data['version'],
-                    'login_os' => $user_data['platform'],
-                    'login_ip' => $_SERVER['REMOTE_ADDR'],
-                    'logout_time' => time(),
-                );
-
-                $log_id = $this->common_model->insert('tbl_user_logs', $log, true);
-                $log_id = sha1($log_id);
-
-                $ac_cat = $this->user_model->get_my_account_category($q['id']);
-                
-                $sess = array(
-                    'current_user' => $q['id'],
-                    'log_id' => $log_id,
-                    'account_category' => $ac_cat[0]['account_category'],
-                    'organization_care' => $ac_cat[0]['organization_care']
-                );
-
-                $this->session->sess_expiration = '14400';
-                $this->session->set_userdata($sess);
+                $this->setSessionInfo($q);
                 if(isset($_GET['url'])){
                     $redirect = base64_decode($_GET['url']);
                     redirect($redirect);
@@ -156,16 +162,7 @@ class Login extends CI_Controller
             $this->session->set_flashdata('info', 'Please register for the site with your email and then you can benefit from the one click login from facebook in the future');
             redirect('login');
         }
-        print_rr($user);
-        // $logoutUrl = $this->facebook->getLogoutUrl(array('next' => FB_LOGOUT));
-        $sess = array(
-            'current_user' => $user['id'],
-            // 'fb_logout' => $logoutUrl,
-            'fb_id' => $user_profile['id'],
-            'fb_name' => $user_profile['name'],
-            'fb_email' => $user_profile['email']
-        );
-        $this->session->set_userdata($sess);
+        $this->setSessionInfo($user);
         redirect('user/dashboard');
          
          
