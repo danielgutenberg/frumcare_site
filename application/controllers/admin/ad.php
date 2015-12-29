@@ -294,6 +294,7 @@ class Ad extends CI_Controller
     {
         $details = $this->ad_model->getProfile($id);
         $alerts = $this->user_model->getSearchAlerts($details['lat'], $details['lng'], $details['care_type']);
+        print_rr($alerts);
         foreach ($alerts as $alert) {
             if ($alert['distance'] < $alert['dist']) {
                 break 1;
