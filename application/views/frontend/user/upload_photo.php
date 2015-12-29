@@ -3,48 +3,146 @@ $photo_url = site_url("images/plus.png");
 if(check_user()) {
     $current_user = get_user(check_user());
     $photo = $current_user['profile_picture'];
-    $photo_status = $current_user['profile_picture_status'];
-    if($photo!="")
+    if ($picture_type) {
+        $photo = $detail[0][$picture_type];
+    }
+    $choseFile = 'display:inline-block';
+    $display = 'display:none';
+    if($photo!="") {
         $photo_url = base_url('images/profile-picture/thumb/'.$photo);
+        $display = 'display:inline-block';
+        $choseFile = 'display:none';
+    }
+        
 }
 ?>
-<div class="container">
-<?php echo $this->breadcrumbs->show();?>
-    <div class="upload-photo upload-photos">
-
-        <h2>Upload a Photo / Logo</h2>
-             <?php flash();?>
-         <label>Browse your computer to select a file to upload</label>
-        <form action="<?php echo site_url();?>user/upload/<?php echo sha1(check_user());?>" method="post" enctype="multipart/form-data">
-            <div id="output">
-                <img src="<?php echo $photo_url?>">
-            </div>
-            <div class="upload-btns">
-            <button class="btn btn-default" id="upload">Choose File</button>
-            <input type="file" name="ImageFile" id="ImageFile" style="display: none;"> <div class="loader"></div>
-
-            <input type="hidden" id="file-name" name="profile_picture" value="<?php if(isset($photo)) echo $photo;?>" />
-            <input type="hidden" name="user_id" value="<?php echo check_user();?>" />
-            <input type="hidden" name="profile_picture_status" value="<?php if(isset($photo_status)) echo $photo_status ? $photo_status:'0';?>" />
-
-            <input type="submit" name="save_image" class="btn btn-succes" value="Save Changes" />
-        </div>
-        </form>        
-    </div>
+<div class="upload-photo">
+    <input type="hidden" id="file-name" name="<?php echo $photo_name;?>" value="<?php if(isset($photo)) echo $photo;?>">
+    <div id="output"><img src="<?php echo $photo_url?>"></div>
+    <a class="buttons btn-default" href="#" id="remove" onclick="return removePic();" style="margin:0 10px; <?php echo $display ?>">Remove File</a>
+    <label id="browse_text" style="<?php echo $choseFile;?>">Browse your computer to select a file to upload</label>
+    <a class="clickMe buttons btn-default" style="<?php echo $choseFile;?>" id="upload">Choose File</a>
+    <input type="file" name="ImageFile" id="ImageFile" style="display: none;">
+    <div class="loader"></div>
 </div>
-<!-- FILE UPLOAD -->
-<script type="text/javascript">
-	var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
-	var link = '<?php echo site_url("user/upload_image?files")?>';
-	$('#upload').click(function(e){
-		e.preventDefault();
-		$('#ImageFile').trigger('click');
-	});
-    $('#output').click(function(e){
-        e.preventDefault();
-        $('#ImageFile').trigger('click');
-    });
-</script>
 
-<script type="text/javascript" src="<?php echo site_url("js/fileuploader.js")?>"></script>
-<!-- FILE UPLOAD -->
+<script>
+function removePic(){
+    $('#file-name').attr('value','');
+    $('#ImageFile').attr('value','');
+    var lodr='<?php echo site_url("images/plus.png")?>';
+    $('#output img').attr('src',lodr);
+    $('#upload').css({'display':'inline-block'});
+    $('#browse_text').css({'display':'inline-block'});
+    $('#remove').css({'display':'none'});
+    var link = '<?php echo site_url("user/remove_profile_pic")?>';
+    $.ajax({
+        url: link,
+        type: 'POST',
+        success: function(data, textStatus, jqXHR)
+        {
+        },
+        error: function(jqXHR, textStatus, errorThrown)
+        {
+            // Handle errors here
+            console.log('ERRORS: ' + textStatus);
+            // STOP LOADING SPINNER
+        }
+    });
+    
+    
+    return false;
+
+}
+$(function()
+{
+
+
+    function setListeners() {
+        $('#locationField #autocomplete').change(function(){
+            $('#lat').val('');
+            $('#lng').val('');
+        });
+    
+        $('.clickMe').click(function(){
+            console.log('click');
+            $('#ImageFile').trigger('click');
+            return false;
+    
+        });
+    
+        // Add events
+    
+        $('#ImageFile').on('change',prepareUpload1);
+    }
+    
+    setListeners();
+    //$('form').on('submit', uploadFiles);
+
+    // Grab the files and set them to our variable
+    function prepareUpload1(event){
+        if ($('#ImageFile').val() == '') {
+            console.log('no file');
+            return;
+        }
+        var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
+        if ($('#file-name').attr('name') == 'profile_picture') {
+            var link = '<?php echo site_url("ad/upload_pp/?files")?>';
+        } else {
+            var link = '<?php echo site_url("ad/upload_pp/false?files")?>';
+        }
+        var files = event.target.files;
+        // event.stopPropagation(); // Stop stuff happening
+        // event.preventDefault(); // Totally stop stuff happening
+
+        // START A LOADING SPINNER HERE
+
+        // Create a formdata object and add the files
+        var data = new FormData();
+        $.each(files, function(key, value)
+        {
+            data.append(key, value);
+        });
+
+        $.ajax({
+            url: link,
+            type: 'POST',
+            beforesend: $('.loader').html(loader),
+            data: data,
+            cache: false,
+            dataType: 'json',
+            processData: false, // Don't process the files
+            contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+            success: function(data, textStatus, jqXHR)
+            {
+                if(typeof data.error === 'undefined') {
+                    // Success so call function to process the form
+                    if(data.type==1){
+                        var link = '<?php echo site_url("images/profile-picture/thumb/")?>'
+                        var src = link + '/' + data.files
+                        $('#output img').attr('src',src);
+                        $('.loader').addClass('hidden');
+                        $('#file-name').val(data.files);
+                        $('#upload').css({'display':'none'});
+                        $('#browse_text').css({'display':'none'});
+                        $('#remove').css({'display':'inline-block'});
+                    } else {
+                        $('#output').html(data.files + ' selected');
+                        $('#file-name').val(data.files);
+                    }
+
+
+                } else {
+                    console.log('ERRORS: ' + data.error);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown)
+            {
+                // Handle errors here
+                console.log('ERRORS: ' + textStatus);
+                // STOP LOADING SPINNER
+            }
+        });
+    }
+});
+</script>

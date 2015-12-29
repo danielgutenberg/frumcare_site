@@ -47,7 +47,7 @@ $oc = $this->session->userdata('organization_care');
             <form class="user-profile" action="<?php echo site_url();?>user/upload/<?php echo sha1(check_user());?>" method="post" enctype="multipart/form-data">            
             <div class="profile-left">
 	            <div id="output">
-	                <?php $this->load->view('frontend/user/photo_upload') ?>
+	                <?php $this->load->view('frontend/user/upload_photo', ['photo_name' => 'profile_picture']); ?>
 	            </div>              
                     <?php
                         if($ac == 1){?>

@@ -27,7 +27,7 @@ if ($upload_title) {
     <div id="output"><img src="<?php echo $photo_url?>"></div>
     <a class="buttons btn-default" href="#" id="remove" onclick="return removePic();" style="margin:0 10px; <?php echo $display ?>">Remove File</a>
     <label id="browse_text" style="<?php echo $choseFile;?>">Browse your computer to select a file to upload</label>
-    <a class="buttons btn-default" style="<?php echo $choseFile;?>" id="upload">Choose File</a>
+    <a class="clickMe buttons btn-default" style="<?php echo $choseFile;?>" id="upload">Choose File</a>
     <input type="file" name="ImageFile" id="ImageFile" style="display: none;">
     <div class="loader"></div>
 </div>
@@ -55,7 +55,7 @@ $(function()
             $('#lng').val('');
         });
     
-        $('#upload, #output').click(function(){
+        $('.clickMe').click(function(){
             console.log('click');
             $('#ImageFile').trigger('click');
             return false;

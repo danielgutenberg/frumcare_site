@@ -1362,9 +1362,10 @@ class User extends CI_Controller
         
       }//CODE BY CHAND
         
-        public function deletePhoto($id)
+        public function remove_profile_pic($id)
         {
-            redirect('user/profile');
+            $this->db->where(array('id' => check_user()));
+            $this->db->update('tbl_user', array('profile_picture' => ''));
         }
        
       public function searches(){
