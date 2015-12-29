@@ -21,8 +21,8 @@
                 </a>
             </p>
             <p>
-                <a href="<?php echo base_url('login/twitter') ?>">
-                    <img src="<?php echo base_url('img/twitter-signin.png') ?>" alt="Twitter Sign In">
+                <a href="<?php echo base_url('login/linkedin') ?>">
+                    <img height="40" width="247" src="<?php echo base_url('img/linkedin-signin.png') ?>" alt="Linkedin Sign In">
                 </a>
             </p>
         </div>
