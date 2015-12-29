@@ -21,7 +21,7 @@
                 </a>
             </p>
             <p>
-                <a href="<?php echo $linkedInUrl ?>">
+                <a href="<?php ?>">
                     <img height="40" width="247" src="<?php echo base_url('img/linkedin-signin.png') ?>" alt="Linkedin Sign In">
                 </a>
             </p>

@@ -15,7 +15,7 @@ class Login extends CI_Controller
           'default_graph_version' => 'v2.2',
         ]);
         
-        $this->linkedIn = new Happyr\LinkedIn\LinkedIn('77v3dm917cpp55', 'NWT8eGt8GV8zytm3');
+        // $this->linkedIn = new Happyr\LinkedIn\LinkedIn('77v3dm917cpp55', 'NWT8eGt8GV8zytm3');
  
         $this->load->library('twitteroauth');
         //facebook and twitter setting
@@ -109,12 +109,11 @@ class Login extends CI_Controller
               echo 'Facebook SDK returned an error: ' . $e->getMessage();
               exit;
             }
-            $linkedInUrl = $this->linkedIn->getLoginUrl(array('redirect_uri' => site_url('login/linkedin')));
+            // $linkedInUrl = $this->linkedIn->getLoginUrl(array('redirect_uri' => site_url('login/linkedin')));
             
             $data =  array(
                 'userFB' => $user_profile,
-                'loginUrl' => $loginUrl,
-                'linkedInUrl' => $linkedInUrl
+                'loginUrl' => $loginUrl
             );
             $data['main_content'] = 'frontend/login/login_form';
             $data['title'] = 'Login';
