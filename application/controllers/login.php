@@ -7,6 +7,13 @@ class Login extends CI_Controller
         parent::__construct();
         $this->load->model('user_model');
         $this->load->model('common_model');
+        
+        $params = array(
+            'callback_url' => site_url('login/linkedin'),
+            'api_key' => '77v3dm917cpp55',
+            'api_secret' => 'NWT8eGt8GV8zytm3'
+            );
+        $this->load->library('linkedin', $params);
         //facebook and twitter setting
         
         $this->facebook = new Facebook\Facebook([
@@ -14,8 +21,6 @@ class Login extends CI_Controller
           'app_secret' => FACEBOOK_APPSECRET,
           'default_graph_version' => 'v2.2',
         ]);
-        
-        // $this->linkedIn = new Happyr\LinkedIn\LinkedIn('77v3dm917cpp55', 'NWT8eGt8GV8zytm3');
  
         $this->load->library('twitteroauth');
         //facebook and twitter setting
@@ -109,11 +114,12 @@ class Login extends CI_Controller
               echo 'Facebook SDK returned an error: ' . $e->getMessage();
               exit;
             }
-            // $linkedInUrl = $this->linkedIn->getLoginUrl(array('redirect_uri' => site_url('login/linkedin')));
+            $linkedInUrl = $this->linkedin->getLoginUrl();
             
             $data =  array(
                 'userFB' => $user_profile,
-                'loginUrl' => $loginUrl
+                'loginUrl' => $loginUrl,
+                'linkedInUrl' => $linkedInUrl
             );
             $data['main_content'] = 'frontend/login/login_form';
             $data['title'] = 'Login';
@@ -123,13 +129,23 @@ class Login extends CI_Controller
     
     function linkedin()
     {
-        print_r('got here');
         try {
-            $access_token = $this->linkedIn->getAccessToken();
-            print_rr($access_token);
+            $access_token = $this->linkedin->getAccessToken($_GET['code']);
+            $a = $this->linkedin->getAccessToken();
+            $response = $this->linkedin->get('/people/~:(email-address)?format=json');
+           
+            $email = $response['emailAddress'];
+            
         } catch (\Exception $e) {
             print_rr($e->getMessage());
         }
+        $user = $this->user_model->getSocialLoginUser($email);
+        if (!$user) {
+            $this->session->set_flashdata('info', 'Please register for the site with your email and then you can benefit from the one click login from linkedIn in the future');
+            redirect('login');
+        }
+        $this->setSessionInfo($user);
+        redirect('user/dashboard');
     }
     
     function ffb()
