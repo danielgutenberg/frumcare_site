@@ -81,7 +81,10 @@
         <meta name="title" content="<?php echo $seodata['meta_title'];?>">
         <meta name="description" content="<?php echo $seodata['meta_desc'];?>">
         <meta name="keywords" content="<?php echo $seodata['meta_keywords'];?>">
-
+        
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="390849955832-hs2ht6ua8mvd4no6ti0v3ln99crup7b8.apps.googleusercontent.com">
+        
         <link rel="shortcut icon" href="<?php echo site_url("img/favicon.ico")?>" type="image/x-icon">
         <link rel="icon" href="<?php echo site_url("img/favicon.ico")?>" type="image/x-icon">
         
