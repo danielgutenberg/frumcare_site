@@ -847,7 +847,7 @@ class Ad extends CI_Controller
                 'sendto'      => $email,
                 'message'     => $msg
             );
-            print_rr($param);
+            
             sendemail($param);
         }
     }
