@@ -16,11 +16,13 @@ class Login extends CI_Controller
         $this->load->library('linkedin', $params);
         //facebook and twitter setting
         
-        $this->facebook = new Facebook\Facebook([
-          'app_id' => FACEBOOK_APPID,
-          'app_secret' => FACEBOOK_APPSECRET,
-          'default_graph_version' => 'v2.2',
-        ]);
+        $facebookParams = array(
+            'allowSignedRequest' => false,
+            'appId' => FACEBOOK_APPID,
+            'secret' => FACEBOOK_APPSECRET
+            );
+        
+        $this->load->library('facebook', $facebookParams);
  
         $this->load->library('twitteroauth');
         //facebook and twitter setting
@@ -100,25 +102,10 @@ class Login extends CI_Controller
                     redirect('login');
             }
         } else {
-            try {
-                $helper = $this->facebook->getRedirectLoginHelper();
-                $permissions = ['email', 'user_likes']; // optional
-                $loginUrl = $helper->getLoginUrl(site_url('login/ffb'), $permissions);
-                $user_profile = null;
-            } catch(Facebook\Exceptions\FacebookResponseException $e) {
-              // When Graph returns an error
-              echo 'Graph returned an error: ' . $e->getMessage();
-              exit;
-            } catch(Facebook\Exceptions\FacebookSDKException $e) {
-              // When validation fails or other local issues
-              echo 'Facebook SDK returned an error: ' . $e->getMessage();
-              exit;
-            }
             $linkedInUrl = $this->linkedin->getLoginUrl();
             
             $data =  array(
                 'userFB' => $user_profile,
-                'loginUrl' => $loginUrl,
                 'linkedInUrl' => $linkedInUrl
             );
             $data['main_content'] = 'frontend/login/login_form';
@@ -147,38 +134,25 @@ class Login extends CI_Controller
         $this->setSessionInfo($user);
         redirect('user/dashboard');
     }
-    
-    function ffb()
+    function facebook()
     {
-        $fb = $this->facebook;
-
-        $helper = $fb->getRedirectLoginHelper();
-        try {
-            $token = $helper->getAccessToken();
-            $default = $this->facebook->setDefaultAccessToken($token);
-            $user_profile = $this->facebook->get('/me?fields=email,name,id')->getDecodedBody();
-        } catch(Facebook\Exceptions\FacebookResponseException $e) {
-          // When Graph returns an error
-          echo 'Graph returned an error: ' . $e->getMessage();
-          exit;
-        } catch(Facebook\Exceptions\FacebookSDKException $e) {
-          // When validation fails or other local issues
-          echo 'Facebook SDK returned an error: ' . $e->getMessage();
-          exit;
-        }
-        try {
-            $email = $user_profile['email'];
+        $accessToken = $_POST['code'];
+        $id = $_POST['id'];
+        $email = $_POST['email'];
+        $this->facebook->setAccessToken($accessToken);
+        $user = $this->facebook->api('/me');
+        if ($user['id'] == $id) {
+            
             $user = $this->user_model->getSocialLoginUser($email);
-        } catch (\Exception $e) {
-            $e->getMessage();
+            if (!$user) {
+                $this->session->set_flashdata('info', 'Please register for the site with your email and then you can benefit from the one click login from facebook in the future');
+                echo json_encode(site_url('login'));
+                exit;
+            }
+            $this->setSessionInfo($user);
+            echo json_encode(site_url('user/dashboard'));
+            exit;
         }
-        if (!$user) {
-            $this->session->set_flashdata('info', 'Please register for the site with your email and then you can benefit from the one click login from facebook in the future');
-            redirect('login');
-        }
-        $logoutUrl = $helper->getLogoutUrl($token, array('next' => site_url('logout')));
-        $this->setSessionInfo($user, true, $logoutUrl);
-        redirect('user/dashboard');
     }
 
     function twitter()
