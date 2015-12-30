@@ -461,7 +461,7 @@ abstract class BaseFacebook
    * @return string A valid user access token, or false if one
    *                could not be determined.
    */
-  protected function getUserAccessToken() {
+  public function getUserAccessToken() {
     // first, consider a signed request if it's supplied.
     // if there is a signed request, then it alone determines
     // the access token.
@@ -745,12 +745,13 @@ abstract class BaseFacebook
    * @return integer Returns the UID of the Facebook user, or 0
    *                 if the Facebook user could not be determined.
    */
-  protected function getUserFromAccessToken() {
+  public function getUserFromAccessToken() {
     try {
-      $user_info = $this->api('/me');
+      $user_info = $this->api('/me?fields=email,name,id');
       return $user_info['id'];
     } catch (FacebookApiException $e) {
-      return 0;
+      
+      return $e->getMessage();
     }
   }
 
