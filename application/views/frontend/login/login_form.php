@@ -1,3 +1,4 @@
+<script src="https://apis.google.com/js/api:client.js"></script>
 <div class="container sign-in-forms">
     <?php user_flash(); ?>
     <h2>
@@ -23,6 +24,11 @@
             <p>
                 <a href="<?php echo $linkedInUrl ?>">
                     <img height="40" width="247" src="<?php echo base_url('img/linkedin-signin.png') ?>" alt="Linkedin Sign In">
+                </a>
+            </p>
+            <p id="customBtn" class="customGPlusSignIn">
+                <a style="cursor:pointer">
+                    <img height="45" width="255" src="<?php echo base_url('img/google-signin.png') ?>" alt="Facebook Sign In">
                 </a>
             </p>
         </div>
@@ -99,4 +105,47 @@
         })
     })
   }
+</script>
+<script>
+    function attachSignin(element) {
+        auth2.attachClickHandler(element, {},
+            function(googleUser) {
+                var id_token = googleUser.getAuthResponse().id_token;
+                var email = googleUser.getBasicProfile().getEmail();
+                authenticate(id_token, email);
+            }, function(error) {
+              alert(JSON.stringify(error, undefined, 2));
+            });
+      }
+    
+    var authenticate = function(token, email) {
+        var link = '<?php echo site_url("login/google")?>'
+        data = {
+            code: token,
+            email: email,
+        }
+        $.ajax({
+            url: link,
+            type: 'POST',
+            data: data,
+            dataType: 'json',
+            success: function(res) {
+                location.href = res
+            }
+        })
+    }
+    
+    var startApp = function() {
+        gapi.load('auth2', function(){
+          // Retrieve the singleton for the GoogleAuth library and set up the client.
+          auth2 = gapi.auth2.init({
+            client_id: '390849955832-hs2ht6ua8mvd4no6ti0v3ln99crup7b8.apps.googleusercontent.com',
+            cookiepolicy: 'single_host_origin',
+            // Request scopes in addition to 'profile' and 'email'
+            //scope: 'additional_scope'
+          });
+          attachSignin(document.getElementById('customBtn'));
+        });
+      };
+      startApp();
 </script>
