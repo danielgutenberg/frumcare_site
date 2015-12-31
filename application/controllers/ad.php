@@ -827,7 +827,7 @@ class Ad extends CI_Controller
                 $name = explode(' ', $user['name'])[0];
                 $ac = $details['account_category'];
                 $ct = $correspondingTypes[$details['care_type']];
-                $ad = $details['care_type'] > 16 ? 'caregivers' : 'jobs'; 
+                $ad = $details['care_type'] > 16 ? 'jobs' : 'caregivers'; 
                 $location = ['lat' => $details['lat'], 'lng' => $details['lng'], 'place' => $user['city']];
                 
                 $data['care_type'] = $ct;
