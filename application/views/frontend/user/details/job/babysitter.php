@@ -14,10 +14,10 @@
             $location .= ', ' . $country;
         }
         if($currency == 'ILS') {
-    $symbol = "&#8362;"; 
-} else {
-    $symbol = '$';
-}
+            $symbol = "&#8362;"; 
+        } else {
+            $symbol = '$';
+        }
     ?>
     
     <?php if(!empty($looking_to_work)){ ?>
