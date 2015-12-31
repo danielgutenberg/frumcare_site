@@ -473,10 +473,15 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                         <div class="rating-score"></div>
                         <div class="care-hours">
                             <?php if($caregiver['rate']!=''){
+                                if($caregiver['currency'] == 'ILS') {
+                                    $symbol = "&#8362;"; 
+                                } else {
+                                    $symbol = '$';
+                                }
                               $type = $caregiver['rate']==1?" per hour":" per month";
-                              echo '$'.str_replace('t', '- $', $caregiver['rate']). '/hr';
+                              echo $symbol . str_replace('t', '- $', $caregiver['rate']). '/hr';
                           }else{
-                              echo '$0/hr';
+                              echo $symbol . '0/hr';
                           }?>
                         </div>
                     </a>
