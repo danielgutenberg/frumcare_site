@@ -38,6 +38,7 @@
     $bed_children = $detail[0]['bed_children'];
     $extra_field = explode(',',$detail[0]['extra_field']);
     $currency = $detail[0]['currency'];
+    $subjects       = explode(',', $detail[0]['subjects']);
 ?>
 <div class="container">
 
