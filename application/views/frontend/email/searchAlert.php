@@ -4,9 +4,8 @@
 <strong>Hi <?php echo ucfirst($name); ?>,</strong>
 <br />
     <div style="margin:0; padding:0;">
-        <p style="font-family:Arial, Helvetica, sans-serif; font-size:13px; margin-bottom:20px;">A new profile has been added in Frumcare.com that matches your search</p>
+        <p style="font-family:Arial, Helvetica, sans-serif; font-size:13px; margin-bottom:20px;">A new profile has been added in Frumcare.com that matches your search.</p>
     </div>
-    <div style="font-family:Arial, Helvetica, sans-serif; font-size:13px; margin-bottom:5px;">To view full ad on the website <a href="<?php echo site_url().$navigate; ?>/details/<?php echo $recordData['uri'];?>/<?php echo $recordData['care_type'];?>">Click Here</a></div>
 <br />
 
 <?php $this->load->view('frontend/email/profile_list', array('userdatas'=>[0 =>$recordData]));?>
