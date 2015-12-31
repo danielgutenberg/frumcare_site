@@ -134,6 +134,33 @@ class Login extends CI_Controller
         $this->setSessionInfo($user);
         redirect('user/dashboard');
     }
+    
+    function google()
+    {
+        $accessToken = $_POST['code'];
+        $id = $_POST['id'];
+        $email = $_POST['email'];
+        try {
+            // $tokenResult = file_get_contents('https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=' . $accessToken);
+        } catch(\Exception $e) {
+            $this->session->set_flashdata('info', 'An unexpected error occured.  Please try again.');
+                echo json_encode(site_url('login'));
+                exit;
+        }
+        if (strlen($accessToken) > 20) {
+            
+            $user = $this->user_model->getSocialLoginUser($email);
+            if (!$user) {
+                $this->session->set_flashdata('info', 'Please register for the site with your email and then you can benefit from the one click login from google in the future');
+                echo json_encode(site_url('login'));
+                exit;
+            }
+            $this->setSessionInfo($user);
+            echo json_encode(site_url('user/dashboard'));
+            exit;
+        }
+    }
+    
     function facebook()
     {
         $accessToken = $_POST['code'];
