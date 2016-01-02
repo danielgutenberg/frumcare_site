@@ -364,7 +364,7 @@ class Ad extends CI_Controller
             $msg = $this->load->view('frontend/email/searchAlert', $data, true);
 
             $param = array(
-                'subject'     => 'A new profile has been added in Frumcare.com that matches your search',
+                'subject'     => 'A new profile has been added in FrumCare.com that matches your search',
                 'from'        => SITE_EMAIL,
                 'from_name'   => SITE_NAME,
                 'replyto'     => SITE_EMAIL,
