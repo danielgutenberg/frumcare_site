@@ -1,6 +1,7 @@
 <link href="<?php echo site_url();?>css/progressbar.css" type="text/css" rel="stylesheet"/>
 <?php
 $action = 'signup/save_user';
+$refer = $_GET['ac'] ?: null;
 if(segment(3) != '') {
     $action = 'user/edit/'.segment(3);
     $user_data = $user_data[0];
@@ -12,7 +13,7 @@ if(segment(3) != '') {
     $age = $user_data['age'];
     $location = $user_data['location'];
     $city = $user_data['city'];
-    $gender  = $user_data['gender'];    
+    $gender  = $user_data['gender']; 
 }
    if(empty($at)){
        if(isset($this->session->userdata['account_type'])){
@@ -192,7 +193,7 @@ if($this->uri->segment(2)!='edit'){
         });
 
         var account_category = $('input[name=account_category]:checked').val(); //$('.acc_cat').val();
-
+        getAccountCat(account_category, 0);
         if(account_category == 2){
             $('.parent').text('Job Details');
             $('.personal').hide();
