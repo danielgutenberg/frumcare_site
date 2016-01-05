@@ -43,12 +43,13 @@
                                     
                                    
                                    <?php 
-                                       if($ud['accountCategory'] == 1){
+                                        $ct = $ud['care_type'];
+                                       if($ct < 10){
                                             echo 'Caregiver';
-                                       }elseif($ud['accountCategory'] == 2){
-                                        echo 'Parent';
-                                       }else{
+                                       }elseif($ct < 17 || $ct > 24){
                                         echo 'Organization';
+                                       }else{
+                                        echo 'Parent';
                                        }
                                        
                                    ?>
