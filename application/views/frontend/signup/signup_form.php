@@ -194,6 +194,7 @@ if($this->uri->segment(2)!='edit'){
 
         var account_category = $('input[name=account_category]:checked').val(); //$('.acc_cat').val();
         getAccountCat(account_category, 0);
+        leftText(account_category, 0);
         if(account_category == 2){
             $('.parent').text('Job Details');
             $('.personal').hide();
