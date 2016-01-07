@@ -109,7 +109,7 @@
             <?php
           } ?>
         
-        <?php if(!empty($willing_to_work)){ ?>
+        <?php if(!empty($willing_to_work) || isset($pick_up_child)){ ?>
         <?php $willing_to_work = explode(',',$willing_to_work)?>
         <tr>
             <td>Must specialize in</td>
