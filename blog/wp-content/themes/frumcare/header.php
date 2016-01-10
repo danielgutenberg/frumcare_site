@@ -97,12 +97,12 @@
                             </select>
                             </div>
 
-                            <div class="dropdown">
-                                <input type="text" name="search_for" value="" placeholder="Search" data-toggle="dropdown"/>
-                                <input type="hidden" value=""/>
-                                <button type="submit" class="submit"><i class="icon-search">&nbsp;</i></button>
+                            <!--<div class="dropdown">-->
+                            <!--    <input type="text" name="search_for" value="" placeholder="Search" data-toggle="dropdown"/>-->
+                            <!--    <input type="hidden" value=""/>-->
+                            <!--    <button type="submit" class="submit"><i class="icon-search">&nbsp;</i></button>-->
 
-                            </div>
+                            <!--</div>-->
                         </form>
                     </div><!--end search-->
                     </div>
