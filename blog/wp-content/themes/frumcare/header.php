@@ -88,22 +88,22 @@
                         </div>
 
                         <div class="search" style="width:300px;">
-                        <form method="get" action="<?php echo site_url();?>search">
-                            <div class="search-select">
-                            <select name="category" style="background: url('<?php echo $ciurl;?>img/select-btns.png') no-repeat scroll 94% center #363636; width: 100%; color: rgb(190, 186, 179); -webkit-appearance: none; -moz-appearance: none;">
-                                <option value="all" style="background-color: white; color: grey;">All</option>
-                                <option value="caregiver" style="background-color: white; color: grey;" class="selected">Caregivers</option>
-                                <option value="careseeker" style="background-color: white; color: grey;">Jobs</option>
-                            </select>
-                            </div>
+                        <!--<form method="get" action="<?php echo site_url();?>search">-->
+                        <!--    <div class="search-select">-->
+                        <!--    <select name="category" style="background: url('<?php echo $ciurl;?>img/select-btns.png') no-repeat scroll 94% center #363636; width: 100%; color: rgb(190, 186, 179); -webkit-appearance: none; -moz-appearance: none;">-->
+                        <!--        <option value="all" style="background-color: white; color: grey;">All</option>-->
+                        <!--        <option value="caregiver" style="background-color: white; color: grey;" class="selected">Caregivers</option>-->
+                        <!--        <option value="careseeker" style="background-color: white; color: grey;">Jobs</option>-->
+                        <!--    </select>-->
+                        <!--    </div>-->
 
-                            <!--<div class="dropdown">-->
-                            <!--    <input type="text" name="search_for" value="" placeholder="Search" data-toggle="dropdown"/>-->
-                            <!--    <input type="hidden" value=""/>-->
-                            <!--    <button type="submit" class="submit"><i class="icon-search">&nbsp;</i></button>-->
+                        <!--    <div class="dropdown">-->
+                        <!--        <input type="text" name="search_for" value="" placeholder="Search" data-toggle="dropdown"/>-->
+                        <!--        <input type="hidden" value=""/>-->
+                        <!--        <button type="submit" class="submit"><i class="icon-search">&nbsp;</i></button>-->
 
-                            <!--</div>-->
-                        </form>
+                        <!--    </div>-->
+                        <!--</form>-->
                     </div><!--end search-->
                     </div>
                 </div><!--end top-bar-->
