@@ -42,8 +42,37 @@ $careType = [
                     $loca .= ', ' . $data['country'];
                 }
             $navigate = $data['care_type']>16?'jobs':'caregivers'; ?> 	
-            <div class="profile-list clearfix usual row">
-        	<div class="profile-list-details col-md-12 col-sm-12 col-xs-12">
+            <div class="profile-list clearfix usual row" style="border: 1px solid #cccccc;">
+                <div class="profile-img-wrap col-md-3 col-sm-3 col-xs-12"> <?php
+                if($data['facility_pic']!="" && file_exists('images/profile-picture/'.$data['facility_pic'])) {?>
+                    <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
+    		            <div id="profile_image">
+    		            	<img src="<?php echo site_url("images/profile-picture/{$data['facility_pic']}")?>">
+    		            </div>
+    	            </a><?php } else {
+                    if($data['profile_picture']!="" && file_exists('images/profile-picture/'.$data['profile_picture'])) {?>
+                        <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
+        		            <div id="profile_image">
+        		            	<img src="<?php echo site_url("images/profile-picture/{$data['profile_picture']}")?>">
+        		            </div>
+        	            </a><?php }
+                    else {  
+                        if($data['photo_of_child']!= 0 && file_exists('images/profile-picture/'.$data['photo_of_child'])) {?>
+                            <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
+            		            <div id="profile_image">
+            		            	<img src="<?php echo site_url("images/profile-picture/{$data['photo_of_child']}")?>">
+            		            </div>
+            	            </a><?php } else { ?>
+                    
+                    
+                        <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
+    			            <div id="profile_image">
+    			            	<img src="<?php echo site_url("images/no-image.jpg")?>">
+                            </div>
+                        </a><?php 
+                }}} ?>
+	        </div>
+        	<div class="profile-list-details col-md-9 col-sm-9 col-xs-12">
                 <?php if ($data['account_category'] == 3) {?>
                 <span class="name">
 					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo ucwords($data['organization_name']);?></a>
@@ -240,8 +269,9 @@ $careType = [
                     
 				</div>
                 <div style="clear:both"></div>
-				 	<a href="<?php echo site_url().$navigate; ?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" >See full Profile</a>
-			        <a href="<?php echo site_url();?>user/edit_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="margin-left:5px; background-color:#5bc0de;">Edit Profile</a>
+                <?php $status = $data['profile_status'] > 0 ? 'Approved' : 'Pending'; ?> 
+				 	<a class="btn btn-primary" >Status: <?php echo $status; ?></a>
+			        <a href="<?php echo site_url();?>user/edit_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="margin-left:5px; background-color:#5bc0de;">Edit Job Details</a>
 			        
                     <?php if ($data['profile_status'] == 2) { ?>
                       
