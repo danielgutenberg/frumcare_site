@@ -420,7 +420,8 @@ $(document).ready(function(){
                 success:function(msg){
                     $(".searchloader").fadeOut("fast");  
                     $("#result").html(msg);
-                    $("#result").fadeIn(500);   
+                    $("#result").fadeIn(500);
+                    setUpAutoComplete();
                 }                
             });            
         });            
@@ -521,58 +522,84 @@ $(document).ready(function(){
 
 </div>
 <script>
-    $("#locationField").ready(function(){
-        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['address']});
-        google.maps.event.addListener(autocomplete, 'place_changed', function() {
-            $("#cityName").val('');
-            $("#stateName").val('');
-            $("#countryName").val('');
-            var place = autocomplete.getPlace();
-            $('.locationName').val(place.formatted_address)
-            var lat = place.geometry.location.lat();
-            var lng = place.geometry.location.lng();
-            var i = 0;
-            var len = place.address_components.length;
-            while (i < len) {
-                var ac = place.address_components[i];
-                if (ac.types.indexOf('locality') >= 0 || ac.types.indexOf('sublocality') >=0 ) {
-                    $("#cityName").val(ac.long_name);
+    function setUpAutoComplete() {
+        $("#locationField").ready(function(){
+            var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['address']});
+            console.log(autocomplete);
+            google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                $("#cityName").val('');
+                $("#stateName").val('');
+                $("#countryName").val('');
+                var place = autocomplete.getPlace();
+                $('.locationName').val(place.formatted_address)
+                var lat = place.geometry.location.lat();
+                var lng = place.geometry.location.lng();
+                var i = 0;
+                var len = place.address_components.length;
+                while (i < len) {
+                    var ac = place.address_components[i];
+                    if (ac.types.indexOf('locality') >= 0 || ac.types.indexOf('sublocality') >=0 ) {
+                        $("#cityName").val(ac.long_name);
+                    }
+                    if (ac.types.indexOf('administrative_area_level_1') >= 0) {
+                        $("#stateName").val(ac.short_name);
+                    }
+                    if (ac.types.indexOf('country') >= 0) {
+                        $("#countryName").val(ac.long_name);
+                    }
+                    i++;
                 }
-                if (ac.types.indexOf('administrative_area_level_1') >= 0) {
-                    $("#stateName").val(ac.short_name);
+                $("#lat").val(lat);
+                $("#lng").val(lng);
+                document.getElementById("error").innerHTML="";
+            });
+            
+            $("#locationField").keypress(function(event){
+                if ((event.charCode >= 47 && event.charCode <= 57) || // 0-9
+                    (event.charCode >= 65 && event.charCode <= 90) || // A-Z
+                    (event.charCode >= 97 && event.charCode <= 122)||
+                    (event.charCode == 32 || event.charCode == 92)){
+                        return true
+                    } 
+                else {
+                    alert("Please use only english letters in the location search");
+                    event.preventDefault()
                 }
-                if (ac.types.indexOf('country') >= 0) {
-                    $("#countryName").val(ac.long_name);
-                }
-                i++;
+            });
+            
+            $('#locationField').on('click', function(){
+                $('#autocomplete').val('')
+                $('#lat').val('')
+            });
+            
+            $('#locationSearch').on('click', function(){
+                $('#autocomplete').val('')
+                $('#lat').val('')
+            });
+        });
+        
+        $('#careseekerButton').click(function(event) {
+            event.preventDefault(); 
+            if ($('#lat').val() == '') {
+                window.scrollTo(0, $("#locationField").offset().top);
+                $("#locationField").css('border-color', 'red')
+                document.getElementById("error").innerHTML="Please click on location from dropdown";
+            } else {
+                $('#personal-details-form').submit()
             }
-            $("#lat").val(lat);
-            $("#lng").val(lng);
-            document.getElementById("error").innerHTML="";
         });
-        
-        $("#locationField").keypress(function(event){
-            if ((event.charCode >= 47 && event.charCode <= 57) || // 0-9
-                (event.charCode >= 65 && event.charCode <= 90) || // A-Z
-                (event.charCode >= 97 && event.charCode <= 122)||
-                (event.charCode == 32 || event.charCode == 92)){
-                    return true
-                } 
-            else {
-                alert("Please use only english letters in the location search");
-                event.preventDefault()
+        $('#edit-account-button').click(function(event) {
+            event.preventDefault(); 
+            if ($('#lat').val() == '') {
+                window.scrollTo(0, $("#locationField").offset().top);
+                $("#locationField").css('border-color', 'red')
+                document.getElementById("error").innerHTML="Please click on location from dropdown";
+            } else {
+                $('#edituserdetails').submit()
             }
         });
-        
-        $('#locationField').on('click', function(){
-            $('#autocomplete').val('')
-            $('#lat').val('')
-        });
-        
-        $('#locationSearch').on('click', function(){
-            $('#autocomplete').val('')
-            $('#lat').val('')
-        });
-    });
+    }
+    
+    
     
 </script>
