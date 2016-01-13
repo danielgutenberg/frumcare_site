@@ -1014,7 +1014,7 @@ class User_model extends CI_Model
         $this->db->join('tbl_care','tbl_userprofile.care_type = tbl_care.id','left');
         $this->db->where('user_id',$this->session->userdata('current_user'));
         $this->db->order_by("tbl_userprofile.id", "desc");
-        $this->db->select('tbl_userprofile.*, tbl_care.*, tbl_user.city, tbl_user.state, tbl_user.country, tbl_user.name');
+        $this->db->select('tbl_userprofile.*, tbl_care.*, tbl_user.city, tbl_user.state, tbl_user.country, tbl_user.name, tbl_user.uri');
         $query = $this->db->get('tbl_userprofile');
         return $query->result();
     }
