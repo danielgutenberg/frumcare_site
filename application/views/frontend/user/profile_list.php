@@ -29,6 +29,7 @@ $careType = [
  ];
 	if(is_array($userdatas)){
         foreach($userdatas as $data){
+			$data = (array) $data;
 			if ($data['rate']==56) $data['rate'] = '55+';
 			$loca = '';
                 if ($data['city'] != '') {
@@ -42,62 +43,7 @@ $careType = [
                 }
             $navigate = $data['care_type']>16?'jobs':'caregivers'; ?> 	
             <div class="profile-list clearfix usual row">
-            <div class="profile-img-wrap col-md-3 col-sm-3 col-xs-12"> <?php
-                if($data['facility_pic']!="" && file_exists('images/profile-picture/'.$data['facility_pic'])) {?>
-                    <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
-    		            <div id="profile_image">
-    		            	<img src="<?php echo site_url("images/profile-picture/{$data['facility_pic']}")?>">
-    		            </div>
-    	            </a><?php } else {
-                    if($data['profile_picture']!="" && file_exists('images/profile-picture/'.$data['profile_picture'])) {?>
-                        <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
-        		            <div id="profile_image">
-        		            	<img src="<?php echo site_url("images/profile-picture/{$data['profile_picture']}")?>">
-        		            </div>
-        	            </a><?php }
-                    else {  
-                        if($data['photo_of_child']!= 0 && file_exists('images/profile-picture/'.$data['photo_of_child'])) {?>
-                            <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
-            		            <div id="profile_image">
-            		            	<img src="<?php echo site_url("images/profile-picture/{$data['photo_of_child']}")?>">
-            		            </div>
-            	            </a><?php } else { ?>
-                    
-                    
-                        <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
-    			            <div id="profile_image">
-    			            	<img src="<?php echo site_url("images/no-image.jpg")?>">
-                            </div>
-                        </a><?php 
-                }}} ?>
-    	        <!--<div class="basic-background"><?php 
-                    if($data['agree_bg_check']  == 1) 
-    		        	echo "<a href='#'>Basic Background Check</a>";
-  		        	else echo ''; ?>
-    	        </div>
-    	        <span class="img-of-profile"></span><br />-->
-    	        <div class="pin-location"> <?php 
-                    if($data['location']) { ?>
-                        <img src="<?php echo site_url();?>img/pin.png">
-                        <?php
-                    }
-                    if (is_array($location)) {
-                        $location1 = explode(',',$location['place']);
-                    } else {
-                        $location1 = explode(',',$location);
-                    }
-
-                    if(preg_match('/'.$location1[0].'/',$data['location'])){
-                        echo '0 Miles Away From '.$location1[0];
-                    }else{
-                        echo ceil($data['distance'])." Miles Away From " . $location['place'];  //location is passed from controller
-                    }
-
-
-    	        	?>
-    	        </div>
-	        </div>
-        	<div class="profile-list-details col-md-9 col-sm-9 col-xs-12">
+        	<div class="profile-list-details col-md-12 col-sm-12 col-xs-12">
                 <?php if ($data['account_category'] == 3) {?>
                 <span class="name">
 					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo ucwords($data['organization_name']);?></a>
@@ -161,33 +107,8 @@ $careType = [
                     else {
                         echo "Description not available";
                     } ?>
-				</div> <?php 
-                if($data['profile_description']!=''){?>							                           
-                    <a href="<?php echo site_url().$navigate; ?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>" style="color:#98C85A">
-						More
-					</a> <?php 
-                } ?>
-			    <br />
-			    <?php if($data['care_type'] != 7) { ?>
-			    <h5>Last Signed in: <?php 
-					$id 		= $data['user_id'];
-					$userlog 	= User_model::getUserLogById($id);
-					if(!empty($userlog)){
-						$dbDate = $userlog['login_time']; // Database date
-						$endDate = time(); 
-						$diff = $endDate - $dbDate; 
-						$days = floor($diff/86400);
-						$hours = floor(($diff-$days*86400)/(60 * 60));
-						$min = floor(($diff-($days*86400+$hours*3600))/60);
-						$second = $diff - ($days*86400+$hours*3600+$min*60);
-
-						if($days > 0) echo "( " .$days." days ago )";
-						elseif($hours > 0) echo "( " .$hours." hours ago )";
-						elseif($min > 0) echo "( " .$min." minute ago )";
-						else echo "( just second ago )";
-					} ?> 
-			    </h5>
-			    <?php } ?>
+				</div>
+			   
 				<div class="profile-activities"> <?php 
                     
                     //for caregivers
@@ -320,6 +241,21 @@ $careType = [
 				</div>
                 <div style="clear:both"></div>
 				 	<a href="<?php echo site_url().$navigate; ?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" >See full Profile</a>
+			        <a href="<?php echo site_url();?>user/edit_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="margin-left:5px; background-color:#5bc0de;">Edit Profile</a>
+			        
+                    <?php if ($data['profile_status'] == 2) { ?>
+                      
+                            <a href="<?php echo site_url();?>user/unarchive_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="margin-left:5px; background-color:red;" onclick="return confirm('Are you sure you want to activate this profile?')">
+                            Unarchive</a>
+                       
+                    <?php } else if ($data['profile_status'] == 1){ ?>
+                
+                        <a href="<?php echo site_url();?>user/delete_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="margin-left:5px; background-color:red;" onclick="return confirm('Are you sure you want to archive this profile?')">
+                        Archive</a>
+                
+                    <?php } else { ?>
+                        <a class="btn btn-default" style="margin-left:5px; margin-top:27px; cursor:auto">AWAITING APPROVAL</a>
+                    <?php }?>
 			</div>
 		</div>
 		<div class="clearfix"></div>
@@ -327,6 +263,6 @@ $careType = [
 		} //end of foreach
 	} //end of if
     else{
-		echo 'No results found';
+		echo 'Currently you have no profiles';
 	}
 ?>
