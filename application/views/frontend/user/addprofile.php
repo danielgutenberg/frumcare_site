@@ -518,88 +518,61 @@ $(document).ready(function(){
 </div>
 <!-- Modal Ends -->
 
-<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
-<script>
-// This example displays an address form, using the autocomplete feature
-// of the Google Places API to help users fill in the information.
 
-var placeSearch, autocomplete;
-var componentForm = {
-  street_number: 'short_name',
-  route: 'long_name',
-  locality: 'long_name',
-  administrative_area_level_1: 'short_name',
-  country: 'long_name',
-  postal_code: 'short_name'
-};
-
-function initialize() {
-  // Create the autocomplete object, restricting the search
-  // to geographical location types.
-  autocomplete = new google.maps.places.Autocomplete(
-      /** @type {HTMLInputElement} */(document.getElementById('autocomplete')),
-      { types: ['geocode'] });
-  // When the user selects an address from the dropdown,
-  // populate the address fields in the form.
-  google.maps.event.addListener(autocomplete, 'place_changed', function() {
-    fillInAddress();
-  });
-}
-
-// [START region_fillform]
-function fillInAddress() {
-  // Get the place details from the autocomplete object.
-  var place = autocomplete.getPlace();
-    console.log(place);
-  for (var component in componentForm) {
-    document.getElementById(component).value = '';
-    document.getElementById(component).disabled = false;
-  }
-
-  // Get each component of the address from the place details
-  // and fill the corresponding field on the form.
-  for (var i = 0; i < place.address_components.length; i++) {
-    var addressType = place.address_components[i].types[0];
-    if (componentForm[addressType]) {
-      var val = place.address_components[i][componentForm[addressType]];
-      document.getElementById(addressType).value = val;
-    }
-  }
-}
-// [END region_fillform]
-
-// [START region_geolocation]
-// Bias the autocomplete object to the user's geographical location,
-// as supplied by the browser's 'navigator.geolocation' object.
-function geolocate() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var geolocation = new google.maps.LatLng(
-          position.coords.latitude, position.coords.longitude);
-      var circle = new google.maps.Circle({
-        center: geolocation,
-        radius: position.coords.accuracy
-      });
-      autocomplete.setBounds(circle.getBounds());
-    });
-  }
-}
-// [END region_geolocation]
-
-    </script>
-<!-- for google map ends -->
-<script>
-    $("#locationField").ready(function(){        
-        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {});
-            google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                    var place = autocomplete.getPlace();
-                    //console.log(place.geometry.location);
-                    var lat = place.geometry.location.A;
-                    var lng = place.geometry.location.F;                                
-                    $("#lat").val(lat);
-                    $("#lng").val(lng);                                
-                });
-    });
-</script>
 </div>
+<script>
+    $("#locationField").ready(function(){
+        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['address']});
+        google.maps.event.addListener(autocomplete, 'place_changed', function() {
+            $("#cityName").val('');
+            $("#stateName").val('');
+            $("#countryName").val('');
+            var place = autocomplete.getPlace();
+            $('.locationName').val(place.formatted_address)
+            var lat = place.geometry.location.lat();
+            var lng = place.geometry.location.lng();
+            var i = 0;
+            var len = place.address_components.length;
+            while (i < len) {
+                var ac = place.address_components[i];
+                if (ac.types.indexOf('locality') >= 0 || ac.types.indexOf('sublocality') >=0 ) {
+                    $("#cityName").val(ac.long_name);
+                }
+                if (ac.types.indexOf('administrative_area_level_1') >= 0) {
+                    $("#stateName").val(ac.short_name);
+                }
+                if (ac.types.indexOf('country') >= 0) {
+                    $("#countryName").val(ac.long_name);
+                }
+                i++;
+            }
+            $("#lat").val(lat);
+            $("#lng").val(lng);
+            document.getElementById("error").innerHTML="";
+        });
+        
+        $("#locationField").keypress(function(event){
+            if ((event.charCode >= 47 && event.charCode <= 57) || // 0-9
+                (event.charCode >= 65 && event.charCode <= 90) || // A-Z
+                (event.charCode >= 97 && event.charCode <= 122)||
+                (event.charCode == 32 || event.charCode == 92)){
+                    return true
+                } 
+            else {
+                alert("Please use only english letters in the location search");
+                event.preventDefault()
+            }
+        });
+        
+        $('#locationField').on('click', function(){
+            $('#autocomplete').val('')
+            $('#lat').val('')
+        });
+        
+        $('#locationSearch').on('click', function(){
+            $('#autocomplete').val('')
+            $('#lat').val('')
+        });
+    });
+    
+</script>
