@@ -46,24 +46,8 @@ $oc = $this->session->userdata('organization_care');
 	        
             <form class="user-profile" action="<?php echo site_url();?>user/upload/<?php echo sha1(check_user());?>" method="post" enctype="multipart/form-data">            
             <div class="row">
-            <div class="col-xs-10">
-                <?php $this->load->view('frontend/user/profile_list', array('userdatas'=>$all_profile)); ?>
-		        </div>
-		        <div class="col-xs-1">
-		            <?php
-                        if($ac == 1){?>
-                            <br />
-                            <a href="<?php echo site_url('user/details/'.sha1(check_user()))?>" class="btn btn-info">Edit Personal Details</a>
-                            <?php
-                        }
-                    ?>
-                    <?php
-                        if($ac == 3){?>
-                            <br />
-                            <a href="<?php echo site_url('user/details/'.sha1(check_user()))?>" class="btn btn-info">Edit Organization Info</a>
-                            <?php
-                        }
-                    ?>
+            <div class="col-xs-12">
+                <?php $this->load->view('frontend/user/profile_list', array('userdatas'=>$all_profile, 'ac' => $ac)); ?>
 		        </div>
 		        </div>
 		        <br>
