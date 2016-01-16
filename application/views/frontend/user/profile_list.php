@@ -281,29 +281,29 @@ $careType = [
 			            <div class="col-sm-12 col-xs-12 col-md-12 col-lg-3">
     		            <?php
                             if($ac == 1){?>
-                                <a style="font-size:13px; margin-left:5px; background-color:#85bd30; width: 150px; height: 34px;" href="<?php echo site_url('user/details/'.sha1(check_user()))?>" class="btn btn-primary" <?php if ($adCount > 1) {$message = 'Personal details get updated in all your profiles'; $click = 'onclick="return confirm(' . "'" . $message . "'" .')"'; echo $click; }?>>Edit Personal Details</a>
+                                <a style="font-size:13px; margin-left:5px; background-color:#85bd30; width: 150px;" href="<?php echo site_url('user/details/'.sha1(check_user()))?>" class="btn btn-primary" <?php if ($adCount > 1) {$message = 'Personal details get updated in all your profiles'; $click = 'onclick="return confirm(' . "'" . $message . "'" .')"'; echo $click; }?>>Edit Personal Details</a>
                                 <?php
                             }
                         ?>
                         <?php
                             if($ac == 3){?>
-                                <a style="font-size:12px; margin-left:5px; background-color:#85bd30; width: 150px; height: 34px;" href="<?php echo site_url('user/details/'.sha1(check_user()))?>" class="btn btn-primary" <?php if ($adCount > 1) {$message = 'Organization details get updated in all your profiles'; $click = 'onclick="return confirm(' . "'" . $message . "'" .')"'; echo $click; }?>>Edit Organization Info</a>
+                                <a style="font-size:13px; margin-left:5px; background-color:#85bd30; width: 150px;" href="<?php echo site_url('user/details/'.sha1(check_user()))?>" class="btn btn-primary" <?php if ($adCount > 1) {$message = 'Organization details get updated in all your profiles'; $click = 'onclick="return confirm(' . "'" . $message . "'" .')"'; echo $click; }?>>Edit Organization Info</a>
                                 <?php
                             }
                         ?>
         		        </div>
 			            <div class="col-md-12 col-lg-3" style="margin-left:15px">
-			                <a href="<?php echo site_url();?>user/edit_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="margin-left:5px; background-color:#5bc0de; width: 150px;" >Edit Job Details</a>
+			                <a href="<?php echo site_url();?>user/edit_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="font-size:13px; margin-left:5px; background-color:#5bc0de; width: 150px;" >Edit Job Details</a>
 			            </div>
 			            <div class="col-md-12 col-lg-3" style="margin-left:15px">
                             <?php if ($data['profile_status'] == 2) { ?>
                               
-                                    <a href="<?php echo site_url();?>user/unarchive_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="margin-left:5px; background-color:red; width: 150px;" onclick="return confirm('Are you sure you want to activate this profile?')">
+                                    <a href="<?php echo site_url();?>user/unarchive_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="font-size:13px; margin-left:5px; background-color:red; width: 150px;" onclick="return confirm('Are you sure you want to activate this profile?')">
                                     Unarchive</a>
                                
                             <?php } else if ($data['profile_status'] == 1){ ?>
                         
-                                <a href="<?php echo site_url();?>user/delete_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="margin-left:5px; background-color:red;  width: 150px;" onclick="return confirm('Are you sure you want to archive this profile?')">
+                                <a href="<?php echo site_url();?>user/delete_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="font-size:13px; margin-left:5px; background-color:red;  width: 150px;" onclick="return confirm('Are you sure you want to archive this profile?')">
                                 Archive</a>
                         
                             <?php } ?>
