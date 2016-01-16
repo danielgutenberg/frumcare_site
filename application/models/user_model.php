@@ -1010,9 +1010,11 @@ class User_model extends CI_Model
     }
     //public function get_extra_profile(){
     public function get_all_profile(){
+        $this->db->join('tbl_user', 'tbl_user.id = tbl_userprofile.user_id', 'left');
         $this->db->join('tbl_care','tbl_userprofile.care_type = tbl_care.id','left');
         $this->db->where('user_id',$this->session->userdata('current_user'));
         $this->db->order_by("tbl_userprofile.id", "desc");
+        $this->db->select('tbl_userprofile.*, tbl_care.*, tbl_user.city, tbl_user.state, tbl_user.country, tbl_user.name, tbl_user.uri, tbl_user.profile_picture');
         $query = $this->db->get('tbl_userprofile');
         return $query->result();
     }

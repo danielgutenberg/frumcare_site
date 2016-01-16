@@ -70,25 +70,8 @@ $careType = [
   		        	else echo ''; ?>
     	        </div>
     	        <span class="img-of-profile"></span><br />-->
-    	        <div class="pin-location" style="box-sizing: border-box;color: #313131;font-size: 16px;line-height: 19px;padding-right: 20px;margin-top: 20px;font-family: 'Lato',sans-serif;font-weight: bold;font-style: italic;"> <?php 
-                    if($data['location']) { ?>
-                        <img src="<?php echo site_url();?>img/pin.png">
-                        <?php
-                    }
-                    if (is_array($location)) {
-                        $location1 = explode(',',$location['place']);
-                    } else {
-                        $location1 = explode(',',$location);
-                    }
-
-                    if(preg_match('/'.$location1[0].'/',$data['location'])){
-                        echo '0 Miles Away From ' . $location1[0];
-                    }else{
-                        echo ceil($data['distance'])." Miles Away From " . $location1[0];  //location is passed from controller
-                    }
-
-
-    	        	?>
+    	        <div class="pin-location" style="box-sizing: border-box;color: #313131;font-size: 16px;line-height: 19px;padding-right: 20px;margin-top: 20px;font-family: 'Lato',sans-serif;font-weight: bold;font-style: italic;">
+                  
     	        </div>
 	        </div>
         	<div style="float:left; width:75%;">
