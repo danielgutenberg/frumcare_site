@@ -28,6 +28,7 @@ $careType = [
  '29' => 'Therapist'
  ];
 	if(is_array($userdatas)){
+	    $adCount = count($userdatas);
         foreach($userdatas as $data){
 			$data = (array) $data;
 			if ($data['rate']==56) $data['rate'] = '55+';
@@ -280,13 +281,13 @@ $careType = [
 			            <div class="col-sm-12 col-xs-12 col-md-12 col-lg-3">
     		            <?php
                             if($ac == 1){?>
-                                <a style="font-size:13px; margin-left:5px; background-color:#85bd30; width: 150px; height: 34px;" href="<?php echo site_url('user/details/'.sha1(check_user()))?>" class="btn btn-primary" onclick="return confirm('Personal details get updated in all your profiles')">Edit Personal Details</a>
+                                <a style="font-size:13px; margin-left:5px; background-color:#85bd30; width: 150px; height: 34px;" href="<?php echo site_url('user/details/'.sha1(check_user()))?>" class="btn btn-primary" <?php if ($adCount > 1) {$message = 'Personal details get updated in all your profiles'; $click = 'onclick="return confirm(' . "'" . $message . "'" .')"'; echo $click; }?>>Edit Personal Details</a>
                                 <?php
                             }
                         ?>
                         <?php
                             if($ac == 3){?>
-                                <a style="font-size:12px; margin-left:5px; background-color:#85bd30; width: 150px; height: 34px;" href="<?php echo site_url('user/details/'.sha1(check_user()))?>" class="btn btn-primary" onclick="return confirm('Organization details get updated in all your profiles')">Edit Organization Info</a>
+                                <a style="font-size:12px; margin-left:5px; background-color:#85bd30; width: 150px; height: 34px;" href="<?php echo site_url('user/details/'.sha1(check_user()))?>" class="btn btn-primary" <?php if ($adCount > 1) {$message = 'Organization details get updated in all your profiles'; $click = 'onclick="return confirm(' . "'" . $message . "'" .')"'; echo $click; }?>>Edit Organization Info</a>
                                 <?php
                             }
                         ?>
