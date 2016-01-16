@@ -43,7 +43,7 @@ $careType = [
                 }
             $navigate = $data['care_type']>16?'jobs':'caregivers'; ?> 	
             <div class="profile-list clearfix usual row" style="border: 1px solid #cccccc;">
-                <div class="profile-img-wrap col-md-3 col-sm-3 col-xs-12"> <?php
+                <div class="profile-img-wrap col-lg-3 col-md-12 col-sm-12 col-xs-12"> <?php
                 if($data['facility_pic']!="" && file_exists('images/profile-picture/'.$data['facility_pic'])) {?>
                     <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
     		            <div id="profile_image">
@@ -69,10 +69,15 @@ $careType = [
     			            <div id="profile_image">
     			            	<img src="<?php echo site_url("images/no-image.jpg")?>">
                             </div>
-                        </a><?php 
-                }}} ?>
+                        </a>
+                        <?php }}} ?>
+                        <?php $status = $data['profile_status'] > 0 ? 'Approved' : 'Pending'; ?> 
+                        <br>
+                        <div>
+				 	        <a style="color: grey; width: 150px;">Status: <?php echo $status; ?></a>
+				 	    </div>
 	        </div>
-        	<div class="profile-list-details col-md-9 col-sm-9 col-xs-12">
+        	<div class="profile-list-details col-lg-9 col-md-12 col-sm-12 col-xs-12">
                 <?php if ($data['account_category'] == 3) {?>
                 <span class="name">
 					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo ucwords($data['organization_name']);?></a>
@@ -269,23 +274,42 @@ $careType = [
                     
 				</div>
                 <div style="clear:both"></div>
-                <?php $status = $data['profile_status'] > 0 ? 'Approved' : 'Pending'; ?> 
-				 	<a class="btn btn-primary" >Status: <?php echo $status; ?></a>
-			        <a href="<?php echo site_url();?>user/edit_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="margin-left:5px; background-color:#5bc0de;">Edit Job Details</a>
-			        
-                    <?php if ($data['profile_status'] == 2) { ?>
-                      
-                            <a href="<?php echo site_url();?>user/unarchive_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="margin-left:5px; background-color:red;" onclick="return confirm('Are you sure you want to activate this profile?')">
-                            Unarchive</a>
-                       
-                    <?php } else if ($data['profile_status'] == 1){ ?>
                 
-                        <a href="<?php echo site_url();?>user/delete_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="margin-left:5px; background-color:red;" onclick="return confirm('Are you sure you want to archive this profile?')">
-                        Archive</a>
-                
-                    <?php } else { ?>
-                        <a class="btn btn-default" style="margin-left:5px; margin-top:27px; cursor:auto">AWAITING APPROVAL</a>
-                    <?php }?>
+				 
+				 	<div class="row">
+			            <div class="col-md-12 col-lg-3">
+    		            <?php
+                            if($ac == 1){?>
+                                <br>
+                                <a href="<?php echo site_url('user/details/'.sha1(check_user()))?>" class="btn btn-info" onclick="return confirm('Personal details get updated in all your profiles')">Edit Personal Details</a>
+                                <?php
+                            }
+                        ?>
+                        <?php
+                            if($ac == 3){?>
+                                <br>
+                                <a href="<?php echo site_url('user/details/'.sha1(check_user()))?>" class="btn btn-info" onclick="return confirm('Organization details get updated in all your profiles')">Edit Organization Info</a>
+                                <?php
+                            }
+                        ?>
+        		        </div>
+			            <div class="col-md-12 col-lg-3" style="margin-left:15px">
+			                <a href="<?php echo site_url();?>user/edit_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="margin-left:5px; background-color:#5bc0de; width: 150px;" >Edit Job Details</a>
+			            </div>
+			            <div class="col-md-12 col-lg-3" style="margin-left:15px">
+                            <?php if ($data['profile_status'] == 2) { ?>
+                              
+                                    <a href="<?php echo site_url();?>user/unarchive_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="margin-left:5px; background-color:red; width: 150px;" onclick="return confirm('Are you sure you want to activate this profile?')">
+                                    Unarchive</a>
+                               
+                            <?php } else if ($data['profile_status'] == 1){ ?>
+                        
+                                <a href="<?php echo site_url();?>user/delete_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="margin-left:5px; background-color:red;  width: 150px;" onclick="return confirm('Are you sure you want to archive this profile?')">
+                                Archive</a>
+                        
+                            <?php } ?>
+                        </div>
+                    </div>
 			</div>
 		</div>
 		<div class="clearfix"></div>
