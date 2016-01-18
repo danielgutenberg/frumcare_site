@@ -75,10 +75,12 @@ if($this->uri->segment(2)!='edit'){
                     <div class="radio long"><input type="radio" name="account_category" value="3" <?php if($at == 3 ){?> checked="checked" <?php } ?> class="organization"> Caregiving Organization</div>
             </div>
 
-            <div class="form-field organizational_care" <?php echo isset($at) && $at==3?'':'style="display:none"'?>>
-                <div>What would you like to do?</div>
-                <div class="radio"><input type="radio" name="organization_care" value="1" class="org_caretype required" id="2" checked="checked">Advertise My Service</div>
-                <div class="radio"><input type="radio" name="organization_care" value="2" class="org_caretype required" id="2">Find Workers</div>
+            <div class="organizational_care" <?php echo isset($at) && $at==3?'':'style="display:none"'?>>
+                <div class="care-type col-xs-12">What would you like to do?</div>
+                <div class="form-field col-xs-12">
+                    <div class="radio"><input type="radio" name="organization_care" value="1" class="org_caretype required" id="2" checked="checked">Advertise My Service</div>
+                    <div class="radio"><input type="radio" name="organization_care" value="2" class="org_caretype required" id="2">Find Workers</div>
+                </div>
             </div>
             <div class="care-type col-xs-12">Care Type: 
                 <div id="select_options">
