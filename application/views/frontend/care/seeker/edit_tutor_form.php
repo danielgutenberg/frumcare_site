@@ -49,15 +49,15 @@ if($detail){
             <h2>Edit Job Details</h2>
         </div>
         <?php 
-            $data = [
-                'address' => $address,
+            $location = [
+                'location' => $address,
                 'lat' => $lat,
                 'lng' => $lng,
                 'city' => $city,
                 'state' => $state,
                 'country' => $country
             ];
-            $this->load->view('frontend/care/giver/fields/location', $data);
+            $this->load->view('frontend/care/giver/fields/location', array('location' => $location)); 
             $this->load->view('frontend/care/giver/fields/neighborhood', ['neighbour' => $neighbour]); 
             $this->load->view('frontend/care/giver/fields/phone', ['phone' => $phone]); 
          ?>

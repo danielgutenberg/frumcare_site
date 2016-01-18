@@ -272,6 +272,8 @@ class Ad extends CI_Controller
     }
 
     function add_step2(){
+        $location = $this->user_model->getLocation(check_user());
+        
         if ($this->uri->segment(3) == 'caregiver' && $this->uri->segment(4) == 'individual')
             $view = 'frontend/care/giver/individual';
 
@@ -286,7 +288,8 @@ class Ad extends CI_Controller
 
         $data = array(
             'main_content' => $view,
-            'title'       => 'Ad Placement Step 2',
+            'title'        => 'Ad Placement Step 2',
+            'location'     => $location
          );
 
         $this->load->view(FRONTEND_TEMPLATE, $data);

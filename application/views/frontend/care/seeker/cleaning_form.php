@@ -45,7 +45,7 @@ $user_detail = get_user(check_user());
         <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>
             <input type="hidden" name="account_type2" value="<?php echo $this->uri->segment(4);?>"/>
        <?php 
-            $this->load->view('frontend/care/giver/fields/location');
+            $this->load->view('frontend/care/giver/fields/location', array('location' => $location)); 
             $this->load->view('frontend/care/giver/fields/neighborhood'); 
             $this->load->view('frontend/care/giver/fields/phone'); 
          ?>
