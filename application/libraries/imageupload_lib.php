@@ -49,7 +49,7 @@ class Imageupload_lib {
                     break;
                 case 'image/gif':
                     $CreatedImage =  imagecreatefromgif($_FILES['0']['tmp_name']);
-                    break;          
+                    break;
                 case 'image/jpeg':
                 case 'image/pjpeg':
                     $CreatedImage = imagecreatefromjpeg($_FILES['0']['tmp_name']);
