@@ -42,11 +42,8 @@
         </div>
         
     <div id="locationField">Location
-        <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-        <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/>
-        <input type="hidden" id="cityName" name="city" value="<?php echo isset($city)?$city:''?>"/>
-        <input type="hidden" id="stateName" name="state" value="<?php echo isset($state)?$state:''?>"/>
-        <input type="hidden" id="countryName" name="country" value="<?php echo isset($country)?$country:''?>"/>
+        <input type="hidden" id="lat" name="lat" value="<?php echo isset($record['lat'])?$record['lat']:''?>"/>
+        <input type="hidden" id="long" name="lng" value="<?php echo isset($record['long'])?$record['long']:''?>"/>
         <input type="text" name="location" class="locationName required" placeholder="Please enter a street address" value="<?php echo $record['location'] ?>" style="margin-left:30px; width:300px" id="autocomplete" required/>
     </div> 
     <span style="color:red;" id="error"> </span>
@@ -57,6 +54,7 @@
             <option <?php if ($record['distance'] == 5) echo 'selected' ?>  value="5">5 Miles</option>
             <option <?php if ($record['distance'] == 10) echo 'selected' ?>  value="10">10 Miles</option>
             <option <?php if ($record['distance'] == 25) echo 'selected' ?>  value="25">25 Miles</option>
+            <option <?php if ($record['distance'] == 30) echo 'selected' ?>  value="30">30 Miles</option>
             <option <?php if ($record['distance'] == 50) echo 'selected' ?> value="50">50 Miles</option>
             <option <?php if ($record['distance'] > 50) echo 'selected' ?>  value="unlimited" >Unlimited Miles</option>
         </select>
@@ -140,6 +138,7 @@
                 window.scrollTo(0, $("#locationField").offset().top);
                 $("#locationField").css('border-color', 'red')
                 document.getElementById("error").innerHTML="Please click on location from dropdown";
+                $(".searchloader").fadeOut("fast");
                 return false;
             } else {
             }
@@ -160,13 +159,13 @@
     	       	return $(el).val();
     	    }).get();
     	    var lat = $('#lat').val();
-            var lng = $('#lng').val();
+            var long = $('#long').val();
             var location = $('.locationName').val();
             var distance = $('#sort_by_miles').val();
     	    $.ajax({
     	    	type:"post",
     	    	url:"<?php echo site_url();?>user/edit_search/" + id,
-    	    	data:"lat="+lat+"&lng="+lng+"&location="+location+"&distance="+distance+"&care_type="+care_type+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
+    	    	data:"lat="+lat+"&long="+long+"&location="+location+"&distance="+distance+"&care_type="+care_type+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
     	    	success:function(done){
        			    $(".searchloader").fadeOut("fast");
                     return $dialog.dialog('open');
@@ -175,4 +174,61 @@
 		});
         
 	});
+</script>
+<script>
+    $("#locationField").ready(function(){
+        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['address']});
+        google.maps.event.addListener(autocomplete, 'place_changed', function() {
+            $("#location").val($("#autocomplete0").val());
+            $("#cityName").val('');
+            $("#stateName").val('');
+            $("#countryName").val('');
+            var place = autocomplete.getPlace();
+            $('.locationName').val(place.formatted_address)
+            var lat = place.geometry.location.lat();
+            var lng = place.geometry.location.lng();
+            var i = 0;
+            var len = place.address_components.length;
+            while (i < len) {
+                var ac = place.address_components[i];
+                if (ac.types.indexOf('locality') >= 0 || ac.types.indexOf('sublocality') >=0 ) {
+                    $("#cityName").val(ac.long_name);
+                }
+                if (ac.types.indexOf('administrative_area_level_1') >= 0) {
+                    $("#stateName").val(ac.short_name);
+                }
+                if (ac.types.indexOf('country') >= 0) {
+                    $("#countryName").val(ac.long_name);
+                }
+                i++;
+            }
+            $("#lat").val(lat);
+            $("#lng").val(lng);
+            document.getElementById("error").innerHTML="";
+        });
+        
+        $("#locationField").keypress(function(event){
+            if ((event.charCode >= 47 && event.charCode <= 57) || // 0-9
+                (event.charCode >= 65 && event.charCode <= 90) || // A-Z
+                (event.charCode >= 97 && event.charCode <= 122)||
+                (event.charCode == 32 || event.charCode == 92)){
+                    return true
+                } 
+            else {
+                alert("Please use only english letters in the location search");
+                event.preventDefault()
+            }
+        });
+        
+        $('#locationField').on('click', function(){
+            $('#autocomplete').val('')
+            $('#lat').val('')
+        });
+        
+        $('#locationSearch').on('click', function(){
+            $('#autocomplete').val('')
+            $('#lat').val('')
+        });
+    });
+    
 </script>

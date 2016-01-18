@@ -1510,7 +1510,6 @@ class User extends CI_Controller
             $current_user = $this->session->userdata['current_user'];
             $record = $this->user_model->getAlert($current_user, $id)[0];
             $record['care_slug'] = $careNames[$record['care_type']];
-    
             $data = array(
                 'title'         => 'Search History',
                 'main_content'  => 'frontend/user/edit_alert',
