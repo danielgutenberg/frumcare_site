@@ -319,7 +319,7 @@ $careType = [
                     
 				</div>
                 <div style="clear:both"></div>
-				 	<a href="<?php echo site_url().$navigate; ?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" >See full Profile</a>
+				 	<a href="<?php echo site_url().$navigate; ?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" >See Full Profile</a>
 			</div>
 		</div>
 		<div class="clearfix"></div>
