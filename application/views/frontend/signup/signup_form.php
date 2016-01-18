@@ -94,8 +94,7 @@ if($this->uri->segment(2)!='edit'){
                     </select>
                 </div>
             </div>
-            <div class="col-xs-12" id="locationField">
-                <a class="noAddress">Can't find your address?</a>
+            <div class="care-type col-xs-12" id="locationField">Location:
                 <span class="first-names">
                     <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
                     <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/>
@@ -106,8 +105,9 @@ if($this->uri->segment(2)!='edit'){
                     <input style="width:330px" type="text" class="required" placeholder="Please enter a street address" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
                 </span>
                 <span style="color:red;" id="error"> </span>
+                <p>Can't find your address? <a class="noAddress" style="cursor:pointer">Click here</a></p>
             </div>
-             <div class="col-xs-12" id="cityField" style="display:none">
+             <div class="care-type col-xs-12" id="cityField" style="display:none">Location:
                 <span class="first-names">
                     <input style="width:330px" type="text" class="required" placeholder="Please enter a city and state/country" id="autocomplete1" value="<?php echo isset($address)? $address:''; ?>" required/>
                 </span>
