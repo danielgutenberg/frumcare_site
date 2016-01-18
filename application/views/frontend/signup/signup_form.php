@@ -388,7 +388,7 @@ if($this->uri->segment(2)!='edit'){
     $("#cityField").ready(function(){
         var cityAutocomplete = new google.maps.places.Autocomplete($("#autocomplete1")[0]);
         google.maps.event.addListener(cityAutocomplete, 'place_changed', function() {
-            $("#location").val($("#autocomplete1").val());
+            $("#location").val($("#autocomplete").val());
             $("#cityName").val('');
             $("#stateName").val('');
             $("#countryName").val('');
