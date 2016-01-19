@@ -272,6 +272,8 @@ class Ad extends CI_Controller
     }
 
     function add_step2(){
+        $location = $this->user_model->getLocation(check_user());
+        
         if ($this->uri->segment(3) == 'caregiver' && $this->uri->segment(4) == 'individual')
             $view = 'frontend/care/giver/individual';
 
@@ -286,7 +288,8 @@ class Ad extends CI_Controller
 
         $data = array(
             'main_content' => $view,
-            'title'       => 'Ad Placement Step 2',
+            'title'        => 'Ad Placement Step 2',
+            'location'     => $location
          );
 
         $this->load->view(FRONTEND_TEMPLATE, $data);
@@ -367,13 +370,6 @@ class Ad extends CI_Controller
                 'gender'                         => isset($p['gender'])? $p['gender'] : '',
                 'contact_number'                 => $numberwithcountrycode,
                 'profile_picture'                => isset($p['profile_picture']) ? $p['profile_picture'] : '',
-                'city'                           => isset($p['city']) ? $p['city'] : '',
-                'country'                        => isset($p['country']) ? $p['country'] : '',
-                'state'                          => isset($p['state']) ? $p['state'] : '',
-                'zip'                            => isset($p['zip'])?$p['zip']:'',
-                'location'                       => isset($p['location'])?$p['location']:'',
-                'lat'                            => isset($p['lat'])?$p['lat']:'',
-                'lng'                            => isset($p['lng'])?$p['lng']:'',
                 'neighbour'                      => isset($p['neighbour'])?$p['neighbour']:'',
                 'name_of_owner'                  => isset($p['name_of_owner'])?$p['name_of_owner']:'',
                 'profile_picture_owner'          => isset($p['profile_picture_owner'])?$p['profile_picture_owner']:'',
@@ -391,8 +387,7 @@ class Ad extends CI_Controller
             if (check_user()) {
                 $q = $this->common_model->update('tbl_user', $insert_new, array('id' => check_user()));
                 $q = $this->common_model->update('tbl_userprofile', $insert, array('user_id' => check_user()));
-                $this->sendRelevantAds($insert_new['lat'], $insert_new['lng'], $insert_new['city']);
-                $this->setUpInitialAlert($insert_new['city'], $insert_new['lat'], $insert_new['lng']);
+                
             }
 
             if ($p['account_category'] == 1)
@@ -1078,8 +1073,6 @@ class Ad extends CI_Controller
                 'optional_number'   => isset($optional_number)?$optional_number:'',
                 'rate_type'   => isset($rate_type)?$rate_type:'',
                 'contact_name' => isset($p['name']) ? $p['name'] : '',
-                'longitude' => isset($p['lng'])? $p['lng'] : '',
-                'latitude' => isset($p['lat'])? $p['lat'] : '',
                 'currency'            => isset($p['currency']) ? $p['currency'] : 'USD',
             );
 
@@ -1091,12 +1084,6 @@ class Ad extends CI_Controller
             }
 
             $insert_new = array(
-                'location' => isset($p['location'])? $p['location'] : '',
-                'lng' => isset($p['lng'])? $p['lng'] : '',
-                'lat' => isset($p['lat'])? $p['lat'] : '',
-                'city' => isset($p['city'])? $p['city'] : '',
-                'state' => isset($p['state'])? $p['state'] : '',
-                'country' => isset($p['country'])? $p['country'] : '',
                 'contact_number' => isset($p['contact_number'])? $p['contact_number'] : '',
                 'age' => isset($p['age'])? $p['age'] : '',
                 'gender' => isset($p['gender'])? $p['gender'] : '',
@@ -1126,8 +1113,6 @@ class Ad extends CI_Controller
                 }
                 $this->notifyUser();
                 $this->approveAds();
-                $this->sendRelevantAds($insert_new['lat'], $insert_new['lng'], $insert_new['city']);
-                $this->setUpInitialAlert($insert_new['location'], $insert_new['lat'], $insert_new['lng']);
                 $link = anchor('caregivers/all', 'here');
                 $message = 'Ad posted successfully. Your ad will be placed on the site after being approved by our team. <br> <span style="margin-left:159px">Click ' . $link . ' to search caregivers in your area<span>';
                 $this->session->set_flashdata('success', $message);
@@ -1163,8 +1148,62 @@ class Ad extends CI_Controller
 
         }
     }
+
+    function getLongitudeAndLatitude($address){
+      $prepAddr = str_replace(' ','+',$address);
+      $geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
+      $output= json_decode($geocode);
+      if ($output){
+        return $output;
+      }else{
+        return false;
+      }
+
+    }
+
+    public function approve(){
+        $user_id = $this->uri->segment(3);
+        $profile_id = $this->uri->segment(4);
+
+        $this->db->where('id',$profile_id);
+        $this->db->update('tbl_userprofile',array('profile_status'=>1));
+
+        redirect('ad/success','refresh');
+
+    }
+
+   public function success(){
+
+        $this->breadcrumbs->push('Success', '/help');
+        $this->breadcrumbs->unshift('Home', base_url());
+
+        $data = array(
+            'main_content' => 'frontend/care/success',
+            'title'        => 'Success',
+        );
+
+        $this->load->view(FRONTEND_TEMPLATE,$data);
+
+    }
+    public function job(){
+        $id = $this->uri->segment(4);
+        if (!is_numeric($id)) die('404 error <br> Page not found');
+        if ($id == 25)
+            $data['main_content'] = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
+        elseif($id == 26)
+            $data['main_content'] = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
+        elseif($id == 27)
+            $data['main_content'] = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
+        elseif($id == 28)
+            $data['main_content'] = 'frontend/care/seeker/cleaningcompany_form';
+        else
+           die('404 error <br> Page not found');
+        $data['title'] = 'Job Organizations';
+        $this->load->view(FRONTEND_TEMPLATE,$data);
+
+    }
     
-    function setUpInitialAlert($location, $lat, $lng)
+        function setUpInitialAlert($location, $lat, $lng)
     {
         $correspondingTypes = [
             "1" => 17,
@@ -1300,59 +1339,5 @@ class Ad extends CI_Controller
             );
             sendemail($param);
         }
-    }
-
-    function getLongitudeAndLatitude($address){
-      $prepAddr = str_replace(' ','+',$address);
-      $geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
-      $output= json_decode($geocode);
-      if ($output){
-        return $output;
-      }else{
-        return false;
-      }
-
-    }
-
-    public function approve(){
-        $user_id = $this->uri->segment(3);
-        $profile_id = $this->uri->segment(4);
-
-        $this->db->where('id',$profile_id);
-        $this->db->update('tbl_userprofile',array('profile_status'=>1));
-
-        redirect('ad/success','refresh');
-
-    }
-
-   public function success(){
-
-        $this->breadcrumbs->push('Success', '/help');
-        $this->breadcrumbs->unshift('Home', base_url());
-
-        $data = array(
-            'main_content' => 'frontend/care/success',
-            'title'        => 'Success',
-        );
-
-        $this->load->view(FRONTEND_TEMPLATE,$data);
-
-    }
-    public function job(){
-        $id = $this->uri->segment(4);
-        if (!is_numeric($id)) die('404 error <br> Page not found');
-        if ($id == 25)
-            $data['main_content'] = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
-        elseif($id == 26)
-            $data['main_content'] = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
-        elseif($id == 27)
-            $data['main_content'] = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
-        elseif($id == 28)
-            $data['main_content'] = 'frontend/care/seeker/cleaningcompany_form';
-        else
-           die('404 error <br> Page not found');
-        $data['title'] = 'Job Organizations';
-        $this->load->view(FRONTEND_TEMPLATE,$data);
-
     }
 }

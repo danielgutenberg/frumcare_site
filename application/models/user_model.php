@@ -880,6 +880,17 @@ class User_model extends CI_Model
             return false;
 
     }
+    
+    public function getLocation($id)
+    {
+        $sql    = "select location,lng,lat,city,state,country from tbl_user where id = $id";
+        $query  = $this->db->query($sql);
+        $res    = $query->row_array();
+        if($res)
+            return $res;
+        else
+            return false;
+    }
 
 
 

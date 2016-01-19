@@ -285,10 +285,46 @@ $(function(){
 });
 </script>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=places&language=en-AU"></script>
+
+<script>
+    $(document).ready(function(){
+        $('#careseekerButton').click(function(event) {
+            event.preventDefault(); 
+            if ($('#lat').val() == '') {
+                window.scrollTo(0, $("#locationField").offset().top);
+                $("#locationField").css('border-color', 'red')
+                document.getElementById("error").innerHTML="Please click on location from dropdown";
+            } else {
+                $('#personal-details-form').submit()
+            }
+        });
+        $('#edit-account-button').click(function(event) {
+            event.preventDefault(); 
+            if ($('#lat').val() == '') {
+                window.scrollTo(0, $("#locationField").offset().top);
+                $("#locationField").css('border-color', 'red')
+                document.getElementById("error").innerHTML="Please click on location from dropdown";
+            } else {
+                $('#edituserdetails').submit()
+            }
+        });
+    });
+     
+    $("#dateTextbox").ready(function(){
+        $( "#dateTextbox" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
+    });
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('#contact_number').mask('999-999-9999');
+    });
+</script>
 <script>
     $("#locationField").ready(function(){
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['address']});
         google.maps.event.addListener(autocomplete, 'place_changed', function() {
+            $("#location").val($("#autocomplete").val());
             $("#cityName").val('');
             $("#stateName").val('');
             $("#countryName").val('');
@@ -340,38 +376,4 @@ $(function(){
         });
     });
     
-</script>
-<script>
-    $(document).ready(function(){
-        $('#careseekerButton').click(function(event) {
-            event.preventDefault(); 
-            if ($('#lat').val() == '') {
-                window.scrollTo(0, $("#locationField").offset().top);
-                $("#locationField").css('border-color', 'red')
-                document.getElementById("error").innerHTML="Please click on location from dropdown";
-            } else {
-                $('#personal-details-form').submit()
-            }
-        });
-        $('#edit-account-button').click(function(event) {
-            event.preventDefault(); 
-            if ($('#lat').val() == '') {
-                window.scrollTo(0, $("#locationField").offset().top);
-                $("#locationField").css('border-color', 'red')
-                document.getElementById("error").innerHTML="Please click on location from dropdown";
-            } else {
-                $('#edituserdetails').submit()
-            }
-        });
-    });
-     
-    $("#dateTextbox").ready(function(){
-        $( "#dateTextbox" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
-    });
-</script>
-
-<script>
-    $(document).ready(function(){
-        $('#contact_number').mask('999-999-9999');
-    });
 </script>

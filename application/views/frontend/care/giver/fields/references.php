@@ -7,15 +7,18 @@
     </div>
 </div>
 
-<div class="refrence_file" <?php echo isset($reference_file) && $ref =='1' ?"":"style='display:none;'" ?>>
+<div class="refrence_file" <?php echo isset($reference_file) && $ref =='1' ?"":"" ?>>
     <?php $this->load->view('frontend/care/reference_upload'); ?>
 </div>
 
 
 <script>
     $(document).ready(function(){
+        $('#pdf_file').click(function(e) {
+            $('#ref_check1').prop('checked', true)
+        });
         $("#ref_check1").click(function(){
-            $(".refrence_file").show();   
+            $(".pdfloader").show();   
         });
         $("#ref_check2").click(function(){
             $.ajax({
@@ -26,8 +29,8 @@
                     $('#output').html(r);
                  }
               });
-            $(".refrence_file").hide(); 
-            $('#file-name').val('');   
+            $(".pdfloader").hide(); 
+            $('#pdf-name').val('');   
         });
 });
 </script>

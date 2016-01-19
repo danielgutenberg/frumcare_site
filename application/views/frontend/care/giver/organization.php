@@ -12,7 +12,7 @@
             Step 2: Organization Info 
         </h1>
         <?php 
-            $this->load->view('frontend/care/giver/fields/location');
+            $this->load->view('frontend/care/giver/fields/location', array('location' => $location)); 
             $this->load->view('frontend/care/giver/fields/neighborhood'); 
             $this->load->view('frontend/care/giver/fields/phone'); 
             $this->load->view('frontend/care/giver/fields/name_of_owner'); 

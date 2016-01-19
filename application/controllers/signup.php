@@ -6,6 +6,7 @@ class Signup extends CI_Controller
         parent::__construct();
         $this->load->model('user_model');
         $this->load->model('common_model');
+        $this->load->model('common_care_model');
         
     }
 
@@ -58,7 +59,13 @@ class Signup extends CI_Controller
                 'name'                  => trim($data['name']),
                 'uri'                   => $uri,
                 'status'                => 1,
-                'organization_name'     => $orgName
+                'organization_name'     => $orgName,
+                'city'                  => $data['city'],
+                'country'               => $data['country'],
+                'state'                 => $data['state'],
+                'location'              => $data['location'],
+                'lat'                   => $data['lat'],
+                'lng'                   => $data['lng'],
             );
 
                     if($_POST['account_category'] == 1){
@@ -117,18 +124,6 @@ class Signup extends CI_Controller
                     // send email confirmation to user
                     $this->send_confirmation($email,$fname);
 
-                    // send confirmation email 
-                    // $useradminemails = $this->common_model->getUserAdmiEmails();
-                    // if(is_array($useradminemails)){
-                    //     foreach($useradminemails as $useradminemail):   
-                    //         $useradmin[] =  $useradminemail['email1'];
-                    //     endforeach;    
-                    // }
-
-                    // $subject = "User Registered, action required";
-                    // $message = $this->load->view('frontend/email/useradminapprovalemail',array('name'=>$fname,'email'=>$email,'hash'=>sha1($q),'account_type'=>$_POST['account_category'],'id'=>$q),true);
-                    // $this->common_model->sendemail($useradmin,$subject,$message);
-
 
                 $user_data = getBrowser();
                 $log = array(
@@ -146,13 +141,13 @@ class Signup extends CI_Controller
                 );
                 $this->session->sess_expiration = '14400';
                 $this->session->set_userdata($sess);
+                
+            
+                $this->sendRelevantAds($data['lat'], $data['lng'], $data['city']);
+                $this->setUpInitialAlert($data['city'], $data['lat'], $data['lng']);
 
             if($q) {
-                if($redirectData['care_type'] > 24)
-                    $link = "ad/job/organizations/".$redirectData['care_type'];
-                else
-                    $link = 'ad/add_step2/'.$redirectData['account_cat'].'/'.$redirectData['account_type'].'/'.$log_id.'/'.$redirectData['care_type'];
-                redirect($link);
+                redirect('signup-successful');
             } else {
                 $this->session->set_flashdata('msg', 'Your account could not be created. Please try again.');
                 redirect('signup');
@@ -315,6 +310,144 @@ class Signup extends CI_Controller
         $this->email->subject('Email verified successfully');
         $this->email->message($this->load->view('emails/emailverified',$userdetail,TRUE));
         $this->email->send();
+    }
+    
+    function setUpInitialAlert($location, $lat, $lng)
+    {
+        $correspondingTypes = [
+            "1" => 17,
+            "2" => 18,
+            "3" => 17,
+            "4" => 19,
+            "5" => 20,
+            "6" => 22,
+            "7" => 29,
+            "8" => 24,
+            "9" => 21,
+            "10" => 20,
+            "13" => 26,
+            "14" => 27,
+            "15" => 24,
+            "16" => 20,
+            "17" => 1,
+            "18" => 2,
+            "19" => 4,
+            "20" => 5,
+            "21" => 9,
+            "22" => 6,
+            "24" => 8,
+            "25" => 1,
+            "26" => 5,
+            "27" => 6,
+            "28" => 8,
+            "29" => 7
+        ];
+        
+        $user_id = check_user();
+        $profile = $this->common_model->get_where('tbl_userprofile', array('user_id' => $user_id));
+        $data = array(
+            'user_id'               => $user_id, 
+            'care_type'             => $correspondingTypes[$profile[0]['care_type']],
+            'lat'                   => $lat,
+            'long'                  => $lng,
+            'location'              => $location,
+            'distance'              => 30,
+            'createAlert'           => 1
+        );
+        $q = $this->db->insert('tbl_searchhistory',$data);
+    }
+    
+    function sendRelevantAds($lat = 43, $lng = 79, $city = 'Toronto')
+    {
+        $correspondingTypes = [
+            "1" => 17,
+            "2" => 18,
+            "3" => 17,
+            "4" => 19,
+            "5" => 20,
+            "6" => 22,
+            "7" => 29,
+            "8" => 24,
+            "9" => 21,
+            "10" => 20,
+            "13" => 26,
+            "14" => 27,
+            "15" => 24,
+            "16" => 20,
+            "17" => 1,
+            "18" => 2,
+            "19" => 4,
+            "20" => 5,
+            "21" => 9,
+            "22" => 6,
+            "24" => 8,
+            "25" => 1,
+            "26" => 5,
+            "27" => 6,
+            "28" => 8,
+            "29" => 7
+        ];
+        
+        $careNames = [
+            "1" => 'babysitter',
+            "2" => 'nanny-au-pair',
+            "3" => 'babysitter',
+            "4" => 'tutor-private-lessons',
+            "5" => 'senior-caregiver',
+            "6" => 'special-needs-caregiver',
+            "7" => 'therapists',
+            "8" => 'cleaning-household-help',
+            "9" => 'errand-runner-odd-jobs-personal-assistant-driver',
+            "10" => 'nanny-au-pair',
+            "13" => 'senior-caregiver',
+            "14" => 'special-needs-caregiver',
+            "15" => 'cleaning-household-help',
+            "16" => 'senior-caregiver',
+            "17" => 'babysitter',
+            "18" => 'nanny-au-pair',
+            "19" => 'tutor-private-lessons',
+            "20" => 'senior-caregiver',
+            "21" => 'errand-runner-odd-jobs-personal-assistant-driver',
+            "22" => 'special-needs-caregiver',
+            "24" => 'cleaning-household-help',
+            "25" => 'babysitter',
+            "26" => 'senior-caregiver',
+            "27" => 'special-needs-caregiver',
+            "28" => 'cleaning-household-help',
+            "29" => 'therapists'
+        ];
+        $profile = $this->common_model->get_where('tbl_userprofile', array('user_id' => check_user()));
+        $user = $this->common_model->get_where('tbl_user', array('id' => check_user()));
+        $name = explode(' ', $user[0]['name'])[0];
+        $ac = $profile[0]['account_category'];
+        $ct = $correspondingTypes[$profile[0]['care_type']];
+        $ad = $profile[0]['care_type'] > 16 ? 'caregivers' : 'jobs'; 
+        $location = ['lat' => $lat, 'lng' => $lng, 'place' => $city];
+        $userdata       = $this->common_care_model->sort(10 ,$lat,$lng,'distance', $ac , $ct, 30);
+        $get_total_rows = count($userdata);  
+        if ($get_total_rows > 0) {
+            $data = array(
+                'userdatas'		    => array_slice($userdata, 0, 4),
+                'care_type'         => $ct,
+                'location'          => $location,
+                'ad'                => $ad,
+                'name'              => $name,
+                'care_name'         => $careNames[$profile[0]['care_type']]
+            );                      
+            
+            $msg = $this->load->view('frontend/email/ads_to_new_user', $data, true);
+    
+            $param = array(
+                'subject'     => 'Thank you for joining FrumCare.com, here are a few ' . $ad . ' in your area',
+                'from'        => SITE_EMAIL,
+                'from_name'   => SITE_NAME,
+                'replyto'     => SITE_EMAIL,
+                'replytoname' => SITE_NAME,
+                'sendto'      => $user[0]['email'],
+                'message'     => $msg
+            );
+            sendemail($param);
+        }
     }
 
 }

@@ -75,10 +75,12 @@ if($this->uri->segment(2)!='edit'){
                     <div class="radio long"><input type="radio" name="account_category" value="3" <?php if($at == 3 ){?> checked="checked" <?php } ?> class="organization"> Caregiving Organization</div>
             </div>
 
-            <div class="form-field organizational_care" <?php echo isset($at) && $at==3?'':'style="display:none"'?>>
-                <div>What would you like to do?</div>
-                <div class="radio"><input type="radio" name="organization_care" value="1" class="org_caretype required" id="2" checked="checked">Advertise My Service</div>
-                <div class="radio"><input type="radio" name="organization_care" value="2" class="org_caretype required" id="2">Find Workers</div>
+            <div class="organizational_care" <?php echo isset($at) && $at==3?'':'style="display:none"'?>>
+                <div class="care-type col-xs-12">What would you like to do?</div>
+                <div class="form-field col-xs-12">
+                    <div class="radio"><input type="radio" name="organization_care" value="1" class="org_caretype required" id="2" checked="checked">Advertise My Service</div>
+                    <div class="radio"><input type="radio" name="organization_care" value="2" class="org_caretype required" id="2">Find Workers</div>
+                </div>
             </div>
             <div class="care-type col-xs-12">Care Type: 
                 <div id="select_options">
@@ -94,6 +96,25 @@ if($this->uri->segment(2)!='edit'){
                     </select>
                 </div>
             </div>
+            <div class="care-type col-xs-12" id="locationField">Location:
+                <span class="first-names">
+                    <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
+                    <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/>
+                    <input type="hidden" id="cityName" name="city" value="<?php echo isset($city)?$city:''?>"/>
+                    <input type="hidden" id="stateName" name="state" value="<?php echo isset($state)?$state:''?>"/>
+                    <input type="hidden" id="countryName" name="country" value="<?php echo isset($country)?$country:''?>"/>
+                    <input type="hidden" id="location" name="location" value="<?php echo isset($country)?$country:''?>"/>
+                    <input style="width:330px" type="text" class="required" placeholder="Please enter a street address" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
+                </span>
+                <span style="color:red;" id="error"> </span>
+                <p>Can't find your address? <a class="noAddress" style="cursor:pointer">Click here</a></p>
+            </div>
+             <div class="care-type col-xs-12" id="cityField" style="display:none">Location:
+                <span class="first-names">
+                    <input style="width:330px" type="text" class="required" placeholder="Please enter a city and state/country" id="autocomplete1" value="<?php echo isset($address)? $address:''; ?>" required/>
+                </span>
+                <span style="color:red;" id="error1"> </span>
+            </div> 
         
             <div class="col-xs-12">
                 <span class="first-names">
@@ -124,7 +145,7 @@ if($this->uri->segment(2)!='edit'){
              </div>
             <div class="col-xs-12">
                  <span class="sign-up-btn" style="text-align:inherit">
-                     <input style="margin-top:-50px;" id="submit-btn" type="submit" class="btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/>
+                     <input style="margin-top:-50px;" id="submit-btn" type="submit" class="signUpButton btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/>
                  </span>
             </div>
         </div>
@@ -211,7 +232,7 @@ if($this->uri->segment(2)!='edit'){
         $('.organization').click(function(){
             $('.signUpRight').css('margin-top', '130px')
             $('.organizational_care').css('display','block');
-            $('.name').attr('placeholder', "Name of organization");
+            $('.name').attr('placeholder', "Name of Organization");
             $('.parent').text('Organization Info');
             $('.personal').css('display','none');
             $('.started').text('Organization Details');
@@ -335,3 +356,84 @@ if($this->uri->segment(2)!='edit'){
 		 }
     });
 </script>
+<script>
+    $('.signUpButton').click(function(event) {
+            event.preventDefault(); 
+            if ($('#lat').val() == '') {
+                if ($('#locationField').css('display') == 'none') {
+                    window.scrollTo(0, $("#cityField").offset().top);
+                    $("#cityField").css('border-color', 'red')
+                    document.getElementById("error1").innerHTML="Please click on location from dropdown";
+                } else {
+                    window.scrollTo(0, $("#locationField").offset().top);
+                    $("#locationField").css('border-color', 'red')
+                    document.getElementById("error").innerHTML="Please click on location from dropdown";
+                }
+            } else {
+                $('#sign-up').submit()
+            }
+        });
+</script>
+<script>
+    $(function(){
+    
+        $('.noAddress').on('click',function(e){
+            alert("Please start typing your city name and click on it from the dropdown");
+            $('#cityField').css('display','block');
+            $('#locationField').css('display','none');
+        });
+    })
+</script>
+<script>
+    $("#cityField").ready(function(){
+        var cityAutocomplete = new google.maps.places.Autocomplete($("#autocomplete1")[0]);
+        google.maps.event.addListener(cityAutocomplete, 'place_changed', function() {
+            $("#location").val($("#autocomplete1").val());
+            $("#cityName").val('');
+            $("#stateName").val('');
+            $("#countryName").val('');
+            var place = cityAutocomplete.getPlace();
+            $('.locationName').val(place.formatted_address)
+            var lat = place.geometry.location.lat();
+            var lng = place.geometry.location.lng();
+            var i = 0;
+            var len = place.address_components.length;
+            while (i < len) {
+                var ac = place.address_components[i];
+                if (ac.types.indexOf('locality') >= 0 || ac.types.indexOf('sublocality') >=0 ) {
+                    $("#cityName").val(ac.long_name);
+                }
+                if (ac.types.indexOf('administrative_area_level_1') >= 0) {
+                    $("#stateName").val(ac.short_name);
+                }
+                if (ac.types.indexOf('country') >= 0) {
+                    $("#countryName").val(ac.long_name);
+                }
+                i++;
+            }
+            $("#lat").val(lat);
+            $("#lng").val(lng);
+            document.getElementById("error").innerHTML="";
+        });
+        
+        $("#cityField").keypress(function(event){
+            if ((event.charCode >= 47 && event.charCode <= 57) || // 0-9
+                (event.charCode >= 65 && event.charCode <= 90) || // A-Z
+                (event.charCode >= 97 && event.charCode <= 122)||
+                (event.charCode == 32 || event.charCode == 92)){
+                    return true
+                } 
+            else {
+                alert("Please use only english letters in the location search");
+                event.preventDefault()
+            }
+        });
+        
+        $('#cityField').on('click', function(){
+            $('#autocomplete').val('')
+            $('#lat').val('')
+        });
+    });
+    
+</script>
+
