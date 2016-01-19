@@ -25,17 +25,17 @@
 	 			$cat = $this->uri->segment(2)?$this->uri->segment(2):'';
 
 	 		
-	 		$this->load->view('frontend/left_navbar/fields/age_of_caregiver');
-	 		$this->load->view('frontend/left_navbar/fields/gender_of_caregiver');
-	 		$this->load->view('frontend/left_navbar/fields/smoker');
-	 		$this->load->view('frontend/left_navbar/fields/languages');
-	 		$this->load->view('frontend/left_navbar/fields/observance_of_caregiver');
-	 		$this->load->view('frontend/left_navbar/fields/care_location');
-	 		$this->load->view('frontend/left_navbar/fields/number_of_children');
-	 		$this->load->view('frontend/left_navbar/fields/age_of_children');
-	 		$this->load->view('frontend/left_navbar/fields/minimum_experience');
-	 		$this->load->view('frontend/left_navbar/fields/training');
-	 		$this->load->view('frontend/left_navbar/fields/when_you_need_care');
+	 		$this->load->view('frontend/left_navbar/fields/age_of_caregiver', array('data' => $data));
+	 		$this->load->view('frontend/left_navbar/fields/gender_of_caregiver', array('data' => $data));
+	 		$this->load->view('frontend/left_navbar/fields/smoker', array('data' => $data));
+	 		$this->load->view('frontend/left_navbar/fields/languages', array('data' => $data));
+	 		$this->load->view('frontend/left_navbar/fields/observance_of_caregiver', array('data' => $data));
+	 		$this->load->view('frontend/left_navbar/fields/care_location', array('data' => $data));
+	 		$this->load->view('frontend/left_navbar/fields/number_of_children', array('data' => $data));
+	 		$this->load->view('frontend/left_navbar/fields/age_of_children', array('data' => $data));
+	 		$this->load->view('frontend/left_navbar/fields/minimum_experience', array('data' => $data));
+	 		$this->load->view('frontend/left_navbar/fields/training', array('data' => $data));
+	 		$this->load->view('frontend/left_navbar/fields/when_you_need_care', array('data' => $data));
 	 		?>
 		 	<div>
 		 		<label>Abilities and skills</label>

@@ -22,8 +22,8 @@
         
         
         </p>
-    <p style="text-align:center"><a href="<?php echo $link;?>">Click here</a> to <?php echo $create; ?></p>
+    <p style="margin-top:30px; text-align:center"><a href="<?php echo $link;?>">Click here</a> to <?php echo $create; ?></p>
     <p style="text-align:center"><a href="<?php echo base_url($searchlink);?>">Click here</a> to Search <?php echo $care; ?> in your area</p> 
-    <p style="text-align:center"><a href="<?php echo base_url('user/dashboard') ?>">Click Here</a> to see your account dashboard.</p>
+    <p style="text-align:center"><a href="<?php echo base_url('user/dashboard') ?>">Click Here</a> to see your Account Dashboard</p>
     </div>
 </div>

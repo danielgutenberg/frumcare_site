@@ -1155,7 +1155,7 @@ class User extends CI_Controller
                     }
                     $message = 'Ad posted successfully. Your ad will be placed on the site after being approved by our team. <br> <span style="margin-left:159px">Click ' . $link . ' to search caregivers in your area<span>';
                     $this->session->set_flashdata('success', $message);
-                    redirect('user/dashboard');   
+                    redirect('user/profile');   
                 }
                 else{
                     $profile = $this->job_or_profile();
@@ -1943,7 +1943,7 @@ class User extends CI_Controller
                             // $this->db->update('tbl_user',$geodata);
                             
                             $this->session->set_flashdata('info', 'Personal detail updated successfully.');
-                            redirect('user/dashboard','refresh');
+                            redirect('user/profile','refresh');
 
                         }
 
