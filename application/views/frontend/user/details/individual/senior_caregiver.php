@@ -18,7 +18,7 @@ if($currency == 'ILS') {
        <td >            
         <div class="details-info"><?php if(in_array('Home of senior',$lookingtowork)){echo $tick; }else{echo $cross; } ?> <span>Home of senior</span></div>
         <div class="details-info"><?php if(in_array('Live In',$lookingtowork)){echo $tick; }else{echo $cross; } ?> <span>Live In</span></div>
-        <div class="details-info"><?php if(in_array('Live Out',$lookingtowork)){echo $tick; }else{echo $cross; } ?> <span>Live Out</span></div>
+        <div class="details-info"><?php if(in_array('Live out',$lookingtowork)){echo $tick; }else{echo $cross; } ?> <span>Live Out</span></div>
         <div class="details-info"><?php if(in_array('Caregiving institution',$lookingtowork)){echo $tick; }else{echo $cross; } ?> <span>Caregiving Institution</span></div>	
       </td>
     </tr>
