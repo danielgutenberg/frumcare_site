@@ -232,7 +232,7 @@ if($this->uri->segment(2)!='edit'){
         $('.organization').click(function(){
             $('.signUpRight').css('margin-top', '130px')
             $('.organizational_care').css('display','block');
-            $('.name').attr('placeholder', "Name of organization");
+            $('.name').attr('placeholder', "Name of Organization");
             $('.parent').text('Organization Info');
             $('.personal').css('display','none');
             $('.started').text('Organization Details');
