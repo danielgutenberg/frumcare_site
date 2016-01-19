@@ -20,7 +20,6 @@ $oc = $this->session->userdata('organization_care');
         </div><!--dashboard-left-->
      <div class="dashboard-right float-right">  
 	        <div class="top-welcome">
-	            <p style="color:#FF0000"><?php echo $this->session->flashdata('info');?></p>
                 <h2>
                     <?php 
                     if($ac == 1 || $ac == 3){ 
@@ -42,6 +41,11 @@ $oc = $this->session->userdata('organization_care');
                         }
                     }*/?>
                 </h2>
+                <?php 
+    		        if(user_flash()){
+    		            echo user_flash();
+    		        }
+    		    ?>
 	        </div>
 	        
             <form class="user-profile" action="<?php echo site_url();?>user/upload/<?php echo sha1(check_user());?>" method="post" enctype="multipart/form-data">            
