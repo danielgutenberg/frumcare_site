@@ -39,119 +39,123 @@ if($this->uri->segment(2)!='edit'){
 
 <?php  } ?> 
 
-<div class="container sign-up-forms" style="width:1170px">
-    <div class="col-xs-5 col-md-offset-4" >
-        <?php flash();?>
-        <?php if(segment(3) == '') { ?>
-        <h2 style="margin-right:80px">
-            Create your account
-        </h2>
-        <p style="text-align:center; margin-right:80px">
-            Sign up now for Frumcare. Already have an <br/>account?
-            <a href="<?php echo base_url('login') ?>">Log In</a>
-        </p>
-        <?php } else { ?>
-        <h2>Edit your account</h2>
-        <?php } ?>
-    </div>
-    <div class="signUpRight col-md-3 col-md-offset-1 hidden-sm hidden-xs">
-        <h2 style="margin-left: -50px;">
-        Why sign up? 
-        </h2>
-        <div class="rightText" style="border:1px solid black;">
-        <!--<p>Connect with the perfect caregiver for your family on FrumCare. <br>  Get started by creating your free account now! <br></p>-->
-        <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Search quality caregivers in your area</div>
-        <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Set up search alerts and receive new caregiver profiles directly to your inbox</div>
-        <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Post jobs and get contacted by caregivers in your area</div>
-        <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Get access to exciting new features helping you with your care needs</div>
+<div class="container sign-up-forms">
+    <div class="row">
+        <div class="col-xs-offset-4">
+            <?php flash();?>
+            <?php if(segment(3) == '') { ?>
+            <h2>
+                Create your account
+            </h2>
+            <p style="text-align:center">
+                Sign up now for Frumcare. Already have an <br/>account?
+                <a href="<?php echo base_url('login') ?>">Log In</a>
+            </p>
+            <?php } else { ?>
+            <h2>Edit your account</h2>
+            <?php } ?>
         </div>
     </div>
-    <div class="sign-up-form col-md-5">
-        <form role="form" id="sign-up" action="<?php echo base_url($action) ?>" method="post">
-            <div class="care-type col-xs-12">I am a</div>
-            <div class="form-field col-xs-12">
-                    <div class="radio short"><input type="radio" name="account_category" value="2" <?php if($at == 2 ){?> checked="checked" <?php } ?> class="acc_cat" id="1"> Parent</div>
-                    <div class="radio short"><input type="radio" name="account_category" value="1" <?php if($at == 1 ){?> checked="checked" <?php } ?> class="acc_cat" id="1"> Caregiver</div>
-                    <div class="radio long"><input type="radio" name="account_category" value="3" <?php if($at == 3 ){?> checked="checked" <?php } ?> class="organization"> Caregiving Organization</div>
-            </div>
-
-            <div class="organizational_care" <?php echo isset($at) && $at==3?'':'style="display:none"'?>>
-                <div class="care-type col-xs-12">What would you like to do?</div>
-                <div class="form-field col-xs-12">
-                    <div class="radio"><input type="radio" name="organization_care" value="1" class="org_caretype required" id="2" checked="checked">Advertise My Service</div>
-                    <div class="radio"><input type="radio" name="organization_care" value="2" class="org_caretype required" id="2">Find Workers</div>
-                </div>
-            </div>
-            <div class="care-type col-xs-12">Care Type: 
-                <div id="select_options">
-                    <select id="care_type" class="required" name="care_type" style="width:330px">
-                        <option value="" class="msg">Type of care you are seeking</option>
-                        <option value="17_1">Babysitter</option>
-                        <option value="18_1">Nanny / Au-pair</option>
-                        <option value="19_1">Tutor / private lessons</option>
-                        <option value="20_1">Senior caregiver</option>
-                        <option value="22_1">Special needs caregiver</option>
-                        <option value="24_1">Cleaning / household help</option>
-                        <option value="21_1">Errand runner / odd jobs / personal assistant / driver</option>
-                    </select>
-                </div>
-            </div>
-            <div class="care-type col-xs-12" id="locationField">Location:
-                <span class="first-names">
-                    <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-                    <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/>
-                    <input type="hidden" id="cityName" name="city" value="<?php echo isset($city)?$city:''?>"/>
-                    <input type="hidden" id="stateName" name="state" value="<?php echo isset($state)?$state:''?>"/>
-                    <input type="hidden" id="countryName" name="country" value="<?php echo isset($country)?$country:''?>"/>
-                    <input type="hidden" id="location" name="location" value="<?php echo isset($country)?$country:''?>"/>
-                    <input style="width:330px" type="text" class="required" placeholder="Please enter a street address" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
-                </span>
-                <span style="color:red;" id="error"> </span>
-                <p>Can't find your address? <a class="noAddress" style="cursor:pointer">Click here</a></p>
-            </div>
-             <div class="care-type col-xs-12" id="cityField" style="display:none">Location:
-                <span class="first-names">
-                    <input style="width:330px" type="text" class="required" placeholder="Please enter a city and state/country" id="autocomplete1" value="<?php echo isset($address)? $address:''; ?>" required/>
-                </span>
-                <span style="color:red;" id="error1"> </span>
-            </div> 
-        
-            <div class="col-xs-12">
-                <span class="first-names">
-                    <input style="width:330px" type="text" name="name" placeholder="Name" class="required name" value="<?php echo (isset($name)) ? $name : '' ?>"/>
-                </span>
-            </div>
-            <div class="col-xs-12">
-                <span class="email-names">
-                <input style="width:330px" onblur="check_email(this.id)" id="email" type="text" name="email" placeholder="Email" class="required email" value="<?php echo (isset($email)) ? $email : '' ?>"/>
-            </span> 
-            </div>
-            <div class="col-xs-12">
-                <span id="email_msg"></span>
-            </div>
-            <div class="col-xs-12">
-                <span class="create-pswrd">
-                <input style="width:330px" type="password" name="password" placeholder="Choose a Password" class="required" id="org_password" />
-            </span>
-            </div>
-            <div class="col-xs-12">
-                <span class="confirm-pswrd">
-                <input style="width:330px" type="password" name="confirm_password" placeholder="Confirm Password" class="required"/>
-            </span>
-            </div>
-            <div class="col-xs-12">
-                <span style="font-size:12px">By clicking on "Sign up" you agree to our <a href="<?php echo base_url();?>terms-of-use">Terms of use</a><br> and <a href="<?php echo base_url();?>privacy-policy">Privacy policy</a>
-             </span>
-             </div>
-            <div class="col-xs-12">
-                 <span class="sign-up-btn" style="text-align:inherit">
-                     <input style="margin-top:-50px;" id="submit-btn" type="submit" class="signUpButton btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/>
-                 </span>
+    <div class="row">
+        <div class="signUpRight col-md-3 col-md-offset-1 hidden-sm hidden-xs">
+            <h2 style="margin-left: -50px;">
+            Why sign up? 
+            </h2>
+            <div class="rightText" style="border:1px solid black;">
+            <!--<p>Connect with the perfect caregiver for your family on FrumCare. <br>  Get started by creating your free account now! <br></p>-->
+            <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Search quality caregivers in your area</div>
+            <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Set up search alerts and receive new caregiver profiles directly to your inbox</div>
+            <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Post jobs and get contacted by caregivers in your area</div>
+            <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Get access to exciting new features helping you with your care needs</div>
             </div>
         </div>
+        <div class="sign-up-form col-xs-6 col-md-offset-0 col-xs-offset-4" style="horizontal-align:center; padding-left:0px">
+            <form role="form" id="sign-up" action="<?php echo base_url($action) ?>" method="post">
+                <div class="care-type col-xs-12" style="padding-left:0px">I am a</div>
+                <div class="form-field col-xs-12" style="padding-left:0px">
+                        <div class="radio short"><input type="radio" name="account_category" value="2" <?php if($at == 2 ){?> checked="checked" <?php } ?> class="acc_cat" id="1"> Parent</div>
+                        <div class="radio short"><input type="radio" name="account_category" value="1" <?php if($at == 1 ){?> checked="checked" <?php } ?> class="acc_cat" id="1"> Caregiver</div>
+                        <div class="radio long"><input type="radio" name="account_category" value="3" <?php if($at == 3 ){?> checked="checked" <?php } ?> class="organization"> Caregiving Organization</div>
+                </div>
     
+                <div class="organizational_care" <?php echo isset($at) && $at==3?'':'style="display:none"'?>>
+                    <div class="care-type col-xs-12" style="padding-left:0px">What would you like to do?</div>
+                    <div class="form-field col-xs-12" style="padding-left:0px">
+                        <div class="radio"><input type="radio" name="organization_care" value="1" class="org_caretype required" id="2" checked="checked">Advertise My Service</div>
+                        <div class="radio"><input type="radio" name="organization_care" value="2" class="org_caretype required" id="2">Find Workers</div>
+                    </div>
+                </div>
+                <div class="care-type col-xs-12" style="padding-left:0px">Care Type: 
+                    <div id="select_options">
+                        <select id="care_type" class="required" name="care_type" style="width:330px">
+                            <option value="" class="msg">Type of care you are seeking</option>
+                            <option value="17_1">Babysitter</option>
+                            <option value="18_1">Nanny / Au-pair</option>
+                            <option value="19_1">Tutor / private lessons</option>
+                            <option value="20_1">Senior caregiver</option>
+                            <option value="22_1">Special needs caregiver</option>
+                            <option value="24_1">Cleaning / household help</option>
+                            <option value="21_1">Errand runner / odd jobs / personal assistant / driver</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="care-type col-xs-12" id="locationField" style="padding-left:0px">Location:
+                    <span class="first-names">
+                        <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
+                        <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/>
+                        <input type="hidden" id="cityName" name="city" value="<?php echo isset($city)?$city:''?>"/>
+                        <input type="hidden" id="stateName" name="state" value="<?php echo isset($state)?$state:''?>"/>
+                        <input type="hidden" id="countryName" name="country" value="<?php echo isset($country)?$country:''?>"/>
+                        <input type="hidden" id="location" name="location" value="<?php echo isset($country)?$country:''?>"/>
+                        <input style="width:330px" type="text" class="required" placeholder="Please enter a street address" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
+                    </span>
+                    <span style="color:red;" id="error"> </span>
+                    <p>Can't find your address? <a class="noAddress" style="cursor:pointer">Click here</a></p>
+                </div>
+                 <div class="care-type col-xs-12" id="cityField" style="display:none" style="padding-left:0px">Location:
+                    <span class="first-names">
+                        <input style="width:330px" type="text" class="required" placeholder="Please enter a city and state/country" id="autocomplete1" value="<?php echo isset($address)? $address:''; ?>" required/>
+                    </span>
+                    <span style="color:red;" id="error1"> </span>
+                </div> 
             
-        </form>
+                <div class="col-xs-12" style="padding-left:0px">
+                    <span class="first-names">
+                        <input style="width:330px" type="text" name="name" placeholder="Name" class="required name" value="<?php echo (isset($name)) ? $name : '' ?>"/>
+                    </span>
+                </div>
+                <div class="col-xs-12" style="padding-left:0px">
+                    <span class="email-names" >
+                    <input style="width:330px" onblur="check_email(this.id)" id="email" type="text" name="email" placeholder="Email" class="required email" value="<?php echo (isset($email)) ? $email : '' ?>"/>
+                </span> 
+                </div>
+                <div class="col-xs-12" style="padding-left:0px">
+                    <span id="email_msg"></span>
+                </div>
+                <div class="col-xs-12" style="padding-left:0px">
+                    <span class="create-pswrd">
+                    <input style="width:330px" type="password" name="password" placeholder="Choose a Password" class="required" id="org_password" />
+                </span>
+                </div>
+                <div class="col-xs-12" style="padding-left:0px">
+                    <span class="confirm-pswrd">
+                    <input style="width:330px" type="password" name="confirm_password" placeholder="Confirm Password" class="required"/>
+                </span>
+                </div>
+                <div class="col-xs-12" style="padding-left:0px">
+                    <span style="font-size:12px">By clicking on "Sign up" you agree to our <a href="<?php echo base_url();?>terms-of-use">Terms of use</a><br> and <a href="<?php echo base_url();?>privacy-policy">Privacy policy</a>
+                 </span>
+                 </div>
+                <div class="col-xs-12" style="padding-left:0px">
+                     <span class="sign-up-btn" style="text-align:inherit">
+                         <input style="margin-top:-50px;" id="submit-btn" type="submit" class="signUpButton btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/>
+                     </span>
+                </div>
+            </div>
+        
+                
+            </form>
+        </div>
     </div>
     <?php if(segment(3) != '') { ?>
     <a href="<?php echo base_url('login/get-password/'.sha1($email).'?redirect_uri='.urlencode(current_url())) ?>">Click here</a> to change your password.
