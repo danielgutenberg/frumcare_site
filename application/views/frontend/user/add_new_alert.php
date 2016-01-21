@@ -142,6 +142,7 @@
                 window.scrollTo(0, $("#locationField").offset().top);
                 $("#locationField").css('border-color', 'red')
                 document.getElementById("error").innerHTML="Please click on location from dropdown";
+                $(".searchloader").fadeOut("fast");
                 return false
             } else {
             }

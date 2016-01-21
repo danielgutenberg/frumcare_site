@@ -11,7 +11,8 @@
 			<h2>My Search Alerts</h2>
 		</div>
 		<div style="margin-bottom:10px">
-		    <?php if(count($record) >=1) {
+		    <?php
+		    if(is_array($record) && count($record) >=1) {
 		        echo 'You have created ' . count($record) . ' search alert';
 		        if(count($record) > 1) {
 		            echo 's';
@@ -65,8 +66,9 @@
                     <?php echo $rec['distance'] . ' miles' ?>
                 </td>
                 <td>
-                    <button style="width:62px"><a href="<?php echo site_url();?>user/edit_alert/<?php echo $id; ?>/<?php echo $rec['care_type']?>">Edit</a></button>
-                    <button style="width:62px"><a href="<?php echo site_url();?>user/removealert/<?php echo $id; ?>">Cancel</a></button>
+                    <button style="width:120px; margin-bottom:3px"><a href="<?php echo site_url();?>user/edit_alert/<?php echo $id; ?>/<?php echo $rec['care_type']?>">Edit Alert</a></button>
+                    <br>
+                    <button style="width:120px"><a onclick="return confirm('Are you sure youw ant to delete this search alert?');" href="<?php echo site_url();?>user/removealert/<?php echo $id; ?>">Cancel Alert</a></button>
                 </td>
             </tr>
             <?php
