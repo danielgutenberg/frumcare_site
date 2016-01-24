@@ -4951,7 +4951,7 @@ body {
   .banner .banner-item .banner-images {
 
     float: right;
-    padding-top: 49px;
+    padding-top: 1px;
   }
   .banner-images > ul {
     padding-left: 0;
