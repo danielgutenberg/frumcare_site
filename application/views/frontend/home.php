@@ -4,21 +4,25 @@
         <ul id="site-banner" class="banner-main">
             <li class="banner-item" style='height:100%; background-image:url(img/banner-bg.jpg);'>
                 <div class="container">
-                    <h2 class="banner-title">
-                        We Connect Jewish Families with Caregivers
-                    </h2>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h2 class="banner-title">
+                                We Connect Jewish Families with Caregivers
+                            </h2>
+                        </div>
+                    </div>
                     <div class="banner-images row">
-                        <div class="col-xs-6 col-sm-3">
+                        <div class="col-xs-6 col-sm-3" style="padding-left:1px; padding-right:1px">
                             <a title="Child Care"><img src="img/banner%20images/woman-taking-care-of-girl.png" alt="#"/><span>Child Care</span></a>
                         </div>
-                        <div class="col-xs-6 col-sm-3">
+                        <div class="col-xs-6 col-sm-3" style="padding-left:1px; padding-right:1px">
                             <a title="Senior Care"><img src="img/banner%20images/man-helping-elderly.png" alt="#"/><span>Senior Care</span></a>
                         </div>
                         <div class="clearfix visible-xs"></div>
-                        <div class="col-xs-6 col-sm-3">    
+                        <div class="col-xs-6 col-sm-3" style="padding-left:1px; padding-right:1px">    
                             <a title="Special Needs Care"><img src="img/banner%20images/ThinkstockPhotos-468469005.png" alt="#"/><span>Special Needs Care</span></a>
                         </div>
-                        <div class="col-xs-6 col-sm-3">
+                        <div class="col-xs-6 col-sm-3" style="padding-left:1px; padding-right:1px">
                             <a title="Cleaning & Household Help"><img src="img/banner%20images/woman-doing-house-chores.png" alt="#"/><span>Cleaning & Household Help</span></a>
                         </div>
                     </div>
