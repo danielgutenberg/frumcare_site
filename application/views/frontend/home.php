@@ -5,8 +5,22 @@
             <li class="banner-item" style='background-image:url(img/banner-bg.jpg);'>
                 <div class="container">
                     <div class="banner-text col-md-5 col-sm-6 col-xs-12">
+                        <div class="banner-images row">
+                            <div class="col-xs-5 col-md-2">
+                                <a title="Child Care"><img src="img/banner%20images/woman-taking-care-of-girl.png" alt="#"/><span>Child Care</span></a>
+                            </div>
+                            <div class="col-xs-5 col-md-2">
+                                <a title="Senior Care"><img src="img/banner%20images/man-helping-elderly.png" alt="#"/><span>Senior Care</span></a>
+                            </div>
+                            <div class="col-xs-5 col-md-2">    
+                                <a title="Special Needs Care"><img src="img/banner%20images/ThinkstockPhotos-468469005.png" alt="#"/><span>Special Needs Care</span></a>
+                            </div>
+                            <div class="col-xs-5 col-md-2">
+                                <a title="Cleaning & Household Help"><img src="img/banner%20images/woman-doing-house-chores.png" alt="#"/><span>Cleaning & Household Help</span></a>
+                            </div>
+                        </div>
                         <h2 class="banner-title">
-                            We Connect <br />Jewish Families <br />with Caregivers
+                            We Connect Jewish Families with Caregivers
                         </h2>
                         <div class='banner-sub-title'>
                             <div class="banner-title-small">Choose an option:</div>
@@ -34,15 +48,7 @@
                             </div>
                             <?php /* <a href="<?php echo site_url("ad");?>" class="link-block browse-caregivers">PLACE AN AD FOR FREE</a> */ ?>
                         </div>
-                        <div class="banner-images col-md-7 col-sm-6 col-xs-12">
-                            <ul>
-                                <li><a title="Child Care"><img src="img/banner%20images/woman-taking-care-of-girl.png" alt="#"/><span>Child Care</span></a></li>
-                                <li><a title="Senior Care"><img src="img/banner%20images/man-helping-elderly.png" alt="#"/><span>Senior Care</span></a></li>
-                                <!--<li><a title="Special Needs Care"><img src="img/banner%20images/woman-and-child.png" alt="#"/><span>Special Needs Care</span></a></li>-->
-                                <li><a title="Special Needs Care"><img src="img/banner%20images/ThinkstockPhotos-468469005.png" alt="#"/><span>Special Needs Care</span></a></li>
-                                <li><a title="Cleaning & Household Help"><img src="img/banner%20images/woman-doing-house-chores.png" alt="#"/><span>Cleaning & Household Help</span></a></li>
-                            </ul>
-                        </div>
+                        
                     </div>
                 </li>
             </ul>
