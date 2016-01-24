@@ -18,11 +18,12 @@
                             <a title="Cleaning & Household Help"><img src="img/banner%20images/woman-doing-house-chores.png" alt="#"/><span>Cleaning & Household Help</span></a>
                         </div>
                     </div>
+                    <h2 class="banner-title">
+                        We Connect Jewish Families with Caregivers
+                    </h2>
                     <div class="banner-text col-md-5 col-sm-6 col-xs-12">
                         
-                        <h2 class="banner-title">
-                            We Connect Jewish Families with Caregivers
-                        </h2>
+                        
                         <div class='banner-sub-title'>
                             <div class="banner-title-small">Choose an option:</div>
                                 <?php /* <a href="<?php echo site_url('signup?ac=2')?>">I am a Parent</a>
