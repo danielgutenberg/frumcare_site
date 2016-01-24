@@ -27,7 +27,7 @@
                     <div class="row">
                         <div class="col-sm-6 col-xs-12">
                             <div style="text-align:center;" class='callout-block'>
-                                <h2 class="title" style="font-family: 'amaranthregular'; color: #505050; font-size: 29px;">
+                                <h2 class="title" style="font-family: 'amaranthregular'; color: #0063d9; font-size: 29px;">
                                     <span style="font:33px" class="looking-for-care">Looking for care?</span><br/>
                                     Find quality Caregivers in your area
                                 </h2>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-sm-6 col-xs-12">
                             <div style="text-align:center;" class='callout-block'>
-                                <h2 class="title" style="font-family: 'amaranthregular'; color: #505050; font-size: 29px;">
+                                <h2 class="title" style="font-family: 'amaranthregular'; color: #0063d9; font-size: 29px;">
                                     <span style="font:33px" class="looking-for-care-job">Looking for a care job?</span><br/>
                                     Find Jobs in your area
                                 </h2>
