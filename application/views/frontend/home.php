@@ -7,7 +7,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <h2 class="banner-title" style="text-align:center">
-                                We Connect Jewish Families with Caregivers
+                                We Connect <br> Jewish Families with Caregivers
                             </h2>
                         </div>
                     </div>
