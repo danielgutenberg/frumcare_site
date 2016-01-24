@@ -808,10 +808,11 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
      var category = '<?php echo $this->uri->segment(1);?>';
      var slug = '<?php echo $this->uri->segment(3);?>';
      var type = '<?php echo $this->uri->segment(4);?>';
-     if(id ==''){
-      window.location.href="<?php echo site_url();?>login";
-  }else{
+     var user_id 	= '<?php echo check_user();?>';
+     if(user_id != ''){
       window.location.href = "<?php echo site_url();?>contactprofile/profile/"+category+"/"+slug+"/"+type;
+  }else{
+      window.location = '<?php echo site_url()?>login?url='+ btoa('<?php echo uri_string(); ?>');
   }
 });
 
