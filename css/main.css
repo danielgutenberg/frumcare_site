@@ -4268,6 +4268,11 @@ button.close {
 .visible-xs,  .visible-sm,  .visible-md,  .visible-lg {
   display: none !important;
 }
+@media (max-width: 769px) {
+  .showdiv-xs {
+    display: block !important;
+  }
+}
 @media (max-width: 767px) {
   .visible-xs {
     display: block !important;
