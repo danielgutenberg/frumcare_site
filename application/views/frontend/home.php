@@ -25,23 +25,24 @@
                     <div class="clearfix"></div>
                     
                     <div class="row">
-                    <div class="col-half">
-                        <div class='callout-block'>
-                            <h2 class="title">
-                                <span class="looking-for-care">Looking for care?</span><br/>
-                                Find quality Caregivers in your area
-                            </h2>
-                            <a href="<?php echo site_url('caregivers/all');?>" class="place-ad-link link-block">FIND A CAREGIVER</a>
+                        <div class="col-xs-6">
+                            <div style="text-align:center;" class='callout-block'>
+                                <h2 class="title" style="font-family: 'amaranthregular'; color: #505050; font-size: 29px;">
+                                    <span style="font:33px" class="looking-for-care">Looking for care?</span><br/>
+                                    Find quality Caregivers in your area
+                                </h2>
+                                <a href="<?php echo site_url('caregivers/all');?>" class="place-ad-link link-block">FIND A CAREGIVER</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-half">
-                        <div class='callout-block'>
-                            <h2 class="title">
-                                <span class="looking-for-care-job">Looking for a care job?</span><br/>
-                                Find Jobs in your area
-                            </h2>
-
-                            <a href="<?php echo base_url('jobs/all') ?>" class="place-ad-link link-block">FIND A JOB</a>
+                        <div class="col-xs-6">
+                            <div style="text-align:center;" class='callout-block'>
+                                <h2 class="title" style="font-family: 'amaranthregular'; color: #505050; font-size: 29px;">
+                                    <span style="font:33px" class="looking-for-care-job">Looking for a care job?</span><br/>
+                                    Find Jobs in your area
+                                </h2>
+    
+                                <a href="<?php echo base_url('jobs/all') ?>" class="place-ad-link link-block">FIND A JOB</a>
+                            </div>
                         </div>
                     </div>
         </section>
