@@ -6,7 +6,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12">
-                            <h2 class="banner-title">
+                            <h2 style="font-family: VAGRoundedStd,Varela Round,Helvetica Neue,Helvetica,Arial,sans-serif; color:white;">
                                 We Connect Jewish Families with Caregivers
                             </h2>
                         </div>
