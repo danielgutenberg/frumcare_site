@@ -25,7 +25,7 @@
                     <div class="clearfix"></div>
                     
                     <div class="row">
-                        <div class="col-xs-6">
+                        <div class="col-sm-6 col-xs-12">
                             <div style="text-align:center;" class='callout-block'>
                                 <h2 class="title" style="font-family: 'amaranthregular'; color: #505050; font-size: 29px;">
                                     <span style="font:33px" class="looking-for-care">Looking for care?</span><br/>
@@ -34,7 +34,7 @@
                                 <a href="<?php echo site_url('caregivers/all');?>" class="place-ad-link link-block">FIND A CAREGIVER</a>
                             </div>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-sm-6 col-xs-12">
                             <div style="text-align:center;" class='callout-block'>
                                 <h2 class="title" style="font-family: 'amaranthregular'; color: #505050; font-size: 29px;">
                                     <span style="font:33px" class="looking-for-care-job">Looking for a care job?</span><br/>
