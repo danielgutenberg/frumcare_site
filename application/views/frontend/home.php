@@ -11,6 +11,7 @@
                         <div class="col-xs-6 col-sm-3">
                             <a title="Senior Care"><img src="img/banner%20images/man-helping-elderly.png" alt="#"/><span>Senior Care</span></a>
                         </div>
+                        <div class="clearfix visible-xs-block"></div>
                         <div class="col-xs-6 col-sm-3">    
                             <a title="Special Needs Care"><img src="img/banner%20images/ThinkstockPhotos-468469005.png" alt="#"/><span>Special Needs Care</span></a>
                         </div>
