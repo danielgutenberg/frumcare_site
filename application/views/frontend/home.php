@@ -11,7 +11,7 @@
                         <div class="col-xs-6 col-sm-3">
                             <a title="Senior Care"><img src="img/banner%20images/man-helping-elderly.png" alt="#"/><span>Senior Care</span></a>
                         </div>
-                        <div class="clearfix visible-xs-block"></div>
+                        <div class="clearfix visible-xs"></div>
                         <div class="col-xs-6 col-sm-3">    
                             <a title="Special Needs Care"><img src="img/banner%20images/ThinkstockPhotos-468469005.png" alt="#"/><span>Special Needs Care</span></a>
                         </div>
@@ -19,6 +19,7 @@
                             <a title="Cleaning & Household Help"><img src="img/banner%20images/woman-doing-house-chores.png" alt="#"/><span>Cleaning & Household Help</span></a>
                         </div>
                     </div>
+                    <div class="clearfix"></div>
                     <h2 class="banner-title">
                         We Connect Jewish Families with Caregivers
                     </h2>
