@@ -5,16 +5,16 @@
             <li class="banner-item" style='background-image:url(img/banner-bg.jpg);'>
                 <div class="container">
                     <div class="banner-images row">
-                        <div class="col-xs-5 col-sm-3">
+                        <div class="col-xs-6 col-sm-3">
                             <a title="Child Care"><img src="img/banner%20images/woman-taking-care-of-girl.png" alt="#"/><span>Child Care</span></a>
                         </div>
-                        <div class="col-xs-5 col-sm-3">
+                        <div class="col-xs-6 col-sm-3">
                             <a title="Senior Care"><img src="img/banner%20images/man-helping-elderly.png" alt="#"/><span>Senior Care</span></a>
                         </div>
-                        <div class="col-xs-5 col-sm-3">    
+                        <div class="col-xs-6 col-sm-3">    
                             <a title="Special Needs Care"><img src="img/banner%20images/ThinkstockPhotos-468469005.png" alt="#"/><span>Special Needs Care</span></a>
                         </div>
-                        <div class="col-xs-5 col-sm-3">
+                        <div class="col-xs-6 col-sm-3">
                             <a title="Cleaning & Household Help"><img src="img/banner%20images/woman-doing-house-chores.png" alt="#"/><span>Cleaning & Household Help</span></a>
                         </div>
                     </div>
