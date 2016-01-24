@@ -4273,6 +4273,11 @@ button.close {
     display: block !important;
   }
 }
+@media (min-width: 769px) {
+  .showdiv-xs {
+    display: none !important;
+  }
+}
 @media (max-width: 767px) {
   .visible-xs {
     display: block !important;
