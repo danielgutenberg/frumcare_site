@@ -23,11 +23,11 @@
                     <h2 class="banner-title">
                         We Connect Jewish Families with Caregivers
                     </h2>
-                    <div style="margin-top:-40px" class="banner-text col-sm-6 col-xs-12">
+                    <!--<div style="margin-top:-40px" class="banner-text col-sm-6 col-xs-12">-->
                         
                         
-                        <div class='banner-sub-title'>
-                            <div class="banner-title-small">Choose an option:</div>
+                    <!--    <div class='banner-sub-title'>-->
+                    <!--        <div class="banner-title-small">Choose an option:</div>-->
                                 <?php /* <a href="<?php echo site_url('signup?ac=2')?>">I am a Parent</a>
                                 <br />
 
@@ -36,24 +36,24 @@
 
                                 <a href="<?php echo site_url('signup?ac=3')?>">I am a Care Orgainzation</a>
                                 <br /> */?>
-                                <p></p>
-                                <div class="amlabel">
-                                    <input id="parents" type="radio" name="parent" class="select" value="2"><label for="parents">I'm a Parent</label>
-                                    <br />
+                    <!--            <p></p>-->
+                    <!--            <div class="amlabel">-->
+                    <!--                <input id="parents" type="radio" name="parent" class="select" value="2"><label for="parents">I'm a Parent</label>-->
+                    <!--                <br />-->
 
-                                    <input id="caregiver" type="radio" name="parent" class="select" value="1"><label for="caregiver">I'm a Caregiver</label>
-                                    <br />
+                    <!--                <input id="caregiver" type="radio" name="parent" class="select" value="1"><label for="caregiver">I'm a Caregiver</label>-->
+                    <!--                <br />-->
 
-                                    <input id="care_organization" type="radio" name="parent" class="select" value="3"><label for="care_organization">I'm a Care Organization</label>
-                                </div>
-                                <br />
+                    <!--                <input id="care_organization" type="radio" name="parent" class="select" value="3"><label for="care_organization">I'm a Care Organization</label>-->
+                    <!--            </div>-->
+                    <!--            <br />-->
 
-                                <a href="javascript:void(0);" class="link-block browse-caregivers place-ad-link">Join for free</a>
-                            </div>
+                    <!--            <a href="javascript:void(0);" class="link-block browse-caregivers place-ad-link">Join for free</a>-->
+                    <!--        </div>-->
                             <?php /* <a href="<?php echo site_url("ad");?>" class="link-block browse-caregivers">PLACE AN AD FOR FREE</a> */ ?>
-                        </div>
+                    <!--    </div>-->
                         
-                    </div>
+                    <!--</div>-->
                 </li>
             </ul>
         </section>
