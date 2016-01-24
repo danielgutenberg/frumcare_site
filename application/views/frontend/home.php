@@ -2,7 +2,7 @@
 <main class="site-main">
     <section class="banner">
         <ul id="site-banner" class="banner-main">
-            <li class="banner-item" style='background-image:url(img/banner-bg.jpg);'>
+            <li class="banner-item" style='height:100%; background-image:url(img/banner-bg.jpg);'>
                 <div class="container">
                     <div class="banner-images row">
                         <div class="col-xs-6 col-sm-3">
@@ -23,7 +23,7 @@
                     <h2 class="banner-title">
                         We Connect Jewish Families with Caregivers
                     </h2>
-                    <div class="banner-text col-md-5 col-sm-6 col-xs-12">
+                    <div style="margin-top:-40px" class="banner-text col-sm-6 col-xs-12">
                         
                         
                         <div class='banner-sub-title'>
