@@ -4,6 +4,9 @@
         <ul id="site-banner" class="banner-main">
             <li class="banner-item" style='height:100%; background-image:url(img/banner-bg.jpg);'>
                 <div class="container">
+                    <h2 class="banner-title">
+                        We Connect Jewish Families with Caregivers
+                    </h2>
                     <div class="banner-images row">
                         <div class="col-xs-6 col-sm-3">
                             <a title="Child Care"><img src="img/banner%20images/woman-taking-care-of-girl.png" alt="#"/><span>Child Care</span></a>
@@ -20,9 +23,32 @@
                         </div>
                     </div>
                     <div class="clearfix"></div>
-                    <h2 class="banner-title">
-                        We Connect Jewish Families with Caregivers
-                    </h2>
+                    
+                    <div class="row">
+                    <div class="col-half">
+                        <div class='callout-block'>
+                            <h2 class="title">
+                                <span class="looking-for-care">Looking for care?</span><br/>
+                                Find quality Caregivers in your area
+                            </h2>
+                            <a href="<?php echo site_url('caregivers/all');?>" class="place-ad-link link-block">FIND A CAREGIVER</a>
+                        </div>
+                    </div>
+                    <div class="col-half">
+                        <div class='callout-block'>
+                            <h2 class="title">
+                                <span class="looking-for-care-job">Looking for a care job?</span><br/>
+                                Find Jobs in your area
+                            </h2>
+
+                            <a href="<?php echo base_url('jobs/all') ?>" class="place-ad-link link-block">FIND A JOB</a>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                <!--<div class="col-full">
+                    <p class="callout-text">If you represent a care giving institution, <a href="<?php echo site_url();?>ad">click here</a>
+                    </div>-->
+                </div>
                     <!--<div style="margin-top:-40px" class="banner-text col-sm-6 col-xs-12">-->
                         
                         
