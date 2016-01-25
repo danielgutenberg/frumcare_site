@@ -20,7 +20,7 @@
                         </div>
                         <div class="clearfix showdiv-xs"></div>
                         <div class="col-xs-6 col-sm-3 col-md-2" style="padding-left:1px; padding-right:1px">    
-                            <a title="Special Needs Care"><img src="img/banner%20images/ThinkstockPhotos-468469005.png" alt="#"/><span>Special Needs Care</span></a>
+                            <a title="Special Needs Care"><img src="img/banner%20images/ThinkstockPhotos-468469005.jpg" alt="#"/><span>Special Needs Care</span></a>
                         </div>
                         <div class="col-xs-6 col-sm-3 col-md-2" style="padding-left:1px; padding-right:1px">
                             <a title="Cleaning & Household Help"><img src="img/banner%20images/woman-doing-house-chores.png" alt="#"/><span>Cleaning & Household Help</span></a>
