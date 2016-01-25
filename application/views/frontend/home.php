@@ -13,7 +13,7 @@
                     </div>
                     <div class="banner-images row">
                         <div class="col-xs-6 col-sm-3 col-md-offset-2 col-sm-offset-0 col-xs-offset-0 col-md-2" style="padding-left:1px; padding-right:1px">
-                            <a title="Child Care"><img src="img/banner%20images/woman-taking-care-of-girl.png" alt="#"/><span>Child Care</span></a>
+                            <a title="Child Care"><img src="img/banner%20images/ThinkstockPhotos-470406709.jpg" alt="#"/><span>Child Care</span></a>
                         </div>
                         <div class="col-xs-6 col-sm-3 col-md-2" style="padding-left:1px; padding-right:1px">
                             <a title="Senior Care"><img src="img/banner%20images/man-helping-elderly.png" alt="#"/><span>Senior Care</span></a>
