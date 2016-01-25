@@ -12,7 +12,7 @@
                         </div>
                     </div>
                     <div class="banner-images row">
-                        <div class="col-xs-6 col-sm-2 col-offset-xs-2" style="padding-left:1px; padding-right:1px">
+                        <div class="col-xs-6 col-sm-2 col-xs-offset-2" style="padding-left:1px; padding-right:1px">
                             <a title="Child Care"><img src="img/banner%20images/woman-taking-care-of-girl.png" alt="#"/><span>Child Care</span></a>
                         </div>
                         <div class="col-xs-6 col-sm-2" style="padding-left:1px; padding-right:1px">
