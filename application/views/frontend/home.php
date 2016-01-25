@@ -16,14 +16,14 @@
                             <a title="Child Care"><img src="img/banner%20images/ThinkstockPhotos-470406709.jpg" alt="#"/><span>Child Care</span></a>
                         </div>
                         <div class="col-xs-6 col-sm-3 col-md-2" style="padding-left:1px; padding-right:1px">
-                            <a title="Senior Care"><img src="img/banner%20images/man-helping-elderly2.jpg" alt="#"/><span>Senior Care</span></a>
+                            <a title="Senior Care"><img src="img/banner%20images/man-helping-elderly1.jpg" alt="#"/><span>Senior Care</span></a>
                         </div>
                         <div class="clearfix showdiv-xs"></div>
                         <div class="col-xs-6 col-sm-3 col-md-2" style="padding-left:1px; padding-right:1px">    
                             <a title="Special Needs Care"><img src="img/banner%20images/ThinkstockPhotos-468469005.jpg" alt="#"/><span>Special Needs Care</span></a>
                         </div>
                         <div class="col-xs-6 col-sm-3 col-md-2" style="padding-left:1px; padding-right:1px">
-                            <a title="Cleaning & Household Help"><img src="img/banner%20images/woman-doing-house-chores2.jpg" alt="#"/><span>Cleaning & Household Help</span></a>
+                            <a title="Cleaning & Household Help"><img src="img/banner%20images/woman-doing-house-chores1.jpg" alt="#"/><span>Cleaning & Household Help</span></a>
                         </div>
                     </div>
                     <div class="clearfix"></div>
