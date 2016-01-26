@@ -563,7 +563,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
       <?php if(isset($this->session->userdata['current_user'])){
           $link = site_url().'user/upgrademembership';
       }else{
-          $link = site_url().'login';
+          $link = site_url().'signup';
       }
       ?>
       <!--<div class="preliminary-check">Preliminary check - <a href="<?php echo $link;?>">Request now</a></div>-->
@@ -758,7 +758,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
    $(function(){
 
     $('.review').on('click',function(){
-     window.location = "<?php echo site_url();?>login";
+     window.location = "<?php echo site_url();?>signup";
  });
 
     $('#myModal').on('click',function(){
@@ -812,7 +812,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
      if(user_id != ''){
       window.location.href = "<?php echo site_url();?>contactprofile/profile/"+category+"/"+slug+"/"+type;
   }else{
-      window.location = '<?php echo site_url()?>login?url='+ btoa('<?php echo uri_string(); ?>');
+      window.location = '<?php echo site_url()?>signup?url='+ btoa('<?php echo uri_string(); ?>');
   }
 });
 
@@ -830,7 +830,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
    });
     }
     else{
-        window.location = '<?php echo site_url()?>login?url='+ btoa('<?php echo uri_string(); ?>');
+        window.location = '<?php echo site_url()?>signup?url='+ btoa('<?php echo uri_string(); ?>');
     }
 });
 });
@@ -897,7 +897,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
         });
 
         $("#not_login").click(function(){
-            window.location = '<?php echo site_url()?>login?url='+ btoa('<?php echo uri_string(); ?>');
+            window.location = '<?php echo site_url()?>signup?url='+ btoa('<?php echo uri_string(); ?>');
         });
     });
 </script>
