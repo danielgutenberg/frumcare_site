@@ -5704,7 +5704,7 @@ body {
 
 @media (min-width:992){
     .col-med-2{ width:20%; }
-    .col-med-offset-2{ width:10%;}
+    .col-med-offset-2{ margin-left:10%;}
 }
 
 
