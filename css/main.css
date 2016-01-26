@@ -5702,9 +5702,9 @@ body {
     .footer .navigation-row .col-xs-12{ text-align: center;}
 }
 
-@media (min-width:992){
-    .col-med-2{ width:20%; }
-    .col-med-offset-2{ margin-left:10%;}
+@media (min-width:992px){
+    .col-med-2{ width:20% !important; }
+    .col-med-offset-2{ margin-left:10% !important;}
 }
 
 
