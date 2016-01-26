@@ -5702,5 +5702,10 @@ body {
     .footer .navigation-row .col-xs-12{ text-align: center;}
 }
 
+@media (min-width:992){
+    .col-med-2{ width:20%; }
+    .col-med-offset-2{ width:10%;}
+}
+
 
 #map{ margin:20px 0;}
