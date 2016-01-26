@@ -2,6 +2,7 @@
 <?php
 $action = 'signup/save_user';
 $refer = $_GET['ac'] ?: null;
+$referUrl = $_GET['url'] ? '?url="' . $_GET['url'] . '"' : '';
 if(segment(3) != '') {
     $action = 'user/edit/'.segment(3);
     $user_data = $user_data[0];
@@ -49,7 +50,7 @@ if($this->uri->segment(2)!='edit'){
             </h2>
             <p style="text-align:center">
                 Sign up now for Frumcare. Already have an <br/>account?
-                <a href="<?php echo base_url('login') ?>">Log In</a>
+                <a href="<?php echo base_url('login') . $referUrl ?>">Log In</a>
             </p>
             <?php } else { ?>
             <h2>Edit your account</h2>
