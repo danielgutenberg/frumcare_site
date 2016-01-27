@@ -23,7 +23,7 @@
                             <a title="Special Needs Care"><img src="img/banner%20images/ThinkstockPhotos-4684690051.png" alt="#"/><span>Special Needs Care</span></a>
                         </div>
                         <div class="col-xs-6 col-sm-3 col-med-2">
-                            <a title="Cleaning & Household Help"><img src="img/banner%20images/woman-doing-house-chores1.png" alt="#"/><span>Cleaning & Household Help</span></a>
+                            <a title="Cleaning & Household Help"><img src="img/banner%20images/woman-doing-house-chores1.png" alt="#"/><span class="col-xs-11" style="padding-left:2px">Cleaning & Household Help</span></a>
                         </div>
                     </div>
                     <div class="clearfix"></div>
