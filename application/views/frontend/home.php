@@ -12,17 +12,17 @@
                         </div>
                     </div>
                     <div style="float:none" class="banner-images row">
-                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-offset-2 col-sm-offset-0 col-xs-offset-2 col-med-2">
+                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-offset-2 col-sm-offset-0 col-xs-offset-2 col-med-2 hide-tiny">
                             <a title="Child Care"><img src="img/banner%20images/woman-taking-care-of-girl1.png" alt="#"/><span>Child Care</span></a>
                         </div>
-                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2">
+                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 hide-tiny">
                             <a title="Senior Care"><img src="img/banner%20images/man-helping-elderly1.png" alt="#"/><span>Senior Care</span></a>
                         </div>
                         <div class="clearfix showdiv-xs"></div>
-                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 col-xs-offset-2 col-sm-offset-0">    
+                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 col-xs-offset-2 col-sm-offset-0 hide-tiny">    
                             <a title="Special Needs Care"><img src="img/banner%20images/ThinkstockPhotos-4684690051.png" alt="#"/><span>Special Needs Care</span></a>
                         </div>
-                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2">
+                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 hide-tiny">
                             <a title="Cleaning & Household Help"><img src="img/banner%20images/woman-doing-house-chores1.png" alt="#"/><span class="col-xs-11" style="padding-left:2px">Cleaning & Household Help</span></a>
                         </div>
                     </div>

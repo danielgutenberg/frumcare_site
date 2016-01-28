@@ -5707,5 +5707,9 @@ body {
     .col-med-offset-2{ margin-left:10% !important;}
 }
 
+@media (max-width:500px){
+    .hide-tiny{ display:none !important; }
+}
+
 
 #map{ margin:20px 0;}
