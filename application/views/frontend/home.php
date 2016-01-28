@@ -11,18 +11,18 @@
                             </h2>
                         </div>
                     </div>
-                    <div class="banner-images row">
-                        <div class="col-xs-6 col-sm-3 col-med-offset-2 col-sm-offset-0 col-xs-offset-0 col-med-2">
+                    <div style="float:none" class="banner-images row">
+                        <div class="col-xs-3 col-sm-3 col-med-offset-2 col-sm-offset-0 col-xs-offset-3 col-med-2">
                             <a title="Child Care"><img src="img/banner%20images/woman-taking-care-of-girl1.png" alt="#"/><span>Child Care</span></a>
                         </div>
-                        <div class="col-xs-6 col-sm-3 col-med-2">
+                        <div class="col-xs-3 col-sm-3 col-med-2">
                             <a title="Senior Care"><img src="img/banner%20images/man-helping-elderly1.png" alt="#"/><span>Senior Care</span></a>
                         </div>
                         <div class="clearfix showdiv-xs"></div>
-                        <div class="col-xs-6 col-sm-3 col-med-2">    
+                        <div class="col-xs-3 col-sm-3 col-med-2">    
                             <a title="Special Needs Care"><img src="img/banner%20images/ThinkstockPhotos-4684690051.png" alt="#"/><span>Special Needs Care</span></a>
                         </div>
-                        <div class="col-xs-6 col-sm-3 col-med-2">
+                        <div class="col-xs-3 col-sm-3 col-med-2">
                             <a title="Cleaning & Household Help"><img src="img/banner%20images/woman-doing-house-chores1.png" alt="#"/><span class="col-xs-11" style="padding-left:2px">Cleaning & Household Help</span></a>
                         </div>
                     </div>
