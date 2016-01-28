@@ -19,7 +19,7 @@
                             <a title="Senior Care"><img src="img/banner%20images/man-helping-elderly1.png" alt="#"/><span>Senior Care</span></a>
                         </div>
                         <div class="clearfix showdiv-xs"></div>
-                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 col-xs-offset-2 col-md-offset-0">    
+                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 col-xs-offset-2 col-sm-offset-0">    
                             <a title="Special Needs Care"><img src="img/banner%20images/ThinkstockPhotos-4684690051.png" alt="#"/><span>Special Needs Care</span></a>
                         </div>
                         <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2">
