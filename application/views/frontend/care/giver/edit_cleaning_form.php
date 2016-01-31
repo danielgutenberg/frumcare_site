@@ -60,7 +60,6 @@
                     $this->load->view('frontend/care/giver/fields/work_location/private_home', ['lookingtowork' => $lookingtowork]);
                     $this->load->view('frontend/care/giver/fields/work_location/business', ['lookingtowork' => $lookingtowork]);
                     $this->load->view('frontend/care/giver/fields/work_location/cleaning_company', ['lookingtowork' => $lookingtowork]);
-                    $this->load->view('frontend/care/giver/fields/work_location/mothers_helper', ['lookingtowork' => $lookingtowork]);
                     ?>                
                 </div>
             </div>

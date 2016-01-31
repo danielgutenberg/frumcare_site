@@ -31,7 +31,6 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                         $this->load->view('frontend/care/giver/fields/work_location/private_home');
                         $this->load->view('frontend/care/giver/fields/work_location/business');
                         $this->load->view('frontend/care/giver/fields/work_location/cleaning_company');
-                        $this->load->view('frontend/care/giver/fields/work_location/mothers_helper');
                     ?>                
                 </div>
             </div>
