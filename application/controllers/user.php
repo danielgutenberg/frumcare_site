@@ -1682,7 +1682,7 @@ class User extends CI_Controller
         $data = array(
             'main_content' => 'frontend/user/favorites',
             'title'        => 'Favorites',
-            'record'       => $this->user_model->getMyFavorites(check_user())
+            'all_profile'       => $this->user_model->getMyFavorites(check_user())
         );
         $this->load->view(FRONTEND_TEMPLATE, $data);
 

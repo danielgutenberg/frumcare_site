@@ -1049,13 +1049,14 @@ class User_model extends CI_Model
     }
 
     public function getMyFavorites($id){
-        $sql    = "select * from tbl_favorites where user_id = $id";
-        $query  = $this->db->query($sql);
-        $res    = $query->result_array();
-        if($res)
-            return $res;
-        else
-            return false;
+        $this->db->join('tbl_user', 'tbl_user.id = tbl_userprofile.user_id', 'left');
+        $this->db->join('tbl_care','tbl_userprofile.care_type = tbl_care.id','left');
+        $this->db->join('tbl_favorites', 'tbl_userprofile.id = tbl_favorites.profile_id', 'left');
+        $this->db->where('tbl_favorites.user_id',$this->session->userdata('current_user'));
+        $this->db->order_by("tbl_userprofile.id", "desc");
+        $this->db->select('tbl_favorites.id as favoritesId, tbl_userprofile.*, tbl_care.*, tbl_user.city, tbl_user.state, tbl_user.country, tbl_user.name, tbl_user.uri, tbl_user.profile_picture');
+        $query = $this->db->get('tbl_userprofile');
+        return $query->result();
     }
     public function existing_profile_check($account_category,$care_type){
         //$i=0;
