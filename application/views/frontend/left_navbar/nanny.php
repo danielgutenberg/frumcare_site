@@ -13,47 +13,19 @@
 	 		$this->load->view('frontend/left_navbar/fields/observance_of_caregiver');
 	 		 		
 	 		?>
+	 		<?php $location = explode(',',$data['looking_to_work']); ?>
             <div>
                 <label>Nanny Type</label>
-                <div class="checkbox"><input type="checkbox" value="Live In" class="looking_to_work"/>Live In</div>
-                <div class="checkbox"><input type="checkbox" value="Live Out" class="looking_to_work"/>Live Out</div>
+                <div class="checkbox"><input type="checkbox" value="Live In" class="looking_to_work" <?php if(in_array("Live In",$location)){?> checked="checked" <?php } ?>/>Live In</div>
+                <div class="checkbox"><input type="checkbox" value="Live Out" class="looking_to_work" <?php if(in_array("Live Out",$location)){?> checked="checked" <?php } ?>/>Live Out</div>
             </div>
-	 		<div>
-	 			<label>Number of children requiring care</label>
-	 			<select name="number_of_children" class="number_of_children">
-	 				<option value="">--select--</option>
-	 				<option value="1">1</option>
-	 				<option value="2">2</option>
-	 				<option value="3">3</option>
-	 				<option value="4">4</option>
-	 				<option value="5">5</option>
-	 				<option value="6">5+</option>
-	 			</select>
-	 		</div>
-	 		<div>
-	 			<label></label>
-	 			<div class="checkbox first"><input type="checkbox" value="twins" name="optional_number[]" class="morenum">Twins</div>
-	 			<div class="checkbox"><input type="checkbox" value="triplets" name="optional_number[]" class="morenum">Triplets</div>
-	 		</div>
-
-	 		<div>
-	 			<label>Age of children requiring care</label>
-	 			<div class="checkbox first"><input type="checkbox" value="0-3" name="age_group[]" class="age_group"> 0-3 months</div>
-                <div class="checkbox"><input type="checkbox" value="3-6" name="age_group[]" class="age_group"> 3-6 months</div>
-                <div class="checkbox"><input type="checkbox" value="6-12" name="age_group[]" class="age_group"> 6-12 months</div>                
-                <div class="checkbox"><input type="checkbox" value="1-3" name="age_group[]"  class="age_group"> 1 to 3 years</div>
-                <div class="checkbox"><input type="checkbox" value="3-5" name="age_group[]"  class="age_group"> 3 to 5 years</div>
-                <div class="checkbox"><input type="checkbox" value="6-11" name="age_group[]"  class="age_group"> 6 to 11 years</div>
-                <div class="checkbox"><input type="checkbox" value="12+" name="age_group[]"  class="age_group"> 12+ years</div>
-	 		</div>
-	 		<?php $this->load->view('frontend/left_navbar/fields/minimum_experience'); ?>
-		 	<div>
-		 		<label>Training</label>
-		 		<div class="checkbox first"><input type="checkbox" class="training" value="CPR">CPR</div>
-		 		<div class="checkbox"><input type="checkbox" class="training" value="First Aid">First Aid</div>
-		 		<div class="checkbox"><input type="checkbox" class="training" value="Nanny/ Babysitter Course">Nanny / Babysitter Course</div>
-		 		<div class="checkbox"><input type="checkbox" class="training" value="Other">Other</div>
-		 	</div>
+	 		
+	 		<?php 
+		 		$this->load->view('frontend/left_navbar/fields/number_of_children', array('data' => $data));
+		 		$this->load->view('frontend/left_navbar/fields/age_of_children', array('data' => $data));
+		 		$this->load->view('frontend/left_navbar/fields/minimum_experience');
+		 		$this->load->view('frontend/left_navbar/fields/training', array('data' => $data));
+		 	?>
 		 	<?php $this->load->view('frontend/left_navbar/fields/when_you_need_care'); ?>
 		 	<div>
 		 		<label>Abilities and skills</label>
@@ -69,16 +41,8 @@
 		 	</div>
 
 
-	 		<div>
-		 		<div class="educationss" colspan="2">
-
-		 		<input type="hidden" name="category" value="" id="care_type">
-			 		<div colspan="2" class="search-btns">
-				 		<input type="submit" class="btn btn-primary searchs" data-toggle="tooltip" data-placement="left" title="Save your search. Setup email alerts and be the first to see new profiles that have your search criteria." value="Save this Search" name="searchs">
-				 	</div>
+	 		<?php $this->load->view('frontend/left_navbar/fields/save_search'); ?>
 
 			</form>
 		</div>
-</div>	 
-	  </div>
 

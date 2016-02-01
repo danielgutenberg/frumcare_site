@@ -73,11 +73,11 @@
         "7" => 'therapists',
         "8" => 'cleaning',
         "9" => 'errand_runner',
-        "10" => 'careseeker_nanny',
-        "13" => 'careseeker_seniorcaregiver',
+        "10" => 'daycarecenter',
+        "13" => 'seniorcareagency',
         "14" => 'careseeker_specialneedscaregiver',
         "15" => 'cleaninghousehold',
-        "16" => 'careseeker_senior_caregiver',
+        "16" => 'careseeker_seniorcaregiver',
         "17" => 'careseeker_babysitter',
         "18" => 'careseeker_nanny',
         "19" => 'careseeker_tutor',
@@ -94,7 +94,7 @@
     $this->load->view('frontend/left_navbar/' . $navbars[$s3], array('data' => $record));
 ?>
 
-
+<?php print_r($record); ?>
        
 	   
 
@@ -129,6 +129,7 @@
 	    $('.left-search-panel').removeClass('col-lg-3 ')
 	    $('.left-search-panel').addClass('col-xs-5')
 		$('.searchs').click(function(e){
+		    console.log('hello');
 		    $(".searchloader").fadeIn("fast");
 		    e.preventDefault();
 		    if ($('#lat').val() == '') {
@@ -143,7 +144,7 @@
 		    var care_type = $('#careId').val();
     		var caregiverage_from = $('.caregiverage_from').val() ? $('.caregiverage_from').val() : '';
             var caregiverage_to = $('.caregiverage_to').val() ? $('.caregiverage_to').val() : '';
-    		var gender = $('.gender').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
+    		var gender = $('.gender_of_caregiver').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
     	    var willing = $(this).val();
             var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
     		var lang = $('.lang:checked').map(function(_, el) {
@@ -219,6 +220,9 @@
             var extra_field = $('.extra_field:checked').map(function(_, el) {
     	        return $(el).val();
     	    }).get();
+    	    var willing_to_work = $('.willing_to_work:checked').map(function(_, el) {
+    	        return $(el).val();
+    	    }).get();
             var lat = $('#lat').val();
     	    var lat = $('#lat').val();
             var long = $('#long').val();
@@ -227,7 +231,7 @@
     	    $.ajax({
     	    	type:"post",
     	    	url:"<?php echo site_url();?>user/edit_search/" + id,
-    	    	data:"lat="+lat+"&long="+long+"&location="+location+"&distance="+distance+"&care_type="+care_type+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker+"&subject="+subject+"&rate="+rate+"&skills="+skills+"&distance="+distance+"&bath_children="+bath_children+"&bed_children="+bed_children+"&pick_up_child="+pick_up_child+"&cook="+cook+"&basic_housework="+basic_housework+"&homework_help="+homework_help+"&lat="+lat+"&location="+location+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender_of_careseeker="+gender_of_careseeker+"&gender_of_caregiver="+gender_of_caregiver+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&carelocation="+carelocations+"&trainings="+trainings+"&able_to_work="+able_to_work+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&start_date="+start_date+"&smoker="+smoker+"&extra_field="+extra_field+"&accept_insurance="+accept_insurance,
+    	    	data:"lat="+lat+"&long="+long+"&location="+location+"&distance="+distance+"&care_type="+care_type+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing_to_work="+willing_to_work+"&smoker="+smoker+"&subject="+subject+"&rate="+rate+"&skills="+skills+"&distance="+distance+"&bath_children="+bath_children+"&bed_children="+bed_children+"&pick_up_child="+pick_up_child+"&cook="+cook+"&basic_housework="+basic_housework+"&homework_help="+homework_help+"&lat="+lat+"&location="+location+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender_of_careseeker="+gender_of_careseeker+"&gender_of_caregiver="+gender_of_caregiver+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&carelocation="+carelocations+"&trainings="+trainings+"&able_to_work="+able_to_work+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&start_date="+start_date+"&smoker="+smoker+"&extra_field="+extra_field+"&accept_insurance="+accept_insurance,
     	    	success:function(done){
        			    $(".searchloader").fadeOut("fast");
                     return $dialog.dialog('open');

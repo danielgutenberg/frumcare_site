@@ -3,63 +3,32 @@
 	  		<div class="left-search-panel col-lg-3 col-md-3 col-sm-3 col-xs-12">
 	 	<h4>Advanced Search</h4>
 	 	<form method="post" id="left-nav" action="">
- 			<div>
-	 			<label>Age of Caregiver</label>
-	 			<input type="text" name="caregiverage_from" value="" placeholder="FROM" style="width:25%" class="caregiverage_from"> to  
-	 			<input type="text" name="caregiverage_to" value="" placeholder="TO" style="width:25%" class="caregiverage_to">
-	 		</div>
+ 			<?php 
+	 		$this->load->view('frontend/left_navbar/fields/age_of_caregiver', array('data' => $data));
+	 		$this->load->view('frontend/left_navbar/fields/gender_of_caregiver', array('data' => $data));
+	 		$this->load->view('frontend/left_navbar/fields/smoker', array('data' => $data));
+	 		$this->load->view('frontend/left_navbar/fields/languages', array('data' => $data));
+	 		$this->load->view('frontend/left_navbar/fields/observance_of_caregiver', array('data' => $data));
+	 		?>
 
-	 		<?php $this->load->view('frontend/left_navbar/fields/gender_of_caregiver'); ?>
-            
-            <div id="smoker">
-	 			<label>Smoker</label>
-	 			<div class="radio-half"><input type="radio" name="smoker" value="1" class="smoker"> Yes</div>
-	 			<div class="radio-half"><input type="radio" name="smoker" value="2" class="smoker"> No</div>
-	 		</div>
-            
-	 		<div>
-	 			<label>Languages</label>
-	 			<div class="checkbox"><input type="checkbox" name="languages[]" value="English" class="lang">English</div>
-	 			<div class="checkbox"><input type="checkbox" name="languages[]" value="Yiddish" class="lang">Yiddish</div>
-	 			<div class="checkbox"><input type="checkbox" name="languages[]" value="Hebrew" class="lang">Hebrew</div>
-	 			<div class="checkbox"><input type="checkbox" name="languages[]" value="Russian" class="lang">Russian</div>
-	 			<div class="checkbox"><input type="checkbox" name="languages[]" value="French" class="lang">French</div>
-	 			<div class="checkbox"><input type="checkbox" name="languages[]" value="Other" class="lang">Other</div>
-	 		</div>
-	 		<div>
-	 			<label>Level of observance (check one or more)</label>
-	 			<div class="checkbox"><input type="checkbox" value="Yeshivish/Chasidish" name="observance[]" class="observance">Yeshivish / Chasidish</div>
-	 			<div class="checkbox"><input type="checkbox" value="Orthodox/Modern orthodox" name="observance[]" class="observance">Orthodox / Modern orthodox</div>	 			
-	 			<div class="checkbox"><input type="checkbox" value="Familiar With Jewish Tradition" name="observance[]" class="observance">Familiar with Jewish Tradition</div>
-	 			<div class="checkbox"><input type="checkbox" value="Any" name="observance[]" class=" observance">Any</div>	 			
-	 		</div>
-
+	 		<?php $location = explode(',',$data['looking_to_work']); ?>
 	 		<div>
  				<label>For work in</label>
- 				<div class="checkbox"><input type="checkbox" name="carelocation" class="carelocation" value="Patients Home">Patients Home</div>
- 				<div class="checkbox"><input type="checkbox" name="carelocation" class="carelocation" value="Caregiving Institution" <?php echo ($this->uri->segment(1)=='caregivers' && ($this->uri->segment(2)=='workers-staff-for-special-needs-facility' || $this->uri->segment(3)=='workers-staff-for-special-needs-facility') )?'checked':'' ?>>Caregiving Institution</div>
+ 				<div class="checkbox"><input type="checkbox" name="carelocation" class="looking_to_work" value="Patients Home" <?php if(in_array("Patients Home",$location)){?> checked="checked" <?php } ?>>Patients Home</div>
+ 				<div class="checkbox"><input type="checkbox" name="carelocation" class="looking_to_work" value="Caregiving Institution" <?php echo ($this->uri->segment(1)=='caregivers' && ($this->uri->segment(2)=='workers-staff-for-special-needs-facility' || $this->uri->segment(3)=='workers-staff-for-special-needs-facility') )?'checked':'' ?> <?php if(in_array("Caregiving Institution",$location)){?> checked="checked" <?php } ?>>Caregiving Institution</div>
 	 		</div> 
 
-	 		<div class="year-exp">
-		 		<span>Minimum Experience</span>
-		 			<select name="year_experience" class="required year_experience">
-		 			<option value="">--select--</option>
-		 				<option value="1">1 year</option>	
-		 				<option value="2">2 years</option>	
-		 				<option value="3">3 years</option>	
-		 				<option value="4">4 years</option>	
-		 				<option value="6">5+ years</option>	
-		 			</select>
-		 	</div>
+	 		<?php $this->load->view('frontend/left_navbar/fields/minimum_experience', array('data' => $data)); ?>
 
+		 	<?php $training = explode(',',$data['training']); ?>
 		 	<div>
-		 		<label>Training</label>
-		 		<div class="checkbox"><input type="checkbox" name="training" class="training" value="CPR">CPR</div>
- 				<div class="checkbox"><input type="checkbox" name="training" class="training" value="First Aid">First Aid</div>
- 				<div class="checkbox"><input type="checkbox" name="training" class="training" value="Special Needs Training">Special Needs Training</div>
- 				<div class="checkbox"><input type="checkbox" name="training" class="training" value="Nurse">Nurse</div>
- 				<div class="checkbox"><input type="checkbox" name="training" class="training" value="Other">Other</div>
-		 	</div>
+			 	<label>Training</label>
+			 	<div class="checkbox first"><input type="checkbox" class="training" value="CPR" <?php if(in_array("CPR",$training)){?> checked="checked" <?php } ?>>CPR</div>
+			 	<div class="checkbox"><input type="checkbox" class="training" value="First Aid" <?php if(in_array("First Aid",$training)){?> checked="checked" <?php } ?>>First Aid</div>
+			 	<div class="checkbox"><input type="checkbox" class="training" value="Special Needs Training" <?php if(in_array("Special Needs Training",$training)){?> checked="checked" <?php } ?>>Special Needs Training</div>
+			 	<div class="checkbox"><input type="checkbox" class="training" value="Nurse" <?php if(in_array("Nurse",$training)){?> checked="checked" <?php } ?>>Nurse</div>
+			 	<div class="checkbox"><input type="checkbox" class="training" value="Other" <?php if(in_array("Other",$training)){?> checked="checked" <?php } ?>>Other</div>
+			 </div>
 
 		 	<div>
 		 		<label>Able to work with</label>
@@ -70,19 +39,7 @@
 		 		<div class="checkbox"><input type="checkbox" class="able_to_work" name="able_to_work" value="Wheelchair bound">Wheelchair bound</div>
 		 	</div>
 	 			 		
-		 	<div>
-		 		<label>When you need care</label>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Immediate">Immediate</div>
-		 		<div class="checkbox full"><input type="checkbox" class="availability chkbox1" value="Start Date">Start Date<input type="text" id="textbox1"/></div>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Occassionally">Occasionally</div>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Regularly">Regularly</div>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Morning">Morning</div>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Afternoon">Afternoon</div>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Evening">Evening</div>		 		
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Weekends Fri/Sun">Weekends Fri / Sun</div>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Shabbos">Shabbos</div>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="By appointment">24 hr care</div>
-		 	</div>
+		 	<?php $this->load->view('frontend/left_navbar/fields/when_you_need_care', array('data' => $data)); ?>
 
 		 	<div>
 		 		<label>Abilities</label>
@@ -91,14 +48,7 @@
 		 		<div class="checkbox"><input type="checkbox" class="available_on_short_notice" name="available_on_short_notice" value="1">Available on short notice</div>
 		 	</div>
 
-	 		<div>
-		 		<div class="educationss" colspan="2">
-		 		<input type="hidden" name="category" value="" id="care_type">
-			 		<div colspan="2" class="search-btns">
-				 		<input type="submit" class="btn btn-primary searchs" data-toggle="tooltip" data-placement="left" title="Save your search. Setup email alerts and be the first to see new profiles that have your search criteria." value="Save this Search" name="searchs">
-				 	</div>
+	 		<?php $this->load->view('frontend/left_navbar/fields/save_search'); ?>
 
 			</form>
 		</div>
-</div>	 
-	  </div>

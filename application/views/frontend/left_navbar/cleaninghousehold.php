@@ -3,10 +3,11 @@
 	  		<div class="left-search-panel col-lg-3 col-md-3 col-sm-3 col-xs-12">
 	 	<h4>Advanced Search</h4>
 	 	<form method="post" id="left-nav" action="">
+	 		<?php $location = explode(',',$data['looking_to_work']); ?>
 	 		<div>
 	 			<label>For</label>
-	 			<div class="checkbox"><input type="checkbox" value="Home" class="looking_to_work">Home</div>
-	 			<div class="checkbox"><input type="checkbox" value="Office/Business" class="looking_to_work">Office / Business</div>
+	 			<div class="checkbox"><input type="checkbox" value="Home" class="looking_to_work" <?php if(in_array("Private Home",$location)){?> checked="checked" <?php } ?>>Home</div>
+	 			<div class="checkbox"><input type="checkbox" value="Office/Business" class="looking_to_work" <?php if(in_array("Office/Business",$location)){?> checked="checked" <?php } ?>>Office / Business</div>
 	 		</div>
             <div>
 	 			<label>Specialize in</label>
@@ -21,14 +22,7 @@
                 <div class="checkbox"><input type="checkbox" value="Cleaning oven stove" class="willing_to_work">Cleaning oven / stove</div>
                 <div class="checkbox"><input type="checkbox" value="Pesach Cleaning" name="willing_to_work[]"><span>Pesach Cleaning</span></div>
 	 		</div>
-	 		<div>
-		 		<div class="educationss" colspan="2">
-		 		<input type="hidden" name="category" value="" id="care_type">
-			 		<div colspan="2" class="search-btns">
-				 		<input type="submit" class="btn btn-primary searchs" data-toggle="tooltip" data-placement="left" title="Save your search. Setup email alerts and be the first to see new profiles that have your search criteria." value="Save this Search" name="searchs">
-				 	</div>
+	 		<?php $this->load->view('frontend/left_navbar/fields/save_search'); ?>
 
 			</form>
 		  </div>
-        </div>	 
-	  </div>

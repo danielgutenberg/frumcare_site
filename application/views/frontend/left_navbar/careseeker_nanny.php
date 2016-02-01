@@ -7,7 +7,6 @@
 	 			<label>Nanny Type</label>
 	 			<div class="checkbox"><input type="checkbox" value="Live In" class="looking_to_work">Live In</div>
 	 			<div class="checkbox"><input type="checkbox" value="Live Out" class="looking_to_work">Live Out</div>
-                <div class="checkbox"><input type="checkbox" value="" class="looking_to_work">Any</div>
 	 		</div>
                 <div class="select-services">
 	 			<label>Number of children you can care for</label>

@@ -11,10 +11,10 @@
 
 	 		<div>
 	 			<label>Gender of Therapist</label>
-	 			<div class="radio-half"><input type="radio" name="gender_of_caregiver" value="1" class="gender_of_caregiver" >Male</div>
-	 			<div class="radio-half"><input type="radio" name="gender_of_caregiver" value="2" class="gender_of_caregiver" > Female</div>
-	 			<div class="radio-half"><input type="radio" name="gender_of_caregiver" value="3" class="gender_of_caregiver" > Any</div>
-	 		</div>
+			 	<div class="radio-half"><input type="radio" name="gender_of_caregiver" value="1" class="gender_of_caregiver" <?php if ($data['gender_of_caregiver'] == 1) echo 'checked' ?>> Male</div>
+			 	<div class="radio-half"><input type="radio" name="gender_of_caregiver" value="2" class="gender_of_caregiver" <?php if ($data['gender_of_caregiver'] == 2) echo 'checked' ?>> Female</div>
+			 	<div class="radio-half"><input type="radio" name="gender_of_caregiver" value="3" class="gender_of_caregiver" <?php if ($data['gender_of_caregiver'] == 3) echo 'checked' ?>> Any</div>
+			 </div>
             
             <?php /*
             <div id="smoker">
@@ -23,15 +23,7 @@
 	 			<div class="radio-half"><input type="radio" name="smoker" value="2" class="smoker"> No</div>
 	 		</div> */ ?>
             
-	 		<div>
-	 			<label>Languages</label>
-	 			<div class="checkbox"><input type="checkbox" name="languages[]" value="English" class="lang" > English</div>
-	 			<div class="checkbox"><input type="checkbox" name="languages[]" value="Yiddish" class="lang" > Yiddish</div>
-	 			<div class="checkbox"><input type="checkbox" name="languages[]" value="Hebrew" class="lang" > Hebrew</div>
-	 			<div class="checkbox"><input type="checkbox" name="languages[]" value="Russian" class="lang" > Russian</div>
-	 			<div class="checkbox"><input type="checkbox" name="languages[]" value="French" class="lang" > French</div>
-	 			<div class="checkbox"><input type="checkbox" name="languages[]" value="Other" class="lang" > Other</div>
-	 		</div>
+	 		<?php $this->load->view('frontend/left_navbar/fields/languages', array('data' => $data)); ?>
 	 		<!--<div>
 	 			<label>Level of observance (check one or more)</label>
 	 			<div class="checkbox"><input type="checkbox" value="Yeshivish/Chasidish" name="observance[]" class="observance">Yeshivish/Chasidish</div>
