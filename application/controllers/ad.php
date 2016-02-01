@@ -378,6 +378,12 @@ class Ad extends CI_Controller
                 'familartojewish'                => isset($p['familartojewish']) ? $p['familartojewish'] : 0,
                 'education_level'                => isset($p['education_level']) ? $p['education_level'] : '',
                 'educational_institution'        => isset($p['educational_institution']) ? $p['educational_institution'] : '',
+                'city'                           => $p['city'],
+                'country'                        => $p['country'],
+                'state'                          => $p['state'],
+                'location'                       => $p['location'],
+                'lat'                            => $p['lat'],
+                'lng'                            => $p['lng'],
             );
 
             if (isset($p['profile_picture'])){
@@ -1093,7 +1099,13 @@ class Ad extends CI_Controller
                 'caregiver_religious_observance' => isset($p['religious_observance']) ? $p['religious_observance'] : '',
                 'smoke' => isset($p['smoker']) ? $p['smoker'] : 2,
                 'hasAd'    => 1,
-                'profile_picture'=>$p['profile_picture']
+                'profile_picture'=>$p['profile_picture'],
+                'city'                  => $p['city'],
+                'country'               => $p['country'],
+                'state'                 => $p['state'],
+                'location'              => $p['location'],
+                'lat'                   => $p['lat'],
+                'lng'                   => $p['lng'],
             );
             if (isset($p['name'])){
                 $uri = $this->common_model->create_slug($p['name']);
