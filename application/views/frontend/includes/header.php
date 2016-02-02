@@ -324,7 +324,7 @@ $(function(){
     $("#locationField").ready(function(){
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], {types: ['address']});
         google.maps.event.addListener(autocomplete, 'place_changed', function() {
-            $("#location").val($("#autocomplete").val());
+            $("#locationName").val($("#autocomplete").val());
             $("#cityName").val('');
             $("#stateName").val('');
             $("#countryName").val('');

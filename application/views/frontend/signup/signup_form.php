@@ -113,7 +113,7 @@ if($this->uri->segment(2)!='edit'){
                     <span style="color:red;" id="error"> </span>
                     <p>Can't find your address? <a class="noAddress" style="cursor:pointer">Click here</a></p>
                 </div>
-                 <div class="care-type col-xs-12" id="cityField" style="display:none" style="padding-left:0px">Location:
+                <div class="care-type col-xs-12" id="cityField" style="display:none; padding-left:0px">Location:
                     <span class="first-names">
                         <input style="width:330px" type="text" class="required" placeholder="Please enter a city and state/country" id="autocomplete1" value="<?php echo isset($address)? $address:''; ?>" required/>
                     </span>

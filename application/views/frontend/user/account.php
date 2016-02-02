@@ -25,6 +25,7 @@
         $city = $user_data['city'];
         $state = $user_data['state'];
         $country = $user_data['country'];
+        $location = $user_data['location'];
     }    
     $photo_url = site_url("images/plus.png");
     $ac = $this->session->userdata('account_category');
@@ -90,7 +91,8 @@
                             <input type="hidden" id="cityName" name="city" value="<?php echo isset($city)?$city:''?>"/>
                             <input type="hidden" id="stateName" name="state" value="<?php echo isset($state)?$state:''?>"/>
                             <input type="hidden" id="countryName" name="country" value="<?php echo isset($country)?$country:''?>"/>
-                            <input type="text" name="location" class="required" placeholder="Please enter a street address (For internal purposes only, full address will not be posted)" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
+                            <input type="hidden" id="locationName" name="location" value="<?php echo isset($location)?$location:''?>"/>
+                            <input type="text" class="required" placeholder="Please enter a street address (For internal purposes only, full address will not be posted)" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
                         </div>
                         <span style="color:red;" id="error"> </span>
                         <p>Can't find your address? <a class="noAddress" style="cursor:pointer">Click here</a></p>
@@ -98,7 +100,7 @@
                      <div class="first-names" id="cityField" style="display:none">
                         <label>Location</label>
                         <span class="first-names">
-                            <input type="text" name="location" class="required" placeholder="Please enter a city and state/country" id="autocomplete1" value="<?php echo isset($address)? $address:''; ?>" required/>
+                            <input type="text" class="required" placeholder="Please enter a city and state/country" id="autocomplete1" value="<?php echo isset($address)? $address:''; ?>" required/>
                         </span>
                         <span style="color:red;" id="error1"> </span>
                     </div> 
@@ -306,7 +308,7 @@
     $("#cityField").ready(function(){
         var cityAutocomplete = new google.maps.places.Autocomplete($("#autocomplete1")[0]);
         google.maps.event.addListener(cityAutocomplete, 'place_changed', function() {
-            $("#location").val($("#autocomplete1").val());
+            $("#locationName").val($("#autocomplete1").val());
             $("#cityName").val('');
             $("#stateName").val('');
             $("#countryName").val('');
