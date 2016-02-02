@@ -1417,7 +1417,7 @@ class User extends CI_Controller
                 'start_date'            => $this->input->post('start_date',true),
                 'care_type'             => $this->input->post('care_type',true) > 0 ? $this->input->post('care_type',true) : 0,
                 'lat'                   => $this->input->post('lat', true),
-                'long'                  => $this->input->post('lng', true),
+                'long'                  => $this->input->post('long', true),
                 'location'              => $this->input->post('location', true),
                 'distance'              => $distance,
                 'createAlert'           => 1
@@ -1457,7 +1457,7 @@ class User extends CI_Controller
                 'start_date'            => $this->input->post('start_date',true),
                 'care_type'             => $this->input->post('care_type',true) > 0 ? $this->input->post('care_type',true) : 0,
                 'lat'                   => $this->input->post('lat', true),
-                'long'                  => $this->input->post('lng', true),
+                'long'                  => $this->input->post('long', true),
                 'location'              => $this->input->post('location', true),
                 'distance'              => $distance,
                 'createAlert'           => 1
