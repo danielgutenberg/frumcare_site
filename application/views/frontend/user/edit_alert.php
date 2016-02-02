@@ -94,7 +94,6 @@
     $this->load->view('frontend/left_navbar/' . $navbars[$s3], array('data' => $record));
 ?>
 
-<?php print_r($record); ?>
        
 	   
 
