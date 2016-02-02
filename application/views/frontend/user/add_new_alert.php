@@ -231,7 +231,7 @@
     	    }).get();
             var lat = $('#lat').val();
     	    var lat = $('#lat').val();
-            var long = $('#long').val();
+            var long = $('#lng').val();
             var location = $('.locationName').val();
             var distance = $('#sort_by_miles').val();
     	    $.ajax({

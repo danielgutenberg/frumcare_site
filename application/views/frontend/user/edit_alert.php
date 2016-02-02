@@ -42,7 +42,7 @@
         </div>
     <div id="locationField">Location
         <input type="hidden" id="lat" name="lat" value="<?php echo isset($record['lat'])?$record['lat']:''?>"/>
-        <input type="hidden" id="long" name="lng" value="<?php echo isset($record['long'])?$record['long']:''?>"/>
+        <input type="hidden" id="lng" name="lng" value="<?php echo isset($record['long'])?$record['long']:''?>"/>
         <input type="text" name="location" class="locationName required" placeholder="Please enter a street address" value="<?php echo $record['location'] ?>" style="margin-left:30px; width:300px" id="autocomplete" required/>
     </div> 
     <span style="color:red;" id="error"> </span>
@@ -224,7 +224,7 @@
     	    }).get();
             var lat = $('#lat').val();
     	    var lat = $('#lat').val();
-            var long = $('#long').val();
+            var long = $('#lng').val();
             var location = $('.locationName').val();
             var distance = $('#sort_by_miles').val();
     	    $.ajax({
