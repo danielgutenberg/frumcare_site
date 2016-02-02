@@ -100,7 +100,7 @@
                      <div class="first-names" id="cityField" style="display:none">
                         <label>Location</label>
                         <span class="first-names">
-                            <input type="text" class="required" placeholder="Please enter a city and state/country" id="autocomplete1" value="<?php echo isset($address)? $address:''; ?>" required/>
+                            <input type="text" class="required" placeholder="Please enter a city and state/country" id="autocomplete1" value="" required/>
                         </span>
                         <span style="color:red;" id="error1"> </span>
                     </div> 

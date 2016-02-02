@@ -107,7 +107,7 @@ if($this->uri->segment(2)!='edit'){
                         <input type="hidden" id="cityName" name="city" value="<?php echo isset($city)?$city:''?>"/>
                         <input type="hidden" id="stateName" name="state" value="<?php echo isset($state)?$state:''?>"/>
                         <input type="hidden" id="countryName" name="country" value="<?php echo isset($country)?$country:''?>"/>
-                        <input type="hidden" id="location" name="location" value="<?php echo isset($country)?$country:''?>"/>
+                        <input type="hidden" id="locationName" name="location" value="<?php echo isset($country)?$country:''?>"/>
                         <input style="width:330px" type="text" class="required" placeholder="Please enter a street address" id="autocomplete" value="<?php echo isset($address)? $address:''; ?>" required/>
                     </span>
                     <span style="color:red;" id="error"> </span>
@@ -393,7 +393,7 @@ if($this->uri->segment(2)!='edit'){
     $("#cityField").ready(function(){
         var cityAutocomplete = new google.maps.places.Autocomplete($("#autocomplete1")[0]);
         google.maps.event.addListener(cityAutocomplete, 'place_changed', function() {
-            $("#location").val($("#autocomplete1").val());
+            $("#locationName").val($("#autocomplete1").val());
             $("#cityName").val('');
             $("#stateName").val('');
             $("#countryName").val('');
