@@ -890,7 +890,6 @@ class Ad extends CI_Controller
             'message'     => $msg
         );
         sendemail($param);
-
     }
 
     function seoUrl($string) {
@@ -905,30 +904,6 @@ class Ad extends CI_Controller
         return $string;
     }
 
-    function getCareType(){
-        if ($this->input->is_ajax_request()){
-            $cid         = $this->input->post('care_type');
-            $serviceby   = $this->input->post('service_by');
-            $care_type   = $this->common_model->get_care($cid,$serviceby);
-            $data        = $this->load->view('frontend/care/care_options',array('care_type'=>$care_type),true);
-            echo json_encode($data);
-            exit();
-
-        }
-    }
-
-    function getLongitudeAndLatitude($address){
-      $prepAddr = str_replace(' ','+',$address);
-      $geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
-      $output= json_decode($geocode);
-      if ($output){
-        return $output;
-      }else{
-        return false;
-      }
-
-    }
-
     public function approve(){
         $user_id = $this->uri->segment(3);
         $profile_id = $this->uri->segment(4);
@@ -937,7 +912,6 @@ class Ad extends CI_Controller
         $this->db->update('tbl_userprofile',array('profile_status'=>1));
 
         redirect('ad/success','refresh');
-
     }
 
    public function success(){
@@ -952,74 +926,5 @@ class Ad extends CI_Controller
 
         $this->load->view(FRONTEND_TEMPLATE,$data);
 
-    }
-    public function job(){
-        $id = $this->uri->segment(4);
-        if (!is_numeric($id)) die('404 error <br> Page not found');
-        if ($id == 25)
-            $data['main_content'] = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
-        elseif($id == 26)
-            $data['main_content'] = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
-        elseif($id == 27)
-            $data['main_content'] = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
-        elseif($id == 28)
-            $data['main_content'] = 'frontend/care/seeker/cleaningcompany_form';
-        else
-           die('404 error <br> Page not found');
-        $data['title'] = 'Job Organizations';
-        $this->load->view(FRONTEND_TEMPLATE,$data);
-
-    }
-    
-    function setUpInitialAlert($location, $lat, $lng)
-    {
-        $user_id = check_user();
-        $profile = $this->common_model->get_where('tbl_userprofile', array('user_id' => $user_id));
-        $data = array(
-            'user_id'               => $user_id, 
-            'care_type'             => $this->correspondingTypes[$profile[0]['care_type']],
-            'lat'                   => $lat,
-            'long'                  => $lng,
-            'location'              => $location,
-            'distance'              => 30,
-            'createAlert'           => 1
-        );
-        $q = $this->db->insert('tbl_searchhistory',$data);
-    }
-    
-    function sendRelevantAds($lat = 43, $lng = 79, $city = 'Toronto')
-    {
-        $profile = $this->common_model->get_where('tbl_userprofile', array('user_id' => check_user()));
-        $user = $this->common_model->get_where('tbl_user', array('id' => check_user()));
-        $name = explode(' ', $user[0]['name'])[0];
-        $ac = $profile[0]['account_category'];
-        $ct = $this->correspondingTypes[$profile[0]['care_type']];
-        $ad = $profile[0]['care_type'] > 16 ? 'caregivers' : 'jobs'; 
-        $location = ['lat' => $lat, 'lng' => $lng, 'place' => $city];
-        $userdata       = $this->common_care_model->sort(10 ,$lat,$lng,'distance', $ac , $ct, 30);
-        $get_total_rows = count($userdata);  
-        if ($get_total_rows > 0) {
-            $data = array(
-                'userdatas'		    => array_slice($userdata, 0, 4),
-                'care_type'         => $ct,
-                'location'          => $location,
-                'ad'                => $ad,
-                'name'              => $name,
-                'care_name'         => $this->careNames[$profile[0]['care_type']]
-            );                      
-            
-            $msg = $this->load->view('frontend/email/ads_to_new_user', $data, true);
-    
-            $param = array(
-                'subject'     => 'Thank you for joining FrumCare.com, here are a few ' . $ad . ' in your area',
-                'from'        => SITE_EMAIL,
-                'from_name'   => SITE_NAME,
-                'replyto'     => SITE_EMAIL,
-                'replytoname' => SITE_NAME,
-                'sendto'      => $user[0]['email'],
-                'message'     => $msg
-            );
-            sendemail($param);
-        }
     }
 }

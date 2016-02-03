@@ -63,6 +63,10 @@ class Review_model extends CI_Model{
                         'created_date'      => $post['date_time'],
                         'review_rating' 	=> $post['score'],  
                     );
+            
+            $this->db->where('user_id',$data['user_id']);
+	        $this->db->where('profile_id',$data['profile_id']);
+	        $this->db->where('user_profile_id',$data['user_profile_id']);
             $this->db->update('tbl_reviews',$update);
             $msg = "Review has been successfully updated";
         }

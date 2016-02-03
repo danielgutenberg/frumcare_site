@@ -349,7 +349,8 @@ class User extends CI_Controller
     }
 
 
-     public function delete_account($id_hash = ''){
+    public function delete_account($id_hash = '')
+    {
         $id = check_user();
 
         $this->db->where('id',$id);
@@ -359,7 +360,8 @@ class User extends CI_Controller
         redirect('user/dashboard/','refresh');
     }
 
-      public function addtestimonials($id_hash = ''){
+    public function addtestimonials($id_hash = '')
+    {
         if(isset($_POST['add'])){
             $this->user_model->addtestimonials();
             $this->session->set_flashdata('success', 'Testimonial added successfully');
@@ -372,15 +374,16 @@ class User extends CI_Controller
         );
 
         $this->load->view(FRONTEND_TEMPLATE,$data);
-      }
+    }
 
-      public function uploadtestimonialimage(){
-       $this->load->library('imageupload_lib');
-       $this->imageupload_lib->upload('testimonial', 100, 300);
-      }
+    public function uploadtestimonialimage()
+    {
+        $this->load->library('imageupload_lib');
+        $this->imageupload_lib->upload('testimonial', 100, 300);
+    }
       
-      public function submit_ticket()
-      {
+    public function submit_ticket()
+    {
         if(isset($_POST['ticket_title'])){
 			
 			$ticket_data = array(
@@ -407,28 +410,31 @@ class User extends CI_Controller
               'wordwrap' => TRUE
             );
             
-        $base_url = base_url(); 
-        $this->load->library('email',$config);
-        $this->email->from($_POST['contact_email']);
-        $this->email->to($email_address);
-        $this->email->subject('You have new ticket request');
-        $this->email->message(
+            $base_url = base_url(); 
+            $this->load->library('email',$config);
+            $this->email->from($_POST['contact_email']);
+            $this->email->to($email_address);
+            $this->email->subject('You have new ticket request');
+            $this->email->message(
                 'Dear admin, < br/> You have new ticket <a href='."$base_url.user/ticket_view".'>Click Here</a>'
-                );
-        $this->email->send();
+            );
+            $this->email->send();
 		}
-      }//CODE BY CHAND   
+    }//CODE BY CHAND   
       
-      public function uploadfile(){
+    public function uploadfile()
+    {
         $this->fileupload_lib->upload('files');
     }//CODE BY CHAND
 
-    public function uploadpdf(){
+    public function uploadpdf()
+    {
         $this->fileupload_lib->upload('files');
     }//CODE BY CHAND
       
       
-    public function notifications(){
+    public function notifications()
+    {
         $res = $this->user_model->get_ticket();
         $data['details'] = $res;
 
@@ -456,11 +462,11 @@ class User extends CI_Controller
             $this->load->view(FRONTEND_TEMPLATE,$data);
         }
 
-      }//CODE BY CHAND
+    }//CODE BY CHAND
       
       
-      public function ticket_detail_view($id){
-
+    public function ticket_detail_view($id)
+    {
         $this->breadcrumbs->push('View', site_url().'#');
         $this->breadcrumbs->unshift('My Notification', base_url().'user/notifications');
         $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
@@ -474,8 +480,8 @@ class User extends CI_Controller
 
      
      //changes by kiran
-      public function writereview($id_hash = ''){
-        
+    public function writereview($id_hash = '')
+    {
         $this->breadcrumbs->push('Write a Review', site_url().'#');
         $this->breadcrumbs->unshift('My Reviews', base_url().'user/reviews');
         $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
@@ -486,13 +492,17 @@ class User extends CI_Controller
         );
         
         $this->load->view(FRONTEND_TEMPLATE,$data);
-      }
-      public function go_to_profile(){
+    }
+      
+    public function go_to_profile()
+    {
         $uri = $this->uri->segment(3);
         $type = $this->uri->segment(4);
         redirect('caregivers/details/'.$uri.'/'.$type);
-      }
-      public function search_for_careseeker(){
+    }
+    
+    public function search_for_careseeker()
+    {
         if(isset($_GET['search_text'])){
             $search_text = $_GET['search_text'];
             if(!empty($search_text)){
@@ -502,7 +512,8 @@ class User extends CI_Controller
         }
     }
     
-      public function reviews(){
+    public function reviews()
+    {
         $this->breadcrumbs->push('My Reviews', site_url().'#');
         $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
         $data = array(
@@ -533,62 +544,29 @@ class User extends CI_Controller
         $data['myreview']   = $this->user_model->get_my_review($config['per_page'],$page,$field);
         $data['links']      = $this->pagination->create_links();
         $data['care']       = $this->user_model->care();
-
+        
         $this->load->view(FRONTEND_TEMPLATE,$data);
 
-      }
+    }
       
-      public function profile(){
-
+    public function profile()
+    {
         $this->breadcrumbs->push('My Profile', site_url().'#');
         $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
         $user_id = array('id'=>$this->session->userdata('current_user'));
  
         //by kiran
         $data['userDetails'] = $this->user_model->getUserDetails($user_id['id']);
-        $profile= $this->user_model->getNewUserProfile($user_id['id']);
-        // if ($data['userDetails']['hasAd'] == 0 && $profile['account_category'] != 2 && $profile['care_type'] < 25) {
-        //  $user_data = getBrowser();
-        //         $log = array(
-        //             'user_id' => $user_id['id'],
-        //             'login_time' => time(),
-        //             'login_browser' => $user_data['name'].' '.$user_data['version'],
-        //             'login_os' => $user_data['platform'],
-        //             'login_ip' => $_SERVER['REMOTE_ADDR']
-        //         );
-        //         $log_id = $this->common_model->insert('tbl_user_logs', $log, true);
-        //         $log_id = sha1($log_id);
-         
-         
-        //  if($profile['care_type'] > 24)
-        //             $link = "ad/job/organizations/".$profile['care_type'];
-        //         else
-        //             $type = $profile['account_category'] == 3 ? 'organization' : 'individual';
-        //             if($profile['account_category'] == 1){
-        //                 $category = 'caregiver';
-        //             }
-        //             if($profile['account_category'] == 2){
-        //                 $category = 'careseeker';
-        //             }
-
-        //             if($profile['account_category']  == 3){
-        //                 $category = 'organization';
-        //             }
-        //             $link = 'ad/add_step2/'.$category.'/'.$type.'/'.$log_id.'/'.$profile['care_type'];
-        //         redirect($link);
-        // }
-         
-         
-         
         $data['account_category'] = $this->user_model->get_account_category();
         $data['all_profile'] =$this->user_model->get_all_profile();
         $data['main_content'] = ('frontend/user/profile');
 
         $this->load->view(FRONTEND_TEMPLATE,$data);
-      }
+    }
 
 
-      public function addprofile(){
+    public function addprofile()
+    {
         $account_category     = $this->session->userdata('account_category');
         $organization_care = $this->session->userdata('organization_care');
         $account_details = get_account_details();
@@ -605,7 +583,6 @@ class User extends CI_Controller
             @$title = $organization_care=='1'?"Add New Profile":"Add New Job";
         }
 
-
         $this->breadcrumbs->push(@$title, site_url().'#');
         $this->breadcrumbs->unshift('My Profile', base_url().'user/profile');
         $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
@@ -615,285 +592,286 @@ class User extends CI_Controller
             'main_content' => 'frontend/user/addprofile'
         );
         $this->load->view(FRONTEND_TEMPLATE,$data);
-      }
+    }
 
-       public function new_profile(){
-            if($this->input->post('id',true)){
-                $ac_type = "fd";                
-                $submit_id = $this->input->post('id',true);
-                
-                $account_category = $this->session->userdata('account_category');
-                $organization_category = $this->session->userdata('organization_care');                
-                $data['record'] = array(
-                    'submit_id' => $submit_id,
-                    'ac_type' => $ac_type,
-                    'account_type' => $account_category,
-                    'organization_care' => $organization_category,
-                    );
-                
-                //individual caregivers
-                if($account_category == 1){
-                    if($submit_id == 1){
-                        $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/giver/babysitter_form',$data);
-                        }
-                        else{
-                            echo "Your profile already has this care type";
-                        }
-                    }
-                    else if($submit_id == 2){
-                        $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/giver/nanny_form',$data);
-                        }
-                        else{
-                            echo "Your profile already has this care type";
-                        } 
-                    }
-                    else if($submit_id == 3){
-                        $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/giver/nursery_form',$data);
-                        }
-                        else{
-                            echo "Your profile already has this care type";
-                        }
-                    }
-                    else if($submit_id == 4){
-                        $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/giver/tutor_form',$data);
-                        }
-                        else{
-                            echo "Your profile already has this care type";
-                        }
-                    }
-                    else if($submit_id == 5){
-                        $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/giver/senior_form',$data);
-                        }
-                        else{
-                            echo "Your profile already has this care type";
-                        }     
-                    }
-                    else if($submit_id == 6){
-                        $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/giver/specialneeds_form',$data);
-                        }
-                        else{
-                            echo "Your profile already has this care type";
-                        }
-                    }
-                    else if($submit_id == 7){
-                          $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/giver/therapist_form',$data);
-                        }
-                        else{
-                            echo "Your profile already has this care type";
-                        }                        
-                    }
-                    else if($submit_id == 8){
-                          $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
-                        if($profile_check){
-                             $this->load->view('frontend/care/giver/cleaning_form',$data);
-                        }
-                        else{
-                            echo "Your profile already has this care type";
-                        }                       
-                    }
-                    else if($submit_id == 9){
-                          $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
-                        if($profile_check){
-                             $this->load->view('frontend/care/giver/errand_form',$data);
-                        }
-                        else{
-                            echo "Your profile already has this care type";
-                        }                       
-                    }                    
-                    else
-                        echo "You can not add job";
-                }
-                
-                //Job poster
-                 if($account_category == 2){
-                     if($submit_id == 17){
-                          $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
-                        if($profile_check){
-                           $this->load->view('frontend/care/seeker/babysitter_form',$data);
-                        }
-                        else{
-                            echo "You have already posted this job";
-                        }                        
-                    }
-                    else if($submit_id == 18){
-                          $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/seeker/nanny_form',$data);
-                        }
-                        else{
-                            echo "You have already posted this job";
-                        }                        
-                    }
-                    else if($submit_id == 19){
-                          $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/seeker/tutor_form',$data);
-                        }
-                        else{
-                            echo "You have already posted this job";
-                        }                        
-                    }
-                    else if($submit_id == 20){
-                          $profile_check = $this->user_model->existing_profile_check($account_category ,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/seeker/senior_form',$data);
-                        }
-                        else{
-                            echo "You have already posted this job";
-                        }                        
-                    }
-                    else if($submit_id == 21){
-                          $profile_check = $this->user_model->existing_profile_check($account_category ,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/seeker/errand_form',$data);
-                        }
-                        else{
-                            echo "You have already posted this job";
-                        }                        
-                    }
-                    else if($submit_id == 22){
-                          $profile_check = $this->user_model->existing_profile_check($account_category ,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/seeker/specailneedcareseeker_form',$data);
-                        }
-                        else{
-                            echo "You have already posted this job";
-                        }                        
-                    }
-                    else if($submit_id == 23){
-                          $profile_check = $this->user_model->existing_profile_check($account_category ,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/seeker/therapist_form',$data);
-                        }
-                        else{
-                            echo "You have already posted this job";
-                        }                        
-                    }
-                    else if($submit_id == 24){
-                          $profile_check = $this->user_model->existing_profile_check($account_category ,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/seeker/cleaning_form',$data);
-                        }
-                        else{
-                            echo "You have already posted this job";
-                        }                        
-                    }                    
-                    else{
-                        echo "You are not allowed to become Caregiver";
-                    }
-                }
-                
-                //Organizations
-                if($account_category == 3){
-                    if($submit_id == 10){
-                          $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/giver/daycarecenter_form',$data);
-                        }
-                        else{
-                            echo "Your profile already has this care type";
-                        }
-                    }
-                    else if($submit_id == 11){
-                        
-                     //   $this->load->view('frontend/care/giver/nanny_form',$data);
-                        echo "This page doesnt exist";
-                    }
-                    else if($submit_id == 12){
-                      //  $this->load->view('frontend/care/giver/nanny_form');
-                        echo "This page doesnt exist";
-                    }
-                    else if($submit_id == 13){
-                          $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/giver/seniorcareagency_form',$data);
-                        }
-                        else{
-                            echo "Your profile already has this care type";
-                        }                        
-                    }
-                    else if($submit_id == 14){
-                          $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/giver/specialneedscenter_form',$data);
-                        }
-                        else{
-                            echo "Your profile already has this care type";
-                        }                    
-                    }
-                    else if($submit_id == 15){
-                          $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/giver/cleaningcompany_form',$data);
-                        }
-                        else{
-                            echo "Your profile already has this care type";
-                        }                        
-                    }
-                    else if($submit_id == 16){
-                          $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/giver/seniorcarecenter_form',$data);
-                        }
-                        else{
-                            echo "Your profile already has this care type";
-                        }                        
-                    }
-                    else if($submit_id == 25){
-                          $profile_check = $this->user_model->existing_profile_check($account_category ,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form',$data);
-                        }
-                        else{
-                            echo "You have already posted this job";
-                        }
-                        
-                    }
-                    else if($submit_id == 26){
-                          $profile_check = $this->user_model->existing_profile_check($account_category ,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form',$data);
-                        }
-                        else{
-                            echo "You have already posted this job";
-                        }                        
-                    }
-                    else if($submit_id == 27){
-                          $profile_check = $this->user_model->existing_profile_check($account_category ,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form',$data);
-                        }
-                        else{
-                            echo "You have already posted this job";
-                        }                        
-                    }
-                    else if($submit_id == 28){
-                          $profile_check = $this->user_model->existing_profile_check($account_category ,$submit_id);
-                        if($profile_check){
-                            $this->load->view('frontend/care/seeker/cleaningcompany_form',$data);
-                        }
-                        else{
-                            echo "You have already posted this job";
-                        }                        
+    public function new_profile()
+    {
+        if($this->input->post('id',true)){
+            $ac_type = "fd";                
+            $submit_id = $this->input->post('id',true);
+            
+            $account_category = $this->session->userdata('account_category');
+            $organization_category = $this->session->userdata('organization_care');                
+            $data['record'] = array(
+                'submit_id' => $submit_id,
+                'ac_type' => $ac_type,
+                'account_type' => $account_category,
+                'organization_care' => $organization_category,
+                );
+            
+            //individual caregivers
+            if($account_category == 1){
+                if($submit_id == 1){
+                    $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/giver/babysitter_form',$data);
                     }
                     else{
-                        echo "Some error occured, We will fix it soon";
+                        echo "Your profile already has this care type";
                     }
                 }
+                else if($submit_id == 2){
+                    $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/giver/nanny_form',$data);
+                    }
+                    else{
+                        echo "Your profile already has this care type";
+                    } 
+                }
+                else if($submit_id == 3){
+                    $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/giver/nursery_form',$data);
+                    }
+                    else{
+                        echo "Your profile already has this care type";
+                    }
+                }
+                else if($submit_id == 4){
+                    $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/giver/tutor_form',$data);
+                    }
+                    else{
+                        echo "Your profile already has this care type";
+                    }
+                }
+                else if($submit_id == 5){
+                    $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/giver/senior_form',$data);
+                    }
+                    else{
+                        echo "Your profile already has this care type";
+                    }     
+                }
+                else if($submit_id == 6){
+                    $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/giver/specialneeds_form',$data);
+                    }
+                    else{
+                        echo "Your profile already has this care type";
+                    }
+                }
+                else if($submit_id == 7){
+                      $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/giver/therapist_form',$data);
+                    }
+                    else{
+                        echo "Your profile already has this care type";
+                    }                        
+                }
+                else if($submit_id == 8){
+                      $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
+                    if($profile_check){
+                         $this->load->view('frontend/care/giver/cleaning_form',$data);
+                    }
+                    else{
+                        echo "Your profile already has this care type";
+                    }                       
+                }
+                else if($submit_id == 9){
+                      $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
+                    if($profile_check){
+                         $this->load->view('frontend/care/giver/errand_form',$data);
+                    }
+                    else{
+                        echo "Your profile already has this care type";
+                    }                       
+                }                    
+                else
+                    echo "You can not add job";
+            }
+            
+            //Job poster
+            if($account_category == 2) {
+                if($submit_id == 17) {
+                      $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
+                    if($profile_check){
+                       $this->load->view('frontend/care/seeker/babysitter_form',$data);
+                    }
+                    else{
+                        echo "You have already posted this job";
+                    }                        
+                }
+                else if($submit_id == 18) {
+                      $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/seeker/nanny_form',$data);
+                    }
+                    else{
+                        echo "You have already posted this job";
+                    }                        
+                }
+                else if($submit_id == 19) {
+                      $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/seeker/tutor_form',$data);
+                    }
+                    else{
+                        echo "You have already posted this job";
+                    }                        
+                }
+                else if($submit_id == 20) {
+                      $profile_check = $this->user_model->existing_profile_check($account_category ,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/seeker/senior_form',$data);
+                    }
+                    else{
+                        echo "You have already posted this job";
+                    }                        
+                }
+                else if($submit_id == 21) {
+                      $profile_check = $this->user_model->existing_profile_check($account_category ,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/seeker/errand_form',$data);
+                    }
+                    else{
+                        echo "You have already posted this job";
+                    }                        
+                }
+                else if($submit_id == 22) {
+                      $profile_check = $this->user_model->existing_profile_check($account_category ,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/seeker/specailneedcareseeker_form',$data);
+                    }
+                    else{
+                        echo "You have already posted this job";
+                    }                        
+                }
+                else if($submit_id == 23) {
+                      $profile_check = $this->user_model->existing_profile_check($account_category ,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/seeker/therapist_form',$data);
+                    }
+                    else{
+                        echo "You have already posted this job";
+                    }                        
+                }
+                else if($submit_id == 24) {
+                      $profile_check = $this->user_model->existing_profile_check($account_category ,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/seeker/cleaning_form',$data);
+                    }
+                    else{
+                        echo "You have already posted this job";
+                    }                        
+                }                    
+                else{
+                    echo "You are not allowed to become Caregiver";
+                }
+            }
+            
+            //Organizations
+            if($account_category == 3) {
+                if($submit_id == 10) {
+                      $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
+                    if($profile_check) {
+                        $this->load->view('frontend/care/giver/daycarecenter_form',$data);
+                    }
+                    else{
+                        echo "Your profile already has this care type";
+                    }
+                }
+                else if($submit_id == 11){
+                    
+                 //   $this->load->view('frontend/care/giver/nanny_form',$data);
+                    echo "This page doesnt exist";
+                }
+                else if($submit_id == 12){
+                  //  $this->load->view('frontend/care/giver/nanny_form');
+                    echo "This page doesnt exist";
+                }
+                else if($submit_id == 13){
+                      $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/giver/seniorcareagency_form',$data);
+                    }
+                    else{
+                        echo "Your profile already has this care type";
+                    }                        
+                }
+                else if($submit_id == 14){
+                      $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/giver/specialneedscenter_form',$data);
+                    }
+                    else{
+                        echo "Your profile already has this care type";
+                    }                    
+                }
+                else if($submit_id == 15){
+                      $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/giver/cleaningcompany_form',$data);
+                    }
+                    else{
+                        echo "Your profile already has this care type";
+                    }                        
+                }
+                else if($submit_id == 16){
+                      $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/giver/seniorcarecenter_form',$data);
+                    }
+                    else{
+                        echo "Your profile already has this care type";
+                    }                        
+                }
+                else if($submit_id == 25){
+                      $profile_check = $this->user_model->existing_profile_check($account_category ,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form',$data);
+                    }
+                    else{
+                        echo "You have already posted this job";
+                    }
+                    
+                }
+                else if($submit_id == 26){
+                      $profile_check = $this->user_model->existing_profile_check($account_category ,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form',$data);
+                    }
+                    else{
+                        echo "You have already posted this job";
+                    }                        
+                }
+                else if($submit_id == 27){
+                      $profile_check = $this->user_model->existing_profile_check($account_category ,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form',$data);
+                    }
+                    else{
+                        echo "You have already posted this job";
+                    }                        
+                }
+                else if($submit_id == 28){
+                      $profile_check = $this->user_model->existing_profile_check($account_category ,$submit_id);
+                    if($profile_check){
+                        $this->load->view('frontend/care/seeker/cleaningcompany_form',$data);
+                    }
+                    else{
+                        echo "You have already posted this job";
+                    }                        
+                }
+                else{
+                    echo "Some error occured, We will fix it soon";
+                }
+            }
         }/*else{
             echo "This page doesent exist";
         }*/
@@ -1883,85 +1861,70 @@ class User extends CI_Controller
         $this->load->view(FRONTEND_TEMPLATE, $data);
       }
 
-      public function account($id_hash = '' ){
+      public function account($id_hash = '' )
+      {
             
-                 if(isset($_POST['language'])){
-                    $lang = join(',',$_POST['language']);
-                 }
-                 
-                 if(isset($_POST['contact_number'])){
-                    $number = '+1-'.$_POST['contact_number'];
-                 }
-                 
-                        
-                    $insert1 = array(
-                        'marital_status' => isset($_POST['marital_status'])?$_POST['marital_status']:'',
-                        'location' => isset($_POST['location'])?$_POST['location']:'',
-                        'lat' => isset($_POST['lat'])?$_POST['lat']:'',
-                        'lng' => isset($_POST['lng'])?$_POST['lng']:'',
-                        'city' => isset($_POST['city'])?$_POST['city']:'',
-                        'state' => isset($_POST['state'])?$_POST['state']:'',
-                        'country' => isset($_POST['country'])?$_POST['country']:'',
-                        'zip'      => isset($_POST['zip'])?$_POST['zip']:'',
-                        'age'      =>  isset($_POST['age'])?$_POST['age']:'',
-                        'gender'   => isset($_POST['gender'])?$_POST['gender']:'',
-                        'city'      => isset($_POST['city'])?$_POST['city']:'',
-                        'state'      =>  isset($_POST['state'])?$_POST['state']:'',
-                        'country'   => isset($_POST['country'])?$_POST['country']:'',
-                        'contact_number' => isset($number)?$number:'',
-                        'caregiver_language'      => isset($lang)?$lang:'',
-                        'caregiver_religious_observance'  => isset($_POST['religious_observance'])?$_POST['religious_observance']:'',
-                        'familartojewish' => isset($_POST['familartojewish'])?$_POST['familartojewish']:'',
-                        'profile_picture' => isset($_POST['profile_picture'])?$_POST['profile_picture']:'',
-                        'profile_picture_owner'=> isset($_POST['profile_picture_owner'])?$_POST['profile_picture_owner']:'',
-                        'name_of_owner' => isset($_POST['name_of_owner'])?$_POST['name_of_owner']:'',
-                        'educational_institution'     => isset($_POST['educational_instution'])?$_POST['educational_instution']:'',
-                        'education_level' => isset($_POST['education'])?$_POST['education']:''
-                    );
+         if(isset($_POST['language'])){
+            $lang = join(',',$_POST['language']);
+         }
+         
+         if(isset($_POST['contact_number'])){
+            $number = '+1-'.$_POST['contact_number'];
+         }
+     
+            
+        $insert1 = array(
+            'marital_status' => isset($_POST['marital_status'])?$_POST['marital_status']:'',
+            'location' => isset($_POST['location'])?$_POST['location']:'',
+            'lat' => isset($_POST['lat'])?$_POST['lat']:'',
+            'lng' => isset($_POST['lng'])?$_POST['lng']:'',
+            'city' => isset($_POST['city'])?$_POST['city']:'',
+            'state' => isset($_POST['state'])?$_POST['state']:'',
+            'country' => isset($_POST['country'])?$_POST['country']:'',
+            'zip'      => isset($_POST['zip'])?$_POST['zip']:'',
+            'age'      =>  isset($_POST['age'])?$_POST['age']:'',
+            'gender'   => isset($_POST['gender'])?$_POST['gender']:'',
+            'city'      => isset($_POST['city'])?$_POST['city']:'',
+            'state'      =>  isset($_POST['state'])?$_POST['state']:'',
+            'country'   => isset($_POST['country'])?$_POST['country']:'',
+            'contact_number' => isset($number)?$number:'',
+            'caregiver_language'      => isset($lang)?$lang:'',
+            'caregiver_religious_observance'  => isset($_POST['religious_observance'])?$_POST['religious_observance']:'',
+            'familartojewish' => isset($_POST['familartojewish'])?$_POST['familartojewish']:'',
+            'profile_picture' => isset($_POST['profile_picture'])?$_POST['profile_picture']:'',
+            'profile_picture_owner'=> isset($_POST['profile_picture_owner'])?$_POST['profile_picture_owner']:'',
+            'name_of_owner' => isset($_POST['name_of_owner'])?$_POST['name_of_owner']:'',
+            'educational_institution'     => isset($_POST['educational_instution'])?$_POST['educational_instution']:'',
+            'education_level' => isset($_POST['education'])?$_POST['education']:''
+        );
 
-                    $insert2 = array(
-                        'marital_status' => isset($_POST['marital_status'])?$_POST['marital_status']:'',                        
-                        'smoker'        => isset($_POST['smoker'])?$_POST['smoker']:2,
-                        'religious_observance'  => isset($_POST['religious_observance'])?$_POST['religious_observance']:'',
-                        'sub_care' => isset($_POST['sub_care'])?$_POST['sub_care']:'',
-                     );
-                     
-                    //   $response =  $this->common_model->getLongitudeAndLatitude($_POST['address_location']);
-                    //     if($response){
-                    //         $lat        = $response->results[0]->geometry->location->lat;
-                    //         $long       = $response->results[0]->geometry->location->lng;
-                    //         $country    = $response->results[0]->address_components[1]->long_name;
-                    //     }else{
-                    //         $lat   = 0;
-                    //         $long   = 0;
-                    //     }
-               
-                    //   $geodata = array(
-                    //         'lat' => $lat,
-                    //         'lng' => $long,
-                    //         'country' => $country,
-                    //     );
+        $insert2 = array(
+            'marital_status' => isset($_POST['marital_status'])?$_POST['marital_status']:'',                        
+            'smoker'        => isset($_POST['smoker'])?$_POST['smoker']:2,
+            'religious_observance'  => isset($_POST['religious_observance'])?$_POST['religious_observance']:'',
+            'sub_care' => isset($_POST['sub_care'])?$_POST['sub_care']:'',
+         );
+    
+
+            $id = check_user();
+           
+            $this->db->where('id',$id);
+            $q = $this->db->update('tbl_user',$insert1);
+            if($q){
+                $this->db->where('user_id', $id);
+                $this->db->update('tbl_userprofile',$insert2);
                 
-  
-                        $id = check_user();
-                       
-                        $this->db->where('id',$id);
-                        $q = $this->db->update('tbl_user',$insert1);
-                        if($q){
-                            $this->db->where('user_id', $id);
-                            $this->db->update('tbl_userprofile',$insert2);
-                            
-                            // $this->db->where('id', $id);
-                            // $this->db->update('tbl_user',$geodata);
-                            
-                            $this->session->set_flashdata('info', 'Personal detail updated successfully.');
-                            redirect('user/profile','refresh');
+                // $this->db->where('id', $id);
+                // $this->db->update('tbl_user',$geodata);
+                
+                $this->session->set_flashdata('info', 'Personal detail updated successfully.');
+                redirect('user/profile','refresh');
 
-                        }
+            }
 
-                        redirect('user/details/'.$id_hash);                        
+            redirect('user/details/'.$id_hash);                        
 
-            
+
       }
       
       public function job_or_profile(){

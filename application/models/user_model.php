@@ -482,7 +482,6 @@ class User_model extends CI_Model
     //code by kiran
     public function get_my_review($limit,$start,$field){
         $this->db->join('tbl_user','tbl_reviews.user_profile_id = tbl_user.id','left');
-        $this->db->limit($limit,$start);
         $this->db->where($field,$this->session->userdata('current_user'));
         //$this->db->select('*');
         $this->db->order_by('created_date','desc');

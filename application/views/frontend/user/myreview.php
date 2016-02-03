@@ -35,7 +35,6 @@
             		<th>Category</th>
             		<th>Care Type</th>
             		<th>Rating</th>
-            		<th>Title</th>
             		<th>Review</th>
             
             	</tr>
@@ -57,7 +56,7 @@
               	foreach($myreview as $row){
        	            ?>
     				<tr>
-   					    <td>
+   					    <td style="width:100px">
       						<?php 
      							$dt = new DateTime($row['created_date']);
      							echo $dt->format('Y-m-d');
@@ -93,8 +92,7 @@
  							?>
             
        					</td>
-       					<td class="rating-score rating-table" id="<?php echo number_format($row['review_rating'])?>"></td>
-       					<td><?php echo $row['name'];?></td>
+       					<td style="width:100px" class="rating-score rating-table" id="<?php echo number_format($row['review_rating'])?>"></td>
        					<td><?php echo $row['description']?></td>
         				</tr>
                         <?php
@@ -105,7 +103,7 @@
                     echo $links;
             }
       		else{
- 			    echo "This feature is under construction";
+ 			    echo "You have no ratings and reviews";
       		}
         	?>
      </div>
