@@ -77,6 +77,11 @@ $careType = [
                         <div>
 				 	        <a style="color: grey; width: 150px;">Status: <?php echo $status; ?></a>
 				 	    </div>
+				 	    <?php if ($data['profile_picture'] != '' && $data['profile_picture_status'] == 0) { ?>
+				 	    <div>
+				 	        <a style="color: grey; width: 150px;">Photo Status: Pending</a>
+				 	    </div>
+				 	    <?php } ?>
 	        </div>
         	<div class="profile-list-details col-lg-9 col-md-12 col-sm-12 col-xs-12">
                 <?php if ($data['account_category'] == 3) {?>

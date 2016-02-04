@@ -24,7 +24,7 @@ if($recordData['currency'] == 'ILS') {
         <?php if($recordData['facility_pic']!= '' && file_exists('images/profile-picture/'.$recordData['facility_pic'])) {?>
             <img class="img-responsive" src="<?php echo site_url();?>images/profile-picture/<?php echo $recordData['facility_pic'];?>">
         <?php } else {
-            if($recordData['profile_picture']!= '' && file_exists('images/profile-picture/'.$recordData['profile_picture'])) { ?>
+            if($recordData['profile_picture'] != '' && $data['profile_picture_status'] == 1 && file_exists('images/profile-picture/'.$recordData['profile_picture'])) { ?>
                 <img class="img-responsive" src="<?php echo site_url();?>images/profile-picture/<?php echo $recordData['profile_picture'];?>">
                 <?php } else {
             if($recordData['photo_of_child']!= 0 && file_exists('images/profile-picture/'.$recordData['photo_of_child'])) { ?>

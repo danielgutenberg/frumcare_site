@@ -104,7 +104,6 @@
                         </span>
                         <span style="color:red;" id="error1"> </span>
                     </div> 
-                    <!--<div class="small-seperator"></div>-->
                     
 
                     <div class="first-names">
@@ -112,11 +111,6 @@
                         <input type="text" name="neighborhood" placeholder="Neighborhood" class="required" value="<?php echo (isset($neighbourhood)) ? $neighbourhood : '' ?>"/>
                     </div>
 
-                    <?php /*
-                    <div class="first-names">
-                        <label>Zip</label>
-                        <input type="text" name="zip" placeholder="Zip" class="required" value="<?php echo (isset($zip)) ? $zip : '' ?>"/>
-                    </div> */ ?>
                     <div class="small-seperator"></div>
                     <div class="first-names">
                         <label>Phone</label>
@@ -131,16 +125,6 @@
                         </div>
                         <div class="small-seperator"></div>
                     <?php } ?>
-
-                    <?php /* <div class="first-names">
-                    <?php if($this->session->userdata('account_category')!=3){ ?>
-                        <label>Age</label>
-                    <?php }else{ ?>
-                        <label>Age of Owner / Operator</label>
-                        <?php } ?>
-                        <input type="text" name="age" placeholder="Age" class="required" value="<?php echo (isset($age)) ? $age : '' ?>"/>
-                    </div> */ ?>
-                    
                     
                       <?php 
                         if($this->session->userdata('account_category')!=3){
@@ -207,12 +191,6 @@
                         <label></label>
                             <input type="checkbox" name="familartojewish" value="1" <?php if($user_data['familartojewish'] == 1){?> checked = "checked" <?php }?>>Familiar with Jewish Tradition
                     </div>
-                    <!-- <div class="familar" style="display:none;">-->
-                    <!--    <label></label>-->
-                    <!--    <div class="form-field">-->
-                    <!--        <input type="checkbox" name="familartojewish" value="familartojewish" <?php if($user_data['familartojewish'] == 'familartojewish'){?> checked = "checked" <?php }?>> Familiar with Jewish Tradition-->
-                    <!--    </div>-->
-                    <!--</div>-->
 
                     <div class="small-seperator"></div>
                     <?php if($this->session->userdata('account_category')!=3){ ?>    
@@ -245,7 +223,7 @@
                     }
                     ?>
                     <?php if($this->session->userdata('account_category')!=3){
-                        $this->load->view('frontend/care/photo_upload', ['photo_name' => 'profile_picture']);
+                        $this->load->view('frontend/care/photo_upload', ['photo_name' => 'profile_picture2']);
                      } ?>       
                     <div class="small-seperator"></div>
                     <div class="sign-up-btn"><input id="edit-account-button" type="submit" name="save" class="btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/></div>

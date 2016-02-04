@@ -405,7 +405,6 @@ class User_model extends CI_Model
      // careseeker
      function getAllCareSeekerDetails($acc_cat,$offset,$limit,$latitude,$longitude){
         $sql = "SELECT tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance,tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id LEFT OUTER JOIN tbl_reviews ON tbl_user.id = tbl_reviews.user_id WHERE tbl_userprofile.account_category = $acc_cat and tbl_user.status = 1 and tbl_userprofile.profile_status = 1 and tbl_userprofile.photo_status=1";
-        //$sql = "SELECT tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance,tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id LEFT OUTER JOIN tbl_reviews ON tbl_user.id = tbl_reviews.user_id WHERE tbl_userprofile.account_category = $acc_cat and tbl_user.status = 1 and tbl_userprofile.profile_status = 1";
         if($acc_cat == 3){
             $sql .= " and tbl_userprofile.organization_care = 2";
         }
@@ -483,7 +482,6 @@ class User_model extends CI_Model
     public function get_my_review($limit,$start,$field){
         $this->db->join('tbl_user','tbl_reviews.user_profile_id = tbl_user.id','left');
         $this->db->where($field,$this->session->userdata('current_user'));
-        //$this->db->select('*');
         $this->db->order_by('created_date','desc');
         $query = $this->db->get('tbl_reviews');
          if($query->num_rows() > 0){
@@ -503,21 +501,7 @@ class User_model extends CI_Model
         $data = $q->result_array();
         return $data;
         $this->load->library('pagination');
-        //if($q->num_rows()>0){
-//            return $q->result();
-//        }
-//        else{
-//            return false;
-//        }
     }//CODE BY CHAND
-
-    //  function get_ticket_detail($id){
-    //     $id = $id['id'];
-    //     $this->db->where('id', $id);
-    //     $q = $this->db->get('tbl_tickets');
-    //     $data = $q->result_array();
-    //     return $data;
-    // }//CODE BY CHAND
 
 
     public function get_ticket_detail($id = array()){
@@ -673,7 +657,7 @@ class User_model extends CI_Model
             $res = $this->db->get('tbl_userprofile');
             $oldProfile = $res->result_array()[0];
 
-            if ($p['profile_description'] != $oldProfile['profile_description'] || $p['file'] != $oldProfile['file'] || $p['pdf'] != $oldProfile['pdf'] || $p['facility_pic'] != $oldProfile['facility_pic']) {
+            if ($p['profile_description'] != $oldProfile['profile_description'] || $p['file'] != $oldProfile['file'] || $p['pdf'] != $oldProfile['pdf'] || $p['facility_pic'] != $oldProfile['facility_pic'] || $p['photo_of_child'] != $oldProfile['photo_of_child']) {
                 $profileStatus = 0;
                 $email = 1;
             }
@@ -722,11 +706,7 @@ class User_model extends CI_Model
                 'organiztion_name' => isset($p['organization_name']) ? $p['organization_name'] : '',
                 'organization_type' => isset($p['organization_type'])? $p['organization_type'] : '',
                 'smoker' => isset($p['smoker']) ? $p['smoker'] : '',
-                //'contact_number' => isset($p['contact_number'])? $p['contact_number'] : '',//NO
-                //'gender' => isset($p['gender'])? $p['gender'] : '',//No
-                //'age' => isset($p['age'])? $p['age'] : '',//NO
-                //'location' => isset($p['location'])? $p['location'] : '',//NO
-                'gender_of_caregiver' => isset($p['gender_of_caregiver']) ? $p['gender_of_caregiver'] : 1,//No
+                'gender_of_caregiver' => isset($p['gender_of_caregiver']) ? $p['gender_of_caregiver'] : 1,
                 'conditions_of_patient' => $conditions,
                 'licence_information'   => isset($p['licence_information'])?$p['licence_information']:'',
                 'number_of_rooms' => isset($p['number_of_rooms'])?$p['number_of_rooms']:'',
@@ -894,117 +874,15 @@ class User_model extends CI_Model
 
 
     public function getAlertData($id){
-         // if(is_array($datas)){
-        //   foreach($datas as $data):
-        //     $neighbour          = $data['neighbor'];
-        //     $year_experience    = $data['year_experience'];
-        //     $gender             = $data['gender'];
-        //     $smoker             = $data['smoker'];
-        //     $language           = $data['language'];
-        //     $observance         = $data['observance'];
-        //     $number_of_children = $data['number_of_children'];
-        //     $morenum            = $data['morenum'];
-        //     $age_group          = $data['age_group'];
-        //     $looking_to_work    = $data['looking_to_work'];
-        //     $training           = $data['training'];
-        //     $availability       = $data['availability'];
-        //     $driver_license     = $data['driver_license'];
-        //     $vehicle            = $data['vehicle'];
-        //     $pick_up_child      = $data['pick_up_child'];
-        //     $cook               = $data['cook'];
-        //     $homework_help      = $data['homework_help'];
-        //     $basic_housework    = $data['basic_housework'];
-        //     $sick_child_care    = $data['sick_child_care'];
-        //     $on_short_notice    = $data['on_short_notice'];
-        //     $caregiverage_from  = $data['caregiverage_from'];
-        //     $caregiverage_to    = $data['caregiverage_to'];
-        //     $start_date         = $data['start_date'];
-        //     $willing_to_work    = $data['willing_to_work'];
-        //     $subjects           = $data['subjects'];
-        //     $accept_insurance   = $data['accept_insurance'];
-        //     $rate               = $data['rate'];
-        //     $rate_type          = $data['rate_type'];
-        //     $gender_of_caregiver = $data['gender_of_caregiver'];
-        //     $care_type              = $data['care_type'];
-
-            //$sql = "select * from tbl_user left outer join tbl_userprofile on tbl_userprofile.user_id = tbl_user.id where tbl_userprofile.care_type = $care_type";
-            // if($neighbour!= '')
-            //     $sql .= " and tbl_user.neighbour like '$neighbour%'";
-            // if($year_experience !='')
-            //     $sql .= " or tbl_user.year_experience = $year_experience";
-            // if($gender !='')
-            //     $sql .= " or tbl_user.gender = $gender";
-            // if($smoker != 0)
-            //     $sql .= " or tbl_userprofile.smoker = $smoker";
-            // if($language !='')
-            //     $sql .= " or tbl_userprofile.language = '$language'";
-            // if($observance !='')
-            //     $sql .= " or tbl_userprofile.religious_observance = $observance";
-            // if($number_of_children !='')
-            //     $sql .= " or tbl_userprofile.number_of_children = $number_of_children";
-            // if($morenum !='')
-            //     $sql .= " or tbl_userprofile.optional_number = '$morenum'";
-            // if($age_group !='')
-            //     $sql .= " or tbl_userprofile.age_group = '$age_group'";
-            // if($looking_to_work !='')
-            //     $sql .= " or tbl_userprofile.looking_to_work = '$looking_to_work'";
-            // if($training !='')
-            //     $sql .= " or training = '$training'";
-            // if($availability !='')
-            //     $sql .= " or availability = '$availability'";
-            // if($driver_license != 0)
-            //     $sql .= " or driver_license = $driver_license";
-            // if($vehicle != 0)
-            //     $sql .= " or vehicle = $vehicle";
-            // if($pick_up_child != 0)
-            //     $sql .= " or pick_up_child = $pick_up_child";
-            // if($cook != 0)
-            //     $sql .= " or cook = $cook";
-            // if($homework_help != 0)
-            //     $sql .= " or homework_help = $homework_help";
-            // if($sick_child_care != 0)
-            //     $sql .= " or sick_child_care = $sick_child_care";
-            // if($on_short_notice != 0)
-            //     $sql .= " or on_short_notice = $on_short_notice";
-            // if($caregiverage_from !='')
-            //     $sql .= " or caregiverage_from = $caregiverage_from";
-            // if($caregiverage_to !='')
-            //     $sql .= " or caregiverage_to = $caregiverage_to";
-            // if($start_date !='')
-            //     $sql .= " or start_date = $start_date";
-            // if($willing_to_work !='')
-            //     $sql .= " or willing_to_work = $willing_to_work";
-            // if($subjects !='')
-            //     $sql .= " and subjects = $subjects";
-            // if($accept_insurance != 0)
-            //     $sql .= " or accept_insurance = $accept_insurance";
-            // if($rate !='')
-            //     $sql .= " or rate = $rate";
-            // if($rate_type != 0)
-            //     $sql .= " and rate_type = '$rate_type'";
-            // if($gender_of_caregiver != 0)
-            //     $sql .= " or gender_of_caregiver = $gender_of_caregiver";
-
-          //    $query = $this->db->query($sql);
-          //    $res = $query->result_array();
-          //       if($res)
-          //           return $res;
-          //       else
-          //           return false;
-          // endforeach;
-        // }else{
-        //     return false;
-        // }
-
         $sql = "select * from tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_user.status = 1 and tbl_userprofile.profile_status = 1 and tbl_userprofile.photo_status = 1 and tbl_userprofile.user_id = $id";
-        //echo $sql;exit;
+       
         $query = $this->db->query($sql);
         $res = $query->result_array();
-        //print_rr($res);
-               if($res)
-                   return $res;
-                else
-                    return false;
+        
+        if($res)
+            return $res;
+        else
+            return false;
     }
 
 
@@ -1024,18 +902,10 @@ class User_model extends CI_Model
         $this->db->join('tbl_care','tbl_userprofile.care_type = tbl_care.id','left');
         $this->db->where('user_id',$this->session->userdata('current_user'));
         $this->db->order_by("tbl_userprofile.id", "desc");
-        $this->db->select('tbl_userprofile.*, tbl_care.*, tbl_user.city, tbl_user.state, tbl_user.country, tbl_user.name, tbl_user.uri, tbl_user.profile_picture');
+        $this->db->select('tbl_userprofile.*, tbl_care.*, tbl_user.city, tbl_user.state, tbl_user.country, tbl_user.name, tbl_user.uri, tbl_user.profile_picture, tbl_user.profile_picture_status');
         $query = $this->db->get('tbl_userprofile');
         return $query->result();
     }
-
-   /* public function get_current_profile(){
-         $this->db->join('tbl_care','tbl_user.care_type = tbl_care.id','left');
-        $this->db->where('tbl_user.id',$this->session->userdata('current_user'));
-        $this->db->select('service_name,care_type,account_category');
-        $query = $this->db->get('tbl_user');
-        return $query->row();
-    }*/
 
     function getPackages(){
         $sql    = "select * from tbl_packages";
@@ -1057,10 +927,9 @@ class User_model extends CI_Model
         $query = $this->db->get('tbl_userprofile');
         return $query->result();
     }
-    public function existing_profile_check($account_category,$care_type){
-        //$i=0;
+    public function existing_profile_check($account_category,$care_type)
+    {
         $this->db->where('user_id',$this->session->userdata('current_user'));
-        //$this->db->where('account_category',$account_category);
         $this->db->where('care_type',$care_type);
         $query = $this->db->get('tbl_userprofile');
         if($query->num_rows() > 0){
@@ -1069,21 +938,6 @@ class User_model extends CI_Model
         else{
             return TRUE;
         }
-        /*$query->free_result();
-
-        $this->db->where('id',$this->session->userdata('current_user'));
-        $this->db->where('account_category',$account_category);
-        $this->db->where('care_type',$care_type);
-        $query = $this->db->get('tbl_user');
-        if($query->num_rows() > 0){
-            $i=1;
-        }
-        if($i == 1){
-            return FALSE;
-        }
-        else{
-            return TRUE;
-        }*/
     }
     public function delete_this_profile($user_id,$care_type){
         $this->db->where('user_id',$user_id);
@@ -1152,21 +1006,19 @@ class User_model extends CI_Model
         $res  = $this->db->query($sql);
         $data   = $res->result_array();
 
-    foreach ($data as $d){
-        $user_id = $d['user_id'];
-        $this->db->where(array('id'=>$user_id,'status'=>1));
-        $res2 = $this->db->get('tbl_user');
-        $data2 = $res2->result_array();
-        $num_rows = $res2->num_rows();
-        foreach ($data2 as $d2)
-        if($num_rows>0){
-            $new_data[] = array_merge($d,$d2);
-
+        foreach ($data as $d){
+            $user_id = $d['user_id'];
+            $this->db->where(array('id'=>$user_id,'status'=>1));
+            $res2 = $this->db->get('tbl_user');
+            $data2 = $res2->result_array();
+            $num_rows = $res2->num_rows();
+            foreach ($data2 as $d2)
+            if($num_rows>0){
+                $new_data[] = array_merge($d,$d2);
+    
+            }
+    
         }
-
-    }
-    //$query = $this->db->query($sql);
-     //$res     = $query->result_array();
         if(isset($new_data))
             return $new_data;
         else

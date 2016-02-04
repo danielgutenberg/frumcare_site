@@ -1115,9 +1115,6 @@ class User extends CI_Controller
                     if(isset($p['country']) && !empty($p['country'])){
                         $update_user['country'] = $p['country'];
                     }
-                    if(isset($p['zip']) && !empty($p['zip'])){
-                        $update_user['zip'] = $p['zip'];
-                    }
                     if(isset($p['religious_observance']) && !empty($p['religious_observance'])){
                         $update_user['caregiver_religious_observance'] = $p['religious_observance'];
                     }
@@ -1904,25 +1901,31 @@ class User extends CI_Controller
             'religious_observance'  => isset($_POST['religious_observance'])?$_POST['religious_observance']:'',
             'sub_care' => isset($_POST['sub_care'])?$_POST['sub_care']:'',
          );
-    
-
-            $id = check_user();
+         
+        $id = check_user();
+        
+        $this->db->where(array('id' => $id));
+        $res = $this->db->get('tbl_user');
+        $oldProfile = $res->result_array()[0];
            
-            $this->db->where('id',$id);
-            $q = $this->db->update('tbl_user',$insert1);
-            if($q){
-                $this->db->where('user_id', $id);
-                $this->db->update('tbl_userprofile',$insert2);
-                
-                // $this->db->where('id', $id);
-                // $this->db->update('tbl_user',$geodata);
-                
-                $this->session->set_flashdata('info', 'Personal detail updated successfully.');
-                redirect('user/profile','refresh');
-
+        $this->db->where('id',$id);
+        $q = $this->db->update('tbl_user',$insert1);
+        if($q){
+            if ($insert1['profile_picture'] != '' && $oldProfile['profile_picture'] != $insert1['profile_picture']) {
+                $this->db->where('id',$id);
+                $this->db->update('tbl_user', array('profile_picture_status' => 0));
+                $this->notifyNewImage($insert1['profile_photo']);
+                $this->session->set_flashdata('info', 'Personal details updated successfully. Your new photo will show on the site as soon as it is approved by an admin');
+            } else {
+                $this->session->set_flashdata('info', 'Personal details updated successfully.');
             }
+            $this->db->where('user_id', $id);
+            $this->db->update('tbl_userprofile',$insert2);
+            redirect('user/profile','refresh');
 
-            redirect('user/details/'.$id_hash);                        
+        }
+
+        redirect('user/details/'.$id_hash);                        
 
 
       }
@@ -1979,4 +1982,52 @@ class User extends CI_Controller
         }
         echo "</select>";
       }
+      
+    public function notifyNewImage()
+    {
+        $user_id = check_user();
+        $user = get_user($user_id);
+
+        $a = get_account_details();
+        $id = $a->care_type;
+
+        $msg = $this->load->view('frontend/email/newImage', array('details' => $user), true);
+        
+        $param = array(
+            'subject'     => 'Profile Picture Updated',
+            'from'        => SITE_EMAIL,
+            'from_name'   => SITE_NAME,
+            'replyto'     => SITE_EMAIL,
+            'replytoname' => SITE_NAME,
+            'sendto'      => SITE_EMAIL,
+            'message'     => $msg
+        );
+
+        sendemail($param);
+    }
+    
+    function approveImage($id, $hash)
+    {
+        $this->db->where(array('id' => $id, 'email_hash' => $hash));
+        $res = $this->db->get('tbl_user');
+        if ( count( $res->result_array() ) == 1) {
+            $this->db->where('id', $id);
+            $this->db->update('tbl_user', array('profile_picture_status' => 1));   
+        }
+        
+        redirect('user/photo_approved','refresh');
+    }
+    
+    function photo_approved()
+    {
+        $this->breadcrumbs->push('Success', '/help');
+        $this->breadcrumbs->unshift('Home', base_url());
+
+        $data = array(
+            'main_content' => 'frontend/care/photo_approved_success',
+            'title'        => 'Success',
+        );
+
+        $this->load->view(FRONTEND_TEMPLATE,$data);
+    }
 }

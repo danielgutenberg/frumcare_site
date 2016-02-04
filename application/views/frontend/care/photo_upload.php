@@ -13,6 +13,10 @@ if(check_user()) {
         $display = 'display:inline-block';
         $choseFile = 'display:none';
     }
+    $i = $photo_name;
+    if ($photo_name = 'profile_picture2') {
+        $i = 'profile_picture';
+    }
         
 }
 if ($upload_title) {
@@ -23,7 +27,7 @@ if ($upload_title) {
 ?>
 <div class="upload-photo">
     <h2><?php echo $title;?></h2>
-    <input type="hidden" id="file-name" name="<?php echo $photo_name;?>" value="<?php if(isset($photo)) echo $photo;?>">
+    <input type="hidden" id="file-name" i="<?php echo $photo_name;?>" name="<?php echo $i;?>" value="<?php if(isset($photo)) echo $photo;?>">
     <div id="output"><img src="<?php echo $photo_url?>"></div>
     <a class="buttons btn-default" href="#" id="remove" onclick="return removePic();" style="margin:0 10px; <?php echo $display ?>">Remove File</a>
     <label id="browse_text" style="<?php echo $choseFile;?>">Browse your computer to select a file to upload</label>
@@ -77,7 +81,7 @@ $(function()
             return;
         }
         var loader = '<img src="<?php echo site_url("images/loader.gif")?>">';
-        if ($('#file-name').attr('name') == 'profile_picture') {
+        if ($('#file-name').attr('i') == 'profile_picture') {
             var link = '<?php echo site_url("ad/upload_pp/?files")?>';
         } else {
             var link = '<?php echo site_url("ad/upload_pp/false?files")?>';

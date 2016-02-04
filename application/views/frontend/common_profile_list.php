@@ -49,7 +49,7 @@ $careType = [
     		            	<img src="<?php echo site_url("images/profile-picture/{$data['facility_pic']}")?>">
     		            </div>
     	            </a><?php } else {
-                    if($data['profile_picture']!="" && file_exists('images/profile-picture/'.$data['profile_picture'])) {?>
+                    if($data['profile_picture']!="" && $data['profile_picture_status'] == 1 && file_exists('images/profile-picture/'.$data['profile_picture'])) {?>
                         <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
         		            <div id="profile_image">
         		            	<img src="<?php echo site_url("images/profile-picture/{$data['profile_picture']}")?>">
