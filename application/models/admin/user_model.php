@@ -5,7 +5,7 @@
 		}
 
 		public function getVerificationData($id){
-	        $sql    = "select profile_picture_status,contact_number_status,email_status,facebook_contact_status,twitter_contact_status,google_contact_status from tbl_user where id = $id";
+	        $sql    = "select profile_picture_status,contact_number_status,email_status from tbl_user where id = $id";
 	        $query  = $this->db->query($sql);
 	        $res    = $query->row_array();
 	        if($res)
