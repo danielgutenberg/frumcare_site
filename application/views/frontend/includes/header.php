@@ -138,6 +138,7 @@
 
     <div class="page-loader-modal"></div>
     <div id="site-wrapper">
+        <?php if ($header) { ?>
         <header class="header">
             <div class="top-bar clearfix">
                 <div class="container">
@@ -251,6 +252,7 @@
 </div>
 <!--end header-main-->
 </header>
+<?php } ?>
 <script>
 $('.postjob').click(function(e){
     e.preventDefault();
