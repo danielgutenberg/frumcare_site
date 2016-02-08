@@ -125,9 +125,9 @@
 
         $('.forward').click(function(){
                 $('#dialog_simple').dialog('open');
-                    var emailsub = $('.email_subject').text();
+                    var emailsub = $('.email_subject').html();
                     $('.forwardsubject').val(emailsub);
-                    $('.message').val($('.content').text());
+                    $('.message').val($('.content').html());
                     $('.forwardform').show();
                     $('.replyform').hide();
                 return false; 
