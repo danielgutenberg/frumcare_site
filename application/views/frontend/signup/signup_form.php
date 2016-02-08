@@ -364,19 +364,19 @@ if($this->uri->segment(2)!='edit'){
 <script>
     $('.signUpButton').click(function(event) {
             event.preventDefault(); 
-            // if ($('#lat').val() == '') {
-            //     if ($('#locationField').css('display') == 'none') {
-            //         window.scrollTo(0, $("#cityField").offset().top);
-            //         $("#cityField").css('border-color', 'red')
-            //         document.getElementById("error1").innerHTML="Please click on location from dropdown";
-            //     } else {
-            //         window.scrollTo(0, $("#locationField").offset().top);
-            //         $("#locationField").css('border-color', 'red')
-            //         document.getElementById("error").innerHTML="Please click on location from dropdown";
-            //     }
-            // } else {
+            if ($('#lat').val() == '') {
+                if ($('#locationField').css('display') == 'none') {
+                    window.scrollTo(0, $("#cityField").offset().top);
+                    $("#cityField").css('border-color', 'red')
+                    document.getElementById("error1").innerHTML="Please click on location from dropdown";
+                } else {
+                    window.scrollTo(0, $("#locationField").offset().top);
+                    $("#locationField").css('border-color', 'red')
+                    document.getElementById("error").innerHTML="Please click on location from dropdown";
+                }
+            } else {
                 $('#sign-up').submit()
-            // }
+            }
         });
 </script>
 <script>
