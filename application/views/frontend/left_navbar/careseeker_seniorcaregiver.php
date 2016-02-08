@@ -13,7 +13,7 @@
 	 		</div>
             <div>
 	 			<label>Gender of Senior</label>
-	 			<div class="radio-half"><input type="radio" name="gender_of_careseeker" value="1" class="gender_of_careseeker" <?php if ($data['gender'] == 1) echo 'checked' ?>>Male</div>
+	 			<div class="radio-half"><input type="radio" name="gender_of_careseeker" value="1" class="gender_of_careseeker" <?php if ($data['gender'] == 1) echo 'checked' ?>> Male</div>
 	 			<div class="radio-half"><input type="radio" name="gender_of_careseeker" value="2" class="gender_of_careseeker" <?php if ($data['gender'] == 2) echo 'checked' ?>> Female</div>
 	 			<div class="radio-half"><input type="radio" name="gender_of_careseeker" value="" class="gender_of_careseeker" <?php if ($data['gender'] == '') echo 'checked' ?>> Any</div>
 	 		</div>

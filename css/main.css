@@ -5185,13 +5185,13 @@ body {
     font-size: 51px;
   }
   .looking-for-care:after {
-    background: url("../img/mouth1.png") no-repeat;
-    bottom: -8px;
+    background: url("../img/Mouth3.png") no-repeat;
+    bottom: -15px;
     content: "";
-    height: 14px;
+    height: 21px;
     position: absolute;
-    right: 10px;
-    width: 56px;
+    right: 20px;
+    width: 120px;
   }
   .looking-for-care-job:after {
     background: url("../img/Mouth2.png") no-repeat;
