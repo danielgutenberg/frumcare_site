@@ -1853,7 +1853,6 @@ class User extends CI_Controller
             'city' => isset($_POST['city'])?$_POST['city']:'',
             'state' => isset($_POST['state'])?$_POST['state']:'',
             'country' => isset($_POST['country'])?$_POST['country']:'',
-            'zip'      => isset($_POST['zip'])?$_POST['zip']:'',
             'age'      =>  isset($_POST['age'])?$_POST['age']:'',
             'gender'   => isset($_POST['gender'])?$_POST['gender']:'',
             'city'      => isset($_POST['city'])?$_POST['city']:'',
