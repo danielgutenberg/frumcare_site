@@ -39,18 +39,22 @@ class Signup extends CI_Controller
         redirect('signup-successful');
     }
 
-    function save_user($id = ''){
-        if (!isset($_POST['care_type'])) {
-            $this->session->set_flashdata('msg', 'Please enter a care type.');
-            redirect('signup');
-        }
-       if($_POST) {
+    function save_user($id = '')
+    {
+        if($_POST) {
             $data = $_POST;
             $uri = $this->common_model->create_slug(trim($data['name']));
             $exp = explode('_', $data['care_type']);
             $care_type = $exp[0]; 
-            $account_type = $exp[1]; 
-            $orgName = $_POST['account_category']  == 3 ? trim($data['name']) : '';
+            $account_type = $exp[1];
+            
+            if (!$care_type > 0 || !$care_type < 35 ) {
+                $this->session->set_flashdata('msg', 'Please enter a care type.');
+                redirect('signup');
+            }
+            
+            $orgName = $data['account_category']  == 3 ? trim($data['name']) : '';
+            
             $insert = array(
                 'email'                 => $data['email'],
                 'email_hash'            => sha1($data['email']),
@@ -68,83 +72,81 @@ class Signup extends CI_Controller
                 'lng'                   => $data['lng'],
             );
 
-                    if($_POST['account_category'] == 1){
-                        $category = 'caregiver';
-                    }
-                    if($_POST['account_category'] == 2){
-                        $category = 'careseeker';
-                    }
+            if($data['account_category'] == 1){
+                $category = 'caregiver';
+            }
+            if($data['account_category'] == 2){
+                $category = 'careseeker';
+            }
 
-                    if($_POST['account_category']  == 3){
-                        $category = 'organization';
-                    }
+            if($data['account_category']  == 3){
+                $category = 'organization';
+            }
 
-                   if($account_type == 1){
-                        $type = 'individual';
-                   }else{
-                        $type = 'organization';
-                        $insert['organization_name'] = trim($data['name']);
-                   }
+            if($account_type == 1) {
+                $type = 'individual';
+            } else {
+                $type = 'organization';
+                $insert['organization_name'] = trim($data['name']);
+            }
 
-                   $redirectData = array(
-                        'account_cat'   => $category,
-                        'account_type'  => $type,
-                        'care_type'     => $care_type                        
-                   );
-
-
-                   $this->session->set_flashdata('params', $redirectData);
-
-                    $this->db->insert('tbl_user', $insert);
-                    $q = $this->db->insert_id();
-
-                    $userprofile_data = array(
-                      'care_type'             => $care_type,
-                      'account_category'      => $_POST['account_category'],
-                      'created_on'            => date('Y-m-d'),
-                        'created_time'          =>strtotime('now'),
-                      'user_id'               => $q,
-                      'organization_care'     => isset($data['organization_care'])?$data['organization_care'] :0,
-                      'profile_status'        => 0
-                    );
-
-                    
-                    $cg_or_ck = array(
-                            'user_id' =>$q,
-                            'account_category' => $_POST['account_category'],
-                            'organization_care' => isset($_POST['organization_care'])?$_POST['organization_care']:0
-                    );
-                    $this->db->insert('tbl_account_category',$cg_or_ck);
-                    $this->session->set_userdata('account_category',$_POST['account_category']);// for getting account category quickly
-                    $this->session->set_userdata('organization_care',isset($_POST['organization_care'])?$_POST['organization_care']:0);
-                    $this->db->insert('tbl_userprofile',$userprofile_data);
-                    $email = $data['email'];
-                    $fname = $data['name'];
-
-                    // send email confirmation to user
-                    $this->send_confirmation($email,$fname);
-
-
-                $user_data = getBrowser();
-                $log = array(
-                    'user_id' => $q,
-                    'login_time' => time(),
-                    'login_browser' => $user_data['name'].' '.$user_data['version'],
-                    'login_os' => $user_data['platform'],
-                    'login_ip' => $_SERVER['REMOTE_ADDR']
-                );
-                $log_id = $this->common_model->insert('tbl_user_logs', $log, true);
-                $log_id = sha1($log_id);
-                $sess = array(
-                    'current_user' => $q,
-                    'log_id' => $log_id
-                );
-                $this->session->sess_expiration = '14400';
-                $this->session->set_userdata($sess);
-                
+            $redirectData = array(
+                'account_cat'   => $category,
+                'account_type'  => $type,
+                'care_type'     => $care_type                        
+            );
             
-                $this->sendRelevantAds($data['lat'], $data['lng'], $data['city']);
-                $this->setUpInitialAlert($data['city'], $data['lat'], $data['lng']);
+            $this->session->set_flashdata('params', $redirectData);
+
+            $this->db->insert('tbl_user', $insert);
+            $q = $this->db->insert_id();
+
+            $userprofile_data = array(
+                'care_type'         => $care_type,
+                'account_category'  => $data['account_category'],
+                'created_on'        => date('Y-m-d'),
+                'created_time'      => strtotime('now'),
+                'user_id'           => $q,
+                'organization_care' => isset($data['organization_care'])?$data['organization_care'] :0,
+                'profile_status'    => 0
+            );
+
+            
+            $cg_or_ck = array(
+                'user_id' =>$q,
+                'account_category' => $data['account_category'],
+                'organization_care' => isset($data['organization_care']) ? $data['organization_care'] : 0
+            );
+            $this->db->insert('tbl_account_category', $cg_or_ck);
+            $this->session->set_userdata('account_category', $data['account_category']);// for getting account category quickly
+            $this->session->set_userdata('organization_care',isset($data['organization_care']) ? $data['organization_care'] : 0);
+            $this->db->insert('tbl_userprofile', $userprofile_data);
+            $email = $data['email'];
+            $fname = $data['name'];
+
+            // send email confirmation to user
+            $this->send_confirmation($email,$fname);
+
+            $user_data = getBrowser();
+            $log = array(
+                'user_id' => $q,
+                'login_time' => time(),
+                'login_browser' => $user_data['name'].' '.$user_data['version'],
+                'login_os' => $user_data['platform'],
+                'login_ip' => $_SERVER['REMOTE_ADDR']
+            );
+            $log_id = $this->common_model->insert('tbl_user_logs', $log, true);
+            $log_id = sha1($log_id);
+            $sess = array(
+                'current_user' => $q,
+                'log_id' => $log_id
+            );
+            $this->session->sess_expiration = '14400';
+            $this->session->set_userdata($sess);
+            
+        
+            $this->sendRelevantAds($data['lat'], $data['lng'], $data['city']);
+            $this->setUpInitialAlert($data['city'], $data['lat'], $data['lng']);
 
             if($q) {
                 redirect('signup-successful');
