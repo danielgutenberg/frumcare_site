@@ -1397,6 +1397,7 @@ class User extends CI_Controller
                 'driver_license'        => $this->input->post('driver_license',true),
                 'vehicle'               => $this->input->post('vehicle',true),
                 'pick_up_child'         => $this->input->post('pick_up_child',true),
+                'sick_child_care'       => $this->input->post('sick_child_care',true),
                 'cook'                  => $this->input->post('cook',true),
                 'basic_housework'       => $this->input->post('basic_housework',true),
                 'homework_help'         => $this->input->post('homework_help',true),

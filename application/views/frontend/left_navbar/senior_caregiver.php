@@ -31,20 +31,21 @@
 			 	<div class="checkbox"><input type="checkbox" class="training" value="Other" <?php if(in_array("Other",$training)){?> checked="checked" <?php } ?>>Other</div>
 			 </div>
 
+		 	<?php $willing = explode(',',$data['willing_to_work']); ?>
 		 	<div>
 		 		<label>Able to work with</label>
-		 		<div class="checkbox"><input type="checkbox" class="able_to_work" name="able_to_work" value="Alz./ dementia">Alz. / dementia</div>
-		 		<div class="checkbox"><input type="checkbox" class="able_to_work" name="able_to_work" value="Sight Loss">Sight Loss</div>
-		 		<div class="checkbox"><input type="checkbox" class="able_to_work" name="able_to_work" value="Hearing Loss">Hearing Loss</div>
-		 		<div class="checkbox"><input type="checkbox" class="able_to_work" name="able_to_work" value="Wheelchair Bound">Wheelchair Bound</div>
-		 		<div class="checkbox"><input type="checkbox" class="able_to_work" name="able_to_work" value="Able to tend to personal hygiene of senior">Able to tend to personal hygiene of senior</div>
+		 		<div class="checkbox"><input type="checkbox" class="willing_to_work" name="willing_to_work" value="Alz./ dementia" <?php if(in_array("Alz./ dementia",$willing)){?> checked="checked" <?php } ?>>Alz. / dementia</div>
+		 		<div class="checkbox"><input type="checkbox" class="willing_to_work" name="willing_to_work" value="Sight Loss" <?php if(in_array("Sight Loss",$willing)){?> checked="checked" <?php } ?>>Sight Loss</div>
+		 		<div class="checkbox"><input type="checkbox" class="willing_to_work" name="willing_to_work" value="Hearing Loss" <?php if(in_array("Hearing Loss",$willing)){?> checked="checked" <?php } ?>>Hearing Loss</div>
+		 		<div class="checkbox"><input type="checkbox" class="willing_to_work" name="willing_to_work" value="Wheelchair Bound" <?php if(in_array("Wheelchair Bound",$willing)){?> checked="checked" <?php } ?>>Wheelchair Bound</div>
+		 		<div class="checkbox"><input type="checkbox" class="willing_to_work" name="willing_to_work" value="Able to tend to personal hygiene of senior" <?php if(in_array("Able to tend to personal hygiene of senior",$willing)){?> checked="checked" <?php } ?>>Able to tend to personal hygiene of senior</div>
 		 	</div>
 		 	<?php $availability = explode(',',$data['availability']); ?>
 		 	<div>
 		 		<label>When you need care</label>
 		 		
 		 		<div class="checkbox first"><input type="checkbox" class="availability" value="Immediate" <?php if(in_array("Immediate",$availability)){?> checked="checked" <?php } ?>>Immediate</div>
-			 	<div class="checkbox full"><input type="checkbox" id="chkbox1" value="Start Date" <?php if(in_array("Start Date",$availability)){?> checked="checked" <?php } ?>>Start Date<input type="text" id="textbox1" value="<?php echo $data['start_date'];?>"/></div>
+			 	<div class="checkbox full"><input type="checkbox" class="availability" id="chkbox1" value="Start Date" <?php if(in_array("Start Date",$availability)){?> checked="checked" <?php } ?>>Start Date<input type="text" id="textbox1" value="<?php echo $data['start_date'];?>"/></div>
 			 	<div class="checkbox"><input type="checkbox" class="availability" value="Occasionally" <?php if(in_array("Occasionally",$availability)){?> checked="checked" <?php } ?>>Occasionally</div>
 			 	<div class="checkbox"><input type="checkbox" class="availability" value="Regularly" <?php if(in_array("Regularly",$availability)){?> checked="checked" <?php } ?>>Regularly</div>
 			 	<div class="checkbox"><input type="checkbox" class="availability" value="Morning" <?php if(in_array("Morning",$availability)){?> checked="checked" <?php } ?>>Morning</div>
@@ -59,9 +60,9 @@
 
 		 	<div>
 		 		<label>Abilities</label>
-		 		<div class="checkbox"><input type="checkbox" class="driver_license" name="driver_license" value="1">Drivers License</div>
-		 		<div class="checkbox"><input type="checkbox" class="vehicle" name="vehicle" value="1">Vehicle</div>
-		 		<div class="checkbox"><input type="checkbox" class="available_on_short_notice" name="available_on_short_notice" value="1">Available on short notice</div>
+		 		<div class="checkbox first"><input type="checkbox" class="driver_license" value="1" <?php if ($data['driver_license'] == 1) echo 'checked' ?>>Drivers License</div>
+		 		<div class="checkbox full"><input type="checkbox" class="vehicle" value="1" <?php if ($data['vehicle'] == 1) echo 'checked' ?>>Vehicle</div>
+		 		<div class="checkbox"><input type="checkbox" class="on_short_notice" value="1" <?php if ($data['on_short_notice'] == 1) echo 'checked' ?>>Available on short notice</div>
 		 	</div>
 
 	 		<?php 

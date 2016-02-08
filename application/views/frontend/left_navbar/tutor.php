@@ -10,18 +10,20 @@
 		 		$this->load->view('frontend/left_navbar/fields/languages', array('data' => $data));
 	 			$this->load->view('frontend/left_navbar/fields/observance_of_caregiver', array('data' => $data));
 	 		?>
-	 		<div>
- 				<label>Subject(s)</label>
- 				<div class="checkbox"><input type="checkbox" value="Elementary School" name="subjects[]" class="subjects">Elementary School</div>
- 				<div class="checkbox"><input type="checkbox" value="High School" name="subjects[]" class="subjects">High School</div>
- 				<div class="checkbox"><input type="checkbox" value="Post High School" name="subjects[]" class="subjects">Post High School</div>
- 				<div class="checkbox"><input type="checkbox" value="Limudei Kodesh" name="subjects[]" class="subjects">Limudei Kodesh</div>
- 				<div class="checkbox"><input type="checkbox" value="General Studies" name="subjects[]" class="subjects">General Studies</div>
- 				<div class="checkbox"><input type="checkbox" value="Special Education" name="subjects[]" class="subjects">Special Education</div>
- 				<div class="checkbox"><input type="checkbox" value="Music" name="subjects[]" class="subjects">Music</div>
- 				<div class="checkbox"><input type="checkbox" value="Art" name="subjects[]" class="subjects">Art</div>
- 				<div class="checkbox"><input type="checkbox" value="Other" name="subjects[]" class="subjects">Other</div>
-	 		</div>
+ 			<?php $subjects = explode(',',$data['subjects']); ?>		
+            <div>
+                <label>Subject(s)</label>
+                <div class="form-field">
+                    <div class="checkbox"><input type="checkbox" value="Elementary school" name="subjects[]" class="subject" <?php if(in_array("Elementary school",$subjects)){?> checked="checked" <?php } ?>> Elementary school</div>
+                    <div class="checkbox"><input type="checkbox" value="High school" name="subjects[]" class="subject" <?php if(in_array("High school",$subjects)){?> checked="checked" <?php } ?>> High school</div>
+                    <div class="checkbox"><input type="checkbox" value="Post high school" name="subjects[]" class="subject" <?php if(in_array("Post high school",$subjects)){?> checked="checked" <?php } ?>> Post high school</div>
+                    <div class="checkbox"><input type="checkbox" value="limudei kodesh" name="subjects[]" class="subject" <?php if(in_array("limudei kodesh",$subjects)){?> checked="checked" <?php } ?>>Limudei Kodesh</div>
+                    <div class="checkbox"><input type="checkbox" value="general studies" name="subjects[]" class="subject" <?php if(in_array("general studies",$subjects)){?> checked="checked" <?php } ?>>General Studies</div>
+                    <div class="checkbox"><input type="checkbox" value="Music" name="subjects[]" class="subject" <?php if(in_array("Music",$subjects)){?> checked="checked" <?php } ?>> Music</div>
+                    <div class="checkbox"><input type="checkbox" value="Art" name="subjects[]" class="subject" <?php if(in_array("Art",$subjects)){?> checked="checked" <?php } ?>> Art</div>
+                    <div class="checkbox"><input type="checkbox" value="Other" name="subjects[]" class="subject" <?php if(in_array("Other",$subjects)){?> checked="checked" <?php } ?>> Other</div>
+                </div>
+            </div>
 	 		<?php $availability = explode(',',$data['availability']); ?>
 		 	<div>
 		 		<label>When you need lessons</label>

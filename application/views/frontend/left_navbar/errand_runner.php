@@ -32,11 +32,11 @@
 		 	</div>
 
 		 	<div>
-		 		<label>Abilities and Skills</label>
-		 		<div class="checkbox"><input type="checkbox" class="driver_license" name="driver_license" value="1">Drivers License</div>
-		 		<div class="checkbox"><input type="checkbox" class="vehicle" name="vehicle" value="1">Vehicle</div>
-		 		<div class="checkbox"><input type="checkbox" class="short_notice" name="short_notice" value="1">Available on short notice</div>
-		 	</div>		 	
+		 		<label>Abilities</label>
+		 		<div class="checkbox first"><input type="checkbox" class="driver_license" value="1" <?php if ($data['driver_license'] == 1) echo 'checked' ?>>Drivers License</div>
+		 		<div class="checkbox full"><input type="checkbox" class="vehicle" value="1" <?php if ($data['vehicle'] == 1) echo 'checked' ?>>Vehicle</div>
+		 		<div class="checkbox"><input type="checkbox" class="on_short_notice" value="1" <?php if ($data['on_short_notice'] == 1) echo 'checked' ?>>Available on short notice</div>
+		 	</div>	 	
             
 	 		<?php
 		 	$this->load->view('frontend/left_navbar/fields/save_search');

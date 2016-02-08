@@ -30,22 +30,22 @@
 			 	<div class="checkbox"><input type="checkbox" class="training" value="Other" <?php if(in_array("Other",$training)){?> checked="checked" <?php } ?>>Other</div>
 			 </div>
 
+		 	<?php $willing = explode(',',$data['willing_to_work']); ?>
 		 	<div>
 		 		<label>Able to work with</label>
-		 		<div class="checkbox"><input type="checkbox" class="able_to_work" name="able_to_work" value="Autism">Autism</div>
-		 		<div class="checkbox"><input type="checkbox" class="able_to_work" name="able_to_work" value="Down Syndrome">Down Syndrome</div>
-		 		<?php /* <div class="checkbox"><input type="checkbox" class="able_to_work" name="able_to_work" value="Hearing Loss">Hearing Loss</div> */?>
-		 		<div class="checkbox"><input type="checkbox" class="able_to_work" name="able_to_work" value="Handicapped">Handicapped</div>
-		 		<div class="checkbox"><input type="checkbox" class="able_to_work" name="able_to_work" value="Wheelchair bound">Wheelchair bound</div>
+		 		<div class="checkbox"><input type="checkbox" class="willing_to_work" name="willing_to_work" value="Autism" <?php if(in_array("Autism",$willing)){?> checked="checked" <?php } ?>>Autism</div>
+		 		<div class="checkbox"><input type="checkbox" class="willing_to_work" name="willing_to_work" value="Down Syndrome" <?php if(in_array("Down Syndrome",$willing)){?> checked="checked" <?php } ?>>Down Syndrome</div>
+		 		<div class="checkbox"><input type="checkbox" class="willing_to_work" name="willing_to_work" value="Handicapped" <?php if(in_array("Handicapped",$willing)){?> checked="checked" <?php } ?>>Handicapped</div>
+		 		<div class="checkbox"><input type="checkbox" class="willing_to_work" name="willing_to_work" value="Wheelchair Bound" <?php if(in_array("Wheelchair Bound",$willing)){?> checked="checked" <?php } ?>>Wheelchair Bound</div>
 		 	</div>
 	 			 		
 		 	<?php $this->load->view('frontend/left_navbar/fields/when_you_need_care', array('data' => $data)); ?>
 
 		 	<div>
 		 		<label>Abilities</label>
-		 		<div class="checkbox"><input type="checkbox" class="driver_license" name="driver_license" value="1">Driver License</div>
-		 		<div class="checkbox"><input type="checkbox" class="vehicle" name="vehicle" value="1">Vehicle</div>
-		 		<div class="checkbox"><input type="checkbox" class="available_on_short_notice" name="available_on_short_notice" value="1">Available on short notice</div>
+		 		<div class="checkbox first"><input type="checkbox" class="driver_license" value="1" <?php if ($data['driver_license'] == 1) echo 'checked' ?>>Drivers License</div>
+		 		<div class="checkbox full"><input type="checkbox" class="vehicle" value="1" <?php if ($data['vehicle'] == 1) echo 'checked' ?>>Vehicle</div>
+		 		<div class="checkbox"><input type="checkbox" class="on_short_notice" value="1" <?php if ($data['on_short_notice'] == 1) echo 'checked' ?>>Available on short notice</div>
 		 	</div>
 
 	 		<?php $this->load->view('frontend/left_navbar/fields/save_search'); ?>

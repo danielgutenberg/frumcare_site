@@ -36,20 +36,20 @@
 			 	<div class="checkbox"><input type="checkbox" class="availability" value="Shabbos" <?php if(in_array("Shabbos",$availability)){?> checked="checked" <?php } ?>>Shabbos</div>
 		 	</div>
 
-		 	<div>
-		 		<label>Skills</label>
-		 		<div class="checkbox"><input type="checkbox" class="skills" name="skills" value="Dishes">Dishes</div>
-		 		<div class="checkbox"><input type="checkbox" class="skills" name="skills" value="Floors">Floors</div>
-		 		<div class="checkbox"><input type="checkbox" class="skills" name="skills" value="Windows">Windows</div>
-		 		<div class="checkbox"><input type="checkbox" class="skills" name="skills" value="Laundry">Laundry</div>
-		 		<div class="checkbox"><input type="checkbox" class="skills" name="skills" value="Folding">Folding</div>
-                <div class="checkbox"><input type="checkbox" class="skills" name="skills" value="Ironing">Ironing</div>
-		 		<div class="checkbox"><input type="checkbox" class="skills" name="skills" value="Cleaning and Dusting Furniture">Cleaning and dusting furniture</div>
-		 		<div class="checkbox"><input type="checkbox" class="skills" name="skills" value="Cleaning Refrigerator/Freezer">Cleaning refrigerator / freezer</div>
-		 		<div class="checkbox"><input type="checkbox" class="skills" name="skills" value="Cleaning Oven/Stove">Cleaning Oven / stove</div>
-		 		<div class="checkbox"><input type="checkbox" value="Pesach Cleaning" name="willing_to_work[]"><span>Pesach Cleaning</span></div>
-		 		<div class="checkbox"><input type="checkbox" class="skills" name="skills" value="Able to watch children as well">Able to watch children as well</div>
-		 	</div>
+            <?php $willing = explode(',',$data['willing_to_work']); ?>
+            <div>
+	 			<label>Skills</label>
+	 			<div class="checkbox"><input type="checkbox" value="Dishes" class="willing_to_work" <?php if(in_array("Dishes",$willing)){?> checked="checked" <?php } ?>>Dishes</div>
+	 			<div class="checkbox"><input type="checkbox" value="Floors" class="willing_to_work" <?php if(in_array("Floors",$willing)){?> checked="checked" <?php } ?>>Floors</div>
+	 			<div class="checkbox"><input type="checkbox" value="Windows" class="willing_to_work" <?php if(in_array("Windows",$willing)){?> checked="checked" <?php } ?>>Windows</div>
+                <div class="checkbox"><input type="checkbox" value="Laundry" class="willing_to_work" <?php if(in_array("Laundry",$willing)){?> checked="checked" <?php } ?>>Laundry</div>
+                <div class="checkbox"><input type="checkbox" value="Folding" class="willing_to_work" <?php if(in_array("Folding",$willing)){?> checked="checked" <?php } ?>>Folding</div>
+                <div class="checkbox"><input type="checkbox" value="Ironing" class="willing_to_work" <?php if(in_array("Ironing",$willing)){?> checked="checked" <?php } ?>>Ironing</div>
+                <div class="checkbox"><input type="checkbox" value="Cleaning furniture" class="willing_to_work" <?php if(in_array("Cleaning furniture",$willing)){?> checked="checked" <?php } ?>>Cleaning and dusting furniture</div>
+                <div class="checkbox"><input type="checkbox" value="Cleaning freezer" class="willing_to_work" <?php if(in_array("Cleaning freezer",$willing)){?> checked="checked" <?php } ?>>Cleaning refrigerator / freezer</div>                
+                <div class="checkbox"><input type="checkbox" value="Cleaning stove" class="willing_to_work" <?php if(in_array("Cleaning stove",$willing)){?> checked="checked" <?php } ?>>Cleaning oven / stove</div>
+                <div class="checkbox"><input type="checkbox" value="Pesach Cleaning" class="willing_to_work" <?php if(in_array("Pesach Cleaning",$willing)){?> checked="checked" <?php } ?>>Pesach Cleaning</div>
+	 		</div>
 
 	 		<?php
 		 	$this->load->view('frontend/left_navbar/fields/save_search');
