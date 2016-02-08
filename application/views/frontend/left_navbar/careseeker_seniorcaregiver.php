@@ -35,7 +35,7 @@
 		 		
 		 		<?php $this->load->view('frontend/left_navbar/fields/gender_of_caregiver', array('data' => $data)); ?>
 
-            	
+            	<?php $this->load->view('frontend/left_navbar/fields/wage', array('data', $data)); ?>
             	<?php $this->load->view('frontend/left_navbar/fields/save_search'); ?>
 
 			</form>

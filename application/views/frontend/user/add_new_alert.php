@@ -85,7 +85,7 @@
         "19" => 'careseeker_tutor',
         "20" => 'careseeker_seniorcaregiver',
         "21" => 'careseeker_errandrunner',
-        "22" => 'special_needs_caregiver',
+        "22" => 'careseeker_specialneedscaregiver',
         "24" => 'careseeker_cleaninghousehold',
         "25" => 'babysitter',
         "26" => 'senior_caregiver',

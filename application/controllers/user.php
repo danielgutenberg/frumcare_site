@@ -1361,10 +1361,24 @@ class User extends CI_Controller
       
         public function add_alert()
         {
+            $data = $this->getAlertParameters();
+            $q = $this->db->insert('tbl_searchhistory',$data);
+        }
+        
+        public function edit_search($id)
+        {
+            $user_id = check_user();
+            $data = $this->getAlertParameters();
+            $this->db->where(array('user_id' => $user_id, 'id' => $id));
+            $this->db->update('tbl_searchhistory', $data);
+        }
+      
+        private function getAlertParameters()
+        {
             $user_id = check_user();
             $distance = $this->input->post('distance', true) == 'unlimited' ? 99999 : $this->input->post('distance', true);
             $profile = $this->common_model->get_where('tbl_userprofile', array('user_id' => $user_id));
-            $data = array(
+            return array(
                 'user_id'               => $user_id, 
                 'gender_of_caregiver'   => $this->input->post('gender',true),
                 'gender'                => $this->input->post('gender_of_careseeker',true),
@@ -1395,51 +1409,11 @@ class User extends CI_Controller
                 'long'                  => $this->input->post('long', true),
                 'location'              => $this->input->post('location', true),
                 'distance'              => $distance,
-                'createAlert'           => 1
-            );
-            $q = $this->db->insert('tbl_searchhistory',$data);
+                'createAlert'           => 1,
+                'rate'                  => $this->input->post('rate', true),
+                'subjects'              => $this->input->post('subject', true)
+            ); 
         }
-      
-      public function edit_search($id)
-      {
-            $user_id = $this->session->userdata['current_user'];
-            $distance = $this->input->post('distance', true) == 'unlimited' ? 99999 : $this->input->post('distance', true);
-            $data = array(
-                'user_id'               => $user_id, 
-                'gender_of_caregiver'   => $this->input->post('gender',true),
-                'gender'                => $this->input->post('gender_of_careseeker',true),
-                'start_date'            => $this->input->post('start_date',true),
-                'min_exp'               => $this->input->post('min_exp',true),
-                'smoker'                => $this->input->post('smoker',true),
-                'language'              => $this->input->post('language',true),
-                'observance'            => $this->input->post('observance',true),
-                'availability'          => $this->input->post('availability',true),
-                'training'              => $this->input->post('trainings',true),
-                'number_of_children'    => $this->input->post('number_of_children',true),
-                'morenum'               => $this->input->post('morenum',true),
-                'age_group'             => $this->input->post('age_group',true),
-                'looking_to_work'       => $this->input->post('looking_to_work',true),
-                'willing_to_work'       => $this->input->post('willing_to_work',true),
-                'driver_license'        => $this->input->post('driver_license',true),
-                'vehicle'               => $this->input->post('vehicle',true),
-                'pick_up_child'         => $this->input->post('pick_up_child',true),
-                'cook'                  => $this->input->post('cook',true),
-                'basic_housework'       => $this->input->post('basic_housework',true),
-                'homework_help'         => $this->input->post('homework_help',true),
-                'on_short_notice'       => $this->input->post('on_short_notice',true),
-                'caregiverage_from'     => $this->input->post('caregiverage_from',true),
-                'caregiverage_to'       => $this->input->post('caregiverage_to',true),
-                'start_date'            => $this->input->post('start_date',true),
-                'care_type'             => $this->input->post('care_type',true) > 0 ? $this->input->post('care_type',true) : 0,
-                'lat'                   => $this->input->post('lat', true),
-                'long'                  => $this->input->post('long', true),
-                'location'              => $this->input->post('location', true),
-                'distance'              => $distance,
-                'createAlert'           => 1
-            );
-            $this->db->where(array('user_id' => $user_id, 'id' => $id));
-            $this->db->update('tbl_searchhistory', $data);
-      }
       
       public function add_new_alert($care_type = null)
         {

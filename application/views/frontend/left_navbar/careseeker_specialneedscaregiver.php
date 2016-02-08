@@ -6,61 +6,39 @@
 	 		
  		
  		
-            <div>
+             <?php $location = explode(',',$data['looking_to_work']); ?>
+             <div>
 	 			<label>Job Type</label>
-	 			<div class="checkbox"><input type="checkbox" value="Live In" class="looking_to_work">Live In</div>
-	 			<div class="checkbox"><input type="checkbox" value="Live Out" class="looking_to_work">Live Out</div>
-	 			<div class="checkbox"><input type="checkbox" value="3" class="looking_to_work">Any</div>
+                <div class="checkbox"><input type="checkbox" value="Live In" class="looking_to_work" <?php if(in_array("Live In",$location)){?> checked="checked" <?php } ?>/>Live In</div>
+                <div class="checkbox"><input type="checkbox" value="Live Out" class="looking_to_work" <?php if(in_array("Live Out",$location)){?> checked="checked" <?php } ?>/>Live Out</div>
+                <div class="checkbox"><input type="checkbox" value="3" class="looking_to_work" <?php if(in_array("3",$location)){?> checked="checked" <?php } ?>/>Any</div>
 	 		</div>
 	 		<div>
 	 			<label>Gender of person requiring to care</label>
-	 			<div class="radio-half"><input type="radio" name="gender" value="1" class="gender">Male</div>
-	 			<div class="radio-half"><input type="radio" name="gender" value="2" class="gender"> Female</div>
-	 			<div class="radio-half"><input type="radio" name="gender" value="" class="gender"> Any</div>
-	 		</div>
+	 		 	<div class="radio-half"><input type="radio" name="gender_of_careseeker" value="1" class="gender_of_careseeker" <?php if ($data['gender'] == 1) echo 'checked' ?>> Male</div>
+	 			<div class="radio-half"><input type="radio" name="gender_of_careseeker" value="2" class="gender_of_careseeker" <?php if ($data['gender'] == 2) echo 'checked' ?>> Female</div>
+	 			<div class="radio-half"><input type="radio" name="gender_of_careseeker" value="" class="gender_of_careseeker" <?php if ($data['gender'] == '') echo 'checked' ?>> Any</div>
+			</div>
+            <?php $availability = explode(',',$data['availability']); ?>
             <div>
                 <label>Job Hours (check one or more)</label>
-                <div class="checkbox"><input type="checkbox" class="availability" value="Occassionally">Occasionally</div>
-                <div class="checkbox"><input type="checkbox" class="availability" value="Regularly">Regularly</div>		 		
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Asap">Asap</div>
-		 		<div class="checkbox full"><input type="checkbox" id="chkbox1" value="Start Date">Start Date<input type="text" id="textbox1"/></div>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Morning">Morning</div>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Afternoon">Afternoon</div>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Evening">Evening</div>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Overnignt">Overnignt</div>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Weekends Fri./Sun.">Weekends Fri / Sun</div>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="Shabbos">Shabbos</div>
-		 		<div class="checkbox"><input type="checkbox" class="availability" value="24 hr care">24 hr care</div>
+			    <div class="checkbox"><input type="checkbox" class="availability" value="One time" <?php if(in_array("One time",$availability)){?> checked="checked" <?php } ?>>One Time</div>
+			    <div class="checkbox"><input type="checkbox" class="availability" value="Occassionally" <?php if(in_array("Occassionally",$availability)){?> checked="checked" <?php } ?>>Occasionally</div>
+			    <div class="checkbox"><input type="checkbox" class="availability" value="Regularly" <?php if(in_array("Regularly",$availability)){?> checked="checked" <?php } ?>>Regularly</div>		 		
+			 	<div class="checkbox"><input type="checkbox" class="availability" value="Asap" <?php if(in_array("Asap",$availability)){?> checked="checked" <?php } ?>>Asap</div>
+			 	<div class="checkbox full"><input type="checkbox" class="availability" id="chkbox1" value="Start Date" <?php if(in_array("Start Date",$availability)){?> checked="checked" <?php } ?>>Start Date<input type="text" id="textbox1" value="<?php echo $data['start_date'];?>"/></div>
+			 	<div class="checkbox"><input type="checkbox" class="availability" value="Morning" <?php if(in_array("Morning",$availability)){?> checked="checked" <?php } ?>>Morning</div>
+			 	<div class="checkbox"><input type="checkbox" class="availability" value="Afternoon" <?php if(in_array("Afternoon",$availability)){?> checked="checked" <?php } ?>>Afternoon</div>
+			 	<div class="checkbox"><input type="checkbox" class="availability" value="Evening" <?php if(in_array("Evening",$availability)){?> checked="checked" <?php } ?>>Evening</div>
+			 	<div class="checkbox"><input type="checkbox" class="availability" value="Night Nurse" <?php if(in_array("Night Nurse",$availability)){?> checked="checked" <?php } ?>>Night Nurse</div>
+			 	<div class="checkbox"><input type="checkbox" class="availability" value="Weekends Fri/Sun" <?php if(in_array("Weekends Fri/Sun",$availability)){?> checked="checked" <?php } ?>>Weekends Fri / Sun</div>
+			 	<div class="checkbox"><input type="checkbox" class="availability" value="Shabbos" <?php if(in_array("Shabbos",$availability)){?> checked="checked" <?php } ?>>Shabbos</div>
+			 	<div class="checkbox"><input type="checkbox" class="availability" value="24 hour care" <?php if(in_array("24 hour care",$availability)){?> checked="checked" <?php } ?>>24 hour care</div>
 		 	</div>
-   	        <div>
-	 			<label>Gender of caregiver wanted</label>
-	 			<div class="radio-half"><input type="radio" name="gender_of_caregiver" value="1" class="gender_of_caregiver">Male</div>
-	 			<div class="radio-half"><input type="radio" name="gender_of_caregiver" value="2" class="gender_of_caregiver"> Female</div>
-	 			<div class="radio-half"><input type="radio" name="gender_of_caregiver" value="" class="gender_of_caregiver"> Any</div>
-	 		</div>
-	 		<div class="select-services">
-                        <label>Wage</label>
-                            <select name="rate" class="rate">
-                        <option value="">Select wage</option>
-                        <option value="5-10">$5-$10 / Hr</option>
-                        <option value="10-15">$10-$15 / Hr</option>
-                        <option value="15-25">$15-$25 / Hr</option>
-                        <option value="25-35">$25-$35 / Hr</option>
-                        <option value="35-45">$35-$45 / Hr</option>
-                        <option value="45-55">$45-$55 / Hr</option>
-                        <option value="55+">$55+ / Hr</option>
-                    </select>   
-                            
-            </div>
-            <div>
-                    <div class="checkbox"><input type="checkbox" name="rate_type[]" class="rate_type" value="2">Monthly payment available</div>
-            </div>
-	 		<div>
-		 		<div class="educationss" colspan="2">
-		 		<input type="hidden" name="category" value="" id="care_type">
-			 		<div colspan="2" class="search-btns">
-				 		<input type="submit" class="btn btn-primary searchs" data-toggle="tooltip" data-placement="left" title="Save your search. Setup email alerts and be the first to see new profiles that have your search criteria." value="Save this Search" name="searchs">
-				 	</div>
+		 		<?php $this->load->view('frontend/left_navbar/fields/gender_of_caregiver', array('data' => $data)); ?>
+
+            	<?php $this->load->view('frontend/left_navbar/fields/wage', array('data', $data)); ?>
+            	<?php $this->load->view('frontend/left_navbar/fields/save_search'); ?>
 
 			</form>
 		  </div>
