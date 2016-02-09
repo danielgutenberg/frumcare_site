@@ -13,9 +13,10 @@ if($recordData['currency'] == 'ILS') {
        <?php
        $type = Caretype_model::getCareTypeById($recordData['care_type']);
        echo $type[0]['service_name'];
-
+        $referAccountType = 2;
        if($recordData['care_type']>16){
         echo " Job";
+        $referAccountType = 1;
     }
     ?>
 </h3>
@@ -757,10 +758,6 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 <script>
    $(function(){
 
-    $('.review').on('click',function(){
-     window.location = "<?php echo site_url();?>signup";
- });
-
     $('#myModal').on('click',function(){
      $('form.usersreviewform').show();
      $('.reviewsuccess').hide();
@@ -812,7 +809,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
      if(user_id != ''){
       window.location.href = "<?php echo site_url();?>contactprofile/profile/"+category+"/"+slug+"/"+type;
   }else{
-      window.location = '<?php echo site_url()?>signup?url='+ btoa('<?php echo uri_string(); ?>');
+      window.location = '<?php echo site_url()?>signup?ac=' + '<?php echo $referAccountType; ?>' + '?url='+ btoa('<?php echo uri_string(); ?>');
   }
 });
 
@@ -830,7 +827,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
    });
     }
     else{
-        window.location = '<?php echo site_url()?>signup?url='+ btoa('<?php echo uri_string(); ?>');
+        window.location = '<?php echo site_url()?>signup?ac=' + '<?php echo $referAccountType; ?>' + '?url='+ btoa('<?php echo uri_string(); ?>');
     }
 });
 });
@@ -897,7 +894,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
         });
 
         $("#not_login").click(function(){
-            window.location = '<?php echo site_url()?>signup?url='+ btoa('<?php echo uri_string(); ?>');
+            window.location = '<?php echo site_url()?>signup?ac=' + '<?php echo $referAccountType; ?>' + '?url='+ btoa('<?php echo uri_string(); ?>');
         });
     });
 </script>
