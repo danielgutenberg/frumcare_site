@@ -289,30 +289,19 @@ class Signup extends CI_Controller
     }
 
     function sendemail($userdetail){
-         $config = Array(
-                          //'protocol' => 'smtp',
-                          //'smtp_host' => 'ssl://smtp.googlemail.com',
-                          //'smtp_port' => 465,
-                          //'smtp_user' => 'frumcare2015@gmail.com', //change it to yours
-                          //'smtp_pass' => 'frumcare.com', // change it to yours
-                          'mailtype' => 'html',
-                          'charset' => 'iso-8859-1',
-                          'wordwrap' => TRUE
-                        );
-         /*$config = array(
-              'mailtype' => 'html',
-              'charset' => 'iso-8859-1',
-              'wordwrap' => TRUE
-            );*/
-
-       $this->load->library('email',$config);
-       $this->email->set_newline("\r\n");
-        $this->email->from('info@frumcare.com', 'Frumcare');
-        $this->email->to($userdetail['email']);
-      
-        $this->email->subject('Email verified successfully');
-        $this->email->message($this->load->view('emails/emailverified',$userdetail,TRUE));
-        $this->email->send();
+        $msg = $this->load->view('emails/emailverified',$userdetail,TRUE);
+        
+        $param = array(
+            'subject'     => 'Email verified successfully',
+            'from'        => SITE_EMAIL,
+            'from_name'   => SITE_NAME,
+            'replyto'     => SITE_EMAIL,
+            'replytoname' => SITE_NAME,
+            'sendto'      => $userdetail['email'],
+            'message'     => $msg
+        );
+        
+        sendemail($param);
     }
     
     function setUpInitialAlert($location, $lat, $lng)
