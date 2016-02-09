@@ -1847,6 +1847,7 @@ class User extends CI_Controller
             
         $insert1 = array(
             'marital_status' => isset($_POST['marital_status'])?$_POST['marital_status']:'',
+            'neighbour' => isset($_POST['neighborhood'])?$_POST['neighborhood']:'',
             'location' => isset($_POST['location'])?$_POST['location']:'',
             'lat' => isset($_POST['lat'])?$_POST['lat']:'',
             'lng' => isset($_POST['lng'])?$_POST['lng']:'',
