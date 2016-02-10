@@ -33,8 +33,6 @@
 
 			<?php $this->load->view('frontend/left_navbar/fields/save_search'); ?>
 
-			</form>
-		</div>
-</div>	 
-	  </div>
+		</form>
+</div>
 

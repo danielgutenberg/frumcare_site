@@ -48,6 +48,3 @@
 
 			</form>
 		  </div>
-        </div>
-	 		
-	  </div>

@@ -36,5 +36,3 @@
 
 			</form>
 		</div>
-</div>	 
-	  </div>

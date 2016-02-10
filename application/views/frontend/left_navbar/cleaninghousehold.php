@@ -21,8 +21,9 @@
                 <div class="checkbox"><input type="checkbox" value="Cleaning and dusting furniture" class="willing_to_work" <?php if(in_array("Cleaning and dusting furniture",$willing)){?> checked="checked" <?php } ?>>Cleaning and dusting furniture</div>
                 <div class="checkbox"><input type="checkbox" value="Cleaning refrigerator freezer" class="willing_to_work" <?php if(in_array("Cleaning refrigerator freezer",$willing)){?> checked="checked" <?php } ?>>Cleaning refrigerator / freezer</div>                
                 <div class="checkbox"><input type="checkbox" value="Cleaning oven stove" class="willing_to_work" <?php if(in_array("Cleaning oven stove",$willing)){?> checked="checked" <?php } ?>>Cleaning oven / stove</div>
-                <div class="checkbox"><input type="checkbox" value="Pesach Cleaning" class="willing_to_work" <?php if(in_array("Pesach Cleaning",$willing)){?> checked="checked" <?php } ?>>Pesach Cleaning<div>
+                <div class="checkbox"><input type="checkbox" value="Pesach Cleaning" class="willing_to_work" <?php if(in_array("Pesach Cleaning",$willing)){?> checked="checked" <?php } ?>>Pesach Cleaning</div>
 	 		</div>
+	 		
 	 		<?php $this->load->view('frontend/left_navbar/fields/save_search'); ?>
 
 			</form>
