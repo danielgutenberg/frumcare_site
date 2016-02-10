@@ -165,7 +165,7 @@ class Common_care_model extends CI_Model
 		     $sql .=" and tbl_user.gender=".$search['gender_of_caregiver'];
 		}
 		if($search['gender_of_careseeker'] && $search['gender_of_careseeker'] != 3 ){                
-		     $sql .=" and tbl_userprofile.gender=".$search['gender_of_careseeker'];
+		     $sql .=" and tbl_userprofile.gender_of_careseeker=".$search['gender_of_careseeker'];
 		}
 
 		if($language!=''){
