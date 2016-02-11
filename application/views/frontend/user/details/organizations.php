@@ -196,7 +196,7 @@ $location = '';
     } 
     
     $d=array('care_type'=>$care_type,'sub_care'=>$sub_care);
-if($care_type==10){
+if($care_type==11){
     $this->load->view('frontend/user/details/organizations/daycarecenter',$d);
 }
 else if($care_type==13){

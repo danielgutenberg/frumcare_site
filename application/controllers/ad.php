@@ -30,7 +30,8 @@ class Ad extends CI_Controller
             "7" => 'therapists',
             "8" => 'cleaning-household-help',
             "9" => 'errand-runner-odd-jobs-personal-assistant-driver',
-            "10" => 'nanny-au-pair',
+            "10" => 'pediatric-baby-nurse',
+            "11" => 'day-care-center-day-camp-afternoon-activities',
             "13" => 'senior-caregiver',
             "14" => 'special-needs-caregiver',
             "15" => 'cleaning-household-help',
@@ -41,6 +42,7 @@ class Ad extends CI_Controller
             "20" => 'senior-caregiver',
             "21" => 'errand-runner-odd-jobs-personal-assistant-driver',
             "22" => 'special-needs-caregiver',
+            "23" => 'pediatric-baby-nurse',
             "24" => 'cleaning-household-help',
             "25" => 'babysitter',
             "26" => 'senior-caregiver',
@@ -59,7 +61,8 @@ class Ad extends CI_Controller
             "7" => 29,
             "8" => 24,
             "9" => 21,
-            "10" => 20,
+            "10" => 23,
+            "11" => 20,
             "13" => 26,
             "14" => 27,
             "15" => 24,
@@ -70,6 +73,7 @@ class Ad extends CI_Controller
             "20" => 5,
             "21" => 9,
             "22" => 6,
+            "23" => 10,
             "24" => 8,
             "25" => 1,
             "26" => 5,
@@ -108,7 +112,7 @@ class Ad extends CI_Controller
         if (check_user()){
             $a = get_account_details();
             $id = $a->care_type;
-            if ($id == 10){
+            if ($id == 11){
               return $data['main_content'] = 'frontend/care/giver/daycarecenter_form';
             }
             if ($id == 13){
@@ -137,7 +141,7 @@ class Ad extends CI_Controller
             if ($id == 22)
                return $data['main_content'] = 'frontend/care/seeker/specailneedcareseeker_form';
             if ($id == 23)
-                return $data['main_content'] = 'frontend/care/seeker/therapist_form';
+                return $data['main_content'] = 'frontend/care/seeker/baby_nurse_form';
             if ($id == 24)
                 return $data['main_content'] = 'frontend/care/seeker/cleaning_form';
             if ($id == 25)
@@ -476,6 +480,9 @@ class Ad extends CI_Controller
                 $data['main_content'] = 'frontend/care/giver/errand_form';
             }
             if ($id == 10){
+                $data['main_content'] = 'frontend/care/giver/baby_nurse_form';
+            }
+            if ($id == 11){
                 $data['main_content'] = 'frontend/care/giver/daycarecenter_form';
             }
             if ($id == 13){
@@ -503,7 +510,7 @@ class Ad extends CI_Controller
             if ($id == 22)
                 $data['main_content'] = 'frontend/care/seeker/specailneedcareseeker';
             if ($id == 23)
-                 $data['main_content'] = 'frontend/care/seeker/therapist_form';
+                 $data['main_content'] = 'frontend/care/seeker/baby_nurse_form';
             if ($id == 24)
                  $data['main_content'] = 'frontend/care/seeker/cleaning_form';
             if ($id == 25)

@@ -244,6 +244,9 @@
         else if($care_type==9){
             $this->load->view('frontend/user/details/individual/errand_runner');
         }
+        else if($care_type==10){
+            $this->load->view('frontend/user/details/individual/baby_nurse');
+        }
         else{
             echo "unable to load requested file";
         }

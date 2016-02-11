@@ -79,6 +79,7 @@ $route['careseekers/organization']	     = 'careseekers';
 $route['caregivers/all'] = 'common_care_controller';
 $route['caregivers/babysitter'] = 'common_care_controller/babysitter';
 $route['caregivers/nanny-au-pair'] = 'common_care_controller/nanny';
+$route['caregivers/pediatric-baby-nurse'] = 'common_care_controller/babynurse';
 $route['caregivers/nursery-playgroup-drop-off-gan'] = 'common_care_controller/nursery';
 $route['caregivers/tutor-private-lessons'] = 'common_care_controller/tutor';
 $route['caregivers/senior-caregiver'] = 'common_care_controller/senior_caregiver';
@@ -102,6 +103,7 @@ $route['jobs/special-needs-caregiver'] = 'common_care_controller/careseeker_spec
 $route['jobs/therapists'] = 'careseeker_therapist';
 $route['jobs/cleaning-household-help'] = 'common_care_controller/careseeker_cleaninghousehold';
 $route['jobs/errand-runner-odd-jobs-personal-assistant-driver'] = 'common_care_controller/careseeker_errandrunner';
+$route['jobs/pediatric-baby-nurse'] = 'common_care_controller/careseeker_babynurse';
 
 $route['jobs/workers-staff-for-childcare-facility'] = 'common_care_controller/careseeker_childcarefacility';
 $route['jobs/workers-staff-for-senior-care-facility'] = 'common_care_controller/careseeker_seniorcarefacility';

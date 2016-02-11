@@ -691,7 +691,16 @@ class User extends CI_Controller
                     else{
                         echo "Your profile already has this care type";
                     }                       
-                }                    
+                } 
+                else if($submit_id == 10){
+                      $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
+                    if($profile_check){
+                         $this->load->view('frontend/care/giver/baby_nurse_form',$data);
+                    }
+                    else{
+                        echo "Your profile already has this care type";
+                    }                       
+                } 
                 else
                     echo "You can not add job";
             }
@@ -755,7 +764,7 @@ class User extends CI_Controller
                 else if($submit_id == 23) {
                       $profile_check = $this->user_model->existing_profile_check($account_category ,$submit_id);
                     if($profile_check){
-                        $this->load->view('frontend/care/seeker/therapist_form',$data);
+                        $this->load->view('frontend/care/seeker/baby_nurse_form',$data);
                     }
                     else{
                         echo "You have already posted this job";
@@ -777,7 +786,7 @@ class User extends CI_Controller
             
             //Organizations
             if($account_category == 3) {
-                if($submit_id == 10) {
+                if($submit_id == 11) {
                       $profile_check = $this->user_model->existing_profile_check($account_category,$submit_id);
                     if($profile_check) {
                         $this->load->view('frontend/care/giver/daycarecenter_form',$data);
@@ -1198,7 +1207,7 @@ class User extends CI_Controller
         }elseif($care_type == 9 && $id == $uid){
             $data['main_content'] = ('frontend/care/giver/edit_errand_form');
         }elseif($care_type == 10 && $id == $uid){
-            $data['main_content'] = ('frontend/care/giver/edit_daycarecenter_form');
+            $data['main_content'] = ('frontend/care/giver/edit_baby_nurse_form');
         }elseif($care_type == 11 && $id == $uid){
             $data['main_content'] = ('frontend/care/giver/edit_daycarecenter_form');
         }elseif($care_type == 12 && $id == $uid){
@@ -1224,7 +1233,7 @@ class User extends CI_Controller
         }elseif($care_type == 22 && $id == $uid){
             $data['main_content'] = ('frontend/care/seeker/edit_specailneedcareseeker_form');
         }elseif($care_type == 23 && $id == $uid){
-            $data['main_content'] = ('frontend/care/seeker/edit_therapist_form');
+            $data['main_content'] = ('frontend/care/seeker/edit_baby_nurse_form');
         }elseif($care_type == 24 && $id == $uid){
             $data['main_content'] = ('frontend/care/seeker/edit_cleaning_form');
         }elseif($care_type == 25 && $id == $uid){
@@ -1447,7 +1456,8 @@ class User extends CI_Controller
                 "7" => 'therapists',
                 "8" => 'cleaning-household-help',
                 "9" => 'errand-runner-odd-jobs-personal-assistant-driver',
-                "10" => 'nanny-au-pair',
+                "10" => 'baby-nurse',
+                "11" => 'day-care-center-day-camp-afternoon-activities',
                 "13" => 'senior-caregiver',
                 "14" => 'special-needs-caregiver',
                 "15" => 'cleaning-household-help',
@@ -1458,6 +1468,7 @@ class User extends CI_Controller
                 "20" => 'senior-caregiver',
                 "21" => 'errand-runner-odd-jobs-personal-assistant-driver',
                 "22" => 'special-needs-caregiver',
+                "23" => 'baby-nurse',
                 "24" => 'cleaning-household-help',
                 "25" => 'babysitter',
                 "26" => 'senior-caregiver',

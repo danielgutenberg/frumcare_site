@@ -14,8 +14,9 @@
                 <option <?php if ($record['care_type'] == 0) echo 'selected' ?> value="0">--select--</option> 
                 <option <?php if ($record['care_type'] == 1) echo 'selected' ?> value="1">Babysitter</option>
                 <option <?php if ($record['care_type'] == 2) echo 'selected' ?> value="2">Nanny / Au-pair</option>
+                <option <?php if ($record['care_type'] == 10) echo 'selected' ?> value="10">Pediatric / Baby Nurse</option>
                 <option <?php if ($record['care_type'] == 3) echo 'selected' ?> value="3">Nursery / Playgroup / Drop off / Gan</option>
-                <option <?php if ($record['care_type'] == 10) echo 'selected' ?> value="10">Day Care Center / Day Camp / Afternoon Activities</option>
+                <option <?php if ($record['care_type'] == 11) echo 'selected' ?> value="11">Day Care Center / Day Camp / Afternoon Activities</option>
                 <option <?php if ($record['care_type'] == 4) echo 'selected' ?> value="4">Tutor/ Private lessons</option>
                 <option <?php if ($record['care_type'] == 5) echo 'selected' ?> value="5">Senior Caregiver</option>
                 <option <?php if ($record['care_type'] == 13) echo 'selected' ?> value="13">Senior Care Agency</option>                    
@@ -27,7 +28,8 @@
                 <option <?php if ($record['care_type'] == 15) echo 'selected' ?> value="15">Cleaning / household help company</option>
                 <option <?php if ($record['care_type'] == 9) echo 'selected' ?> value="9">Errand runner / odd jobs / personal assistant / driver</option>
                 <option <?php if ($record['care_type'] == 17) echo 'selected' ?> value="17">Babysitter Job</option>
-            	<option <?php if ($record['care_type'] == 18) echo 'selected' ?> value="18">Nanny / Au-pair Job</option>        
+            	<option <?php if ($record['care_type'] == 18) echo 'selected' ?> value="18">Nanny / Au-pair Job</option> 
+            	<option <?php if ($record['care_type'] == 23) echo 'selected' ?> value="23">Pediatric / Baby Nurse Job</option>
             	<option <?php if ($record['care_type'] == 19) echo 'selected' ?> value="19">Tutor / Private lessons Job</option>
             	<option <?php if ($record['care_type'] == 20) echo 'selected' ?> value="20">Senior Caregiver Job</option>        
             	<option <?php if ($record['care_type'] == 22) echo 'selected' ?> value="22">Special needs caregiver Job</option>           
@@ -62,7 +64,7 @@
         </div>  
 		<input type="hidden" class="alert_id" value="<?php echo $record['id']?>">
 		<?php
-    $s1 = $record['care_type'] > 9 && $record['care_type'] < 22 ? 'jobs' : 'caregivers';// must be caregivers, jobs, organization
+    $s1 = $record['care_type'] > 10 && $record['care_type'] < 25 ? 'jobs' : 'caregivers';// must be caregivers, jobs, organization
     $s2 = $record['care_slug']; // must be care type, job type
     $s3 = $this->uri->segment(3);
     $navbars = [
@@ -75,7 +77,8 @@
         "7" => 'therapists',
         "8" => 'cleaning',
         "9" => 'errand_runner',
-        "10" => 'daycarecenter',
+        "10" => 'babysitter',
+        "11" => 'daycarecenter',
         "13" => 'seniorcareagency',
         "14" => 'careseeker_specialneedscaregiver',
         "15" => 'cleaninghousehold',
@@ -86,6 +89,7 @@
         "20" => 'careseeker_seniorcaregiver',
         "21" => 'careseeker_errandrunner',
         "22" => 'careseeker_specialneedscaregiver',
+        "23" => 'careseeker_babysitter',
         "24" => 'careseeker_cleaninghousehold',
         "25" => 'babysitter',
         "26" => 'senior_caregiver',

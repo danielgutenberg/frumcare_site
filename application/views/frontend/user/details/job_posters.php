@@ -26,7 +26,7 @@
         $this->load->view('frontend/user/details/job/special_needs_caregiver');            
     }
     else if($care_type==23){
-        $this->load->view('frontend/user/details/job/therapist');
+        $this->load->view('frontend/user/details/job/baby_nurse');
     }
     else if($care_type==24){
         $this->load->view('frontend/user/details/job/cleaning');        

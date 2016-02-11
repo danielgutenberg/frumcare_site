@@ -13,8 +13,9 @@
             <option value="caregivers">--select--</option> 
             <option value="1" <?php if(segment(2) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
             <option value="2" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>
+            <option value="10" <?php if(segment(2) == 'pediatric-baby-nurse'){?> selected="selected" <?php }?>>Pediatric / Baby Nurse</option>
             <option value="3" <?php if(segment(2) == 'nursery-playgroup-drop-off-gan'){?> selected="selected" <?php }?>>Nursery / Playgroup / Drop off / Gan</option>
-            <option value="10" <?php if(segment(2) == 'day-care-center-day-camp-afternoon-activities'){?> selected="selected" <?php }?>>Day Care Center / Day Camp / Afternoon Activities</option>
+            <option value="11" <?php if(segment(2) == 'day-care-center-day-camp-afternoon-activities'){?> selected="selected" <?php }?>>Day Care Center / Day Camp / Afternoon Activities</option>
             <option value="4" <?php if(segment(2) == 'tutor-private-lessons'){?> selected="selected" <?php }?>>Tutor/ Private lessons</option>
             <option value="5" <?php if(segment(2) == 'senior-caregiver'){?> selected="selected" <?php }?> >Senior Caregiver</option>
             <option value="13" <?php if(segment(2) == 'senior-care-agency'){?> selected="selected" <?php }?>>Senior Care Agency</option>                    
@@ -37,11 +38,11 @@
     <select id="careId" name="service" class="service jobtype" style="width:230px">
         <option value="jobs">--select--</option> 
         <option value="17" <?php if(segment(2) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
-    	<option value="18" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>        
+    	<option value="18" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>             
+    	<option value="23" <?php if(segment(2) == 'pediatric-baby-nurse'){?> selected="selected" <?php }?>>Pediatric / Baby Nurse</option>      
     	<option value="19" <?php if(segment(2) == 'tutor-private-lessons'){?> selected="selected" <?php }?>>Tutor / Private lessons</option>
     	<option value="20" <?php if(segment(2) == 'senior-caregiver'){?> selected="selected" <?php }?>>Senior Caregiver</option>        
-    	<option value="22" <?php if(segment(2) == 'special-needs-caregiver'){?> selected="selected" <?php }?>>Special needs caregiver</option>           
-    	<?php /*<option value="23" <?php if(segment(2) == 'therapists'){?> selected="selected" <?php }?>>Therapist</option> */ ?>
+    	<option value="22" <?php if(segment(2) == 'special-needs-caregiver'){?> selected="selected" <?php }?>>Special needs caregiver</option>
     	<option value="24" <?php if(segment(2) == 'cleaning-household-help'){?> selected="selected" <?php }?>>Cleaning / household help</option>        
     	<option value="21" <?php if(segment(2) == 'errand-runner-odd-jobs-personal-assistant-driver'){?> selected="selected" <?php }?>>Errand runner / odd jobs / personal assistant / driver</option>
         <option value="25" <?php if(segment(2) == 'workers-staff-for-childcare-facility'){?> selected="selected" <?php }?>>Workers / Staff for childcare facility</option>
@@ -96,8 +97,10 @@
             if(pagelink == '8')
                 var locationaddress = 'cleaning-household-help';
             if(pagelink == '9')
-                var locationaddress = 'errand-runner-odd-jobs-personal-assistant-driver';                            
+                var locationaddress = 'errand-runner-odd-jobs-personal-assistant-driver'; 
             if(pagelink == '10')
+                var locationaddress = 'pediatric-baby-nurse';  
+            if(pagelink == '11')
                 var locationaddress = 'day-care-center-day-camp-afternoon-activities';
             if(pagelink == '13')
                 var locationaddress = 'senior-care-agency';
@@ -120,7 +123,7 @@
              if(pagelink == '22')
             	var locationaddress = 'special-needs-caregiver';
              if(pagelink == '23')
-            	var locationaddress = 'therapists';
+            	var locationaddress = 'pediatric-baby-nurse';
              if(pagelink == '24')
             	var locationaddress = 'cleaning-household-help';            
              if(pagelink == '25' || pagelink == '31')

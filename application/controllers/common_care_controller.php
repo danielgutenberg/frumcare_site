@@ -58,8 +58,12 @@
     	    $this->load_ads(9, 'Errand runner / odd jobs / personal assistant / drivers');
     	}
     	
+    	public function babynurse() {
+    	    $this->load_ads(10, 'Pediatric / Baby Nurse');
+    	}
+    	
     	public function daycarecenter() {
-    	    $this->load_ads(10, 'Day Care Center / Day Camp / Afternoon Activities');
+    	    $this->load_ads(11, 'Day Care Center / Day Camp / Afternoon Activities');
     	}
     	
     	public function seniorcareagency() {
@@ -106,6 +110,11 @@
     	public function careseeker_specialneedscaregiver()
     	{
     	    $this->load_ads(22, 'Special needs caregiver jobs', 2);
+    	}
+    	
+    	public function careseeker_babynurse()
+    	{
+    	    $this->load_ads(24, 'Pediatric / Baby Nurse jobs', 2);
     	}
     	
     	public function careseeker_cleaninghousehold()

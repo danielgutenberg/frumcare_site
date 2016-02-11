@@ -71,7 +71,7 @@ if($recordData['currency'] == 'ILS') {
                 
                 <?php
                 
-                if($this->uri->segment(4)>0 && $this->uri->segment(4)<10){
+                if($this->uri->segment(4)>0 && $this->uri->segment(4)<11){
                    if($recordData['care_type'] != 7){ ?>
                        <div class="row" style="width:425px">
                        <div class="col-xs-4">
@@ -109,12 +109,13 @@ if($recordData['currency'] == 'ILS') {
                             </div>
                    
                    <div class="col-xs-4">
+                       <?php $yearsExperienceText = ($recordData['care_type'] == 10) ? 'Years in Practice' : 'Years of Experience'; ?>
                    <?php if(!empty($recordData['experience'])){ ?>
-                           <span class="experience-wrap"><?php if ($recordData['experience']==6) {echo '5+ <span>Years of Experience</span>';} else {echo $recordData['experience']. ' <span>Years of Experience</span>'; }?></span>
+                           <span class="experience-wrap"><?php if ($recordData['experience']==6) {echo '5+ <span>' . $yearsExperienceText . '</span>';} else {echo $recordData['experience']. ' <span>' . $yearsExperienceText . '</span>'; }?></span>
                     <?php
                         }   
                         else{ ?>
-                            <span class="experience-wrap"><?php echo 'N/A'. ' <span>Years of Experience</span>';?></span>
+                            <span class="experience-wrap"><?php echo 'N/A'. ' <span>' . $yearsExperienceText . '</span>';?></span>
                         <?php
                         }
                         ?>
@@ -275,8 +276,8 @@ if($this->uri->segment(4)>16){ ?>
     </div>
     </div>
 <?php }
-if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
-    if($this->uri->segment(4) == 10 || $this->uri->segment(4) == 16) { ?>
+if($this->uri->segment(4)>10 && $this->uri->segment(4)<17){
+    if($this->uri->segment(4) == 11 || $this->uri->segment(4) == 16) { ?>
         <div class="row" style="width:425px">
         <div class="col-xs-4">
         <?php if(!empty($recordData['sub_care'])){ ?>
@@ -390,7 +391,7 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
        ){ ?>
        <h2> Meet 
             <?php 
-            if ($this->uri->segment(4) < 10) { 
+            if ($this->uri->segment(4) < 11) { 
                 echo ucfirst($recordData['name']);
             } else {
                 echo ucfirst($recordData['organization_name']);
@@ -417,14 +418,14 @@ if($this->uri->segment(4)>9 && $this->uri->segment(4)<17){
     
 </div>
 <?php
-if($recordData['care_type'] < 10){?>
+if($recordData['care_type'] < 11){?>
 <div >
     <?php $this->load->view('frontend/user/details/individual_caregiver',$recordData)?>
 </div>
 <?php
 }?>
 <?php
-if(($recordData['care_type'] > 9 && $recordData['care_type'] < 17 ) || ($recordData['care_type'] > 24)){ ?>
+if(($recordData['care_type'] > 10 && $recordData['care_type'] < 17 ) || ($recordData['care_type'] > 24)){ ?>
 <div>
     <?php $this->load->view('frontend/user/details/organizations',$recordData) ?>
 </div>
@@ -522,7 +523,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 					$id = '';
 				}
 				?>
-                <?php if($recordData['care_type'] < 10){?>
+                <?php if($recordData['care_type'] < 11){?>
                     <span class="sidebar-name-btn">
                       <a href="#" class="btn btn-primary viewcontactdetails"> Contact <?php echo $recordData['name']; ?> </a>                       </span>
                       <br />
@@ -539,7 +540,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
               </span>
               <?php
           }
-          if(($recordData['care_type'] > 9 && $recordData['care_type'] < 17 ) || ($recordData['care_type'] > 24)){ ?>
+          if(($recordData['care_type'] > 10 && $recordData['care_type'] < 17 ) || ($recordData['care_type'] > 24)){ ?>
           <span class="view-availability-btn">
               <a href="#" class="btn btn-primary viewcontactdetails">Contact <?php echo $recordData['organization_name'] ?></a>                                               
           </span>

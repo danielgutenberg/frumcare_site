@@ -32,6 +32,13 @@
         elseif($s1 == 'jobs')
             $left_navbar='careseeker_babysitter';
     }
+    
+    if($s2 == 'pediatric-baby-nurse'){
+        if($s1 == 'caregivers')
+            $left_navbar='babysitter';
+        elseif($s1 == 'jobs')
+            $left_navbar='careseeker_babysitter';
+    }
 
     if($s2 == 'nanny-au-pair'){
         if($s1 == 'caregivers')
