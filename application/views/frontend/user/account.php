@@ -56,7 +56,7 @@
                         </div>
                         
                     <?php } 
-                    if( $user_data['care_type'] == 10 ) { ?>
+                    if( $user_data['care_type'] == 11 ) { ?>
                         <div>
                             <label>Type of Organization</label>
                             <select name="sub_care">
