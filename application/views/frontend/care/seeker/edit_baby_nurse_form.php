@@ -43,6 +43,7 @@ if($detail){
     $state = $user_detail['state'];
     $country = $user_detail['country'];      
 }
+print_r($detail[0]);
 ?>
 <?php $care_type = $this->uri->segment(4);?>
 <div class="container">

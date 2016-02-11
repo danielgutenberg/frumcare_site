@@ -66,7 +66,7 @@
                 ?>
             </div>
         </div>
-        <?php $this->load->view('frontend/care/giver/fields/number_of_children', ['number_of_children' => $number_of_children]); ?>
+        <?php $this->load->view('frontend/care/giver/fields/number_of_children', ['number_of_children' => $number_of_children, 'optional_number' => $optional_number]);
         
         <div>
             <label>Ages of children willing to care for</label>

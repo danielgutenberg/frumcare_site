@@ -44,7 +44,7 @@
                                    
                                    <?php 
                                         $ct = $ud['care_type'];
-                                       if($ct < 10){
+                                       if($ct < 11){
                                             echo 'Caregiver';
                                        }elseif($ct < 17 || $ct > 24){
                                         echo 'Organization';
