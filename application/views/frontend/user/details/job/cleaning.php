@@ -58,20 +58,20 @@
         
         
         
-        <?php if(!empty($zip)){ ?>
-        <!--<tr>-->
-        <!--    <td>zip</td>-->
-        <!--    <td>-->
-        <!--        <?php //echo $zip; ?>-->
-        <!--    </td>-->
-        <!--</tr>-->
+                  <?php if(!empty($neighbour)){ ?>
+        <tr>
+            <td>Neighborhood</td>
+            <td>
+                <?php echo $neighbour; ?>
+            </td>
+        </tr>
         <?php }
         else{
             ?>
-                <!--<tr>-->
-                <!--    <td >zip </td>-->
-                <!--    <td>N/A</td>-->
-                <!--</tr>-->
+                <tr>
+                    <td >Neighborhood </td>
+                    <td>N/A</td>
+                </tr>
             <?php
           } ?>
         

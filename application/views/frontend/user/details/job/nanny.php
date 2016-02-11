@@ -54,6 +54,23 @@
                 </tr>
             <?php
           } ?>
+          
+                  <?php if(!empty($neighbour)){ ?>
+        <tr>
+            <td>Neighborhood</td>
+            <td>
+                <?php echo $neighbour; ?>
+            </td>
+        </tr>
+        <?php }
+        else{
+            ?>
+                <tr>
+                    <td >Neighborhood </td>
+                    <td>N/A</td>
+                </tr>
+            <?php
+          } ?>
         
 
         <?php if(!empty($number_of_children)){ ?>
