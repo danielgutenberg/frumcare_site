@@ -402,7 +402,6 @@ class Ad extends CI_Controller
                 'age'                   => isset($p['age'])? $p['age'] : '',
                 'gender'                => isset($p['gender'])? $p['gender'] : '',
                 'familartojewish'       => isset($p['familarwithjewish'])?$p['familarwithjewish']:'',
-                'zip'                   => isset($p['zip'])?$p['zip']:'',
                 'neighbour'             => isset($p['neighbour'])?$p['neighbour']:'',
                 'caregiver_religious_observance' => isset($p['religious_observance']) ? $p['religious_observance'] : '',
                 'smoke'                 => isset($p['smoker']) ? $p['smoker'] : 2,
