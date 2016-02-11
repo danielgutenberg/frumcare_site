@@ -102,18 +102,19 @@ $user_detail = get_user(check_user());
             </div>
         </div>
 
+
+        <div>
+            <label>Age of Tutor wanted</label>
+            <div class="form-field">
+            <input type="text" name="caregiverage_from" value="" placeholder="Age From" style="width:25%"> to  <input type="text" name="caregiverage_to" value="" placeholder="Age To" style="width:25%">
+            </div>
+        </div>
         <div>
             <label>Gender of tutor wanted</label>
             <div class="form-field">
                 <div class="radio"><input type="radio" value="1" name="gender_of_caregiver" checked> Male</div>
                 <div class="radio"><input type="radio" value="2" name="gender_of_caregiver"> Female</div>
                 <div class="radio"><input type="radio" value="3" name="gender_of_caregiver"> Any</div>
-            </div>
-        </div>
-        <div>
-            <label>Age of Tutor wanted</label>
-            <div class="form-field">
-            <input type="text" name="caregiverage_from" value="" placeholder="Age From" style="width:25%"> to  <input type="text" name="caregiverage_to" value="" placeholder="Age To" style="width:25%">
             </div>
         </div>
         <div>

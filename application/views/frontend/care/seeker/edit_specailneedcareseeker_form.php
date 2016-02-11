@@ -121,14 +121,7 @@ if($detail){
     </div>
 
     <h2>Additional Requirements</h2>
-    <div>
-        <label>Gender of caregiver</label>
-        <div class="form-field">
-            <div class="radio" ><input type="radio" value="1" name="gender_of_caregiver" <?php if(in_array('1',$gender_of_caregiver)){?> checked="checked" <?php } ?>> Male</div>
-            <div class="radio" ><input type="radio" value="2" name="gender_of_caregiver" <?php if(in_array('2',$gender_of_caregiver)){?> checked="checked" <?php } ?>> Female</div>
-            <div class="radio" ><input type="radio" value="3" name="gender_of_caregiver" <?php if(in_array('3',$gender_of_caregiver)){?> checked="checked" <?php } ?>> Any</div>
-        </div>
-    </div>
+
     <div>
         <label>Languages necessary</label>
         <div class="form-field">
@@ -157,6 +150,14 @@ if($detail){
         <label>Caregiver age</label>
         <div class="form-field">
         <input type="text" name="caregiverage_from" value="<?php echo isset($caregiverage_from)?$caregiverage_from:'';?>" placeholder="Age From" style="width:25%" class=""> to  <input type="text" name="caregiverage_to" value="<?php echo isset($caregiverage_to)?$caregiverage_to:'';?>" placeholder="Age To" style="width:25%" class="">
+        </div>
+    </div>
+    <div>
+        <label>Gender of caregiver</label>
+        <div class="form-field">
+            <div class="radio" ><input type="radio" value="1" name="gender_of_caregiver" <?php if(in_array('1',$gender_of_caregiver)){?> checked="checked" <?php } ?>> Male</div>
+            <div class="radio" ><input type="radio" value="2" name="gender_of_caregiver" <?php if(in_array('2',$gender_of_caregiver)){?> checked="checked" <?php } ?>> Female</div>
+            <div class="radio" ><input type="radio" value="3" name="gender_of_caregiver" <?php if(in_array('3',$gender_of_caregiver)){?> checked="checked" <?php } ?>> Any</div>
         </div>
     </div>
 

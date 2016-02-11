@@ -150,16 +150,7 @@
             <?php
           } ?>
         
-        <tr>
-            <td>Gender of caregiver wanted</td>
-            <td>
-                <?php  
-                if($gender_of_caregiver == 1) echo "Male";
-                elseif($gender_of_caregiver == 2) echo "Female";
-                else echo "Any";
-                ?>
-            </td>
-        </tr>
+
         
         <?php if(!empty($language)){ ?>
         <?php $language = explode(',',$language); ?>
@@ -213,6 +204,16 @@
             } ?>
         </td>
     </tr>
+            <tr>
+            <td>Gender of caregiver wanted</td>
+            <td>
+                <?php  
+                if($gender_of_caregiver == 1) echo "Male";
+                elseif($gender_of_caregiver == 2) echo "Female";
+                else echo "Any";
+                ?>
+            </td>
+        </tr>
         <?php if(!empty($rate)){ ?>    
         <?php $rate_type = explode(',',$rate_type)?>
         <tr>

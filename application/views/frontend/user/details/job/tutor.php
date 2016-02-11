@@ -178,16 +178,7 @@
             <?php
           } ?>
         
-        <tr>
-            <td>Gender of tutor wanted</td>
-            <td>
-                <?php  
-                if($gender_of_caregiver == 1) echo "Male";
-                elseif($gender_of_caregiver == 2) echo "Female";
-                else echo "Any";
-                ?>
-            </td>
-        </tr>
+
         
         <tr>
         <td>Age of Tutor wanted</td>
@@ -201,6 +192,16 @@
             } ?>
         </td>
     </tr>
+            <tr>
+            <td>Gender of tutor wanted</td>
+            <td>
+                <?php  
+                if($gender_of_caregiver == 1) echo "Male";
+                elseif($gender_of_caregiver == 2) echo "Female";
+                else echo "Any";
+                ?>
+            </td>
+        </tr>
         
         <tr>
             <td>Smoking Acceptable</td>

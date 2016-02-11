@@ -99,14 +99,7 @@ $user_detail = get_user(check_user());
 			</div>
 
 			<h2>Additional Requirements</h2>
-			<div>
-				<label>Gender of caregiver</label>
-				<div class="form-field">
-					<div class="radio"><input type="radio" value="1" name="gender_of_caregiver" checked> Male</div>
-					<div class="radio"><input type="radio" value="2" name="gender_of_caregiver"> Female</div>
-                    <div class="radio"><input type="radio" value="3" name="gender_of_caregiver"> Any</div>
-				</div>
-			</div>
+
 
 			<div>
 				<label>Languages necessary</label>
@@ -135,6 +128,14 @@ $user_detail = get_user(check_user());
 				<label>Age of Caregiver wanted</label>
 				<div class="form-field">
                     <input type="text" name="caregiverage_from" style="width:25%" placeholder="Age From"> to  <input type="text" name="caregiverage_to" style="width:25%" placeholder="Age To">
+				</div>
+			</div>
+			<div>
+				<label>Gender of caregiver</label>
+				<div class="form-field">
+					<div class="radio"><input type="radio" value="1" name="gender_of_caregiver" checked> Male</div>
+					<div class="radio"><input type="radio" value="2" name="gender_of_caregiver"> Female</div>
+                    <div class="radio"><input type="radio" value="3" name="gender_of_caregiver"> Any</div>
 				</div>
 			</div>
 			
