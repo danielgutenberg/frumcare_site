@@ -78,23 +78,6 @@ if(($this->uri->segment(2) != 'new_profile')){?>
                 <div class="checkbox"><input type="checkbox" value="Asap" name="availability[]"/> Asap</div>
                 <div class="checkbox"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date
                  <input  type="text" name="start_date" id="textbox1" autocomplete="off"/></div>
-                <label>Days / Hours</label>
-                <br>
-                 <label style="width:25%">Sun</label><input type="text" name="sunday_from" class="time" style="width:25%"> to  <input type="text" name="sunday_to" class="time" style="width:25%">
-                 <br>
-                 <br>
-                 <label style="width:25%">Mon-Thu</label><input type="text" name="mid_days_from" class="time" style="width:25%"> to  <input type="text" name="mid_days_to" class="time" style="width:25%">
-                 <br>
-                 <br>
-                 <label style="width:25%">Fri</label><input type="text" name="friday_from" style="width:25%" class="time"> to <input type="text" name="friday_to" class="time" style="width:25%">
-                 <?php /*
-                 <br>
-                 Vacation Days (Please specify vacation days)
-                 <br>
-                 <input type="text" name="vacation_days" value="" placeholder="Vacation Days">
-
-                <br>
-                */ ?>
                 </div>
             </div>
             <div>

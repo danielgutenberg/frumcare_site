@@ -122,17 +122,6 @@
                <div class="checkbox"><input type="checkbox" value="Full Time" name="availability[]"> Full Time</div>
                <div class="checkbox"><input type="checkbox" value="Part Time" name="availability[]"> Part Time</div>
                <div class="checkbox"><input type="checkbox" value="Substitute" name="availability[]"> Substitute</div>
-               <label>Days / Hours</label>
-               <br>
-               <label style="width:25%">Sun</label><input type="text" name="sunday_from" class="time" style="width:25%"> to <input type="text" name="sunday_to" class="time" style="width:25%">
-               <br>
-               <br>
-               <label style="width:25%">Mon-Thu</label><input type="text" name="mid_days_from" class="time" style="width:25%"> to <input type="text" name="mid_days_to" class="time" style="width:25%">
-               <br>
-               <br>
-               <label style="width:25%">Fri</label><input type="text" name="friday_from" style="width:25%" class="time"> to <input type="text" name="friday_to" class="time" style="width:25%">
-               <br>
-               <br>
                <div class="checkbox"><input type="checkbox" value="Asap" name="availability[]"/> Asap</div>
                <div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date <input type="text" name="start_date" id="dateTextbox"/></div>
             </div>
