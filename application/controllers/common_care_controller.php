@@ -114,7 +114,7 @@
     	
     	public function careseeker_babynurse()
     	{
-    	    $this->load_ads(24, 'Pediatric / Baby Nurse jobs', 2);
+    	    $this->load_ads(23, 'Pediatric / Baby Nurse jobs', 2);
     	}
     	
     	public function careseeker_cleaninghousehold()
