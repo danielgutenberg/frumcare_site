@@ -760,7 +760,6 @@ class User_model extends CI_Model
                             'age' => isset($p['age'])? $p['age'] : $user_data[0]['age'],
                             'location' => isset($p['location'])? $p['location'] : $user_data[0]['location'],
                             'name' => isset($p['name']) ? $p['name'] : $user_data[0]['name'],
-                            'zip' => isset($p['zip']) ? $p['zip'] : $user_data[0]['zip'],
                             'neighbour' => isset($p['neighbour']) ? $p['neighbour'] : $user_data[0]['neighbour'],
                             'lat'=>isset($p['lat']) ? $p['lat'] : $user_data[0]['lat'],
                             'lng'=>isset($p['lng']) ? $p['lng'] : $user_data[0]['lng'],
