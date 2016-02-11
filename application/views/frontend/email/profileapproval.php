@@ -31,7 +31,7 @@
             <div class="clearfix"></div>
             <br/>
             <div class="meet-caregivers-clients">
-                   <?php if($this->uri->segment(4) < 10 || ($this->uri->segment(4)>16 && $this->uri->segment(4) < 24)){ ?>
+                   <?php if($this->uri->segment(4) < 11 || ($this->uri->segment(4)>16 && $this->uri->segment(4) < 24)){ ?>
                    <h2> Meet 
                         <?php echo $recordData['name'];?>
                     </h2>
@@ -54,14 +54,14 @@
                 </p>
             </div>        
             <?php 
-            if($recordData['care_type'] < 10){?>
+            if($recordData['care_type'] < 11){?>
             <div >                        
                 <?php $this->load->view('frontend/user/details/individual_caregiver',$recordData)?>
             </div>
             <?php
             }?>
             <?php 
-            if(($recordData['care_type'] > 9 && $recordData['care_type'] < 17 ) || ($recordData['care_type'] > 24)){ ?>
+            if(($recordData['care_type'] > 10 && $recordData['care_type'] < 17 ) || ($recordData['care_type'] > 24)){ ?>
             <div>                    
                 <?php $this->load->view('frontend/user/details/organizations',$recordData) ?>
             </div>
