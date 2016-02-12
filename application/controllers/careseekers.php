@@ -28,7 +28,6 @@
 	        $data['recordData']     = $details;
 	        $data['title']          = 'Jobs Details';
 	        $data['caretypes']      = $this->caretype_model->getAllCareType();
-	        $data['availablility']  = $this->user_model->getCurrentUserTimeTable($details['id']);
 	        $data['number_reviews'] = $this->review_model->countReviewById($details['id']);
 	        $data['userlog']        = $this->user_model->getUserLogById($details['user_id']);
 	        $data['reviewdatas']    = $this->review_model->getAllReviews($details['id']);
