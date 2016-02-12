@@ -377,3 +377,16 @@ $(function(){
     });
     
 </script>
+<script>
+    $(document).ajaxSend(function(elm, xhr, s){
+        if (s.data instanceof FormData) {
+            s.data.append('<?php echo $this->security->get_csrf_token_name(); ?>', '<?php echo $this->security->get_csrf_hash(); ?>')
+        } else {
+            if(s.data){
+    
+                s.data += '&';
+            }
+            s.data += '<?php echo $this->security->get_csrf_token_name(); ?>=<?php echo $this->security->get_csrf_hash(); ?>';
+        }
+    });
+</script>

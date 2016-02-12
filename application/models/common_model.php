@@ -86,7 +86,14 @@ class Common_Model extends CI_Model
         $sql = "select contact_email1, contact_email2,contact_email3,contact_email4,contact_email5 from tbl_website_config where enable_notifications = 1";
         $query = $this->db->query($sql);
         $res = $query->result_array();
-        return $res;
+        
+        $receiveremail = '';                    
+        foreach($res as $e1){
+            $receiveremail .= $e1['email1'].',';                        
+        }
+        $receiveremail = substr_replace($receiveremail ,"",-1);
+        
+        return $receiveremail;
     }
 
     public function getCountries(){

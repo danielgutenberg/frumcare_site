@@ -6,7 +6,10 @@
 </ol> 
 
 <div class="container">
-<form action="<?php echo site_url();?>ad/registeruserdetails" id="personal-details-form" method="post">
+<?php
+    $attributes = array('id' => 'personal-details-form', 'enctype' => "multipart/formdata");
+    echo form_open('ad/registeruserdetails', $attributes);
+?>
     <div class="ad-form-container">
         <h1 class="step2">
             Step 2: Organization Info 

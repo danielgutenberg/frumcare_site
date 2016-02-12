@@ -8,8 +8,11 @@
             </div>
             <h2>Contact by email</h2>
             <h3>Enter your details</h3>
-            <?php user_flash(); ?>
-            <form action="<?php echo site_url();?>contactprofile/profile/<?php echo $category.'/'.$user['uri'] . '/' . $careType?>" method="post" id="contact_form" enctype="multipart/form-data">
+            <?php 
+                user_flash(); 
+                $attributes = array('id' => 'contact_form', 'enctype' => 'multipart/form-data');
+                echo form_open('contactprofile/profile/' . $category. '/' .$user['uri'] . '/' . $careType, $attributes);
+            ?>
                 <div class="contact-profile">
                     <label>Name</label>
                     <input type="text" name="name" class="required">

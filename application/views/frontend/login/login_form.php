@@ -5,7 +5,12 @@
         Login
     </h2>
     <div class="sign-in-form col-sm-4 col-sm-offset-4">
-        <form action="" method="post" id="login-form">
+    <?php
+        $attributes = array('id' => 'login-form');
+        echo form_open('login', $attributes);
+    ?>
+
+            <input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
             <input type="text" name="email" placeholder="Email" class="required email col-xs-12" style="min-width:330px"/>
             <input type="password" name="passwd" placeholder="Password" class="required col-xs-12" style="min-width:330px"/>
             <span class="submit-success-btn col-xs-12"><input type="submit" class="btn btn-success" value="Sign In" style="min-width:330px; margin-left:-15px"/></span>
@@ -89,10 +94,11 @@
     FB.api('/me?fields=email', function(response) {
         var link = '<?php echo site_url("login/facebook")?>'
         var email = response.email
-        data = {
+        var data = {
             code: accessToken,
             email: email,
-            id: response.id
+            id: response.id,
+            '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
         }
         $.ajax({
             url: link,
@@ -120,9 +126,10 @@
     
     var authenticate = function(token, email) {
         var link = '<?php echo site_url("login/google")?>'
-        data = {
+        var data = {
             code: token,
             email: email,
+            '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
         }
         $.ajax({
             url: link,

@@ -3,7 +3,7 @@
     <?php echo $this->breadcrumbs->show();?>
     <div class="dashboard-wrappers">
         <div class="dashboard-left float-left">
-                <?php $this->load->view('frontend/user/dashboard_nav.php');?>
+                <?php $this->load->view('frontend/user/dashboard/nav.php');?>
         </div><!--dashboard-left-->
 
             <div class="dashboard-right float-right">
@@ -12,7 +12,10 @@
             </div>
             <?php flash(); ?>
             <div class="sign-up-form password-wrapper">
-                <form action="" method="post" id="change-password">
+                <?php
+                    $attributes = array('id' => 'change-password');
+                    echo form_open('', $attributes);
+                ?>
                     <input type="password" name="npass" id="npass" placeholder="New Password" class="required"/>
                     <input type="password" name="cpass" id="cpass" placeholder="Confirm Password" class="required"/>
                     

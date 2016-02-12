@@ -1,8 +1,6 @@
 <?php if (!defined('BASEPATH'))exit('No direct script access allowed');
 class Ad extends CI_Controller
 {
-    
-    
     function __construct()
     {
         parent::__construct();
@@ -18,6 +16,7 @@ class Ad extends CI_Controller
         $this->load->model('common_care_model');
         $this->load->model('email_template_model');
         $this->load->model('refrence_model');
+        $this->load->model('profile_model');
         $this->load->helper('url');
         
         $this->careNames = [
@@ -112,22 +111,16 @@ class Ad extends CI_Controller
         if (check_user()){
             $a = get_account_details();
             $id = $a->care_type;
-            if ($id == 11){
-              return $data['main_content'] = 'frontend/care/giver/daycarecenter_form';
-            }
-            if ($id == 13){
-              return  $data['main_content'] = 'frontend/care/giver/seniorcareagency_form';
-            }
-            if ($id == 14){
-              return  $data['main_content'] = 'frontend/care/giver/specialneedscenter_form';
-            }
-            if ($id == 15){
-               return $data['main_content'] = 'frontend/care/giver/cleaningcompany_form';
-            }
-            if ($id == 16){
-              return  $data['main_content'] = 'frontend/care/giver/seniorcarecenter_form';
-            }
-
+            if ($id == 11)
+                return $data['main_content'] = 'frontend/care/giver/daycarecenter_form';
+            if ($id == 13)
+                return $data['main_content'] = 'frontend/care/giver/seniorcareagency_form';
+            if ($id == 14)
+                return $data['main_content'] = 'frontend/care/giver/specialneedscenter_form';
+            if ($id == 15)
+                return $data['main_content'] = 'frontend/care/giver/cleaningcompany_form';
+            if ($id == 16)
+                return $data['main_content'] = 'frontend/care/giver/seniorcarecenter_form';
             if ($id == 17)
                 return $data['main_content'] = 'frontend/care/seeker/babysitter_form';
             if ($id == 18)
@@ -139,7 +132,7 @@ class Ad extends CI_Controller
             if ($id == 21)
                 return $data['main_content'] = 'frontend/care/seeker/errand_form';
             if ($id == 22)
-               return $data['main_content'] = 'frontend/care/seeker/specailneedcareseeker_form';
+                return $data['main_content'] = 'frontend/care/seeker/specailneedcareseeker_form';
             if ($id == 23)
                 return $data['main_content'] = 'frontend/care/seeker/baby_nurse_form';
             if ($id == 24)
@@ -157,53 +150,10 @@ class Ad extends CI_Controller
 
     public function registeruserdetails(){
         if ($_POST) {
-            $p = $_POST;
-            $language = '';
-            if (isset($p['language'])) {
-                $language = join(',', $p['language']);
-            }
-
-            $contact_number = isset($p['contact_number'])? $p['contact_number'] : '';
-            $numberwithcountrycode = '+1-'.$contact_number;
-
-            $insert = array(
-                'marital_status'           => isset($p['marital_status'])? $p['marital_status'] : '',
-                'smoker'                   => isset($p['smoker']) ? $p['smoker'] : 2,
-                'religious_observance'     => isset($p['religious_observance']) ? $p['religious_observance'] : '',
-                'shul_membership'          => isset($p['shul_membership']) ? $p['shul_membership'] : '',
-                'subjects'                 => isset($p['major_subject'])?$p['major_subject']:'',
-                'language'                 => $language
-            );
-
-            $insert_new = array(
-                'marital_status'                 => isset($p['marital_status'])? $p['marital_status'] : '', 
-                'age'                            => isset($p['age'])? $p['age'] : '',
-                'caregiver_religious_observance' => isset($p['religious_observance']) ? $p['religious_observance'] : '',
-                'caregiver_language'             => $language,
-                'gender'                         => isset($p['gender'])? $p['gender'] : '',
-                'contact_number'                 => $numberwithcountrycode,
-                'profile_picture'                => isset($p['profile_picture']) ? $p['profile_picture'] : '',
-                'profile_picture_status'         => isset($p['profile_picture']) ? 1 : 0,
-                'neighbour'                      => isset($p['neighbour'])?$p['neighbour']:'',
-                'name_of_owner'                  => isset($p['name_of_owner'])?$p['name_of_owner']:'',
-                'profile_picture_owner'          => isset($p['profile_picture_owner'])?$p['profile_picture_owner']:'',
-                'smoke'                          => isset($p['smoker']) ? $p['smoker'] : 2,
-                'hasAd'                          => 1,
-                'familartojewish'                => isset($p['familartojewish']) ? $p['familartojewish'] : 0,
-                'education_level'                => isset($p['education_level']) ? $p['education_level'] : '',
-                'educational_institution'        => isset($p['educational_institution']) ? $p['educational_institution'] : '',
-                'city'                           => $p['city'],
-                'country'                        => $p['country'],
-                'state'                          => $p['state'],
-                'location'                       => $p['location'],
-                'lat'                            => $p['lat'],
-                'lng'                            => $p['lng'],
-            );
-            
+            $_POST['hasAd'] = 1;
             if (check_user()) {
-                $q = $this->common_model->update('tbl_user', $insert_new, array('id' => check_user()));
-                $q = $this->common_model->update('tbl_userprofile', $insert, array('user_id' => check_user()));
-                
+                $q = $this->user_model->edit_user($_POST, check_user());
+                $q = $this->profile_model->edit_profile_by_user_id($_POST, check_user());
             }
 
             if ($p['account_category'] == 1)
@@ -227,208 +177,16 @@ class Ad extends CI_Controller
     function add_careseeker_step2(){
         if ($_POST) {
             $p = $_POST;
-            $language = false;
-            $looking_to_work = '';
-            $wiling_to_work = '';
-            $training = '';
-            $availability = '';
-            $subjects = '';
-            $conditions = '';
-            $age_group = '';
-            if (isset($p['conditions_of_patient'])) {
-                $conditions = join(',', $p['conditions_of_patient']);
-            }
-            if (isset($p['subjects'])) {
-                $subjects = join(',', $p['subjects']);
-            }
-            if (isset($p['language'])) {
-                $language = join(',', $p['language']);
-            }
-            if (isset($p['looking_to_work'])) {
-                $looking_to_work = join(',', $p['looking_to_work']);
-            }
-            if (isset($p['willing_to_work'])) {
-                $willing_to_work = join(',', $p['willing_to_work']);
-            }
-            if (isset($p['training'])) {
-                $training = join(',', $p['training']);
-            }
-            if (isset($p['availability'])) {
-                $availability = join(',', $p['availability']);
-            }
-
-            if (isset($p['age_group'])){
-                $age_group = join(',',$p['age_group']);
-            }
-            if (isset($p['optional_number'])){
-                $optional_number = join(',',$p['optional_number']);
-            }
-
-            if (isset($p['rate_type'])){
-                $rate_type = join(',',$p['rate_type']);
-            }
+            $p['hasAd'] = 1;
 
             if (isset($p['photo_of_child'])){
+                $p['photo_status'] = 1;
                 $p['profile_picture']=$p['photo_of_child'];
             }
 
-
-            $insert = array(
-                'subjects'              => $subjects,
-                'language'              => $language,
-                'looking_to_work'       => $looking_to_work,
-                'willing_to_work'       => $willing_to_work,
-                'type_of_therapy'       => isset($p['type_of_therapy']) ? $p['type_of_therapy'] : '',
-                'licence_information'   => isset($p['licence_information']) ? $p['licence_information'] : '',
-                'accept_insurance'      => isset($p['accept_insurance']) ? $p['accept_insurance'] : 2,
-                'established'           => isset($p['established']) ? $p['established'] : '',
-                'certification'         => isset($p['certification']) ? $p['certification'] : '',
-                'number_of_children'    => isset($p['number_of_children']) ? $p['number_of_children'] : '',
-                'number_of_staff'       => isset($p['number_of_staff']) ? $p['number_of_staff'] : '',
-                'age_group'             => $age_group,
-                'experience'            => isset($p['experience']) ? $p['experience'] : '',
-                'training'              => $training,
-                'hourly_rate'           => isset($p['hourly_rate']) ? $p['hourly_rate'] : '',
-                'availability'          => $availability,
-                'profile_description'   => isset($p['profile_description']) ? $p['profile_description'] : '',
-                'religious_observance'  => isset($p['religious_observance']) ? $p['religious_observance'] : '',
-                'agree_bg_check'        => isset($p['bg_check'])? $p['bg_check'] : '',
-                'driver_license'        => isset($p['driver_license']) ? 1 : 0,
-                'vehicle'               => isset($p['vehicle']) ? 1 : 0,
-                'pick_up_child'         => isset($p['pick_up_child']) ? 1 : 0,
-                'cook'                  => isset($p['cook']) ? 1 : 0,
-                'basic_housework'       => isset($p['basic_housework']) ? 1 : 0,
-                'sick_child_care'       => isset($p['sick_child_care']) ? 1 : 0,
-                'homework_help'         => isset($p['homework_help']) ? 1 : 0,
-                'on_short_notice'       => isset($p['on_short_notice']) ? 1 : 0,
-                'clean'                 => isset($p['clean']) ? 1 : 0,
-                'wash'                  => isset($p['wash']) ? 1 : 0,
-                'iron'                  => isset($p['iron']) ? 1 : 0,
-                'fold'                  => isset($p['fold']) ? 1 : 0,
-                'bath_children'         => isset($p['bath_children']) ? 1 : 0,
-                'bed_children'          => isset($p['bed_children']) ? 1 : 0,
-                'references'            => isset($p['references']) ? $p['references'] : 0,
-                'photo_of_child'        => isset($p['photo_of_child']) ? $p['photo_of_child'] : 0,
-                'start_date'            => isset($p['start_date'])?$p['start_date']:'',
-                'optional_number'       => isset($optional_number)?$optional_number:'',
-                'monthly_rate'          => isset($p['monthly_rate'])?$p['monthly_rate']:'',
-                'reference_file'        => isset($p['file'])?$p['file']:'',
-                'rate_type'             => isset($rate_type)?$rate_type:'',
-                'extra_field'           => isset($extra_field) ? $extra_field : '',
-                'sub_care'              => isset($p['sub_care']) ? $p['sub_care'] : '',
-                // added on 28 dec 2014 by santosh
-                'created_time'  => strtotime('now'),
-                'licence_information' => isset($p['licence_information'])?$p['licence_information']:'',
-                'sunday_from'   => isset($p['sunday_from'])?$p['sunday_from']:'',
-                'sunday_to'     => isset($p['sunday_to'])?$p['sunday_to']:'',
-                'mid_days_from' => isset($p['mid_days_from'])?$p['mid_days_from']:'',
-                'mid_days_to'   => isset($p['mid_days_to'])?$p['mid_days_to']:'',
-                'friday_from'   => isset($p['friday_from'])?$p['friday_from']:'',
-                'friday_to'     => isset($p['friday_to'])?$p['friday_to']:'',
-                'vacation_days' => isset($p['vacation_days'])?$p['vacation_days']:'',
-                'pdf'           => isset($p['pdf'])?$p['pdf']:'',
-                'extended_hrs'  => isset($p['extended_hrs_available'])?$p['extended_hrs_available']:'',
-                'flexible_hours'=> isset($p['flexible_hours'])?$p['flexible_hours']:'',
-                'rate' => isset($p['rate']) && isset($p['rate']) ?$p['rate']:'',
-                'rate_type' => isset($rate_type) ? $rate_type:'',
-                'payment_option'    => isset($p['payment_option'])?$p['payment_option']:'',
-                'days_from' => isset($p['days_from'])?$p['days_from']:'',
-                'days_to' => isset($p['days_to'])?$p['days_to']:'',
-                'hours_from'  => isset($p['hours_from'])?$p['hours_from']:'',
-                'hours_to'=> isset($p['hours_to'])?$p['hours_to']:'',
-                'facility_pic' => $facility_pic,
-                'extra_field'       => isset($extra_field) ? $extra_field : '',
-                'conditions_of_patient' => $conditions,
-                'subjects' => $subjects,
-                'language' => $language,
-                'looking_to_work' => $looking_to_work,
-                'organiztion_name' => isset($p['organization_name'])? $p['organization_name'] : '',
-                'organization_type' => isset($p['organization_type'])? $p['organization_type'] : '',
-                'job_position' => isset($p['job_position'])? $p['job_position'] : '',
-                'willing_to_work' => isset($willing_to_work)? $willing_to_work : '',
-                'type_of_therapy' => isset($p['type_of_therapy']) ? $p['type_of_therapy'] : '',
-                'licence_information' => isset($p['licence_information']) ? $p['licence_information'] : '',
-                'accept_insurance' => isset($p['accept_insurance']) ? $p['accept_insurance'] : 2,
-                'established' => isset($p['established']) ? $p['established'] : '',
-                'certification' => isset($p['certification']) ? $p['certification'] : '',
-                'number_of_children' => isset($p['number_of_children']) ? $p['number_of_children'] : '',
-                'number_of_staff' => isset($p['number_of_staff']) ? $p['number_of_staff'] : '',
-                'number_of_rooms' => isset($p['number_of_rooms']) ? $p['number_of_rooms'] : '',
-                'age_group' => $age_group,
-                'experience' => isset($p['experience']) ? $p['experience'] : '',
-                'training' => $training,
-                'hourly_rate' => isset($p['hourly_rate']) ? $p['hourly_rate'] : '',
-                'rate' => isset($p['rate']) ? $p['rate'] : '',
-                'monthly_rate' => isset($p['monthly_rate']) ? $p['monthly_rate'] : '',
-                'availability' => $availability,
-                'religious_observance' => isset($p['religious_observance']) ? $p['religious_observance'] : '',
-                'profile_description' => isset($p['profile_description']) ? $p['profile_description'] : '',
-                'references' => isset($p['references']) ? $p['references'] : 2,
-                'references_details' => isset($p['references_details']) ? $p['references_details'] : '',
-                'agree_bg_check' => isset($p['agree_bg_check'])? $p['agree_bg_check'] : '',
-                'sunday_from' => isset($p['sunday_from']) ? $p['sunday_from'] : '',
-                'sunday_to' => isset($p['sunday_to']) ? $p['sunday_to'] : '',
-                'mid_days_from' => isset($p['mid_days_from']) ? $p['mid_days_from'] : '',
-                'mid_days_to' => isset($p['mid_days_to']) ? $p['mid_days_to'] : '',
-                'friday_from' => isset($p['friday_from']) ? $p['friday_from'] : '',
-                'friday_to' => isset($p['friday_to']) ? $p['friday_to'] : '',
-                'personal_hygiene' => isset($p['personal_hygiene']) ? $p['personal_hygiene'] : '',
-                'smoker' => isset($p['smoker']) ? $p['smoker'] : 2,
-                'gender_of_caregiver' => isset($p['gender_of_caregiver']) ? $p['gender_of_caregiver'] : '',
-                'gender_of_careseeker' => isset($p['gender_of_careseeker']) ? $p['gender_of_careseeker'] : '',
-                'driver_license' => isset($p['driver_license']) ? 1 : 0,
-                'vehicle' => isset($p['vehicle']) ? 1 : 0,
-                'pick_up_child' => isset($p['pick_up_child']) ? 1 : 0,
-                'cook' => isset($p['cook']) ? 1 : 0,
-                'basic_housework' => isset($p['basic_housework']) ? 1 : 0,
-                'sick_child_care' => isset($p['sick_child_care']) ? 1 : 0,
-                'homework_help' => isset($p['homework_help']) ? 1 : 0,
-                'on_short_notice' => isset($p['on_short_notice']) ? 1 : 0,
-                'wash' => isset($p['wash']) ? 1 : 0,
-                'iron' => isset($p['iron']) ? 1 : 0,
-                'fold' => isset($p['fold']) ? 1 : 0,
-                'bath_children' => isset($p['bath_children']) ? 1 : 0,
-                'caregiverage_from' => isset($p['caregiverage_from']) ? $p['caregiverage_from'] : '',
-                'caregiverage_to' => isset($p['caregiverage_to']) ? $p['caregiverage_to'] : '',
-                'bed_children' => isset($p['bed_children']) ? 1 : 0,
-                'optional_number'   => isset($optional_number)?$optional_number:'',
-                'rate_type'   => isset($rate_type)?$rate_type:'',
-                'contact_name' => isset($p['name']) ? $p['name'] : '',
-                'currency'            => isset($p['currency']) ? $p['currency'] : 'USD',
-            );
-
-            if (isset($p['photo_of_child'])){
-                $insert['photo_status'] = 1;
-            }
-
-            $insert_new = array(
-                'contact_number'        => isset($p['contact_number'])? $p['contact_number'] : '',
-                'age'                   => isset($p['age'])? $p['age'] : '',
-                'gender'                => isset($p['gender'])? $p['gender'] : '',
-                'familartojewish'       => isset($p['familarwithjewish'])?$p['familarwithjewish']:'',
-                'neighbour'             => isset($p['neighbour'])?$p['neighbour']:'',
-                'caregiver_religious_observance' => isset($p['religious_observance']) ? $p['religious_observance'] : '',
-                'smoke'                 => isset($p['smoker']) ? $p['smoker'] : 2,
-                'hasAd'                 => 1,
-                'profile_picture'       => $p['profile_picture'],
-                'city'                  => $p['city'],
-                'country'               => $p['country'],
-                'state'                 => $p['state'],
-                'location'              => $p['location'],
-                'lat'                   => $p['lat'],
-                'lng'                   => $p['lng'],
-            );
-            if (isset($p['name'])){
-                $uri = $this->common_model->create_slug($p['name']);
-                //$insert['uri'] = $p['uri'];
-                $insert_new['name'] = $p['name'];
-                $insert_new['uri'] = $uri;
-                $insert['contact_name'] = $p['name'];
-            }
-            
             if (check_user()) {
-               $q = $this->common_model->update('tbl_userprofile', $insert, array('user_id' => check_user()));
-               $q = $this->common_model->update('tbl_user', $insert_new, array('id' => check_user())); //by kiran
+                $q = $this->user_model->edit_user($_POST, check_user());
+                $q = $this->profile_model->edit_profile_by_user_id($_POST, check_user());
             }
             if ($q){
                 $this->notifyUser();
@@ -444,12 +202,10 @@ class Ad extends CI_Controller
             }
         }
     }
-
-    // caregiver save job details
+    
     function add_step3(){
         if (check_user()) {
             $a = get_account_details();
-        
             $id = $a->care_type;
             
             if ($id == 1){
@@ -497,30 +253,6 @@ class Ad extends CI_Controller
             if ($id == 16){
                 $data['main_content'] = 'frontend/care/giver/seniorcarecenter_form';
             }
-            if ($id == 17)
-                $data['main_content'] = 'frontend/care/seeker/babysitter_form';
-            if ($id == 18)
-                 $data['main_content'] = 'frontend/care/seeker/nanny_form';
-            if ($id == 19)
-                 $data['main_content'] = 'frontend/care/seeker/tutor_form';
-            if ($id == 20)
-                 $data['main_content'] = 'frontend/care/seeker/senior_form';
-            if ($id == 21)
-                 $data['main_content'] = 'frontend/care/seeker/errand_form';
-            if ($id == 22)
-                $data['main_content'] = 'frontend/care/seeker/specailneedcareseeker';
-            if ($id == 23)
-                 $data['main_content'] = 'frontend/care/seeker/baby_nurse_form';
-            if ($id == 24)
-                 $data['main_content'] = 'frontend/care/seeker/cleaning_form';
-            if ($id == 25)
-                 $data['main_content'] = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
-            if ($id == 26)
-                 $data['main_content'] = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
-            if ($id == 27)
-                 $data['main_content'] = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
-            if ($id == 28)
-                 $data['main_content'] = 'frontend/care/seeker/cleaningcompany_form';
             $data['title']  = 'Ad Placement Step 3';
     
             $this->load->view(FRONTEND_TEMPLATE,$data);
@@ -531,158 +263,29 @@ class Ad extends CI_Controller
     {
         if ($_POST) {
             $p = $_POST;
-            $language = false;
-            $looking_to_work = '';
-            $willing_to_work = '';
-            $training = '';
-            $availability = '';
-            $subjects = '';
-            $age_group = '';
-            if (isset($p['subjects'])) {
-                $subjects = join(',', $p['subjects']);
-            }
-            if (isset($p['language[]'])) {
-                $language = join(',', $p['language[]']);
-            }
-            if (isset($p['looking_to_work'])) {
-                $looking_to_work = join(',', $p['looking_to_work']);
-            }
-            if (isset($p['willing_to_work'])) {
-                $willing_to_work = join(',', $p['willing_to_work']);
-            }
-            if (isset($p['training'])) {
-                $training = join(',', $p['training']);
-            }
-            if (isset($p['availability'])) {
-                $availability = join(',', $p['availability']);
-            }
-            if (isset($p['age_group'])){
-                $age_group = join(',',$p['age_group']);
-            }
-            if (isset($p['optional_number'])){
-                $optional_number = join(',',$p['optional_number']);
-            }
-
-            if (isset($p['rate_type'])){
-                $rate_type = join(',',$p['rate_type']);
-            }
-            if (isset($p['extra_field'])){
-                    $extra_field = join(',',$p['extra_field']);
-            }
-            if (isset($p['facility_pic'])){
-                $facility_pic = $p['facility_pic'];
-            }else{
-                $facility_pic = '';
-            }
-
-            $insert = array(
-                'subjects'            => $subjects,
-                'language'            => $language,
-                'looking_to_work'     => $looking_to_work,
-                'type_of_therapy'     => isset($p['type_of_therapy']) ? $p['type_of_therapy'] : '',
-                'currency'            => isset($p['currency']) ? $p['currency'] : 'USD',
-                'licence_information' => isset($p['licence_information']) ? $p['licence_information'] : '',
-                'accept_insurance'    => isset($p['accept_insurance']) ? $p['accept_insurance'] : 2,
-                'established'         => isset($p['established']) ? $p['established'] : '',
-                'certification'       => isset($p['certification']) ? $p['certification'] : '',
-                'number_of_children'  => isset($p['number_of_children']) ? $p['number_of_children'] : '',
-                'number_of_staff'     => isset($p['number_of_staff']) ? $p['number_of_staff'] : '',
-                'sub_care'            => isset($p['sub_care']) ? $p['sub_care'] : '',
-                'age_group'           => $age_group,
-                'experience'          => isset($p['experience']) ? $p['experience'] : '',
-                'training'            => $training,
-                'hourly_rate'         => isset($p['hourly_rate']) ? $p['hourly_rate'] : '',
-                'availability'        => $availability,
-                'profile_description' => isset($p['profile_description']) ? $p['profile_description'] : '',
-                'religious_observance'=> isset($p['religious_observance']) ? $p['religious_observance'] : '',
-                'agree_bg_check'      => isset($p['bg_check'])? $p['bg_check'] : '',
-                'driver_license'      => isset($p['driver_license']) ? 1 : 0,
-                'vehicle'             => isset($p['vehicle']) ? 1 : 0,
-                'pick_up_child'       => isset($p['pick_up_child']) ? 1 : 0,
-                'cook'                => isset($p['cook']) ? 1 : 0,
-                'basic_housework'     => isset($p['basic_housework']) ? 1 : 0,
-                'homework_help'       => isset($p['homework_help']) ? 1 : 0,
-                'on_short_notice'     => isset($p['on_short_notice']) ? 1 : 0,
-                'clean'               => isset($p['clean']) ? 1 : 0,
-                'wash'                => isset($p['wash']) ? 1 : 0,
-                'iron'                => isset($p['iron']) ? 1 : 0,
-                'fold'                => isset($p['fold']) ? 1 : 0,
-                'photo_of_child'      => isset($p['photo_of_child']) ? $p['photo_of_child'] : 0,
-                'start_date'          => isset($p['start_date'])?$p['start_date']:'',
-                'monthly_rate'        => isset($p['monthly_rate'])?$p['monthly_rate']:'',
-                'reference_file'      => isset($p['file'])?$p['file']:'',
-                'rate_type'           => isset($rate_type)?$rate_type:'',
-                'extra_field'         => isset($extra_field) ? $extra_field : '',
-                'created_time'        => strtotime('now'),
-                'sunday_from'         => isset($p['sunday_from'])?$p['sunday_from']:'',
-                'sunday_to'           => isset($p['sunday_to'])?$p['sunday_to']:'',
-                'mid_days_from'       => isset($p['mid_days_from'])?$p['mid_days_from']:'',
-                'mid_days_to'         => isset($p['mid_days_to'])?$p['mid_days_to']:'',
-                'friday_from'         => isset($p['friday_from'])?$p['friday_from']:'',
-                'friday_to'           => isset($p['friday_to'])?$p['friday_to']:'',
-                'vacation_days'       => isset($p['vacation_days'])?$p['vacation_days']:'',
-                'pdf'                 => isset($p['pdf'])?$p['pdf']:'',
-                'extended_hrs'        => isset($p['extended_hrs_available'])?$p['extended_hrs_available']:'',
-                'flexible_hours'      => isset($p['flexible_hours'])?$p['flexible_hours']:'',
-                'rate'                => isset($p['rate']) && isset($p['rate']) ?$p['rate']:'',
-                'payment_option'      => isset($p['payment_option'])?$p['payment_option']:'',
-                'days_from'           => isset($p['days_from'])?$p['days_from']:'',
-                'days_to'             => isset($p['days_to'])?$p['days_to']:'',
-                'hours_from'          => isset($p['hours_from'])?$p['hours_from']:'',
-                'hours_to'            => isset($p['hours_to'])?$p['hours_to']:'',
-                'facility_pic'        => $facility_pic,
-                'organiztion_name'    => isset($p['organization_name'])? $p['organization_name'] : '',
-                'organization_type'   => isset($p['organization_type'])? $p['organization_type'] : '',
-                'job_position'        => isset($p['job_position'])? $p['job_position'] : '',
-                'willing_to_work'     => isset($willing_to_work)? $willing_to_work : '',
-                'number_of_rooms'     => isset($p['number_of_rooms']) ? $p['number_of_rooms'] : '',
-                'rate'                => isset($p['rate']) ? $p['rate'] : '',
-                'monthly_rate'        => isset($p['monthly_rate']) ? $p['monthly_rate'] : '',
-                'references'          => isset($p['references']) ? $p['references'] : 2,
-                'references_details'  => isset($p['references_details']) ? $p['references_details'] : '',
-                'agree_bg_check'      => isset($p['agree_bg_check'])? $p['agree_bg_check'] : '',
-                'personal_hygiene'    => isset($p['personal_hygiene']) ? $p['personal_hygiene'] : '',
-                'caregiverage_from'   => isset($p['caregiverage_from']) ? $p['caregiverage_from'] : '',
-                'caregiverage_to'     => isset($p['caregiverage_to']) ? $p['caregiverage_to'] : '',
-                'smoker'              => isset($p['smoker']) ? $p['smoker'] : 2,
-                'gender_of_caregiver' => isset($p['gender_of_caregiver']) ? $p['gender_of_caregiver'] : '',
-                'gender_of_careseeker'=> isset($p['gender_of_careseeker']) ? $p['gender_of_careseeker'] : '',
-                'sick_child_care'     => isset($p['sick_child_care']) ? 1 : 0,
-                'bath_children'       => isset($p['bath_children']) ? 1 : 0,
-                'bed_children'        => isset($p['bed_children']) ? 1 : 0,
-                'optional_number'     => isset($optional_number)?$optional_number:'',
-                'contact_name'        => isset($p['name']) ? $p['name'] : ''
-            );
-
-            $insert_new = array(
-                'hasAd' => 1,
-            );
+            $p['hasAd']  =1;
             if (check_user()) {
-                $q = $this->common_model->update('tbl_user', $insert_new, array('id' => check_user()));
-                $q = $this->common_model->update('tbl_userprofile', $insert, array('user_id' => check_user()));
+                $q = $this->user_model->edit_user($p, check_user());
+                $q = $this->profile_model->edit_profile_by_user_id($p, check_user());
             }
-            if ($q){
-                $facility_picture  = isset($p['facility_pic']) ? $p['facility_pic'] : '';
-                $this->common_model->update('tbl_userprofile', array('facility_pic'=>$facility_picture), array('id'=>check_user()));
-                
+            if ($q) {
                 $link = anchor('jobs/all', 'here');
                 $message = 'Ad posted successfully. Your ad will be placed on the site after being approved by our team. <br><span style="margin-left:159px"> Click ' . $link . ' to search for jobs in your area<span>';
                 $this->session->set_flashdata('info', $message);
-                
-                //user notification
+
                 $this->notifyUser();
 
-                //email sent to admin for approval
                 redirect('user/dashboard');
             }
-            else{
+            else {
                 $this->session->set_flashdata('info', 'Error: Ad could not be posted at this moment');
                 redirect('user/dashboard');
             }
         }
     }
 
-    public function notifyUser(){
+    public function notifyUser()
+    {
         $user_id = check_user();
         $user = get_user($user_id);
         $sendto = $user['email'];
@@ -744,26 +347,13 @@ class Ad extends CI_Controller
             $id = $alert['user_id'];
             $user = $this->user_model->getUserName($id);
             $email = $user['email'];
-            $data['main_content']   = 'frontend/caregivers/details';
-            $data['recordData']     = $details;
-            $data['title']          = 'Caregivers Details';
-            $data['caretypes']      = $this->caretype_model->getAllCareType();
-            $data['availablility']  = $this->user_model->getCurrentUserTimeTable($details['id']);
-            $data['number_reviews'] = $this->review_model->countReviewById($details['id']);
-            $data['userlog']        = $this->user_model->getUserLogById($details['user_id']);
-            $data['reviewdatas']    = $this->review_model->getAllReviews($details['id']);
-            $data['similar_types']  = $this->user_model->getSimilarPersons($details['care_type'],$details['id']);
-            $data['care_type']      = $this->caretype_model->getAllCareType();
-            $data['refrences']      = $this->refrence_model->getLatestRefrences($details['id']);
-            $data['care_id']        = $details['id'];
-        
+            
             $name = explode(' ', $user['name'])[0];
             $ac = $details['account_category'];
-            $ct = $this->correspondingTypes[$details['care_type']];
             $ad = $details['care_type'] > 16 ? 'jobs' : 'caregivers'; 
             $location = ['lat' => $details['lat'], 'lng' => $details['lng'], 'place' => $user['city']];
-            
-            $data['care_type'] = $ct;
+
+            $data['recordData']     = $details;
             $data['location'] = $location;
             $data['ad'] = $ad;
             $data['name'] = $name;
@@ -803,34 +393,15 @@ class Ad extends CI_Controller
         $superUser=$this->user_model->getSuperUser();
 
         $a = get_account_details();
-        //print_rr($a);
         $id = $a->care_type;
 
         /********************* get user profile of the current user ******************/
 
-        $emails = $this->common_model->getAdAdminEmails();
-        $receiveremail = '';
-        foreach($emails as $e1){
-            $receiveremail .= $e1['email1'].',';
-        }
-        $receiveremail = substr_replace($receiveremail ,"",-1);
+        $emails = $this->common_model->getAdminEmails();
 
         $details      = $this->user_model->getUserDetailsById($user_id,$id);
         $details['profile_id'] = $q;
-        $type = Caretype_model::getCareTypeById($details['care_type']);
-
-        $data['main_content']   = 'frontend/caregivers/details';
-        $data['recordData']     = $details;
-        $data['title']          = 'Caregivers Details';
-        $data['caretypes']      = $this->caretype_model->getAllCareType();
-        $data['availablility']  = $this->user_model->getCurrentUserTimeTable($details['id']);
-        $data['number_reviews'] = $this->review_model->countReviewById($details['id']);
-        $data['userlog']        = $this->user_model->getUserLogById($details['user_id']);
-        $data['reviewdatas']    = $this->review_model->getAllReviews($details['id']);
-        $data['similar_types']  = $this->user_model->getSimilarPersons($details['care_type'],$details['id']);
-        $data['care_type']      = $this->caretype_model->getAllCareType();
-        $data['refrences']      = $this->refrence_model->getLatestRefrences($details['id']);
-        $data['care_id'] = $details['id'];
+        $data['recordData'] = $details;
 
         $msg = $this->load->view('frontend/email/profileapproval', $data, true);
 
@@ -840,22 +411,10 @@ class Ad extends CI_Controller
             'from_name'   => SITE_NAME,
             'replyto'     => SITE_EMAIL,
             'replytoname' => SITE_NAME,
-            'sendto'      => $receiveremail,
+            'sendto'      => $emails,
             'message'     => $msg
         );
         sendemail($param);
-    }
-
-    function seoUrl($string) {
-        //Lower case everything
-        $string = strtolower($string);
-        //Make alphanumeric (removes all other characters)
-        $string = preg_replace("/[^a-z0-9_\s-]/", "", $string);
-        //Clean up multiple dashes or whitespaces
-        $string = preg_replace("/[\s-]+/", " ", $string);
-        //Convert whitespaces and underscore to dash
-        $string = preg_replace("/[\s_]/", "-", $string);
-        return $string;
     }
 
     public function approve(){
@@ -880,5 +439,357 @@ class Ad extends CI_Controller
 
         $this->load->view(FRONTEND_TEMPLATE,$data);
 
+    }
+    
+    public function addprofile()
+    {
+        $account_category     = $this->session->userdata('account_category');
+        $organization_care = $this->session->userdata('organization_care');
+        $account_details = get_account_details();
+
+        if($account_category == '1'){
+            @$title = "Add New Profile";
+        }
+
+        if($account_category == '2'){
+            @$title = "Add New Job";
+        }
+
+        if($account_category == '3'){
+            @$title = $organization_care=='1'?"Add New Profile":"Add New Job";
+        }
+
+        $this->breadcrumbs->push(@$title, site_url().'#');
+        $this->breadcrumbs->unshift('My Profile', base_url().'user/profile');
+        $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
+
+        $data = array(
+            'title' => @$title,
+            'main_content' => 'frontend/user/dashboard/my_profiles/create'
+        );
+        $this->load->view(FRONTEND_TEMPLATE,$data);
+    }
+    
+    public function new_profile()
+    {
+        if($this->input->post('id',true)){
+            $ac_type = "fd";                
+            $submit_id = $this->input->post('id',true);
+            
+            $account_category = $this->session->userdata('account_category');
+            $organization_category = $this->session->userdata('organization_care');                
+            $data['record'] = array(
+                'submit_id' => $submit_id,
+                'ac_type' => $ac_type,
+                'account_type' => $account_category,
+                'organization_care' => $organization_category,
+            );
+            if($submit_id == 1)
+                $view = 'frontend/care/giver/babysitter_form';
+            if($submit_id == 2)
+                $view = 'frontend/care/giver/nanny_form';
+            if($submit_id == 3)
+                $view = 'frontend/care/giver/nursery_form';
+            if($submit_id == 4)
+                $view = 'frontend/care/giver/tutor_form';
+            if($submit_id == 5)
+                $view = 'frontend/care/giver/senior_form';
+            if($submit_id == 6)
+                $view = 'frontend/care/giver/specialneeds_form';
+            if($submit_id == 7)
+                $view = 'frontend/care/giver/therapist_form';
+            if($submit_id == 8)
+                $view = 'frontend/care/giver/cleaning_form';
+            if($submit_id == 9)
+                $view = 'frontend/care/giver/errand_form';
+            if($submit_id == 10)
+                $view = 'frontend/care/giver/baby_nurse_form';
+            if($submit_id == 17)
+                $view = 'frontend/care/seeker/babysitter_form';
+            if($submit_id == 18)
+                $view = 'frontend/care/seeker/nanny_form';
+            if($submit_id == 19)
+                $view = 'frontend/care/seeker/tutor_form';
+            if($submit_id == 20)
+                $view = 'frontend/care/seeker/senior_form';
+            if($submit_id == 21)
+                $view = 'frontend/care/seeker/errand_form';
+            if($submit_id == 22)
+                $view = 'frontend/care/seeker/specailneedcareseeker_form';
+            if($submit_id == 23)
+                $view = 'frontend/care/seeker/baby_nurse_form';
+            if($submit_id == 24)
+                $view = 'frontend/care/seeker/cleaning_form';
+            if($submit_id == 11)
+                $view = 'frontend/care/giver/daycarecenter_form';
+            if($submit_id == 13)
+                $view = 'frontend/care/giver/seniorcareagency_form';
+            if($submit_id == 14)
+                $view = 'frontend/care/giver/specialneedscenter_form';
+            if($submit_id == 15)
+                $view = 'frontend/care/giver/cleaningcompany_form';
+            if($submit_id == 16)
+                $view = 'frontend/care/giver/seniorcarecenter_form';
+            if($submit_id == 25)
+                $view = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
+            if($submit_id == 26)
+                $view = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
+            if($submit_id == 27)
+                $view = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
+            if($submit_id == 28)
+                $view = 'frontend/care/seeker/cleaningcompany_form';
+            
+            if($this->user_model->existing_profile_check($account_category ,$submit_id)) {
+                $this->load->view($view,$data);
+            } else {
+                echo "You already have this profile type";
+            }
+        }
+    }
+    
+    public function addprofileconfirm()
+    {
+        $p = $_POST;            
+        $profile_check = $this->user_model->existing_profile_check($p['account_category'],$p['care_type']);
+        if($profile_check) {              
+            $p['user_id'] = check_user();
+            
+            $q = $this->profile_model->save_profile($p);
+            $q = $this->user_model->edit_user($p, check_user());
+            
+            if($q) {
+                $emails = $this->common_model->getAdAdminEmails();
+                
+                $details = $this->user_model->getUserDetailsById(check_user(),$p['care_type']);
+                $details['profile_id'] = $q;
+                $data['recordData']     = $details;
+                $msg = $this->load->view('frontend/email/profileapproval', $data, true);
+    
+                $param = array(
+                    'subject'     => 'A new profile has been added in Frumcare.com, approval required',
+                    'from'        => SITE_EMAIL,
+                    'from_name'   => SITE_NAME,
+                    'replyto'     => SITE_EMAIL,
+                    'replytoname' => SITE_NAME,
+                    'sendto'      => $emails,
+                    'message'     => $msg
+                );
+                sendemail($param); 
+                
+                $user_id = check_user();
+                $user = get_user($user_id);
+                $sendto = $user['email'];
+                
+                $a = get_account_details();
+                $id = $a->care_type;
+                $details = $this->user_model->getUserDetailsById($user_id,$id);
+                
+                $msg = $this->load->view('emails/adApproved', array('name' => $details['name']), true);
+                $param = array(
+                    'subject'     => 'Ad Placed Successfully',
+                    'from'        => SITE_EMAIL,
+                    'from_name'   => SITE_NAME,
+                    'replyto'     => SITE_EMAIL,
+                    'replytoname' => SITE_NAME,
+                    'sendto'      => $sendto,
+                    'message'     => $msg
+                );
+                sendemail($param);
+                
+                $profile = $this->job_or_profile();
+                if ($profile == 'job') {
+                    $link = anchor('jobs/all', 'here');
+                } else {
+                    $link = anchor('caregivers/all', 'here');
+                }
+                $message = 'Ad posted successfully. Your ad will be placed on the site after being approved by our team. <br> <span style="margin-left:159px">Click ' . $link . ' to search caregivers in your area<span>';
+                $this->session->set_flashdata('success', $message);
+                redirect('user/profile');   
+            } else {
+                $profile = $this->job_or_profile();
+                $this->session->set_flashdata('info', "Error: New $profile can not be added at this moment");
+                redirect('user/profile');    
+            }
+        } else {
+            $profile = $this->job_or_profile();
+            $this->session->set_flashdata('info',"Error: You can not add same $profile again!!");
+            redirect('user/profile');
+        }
+    }
+    
+    public function edit_profile()
+    {
+        $this->breadcrumbs->push('Edit', site_url().'#');
+        $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
+
+        $uid = $this->uri->segment(3);
+        $care_type = $this->uri->segment(4);
+        $care_id = array('care_id'=>$care_type);
+        $res = $this->user_model->current_user($care_id);
+        $usr = $this->user_model->get_user_info();
+        $id = $this->session->userdata('current_user');
+        $data['detail'] = $res;
+        $data['usr']=$usr;
+        if($care_type == 1 && $id == $uid){
+            $data['main_content'] = ('frontend/care/giver/edit_babysitter_form');
+        }elseif($care_type == 2 && $id == $uid){
+            $data['main_content'] = ('frontend/care/giver/edit_nany_form');
+        }elseif($care_type == 3 && $id == $uid){
+            $data['main_content'] = ('frontend/care/giver/edit_nursery_form');
+        }elseif($care_type == 4 && $id == $uid){
+            $data['main_content'] = ('frontend/care/giver/edit_tutor_form');
+        }elseif($care_type == 5 && $id == $uid){
+            $data['main_content'] = ('frontend/care/giver/edit_senior_form');
+        }elseif($care_type == 6 && $id == $uid){
+            $data['main_content'] = ('frontend/care/giver/edit_specialneeds_form');
+        }elseif($care_type == 7 && $id == $uid){
+            $data['main_content'] = ('frontend/care/giver/edit_therapist_form');
+        }elseif($care_type == 8 && $id == $uid){
+            $data['main_content'] = ('frontend/care/giver/edit_cleaning_form');
+        }elseif($care_type == 9 && $id == $uid){
+            $data['main_content'] = ('frontend/care/giver/edit_errand_form');
+        }elseif($care_type == 10 && $id == $uid){
+            $data['main_content'] = ('frontend/care/giver/edit_baby_nurse_form');
+        }elseif($care_type == 11 && $id == $uid){
+            $data['main_content'] = ('frontend/care/giver/edit_daycarecenter_form');
+        }elseif($care_type == 12 && $id == $uid){
+            $data['main_content'] = ('frontend/care/giver/edit_daycarecenter_form');
+        }elseif($care_type == 13 && $id == $uid){
+            $data['main_content'] = ('frontend/care/giver/edit_seniorcareagency_form');
+        }elseif($care_type == 14 && $id == $uid){
+            $data['main_content'] = ('frontend/care/giver/edit_specialneedscenter_form');
+        }elseif($care_type == 15 && $id == $uid){
+            $data['main_content'] = ('frontend/care/giver/edit_cleaningcompany_form');
+        }elseif($care_type == 16 && $id == $uid){
+            $data['main_content'] = ('frontend/care/giver/edit_seniorcarecenter_form');
+        }elseif($care_type == 17 && $id == $uid){
+            $data['main_content'] = ('frontend/care/seeker/edit_babysitter_form');
+        }elseif($care_type == 18 && $id == $uid){
+            $data['main_content'] = ('frontend/care/seeker/edit_nanny_form');
+        }elseif($care_type == 19 && $id == $uid){
+            $data['main_content'] = ('frontend/care/seeker/edit_tutor_form');
+        }elseif($care_type == 20 && $id == $uid){
+            $data['main_content'] = ('frontend/care/seeker/edit_senior_form');
+        }elseif($care_type ==21 && $id == $uid){
+            $data['main_content'] = ('frontend/care/seeker/edit_errand_form');
+        }elseif($care_type == 22 && $id == $uid){
+            $data['main_content'] = ('frontend/care/seeker/edit_specailneedcareseeker_form');
+        }elseif($care_type == 23 && $id == $uid){
+            $data['main_content'] = ('frontend/care/seeker/edit_baby_nurse_form');
+        }elseif($care_type == 24 && $id == $uid){
+            $data['main_content'] = ('frontend/care/seeker/edit_cleaning_form');
+        }elseif($care_type == 25 && $id == $uid){
+            $data['main_content'] = ('frontend/care/seeker/edit_childcare_seniorcare_specialneeds_facilities_form');
+        }elseif($care_type == 26 && $id == $uid){
+            $data['main_content'] = ('frontend/care/seeker/edit_childcare_seniorcare_specialneeds_facilities_form');
+        }elseif($care_type == 27 && $id == $uid){
+            $data['main_content'] = ('frontend/care/seeker/edit_childcare_seniorcare_specialneeds_facilities_form');
+        }elseif($care_type == 28 && $id == $uid){
+            $data['main_content'] = ('frontend/care/seeker/edit_cleaningcompany_form');
+        }else{
+            $data['main_content'] = ('frontend/care/noprofile');
+            $data['title']        = 'Edit Profile';
+        }
+        
+        $this->load->view(FRONTEND_TEMPLATE,$data);
+    }
+    
+    public function update_job_details()
+    {
+        $profileStatus = 1;
+        $care_type = $this->uri->segment(3);
+        $email = 0;
+        if($_POST) {
+            $p = $_POST;
+            $id = $this->session->userdata('current_user');
+
+            $this->db->where(array('user_id'=>$id,'care_type'=>$care_type));
+            $res = $this->db->get('tbl_userprofile');
+            $oldProfile = $res->result_array()[0];
+
+            if ($p['profile_description'] != $oldProfile['profile_description'] || $p['file'] != $oldProfile['file'] || $p['pdf'] != $oldProfile['pdf'] || $p['facility_pic'] != $oldProfile['facility_pic'] || $p['photo_of_child'] != $oldProfile['photo_of_child']) {
+                $profileStatus = 0;
+                $email = 1;
+            }
+            
+            $p['profile_status'] = $profileStatus;
+            $p['hasAd'] = 1;
+
+            if(check_user()) {
+                $q = $this->profile_model->edit_profile_by_user_id($p, check_user());
+            }
+        
+            if ($email == 1) {
+                $emails = $this->common_model->getAdminEmails();
+                
+                $details      = $this->user_model->getUserDetailsById(check_user(),$care_type);
+                $details['profile_id'] = $q;
+                
+                $data['recordData']     = $details;
+                
+                $msg = $this->load->view('frontend/email/profileapproval', $data, true);
+    
+                $param = array(
+                    'subject'     => 'A profile has been edited, approval required',
+                    'from'        => SITE_EMAIL,
+                    'from_name'   => SITE_NAME,
+                    'replyto'     => SITE_EMAIL,
+                    'replytoname' => SITE_NAME,
+                    'sendto'      => $emails,
+                    'message'     => $msg
+                );
+                sendemail($param);
+            }
+            $profile = $this->job_or_profile();
+            if($q){
+                if ($email == 1) {
+                    $this->session->set_flashdata('info', "$profile Updated successfully. Your ad will be returned to the site shortly after being approved by our team.");
+                } else {
+                    $this->session->set_flashdata('info', "$profile Updated successfully");
+                }
+                redirect('user/profile');
+            }
+            else{
+                $this->session->set_flashdata('info', "Error: $profile could not be updated at this moment");
+                redirect('user/profile');    
+            }
+        }
+    }
+      
+    public function job_or_profile()
+    {
+        $ac = $this->session->userdata('account_category');
+        $oc = $this->session->userdata('organization_care'); 
+        if($ac == 1){ 
+            $profile1='Profile';
+        }
+        if($ac ==2){ 
+            $profile1='Job';
+        }
+        if($ac=3){
+            if($oc ==1){
+                $profile1='Profile';
+            }
+            if($oc==2){
+                $profile1='Job';
+            }
+        }
+        return $profile1;
+    }
+    
+    public function delete_profile(){
+        $user_id    = $this->uri->segment(3);
+        $care_type  = $this->uri->segment(4);
+        $res = $this->user_model->delete_this_profile($user_id,$care_type);
+        $this->session->set_flashdata('info', 'Profile has been archived');
+        redirect('user/profile');
+    }
+      
+    public function unarchive_profile(){
+        $user_id    = $this->uri->segment(3);
+        $care_type  = $this->uri->segment(4);
+        $res = $this->user_model->unarchive_this_profile($user_id,$care_type);
+        $this->session->set_flashdata('info', 'Profile has been unarchived');
+        redirect('user/profile');
     }
 }

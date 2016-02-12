@@ -8,7 +8,7 @@
 		public function index(){
 
 			$data = array(
-				'main_content' =>  'frontend/howitworks/index',
+				'main_content' =>  'frontend/pages/how_it_works',
 				'title'		   => 'How it works'	
 			);
 

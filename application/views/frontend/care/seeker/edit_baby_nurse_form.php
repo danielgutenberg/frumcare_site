@@ -49,11 +49,11 @@ if($detail){
 <?php echo $this->breadcrumbs->show();?>
 
     <div class="dashboard-left float-left">
-         <?php $this->load->view('frontend/user/dashboard_nav');?>
+         <?php $this->load->view('frontend/user/dashboard/nav');?>
     </div>
     <div class="dashboard-right float-right">
 
-<form action="<?php echo site_url().'user/update_job_details/'.$care_type;?>" method="post" id="personal-details-form"> 
+<form action="<?php echo site_url().'ad/update_job_details/'.$care_type;?>" method="post" id="personal-details-form"> 
     <div class="ad-form-container float-left">
         <div class="top-welcome">
             <h2>Edit Job Details</h2>

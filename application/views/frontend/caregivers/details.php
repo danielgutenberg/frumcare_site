@@ -4,6 +4,7 @@ if($recordData['currency'] == 'ILS') {
 } else {
     $symbol = '$';
 }
+user_flash(); 
 ?>
 <div class="container">
 	<?php echo $this->breadcrumbs->show();

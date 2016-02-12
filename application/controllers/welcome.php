@@ -22,7 +22,7 @@ class Welcome extends CI_Controller {
 		$this->load->model('testimonial_model');
 		$this->load->model('common_model');
         $this->load->model('blog_model');
-        $data['main_content'] 	= 'frontend/home';
+        $data['main_content'] 	= 'frontend/pages/home';
         $data['title'] 			= 'Home';
         $data['testimonial'] 	= $this->testimonial_model->getTestiomialsForHome();
         $data['seodata']		= $this->common_model->getSEODATA();

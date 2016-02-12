@@ -13,7 +13,7 @@ class Help extends CI_Controller{
 		$this->breadcrumbs->push('Help', '/help');
 		$this->breadcrumbs->unshift('Home', base_url());
 		
-		$data['main_content'] = 'frontend/help/index';
+		$data['main_content'] = 'frontend/pages/help';
 		$data['title'] 		  = 'Help';
 		
 		$this->load->view(FRONTEND_TEMPLATE, $data);
@@ -80,22 +80,12 @@ class Help extends CI_Controller{
 		}
 	}
     function send_this_message(){        
-        $emails = $this->common_model->getAdAdminEmails();                    
-                    $receiveremail = '';                    
-                    foreach($emails as $e1){
-                        $receiveremail .= $e1['email1'].',';                        
-                    }
-                    $receiveremail = substr_replace($receiveremail ,"",-1);  //removes comma from last   
-		      $config = Array(
-                          //'protocol' => 'smtp',
-                          //'smtp_host' => 'ssl://smtp.googlemail.com',
-                          //'smtp_port' => 465,
-                          //'smtp_user' => 'frumcare2015@gmail.com', //change it to yours
-                          //'smtp_pass' => 'frumcare.com', // change it to yours
-                          'mailtype' => 'html',
-                          'charset' => 'iso-8859-1',
-                          'wordwrap' => TRUE
-                        ); 
+  
+		    $config = Array(
+              'mailtype' => 'html',
+              'charset' => 'iso-8859-1',
+              'wordwrap' => TRUE
+            ); 
             $emaildata = array();
 			$emaildata['name']    = $this->input->post('name');
 			$emaildata['email']   = $this->input->post('email');

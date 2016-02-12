@@ -49,29 +49,22 @@ class Signup extends CI_Controller
             $account_type = $exp[1];
             
             if (!($care_type > 0) || !($care_type < 35) || $data['location'] == '' || $data['lat'] == '' || $data['lng'] == '') {
-                print_rr($care_type, $data);
                 $this->session->set_flashdata('msg', 'Please enter a care type.');
                 redirect('signup');
             }
             
             $orgName = $data['account_category']  == 3 ? trim($data['name']) : '';
             
-            $insert = array(
-                'email'                 => $data['email'],
+            $insert_data = array(
                 'email_hash'            => sha1($data['email']),
                 'password'              => encrypt_decrypt('encrypt', $data['password']),
-                'original_password'     => $data['password'],
                 'name'                  => trim($data['name']),
                 'uri'                   => $uri,
                 'status'                => 1,
                 'organization_name'     => $orgName,
-                'city'                  => $data['city'],
-                'country'               => $data['country'],
-                'state'                 => $data['state'],
-                'location'              => $data['location'],
-                'lat'                   => $data['lat'],
-                'lng'                   => $data['lng'],
             );
+            
+            $insert = array_merge($data, $insert_data);
 
             if($data['account_category'] == 1){
                 $category = 'caregiver';
@@ -98,9 +91,8 @@ class Signup extends CI_Controller
             );
             
             $this->session->set_flashdata('params', $redirectData);
-
-            $this->db->insert('tbl_user', $insert);
-            $q = $this->db->insert_id();
+            
+            $q = $this->user_model->save_user($insert);
 
             $userprofile_data = array(
                 'care_type'         => $care_type,

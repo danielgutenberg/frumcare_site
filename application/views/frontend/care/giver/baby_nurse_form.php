@@ -13,7 +13,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 <?php }else{
     $this->load->helper('form');
     $attributes = array('id' => 'newJob');
-    echo form_open('user/addprofileconfirm', $attributes);
+    echo form_open('ad/addprofileconfirm', $attributes);
     if(!empty($record)){
     echo form_hidden('account_category',$record['ac_type']);
     echo form_hidden('care_type',$record['submit_id']);

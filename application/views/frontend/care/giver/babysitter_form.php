@@ -8,18 +8,22 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 </ol>
 <?php } ?>
 <div class="container">
-<?php if(($this->uri->segment(2) != 'new_profile')){?>
-    <form action="<?php echo site_url();?>ad/savejobdetails" method="post" id="personal-details-form">
-<?php }else{
-    $this->load->helper('form');
-    $attributes = array('id' => 'newJob');
-    echo form_open('user/addprofileconfirm', $attributes);
-    if(!empty($record)){
-    echo form_hidden('account_category',$record['ac_type']);
-    echo form_hidden('care_type',$record['submit_id']);
-    echo form_hidden('account_type',$record['account_type']);
-    echo form_hidden('organization_care',$record['organization_care']);
-   }} ?>
+<?php 
+    if(($this->uri->segment(2) != 'new_profile')){
+        $attributes = array('id' => 'personal-details-form');
+        echo form_open('ad/savejobdetails', $attributes);
+    } else {
+        $this->load->helper('form');
+        $attributes = array('id' => 'newJob');
+        echo form_open('ad/addprofileconfirm', $attributes);
+        if(!empty($record)){
+            echo form_hidden('account_category',$record['ac_type']);
+            echo form_hidden('care_type',$record['submit_id']);
+            echo form_hidden('account_type',$record['account_type']);
+            echo form_hidden('organization_care',$record['organization_care']);
+        }
+    } 
+?>
 <div class="ad-form-container">
 	 <?php if($this->uri->segment(2) != 'new_profile'){?>
        <div>

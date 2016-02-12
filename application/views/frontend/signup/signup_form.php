@@ -6,8 +6,7 @@ $referUrl = $_GET['url'] ? '?url="' . $_GET['url'] . '"' : '';
 if(segment(3) != '') {
     $action = 'user/edit/'.segment(3);
     $user_data = $user_data[0];
-    $fname = $user_data['name'];
-    //$mname = $user_data['middle_name'];    
+    $fname = $user_data['name'];   
     $email = $user_data['email'];
     $pass = $user_data['password'];
     $care = $user_data['care_type'];
@@ -63,15 +62,17 @@ if($this->uri->segment(2)!='edit'){
             Why sign up? 
             </h2>
             <div class="rightText" style="border:1px solid black;">
-            <!--<p>Connect with the perfect caregiver for your family on FrumCare. <br>  Get started by creating your free account now! <br></p>-->
-            <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Search quality caregivers in your area </div>
+            <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Search quality caregivers in your area</div>
             <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Set up search alerts and receive new caregiver profiles directly to your inbox</div>
             <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Post jobs and get contacted by caregivers in your area</div>
             <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Get access to exciting new features helping you with your care needs</div>
             </div>
         </div>
         <div class="sign-up-form col-xs-6 col-md-offset-0 col-xs-offset-4" style="horizontal-align:center; padding-left:0px">
-            <form role="form" id="sign-up" action="<?php echo base_url($action) ?>" method="post">
+        <?php
+            $attributes = array('id' => 'sign-up', 'role' => 'form');
+            echo form_open($action, $attributes);
+        ?>
                 <div class="care-type col-xs-12" style="padding-left:0px">I am a</div>
                 <div class="form-field col-xs-12" style="padding-left:0px">
                         <div class="radio short"><input type="radio" name="account_category" value="2" <?php if($at == 2 ){?> checked="checked" <?php } ?> class="acc_cat" id="1"> Parent</div>
@@ -153,16 +154,14 @@ if($this->uri->segment(2)!='edit'){
                          <input style="margin-top:-50px;" id="submit-btn" type="submit" class="signUpButton btn btn-success" value="<?php echo segment(3) != '' ? 'Save' : 'Sign up'; ?>"/>
                      </span>
                 </div>
-            </div>
-        
-                
             </form>
         </div>
+
     </div>
+</div>
     <?php if(segment(3) != '') { ?>
     <a href="<?php echo base_url('login/get-password/'.sha1($email).'?redirect_uri='.urlencode(current_url())) ?>">Click here</a> to change your password.
         <br />
-    <?php /* <a href="<?php echo base_url();?>user/verifyemailaddress/<?php echo sha1($email);?>" id="<?php echo $email;?>" class="verifyemail">Click here</a> to verfiy your email address. */?>
 
     <?php } ?>
     </div>
@@ -206,19 +205,6 @@ if($this->uri->segment(2)!='edit'){
     
     $(function(){
 
-        $('.verifyemail').on('keyup',function(e){
-            e.preventDefault();
-            var email = $(this).attr('id');
-                $.ajax({
-                    type:"post",
-                    url:"<?php echo base_url();?>user/verfiyemail",
-                    data:"email_address="+email,
-                    succcess:function(msg){
-                            
-                    }
-                });
-        });
-
         var account_category = $('input[name=account_category]:checked').val(); //$('.acc_cat').val();
         getAccountCat(account_category, 0);
         leftText(account_category, 0);
@@ -261,7 +247,10 @@ if($this->uri->segment(2)!='edit'){
     });
 
     function check_email(id){
-        var data = {'email': $('#' + id).val()}
+        var data = {
+            'email': $('#' + id).val(),
+
+        }
         $.ajax({
             url: '<?php echo site_url("common_ajax/check_email")?>',
             type: 'post',
