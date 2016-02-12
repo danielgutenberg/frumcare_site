@@ -110,12 +110,12 @@ $route['jobs/workers-staff-for-senior-care-facility'] = 'common_care_controller/
 $route['jobs/workers-staff-for-special-needs-facility'] = 'common_care_controller/careseeker_specialneedsfacility';
 $route['jobs/workers-for-cleaning-company'] = 'common_care_controller/careseeker_cleaningcompany';
 
-$route['jobs/details/(:any)'] = 'careseekers/details';
+$route['jobs/details/(:any)'] = 'caregivers/details';
 
 $route['caregivers/organizations'] = 'common_care_controller/organizations';
 $route['caregivers/organizations/(:any)'] = 'common_care_controller/organizations/$1';
 
-$route['testfordaniel'] = 'user/get_model';
+// $route['testfordaniel'] = 'user/get_model';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
