@@ -64,7 +64,7 @@ if($this->uri->segment(2)!='edit'){
             </h2>
             <div class="rightText" style="border:1px solid black;">
             <!--<p>Connect with the perfect caregiver for your family on FrumCare. <br>  Get started by creating your free account now! <br></p>-->
-            <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Search quality caregivers in your area</div>
+            <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Search quality caregivers in your area </div>
             <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Set up search alerts and receive new caregiver profiles directly to your inbox</div>
             <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Post jobs and get contacted by caregivers in your area</div>
             <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Get access to exciting new features helping you with your care needs</div>
