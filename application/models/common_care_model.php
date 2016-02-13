@@ -90,7 +90,7 @@ class Common_care_model extends CI_Model
          }    
     }
     
-    function filter($search,$latitude,$longitude, $organization)
+    function filter($search,$latitude,$longitude, $organization, $limit, $offset)
     {
         if(is_array($search)){
 			$care_type  		  = $search['care_type'];
@@ -314,6 +314,237 @@ class Common_care_model extends CI_Model
             $order_type = 'desc';
         }
         $sql.= " order by $sort_by $order_type";
+        
+        $sql.=" limit $limit";
+        $sql.=" offset $offset";
+		$query 	= $this->db->query($sql);
+		$res 	= $query->result_array();
+		if($res)
+			return $res;
+		else
+			return [];
+    }
+    
+    function get_count($search,$latitude,$longitude, $organization)
+    {
+        if(is_array($search)){
+			$care_type  		  = $search['care_type'];
+			$neighbour 			  = $search['neighbour'];
+			$caregiverage_from 	  = $search['caregiverage_from'];
+			$caregiverage_to 	  = $search['caregiverage_to'];
+			$gender_of_caregiver  = $search['gender_of_caregiver'];
+			$gender_of_careseeker = $search['gender_of_careseeker'];
+			$language 			  = $search['language'];
+			$observance 		  = $search['observance'];
+			$min_exp 			  = $search['min_exp'];
+			$availability		  = $search['availability'];
+			$carelocation 		  = $search['carelocation'];
+			$trainings 			  = $search['trainings'];
+			$able_to_work		  = $search['able_to_work'];
+			$driver_license		  = $search['driver_license'];
+			$vehicle			  = $search['vehicle'];
+			$available 			  = $search['available'];
+            $start_date           = $search['start_date'];
+            $able_to_work         = $search['able_to_work'];
+            $distance             = $search['distance'];
+            $sort_by              = $search['sort_by'];
+            $skills               = $search['skills'];
+		}
+		
+		$sql = "select count(*) from tbl_user left outer join  tbl_userprofile on tbl_user.id = tbl_userprofile.user_id left outer join tbl_care on tbl_care.id = tbl_userprofile.care_type where tbl_user.status = 1 and tbl_userprofile.profile_status=1";			
+
+		if ($care_type == 'caregivers') {
+		    $sql .= " and tbl_care.service_type = 1";
+		}
+		
+		if ($care_type == 'jobs') {
+		    $sql .= " and tbl_care.service_type = 2";
+		}
+		
+		if ($care_type > 0) {
+		    $sql .= "  and tbl_userprofile.care_type=$care_type";
+		}
+		
+		if(!empty($search['number_of_children']) && $search['number_of_children'] !='undefined'){				
+            $sql .= " and tbl_userprofile.number_of_children <=".$search['number_of_children'];
+        }
+        if(!empty($search['morenum']) && $search['morenum'] !='undefined'){				
+            $optional_number = explode(',',$search['morenum']);
+            if(is_array($optional_number)){
+                foreach($optional_number as $data){
+                    $sql .= " and FIND_IN_SET('$data',tbl_userprofile.optional_number)"; 
+                }
+            }
+        }
+        if(!empty($search['age_group']) && $search['age_group'] !='undefined'){				
+            $age_group = explode(',',$search['age_group']);
+             if(is_array($age_group)){
+                 $first = array_shift($age_group);
+            	 $sql .= " and (FIND_IN_SET('$first',tbl_userprofile.age_group)";
+            	 foreach($age_group as $data){
+            		 $sql .= " or FIND_IN_SET('$data',tbl_userprofile.age_group)";
+              	 }
+              	 $sql .= ")";
+            }
+        }
+        if(!empty($search['rate']) && $search['rate'] !='undefined'){
+                $sql .= " and tbl_userprofile.rate ='".$search['rate']. "'";
+            }
+		if($search['caregiverage_from'] && $search['caregiverage_to']){
+            $sql .= " and tbl_user.age between ".$search['caregiverage_from'].' and '.$search['caregiverage_to'];
+        }
+        if($search['smoker']!=''){
+		    $sql .= " and tbl_userprofile.smoker=".$search['smoker'];
+        }
+		if($search['gender_of_caregiver'] && $search['gender_of_caregiver'] != 3 ){                
+		     $sql .=" and tbl_user.gender=".$search['gender_of_caregiver'];
+		}
+		if($search['gender_of_careseeker'] && $search['gender_of_careseeker'] != 3 ){                
+		     $sql .=" and tbl_userprofile.gender_of_careseeker=".$search['gender_of_careseeker'];
+		}
+
+		if($language!=''){
+			$languages = explode(',',$language);
+			if(is_array($languages)){
+				$first = array_shift($languages);
+            	$sql .= " and (FIND_IN_SET('$first' ,tbl_user.caregiver_language)";
+            	foreach($languages as $data){
+            		$sql .= " or FIND_IN_SET('$data',tbl_user.caregiver_language)";
+              	}
+              	$sql .= ")";
+			}
+
+		}
+		if(!empty($search['subject']) && $search['subject'] !='undefined'){				
+                 $subject = explode(',',$search['subject']);
+                  if(is_array($subject)){
+                        foreach($subject as $data){
+                            $data1 = mysql_real_escape_string($data);
+                            $sql .= " and FIND_IN_SET('$data1',tbl_userprofile.subjects)"; 
+  	                     }
+                    }
+            }
+
+		if($observance){
+            $observance = explode(',',$observance);
+            if(is_array($observance)){
+            	if(!in_array('Any', $observance)) {
+            		$first = array_shift($observance);
+            		if ($first == 'Familiar With Jewish Tradition') {
+            			$sql .= " and (tbl_user.familartojewish = 1";
+            		} else {
+                		$sql .= " and (FIND_IN_SET('$first' ,tbl_user.caregiver_religious_observance)";
+            		}
+                	foreach($observance as $data){
+                		if ($data == 'Familiar With Jewish Tradition') {
+                			$sql .= " or tbl_user.familartojewish = 1";
+                		} else {
+                			$sql .= " or FIND_IN_SET('$data',tbl_user.caregiver_religious_observance)";
+                		}
+  	            	}
+  	            	$sql .= ")";
+            	}
+            }
+        }
+        
+        if($search['pick_up_child'])
+			$sql .= " and tbl_userprofile.pick_up_child=".$search['pick_up_child'];
+		if($search['cook'])
+			$sql .= " and tbl_userprofile.cook=".$search['cook'];
+		if($search['basic_housework'])
+			$sql .= " and tbl_userprofile.basic_housework=".$search['basic_housework'];
+		if($search['homework_help'])
+			$sql .= " and tbl_userprofile.homework_help=".$search['homework_help'];
+		if($search['sick_child_care'])
+			$sql .= " and tbl_userprofile.sick_child_care=".$search['sick_child_care'];
+        if($search['bath_children'])
+			$sql .= " and tbl_userprofile.bath_children=".$search['bath_children'];
+        if($search['bed_children'])
+			$sql .= " and tbl_userprofile.bed_children=".$search['bed_children'];
+        
+        if($able_to_work!=''){
+			$works = explode(',',$able_to_work);
+			if(is_array($works)){
+				foreach($works as $work):
+					$sql .= " and find_in_set('$work',tbl_userprofile.willing_to_work)";
+				endforeach;
+			}
+		}
+		
+		if($skills!=''){
+			$skills = explode(',',$skills);
+			if(is_array($skills)){
+				foreach($skills as $skill):
+					$sql .= " and find_in_set('$skill',tbl_userprofile.willing_to_work)";
+				endforeach;
+			}
+
+		}
+
+		if($min_exp!=''){
+			$sql .= " and tbl_userprofile.experience >= $min_exp";
+		}
+        if ($organization) {
+		    $sql .= " and (FIND_IN_SET('Caregiving institution',tbl_userprofile.looking_to_work) OR FIND_IN_SET('Cleaning Company',tbl_userprofile.looking_to_work))";
+		}
+		if($availability!=''){
+			$times = explode(',',$availability);
+			if(is_array($times)){
+				foreach($times as $time):
+					$sql .=" and find_in_set('$time',tbl_userprofile.availability)";
+				endforeach;
+			}
+		}
+		if($carelocation!=''){
+			$locations = explode(',',$carelocation);
+			if(is_array($locations)){
+				foreach($locations as $location):
+					$sql .=" and FIND_IN_SET('$location',tbl_userprofile.looking_to_work)";
+				endforeach;	
+			}
+		}
+
+		if($trainings!=''){
+			$training = explode(',',$trainings);
+			foreach($training as $tran):
+				$sql .=" and find_in_set('$tran',tbl_userprofile.training)";
+			endforeach;
+		}
+		
+		if(!empty($search['extra_field']) && $search['extra_field'] !='undefined'){				
+            $extra_field = explode(',',$search['extra_field']);
+            if(is_array($extra_field)){
+                foreach($extra_field as $data){
+                    $sql .= " and FIND_IN_SET('$data',tbl_userprofile.extra_field)"; 
+                }
+            }
+        }
+        
+        if($search['looking_to_work'] !=''){				
+            $locations = explode(',',$search['looking_to_work']);
+            if(is_array($locations)){
+                foreach($locations as $data){
+                    $sql .= " and FIND_IN_SET(\"$data\",tbl_userprofile.looking_to_work)"; 
+                }
+            }
+        }
+
+		if($driver_license!=''){
+			$sql .=" and tbl_userprofile.driver_license=$driver_license";
+		}
+
+		if($vehicle!=''){
+			$sql .=" and tbl_userprofile.vehicle=$vehicle";
+		}
+		if($available!=''){
+			$sql .=" and tbl_userprofile.on_short_notice=$available";
+		}
+        if($start_date)
+		$sql .= " and tbl_userprofile.start_date='".$start_date."'";
+        if($distance != "unlimited"){
+            $sql.=" having distance <= $distance";
+        }
+
 		$query 	= $this->db->query($sql);
 		$res 	= $query->result_array();
 		if($res)

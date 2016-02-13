@@ -18,8 +18,6 @@ class Caregivers extends CI_Controller
         $slug = urldecode($this->uri->segment(3));
         $care_type = $this->uri->segment(4);
         $details      = $this->user_model->getUserDetailsBySlug($slug,$care_type);
-        $type = Caretype_model::getCareTypeById($details['care_type']);
-
         $this->breadcrumbs->push($type[0]['service_name'], '#');
         $this->breadcrumbs->push($details['name'], '#');
         $this->breadcrumbs->unshift('Home', base_url());

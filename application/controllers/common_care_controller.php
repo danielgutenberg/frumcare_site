@@ -220,22 +220,20 @@
     		$data = $this->input->get(NULL, true);
     		if ($this->input->get('care_type') > 30 || $this->input->get('care_type') == 'organizations') {
     		    $data['care_type'] = $this->input->get('care_type') - 30;
-    		    $result = $this->common_care_model->filter($data,$latitude,$longitude, true);
+    		    $totalresult = $this->common_care_model->get_count($data,$latitude,$longitude, true);
+    		    $result = $this->common_care_model->filter($data,$latitude,$longitude, true, $limit, $offset);
     		} else {
-    		    $result = $this->common_care_model->filter($data,$latitude,$longitude);
+    		    $totalresult = $this->common_care_model->get_count($data,$latitude,$longitude, false);
+    		    $result = $this->common_care_model->filter($data,$latitude,$longitude, false, $limit, $offset);
     		}
-            if(!$result) {
-                $total = 0;
-            } else {
-                $total = count($result);
-            }
+    		
+    		$total = (int) $totalresult[0]['count(*)'];
             $pagination = $this->get_pagination($total, $limit, $page);
                 
             $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
-    		$result = array_slice($result, $offset , $limit);
-            // $userlogs            = $this->user_model->getUserLog();
+            
             $merge['userdatas']  = $this->load->view('frontend/search/common_profile_list', array('userdatas'=>$result,'userlogs'=>$userlogs,'location'=>$locationdetails), true); 
-            $merge['num']        = ceil($total/$limit); 
+            $merge['num']        = ceil($total/$limit);
             $merge['total']      = $total;
             $merge['pagination'] = $pagination;
             $merge['location']   = $location;
