@@ -39,7 +39,7 @@
 */
 
 $route['default_controller'] = "welcome";
-$route['404_override'] = '';
+$route['404_override'] = 'errors/error_404';
 $route['advice-and-tips/families'] = 'cms/tipsandtoolsfamilies';
 // $route['advice-and-tips/employers'] = 'cms/tipsandtoolsemployers';
 $route['advice-and-tips/caregivers'] = 'cms/tipsandtoolscaregivers';

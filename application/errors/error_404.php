@@ -147,7 +147,7 @@
     <ul>
         <li>a mistyped address</li>
         <li>an out-of-date link</li>
-        <li><a href="http://newedgedesign.com/clients/frumcare/">Go Back</a></li>
+        <li><a href="<?php echo site_url();?>">Go To Homepage</a></li>
     </ul>
     <script>
         var GOOG_FIXURL_LANG = (navigator.language || '').slice(0,2),GOOG_FIXURL_SITE = location.host;
