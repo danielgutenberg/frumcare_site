@@ -468,10 +468,9 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                         </div>
 
                         <div class="service-care-providers">
-                            <?php foreach($care_type as $type){
-                              if($caregiver['care_type'] == $type['id'])
-                               echo ucwords($type['service_name']);
-                            };?>
+                            <?php
+                               echo ucwords($type[0]['service_name']);
+                            ?>
                         </div>
                         <div class="rating-score"></div>
                         <div class="care-hours">
@@ -481,7 +480,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                                 } else {
                                     $symbol = '$';
                                 }
-                              $type = $caregiver['rate']==1?" per hour":" per month";
+                              $rateType = $caregiver['rate']==1?" per hour":" per month";
                               echo $symbol . str_replace('t', '- $', $caregiver['rate']). '/hr';
                           }else{
                               echo $symbol . '0/hr';
@@ -755,7 +754,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 
 <link rel="stylesheet" href="<?php echo base_url();?>css/jquery.raty.css">
 <script src="<?php echo base_url();?>js/jquery.raty.js"></script>
-<script src="<?php echo base_url();?>js/labs.js" type="text/javascript"></script>
+<!--<script src="<?php echo base_url();?>js/labs.js" type="text/javascript"></script>-->
 
 <script>
    $(function(){
@@ -837,13 +836,13 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 
 <!-- share this starts-->
 <!--<script type="text/javascript">var switchTo5x=true;</script>-->
-<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-<script type="text/javascript">stLight.options({publisher: "fcfd27c1-d440-47b3-bb5e-17abb292ed1f", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+<!--<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>-->
+<!--<script type="text/javascript">stLight.options({publisher: "fcfd27c1-d440-47b3-bb5e-17abb292ed1f", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>-->
 <!-- share this ends -->
 <!-- scroll js starts -->
 <script src="<?php echo site_url();?>js/jquery.localScroll.min.js"></script>
-<script src="<?php echo site_url();?>js/jquery.scrollTo.min.js"></script>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<!--<script src="<?php echo site_url();?>js/jquery.scrollTo.min.js"></script>-->
+
 <script type="text/javascript" src="<?php echo base_url();?>js/gmaps.js"></script>
 
 
