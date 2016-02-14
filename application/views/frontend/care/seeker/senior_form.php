@@ -118,19 +118,7 @@ $user_detail = get_user(check_user());
 				</div>
 			</div>
 			<div>
-				<label>Level of observance necessary</label>
-				<div class="form-field">
-					<select name="religious_observance" class="">
-						<option value="">Select</option>
-						<option value="Yeshivish/Chasidish">Yeshivish / Chasidish</option>
-						<option value="Orthodox/Modern Orthodox">Orthodox / Modern orthodox</option>
-						<option value="Familiar With Jewish Tradition">Familiar With Jewish Tradition</option>
-						<option value="Not Jewish">Not necessary</option>
-					</select>
-				</div>
-			</div>
-			<div>
-				<label>Age of Caregiver wanted</label>
+				<label>Age of Caregiver</label>
 				<div class="form-field">
                     <input type="text" name="caregiverage_from" style="width:25%" placeholder="Age From"> to  <input type="text" name="caregiverage_to" style="width:25%" placeholder="Age To">
 				</div>
@@ -143,17 +131,6 @@ $user_detail = get_user(check_user());
                     <div class="radio"><input type="radio" value="3" name="gender_of_caregiver"> Any</div>
 				</div>
 			</div>
-			
-			<?php $this->load->view('frontend/care/seeker/fields/wage'); ?>
-
-			<div>
-				<label>Smoking acceptable</label>
-				<div class="form-field">
-					<div class="radio"><input type="radio" name="smoker" value="1"> Yes</div>
-					<div class="radio"><input type="radio" name="smoker" value="2" checked> No</div>
-				</div>
-			</div>
-
 			<div>
 				<label>Training required</label>
 				<div class="form-field">
@@ -177,6 +154,31 @@ $user_detail = get_user(check_user());
 					</select>
 				</div>
 			</div>
+			<div>
+				<label>Level of observance necessary</label>
+				<div class="form-field">
+					<select name="religious_observance" class="">
+						<option value="">Select</option>
+						<option value="Yeshivish/Chasidish">Yeshivish / Chasidish</option>
+						<option value="Orthodox/Modern Orthodox">Orthodox / Modern orthodox</option>
+						<option value="Familiar With Jewish Tradition">Familiar With Jewish Tradition</option>
+						<option value="Not Jewish">Not necessary</option>
+					</select>
+				</div>
+			</div>
+
+			
+			<?php $this->load->view('frontend/care/seeker/fields/wage'); ?>
+
+			<div>
+				<label>Smoking acceptable</label>
+				<div class="form-field">
+					<div class="radio"><input type="radio" name="smoker" value="1"> Yes</div>
+					<div class="radio"><input type="radio" name="smoker" value="2" checked> No</div>
+				</div>
+			</div>
+
+
 
 			<div class="checkbox-wrap">
 				<div>

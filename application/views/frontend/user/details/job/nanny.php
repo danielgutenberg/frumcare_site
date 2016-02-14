@@ -156,64 +156,7 @@
                 </tr>
             <?php
           } ?>
-        
-        <?php if(!empty($religious_observance)){ ?>    
-        <tr>
-            <td>Level of observance necessary</td>
-            <td>
-                <?php if ($religious_observance == 'Not Jewish') {echo 'Not necessary';} else {echo $religious_observance;} ?>
-            </td>
-        </tr>
-        <?php }
-        else{
-            ?>
-                <tr>
-                    <td >Level of observance necessary </td>
-                    <td>N/A</td>
-                </tr>
-            <?php
-          } ?>
-        
-        <tr>
-            <td>Age of caregiver wanted</td>
-            <td>
-                <?php 
-                if(!empty($caregiverage_from) && !empty($caregiverage_to)){
-                    echo $caregiverage_from.' to '.$caregiverage_to;
-                }
-                else{
-                    echo "N/A";
-                } ?>
-            </td>
-        </tr>
-        
-        <?php if(!empty($rate)){ ?>    
-        <?php ?>
-        <tr>
-            <td>Wage</td>
-            <td >
-            <?php echo $symbol. $rate . ' / Hr'; 
-            $type = explode(',',$rate_type);
-            ?>
-            <!--<div class="details-info"><?php if(in_array('1',$type)){echo $tick; }else{echo $cross; } ?>  Hourly Rate</div>-->
-            <div class="details-info"><?php if(in_array('2',$type)){echo $tick; }else{echo $cross; } ?>  Monthly Payment Available</div>    
-        </td>
-        </tr>
-    <?php }else{
-            ?>
-                <tr>
-                    <td >Wage </td>
-                    <td>N/A</td>
-                </tr>
-            <?php
-          } ?>
-        
-        <tr>
-            <td>Smoker</td>
-            <td>
-                <?php if($smoker==1){echo "Yes";}else{echo "No";} ?>
-            </td>
-        </tr>
+          
         <?php if(!empty($language)){ ?>
         <?php $language = explode(',',$language); ?>
         <tr>
@@ -236,6 +179,19 @@
                 </tr>
             <?php
           } ?>
+          
+        <tr>
+            <td>Age of caregiver wanted</td>
+            <td>
+                <?php 
+                if(!empty($caregiverage_from) && !empty($caregiverage_to)){
+                    echo $caregiverage_from.' to '.$caregiverage_to;
+                }
+                else{
+                    echo "N/A";
+                } ?>
+            </td>
+        </tr>
         
         <?php if(!empty($training)){ ?>
         <?php $trainingtemp = explode(',',$training); ?>
@@ -274,6 +230,54 @@
                 </tr>
             <?php
           } ?>
+        
+        <?php if(!empty($religious_observance)){ ?>    
+        <tr>
+            <td>Level of observance necessary</td>
+            <td>
+                <?php if ($religious_observance == 'Not Jewish') {echo 'Not necessary';} else {echo $religious_observance;} ?>
+            </td>
+        </tr>
+        <?php }
+        else{
+            ?>
+                <tr>
+                    <td >Level of observance necessary </td>
+                    <td>N/A</td>
+                </tr>
+            <?php
+          } ?>
+        
+
+        
+        <?php if(!empty($rate)){ ?>    
+        <?php ?>
+        <tr>
+            <td>Wage</td>
+            <td >
+            <?php echo $symbol. $rate . ' / Hr'; 
+            $type = explode(',',$rate_type);
+            ?>
+            <!--<div class="details-info"><?php if(in_array('1',$type)){echo $tick; }else{echo $cross; } ?>  Hourly Rate</div>-->
+            <div class="details-info"><?php if(in_array('2',$type)){echo $tick; }else{echo $cross; } ?>  Monthly Payment Available</div>    
+        </td>
+        </tr>
+    <?php }else{
+            ?>
+                <tr>
+                    <td >Wage </td>
+                    <td>N/A</td>
+                </tr>
+            <?php
+          } ?>
+        
+        <tr>
+            <td>Smoker</td>
+            <td>
+                <?php if($smoker==1){echo "Yes";}else{echo "No";} ?>
+            </td>
+        </tr>
+
         
         <tr>
             <td>Abilities and skills necessary</td>

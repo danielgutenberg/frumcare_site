@@ -97,47 +97,6 @@ $user_detail = get_user(check_user());
         	</div>
         	</div>
         	<div>
-        		<label>Level of observance necessary</label>
-        		<div class="form-field">
-        			<select name="religious_observance" class="txt">
-        				<option value="">Select</option>
-        				<option value="Yeshivish/Chasidish">Yeshivish / Chasidish</option>
-        				<option value="Orthodox/Modern Orthodox">Orthodox / Modern orthodox</option>
-        				<option value="Familiar With Jewish Tradition">Familiar With Jewish Tradition</option>
-        				<option value="Not Necessary">Not necessary</option>
-        			</select>
-        		</div>
-        	</div>
-        	<div>
-        		<label>Age of Caregiver</label>
-        		<div class="form-field">
-                    <input type="text" name="caregiverage_from" value="" placeholder="Age From" style="width:25%"> to  <input type="text" name="caregiverage_to" value="" placeholder="Age To" style="width:25%">
-        		</div>
-        	</div>
-
-        	<?php $this->load->view('frontend/care/seeker/fields/wage'); ?>
-
-        	<div>
-        		<label>Tell us about your needs</label>
-        		<div class="form-field">
-        			<textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
-        		</div>
-        	</div>
-
-                <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>
-                <input type="hidden" name="account_type2" value="<?php echo $this->uri->segment(4);?>"/>
-
-                
-
-        	<h2>Abilities and Skills necessary</h2>
-        	<div>
-        		<label>Smoker</label>
-        		<div class="form-field">
-        			<div class="radio"><input type="radio" name="smoker" value="1"> Yes</div>
-        			<div class="radio"><input type="radio" name="smoker" value="2" checked> No</div>
-        		</div>
-        	</div>
-        	<div>
         		<label>Languages necessary</label>
         		<div class="form-field">
                       <div class="checkbox"><input type="checkbox" name="language[]" value="English"> English</div>
@@ -147,6 +106,12 @@ $user_detail = get_user(check_user());
                       <div class="checkbox"><input type="checkbox" name="language[]" value="French"> French</div>
                       <div class="checkbox"><input type="checkbox" name="language[]" value="Other"> Other</div>
 
+        		</div>
+        	</div>
+        	<div>
+        		<label>Age of Caregiver</label>
+        		<div class="form-field">
+                    <input type="text" name="caregiverage_from" value="" placeholder="Age From" style="width:25%"> to  <input type="text" name="caregiverage_to" value="" placeholder="Age To" style="width:25%">
         		</div>
         	</div>
         	<div>
@@ -171,6 +136,44 @@ $user_detail = get_user(check_user());
         			</select>
         		</div>
         	</div>
+        	<div>
+        		<label>Level of observance necessary</label>
+        		<div class="form-field">
+        			<select name="religious_observance" class="txt">
+        				<option value="">Select</option>
+        				<option value="Yeshivish/Chasidish">Yeshivish / Chasidish</option>
+        				<option value="Orthodox/Modern Orthodox">Orthodox / Modern orthodox</option>
+        				<option value="Familiar With Jewish Tradition">Familiar With Jewish Tradition</option>
+        				<option value="Not Necessary">Not necessary</option>
+        			</select>
+        		</div>
+        	</div>
+
+
+        	<?php $this->load->view('frontend/care/seeker/fields/wage'); ?>
+
+        	<div>
+        		<label>Tell us about your needs</label>
+        		<div class="form-field">
+        			<textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
+        		</div>
+        	</div>
+
+                <input type="hidden" name="account_type1" value="<?php echo $this->uri->segment(3);?>"/>
+                <input type="hidden" name="account_type2" value="<?php echo $this->uri->segment(4);?>"/>
+
+                
+
+        	<h2>Abilities and Skills necessary</h2>
+        	<div>
+        		<label>Smoker</label>
+        		<div class="form-field">
+        			<div class="radio"><input type="radio" name="smoker" value="1"> Yes</div>
+        			<div class="radio"><input type="radio" name="smoker" value="2" checked> No</div>
+        		</div>
+        	</div>
+
+
 
 
         	<div class="checkbox-wrap">

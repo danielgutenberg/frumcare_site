@@ -203,47 +203,6 @@
             </td>
         </tr>
         
-        <tr>
-            <td>Smoking Acceptable</td>
-            <td>
-                <?php if($smoker==1){echo "Yes";}else{echo "No";} ?>
-            </td>
-        </tr>        
-        
-        <?php if(!empty($religious_observance)){ ?>    
-        <tr>
-            <td>Level of observance necessary</td>
-            <td>
-                <?php if ($religious_observance == 'Not Jewish') {echo 'Not necessary';} else {echo $religious_observance;} ?>
-            </td>
-        </tr>
-        <?php }
-        else{
-            ?>
-                <tr>
-                    <td >Level of observance necessary </td>
-                    <td>N/A</td>
-                </tr>
-            <?php
-          } ?>
-        
-        <?php if(!empty($experience)){ ?>    
-        <tr>
-            <td>Minimum years of experience</td>
-            <td>
-                <?php if ($experience == '6') {echo '5+'; } else {echo $experience;}?> years
-            </td>
-        </tr>
-        <?php }
-        else{
-            ?>
-                <tr>
-                    <td >Minimum years of experience</td>
-                    <td>N/A</td>
-                </tr>
-            <?php
-          } ?>                 
-        
         <?php if(!empty($training)){ ?>
         <?php $trainingtemp = explode(',',$training); ?>
         <tr>
@@ -263,6 +222,53 @@
                     <td>N/A</td>
                 </tr>
             <?php
-          } ?>        
+          } ?> 
+          
+        <?php if(!empty($experience)){ ?>    
+        <tr>
+            <td>Minimum years of experience</td>
+            <td>
+                <?php if ($experience == '6') {echo '5+'; } else {echo $experience;}?> years
+            </td>
+        </tr>
+        <?php }
+        else{
+            ?>
+                <tr>
+                    <td >Minimum years of experience</td>
+                    <td>N/A</td>
+                </tr>
+            <?php
+          } ?> 
+        
+       
+        
+        <?php if(!empty($religious_observance)){ ?>    
+        <tr>
+            <td>Level of observance necessary</td>
+            <td>
+                <?php if ($religious_observance == 'Not Jewish') {echo 'Not necessary';} else {echo $religious_observance;} ?>
+            </td>
+        </tr>
+        <?php }
+        else{
+            ?>
+                <tr>
+                    <td >Level of observance necessary </td>
+                    <td>N/A</td>
+                </tr>
+            <?php
+          } ?>
+        
+                
+        
+ 
+          
+        <tr>
+            <td>Smoking Acceptable</td>
+            <td>
+                <?php if($smoker==1){echo "Yes";}else{echo "No";} ?>
+            </td>
+        </tr> 
     </table>
 </div>

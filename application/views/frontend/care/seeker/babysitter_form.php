@@ -94,6 +94,48 @@ $user_detail = get_user(check_user());
             <div class="checkbox"><input type="checkbox" value="Vacation Sitter" name="availability[]">Vacation Sitter</div>
             </div>
         </div>
+
+        <div>
+            <label>Languages necessary</label>
+            <div class="form-field">
+                <div class="checkbox"><input type="checkbox" name="language[]" value="English"> English</div>
+                <div class="checkbox"><input type="checkbox" name="language[]" value="Yiddish"> Yiddish</div>
+                <div class="checkbox"><input type="checkbox" name="language[]" value="Hebrew"> Hebrew</div>
+                <div class="checkbox"><input type="checkbox" name="language[]" value="Russian"> Russian</div>
+                <div class="checkbox"><input type="checkbox" name="language[]" value="French"> French</div>
+                <div class="checkbox"><input type="checkbox" name="language[]" value="Other"> Other</div>
+            </div>
+        </div>
+        <div>
+            <label>Caregiver age</label>
+            <div class="form-field">
+                <input type="text" name="caregiverage_from" style="width:25%" placeholder="Age From"> to  <input type="text" name="caregiverage_to" style="width:25%" placeholder="Age To">
+            </div>
+        </div>
+        
+    <div>
+        <label>Training necessary</label>
+        <div class="form-field">
+            <div class="checkbox"><input type="checkbox" value="CPR" name="training[]"> CPR</div>
+            <div class="checkbox"><input type="checkbox" value="First Aid" name="training[]"> First Aid</div>
+            <div class="checkbox"><input type="checkbox" value="Nanny/ Babysitter course" name="training[]"> Nanny / Babysitter course</div>
+            <div class="checkbox"><input type="checkbox" value="Nurse" name="training[]"> Nurse</div>
+            <div class="checkbox"><input type="checkbox" value="Not necessary" name="training[]"> Not necessary</div>
+        </div>
+    </div>
+        <div>
+            <label>Minimum experience</label>
+            <div class="form-field">
+                <select name="experience">
+                    <option value="">Select minimum experience</option>
+                    <option value="1" <?php echo isset($exp) && $exp == 1 ? 'selected' : '' ?>>1 year</option>
+                    <option value="2" <?php echo isset($exp) && $exp == 2 ? 'selected' : '' ?>>2 years</option>
+                    <option value="3" <?php echo isset($exp) && $exp == 3 ? 'selected' : '' ?>>3 years</option>
+                    <option value="4" <?php echo isset($exp) && $exp == 4 ? 'selected' : '' ?>>4 years</option>
+                    <option value="6" <?php echo isset($exp) && $exp == 6 ? 'selected' : '' ?>>5+ years</option>
+                </select>
+            </div>
+        </div>
         <div>
             <label>Level of observance necessary</label>
             <div class="form-field">
@@ -108,12 +150,6 @@ $user_detail = get_user(check_user());
 
             <div style="display:none" class="not_jewish">
                 <input type="checkbox" name="familarwithjewish" value="familarwithjewish">Familiar with Jewish Tradition
-            </div>
-        </div>
-        <div>
-            <label>Caregiver age</label>
-            <div class="form-field">
-                <input type="text" name="caregiverage_from" style="width:25%" placeholder="Age From"> to  <input type="text" name="caregiverage_to" style="width:25%" placeholder="Age To">
             </div>
         </div>
 
@@ -137,40 +173,9 @@ $user_detail = get_user(check_user());
             <div class="radio"><input type="radio" name="smoker" value="2" checked> No</div>
         </div>
     </div>
-    <div>
-        <label>Languages necessary</label>
-        <div class="form-field">
-            <div class="checkbox"><input type="checkbox" name="language[]" value="English"> English</div>
-            <div class="checkbox"><input type="checkbox" name="language[]" value="Yiddish"> Yiddish</div>
-            <div class="checkbox"><input type="checkbox" name="language[]" value="Hebrew"> Hebrew</div>
-            <div class="checkbox"><input type="checkbox" name="language[]" value="Russian"> Russian</div>
-            <div class="checkbox"><input type="checkbox" name="language[]" value="French"> French</div>
-            <div class="checkbox"><input type="checkbox" name="language[]" value="Other"> Other</div>
-        </div>
-    </div>
-    <div>
-        <label>Training necessary</label>
-        <div class="form-field">
-            <div class="checkbox"><input type="checkbox" value="CPR" name="training[]"> CPR</div>
-            <div class="checkbox"><input type="checkbox" value="First Aid" name="training[]"> First Aid</div>
-            <div class="checkbox"><input type="checkbox" value="Nanny/ Babysitter course" name="training[]"> Nanny / Babysitter course</div>
-            <div class="checkbox"><input type="checkbox" value="Nurse" name="training[]"> Nurse</div>
-            <div class="checkbox"><input type="checkbox" value="Not necessary" name="training[]"> Not necessary</div>
-        </div>
-    </div>
-    <div>
-        <label>Minimum experience</label>
-        <div class="form-field">
-        <select name="experience">
-            <option value="">Select minimum experience</option>
-            <option value="1" <?php echo isset($exp) && $exp == 1 ? 'selected' : '' ?>>1 year</option>
-            <option value="2" <?php echo isset($exp) && $exp == 2 ? 'selected' : '' ?>>2 years</option>
-            <option value="3" <?php echo isset($exp) && $exp == 3 ? 'selected' : '' ?>>3 years</option>
-            <option value="4" <?php echo isset($exp) && $exp == 4 ? 'selected' : '' ?>>4 years</option>
-            <option value="6" <?php echo isset($exp) && $exp == 6 ? 'selected' : '' ?>>5+ years</option>
-        </select>
-        </div>
-        </div>
+
+
+
 
         <h2>Abilities and skills </h2>
             <div class="checkbox">

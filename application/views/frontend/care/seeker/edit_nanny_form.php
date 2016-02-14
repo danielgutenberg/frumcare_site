@@ -136,43 +136,6 @@ if($detail){
             </div>
         </div>
         <div>
-            <label>Level of observance necessary</label>
-            <div class="form-field">
-            <select name="religious_observance">
-                <option value="">Select</option>
-                <option value="Yeshivish/Chasidish" <?php echo isset($religious_observance) && $religious_observance == 'Yeshivish/Chasidish' ? 'selected' : '' ?>>Yeshivish / Chasidish</option>
-                <option value="Orthodox/Modern Orthodox" <?php echo isset($religious_observance) && $religious_observance == 'Orthodox/Modern Orthodox' ? 'selected' : '' ?>>Orthodox / Modern orthodox</option>
-                 <option value="Familiar With Jewish Tradition" <?php echo isset($religious_observance) && $religious_observance == 'Familiar With Jewish Tradition' ? 'selected' : '' ?>>Familiar With Jewish Tradition</option>
-                <option value="Not Necessary" <?php echo isset($religious_observance) && $religious_observance == 'Not Necessary' ? 'selected' : '' ?>>Not Necessary</option>
-            </select>
-            </div>
-        </div>
-        <div>
-            <label>Caregiver age</label>
-            <div class="form-field">
-            <input type="text" name="caregiverage_from" value="<?php echo isset($caregiverage_from)?$caregiverage_from:'';?>" placeholder="Age From" style="width:25%" class=""> to  <input type="text" name="caregiverage_to" value="<?php echo isset($caregiverage_to)?$caregiverage_to:'';?>" placeholder="Age To" style="width:25%" class="">
-            </div>
-        </div>
-
-        <?php $this->load->view('frontend/care/seeker/fields/wage', ['rate' => $rate, 'currency' => $currency]); ?>
-
-        <div class="clear"></div>
-        <div>
-            <label>Tell us about your needs</label>
-            <div class="form-field">
-            <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
-            </div>
-        </div>
-
-        <h2>Encouraged but not mandatory fields</h2>
-        <div>
-            <label>Smoker</label>
-            <div class="form-field">
-                <div class="radio"><input type="radio" name="smoker" value="1" <?php if(in_array('1',$smoker)){?> checked="checked" <?php } ?>> Yes</div>
-                <div class="radio"><input type="radio" name="smoker" value="2" <?php if(in_array('2',$smoker)){?> checked="checked" <?php } ?>> No</div>
-            </div>
-        </div>
-        <div>
             <label>Languages necessary</label>
             <div class="form-field">
                 <div class="checkbox"><input type="checkbox" name="language[]" value="English" <?php if(in_array('English',$langtemp)){?> checked="checked"<?php } ?>> English</div>
@@ -184,6 +147,14 @@ if($detail){
 
             </div>
         </div>
+
+        <div>
+            <label>Caregiver age</label>
+            <div class="form-field">
+            <input type="text" name="caregiverage_from" value="<?php echo isset($caregiverage_from)?$caregiverage_from:'';?>" placeholder="Age From" style="width:25%" class=""> to  <input type="text" name="caregiverage_to" value="<?php echo isset($caregiverage_to)?$caregiverage_to:'';?>" placeholder="Age To" style="width:25%" class="">
+            </div>
+        </div>
+        
         <div>
             <label>Training necessary</label>
             <div class="form-field">
@@ -193,6 +164,7 @@ if($detail){
             <div class="checkbox"><input type="checkbox" value="Not necessary" name="training[]" <?php if(in_array('Not necessary',$trainingtemp)){?> checked="checked"<?php } ?>> Not necessary</div>
             </div>
         </div>
+        
         <div>
             <label>Minimum experience</label>
             <div class="form-field">
@@ -206,6 +178,41 @@ if($detail){
             </select>
             </div>
         </div>
+        
+        <div>
+            <label>Level of observance necessary</label>
+            <div class="form-field">
+            <select name="religious_observance">
+                <option value="">Select</option>
+                <option value="Yeshivish/Chasidish" <?php echo isset($religious_observance) && $religious_observance == 'Yeshivish/Chasidish' ? 'selected' : '' ?>>Yeshivish / Chasidish</option>
+                <option value="Orthodox/Modern Orthodox" <?php echo isset($religious_observance) && $religious_observance == 'Orthodox/Modern Orthodox' ? 'selected' : '' ?>>Orthodox / Modern orthodox</option>
+                 <option value="Familiar With Jewish Tradition" <?php echo isset($religious_observance) && $religious_observance == 'Familiar With Jewish Tradition' ? 'selected' : '' ?>>Familiar With Jewish Tradition</option>
+                <option value="Not Necessary" <?php echo isset($religious_observance) && $religious_observance == 'Not Necessary' ? 'selected' : '' ?>>Not Necessary</option>
+            </select>
+            </div>
+        </div>
+
+        <?php $this->load->view('frontend/care/seeker/fields/wage', ['rate' => $rate, 'currency' => $currency]); ?>
+
+        <div class="clear"></div>
+        <div>
+            <label>Tell us about your needs</label>
+            <div class="form-field">
+            <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
+            </div>
+        </div>
+
+
+        <div>
+            <label>Smoker</label>
+            <div class="form-field">
+                <div class="radio"><input type="radio" name="smoker" value="1" <?php if(in_array('1',$smoker)){?> checked="checked" <?php } ?>> Yes</div>
+                <div class="radio"><input type="radio" name="smoker" value="2" <?php if(in_array('2',$smoker)){?> checked="checked" <?php } ?>> No</div>
+            </div>
+        </div>
+
+
+
 
         <div class="checkbox-wrap">
         <div>

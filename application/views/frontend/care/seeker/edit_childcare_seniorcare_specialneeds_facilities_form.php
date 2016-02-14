@@ -153,6 +153,7 @@ if($detail){
                     <div class="checkbox"><input type="checkbox" name="language[]" value="Other" <?php if(in_array('Other',$langtemp)){?> checked="checked"<?php } ?>> Other</div>
                 </div>
             </div>
+            
             <div>
                 <label>Must have following Training / Certification</label>
                 <div class="form-field">
@@ -186,6 +187,7 @@ if($detail){
                     }?>
                 </div>
             </div>
+
             <div>
                 <label>Minimum experience</label>
                 <div class="form-field">
@@ -212,6 +214,7 @@ if($detail){
             </select>
             </div>
         </div>
+
             <div>
                 <label>Smoking acceptable</label>
                 <div class="form-field">

@@ -148,7 +148,8 @@
                <div class="checkbox"><input type="checkbox" name="language[]" value="Other"> Other</div>
             </div>
          </div>
-         <div>
+         
+        <div>
             <label>Must have following Training / Certification</label>
             <div class="form-field">
                <?php
@@ -209,6 +210,8 @@
                <input type="checkbox" name="familarwithjewish" value="familarwithjewish">Familiar with Jewish Tradition
             </div>
          </div>
+ 
+
          <div>
             <label>Smoking acceptable</label>
             <div class="form-field">

@@ -123,24 +123,14 @@ $user_detail = get_user(check_user());
             </div>
         </div>
         <div>
-            <label>Smoking acceptable</label>
+            <label>Training / Certification required</label>
             <div class="form-field">
-            <div class="radio"><input type="radio" name="smoker" value="1"> Yes</div>
-            <div class="radio"><input type="radio" name="smoker" value="2" checked> No</div>
+            <div class="checkbox"><input type="checkbox" value="CPR" name="training[]"> CPR</div>
+            <div class="checkbox"><input type="checkbox" value="First Aid" name="training[]"> First Aid</div>
+            <div class="checkbox"><input type="checkbox" value="degree" name="training[]"> Degree</div>
+            <div class="checkbox"><input type="checkbox" value="Not necessary" name="training[]"> Not necessary</div>
             </div>
-        </div>
-        <div>
-            <label>Level of observance necessary</label>
-            <div class="form-field">
-            <select name="religious_observance">
-                <option value="">Select</option>
-                <option value="Yeshivish/Chasidish">Yeshivish / Chasidish</option>
-                <option value="Orthodox/Modern Orthodox">Orthodox / Modern orthodox</option>
-                <option value="Familiar With Jewish Tradition">Familiar With Jewish Tradition</option>
-                <option value="Not Jewish">Not necessary</option>
-            </select>
-            </div>
-        </div>
+        </div>        
         <div>
             <label>Minimum years of experience</label>
             <div class="form-field">
@@ -155,14 +145,27 @@ $user_detail = get_user(check_user());
             </div>
         </div>
         <div>
-            <label>Training / Certification required</label>
+            <label>Level of observance necessary</label>
             <div class="form-field">
-            <div class="checkbox"><input type="checkbox" value="CPR" name="training[]"> CPR</div>
-            <div class="checkbox"><input type="checkbox" value="First Aid" name="training[]"> First Aid</div>
-            <div class="checkbox"><input type="checkbox" value="degree" name="training[]"> Degree</div>
-            <div class="checkbox"><input type="checkbox" value="Not necessary" name="training[]"> Not necessary</div>
+            <select name="religious_observance">
+                <option value="">Select</option>
+                <option value="Yeshivish/Chasidish">Yeshivish / Chasidish</option>
+                <option value="Orthodox/Modern Orthodox">Orthodox / Modern orthodox</option>
+                <option value="Familiar With Jewish Tradition">Familiar With Jewish Tradition</option>
+                <option value="Not Jewish">Not necessary</option>
+            </select>
             </div>
         </div>
+
+        <div>
+            <label>Smoking acceptable</label>
+            <div class="form-field">
+            <div class="radio"><input type="radio" name="smoker" value="1"> Yes</div>
+            <div class="radio"><input type="radio" name="smoker" value="2" checked> No</div>
+            </div>
+        </div>
+
+
         <div>
             <input id="careseekerButton" type="submit" class="btn btn-success" value="Save <?php if($this->uri->segment(2) != 'new_profile'){echo '& Continue';}?>"/>
         </div>

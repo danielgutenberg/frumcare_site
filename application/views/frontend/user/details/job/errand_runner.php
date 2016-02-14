@@ -139,6 +139,23 @@
             </td>
         </tr>
         
+            <?php
+       if(!empty($experience)){?>
+       <tr>
+           <td >Minimum experience</td>
+           <td >    		
+            <?php if ($experience == '6') {echo '5+'; } else {echo $experience;}?> years  
+        </td>
+    </tr>
+    <?php }  else{
+            ?>
+                <tr>
+                    <td >Minimum experience</td>
+                    <td>N/A</td>
+                </tr>
+            <?php
+          }?>
+        
         <?php if(!empty($religious_observance)){ ?>    
         <tr>
             <td>Level of observance necessary</td>
@@ -167,22 +184,7 @@
             </td>
         </tr>
         <tr>
-            <?php
-       if(!empty($experience)){?>
-       <tr>
-           <td >Minimum experience</td>
-           <td >    		
-            <?php if ($experience == '6') {echo '5+'; } else {echo $experience;}?> years  
-        </td>
-    </tr>
-    <?php }  else{
-            ?>
-                <tr>
-                    <td >Minimum experience</td>
-                    <td>N/A</td>
-                </tr>
-            <?php
-          }?>
+
             <td>Abilities and Skills Necessary</td>
             <td>
                 <div class="details-info"><?php echo isset($driver_license) && $driver_license == 1 ? $tick : $cross?> Drivers license</div>
