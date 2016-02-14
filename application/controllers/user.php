@@ -250,7 +250,6 @@ class User extends CI_Controller
         $data['account_category'] = $acc_details;
         $data['myreview']   = $this->user_model->get_my_review($config['per_page'],$page,$field);
         $data['links']      = $this->pagination->create_links();
-        $data['care']       = $this->user_model->care();
         
         $this->load->view(FRONTEND_TEMPLATE,$data);
 
@@ -260,11 +259,10 @@ class User extends CI_Controller
     {
         $this->breadcrumbs->push('My Profile', site_url().'#');
         $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
-        $user_id = array('id'=>$this->session->userdata('current_user'));
- 
+        
         //by kiran
-        $data['userDetails'] = $this->user_model->getUserDetails($user_id['id']);
-        $data['account_category'] = $this->user_model->get_account_category();
+        $data['userDetails'] = $this->user_model->getUserDetails($this->session->userdata('current_user'));
+        $data['account_category'] = $this->session->userdata('account_category');
         $data['all_profile'] =$this->user_model->get_all_profile();
         $data['main_content'] = ('frontend/user/dashboard/my_profiles/base');
 
@@ -408,7 +406,7 @@ class User extends CI_Controller
             $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
     
             $current_user = $this->session->userdata['current_user'];
-            $record = $this->user_model->getAlert($current_user, $id)[0];
+            $record = $this->user_model->getAlert($current_user, $id);
             $data = array(
                 'title'         => 'Search History',
                 'main_content'  => 'frontend/user/dashboard/my_search_alerts/edit',
@@ -556,8 +554,7 @@ class User extends CI_Controller
         
         $data['title']          = 'Edit Personal Details';
         $data['main_content']   = 'frontend/user/dashboard/my_profiles/personal_details';
-        $data['user_data']      = $this->user_model->getPersonalDetails($id_hash);
-        // print_rr($data);
+        $data['user_data']      = get_user(check_user());
         
         $this->load->view(FRONTEND_TEMPLATE, $data);
     }

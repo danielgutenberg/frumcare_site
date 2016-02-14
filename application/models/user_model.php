@@ -32,16 +32,12 @@ class User_model extends CI_Model
         return $model;
     }
 
-    function save_userdata($insert)
-    {
-        $this->db->insert('tbl_user', $insert);
-        $id = $this->db->insert_id();
-        return $id;
-    }
-
     function edit_user($insert, $id)
     {
         $model = $this->fill_model($insert);
+        if (empty($model)) {
+            return true;
+        }
         $q = $this->db->update('tbl_user', $model, array('id' => $id));
         return $q ? true : false;
     }
@@ -101,8 +97,9 @@ class User_model extends CI_Model
     }
 
     public function getUserDetailsById($id,$care_type){
-        $sql = "SELECT tbl_user.*,tbl_userprofile.* FROM tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_user.id = '$id' and tbl_userprofile.care_type = $care_type and tbl_user.status = 1";
-        $query = $this->db->query($sql);
+        $this->db->join('tbl_userprofile','tbl_userprofile.user_id = tbl_user.id','left');
+        $this->db->where(array('tbl_user.id' => $id, 'tbl_userprofile.care_type' => $care_type, 'tbl_user.status' => 1));
+        $query = $this->db->get('tbl_user');
         $res = $query->row_array();
         return $res;
     }
@@ -321,26 +318,6 @@ class User_model extends CI_Model
             return false;
     }
 
-    public function insert_new_profile($data){
-        if($this->db->insert('tbl_userprofile',$data)){
-            //return TRUE;
-             return $this->db->insert_id();
-        }
-        else{
-            return FALSE;
-        }
-    }
-
-    public function getSearches(){
-            $sql    = "select * from tbl_searchhistory";
-            $query  = $this->db->query($sql);
-            $res    = $query->result_array();
-            if($res)
-                return $res;
-            else
-                return false;
-    }
-
     public function getSearchAlerts($latitude, $longitude, $type){
         if (!$latitude) {
             $latitude = 40;
@@ -371,7 +348,7 @@ class User_model extends CI_Model
     {
         $sql    = "select tbl_searchhistory.*, tbl_care.service_name from tbl_searchhistory join tbl_care on tbl_searchhistory.care_type = tbl_care.id where user_id = $user_id and tbl_searchhistory.id = $id and  searcheddate < NOW() order by searcheddate desc";
         $query  = $this->db->query($sql);
-        $res    = $query->result_array();
+        $res    = $query->row_array();
         if($res)
             return $res;
         else
@@ -388,18 +365,7 @@ class User_model extends CI_Model
         else
             return false;
     }
-
-    public function care(){
-        $sql = "select * from tbl_care";
-        $query = $this->db->query($sql);
-        $res = $query->result_array();
-        if($res)
-            return $res;
-        else
-            return false;
-
-    }
-    //public function get_extra_profile(){
+    
     public function get_all_profile(){
         $this->db->join('tbl_user', 'tbl_user.id = tbl_userprofile.user_id', 'left');
         $this->db->join('tbl_care','tbl_userprofile.care_type = tbl_care.id','left');
@@ -432,8 +398,8 @@ class User_model extends CI_Model
     }
     public function existing_profile_check($account_category,$care_type)
     {
-        $this->db->where('user_id',$this->session->userdata('current_user'));
-        $this->db->where('care_type',$care_type);
+        $this->db->where('user_id', $this->session->userdata('current_user'));
+        $this->db->where('care_type', $care_type);
         $query = $this->db->get('tbl_userprofile');
         if($query->num_rows() > 0){
             return false;
@@ -480,24 +446,8 @@ class User_model extends CI_Model
         $post = $this->input->post();
         $res = $this->db->get_where('tbl_packages',array('id'=>$post['package']));
         return $res->result_array();
-    }//CODE BY CHAND
-
-    public function get_account_category(){
-        $this->db->where('id',$this->session->userdata('current_user'));
-        $this->db->select('account_category');
-        $query = $this->db->get('tbl_userprofile');
-        return $query->row();
     }
-
-    public function get_all_profile_by_id($id){
-        $this->db->where('user_id',$id);
-        $query = $this->db->get('tbl_userprofile');
-        if($query->num_rows()>0){
-            return $query->result_array();
-        }else{
-            return FALSE;
-        }
-    }
+    
     public function get_my_account_category($id){
         $this->db->where('user_id',$id);
         $query = $this->db->get('tbl_account_category');
@@ -522,21 +472,5 @@ class User_model extends CI_Model
             return $res;
         else
             return false;
-    }
-
-    public function getPersonalDetails($idhash){
-        $sql = "SELECT tbl_user.* , tbl_userprofile.* FROM tbl_user LEFT OUTER JOIN tbl_userprofile ON tbl_user.id = tbl_userprofile.user_id WHERE SHA1( tbl_user.id ) =  '$idhash'";
-        $query  = $this->db->query($sql);
-        $res    = $query->result_array();
-        if($res)
-            return $res;
-        else
-            return false;
-    }
-
-    public function getSuperUser()
-    {
-        $user=$this->db->where('id',1)->get('tbl_admin')->row();
-        return $user;
     }
 }

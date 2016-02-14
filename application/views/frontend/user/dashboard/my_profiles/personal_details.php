@@ -3,7 +3,6 @@
     //print_rr($user_data);
     if(segment(3) != '') {
         $action = 'user/account/'.segment(3);
-        $user_data = $user_data[0];
         $address = $user_data['location'];
         $neighbourhood    = $user_data['neighbour'];
         $zip              = $user_data['zip'];

@@ -32,13 +32,6 @@ class Profile_model extends CI_Model
         return $model;
     }
 
-    function save_userdata($insert)
-    {
-        $this->db->insert('tbl_user', $insert);
-        $id = $this->db->insert_id();
-        return $id;
-    }
-
     function edit_profile($insert, $id)
     {
         $model = $this->fill_model($insert);

@@ -385,13 +385,7 @@ class Ad extends CI_Controller
 
     public function approveAds()
     {
-        $user_id=check_user();
-        $user=get_user($user_id);
-        
-        /***************** get super user email ***********************/
-        $this->load->model('user_model');
-        $superUser=$this->user_model->getSuperUser();
-
+        $user_id = check_user();
         $a = get_account_details();
         $id = $a->care_type;
 
@@ -549,18 +543,21 @@ class Ad extends CI_Controller
     
     public function addprofileconfirm()
     {
-        $p = $_POST;            
-        $profile_check = $this->user_model->existing_profile_check($p['account_category'],$p['care_type']);
+        $p = $_POST; 
+        $account_category = $this->session->userdata('account_category');
+        $profile_check = $this->user_model->existing_profile_check($account_category, $p['care_type']);
         if($profile_check) {              
-            $p['user_id'] = check_user();
+            $user_id = check_user();
+            $p['user_id'] = $user_id;
+            $p['account_category'] = $account_category;
             
             $q = $this->profile_model->save_profile($p);
-            $q = $this->user_model->edit_user($p, check_user());
+            $q = $this->user_model->edit_user($p, $user_id);
             
             if($q) {
-                $emails = $this->common_model->getAdAdminEmails();
+                $emails = $this->common_model->getAdminEmails();
                 
-                $details = $this->user_model->getUserDetailsById(check_user(),$p['care_type']);
+                $details = $this->user_model->getUserDetailsById($user_id, $p['care_type']);
                 $details['profile_id'] = $q;
                 $data['recordData']     = $details;
                 $msg = $this->load->view('frontend/email/profileapproval', $data, true);
@@ -576,13 +573,7 @@ class Ad extends CI_Controller
                 );
                 sendemail($param); 
                 
-                $user_id = check_user();
-                $user = get_user($user_id);
-                $sendto = $user['email'];
-                
-                $a = get_account_details();
-                $id = $a->care_type;
-                $details = $this->user_model->getUserDetailsById($user_id,$id);
+                $sendto = get_user($user_id)['email'];
                 
                 $msg = $this->load->view('emails/adApproved', array('name' => $details['name']), true);
                 $param = array(
@@ -625,9 +616,9 @@ class Ad extends CI_Controller
         $uid = $this->uri->segment(3);
         $care_type = $this->uri->segment(4);
         $care_id = array('care_id'=>$care_type);
-        $res = $this->user_model->current_user($care_id);
-        $usr = $this->user_model->get_user_info();
         $id = $this->session->userdata('current_user');
+        $res = $this->user_model->current_user($care_id);
+        $usr = get_user($id);
         $data['detail'] = $res;
         $data['usr']=$usr;
         if($care_type == 1 && $id == $uid){
