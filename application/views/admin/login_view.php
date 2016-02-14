@@ -34,7 +34,10 @@
     
 <div class="account-container login stacked" id="main" role="main">    
     <div class="">        
-        <form id="login-form" class="smart-form client-form lockscreen animated flipInY" action="<?php echo base_url('admin/login');?>" method="post">
+        <?php
+            $attributes = array('id' => 'login-form', 'class' => 'smart-form client-form lockscreen animated flipInY');
+            echo form_open('admin/login', $attributes);
+        ?>
             <header>Sign In</header> 
             <fieldset>       
             <?php user_flash(); ?>
