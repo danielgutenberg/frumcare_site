@@ -541,9 +541,6 @@ class Common_care_model extends CI_Model
 		}
         if($start_date)
 		$sql .= " and tbl_userprofile.start_date='".$start_date."'";
-        if($distance != "unlimited"){
-            $sql.=" having distance <= $distance";
-        }
 
 		$query 	= $this->db->query($sql);
 		$res 	= $query->result_array();
