@@ -54,7 +54,7 @@
                 </tr>
             <?php
           } ?>
-                  <?php if(!empty($neighbour)){ ?>
+        <?php if(!empty($neighbour)){ ?>
         <tr>
             <td>Neighborhood</td>
             <td>
@@ -70,7 +70,6 @@
                 </tr>
             <?php
           } ?>
-    
     <?php if(!empty($number_of_children)){ ?>
         <?php $optional_number = explode(',',$optional_number); ?>
         <tr>
@@ -152,6 +151,7 @@
             <?php
           } ?>
           
+       <?php if(!empty($language)){ ?>
         <?php $language = explode(',',$language); ?>
         
         <tr>
@@ -269,7 +269,6 @@
                 <?php if($smoker==1){echo "Yes";}else{echo "No";} ?>
             </td>
         </tr>
-        <?php if(!empty($language)){ ?>
 
         
 
