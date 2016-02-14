@@ -83,10 +83,9 @@ class Common_Model extends CI_Model
     }
 
     public function getAdminEmails(){
-        $sql = "select contact_email1, contact_email2,contact_email3,contact_email4,contact_email5 from tbl_website_config where enable_notifications = 1";
+        $sql = "SELECT email1 FROM tbl_admin LEFT OUTER JOIN tbl_adminrole ON FIND_IN_SET('userprofile', tbl_adminrole.access)WHERE tbl_admin.role = tbl_adminrole.role_name AND tbl_admin.status = 1";
         $query = $this->db->query($sql);
         $res = $query->result_array();
-        
         $receiveremail = '';                    
         foreach($res as $e1){
             $receiveremail .= $e1['email1'].',';                        

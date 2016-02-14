@@ -392,7 +392,6 @@ class Ad extends CI_Controller
         /********************* get user profile of the current user ******************/
 
         $emails = $this->common_model->getAdminEmails();
-
         $details      = $this->user_model->getUserDetailsById($user_id,$id);
         $details['profile_id'] = $q;
         $data['recordData'] = $details;
