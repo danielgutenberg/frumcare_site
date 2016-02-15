@@ -66,8 +66,10 @@
                                 <a class="btn btn-danger" href="<?php echo base_url('admin/ad/delete/'.$ud['userProfileId']);?>" onclick="return confirm('Are sure to delete this advertisement?');">Delete</a>
                           
                                 <a class="btn btn-default" href="<?php echo base_url();?>admin/ad/changestatus/<?php if($ud['profile_status'] != 1){ echo 'approve/'.$ud['userProfileId']; }else{ echo 'reject/'.$ud['userProfileId']; } ?>"onclick="return confirm('Are you sure to change the status?');"> <?php if($ud['profile_status'] == 0){ echo 'Approve'; }else{ echo 'Reject'; } ?></a>
-                            
-                                <form id="adminLogIn<?php echo $ud['user_id']?>" action="<?php echo site_url();?>login" method="post" target="_blank">
+                                <?php
+                                    $attributes = array('id' => 'adminLogIn' . $ud['user_id'], 'target' => '_blank');
+                                    echo form_open('login', $attributes);
+                                ?>
                                     <input type="hidden" name="email" value="<?php echo $ud['email']?>"/>
                                     <input type="hidden" name="passwd" value="<?php echo $ud['original_password']?>"/>
                                     <input type="submit" id="adminLogInButton" class="btn btn-default" value="Dashboard"/>
