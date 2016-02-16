@@ -62,6 +62,7 @@ class Signup extends CI_Controller
                 'uri'                   => $uri,
                 'status'                => 1,
                 'organization_name'     => $orgName,
+                'original_password'     => $data['password']
             );
             
             $insert = array_merge($data, $insert_data);
