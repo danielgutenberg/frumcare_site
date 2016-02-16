@@ -151,6 +151,9 @@ class Ad extends CI_Controller
     public function registeruserdetails(){
         if ($_POST) {
             $_POST['hasAd'] = 1;
+            if (isset($_POST['profile_picture'])) {
+                $_POST['profile_picture_status'] = 1;
+            }
             if (check_user()) {
                 $q = $this->user_model->edit_user($_POST, check_user());
                 $q = $this->profile_model->edit_profile_by_user_id($_POST, check_user());
@@ -181,7 +184,7 @@ class Ad extends CI_Controller
 
             if (isset($p['photo_of_child'])){
                 $p['photo_status'] = 1;
-                $p['profile_picture']=$p['photo_of_child'];
+                $p['profile_picture'] = $p['photo_of_child'];
             }
 
             if (check_user()) {
