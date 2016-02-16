@@ -39,7 +39,7 @@
                                             <td><?php echo $cat['email_subject'];?></td>
                                             <td><?php echo $cat['sent_by'];?></td>
                                             <td><?php echo $cat['sent_to'];?></td>
-                                            <td><?php echo date("jS F Y", strtotime($cat['sent_date'])); ?></td>
+                                            <td><?php echo date("jS F Y g:i:s A", strtotime($cat['sent_date'])); ?></td>
                                             <td>
                                                 <a href="<?php echo site_url('admin/emaillogs/view')."/".$cat['id'];?>" class="btn btn-info" title="View">View</a>
                                                 <a href="<?php echo site_url('admin/emaillogs/delete')."/".$cat['id'];?>" class="btn btn-danger" title="Delete" onclick="return confirm('Are you sure to delete this email?');">Delete</a>
