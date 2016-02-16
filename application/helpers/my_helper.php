@@ -118,7 +118,6 @@ function check_email($email)
 
 function sendemail($params)
 {
-    print_rr($params);
     $config = Array(
                           //'protocol' => 'smtp',
                           //'smtp_host' => 'ssl://smtp.googlemail.com',
