@@ -5,15 +5,10 @@ class page extends CI_Controller
     {
         parent::__construct();
         $this->load->model('admin/admin_model');
-        if(!$this->session->userdata('admin_username'))
-        {
+        if (!is_super()) {
+            $this->session->set_flashdata('fail', 'Please sign in as an admin to access that page');
             redirect('admin/login');
         }
-		// if ($this->session->userdata('admin_level')!="superadmin")
-		// {
-  //           $this->session->set_flashdata('info','Warning !!! You are RESTRICTED to OPEN this page.<br /><br />Contact your Adminstrator for further details.');
-		// 	redirect('admin');
-  //       }
         $this->load->model('admin/page_model');
      }
      

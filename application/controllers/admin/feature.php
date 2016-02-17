@@ -6,10 +6,10 @@
           parent::__construct();
           $this->load->model('admin/feature_model');
           $this->load->model('admin/package_model');
-          if(!$this->session->userdata('admin_username'))
-          {
-                  redirect('admin/login');
-          }
+        if (!is_super()) {
+            $this->session->set_flashdata('fail', 'Please sign in as an admin to access that page');
+            redirect('admin/login');
+        }
     }
     
     function index(){

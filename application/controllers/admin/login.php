@@ -30,7 +30,6 @@ class Login extends  CI_Controller
               $this->session->set_userdata($user);
               redirect('admin');
           }
-          //die();
       }
 
         $login_url = $this->input->server('HTTP_REFERER', TRUE);

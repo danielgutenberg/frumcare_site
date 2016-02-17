@@ -5,8 +5,8 @@ class Genericseo extends CI_Controller {
 	public function __construct(){
 		parent:: __construct();
 		$this->load->model('admin/genericseo_model');
-		if(!$this->session->userdata('admin_username'))
-        {
+        if (!is_super()) {
+            $this->session->set_flashdata('fail', 'Please sign in as an admin to access that page');
             redirect('admin/login');
         }
 
