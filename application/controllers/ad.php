@@ -310,10 +310,14 @@ class Ad extends CI_Controller
         sendemail($param);
     }
     
-    public function approveAd($id)
+    public function approveAd($user_id, $id, $hash)
     {
-        $user_id = $this->uri->segment(3);
-        $id = $this->uri->segment(4);
+        $hashData = json_decode(encrypt_decrypt('decrypt', urldecode($hash)));
+        
+        if ( !isset($hashData->user_id) || !isset($hashData->care_type) || !($user_id == $hashData->user_id) || !($id == $hashData->care_type) ) {
+            $this->session->set_flashdata('fail', 'An Error occured, please sign in to the admin to approve the ad');
+            redirect('admin/login');
+        }
         $this->db->where(array('user_id' => $user_id, 'care_type' => $id));
         $this->db->update('tbl_userprofile', array('profile_status'=>1));
 
@@ -391,14 +395,14 @@ class Ad extends CI_Controller
         $user_id = check_user();
         $a = get_account_details();
         $id = $a->care_type;
-
+        $hashInfo = ['user_id' => $user_id, 'care_type' => $id];
         /********************* get user profile of the current user ******************/
 
         $emails = $this->common_model->getAdminEmails();
         $details      = $this->user_model->getUserDetailsById($user_id,$id);
         $details['profile_id'] = $q;
         $data['recordData'] = $details;
-
+        $data['hash'] = urlencode(encrypt_decrypt('encrypt', json_encode($hashInfo)));
         $msg = $this->load->view('frontend/email/profileapproval', $data, true);
 
         $param = array(
@@ -413,18 +417,8 @@ class Ad extends CI_Controller
         sendemail($param);
     }
 
-    public function approve(){
-        $user_id = $this->uri->segment(3);
-        $profile_id = $this->uri->segment(4);
-
-        $this->db->where('id',$profile_id);
-        $this->db->update('tbl_userprofile',array('profile_status'=>1));
-
-        redirect('ad/success','refresh');
-    }
-
-   public function success(){
-
+   public function success()
+   {
         $this->breadcrumbs->push('Success', '/help');
         $this->breadcrumbs->unshift('Home', base_url());
 

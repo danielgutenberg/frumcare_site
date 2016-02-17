@@ -39,54 +39,6 @@ class Caregivers extends CI_Controller
         $this->load->view(FRONTEND_TEMPLATE,$data);
     }
 
-    public function contact($slug = null){
-        $slug = $this->uri->segment(4);
-        
-        $data['main_content']  = 'frontend/caregivers/contact';
-        $data['title']         = 'Contact';
-
-        $this->load->view(FRONTEND_TEMPLATE,$data);
-    }
-
-    function category($cat = null){
-        $cat_id = $this->uri->segment(2);
-        $this->load->library('pagination');
-        
-        $config['base_url'] = site_url().'caregivers/'.$cat_id.'';
-        $config['total_rows'] = 100;
-        $config['per_page'] = 15;
-        $config['uri_segment'] = 3;
-        $config['num_links'] = 1;
-        $config['full_tag_open'] = '<div class="navigations">';
-        $config['full_tag_close'] = '</div>';
-        $config['prev_link'] = '&lt;';
-        $config['prev_tag_open'] = '<span class="in-active">';
-        $config['prev_tag_close'] = '</span>';
-        $config['next_link'] = '&gt;';
-        $config['next_tag_open'] = '<span class="in-active">';
-        $config['next_tag_close'] = '</span>';
-        $config['cur_tag_open'] = '<span class="active"><a href="#">';
-        $config['cur_tag_close'] = '</a></span>';
-        $config['num_tag_open'] = '<span class="in-active">';
-        $config['num_tag_close'] = '</span>';
-        $config['first_tag_open'] = '<span class="in-active">';
-        $config['first_tag_close'] = '</span>';
-        $config['last_tag_open'] = '<span class="in-active">';
-        $config['last_tag_close'] = '</span>';
-        
-        $this->pagination->initialize($config);
-        
-        $data =  array(
-            'main_content' => 'frontend/caregivers/category',
-            'title'        => 'Catgory ',
-            'userdatas'    => $this->user_model->getAllByCategoryId($cat_id),
-            'countries'    => $this->common_model->getCountries(),
-            'userlogs'     => $this->user_model->getUserLog(),
-            'links'        => $this->pagination->create_links()
-        );
-        $this->load->view(FRONTEND_TEMPLATE, $data);
-    }
-
     public function favorite(){
         if($this->input->is_ajax_request()){
             $data = array(
@@ -96,10 +48,9 @@ class Caregivers extends CI_Controller
             
             $res = $this->db->get_where('tbl_favorites',$data);
             $q = $res->num_rows();
-            if($q>0){
-                //$this->db->update('tbl_favorites',$data);
+            if ($q > 0) {
                 echo 'Profile favorites successfully';exit;
-            }else{
+            } else {
                 $this->db->insert('tbl_favorites',$data);
                 echo 'Profile favorites successfully';exit;
             }
