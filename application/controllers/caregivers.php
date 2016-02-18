@@ -17,7 +17,7 @@ class Caregivers extends CI_Controller
     public function details($slug,$care_type){
         $slug = urldecode($this->uri->segment(3));
         $care_type = $this->uri->segment(4);
-        if (!($care_type > 0) || $care_type > 35) {
+        if (!(is_numeric($care_type)) || !($care_type > 0) || $care_type > 35) {
             show_404();
         }
         $details      = $this->user_model->getUserDetailsBySlug($slug,$care_type);
