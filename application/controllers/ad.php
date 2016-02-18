@@ -719,6 +719,9 @@ class Ad extends CI_Controller
                 
                 $data['recordData']     = $details;
                 
+                $hashInfo = ['user_id' => check_user(), 'care_type' => $care_type];
+                $data['hash'] = encrypt_decrypt('encrypt', json_encode($hashInfo));
+                
                 $msg = $this->load->view('frontend/email/profileapproval', $data, true);
     
                 $param = array(
