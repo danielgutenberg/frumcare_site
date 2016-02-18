@@ -552,6 +552,7 @@ class Ad extends CI_Controller
             $user_id = check_user();
             $p['user_id'] = $user_id;
             $p['account_category'] = $account_category;
+            $p['created_time'] = strtotime('now');
             
             $q = $this->profile_model->save_profile($p);
             $q = $this->user_model->edit_user($p, $user_id);
