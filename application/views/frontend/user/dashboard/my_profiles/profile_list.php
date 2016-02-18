@@ -285,7 +285,7 @@ $careType = [
                 
 				 
 				 	<div class="row">
-			            <div class="col-sm-12 col-xs-12 col-md-12 col-lg-3">
+			            <div class="col-xs-3">
     		            <?php
                             if($ac == 1){?>
                                 <a style="font-size:13px; margin-left:5px; background-color:#85bd30; width: 150px;" href="<?php echo site_url('user/details/'.sha1(check_user()))?>" class="btn btn-primary" <?php if ($adCount > 1) {$message = 'Personal details get updated in all your profiles'; $click = 'onclick="return confirm(' . "'" . $message . "'" .')"'; echo $click; }?>>Edit Personal Details</a>
@@ -299,10 +299,10 @@ $careType = [
                             }
                         ?>
         		        </div>
-			            <div class="col-md-12 col-lg-3" style="margin-left:15px">
+			            <div class="col-xs-3" style="margin-left:15px">
 			                <a href="<?php echo site_url();?>ad/edit_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="font-size:13px; margin-left:5px; background-color:#5bc0de; width: 150px;" >Edit Job Details</a>
 			            </div>
-			            <div class="col-md-12 col-lg-3" style="margin-left:15px">
+			            <div class="col-xs-3" style="margin-left:15px">
                             <?php if ($data['profile_status'] == 2) { ?>
                               
                                     <a href="<?php echo site_url();?>ad/unarchive_profile/<?php echo $this->session->userdata['current_user'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="font-size:13px; margin-left:5px; background-color:red; width: 150px;" onclick="return confirm('Are you sure you want to activate this profile?')">
