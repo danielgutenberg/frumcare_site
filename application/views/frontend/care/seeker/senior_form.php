@@ -179,7 +179,7 @@ $user_detail = get_user(check_user());
 			</div>
 
 
-
+			<h2>Abilities and Skills Necessary</h2>
 			<div class="checkbox-wrap">
 				<div>
                     <input type="checkbox" value="1" name="driver_license"> <label>Drivers license</label>

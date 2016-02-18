@@ -114,7 +114,7 @@
                 $this->load->view('frontend/care/giver/fields/background');  
             ?>
 
-            <h2>Abilities (check if yes)</h2>
+            <h2>Abilities and Skills</h2>
 
             <div class="checkbox-wrap">
             <div>
