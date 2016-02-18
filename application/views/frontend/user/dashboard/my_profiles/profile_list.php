@@ -46,7 +46,7 @@ $careType = [
                 }
             $navigate = $data['care_type']>16?'jobs':'caregivers'; ?> 	
             <div class="profile-list clearfix usual row" style="border: 1px solid #cccccc;">
-                <div class="profile-img-wrap col-lg-3 col-md-12 col-sm-12 col-xs-12"> <?php
+                <div class="profile-img-wrap col-sm-3 col-xs-12"> <?php
                 if($data['facility_pic']!="" && file_exists('images/profile-picture/'.$data['facility_pic'])) {?>
                     <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
     		            <div id="profile_image">
@@ -85,7 +85,7 @@ $careType = [
 				 	    </div>
 				 	    <?php } ?>
 	        </div>
-        	<div class="profile-list-details col-lg-9 col-md-12 col-sm-12 col-xs-12">
+        	<div class="profile-list-details col-sm-9 col-xs-12">
                 <?php if ($data['account_category'] == 3) {?>
                 <span class="name">
 					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo ucwords($data['organization_name']);?></a>
