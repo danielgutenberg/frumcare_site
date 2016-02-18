@@ -683,7 +683,6 @@ class Ad extends CI_Controller
     
     public function update_job_details()
     {
-        $profileStatus = 1;
         $care_type = $this->uri->segment(3);
         $email = 0;
         if($_POST) {
@@ -693,7 +692,7 @@ class Ad extends CI_Controller
             $this->db->where(array('user_id'=>$id,'care_type'=>$care_type));
             $res = $this->db->get('tbl_userprofile');
             $oldProfile = $res->result_array()[0];
-
+            $profileStatus = $oldProfile['profile_status'];
             if ($p['profile_description'] != $oldProfile['profile_description'] || $p['file'] != $oldProfile['file'] || $p['pdf'] != $oldProfile['pdf'] || $p['facility_pic'] != $oldProfile['facility_pic'] || $p['photo_of_child'] != $oldProfile['photo_of_child']) {
                 $profileStatus = 0;
                 $email = 1;
