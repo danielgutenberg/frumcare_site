@@ -42,7 +42,7 @@ if($this->uri->segment(2)!='edit'){
 <div class="container sign-up-forms">
     <div class="row">
         <div class="col-xs-offset-4">
-            <?php flash();?>
+            <?php user_flash();?>
             <?php if(segment(3) == '') { ?>
             <h2>
                 Create your account
