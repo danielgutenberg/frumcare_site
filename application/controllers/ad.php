@@ -317,7 +317,7 @@ class Ad extends CI_Controller
         $id = $args[1];
         $hash_args = array_filter(array_slice($args, 2));
         $hash = implode($hash_args, '/');
-        
+        print_rr($hash);
         $hashData = json_decode(encrypt_decrypt('decrypt', $hash));
         
         $details = $this->user_model->getUserDetailsById($user_id,$id);
@@ -564,7 +564,7 @@ class Ad extends CI_Controller
                 $details = $this->user_model->getUserDetailsById($user_id, $p['care_type']);
                 $details['profile_id'] = $q;
                 $data['recordData']     = $details;
-                $hashInfo = ['user_id' => $user_id, 'care_type' => $p['care_type'];
+                $hashInfo = ['user_id' => $user_id, 'care_type' => $p['care_type']];
                 $data['hash'] = encrypt_decrypt('encrypt', json_encode($hashInfo));
                 $msg = $this->load->view('frontend/email/profileapproval', $data, true);
     
