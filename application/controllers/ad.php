@@ -315,12 +315,14 @@ class Ad extends CI_Controller
         $args = func_get_args();
         $user_id = $args[0];
         $id = $args[1];
-        $hash_args = array_slice($args, 2);
+        $hash_args = array_filter(array_slice($args, 2));
         $hash = implode($hash_args, '/');
         
         $hashData = json_decode(encrypt_decrypt('decrypt', $hash));
         
-        if ( !isset($hashData->user_id) || !isset($hashData->care_type) || !($user_id == $hashData->user_id) || !($id == $hashData->care_type) ) {
+        $details = $this->user_model->getUserDetailsById($user_id,$id);
+        
+        if ( empty($details) || !isset($hashData->user_id) || !isset($hashData->care_type) || !($user_id == $hashData->user_id) || !($id == $hashData->care_type) ) {
             $this->session->set_flashdata('fail', 'An Error occured, please sign in to the admin to approve the ad');
             redirect('admin/login');
         }
@@ -329,7 +331,6 @@ class Ad extends CI_Controller
 
         $user = get_user($user_id);
         $sendto = $user['email'];
-        $details = $this->user_model->getUserDetailsById($user_id,$id);
         $msg = $this->load->view('emails/adApproved', array('name' => $details['name']), true);
         $param = array(
             'subject'     => 'Ad Approved',
@@ -563,6 +564,8 @@ class Ad extends CI_Controller
                 $details = $this->user_model->getUserDetailsById($user_id, $p['care_type']);
                 $details['profile_id'] = $q;
                 $data['recordData']     = $details;
+                $hashInfo = ['user_id' => $user_id, 'care_type' => $p['care_type'];
+                $data['hash'] = encrypt_decrypt('encrypt', json_encode($hashInfo));
                 $msg = $this->load->view('frontend/email/profileapproval', $data, true);
     
                 $param = array(
