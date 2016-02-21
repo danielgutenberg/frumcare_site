@@ -317,7 +317,7 @@ class Ad extends CI_Controller
         $id = $args[1];
         $hash_args = array_filter(array_slice($args, 2));
         $hash = implode($hash_args, '/');
-        print_rr($hash);
+        
         $hashData = json_decode(encrypt_decrypt('decrypt', $hash));
         
         $details = $this->user_model->getUserDetailsById($user_id,$id);
