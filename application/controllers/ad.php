@@ -715,7 +715,7 @@ class Ad extends CI_Controller
                 $q = $this->profile_model->edit_profile_by_user_id($p, check_user());
             }
         
-            if ($email == 1) {
+            if ($email == 1 && $oldProfile['profile_status'] == 1) {
                 $emails = $this->common_model->getAdminEmails();
                 
                 $details      = $this->user_model->getUserDetailsById(check_user(),$care_type);
