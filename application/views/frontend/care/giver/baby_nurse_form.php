@@ -8,9 +8,10 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 </ol>
 <?php } ?>
 <div class="container">
-<?php if(($this->uri->segment(2) != 'new_profile')){?>
-    <form action="<?php echo site_url();?>ad/savejobdetails" method="post" id="personal-details-form">
-<?php }else{
+<?php if(($this->uri->segment(2) != 'new_profile')) {
+        $attributes = array('id' => 'personal-details-form');
+        echo form_open('ad/savejobdetails', $attributes);
+}else{
     $this->load->helper('form');
     $attributes = array('id' => 'newJob');
     echo form_open('ad/addprofileconfirm', $attributes);

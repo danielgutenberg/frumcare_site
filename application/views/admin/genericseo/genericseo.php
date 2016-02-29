@@ -12,7 +12,10 @@
                 <div class="panel-body">
                     <div class="table-responsive"> 
                         <div class="ad-manager">
-                        <form role="form" id="page_add_edit_form" method="post" action="" enctype="multipart/form-data">
+                            <?php 
+                                $attributes = array('id' => 'page_add_edit_form', 'enctype' => 'multipart/form-data');
+                                echo form_open('', $attributes);
+                            ?>
                             <div class="form-group">
                                     <label class="control-label">TITLE</label>
                                     <div class="ad-manager-full-input">
