@@ -39,11 +39,11 @@
     	}
     	
     	public function senior_caregiver() {
-    	    $this->load_ads(5, 'Senior Caregivers');
+    	    $this->load_ads(5, 'Senior Caregivers / Companions');
     	}
     	
     	public function special_needs_caregiver() {
-    	    $this->load_ads(6, 'Special Needs Caregivers');
+    	    $this->load_ads(6, 'Special Needs Caregivers / Companions');
     	}
     	
     	public function therapist() {
@@ -99,7 +99,7 @@
     	
     	public function careseeker_seniorcaregiver()
     	{
-    	    $this->load_ads(20, 'Senior caregiver jobs', 2);
+    	    $this->load_ads(20, 'Senior caregiver /companion jobs', 2);
     	}
     	
     	public function careseeker_errandrunner()
@@ -109,7 +109,7 @@
     	
     	public function careseeker_specialneedscaregiver()
     	{
-    	    $this->load_ads(22, 'Special needs caregiver jobs', 2);
+    	    $this->load_ads(22, 'Special needs caregiver / companion jobs', 2);
     	}
     	
     	public function careseeker_babynurse()
