@@ -99,7 +99,7 @@
     	
     	public function careseeker_seniorcaregiver()
     	{
-    	    $this->load_ads(20, 'Senior caregiver /companion jobs', 2);
+    	    $this->load_ads(20, 'Senior caregiver / companion jobs', 2);
     	}
     	
     	public function careseeker_errandrunner()
