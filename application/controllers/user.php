@@ -596,15 +596,17 @@ class User extends CI_Controller
     public function account($id_hash = '' )
     {  
         $id = check_user();
+        $this->db->where(array('id' => $id));
+        $res = $this->db->get('tbl_user');
+        $oldProfile = $res->result_array()[0];
         $q = $this->user_model->edit_user($_POST, check_user());
+        $this->db->where(array('user_id' => $id, 'profile_status' => 1));
+        $rows = $this->db->get('tbl_userprofile')->num_rows();
         if($q){
-            $this->db->where(array('id' => $id));
-            $res = $this->db->get('tbl_user');
-            $oldProfile = $res->result_array()[0];
-            if ($insert1['profile_picture'] != '' && $oldProfile['profile_picture'] != $insert1['profile_picture']) {
+            if ($rows > 0 && $_POST['profile_picture'] != '' && $oldProfile['profile_picture'] != $_POST['profile_picture']) {
                 $this->db->where('id',$id);
                 $this->db->update('tbl_user', array('profile_picture_status' => 0));
-                $this->notifyNewImage($insert1['profile_photo']);
+                $this->notifyNewImage();
                 $this->session->set_flashdata('info', 'Personal details updated successfully. Your new photo will show on the site as soon as it is approved by an admin');
             } else {
                 $this->session->set_flashdata('info', 'Personal details updated successfully.');
