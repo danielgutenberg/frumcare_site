@@ -347,7 +347,9 @@ class Common_Model extends CI_Model
     function subscribe(){
         $sub_name = $_GET['sub_name'];
         $sub_email = $_GET['sub_email'];
-
+        if ($sub_name == null || $sub_email == null) {
+            return false;
+        }
         $insert = array(
             'name' => $sub_name,
             'email' => $sub_email,
