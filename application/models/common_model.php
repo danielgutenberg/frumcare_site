@@ -113,11 +113,11 @@ class Common_Model extends CI_Model
         //Lower case everything
         $string1 = strtolower($fname);
         //Make alphanumeric (removes all other characters)
-        $string1 = preg_replace("/[^a-z0-9_\s-]/", "", $fname);
+        $string1 = preg_replace("/[^a-z0-9_\s-]/", "", $string1);
         //Clean up multiple dashes or whitespaces
-        $string1 = preg_replace("/[\s-]+/", " ", $fname);
+        $string1 = preg_replace("/[\s-]+/", " ", $string1);
         //Convert whitespaces and underscore to dash
-        $string1 = preg_replace("/[\s_]/", "-", $fname);
+        $string1 = preg_replace("/[\s_]/", "-", $string1);
 
 
         $uri = strtolower($string1);
