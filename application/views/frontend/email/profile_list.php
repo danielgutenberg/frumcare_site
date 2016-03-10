@@ -4,8 +4,8 @@ $careType = [
  '2' => 'Nanny / Au-pair',
  '3' => 'Nursery / Playgroup / Drop off / Gan',
  '4' => 'Tutor / Private lessons',
- '5' => 'Senior Caregiver',
- '6' => 'Special needs caregiver',
+ '5' => 'Senior Caregiver / Companion',
+ '6' => 'Special needs caregiver / companion',
  '7' => 'Therapist',
  '8' => 'Cleaning / household help',
  '9' => 'Errand runner / odd jobs / personal assistant',
@@ -18,9 +18,9 @@ $careType = [
  '17' => 'Babysitter',
  '18' => 'Nanny / Au-pair',
  '19' => 'Tutor / private lessons',
- '20' => 'Senior caregiver',
+ '20' => 'Senior caregiver / companion',
  '21' => 'Errand runner / odd jobs / personal assistant / driver',
- '22' => 'Special needs caregiver',
+ '22' => 'Special needs caregiver / companion',
  '23' => 'Pediatric / Baby Nurse',
  '24' => 'Cleaning / household help',
  '25' => 'Workers / staff for childcare facility',
@@ -198,7 +198,14 @@ $careType = [
                         <?php  } ?>
                         <?php if($data['rate']){?>
 							<li style="color: #525252;font-size: 14px;line-height: 19px;font-family: 'Lato',sans-serif;font-weight: 400;word-wrap: break-word;box-sizing:border-box;">									
-								<?php echo "$".str_replace("t","-",$data['rate']); ?>
+								<?php 								
+    								if($data['currency'] == 'ILS') {
+    								    $symbol =  "&#8362;"; 
+    								} else {
+    								    $symbol = '$';
+    								}
+    								echo $symbol . str_replace("t","-",$data['rate']); 
+								?>
                                 <?php echo $data['rate_type']==1?" per hour":" per hour"; ?>						
 							</li>
                         <?php  } ?>
@@ -221,7 +228,14 @@ $careType = [
                         
                         <?php if($data['rate']){?>
 							<li style="color: #525252;font-size: 14px;line-height: 19px;font-family: 'Lato',sans-serif;font-weight: 400;word-wrap: break-word;box-sizing:border-box;">									
-								<?php echo $data['care_type']==3 ? $data['rate'] : "$".str_replace("t","-",$data['rate']); ?>
+								<?php 								
+    								if($data['currency'] == 'ILS') {
+    								    $symbol = "&#8362;"; 
+    								} else {
+    								    $symbol = '$';
+    								}
+								?>
+								<?php echo $data['care_type']==3 ? $data['rate'] : $symbol . str_replace("t","-",$data['rate']); ?>
                                 <?php echo $data['care_type']==3 ? "" : " per hour"; ?>						
 							</li>
                         <?php  
