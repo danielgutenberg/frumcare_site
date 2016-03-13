@@ -188,8 +188,8 @@ class Ad extends CI_Controller
             }
 
             if (check_user()) {
-                $q = $this->user_model->edit_user($_POST, check_user());
-                $q = $this->profile_model->edit_profile_by_user_id($_POST, check_user());
+                $q = $this->user_model->edit_user($p, check_user());
+                $q = $this->profile_model->edit_profile_by_user_id($p, check_user());
             }
             if ($q){
                 $this->notifyUser();
