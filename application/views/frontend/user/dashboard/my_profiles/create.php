@@ -34,15 +34,12 @@
             <?php $this->load->view('frontend/user/dashboard/nav');?>
         </div><!--dashboard-left-->
                 <div class="dashboard-right float-right">  
-                    <?php if(segment(3) == '') { ?>
+
                     <div class="top-welcome">
                         <h2><?php echo $title;?></h2>
                     </div>
-                    <?php } else { ?>
-                    <div class="top-welcome">
-                        <h2>Edit your account</h2>
-                    </div>
-                    <?php } ?>
+
+
                     <div class="sign-up-form">
                         <form name="myform" id="myform">
                             <div class="form-field">
@@ -59,17 +56,29 @@
                                 <div id="care_type" class='care-type clearfix' ></div>                            
                         </form> 
                     </div>
-                    <div id="result" style="display: none; "></div>
-                    <?php if(segment(3) != '') { ?>
-                    <a href="<?php echo base_url('login/get-password/'.sha1($email).'?redirect_uri='.urlencode(current_url())) ?>">Click here</a> to change your password.
-                    <br />
-                    <?php } ?>
+                    <div id="result">
+                        <?php 
+                            if ($form) {
+                                if ($message != '') {
+                                    echo $message;
+                                } else {
+                                    $this->load->view($form); 
+                                }
+                                
+                            }
+                        ?>
+                    </div>
+
                 </div>
             </div>
     </div>
 </div>
 <script>
 $(document).ready(function(){
+    $('.progtrckr').css('display','none');
+    $($('h1')[1]).css('display', 'none')
+    $('#result .ad-form-container').css('margin-left', '-18px')
+    
     var ac = "<?php echo $ac?>";
     var oc = "<?php echo $oc?>";    
     if(ac != '3'){     
@@ -103,6 +112,7 @@ $(document).ready(function(){
         get_cares(1,2);
     });
     function get_cares(a,b){
+        var id = '<?php echo segment(3);?>'
         var x = a;
         var y = b;
         $.ajax({
@@ -110,7 +120,8 @@ $(document).ready(function(){
             url:"<?php echo site_url();?>user/get_this_care",
             data:{f1:x,f2:y},            
             success:function(msg){                
-                $("#care_type").html(msg);   
+                $("#care_type").html(msg);  
+                $('#all_cares option[value=' + id + ']').attr('selected', 'selected')
             }
         });
     }
@@ -119,18 +130,7 @@ $(document).ready(function(){
 <script>
     $(function(){
         $('#care_type').on('change',function(){
-            $("#result").fadeOut(500);
-            $(".searchloader").fadeIn("fast");
-            $.ajax({
-                type:"POST",
-                url:"<?php echo site_url().$action;?>",
-                data:{id:$("#all_cares").val()},            
-                success:function(msg){
-                    $(".searchloader").fadeOut("fast");  
-                    $("#result").html(msg);
-                    $("#result").fadeIn(500);
-                }                
-            });            
+            location.href = '<?php echo site_url();?>ad/new_profile/' + $("#all_cares").val()
         });            
         var account_category = $('.acc_cat').val();
         var account_id = $('.acc_cat').attr('id');

@@ -14,7 +14,6 @@ $user_detail = get_user(check_user());
     $neighbour = $user_detail['neighbour'];
     $zip = $user_detail['zip'];
 ?>
-<?php if(($this->uri->segment(2) != 'new_profile')){?>
 <div class="container">
 <?php 
     if (($this->uri->segment(2) != 'new_profile')) {

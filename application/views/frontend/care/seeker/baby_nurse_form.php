@@ -154,7 +154,7 @@ $user_detail = get_user(check_user());
         </div>
     </div>
 
-
+            <div>
                 <label>Photo of child / children</label>
                     <?php $photo_url = site_url("images/plus.png");?>
                 <div class="upload-photo">
