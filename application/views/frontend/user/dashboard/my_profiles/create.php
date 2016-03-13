@@ -62,7 +62,12 @@
                                 if ($message != '') {
                                     echo $message;
                                 } else {
-                                    $this->load->view($form); 
+                                    $this->load->view($form, array('record' => array(
+                                        'ac_type' => $ac,
+                                        'account_type' => $ac,
+                                        'organization_care' => $oc,
+                                        'submit_id' => segment(3)
+                                    ))); 
                                 }
                                 
                             }
