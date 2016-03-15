@@ -203,7 +203,10 @@
         public function search()
         {
             $page = $this->input->get('pagenum',true);
-            $limit = $this->input->get('per_page',true); 
+            $limit = $this->input->get('per_page',true);
+            if (!((int) $limit > 0)) {
+                $limit = 15;
+            }
     	    $offset = 0;
     	    if ($page > 1) {
     	        $offset = ($page - 1) * 15;
