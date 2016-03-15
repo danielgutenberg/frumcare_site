@@ -226,8 +226,7 @@
     		    $totalresult = $this->common_care_model->get_count($data,$latitude,$longitude, false);
     		    $result = $this->common_care_model->filter($data,$latitude,$longitude, false, $limit, $offset);
     		}
-    		
-    		$total = (int) $totalresult[0]['count(*)'];
+    		$total = (int) $totalresult['count(*)'];
             $pagination = $this->get_pagination($total, $limit, $page);
                 
             $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
