@@ -32,20 +32,11 @@
                     <div class="row">
                         <div class="col-sm-6 col-xs-12">
                             <div style="text-align:center;" class='callout-block'>
-                                <h2 class="title" style="font-family: 'amaranthregular'; color: #0063d9; font-size: 29px;">
-                                    <span style="font:33px" class="looking-for-care">Need a Caregiver?</span><br/>
-                                    Find quality Caregivers in your area
-                                </h2>
                                 <a href="<?php echo site_url('caregivers/all');?>" class="place-ad-link link-block">FIND A CAREGIVER</a>
                             </div>
                         </div>
                         <div class="col-sm-6 col-xs-12">
                             <div style="text-align:center;" class='callout-block'>
-                                <h2 class="title" style="font-family: 'amaranthregular'; color: #0063d9; font-size: 29px;">
-                                    <span style="font:33px" class="looking-for-care-job">Looking for a care job?</span><br/>
-                                    Find Jobs in your area
-                                </h2>
-    
                                 <a href="<?php echo base_url('jobs/all') ?>" class="place-ad-link link-block">FIND A JOB</a>
                             </div>
                         </div>
