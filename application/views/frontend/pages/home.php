@@ -30,11 +30,11 @@
                     <div class="clearfix"></div>
                     
                     <div class="row">
-                        <div class="col-sm-6 col-xs-12">
-                                <a href="<?php echo site_url('caregivers/all');?>" class="place-ad-link link-block">FIND A CAREGIVER</a>
+                        <div class="home_page_buttons-lg home_page_buttons-md home_page_buttons-sm home_page_buttons-xs">
+                                <a href="<?php echo site_url('caregivers/all');?>" class="place-ad-link link-block responsive-btn">FIND A CAREGIVER</a>
                         </div>
-                        <div class="col-sm-6 col-xs-12">
-                                <a href="<?php echo base_url('jobs/all') ?>" class="place-ad-link link-block">FIND A JOB</a>
+                        <div class="home_page_buttons2 home_page_buttons-md2 home_page_buttons-sm2 home_page_buttons-xs2">
+                                <a href="<?php echo base_url('jobs/all') ?>" class="place-ad-link link-block responsive-btn">FIND A JOB</a>
                         </div>
                     </div>
         </section>
