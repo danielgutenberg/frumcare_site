@@ -31,14 +31,10 @@
                     
                     <div class="row">
                         <div class="col-sm-6 col-xs-12">
-                            <div style="text-align:center;" class='callout-block'>
                                 <a href="<?php echo site_url('caregivers/all');?>" class="place-ad-link link-block">FIND A CAREGIVER</a>
-                            </div>
                         </div>
                         <div class="col-sm-6 col-xs-12">
-                            <div style="text-align:center;" class='callout-block'>
                                 <a href="<?php echo base_url('jobs/all') ?>" class="place-ad-link link-block">FIND A JOB</a>
-                            </div>
                         </div>
                     </div>
         </section>

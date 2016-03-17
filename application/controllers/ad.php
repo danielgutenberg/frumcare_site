@@ -155,25 +155,27 @@ class Ad extends CI_Controller
                 $_POST['profile_picture_status'] = 1;
             }
             if (check_user()) {
+
                 $q = $this->user_model->edit_user($_POST, check_user());
                 $q = $this->profile_model->edit_profile_by_user_id($_POST, check_user());
-            }
-
-            if ($p['account_category'] == 1)
-                $category = "caregiver";
-            else
-                $category = "careseeker";
-
-            if ($p['account_type'] == 1)
-                $type = "individual";
-            else
-                $type = "organization";
-
-            if ($q) {
+           
                 $this->approveAds();
+            
+
+                if ($p['account_category'] == 1)
+                    $category = "caregiver";
+                else
+                    $category = "careseeker";
+    
+                if ($p['account_type'] == 1)
+                    $type = "individual";
+                else
+                    $type = "organization";
                 
                 redirect('ad/add_step3/'.$category.'/'.$type.'/'.$this->session->userdata('log_id').'/job-details/'.$this->session->userdata('log_id'));
+
             }
+                redirect('signup');
         }
     }
     
@@ -190,8 +192,6 @@ class Ad extends CI_Controller
             if (check_user()) {
                 $q = $this->user_model->edit_user($p, check_user());
                 $q = $this->profile_model->edit_profile_by_user_id($p, check_user());
-            }
-            if ($q){
                 $this->notifyUser();
                 $this->approveAds();
                 $link = anchor('caregivers/all', 'here');
