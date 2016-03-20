@@ -3,7 +3,7 @@
     <section class="banner">
         
         <ul id="site-banner" class="banner-main">
-            <li class="banner-item" style='height:500px; background-image:url(img/banner-bg.jpg);'>
+            <li class="banner-item home_page_banner" style='background-image:url(img/banner-bg.jpg);'>
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12">
@@ -29,12 +29,12 @@
                     </div>
                     <div class="clearfix"></div>
                     
-                    <div class="row">
-                        <div class="home_page_buttons-lg home_page_buttons-md home_page_buttons-sm home_page_buttons-xs">
-                                <a href="<?php echo site_url('caregivers/all');?>" class="place-ad-link link-block responsive-btn">FIND A CAREGIVER</a>
+                    <div class="row" style="margin-top:25px">
+                        <div class="home_page_buttons-lg home_page_buttons-md home_page_buttons-sm home_page_buttons-xs home_page_buttons-xxs buttons-xxxs buttons-xxxxs">
+                                <a href="<?php echo site_url('caregivers/all');?>" class="place-ad-link link-block">FIND A CAREGIVER</a>
                         </div>
-                        <div class="home_page_buttons2 home_page_buttons-md2 home_page_buttons-sm2 home_page_buttons-xs2">
-                                <a href="<?php echo base_url('jobs/all') ?>" class="place-ad-link link-block responsive-btn">FIND A JOB</a>
+                        <div class="home_page_buttons2 home_page_buttons-md2 home_page_buttons-sm2 home_page_buttons-xs2 home_page_buttons-xxs buttons-xxxs buttons-xxxxs">
+                                <a href="<?php echo base_url('jobs/all') ?>" class="place-ad-link link-block">FIND A JOB</a>
                         </div>
                     </div>
         </section>
