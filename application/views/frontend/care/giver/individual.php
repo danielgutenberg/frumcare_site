@@ -44,9 +44,17 @@
             </div>
         </div> 
 
-        <?php 
-            $this->load->view('frontend/care/giver/fields/languages_spoken');
-        ?>
+        <div>
+            <label>Languages spoken</label>
+            <div class="form-field">
+                <div class="checkbox"><input type="checkbox" name="caregiver_language[]" value="English"> English</div>
+                <div class="checkbox"><input type="checkbox" name="caregiver_language[]" value="Yiddish"> Yiddish</div>
+                <div class="checkbox"><input type="checkbox" name="caregiver_language[]" value="Hebrew"> Hebrew</div>
+                <div class="checkbox"><input type="checkbox" name="caregiver_language[]" value="Russian"> Russian</div>
+                <div class="checkbox"><input type="checkbox" name="caregiver_language[]" value="French"> French</div>
+                <div class="checkbox"><input type="checkbox" name="caregiver_language[]" value="Other"> Other</div>
+            </div>
+        </div>
 
         <div>
             <label>I am a smoker</label>
@@ -56,9 +64,24 @@
             <div class="radio-half"><input type="radio" name="smoker" value="3"> Yes, but not at work</div>
             </div>
         </div>
-        <?php   
-            $this->load->view('frontend/care/giver/fields/religious_observance');
-        ?>                
+        <div> 
+            <label>Level of religious observance</label>
+            <div class="form-field">
+            <select name="caregiver_religious_observance">
+                <option value="">Select</option>
+                <option value="Yeshivish/Chasidish">Yeshivish / Chasidish</option>
+                <option value="Orthodox/Modern Orthodox">Orthodox / Modern Orthodox</option>
+                <option value="Other">Other</option>
+                <option value="Not Jewish">Not Jewish</option>
+            </select>
+            </div>
+        </div>
+        <div class="familar" style="display:none;">
+            <label></label>
+            <div class="form-field">
+                <input type="checkbox" name="familartojewish" value="1"> Familiar with Jewish Tradition
+            </div>
+        </div>               
         <div>
             <label>Level of Education</label>
             <div class="form-field">

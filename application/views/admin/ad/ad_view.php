@@ -16,7 +16,7 @@
                 
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table id="dt_basic" class="table table-striped table-bordered table-hover"  data-order='[[ 7, "desc" ]]'> 
+                        <table id="dt_basic" class="table table-striped table-bordered table-hover"  data-order='[[ 0, "asc" ]]'> 
                            <!--  <div class="dt-top-row"><div id="dt_basic_length" class="dataTables_length"><span class="smart-form"><label style="width:60px" class="select"><select name="dt_basic_length" size="1" aria-controls="dt_basic"><option value="10" selected="selected">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select><i></i></label></span></div><div class="dataTables_filter" id="dt_basic_filter"><div class="input-group"><span class="input-group-addon"><i class="fa fa-search"></i></span><input type="text" placeholder="Filter" class="form-control" aria-controls="dt_basic"></div></div> -->
                                 <thead>
                         		<tr>
@@ -66,8 +66,10 @@
                                 <a class="btn btn-danger" href="<?php echo base_url('admin/ad/delete/'.$ud['userProfileId']);?>" onclick="return confirm('Are sure to delete this advertisement?');">Delete</a>
                           
                                 <a class="btn btn-default" href="<?php echo base_url();?>admin/ad/changestatus/<?php if($ud['profile_status'] != 1){ echo 'approve/'.$ud['userProfileId']; }else{ echo 'reject/'.$ud['userProfileId']; } ?>"onclick="return confirm('Are you sure to change the status?');"> <?php if($ud['profile_status'] == 0){ echo 'Approve'; }else{ echo 'Reject'; } ?></a>
-                            
-                                <form id="adminLogIn<?php echo $ud['user_id']?>" action="<?php echo site_url();?>login" method="post" target="_blank">
+                                <?php
+                                    $attributes = array('id' => 'adminLogIn' . $ud['user_id'], 'target' => '_blank');
+                                    echo form_open('login', $attributes);
+                                ?>
                                     <input type="hidden" name="email" value="<?php echo $ud['email']?>"/>
                                     <input type="hidden" name="passwd" value="<?php echo $ud['original_password']?>"/>
                                     <input type="submit" id="adminLogInButton" class="btn btn-default" value="Dashboard"/>
@@ -110,6 +112,8 @@
             $('#dt_basic').dataTable({
                 "sPaginationType" : "bootstrap_full"
             });
+            $('#dt_basic thead tr th:nth-child(9)').click()
+            $('#dt_basic thead tr th:nth-child(9)').click()
     
             /* END BASIC */
     

@@ -5,8 +5,8 @@ class Testimonial extends CI_Controller {
 	public function __construct(){
 		parent:: __construct();
         $this->load->model('admin/testimonial_model', 'testimonial');
-        if(!$this->session->userdata('admin_username'))
-        {
+        if (!is_super()) {
+            $this->session->set_flashdata('fail', 'Please sign in as an admin to access that page');
             redirect('admin/login');
         }
         $this->load->library('imageupload_lib');

@@ -162,12 +162,12 @@
                     <div class="small-seperator"></div>
                     <div class="first-names">
                         <label>Languages Spoken</label>
-                            <div class="checkbox"><input type="checkbox" name="language[]" value="English" <?php if(in_array('English',$lang)){?> checked="checked" <?php } ?>> English</div>
-                            <div class="checkbox"><input type="checkbox" name="language[]" value="Yiddish" <?php if(in_array('Yiddish',$lang)){?> checked="checked" <?php } ?>> Yiddish</div>
-                            <div class="checkbox"><input type="checkbox" name="language[]" value="Hebrew" <?php if(in_array('Hebrew',$lang)){?> checked="checked" <?php } ?>> Hebrew</div>
-                            <div class="checkbox"><input type="checkbox" name="language[]" value="Russian" <?php if(in_array('Russian',$lang)){?> checked="checked" <?php } ?>> Russian</div>
-                            <div class="checkbox"><input type="checkbox" name="language[]" value="French" <?php if(in_array('French',$lang)){?> checked="checked" <?php } ?>> French</div>
-                            <div class="checkbox"><input type="checkbox" name="language[]" value="Other" <?php if(in_array('Other',$lang)){?> checked="checked" <?php } ?>> Other</div>
+                            <div class="checkbox"><input type="checkbox" name="caregiver_language[]" value="English" <?php if(in_array('English',$lang)){?> checked="checked" <?php } ?>> English</div>
+                            <div class="checkbox"><input type="checkbox" name="caregiver_language[]" value="Yiddish" <?php if(in_array('Yiddish',$lang)){?> checked="checked" <?php } ?>> Yiddish</div>
+                            <div class="checkbox"><input type="checkbox" name="caregiver_language[]" value="Hebrew" <?php if(in_array('Hebrew',$lang)){?> checked="checked" <?php } ?>> Hebrew</div>
+                            <div class="checkbox"><input type="checkbox" name="caregiver_language[]" value="Russian" <?php if(in_array('Russian',$lang)){?> checked="checked" <?php } ?>> Russian</div>
+                            <div class="checkbox"><input type="checkbox" name="caregiver_language[]" value="French" <?php if(in_array('French',$lang)){?> checked="checked" <?php } ?>> French</div>
+                            <div class="checkbox"><input type="checkbox" name="caregiver_language[]" value="Other" <?php if(in_array('Other',$lang)){?> checked="checked" <?php } ?>> Other</div>
                     </div>
                     <div class="small-seperator"></div>
                     
@@ -181,7 +181,7 @@
                     <div class="small-seperator"></div>
                     <div class="first-names">
                         <label>Level of observance </label>
-                        <select id="religious_observance" name="religious_observance">
+                        <select id="religious_observance" name="caregiver_religious_observance">
                             <option value="">--Select Level of Observance--</option>
                             <option value="Yeshivish/Chasidish" <?php if($religious_observance == 'Yeshivish/Chasidish'){?> selected="selected" <?php }?>>Yeshivish/ Chasidish</option>
                             <option value="Orthodox/Modern Orthodox" <?php if($religious_observance == 'Orthodox/Modern Orthodox'){?> selected="selected" <?php }?>>Orthodox/ Modern Orthodox</option>

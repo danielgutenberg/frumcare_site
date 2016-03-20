@@ -3,7 +3,8 @@ class Admin extends CI_Controller{
     function __construct() {
          parent::__construct();
          
-        if (!$this->session->userdata('admin_username')) {
+        if (!is_super()) {
+            $this->session->set_flashdata('fail', 'Please sign in as an admin to access that page');
             redirect('admin/login');
         }
 		$this->load->model('admin/admin_model','admin');
@@ -82,6 +83,7 @@ class Admin extends CI_Controller{
         $this->session->unset_userdata('admin_id');
         $this->session->unset_userdata('admin_username');
 		$this->session->unset_userdata('admin_type');
+		$this->session->unset_userdata('admin_level');
         delete_cookie("remember_login");
         
         redirect('admin');

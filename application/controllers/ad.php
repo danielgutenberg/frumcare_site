@@ -151,26 +151,31 @@ class Ad extends CI_Controller
     public function registeruserdetails(){
         if ($_POST) {
             $_POST['hasAd'] = 1;
+            if (isset($_POST['profile_picture'])) {
+                $_POST['profile_picture_status'] = 1;
+            }
             if (check_user()) {
+
                 $q = $this->user_model->edit_user($_POST, check_user());
                 $q = $this->profile_model->edit_profile_by_user_id($_POST, check_user());
-            }
-
-            if ($p['account_category'] == 1)
-                $category = "caregiver";
-            else
-                $category = "careseeker";
-
-            if ($p['account_type'] == 1)
-                $type = "individual";
-            else
-                $type = "organization";
-
-            if ($q) {
+           
                 $this->approveAds();
+            
+
+                if ($p['account_category'] == 1)
+                    $category = "caregiver";
+                else
+                    $category = "careseeker";
+    
+                if ($p['account_type'] == 1)
+                    $type = "individual";
+                else
+                    $type = "organization";
                 
                 redirect('ad/add_step3/'.$category.'/'.$type.'/'.$this->session->userdata('log_id').'/job-details/'.$this->session->userdata('log_id'));
+
             }
+                redirect('signup');
         }
     }
     
@@ -181,14 +186,12 @@ class Ad extends CI_Controller
 
             if (isset($p['photo_of_child'])){
                 $p['photo_status'] = 1;
-                $p['profile_picture']=$p['photo_of_child'];
+                $p['profile_picture'] = $p['photo_of_child'];
             }
 
             if (check_user()) {
-                $q = $this->user_model->edit_user($_POST, check_user());
-                $q = $this->profile_model->edit_profile_by_user_id($_POST, check_user());
-            }
-            if ($q){
+                $q = $this->user_model->edit_user($p, check_user());
+                $q = $this->profile_model->edit_profile_by_user_id($p, check_user());
                 $this->notifyUser();
                 $this->approveAds();
                 $link = anchor('caregivers/all', 'here');
@@ -201,6 +204,107 @@ class Ad extends CI_Controller
                 redirect('user/dashboard');
             }
         }
+    }
+    
+    public function new_profile($id)
+    {
+            if ($id == 1){
+                $data['main_content'] = 'frontend/care/giver/babysitter_form';
+            }
+            if ($id == 2){
+                $data['main_content'] = 'frontend/care/giver/nanny_form';
+            }
+            if ($id == 3){
+                $data['main_content'] = 'frontend/care/giver/nursery_form';
+            }
+            if ($id == 4){
+                $data['main_content'] = 'frontend/care/giver/tutor_form';
+            }
+            if ($id == 5){
+                $data['main_content'] = 'frontend/care/giver/senior_form';
+            }
+            if ($id == 6){
+                $data['main_content'] = 'frontend/care/giver/specialneeds_form';
+            }
+            if ($id == 7){
+                $data['main_content'] = 'frontend/care/giver/therapist_form';
+            }
+            if ($id == 8){
+                $data['main_content'] = 'frontend/care/giver/cleaning_form';
+            }
+            if ($id == 9){
+                $data['main_content'] = 'frontend/care/giver/errand_form';
+            }
+            if ($id == 10){
+                $data['main_content'] = 'frontend/care/giver/baby_nurse_form';
+            }
+            if ($id == 11)
+                $data['main_content'] = 'frontend/care/giver/daycarecenter_form';
+            if ($id == 13)
+                $data['main_content'] = 'frontend/care/giver/seniorcareagency_form';
+            if ($id == 14)
+                $data['main_content'] = 'frontend/care/giver/specialneedscenter_form';
+            if ($id == 15)
+                $data['main_content'] = 'frontend/care/giver/cleaningcompany_form';
+            if ($id == 16)
+                $data['main_content'] = 'frontend/care/giver/seniorcarecenter_form';
+            if ($id == 17)
+                $data['main_content'] = 'frontend/care/seeker/babysitter_form';
+            if ($id == 18)
+                $data['main_content'] = 'frontend/care/seeker/nanny_form';
+            if ($id == 19)
+                $data['main_content'] = 'frontend/care/seeker/tutor_form';
+            if ($id == 20)
+                $data['main_content'] = 'frontend/care/seeker/senior_form';
+            if ($id == 21)
+                $data['main_content'] = 'frontend/care/seeker/errand_form';
+            if ($id == 22)
+                $data['main_content'] = 'frontend/care/seeker/specailneedcareseeker_form';
+            if ($id == 23)
+                $data['main_content'] = 'frontend/care/seeker/baby_nurse_form';
+            if ($id == 24)
+                $data['main_content'] = 'frontend/care/seeker/cleaning_form';
+            if ($id == 25)
+                $data['main_content'] = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
+            if ($id == 26)
+                $data['main_content'] = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
+             if ($id == 27)
+                $data['main_content'] = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
+            if ($id == 28)
+                $data['main_content'] = 'frontend/care/seeker/cleaningcompany_form';
+        
+        $account_category     = $this->session->userdata('account_category');
+        $organization_care = $this->session->userdata('organization_care');
+        $account_details = get_account_details();
+            
+        $message = '';
+        if(!$this->user_model->existing_profile_check($account_category , $id)) {
+            $message = 'You already have a profile of this type';
+        } 
+
+        if($account_category == '1'){
+            @$title = "Add New Profile";
+        }
+
+        if($account_category == '2'){
+            @$title = "Add New Job";
+        }
+
+        if($account_category == '3'){
+            @$title = $organization_care=='1'?"Add New Profile":"Add New Job";
+        }
+
+        $this->breadcrumbs->push(@$title, site_url().'#');
+        $this->breadcrumbs->unshift('My Profile', base_url().'user/profile');
+        $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
+
+        $data1 = array(
+            'title' => @$title,
+            'main_content' => 'frontend/user/dashboard/my_profiles/create',
+            'form' => $data['main_content'],
+            'message' => $message
+        );
+        $this->load->view(FRONTEND_TEMPLATE,$data1);
     }
     
     function add_step3(){
@@ -307,16 +411,27 @@ class Ad extends CI_Controller
         sendemail($param);
     }
     
-    public function approveAd($id)
+    public function approveAd()
     {
-        $user_id = $this->uri->segment(3);
-        $id = $this->uri->segment(4);
+        $args = func_get_args();
+        $user_id = $args[0];
+        $id = $args[1];
+        $hash_args = array_filter(array_slice($args, 2));
+        $hash = implode($hash_args, '/');
+        
+        $hashData = json_decode(encrypt_decrypt('decrypt', $hash));
+        
+        $details = $this->user_model->getUserDetailsById($user_id,$id);
+        
+        if ( empty($details) || !isset($hashData->user_id) || !isset($hashData->care_type) || !($user_id == $hashData->user_id) || !($id == $hashData->care_type) ) {
+            $this->session->set_flashdata('fail', 'An Error occured, please sign in to the admin to approve the ad');
+            redirect('admin/login');
+        }
         $this->db->where(array('user_id' => $user_id, 'care_type' => $id));
         $this->db->update('tbl_userprofile', array('profile_status'=>1));
 
         $user = get_user($user_id);
         $sendto = $user['email'];
-        $details = $this->user_model->getUserDetailsById($user_id,$id);
         $msg = $this->load->view('emails/adApproved', array('name' => $details['name']), true);
         $param = array(
             'subject'     => 'Ad Approved',
@@ -388,14 +503,14 @@ class Ad extends CI_Controller
         $user_id = check_user();
         $a = get_account_details();
         $id = $a->care_type;
-
+        $hashInfo = ['user_id' => $user_id, 'care_type' => $id];
         /********************* get user profile of the current user ******************/
 
         $emails = $this->common_model->getAdminEmails();
         $details      = $this->user_model->getUserDetailsById($user_id,$id);
         $details['profile_id'] = $q;
         $data['recordData'] = $details;
-
+        $data['hash'] = encrypt_decrypt('encrypt', json_encode($hashInfo));
         $msg = $this->load->view('frontend/email/profileapproval', $data, true);
 
         $param = array(
@@ -410,18 +525,8 @@ class Ad extends CI_Controller
         sendemail($param);
     }
 
-    public function approve(){
-        $user_id = $this->uri->segment(3);
-        $profile_id = $this->uri->segment(4);
-
-        $this->db->where('id',$profile_id);
-        $this->db->update('tbl_userprofile',array('profile_status'=>1));
-
-        redirect('ad/success','refresh');
-    }
-
-   public function success(){
-
+   public function success()
+   {
         $this->breadcrumbs->push('Success', '/help');
         $this->breadcrumbs->unshift('Home', base_url());
 
@@ -463,83 +568,6 @@ class Ad extends CI_Controller
         $this->load->view(FRONTEND_TEMPLATE,$data);
     }
     
-    public function new_profile()
-    {
-        if($this->input->post('id',true)){
-            $ac_type = "fd";                
-            $submit_id = $this->input->post('id',true);
-            
-            $account_category = $this->session->userdata('account_category');
-            $organization_category = $this->session->userdata('organization_care');                
-            $data['record'] = array(
-                'submit_id' => $submit_id,
-                'ac_type' => $ac_type,
-                'account_type' => $account_category,
-                'organization_care' => $organization_category,
-            );
-            if($submit_id == 1)
-                $view = 'frontend/care/giver/babysitter_form';
-            if($submit_id == 2)
-                $view = 'frontend/care/giver/nanny_form';
-            if($submit_id == 3)
-                $view = 'frontend/care/giver/nursery_form';
-            if($submit_id == 4)
-                $view = 'frontend/care/giver/tutor_form';
-            if($submit_id == 5)
-                $view = 'frontend/care/giver/senior_form';
-            if($submit_id == 6)
-                $view = 'frontend/care/giver/specialneeds_form';
-            if($submit_id == 7)
-                $view = 'frontend/care/giver/therapist_form';
-            if($submit_id == 8)
-                $view = 'frontend/care/giver/cleaning_form';
-            if($submit_id == 9)
-                $view = 'frontend/care/giver/errand_form';
-            if($submit_id == 10)
-                $view = 'frontend/care/giver/baby_nurse_form';
-            if($submit_id == 17)
-                $view = 'frontend/care/seeker/babysitter_form';
-            if($submit_id == 18)
-                $view = 'frontend/care/seeker/nanny_form';
-            if($submit_id == 19)
-                $view = 'frontend/care/seeker/tutor_form';
-            if($submit_id == 20)
-                $view = 'frontend/care/seeker/senior_form';
-            if($submit_id == 21)
-                $view = 'frontend/care/seeker/errand_form';
-            if($submit_id == 22)
-                $view = 'frontend/care/seeker/specailneedcareseeker_form';
-            if($submit_id == 23)
-                $view = 'frontend/care/seeker/baby_nurse_form';
-            if($submit_id == 24)
-                $view = 'frontend/care/seeker/cleaning_form';
-            if($submit_id == 11)
-                $view = 'frontend/care/giver/daycarecenter_form';
-            if($submit_id == 13)
-                $view = 'frontend/care/giver/seniorcareagency_form';
-            if($submit_id == 14)
-                $view = 'frontend/care/giver/specialneedscenter_form';
-            if($submit_id == 15)
-                $view = 'frontend/care/giver/cleaningcompany_form';
-            if($submit_id == 16)
-                $view = 'frontend/care/giver/seniorcarecenter_form';
-            if($submit_id == 25)
-                $view = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
-            if($submit_id == 26)
-                $view = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
-            if($submit_id == 27)
-                $view = 'frontend/care/seeker/childcare_seniorcare_specialneeds_facilities_form';
-            if($submit_id == 28)
-                $view = 'frontend/care/seeker/cleaningcompany_form';
-            
-            if($this->user_model->existing_profile_check($account_category ,$submit_id)) {
-                $this->load->view($view,$data);
-            } else {
-                echo "You already have this profile type";
-            }
-        }
-    }
-    
     public function addprofileconfirm()
     {
         $p = $_POST; 
@@ -549,6 +577,7 @@ class Ad extends CI_Controller
             $user_id = check_user();
             $p['user_id'] = $user_id;
             $p['account_category'] = $account_category;
+            $p['created_time'] = strtotime('now');
             
             $q = $this->profile_model->save_profile($p);
             $q = $this->user_model->edit_user($p, $user_id);
@@ -559,6 +588,8 @@ class Ad extends CI_Controller
                 $details = $this->user_model->getUserDetailsById($user_id, $p['care_type']);
                 $details['profile_id'] = $q;
                 $data['recordData']     = $details;
+                $hashInfo = ['user_id' => $user_id, 'care_type' => $p['care_type']];
+                $data['hash'] = encrypt_decrypt('encrypt', json_encode($hashInfo));
                 $msg = $this->load->view('frontend/email/profileapproval', $data, true);
     
                 $param = array(
@@ -686,7 +717,6 @@ class Ad extends CI_Controller
     
     public function update_job_details()
     {
-        $profileStatus = 1;
         $care_type = $this->uri->segment(3);
         $email = 0;
         if($_POST) {
@@ -696,7 +726,7 @@ class Ad extends CI_Controller
             $this->db->where(array('user_id'=>$id,'care_type'=>$care_type));
             $res = $this->db->get('tbl_userprofile');
             $oldProfile = $res->result_array()[0];
-
+            $profileStatus = $oldProfile['profile_status'];
             if ($p['profile_description'] != $oldProfile['profile_description'] || $p['file'] != $oldProfile['file'] || $p['pdf'] != $oldProfile['pdf'] || $p['facility_pic'] != $oldProfile['facility_pic'] || $p['photo_of_child'] != $oldProfile['photo_of_child']) {
                 $profileStatus = 0;
                 $email = 1;
@@ -709,13 +739,16 @@ class Ad extends CI_Controller
                 $q = $this->profile_model->edit_profile_by_user_id($p, check_user());
             }
         
-            if ($email == 1) {
+            if ($email == 1 && $oldProfile['profile_status'] == 1) {
                 $emails = $this->common_model->getAdminEmails();
                 
                 $details      = $this->user_model->getUserDetailsById(check_user(),$care_type);
                 $details['profile_id'] = $q;
                 
                 $data['recordData']     = $details;
+                
+                $hashInfo = ['user_id' => check_user(), 'care_type' => $care_type];
+                $data['hash'] = encrypt_decrypt('encrypt', json_encode($hashInfo));
                 
                 $msg = $this->load->view('frontend/email/profileapproval', $data, true);
     

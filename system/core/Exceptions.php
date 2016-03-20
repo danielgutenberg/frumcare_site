@@ -134,19 +134,17 @@ class CI_Exceptions {
 	 */
 	function show_error($heading, $message, $template = 'error_general', $status_code = 500)
 	{
-		if ($template == 'error_db') {
-			$param = array(
-                'subject'     => 'Database Error',
-                'from'        => 'info@frumcare.com',
-                'from_name'   => 'FrumCare',
-                'replyto'     => 'info@frumcare.com',
-                'replytoname' => 'FrumCare',
-                'sendto'      => 'danielguten@gmail.com, feldmp@zahav.net.il',
-                'message'     => '<p>'.implode('</p><p>', ( ! is_array($message)) ? array($message) : $message).'</p>'
-            );
-            
-            sendemail($param);
-		}
+		$param = array(
+            'subject'     => 'Database Error',
+            'from'        => 'info@frumcare.com',
+            'from_name'   => 'FrumCare',
+            'replyto'     => 'info@frumcare.com',
+            'replytoname' => 'FrumCare',
+            'sendto'      => 'danielguten@gmail.com',
+            'message'     => '<p>'.implode('</p><p>', ( ! is_array($message)) ? array($message) : $message).'</p>'
+        );
+        
+        sendemail($param);
 		
 		set_status_header($status_code);
 
@@ -177,6 +175,17 @@ class CI_Exceptions {
 	 */
 	function show_php_error($severity, $message, $filepath, $line)
 	{
+		$param = array(
+            'subject'     => 'Database Error',
+            'from'        => 'info@frumcare.com',
+            'from_name'   => 'FrumCare',
+            'replyto'     => 'info@frumcare.com',
+            'replytoname' => 'FrumCare',
+            'sendto'      => 'danielguten@gmail.com',
+            'message'     => '<p>'.implode('</p><p>', ( ! is_array($message)) ? array($message) : $message).'</p><p>Filepath: ' . $filepath . '</p><p>Line: ' . $line . '</p>'
+        );
+        
+        sendemail($param);
 		$severity = ( ! isset($this->levels[$severity])) ? $severity : $this->levels[$severity];
 
 		$filepath = str_replace("\\", "/", $filepath);

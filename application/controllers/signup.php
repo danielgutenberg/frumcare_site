@@ -43,6 +43,11 @@ class Signup extends CI_Controller
     {
         if($_POST) {
             $data = $_POST;
+            $res = $this->user_model->getSocialLoginUser($data['email']);
+            if ($res) {
+                $this->session->set_flashdata('info', 'An account already exists with this email address.');
+                redirect('signup');
+            }
             $uri = $this->common_model->create_slug(trim($data['name']));
             $exp = explode('_', $data['care_type']);
             $care_type = $exp[0]; 
@@ -62,6 +67,7 @@ class Signup extends CI_Controller
                 'uri'                   => $uri,
                 'status'                => 1,
                 'organization_name'     => $orgName,
+                'original_password'     => $data['password']
             );
             
             $insert = array_merge($data, $insert_data);

@@ -7,7 +7,7 @@
         <input type="hidden" id="stateName" name="state" value="<?php echo isset($location['state'])?$location['state']:''?>"/>
         <input type="hidden" id="countryName" name="country" value="<?php echo isset($location['country'])?$location['country']:''?>"/>
         <input type="hidden" id="locationName" name="location" value="<?php echo isset($location['location'])?$location['location']:''?>"/>
-        <input type="text" class="required" placeholder="Please enter a street address" id="autocomplete" value="<?php echo isset($location['location'])? $location['location']:''; ?>" required/>
+        <input type="text" class="required" placeholder="Please enter a street address" id="autocomplete" value="<?php echo isset($location['location'])? $location['location']:''; ?>"/>
     </div> 
      <span style="color:red;" id="error"> </span>
      <p>Can't find your address? <a class="noAddress" style="cursor:pointer">Click here</a></p>
@@ -15,7 +15,7 @@
 <div id="cityField" style="display:none">
     <label>Location</label>
     <span class="first-names">
-        <input type="text" class="required" placeholder="Please enter a city and state/country" id="autocomplete1" value="<?php echo isset($address)? $address:''; ?>" required/>
+        <input type="text" class="required" placeholder="Please enter a city and state/country" id="autocomplete1" value="<?php echo isset($address)? $address:''; ?>"/>
     </span>
     <span style="color:red;" id="error1"> </span>
 </div> 

@@ -39,11 +39,11 @@
     	}
     	
     	public function senior_caregiver() {
-    	    $this->load_ads(5, 'Senior Caregivers');
+    	    $this->load_ads(5, 'Senior Caregivers / Companions');
     	}
     	
     	public function special_needs_caregiver() {
-    	    $this->load_ads(6, 'Special Needs Caregivers');
+    	    $this->load_ads(6, 'Special Needs Caregivers / Companions');
     	}
     	
     	public function therapist() {
@@ -99,7 +99,7 @@
     	
     	public function careseeker_seniorcaregiver()
     	{
-    	    $this->load_ads(20, 'Senior caregiver jobs', 2);
+    	    $this->load_ads(20, 'Senior caregiver / companion jobs', 2);
     	}
     	
     	public function careseeker_errandrunner()
@@ -109,7 +109,7 @@
     	
     	public function careseeker_specialneedscaregiver()
     	{
-    	    $this->load_ads(22, 'Special needs caregiver jobs', 2);
+    	    $this->load_ads(22, 'Special needs caregiver / companion jobs', 2);
     	}
     	
     	public function careseeker_babynurse()
@@ -203,7 +203,10 @@
         public function search()
         {
             $page = $this->input->get('pagenum',true);
-            $limit = $this->input->get('per_page',true); 
+            $limit = $this->input->get('per_page',true);
+            if (!((int) $limit > 0)) {
+                $limit = 15;
+            }
     	    $offset = 0;
     	    if ($page > 1) {
     	        $offset = ($page - 1) * 15;
@@ -226,8 +229,7 @@
     		    $totalresult = $this->common_care_model->get_count($data,$latitude,$longitude, false);
     		    $result = $this->common_care_model->filter($data,$latitude,$longitude, false, $limit, $offset);
     		}
-    		
-    		$total = (int) $totalresult[0]['count(*)'];
+    		$total = (int) $totalresult['count(*)'];
             $pagination = $this->get_pagination($total, $limit, $page);
                 
             $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];

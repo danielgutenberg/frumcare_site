@@ -14,7 +14,6 @@ $user_detail = get_user(check_user());
     $neighbour = $user_detail['neighbour'];
     $zip = $user_detail['zip'];
 ?>
-<?php if(($this->uri->segment(2) != 'new_profile')){?>
 <div class="container">
 <?php 
     if (($this->uri->segment(2) != 'new_profile')) {
@@ -179,7 +178,7 @@ $user_detail = get_user(check_user());
 			</div>
 
 
-
+			<h2>Abilities and Skills Necessary</h2>
 			<div class="checkbox-wrap">
 				<div>
                     <input type="checkbox" value="1" name="driver_license"> <label>Drivers license</label>

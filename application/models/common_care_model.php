@@ -306,14 +306,15 @@ class Common_care_model extends CI_Model
 		}
         if($start_date)
 		$sql .= " and tbl_userprofile.start_date='".$start_date."'";
-        if($distance != "unlimited"){
+        if($distance != "unlimited" && ((int) $distance) > 0){
             $sql.=" having distance <= $distance";
         }
-        $order_type = 'asc';
-        if($sort_by == 'tbl_userprofile.id'){
-            $order_type = 'desc';
+        if($sort_by == 'tbl_userprofile.id') {
+        	$sql.= " order by tbl_userprofile.id desc";
         }
-        $sql.= " order by $sort_by $order_type";
+        if($sort_by == 'distance') {
+        	$sql.= " order by distance asc";
+        }
         
         $sql.=" limit $limit";
         $sql.=" offset $offset";
@@ -541,9 +542,11 @@ class Common_care_model extends CI_Model
 		}
         if($start_date)
 		$sql .= " and tbl_userprofile.start_date='".$start_date."'";
-
+        if($distance != "unlimited" && ((int) $distance) > 0){
+            $sql.=" and (((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) <= $distance";
+        }
 		$query 	= $this->db->query($sql);
-		$res 	= $query->result_array();
+		$res 	= $query->row_array();
 		if($res)
 			return $res;
 		else

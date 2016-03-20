@@ -165,7 +165,6 @@ $user_detail = get_user(check_user());
             <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
             </div>
         </div>
-    <h2>Abilities and Skill Necessary</h2>
     <div>
         <label>Smoker</label>
         <div class="form-field">
@@ -177,7 +176,7 @@ $user_detail = get_user(check_user());
 
 
 
-        <h2>Abilities and skills </h2>
+        <h2>Abilities and Skills Necessary</h2>
             <div class="checkbox">
                 <input type="checkbox" value="1" name="driver_license">Drivers license</label>
             </div>

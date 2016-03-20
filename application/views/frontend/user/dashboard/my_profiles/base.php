@@ -15,10 +15,10 @@ $oc = $this->session->userdata('organization_care');
 <div class="container">
 <?php echo $this->breadcrumbs->show();?>
     <div class="row">
-    	<div class="dashboard-left float-left">
+    	<div class="col-xs-12 col-sm-3">
         	<?php $this->load->view('frontend/user/dashboard/nav');?>
         </div><!--dashboard-left-->
-     <div class="dashboard-right float-right">  
+     <div class="col-sm-9 col-xs-12">  
 	        <div class="top-welcome">
                 <h2>
                     <?php 

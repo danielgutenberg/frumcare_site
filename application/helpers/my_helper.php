@@ -2,7 +2,7 @@
 function is_super(){
     $ci = &get_instance();
     $role = $ci->session->userdata('admin_level');
-    if($role=='superadmin')
+    if($role=='Super Admin')
         return true; 
     else 
         return false;
@@ -118,8 +118,6 @@ function check_email($email)
 
 function sendemail($params)
 {
-
-
     $config = Array(
                           //'protocol' => 'smtp',
                           //'smtp_host' => 'ssl://smtp.googlemail.com',
