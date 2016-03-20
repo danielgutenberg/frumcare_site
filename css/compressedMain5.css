@@ -30,3 +30,18 @@
     .home_page_buttons-xs{margin-left:213px !important; width:100% !important;float:left !important;}
     .responsive-btn{left:33% !important;}
 }
+@media (max-width:699px){
+    .home_page_buttons-xxs{margin-left:175px !important}
+}
+@media (max-width:650px){
+    .buttons-xxxs{margin-left: 150px !important}
+}
+@media (max-width:600px){
+    .buttons-xxxxs{margin-left: 125px !important}
+}
+@media (max-width:768px){
+    .home_page_banner{height:100% !important}
+}
+@media (min-width:769px){
+    .home_page_banner{height:500px !important}
+}
