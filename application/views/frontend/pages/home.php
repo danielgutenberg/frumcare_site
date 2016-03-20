@@ -3,7 +3,7 @@
     <section class="banner">
         
         <ul id="site-banner" class="banner-main">
-            <li class="banner-item" style='height:100%; background-image:url(img/banner-bg.jpg);'>
+            <li class="banner-item" style='height:500px; background-image:url(img/banner-bg.jpg);'>
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12">
