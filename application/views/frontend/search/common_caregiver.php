@@ -206,10 +206,10 @@
 	</h3>
     
 	<?php if($s1 == 'caregivers'){
-        $ac = $account_category==3?3:1; ?>
+        $ac = $account_category==3?3:2; ?>
         <div class="want-top"><p>Want Caregivers to Contact you?<a href='<?php echo site_url()."signup?ac=$ac"?>' class="btn btn-primary ml10 btn-xs">Post a Job for free</a></p></div>
     <?php } else {
-            $ac = $account_category==3?3:2; ?>
+            $ac = $account_category==3?3:1; ?>
         <div class="want-top"><p>Want Employers to Contact you?<a href='<?php echo site_url()."signup?ac=$ac"?>' class="btn btn-primary ml10 btn-xs">Create a Profile for free</a></p></div>
     <?php } ?>
 
