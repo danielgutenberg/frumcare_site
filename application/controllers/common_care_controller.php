@@ -234,7 +234,7 @@
                 
             $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
             
-            $merge['userdatas']  = $this->load->view('frontend/search/common_profile_list', array('userdatas'=>$result,'userlogs'=>$userlogs,'location'=>$locationdetails), true); 
+            $merge['userdatas']  = $this->load->view('frontend/search/common_profile_list', array('userdatas'=>$result,'location'=>$locationdetails), true); 
             $merge['num']        = ceil($total/$limit);
             $merge['total']      = $total;
             $merge['pagination'] = $pagination;

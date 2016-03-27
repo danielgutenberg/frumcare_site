@@ -173,21 +173,19 @@ $careType = [
 			    <?php if($data['care_type'] != 7) { ?>
 			    <h5>Last Signed in: <?php 
 					$id 		= $data['user_id'];
-					$userlog 	= User_model::getUserLogById($id);
-					if(!empty($userlog)){
-						$dbDate = $userlog['login_time']; // Database date
-						$endDate = time(); 
-						$diff = $endDate - $dbDate; 
-						$days = floor($diff/86400);
-						$hours = floor(($diff-$days*86400)/(60 * 60));
-						$min = floor(($diff-($days*86400+$hours*3600))/60);
-						$second = $diff - ($days*86400+$hours*3600+$min*60);
+					$dbDate 	= $data['login_time'];
+					$endDate = time(); 
+					$diff = $endDate - $dbDate; 
+					$days = floor($diff/86400);
+					$hours = floor(($diff-$days*86400)/(60 * 60));
+					$min = floor(($diff-($days*86400+$hours*3600))/60);
+					$second = $diff - ($days*86400+$hours*3600+$min*60);
 
-						if($days > 0) echo "( " .$days." days ago )";
-						elseif($hours > 0) echo "( " .$hours." hours ago )";
-						elseif($min > 0) echo "( " .$min." minute ago )";
-						else echo "( just second ago )";
-					} ?> 
+					if($days > 0) echo "( " .$days." days ago )";
+					elseif($hours > 0) echo "( " .$hours." hours ago )";
+					elseif($min > 0) echo "( " .$min." minute ago )";
+					else echo "( just second ago )";
+				?> 
 			    </h5>
 			    <?php } ?>
 				<div class="profile-activities"> <?php 
