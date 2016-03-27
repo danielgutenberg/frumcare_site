@@ -53,7 +53,7 @@
                                     <p class="nav-title">I am looking for</p>
                                     <?php //wp_nav_menu( array( 'theme_location' => 'footer-menu2' ) ); ?>
                                     <ul>
-                                        <li><a href="<?php echo $ciurl;?>/caregivers">Find a Caregiver</a></li>
+                                        <li><a href="<?php echo $ciurl;?>/caregivers/all">Find a Caregiver</a></li>
                                         <li><a href="<?php echo $ciurl;?>/jobs/all">Find a Job</a></li>
                                         <li><a href="<?php echo $ciurl;?>/caregivers/organizations">Find Workers</a></li>
                                     </ul>
