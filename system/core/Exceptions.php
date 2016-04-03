@@ -141,7 +141,7 @@ class CI_Exceptions {
             'replyto'     => 'info@frumcare.com',
             'replytoname' => 'FrumCare',
             'sendto'      => 'danielguten@gmail.com',
-            'message'     => '<p>'.implode('</p><p>', ( ! is_array($message)) ? array($message) : $message).'</p>'
+            'message'     => '<p>'.implode('</p><p>', ( ! is_array($message)) ? array($message) : $message).'</p><p>' . $_SERVER . '</p>'
         );
         
         sendemail($param);
