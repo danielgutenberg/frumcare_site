@@ -76,6 +76,8 @@ $route['admin/user/profile/view/(:any)'] = 'admin/user/viewprofile/$1';
 //$route['caregivers/organization']	     = 'caregivers';
 $route['careseekers/organization']	     = 'careseekers';
 
+$route['admin/seo/(:any)'] = 'admin/genericseo';
+
 //Routes for Caregivers Search pages
 $route['caregivers'] = 'common_care_controller';
 $route['caregivers/all'] = 'common_care_controller';

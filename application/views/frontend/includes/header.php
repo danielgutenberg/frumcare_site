@@ -19,7 +19,7 @@
 
         <?php 
         $this->load->model('common_model');
-        $seodata = $this->common_model->getSEODATA();
+        $seodata = $this->common_model->getSEODATA($title);
         ?>
 
         <title><?php echo $seodata['meta_title'].' - '; ?> FrumCare</title>

@@ -10,6 +10,7 @@ class Genericseo_model extends CI_Model{
         $meta_desc=$this->input->post('meta_desc'); 
         $google_analytics=$this->input->post('google_analytics'); 
         $is_active=$this->input->post('is_active'); 
+        $page = $this->input->post('page');
          
          $update_data = array(
                    'meta_title' =>$meta_title,
@@ -19,12 +20,12 @@ class Genericseo_model extends CI_Model{
                    'isActive' =>$is_active
                 );
         
-        $this->db->where('id', '1');
+        $this->db->where('page', $page);
         $this->db->update('tbl_generic_seo', $update_data);
     }
     
-    function get_generic_seo(){
-        $sql="SELECT  * FROM tbl_generic_seo";
+    function get_generic_seo($page){
+        $sql="SELECT  * FROM tbl_generic_seo where page = '$page'";
         $result=$this->db->query($sql);
         if($result->num_rows()>0) 
         {
