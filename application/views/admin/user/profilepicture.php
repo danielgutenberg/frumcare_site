@@ -12,10 +12,11 @@
                     <div class="panel-body">
                         <div class="table-responsive">
                             <!-- <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-hover" id="example"> -->
-                             <table id="dt_basic" class="table table-striped table-bordered table-hover">
+                             <table id="dt_basic" class="table table-striped table-bordered table-hover"  data-order='[[ 0, "asc" ]]'>
                                 <thead>
                                 <tr>
-                                    <th>SN.</th>
+                                    <th style="display:none"></th>
+                                    <th>User Id</th>
                                     <th>Name</th>
                                     <th>Image</th>
                                     <th>Status</th>
@@ -41,7 +42,8 @@
 
 
                                         ?>  <tr>
-                                                    <td><?php echo $i;?></td>
+                                                <td style="display:none"><?php echo 100000 - $data['id']?></td>
+                                                <td><?php echo $data['id'];?></td>
                                                 <td>
                                                     <a href="<?php echo site_url();?>admin/user/view/<?php echo $data['id'];?>" style="color:#5D5E5F"><?php echo $data['name'];?></a>
                                                 </td>
@@ -93,6 +95,8 @@
         <script src="<?php echo site_url();?>plugins/admin/js/plugin/datatables/ZeroClipboard.js"></script>
         <script src="<?php echo site_url();?>plugins/admin/js/plugin/datatables/media/js/TableTools.min.js"></script>
         <script src="<?php echo site_url();?>plugins/admin/js/plugin/datatables/DT_bootstrap.js"></script>
+        
+        
 
 
 
@@ -135,7 +139,7 @@
              */
             $('#dt_basic').dataTable({
                 "sPaginationType" : "bootstrap_full",
-                "order": [[ 1, "asc" ]]
+                "order": [[ 0, "desc" ]]
             });
 
             /* END BASIC */

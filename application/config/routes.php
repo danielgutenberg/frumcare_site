@@ -77,6 +77,7 @@ $route['admin/user/profile/view/(:any)'] = 'admin/user/viewprofile/$1';
 $route['careseekers/organization']	     = 'careseekers';
 
 //Routes for Caregivers Search pages
+$route['caregivers'] = 'common_care_controller';
 $route['caregivers/all'] = 'common_care_controller';
 $route['caregivers/babysitter'] = 'common_care_controller/babysitter';
 $route['caregivers/nanny-au-pair'] = 'common_care_controller/nanny';
@@ -95,6 +96,7 @@ $route['caregivers/cleaning-household-help-company'] = 'common_care_controller/c
 $route['caregivers/assisted-living-senior-care-center-nursing-home'] = 'common_care_controller/seniorcarecenter';
 
 //Routes for Jobs Search pages
+$route['jobs'] = 'common_care_controller/careseekers';
 $route['jobs/all'] = 'common_care_controller/careseekers';
 $route['jobs/babysitter'] = 'common_care_controller/careseeker_babysitter';
 $route['jobs/nanny-au-pair'] = 'common_care_controller/careseeker_nanny';
