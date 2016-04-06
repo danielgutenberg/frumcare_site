@@ -14,15 +14,16 @@ class Genericseo extends CI_Controller {
 
 	public function index()
 	{
-		 
+		$page =  $this->uri->segment(3);
         if ($this->input->post('submit')) {
             $this->genericseo_model->update_generic_seo();
             $this->session->set_flashdata('info',"Information updated Successfully");
             
         }
         $data['title']          = 'Generic SEO';
-        $data['details'] = $this->genericseo_model->get_generic_seo();
+        $data['details'] = $this->genericseo_model->get_generic_seo($page);
         $data['main_content']='admin/genericseo/genericseo';
+        $data['page'] = $page;
         $this->load->view('admin/includes/template', $data);	
 	}
 

@@ -85,7 +85,7 @@
           else
             $ticket = site_url().'admin/#';
           if(in_array('generalseo',$tempaccess))
-            $generalseo = site_url().'admin/genericseo';
+            $generalseo = site_url().'admin/seo/home';
           else
             $generalseo = site_url().'admin/#';
           if(in_array('notification',$tempaccess))
@@ -162,7 +162,7 @@
               <a href="<?php echo $testimonial;?>" title="Testimonial Manager"><i class="fa fa-lg fa-fw fa-quote-left"></i> <span class="menu-item-parent">Testimonial Manager</span></a>
             </li>
             <li>
-              <a href="<?php echo $generalseo;?>" title="General SEO Manager"><i class="fa fa-lg fa-fw fa-book"></i> <span class="menu-item-parent">General SEO Manager</span></a>
+              <a href="<?php echo $generalseo;?>" title="SEO Manager"><i class="fa fa-lg fa-fw fa-book"></i> <span class="menu-item-parent">SEO Manager</span></a>
             </li>
             <li>
               <a href="<?php echo $notification;?>" title="Notification Manager"><i class="fa fa-lg fa-fw fa-bell"></i><span class="menu-item-parent">Notification Manager</span></a>

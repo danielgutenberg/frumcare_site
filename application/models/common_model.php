@@ -324,14 +324,18 @@ class Common_Model extends CI_Model
         }
     }
 
-    public function getSEODATA(){
-        $sql    = "select * from tbl_generic_seo where isActive = 1";
+    public function getSEODATA($page = ''){
+        $page = strtolower(preg_replace('/[^a-zA-z]/','',$page));
+        $sql    = "select * from tbl_generic_seo where page = '$page'";
         $query  = $this->db->query($sql);
         $res    = $query->row_array();
         if($res)
             return $res;
         else
-            return false;
+            $sql    = "select * from tbl_generic_seo where page = 'home'";
+            $query  = $this->db->query($sql);
+            $res    = $query->row_array();
+            return $res;
     }
 
     public function getRoleAccessByRoleName($rolename){
