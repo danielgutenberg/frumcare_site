@@ -314,7 +314,7 @@ class Common_Model extends CI_Model
 
 
     public function getAllProfileImages(){
-        $sql    = "SELECT tbl_user.id, name, profile_picture, profile_picture_status FROM tbl_user LEFT JOIN tbl_userprofile ON tbl_userprofile.user_id=tbl_user.id WHERE photo_of_child LIKE  '%photo%' or profile_picture LIKE '%photo%' ORDER BY tbl_userprofile.id desc";
+        $sql    = "SELECT tbl_user.id, name, profile_picture, profile_picture_status FROM tbl_user LEFT JOIN tbl_userprofile ON tbl_userprofile.user_id=tbl_user.id WHERE photo_of_child LIKE  '%photo%' or profile_picture LIKE '%photo%'  group by tbl_user.id ORDER BY tbl_userprofile.id desc";
         $query  = $this->db->query($sql);
         $res    = $query->result_array();
         if($res){
