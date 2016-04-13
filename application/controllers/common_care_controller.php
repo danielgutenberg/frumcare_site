@@ -51,11 +51,11 @@
     	}
     	
     	public function cleaning() {
-    	    $this->load_ads(8, 'Cleaning / household helpers');
+    	    $this->load_ads(8, 'Cleaning / Household Helpers');
     	}
     	
     	public function errand_runner() {
-    	    $this->load_ads(9, 'Errand runner / odd jobs / personal assistant / drivers');
+    	    $this->load_ads(9, 'Errand Runner / Odd Jobs / Personal Assistant / Drivers');
     	}
     	
     	public function babynurse() {
@@ -71,11 +71,11 @@
     	}
     	
     	public function specialneedscenter() {
-    	    $this->load_ads(14, 'Special needs centers', 3);
+    	    $this->load_ads(14, 'Special Needs Centers', 3);
     	}
     	
     	public function cleaninghousehold() {
-    	    $this->load_ads(15, 'Cleaning / household help companies', 3);
+    	    $this->load_ads(15, 'Cleaning / Household Help Companies', 3);
     	}
     	
     	public function seniorcarecenter() {
@@ -84,62 +84,62 @@
     	
     	public function careseeker_babysitter()
     	{
-    	    $this->load_ads(17, 'Babysitter jobs', 2);
+    	    $this->load_ads(17, 'Babysitter Jobs', 2);
     	}
     	
     	public function careseeker_nanny()
     	{
-    	    $this->load_ads(18, 'Nanny jobs', 2);
+    	    $this->load_ads(18, 'Nanny Jobs', 2);
     	}
     	
     	public function careseeker_tutor()
     	{
-    	    $this->load_ads(19, 'Tutor / private lessons jobs', 2);
+    	    $this->load_ads(19, 'Tutor / Private Lessons Jobs', 2);
     	}
     	
     	public function careseeker_seniorcaregiver()
     	{
-    	    $this->load_ads(20, 'Senior caregiver / companion jobs', 2);
+    	    $this->load_ads(20, 'Senior Caregiver / Companion Jobs', 2);
     	}
     	
     	public function careseeker_errandrunner()
     	{
-    	    $this->load_ads(21, 'Errand runner /odd jobs /personal assistant /driver jobs', 2);
+    	    $this->load_ads(21, 'Errand Runner / Odd Jobs / Personal Assistant / Driver jobs', 2);
     	}
     	
     	public function careseeker_specialneedscaregiver()
     	{
-    	    $this->load_ads(22, 'Special needs caregiver / companion jobs', 2);
+    	    $this->load_ads(22, 'Special Needs Caregiver / Companion Jobs', 2);
     	}
     	
     	public function careseeker_babynurse()
     	{
-    	    $this->load_ads(23, 'Pediatric / Baby Nurse jobs', 2);
+    	    $this->load_ads(23, 'Pediatric / Baby Nurse Jobs', 2);
     	}
     	
     	public function careseeker_cleaninghousehold()
     	{
-    	    $this->load_ads(24, 'Cleaning / household help jobs', 2);
+    	    $this->load_ads(24, 'Cleaning / Household Help Jobs', 2);
     	}
     	
     	public function careseeker_childcarefacility()
     	{
-    	    $this->load_ads(25, 'Workers / staff for childcare facility jobs', 3);
+    	    $this->load_ads(25, 'Workers / Staff for Childcare Facility Jobs', 3);
     	}
     	
     	public function careseeker_seniorcarefacility()
     	{
-    	    $this->load_ads(26, 'Workers / staff for senior care facility jobs', 3);
+    	    $this->load_ads(26, 'Workers / Staff for Senior Care Facility Jobs', 3);
     	}
     	
     	public function careseeker_specialneedsfacility()
     	{
-    	    $this->load_ads(27, 'Workers / staff for special needs facility jobs', 3);
+    	    $this->load_ads(27, 'Workers / Staff for Special Needs Facility Jobs', 3);
     	}
     	
     	public function careseeker_cleaningcompany()
     	{
-    	    $this->load_ads(28, 'Workers for cleaning company jobs', 3);
+    	    $this->load_ads(28, 'Workers for Cleaning Company Jobs', 3);
     	}
     	
     	public function organizations($care = null)
@@ -147,21 +147,21 @@
     	    $title = 'Workers / Staff';
             $care_type = 'organizations'; 
     	    if( $care == 'workers-staff-for-childcare-facility' ) {
-                $title = "Workers / Staff for childcare facilityies";
+                $title = "Workers / Staff for Childcare Facilities";
                 $care_type = 1;
             }
             elseif( $care == 'workers-staff-for-senior-care-facility') {
-                $title = "Workers / Staff for senior care facilities";
+                $title = "Workers / Staff for Senior Care Facilities";
                 $care_type = 5;
             }
             
             elseif( $care == 'workers-staff-for-special-needs-facility') {
-                $title = "Workers / Staff for special needs facilities";
+                $title = "Workers / Staff for Special Needs Facilities";
                 $care_type = 6;
             }
             
             elseif( $care == 'workers-for-cleaning-company') {
-                $title = "Workers for cleaning companies";
+                $title = "Workers for Cleaning Companies";
                 $care_type = 8;
             }
             
