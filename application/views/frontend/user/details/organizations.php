@@ -116,7 +116,7 @@ $location = '';
         <tr>
                     <td>Name of Organization</td>
                     <td>
-                        <?php echo $organiztion_name ? ucfirst($organiztion_name) : 'N/A'; ?>
+                        <?php echo $organization_name ? ucfirst($organization_name) : 'N/A'; ?>
                     </td>
                 </tr>
         
@@ -133,11 +133,11 @@ $location = '';
         
         
         
-        <?php if(!empty($contact_name)){?>
+        <?php if(!empty($name_of_owner)){?>
         <tr>
             <td>Contact name</td>
             <td class="form-field">
-                <?php echo $contact_name; ?>
+                <?php echo $name_of_owner; ?>
             </td>
         </tr>
         <?php }
