@@ -320,6 +320,24 @@ class Ad extends CI_Controller
              $this->db->update('tbl_userprofile',array('profile_status' =>$profile_status));
              $this->session->set_flashdata('info','Ad status updated successfully.');
              if ($task != 'reject') {
+                $userProfile = get_userprofile($profile_id);
+                $details = $this->user_model->getUserDetailsById($userProfile['user_id'], $userProfile['care_type']);
+                $user = get_user($userProfile['user_id']);
+                $sendto = $user['email'];
+                $msg = $this->load->view('emails/adApproved', array('name' => $details['name']), true);
+                $param = array(
+                    'subject'     => 'Ad Approved',
+                    'from'        => SITE_EMAIL,
+                    'from_name'   => SITE_NAME,
+                    'replyto'     => SITE_EMAIL,
+                    'replytoname' => SITE_NAME,
+                    'sendto'      => $sendto,
+                    'message'     => $msg
+                );
+                
+                sendemail($param);
+                 
+                 
                  $this->sendSearchAlerts($profile_id);
              }
              
