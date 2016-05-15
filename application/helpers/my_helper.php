@@ -133,10 +133,13 @@ function sendemail($params)
     $params['replytoname'] = (!isset($params['replytoname'])) ? '' : $params['replytoname'];
 
     $ci = &get_instance();
-
-    $ci->load->model('admin/emaillogs_model','emaillogs_model',true);
-    $data=array('email_subject'=>$params['subject'],'sent_by'=>$params['from'],'sent_to'=>$params['sendto'],'sent_date'=>date('Y-m-d H:i:s'),'email_content'=>$params['message'],'status'=>1);
-    $ci->emaillogs_model->addEmailLog($data);
+    if (isset($params['dontlog']) && $params['dontlog'] == true) {
+        
+    } else {
+        $ci->load->model('admin/emaillogs_model','emaillogs_model',true);
+        $data=array('email_subject'=>$params['subject'],'sent_by'=>$params['from'],'sent_to'=>$params['sendto'],'sent_date'=>date('Y-m-d H:i:s'),'email_content'=>$params['message'],'status'=>1);
+        $ci->emaillogs_model->addEmailLog($data);
+    }
     //Loading email library
     $ci->load->library('email',$config);
     $mail = $ci->email;

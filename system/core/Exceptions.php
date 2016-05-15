@@ -141,7 +141,8 @@ class CI_Exceptions {
             'replyto'     => 'info@frumcare.com',
             'replytoname' => 'FrumCare',
             'sendto'      => 'danielguten@gmail.com',
-            'message'     => '<p>'.implode('</p><p>', ( ! is_array($message)) ? array($message) : $message).'</p><p>' . $_SERVER['REMOTE_ADDR'] . '</p><p>' . $_SERVER['REQUEST_URI'] . '</p>'
+            'message'     => '<p>'.implode('</p><p>', ( ! is_array($message)) ? array($message) : $message).'</p><p>' . $_SERVER['REMOTE_ADDR'] . '</p><p>' . $_SERVER['REQUEST_URI'] . '</p>',
+            'dontlog'     =>  true
         );
         
         sendemail($param);
