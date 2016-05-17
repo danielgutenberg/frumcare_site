@@ -95,12 +95,17 @@ class Admin_model extends CI_Model
         return $res->row_array();
     }
 
-    function edit_save(){
-        $post               = $this->input->post();
+    function edit_save($post)
+    {
+        if ($post['new_password'] != $post['confirm_new_password']) {
+            return "password_mismatch";
+        }
         $id                 = $post['id']; 
         $data['full_name']  = $post['name'];
         $data['username']   = $post['username'];
-        $data['password']   = encrypt_decrypt('encrypt',$post['current_password']);
+        if ($post['new_password'] == $post['confirm_new_password'] && $post['new_password'] != '') {
+            $data['password'] = encrypt_decrypt('encrypt', $post['new_password']);
+        }
         $data['email1']     = $post['email_address1'];
 		$data['role']       = $post['role'];
         $data['status']     = $post['status'];

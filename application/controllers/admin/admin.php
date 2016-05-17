@@ -60,15 +60,17 @@ class Admin extends CI_Controller{
       
     function edit_save(){
         if($this->input->post('save_admin_info')){
-            $res = $this->admin->edit_save();    
+            
+            $post = $this->input->post();
+            $res = $this->admin->edit_save($post);    
             if($res == "updated"){
                 $this->session->set_flashdata('info',"Admin Details Updated Successfully.");
                 redirect('admin/admin');
             }
-            elseif($res)
+            elseif($res == "password_mismatch")
             {
-                $this->session->set_flashdata('info',"Admin Current Password Doesn't Match With Existing Password.");
-                redirect('admin/admin/edit/'.$res);
+                $this->session->set_flashdata('info',"Please make sure that you confirm your new password.");
+                redirect('admin/admin/edit/'.$post['id']);
             }
             else
             {

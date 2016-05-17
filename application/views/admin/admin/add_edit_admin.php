@@ -30,8 +30,12 @@
                     }
                     ?>
                     <div class="ad-manager">
-                    <form role="form" action="<?php if($action=='add'){echo site_url('admin/admin/add_save');}else{echo site_url('admin/admin/edit_save');}?>" method="post" enctype="multipart/form-data" id="admine_add_edit_form">
-                         <div class="form-group">
+                                <?php
+                                    $actionName = $action == 'add' ? site_url('admin/admin/add_save') : site_url('admin/admin/edit_save');
+                                    $attributes = array('id' => 'admine_add_edit_form', 'method' => 'post', 'enctype' => "multipart/form-data");
+                                    echo form_open($actionName, $attributes);
+                                ?>
+                        <div class="form-group">
                             <label class="control-label">Admin Full Name</label>
                             <div class="ad-manager-full-input"><input type="text" class="form-control required" name="name" value="<?php if(isset($name)){ echo $name;} ?>" /></div>
                         </div>
@@ -53,25 +57,13 @@
                             <td><a href="javascript:void(0)" class="btn btn-info">Reset Password</a></td>
                         </tr> -->
                         <?php endif;?>
-                         <div class="form-group">
-                            <label class="control-label">Admin Password</label>
-                            <div class="ad-manager-select">
-                                <?php
-                                if($action=='edit')
-                                {
-                                    ?>
-                                    <input <?php echo is_super()?'':'readonly'?> type="password" class="form-control required" name="current_password" id="current_password" value="<?php echo $password;?>"/>
-                                <?php    
-                                }
-                                else
-                                {
-                                    ?>
-                                    <input type="password" class="form-control required" name="password" />
-                                    <?php
-                                }
-                                ?>
-                                
-                            </div>
+                        <div class="form-group">
+                            <label class="control-label">New Password</label>
+                            <div class="ad-manager-full-input"><input type="password" class="form-control" name="new_password"/></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Confirm New Passowrd</label>
+                            <div class="ad-manager-full-input"><input type="password" class="form-control" name="confirm_new_password"/></div>
                         </div>
                      	 <div class="form-group">
                         	<label class="control-label">Admin Role</label>
