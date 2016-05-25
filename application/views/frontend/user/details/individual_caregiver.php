@@ -148,7 +148,7 @@
             <?php
           } ?>
     <?php 
-        if(!empty($caregiver_religious_observance)){?>
+        if(!empty($caregiver_religious_observance) || $familartojewish == 1){?>
         <tr>
             <td>Level of religious observance</td>
             <td ><?php echo $caregiver_religious_observance?>
