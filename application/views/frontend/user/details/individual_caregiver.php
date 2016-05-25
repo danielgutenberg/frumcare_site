@@ -151,9 +151,11 @@
         if(!empty($caregiver_religious_observance) || $familartojewish == 1){?>
         <tr>
             <td>Level of religious observance</td>
-            <td ><?php echo $caregiver_religious_observance?>
+            <?php if(!empty($caregiver_religious_observance)) { ?>
+            <td ><?php echo $caregiver_religious_observance?><br>
+            }?>
 
-            <br><?php if($familartojewish == 1){ echo $tick; ?> Familiar with Jewish Tradition <?php }?>
+            <?php if($familartojewish == 1){ echo $tick; ?> Familiar with Jewish Tradition <?php }?>
 
             </td>
         </tr>
