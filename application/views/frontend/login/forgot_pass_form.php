@@ -1,7 +1,10 @@
 <div class="container">
     <h2>Retrieve you password here</h2>
     <div class="sign-in-form">
-        <form action="" method="post" id="forgot-form">
+        <?php
+	        $attributes = array('id' => 'forgot-form');
+	        echo form_open('', $attributes);
+	    ?>
             <input type="text" name="email" class="required email" placeholder="Email"/>
             <input class="btn btn-success check" type="submit" value="Check Email Address"/>
             <div class="loader"></div>
