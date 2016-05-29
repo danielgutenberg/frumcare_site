@@ -340,7 +340,7 @@ class Login extends CI_Controller
             $this->db->update('tbl_user',$postdata);
 
             $this->session->set_flashdata('info', 'Your password has been changed.Please use new password for login');
-            redirect('login','refresh');
+            redirect('login');
         }
 
         $data = array(
