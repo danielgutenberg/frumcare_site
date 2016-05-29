@@ -7,7 +7,10 @@
             </div>
             <?php flash(); ?>
             <div class="sign-up-form password-wrapper">
-                <form action="<?php echo site_url();?>login/changepassword" method="post" id="change-password">
+                <?php
+                    $attributes = array('id' => 'change-password');
+                    echo form_open(site_url() . 'login/changepassword', $attributes);
+                ?>
                     <input type="password" name="npass" id="npass" placeholder="New Password" class="required"/>
                     <input type="password" name="cpass" id="cpass" placeholder="Confirm Password" class="required"/>
                     <input type="hidden" name="email" value="<?php echo $email;?>"/>
