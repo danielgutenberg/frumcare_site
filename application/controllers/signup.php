@@ -351,7 +351,7 @@ class Signup extends CI_Controller
     
     function sendRelevantAds($lat = 43, $lng = 79, $city = 'Toronto')
     {
-        $correspondingTypes = [
+         $correspondingTypes = [
             "1" => 17,
             "2" => 18,
             "3" => 17,
@@ -362,11 +362,11 @@ class Signup extends CI_Controller
             "8" => 24,
             "9" => 21,
             "10" => 23,
-            "11" => 20,
+            "11" => 25,
             "13" => 26,
             "14" => 27,
-            "15" => 24,
-            "16" => 20,
+            "15" => 28,
+            "16" => 26,
             "17" => 1,
             "18" => 2,
             "19" => 4,
@@ -376,9 +376,9 @@ class Signup extends CI_Controller
             "23" => 10,
             "24" => 8,
             "25" => 1,
-            "26" => 5,
-            "27" => 6,
-            "28" => 8,
+            "26" => 16,
+            "27" => 14,
+            "28" => 15,
             "29" => 7
         ];
         
