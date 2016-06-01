@@ -24,7 +24,7 @@
                         			<th>User Id</th>
                         			<th>Name</th>
                                     <th>Category</th>
-                                    <th>Type</th>
+                                    <th>Care Type</th>
                                     <th>Email</th>
                                     <th>Location</th>
                                     <th>Phone</th>
@@ -54,7 +54,7 @@
                                        
                                    ?>
                                 </td>
-                                <td><?php echo $ud['ad_type']==1 ? 'Paid': 'Free';?></td>
+                                <td><?php echo $ud['service_name'];?></td>
                             <td><?php echo $ud['email'];?></td>
                             <td><?php echo $ud['location'];?></td>
                             <td><?php echo $ud['contact_number'];?></td>
