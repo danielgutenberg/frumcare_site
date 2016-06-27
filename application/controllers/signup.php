@@ -123,11 +123,6 @@ class Signup extends CI_Controller
             $email = $data['email'];
             $fname = $data['name'];
             
-            $this->approveAds();
-
-            // send email confirmation to user
-            $this->send_confirmation($email,$fname);
-
             $user_data = getBrowser();
             $log = array(
                 'user_id' => $q,
@@ -146,6 +141,11 @@ class Signup extends CI_Controller
             $this->session->set_userdata($sess);
             
         
+            $this->approveAds();
+
+            // send email confirmation to user
+            $this->send_confirmation($email,$fname);
+            
             $this->sendRelevantAds($data['lat'], $data['lng'], $data['city']);
             $this->setUpInitialAlert($data['city'], $data['lat'], $data['lng']);
 
