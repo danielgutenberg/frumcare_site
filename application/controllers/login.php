@@ -300,15 +300,34 @@ class Login extends CI_Controller
 
         $id = check_user();
         if($_POST) {
-                $update = array(
-                    'original_password' => $this->input->post('npass',true),
-                    'password'          => sha1($this->input->post('npass',true)),
-                );
+            $update = array(
+                'original_password' => $this->input->post('npass',true),
+                'password'          => sha1($this->input->post('npass',true)),
+            );
 
-        $this->db->where('id',$id);
-        $this->db->update('tbl_user',$update);
-        $this->session->set_flashdata('info', 'Password updated successfully');
-        redirect('user/dashboard','refresh');
+            $this->db->where('id',$id);
+            $this->db->update('tbl_user',$update);
+            $this->session->set_flashdata('info', 'Password updated successfully');
+            $userdetail =  array(
+                'name'      => $ustatus['name'],
+                'email'     => $ustatus['email'],
+                'password'  => $ustatus['original_password']
+            );
+            
+            $msg = $this->load->view('emails/passwordchanged',$userdetail,TRUE);
+        
+            $param = array(
+                'subject'     => 'Password changed successfully',
+                'from'        => SITE_EMAIL,
+                'from_name'   => SITE_NAME,
+                'replyto'     => SITE_EMAIL,
+                'replytoname' => SITE_NAME,
+                'sendto'      => $userdetail['email'],
+                'message'     => $msg
+            );
+            
+            sendemail($param);
+            redirect('user/dashboard','refresh');
         } else {
             $q = $this->common_model->get_where('tbl_user', array('SHA1(email)' => $hash));
             if($q != '') {
