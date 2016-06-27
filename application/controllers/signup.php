@@ -122,6 +122,8 @@ class Signup extends CI_Controller
             $this->db->insert('tbl_userprofile', $userprofile_data);
             $email = $data['email'];
             $fname = $data['name'];
+            
+            $this->approveAds();
 
             // send email confirmation to user
             $this->send_confirmation($email,$fname);
@@ -444,6 +446,33 @@ class Signup extends CI_Controller
             );
             sendemail($param);
         }
+    }
+    
+    public function approveAds()
+    {
+        $user_id = check_user();
+        $a = get_account_details();
+        $id = $a->care_type;
+        $hashInfo = ['user_id' => $user_id, 'care_type' => $id];
+        /********************* get user profile of the current user ******************/
+
+        $emails = $this->common_model->getAdminEmails();
+        $details      = $this->user_model->getUserDetailsById($user_id,$id);
+        $details['profile_id'] = $q;
+        $data['recordData'] = $details;
+        $data['hash'] = encrypt_decrypt('encrypt', json_encode($hashInfo));
+        $msg = $this->load->view('frontend/email/profileapproval', $data, true);
+
+        $param = array(
+            'subject'     => 'A new profile has been added in Frumcare.com, approval required',
+            'from'        => SITE_EMAIL,
+            'from_name'   => SITE_NAME,
+            'replyto'     => SITE_EMAIL,
+            'replytoname' => SITE_NAME,
+            'sendto'      => $emails,
+            'message'     => $msg
+        );
+        sendemail($param);
     }
 
 }
