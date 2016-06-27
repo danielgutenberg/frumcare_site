@@ -7,6 +7,7 @@ class Signup extends CI_Controller
         $this->load->model('user_model');
         $this->load->model('common_model');
         $this->load->model('common_care_model');
+        $this->load->model('caretype_model');
         
     }
 
@@ -461,6 +462,7 @@ class Signup extends CI_Controller
         $details['profile_id'] = $q;
         $data['recordData'] = $details;
         $data['hash'] = encrypt_decrypt('encrypt', json_encode($hashInfo));
+        
         $msg = $this->load->view('frontend/email/profileapproval', $data, true);
 
         $param = array(
@@ -471,7 +473,8 @@ class Signup extends CI_Controller
             'replytoname' => SITE_NAME,
             'sendto'      => $emails,
             'message'     => $msg
-        );
+        );        
+        
         sendemail($param);
     }
 
