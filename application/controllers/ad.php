@@ -158,9 +158,6 @@ class Ad extends CI_Controller
 
                 $q = $this->user_model->edit_user($_POST, check_user());
                 $q = $this->profile_model->edit_profile_by_user_id($_POST, check_user());
-           
-                $this->approveAds();
-            
 
                 if ($p['account_category'] == 1)
                     $category = "caregiver";
@@ -193,7 +190,6 @@ class Ad extends CI_Controller
                 $q = $this->user_model->edit_user($p, check_user());
                 $q = $this->profile_model->edit_profile_by_user_id($p, check_user());
                 $this->notifyUser();
-                $this->approveAds();
                 $link = anchor('caregivers/all', 'here');
                 $message = 'Ad posted successfully. Your ad will be placed on the site after being approved by our team. <br> <span style="margin-left:159px">Click ' . $link . ' to search caregivers in your area<span>';
                 $this->session->set_flashdata('success', $message);
