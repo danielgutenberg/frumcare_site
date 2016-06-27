@@ -308,6 +308,7 @@ class Login extends CI_Controller
             $this->db->where('id',$id);
             $this->db->update('tbl_user',$update);
             $this->session->set_flashdata('info', 'Password updated successfully');
+            $ustatus = $this->user_model->checkUserStatus($hash);
             $userdetail =  array(
                 'name'      => $ustatus['name'],
                 'email'     => $ustatus['email'],
