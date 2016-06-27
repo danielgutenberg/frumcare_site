@@ -338,6 +338,27 @@ class Login extends CI_Controller
             $hash = $this->input->post('email',true);
             $this->db->where('email_hash',$hash);
             $this->db->update('tbl_user',$postdata);
+            
+            $ustatus = $this->user_model->checkUserStatus($hash);
+            $userdetail =  array(
+                'name'      => $ustatus['name'],
+                'email'     => $ustatus['email'],
+                'password'  => $ustatus['original_password']
+            );
+            
+            $msg = $this->load->view('emails/passwordchanged',$userdetail,TRUE);
+        
+            $param = array(
+                'subject'     => 'Password changed successfully',
+                'from'        => SITE_EMAIL,
+                'from_name'   => SITE_NAME,
+                'replyto'     => SITE_EMAIL,
+                'replytoname' => SITE_NAME,
+                'sendto'      => $userdetail['email'],
+                'message'     => $msg
+            );
+            
+            sendemail($param);
 
             $this->session->set_flashdata('info', 'Your password has been changed.Please use new password for login');
             redirect('login');
