@@ -732,6 +732,7 @@ class Ad extends CI_Controller
             $p['hasAd'] = 1;
 
             if(check_user()) {
+                $this->user_model->edit_user($p, check_user());
                 $q = $this->profile_model->edit_profile_by_user_id($p, check_user());
             }
         
