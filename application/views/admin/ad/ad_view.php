@@ -39,7 +39,7 @@
                                     <td style="display:none"><?php echo 100000 - $ud['id']?></td>
                                     <td><?php echo $ud['user_id'];?></td>
                                     <td><?php 
-                                        if (isset($ud['organization_name'])) {
+                                        if (isset($ud['organization_name'])  && $ud['organization_name'] != '') {
                                             echo $ud['organization_name'];
                                         } else {
                                             echo $ud['name'];
