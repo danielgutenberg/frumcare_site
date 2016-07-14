@@ -2,7 +2,7 @@
 <?php
    if(check_user()) {
    $u = get_user(check_user());
-   $fn = ucfirst($u['organiztion_name']);
+   $fn = ucfirst($u['organization_name']);
    $recorddata= get_account_details();
 
    }
@@ -105,7 +105,7 @@
          <div>
             <label>Contact name</label>
             <div class="form-field">
-               <input type="text" name="name" placeholder="name" class="txt" value="<?php echo isset($name)? $name:''; ?>"/>
+               <input type="text" name="name_of_owner" placeholder="name" class="txt" value="<?php echo isset($name)? $name:''; ?>"/>
             </div>
          </div>
          <?php 

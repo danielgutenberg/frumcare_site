@@ -86,17 +86,20 @@ class Ad extends CI_Controller
     function add_step2(){
         $location = $this->user_model->getLocation(check_user());
         
-        if ($this->uri->segment(3) == 'caregiver' && $this->uri->segment(4) == 'individual')
+        if ($this->uri->segment(3) == 'caregiver' && $this->uri->segment(4) == 'individual') {
             $view = 'frontend/care/giver/individual';
-
-        if ($this->uri->segment(3) == 'caregiver' && $this->uri->segment(4) == 'organization')
-            $view = 'frontend/care/giver/organization';
-
-        if ($this->uri->segment(3) == 'organization')
-            $view = 'frontend/care/giver/organization';
-
-        if ($this->uri->segment(3) == 'careseeker')
+        } else {
             $view = $this->careseeker();
+        }
+
+        // if ($this->uri->segment(3) == 'caregiver' && $this->uri->segment(4) == 'organization')
+        //     $view = $this->careseeker();
+
+        // if ($this->uri->segment(3) == 'organization')
+        //     $view = $this->careseeker();
+
+        // if ($this->uri->segment(3) == 'careseeker')
+        //     $view = $this->careseeker();
 
         $data = array(
             'main_content' => $view,
@@ -168,7 +171,7 @@ class Ad extends CI_Controller
                     $type = "individual";
                 else
                     $type = "organization";
-                
+
                 redirect('ad/add_step3/'.$category.'/'.$type.'/'.$this->session->userdata('log_id').'/job-details/'.$this->session->userdata('log_id'));
 
             }
@@ -307,7 +310,6 @@ class Ad extends CI_Controller
         if (check_user()) {
             $a = get_account_details();
             $id = $a->care_type;
-            
             if ($id == 1){
                 $data['main_content'] = 'frontend/care/giver/babysitter_form';
             }
@@ -352,6 +354,9 @@ class Ad extends CI_Controller
             }
             if ($id == 16){
                 $data['main_content'] = 'frontend/care/giver/seniorcarecenter_form';
+            }
+            if ($id > 16) {
+                $data['main_content'] = $this->careseeker();
             }
             $data['title']  = 'Ad Placement Step 3';
     

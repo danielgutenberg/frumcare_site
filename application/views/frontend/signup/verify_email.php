@@ -6,9 +6,9 @@
     <!--<p><a href="">Click Here</a> to resend the email.</p>-->
     <p><?php             
             if(is_array($redirectData)){
-                if($redirectData['care_type'] > 24)
-                    $link = site_url()."ad/job/organizations/".$redirectData['care_type'];
-                else
+                // if($redirectData['care_type'] > 24)
+                //     $link = site_url()."ad/job/organizations/".$redirectData['care_type'];
+                // else
                     $link = site_url().'ad/add_step2/'.$redirectData['account_cat'].'/'.$redirectData['account_type'].'/'.$this->session->userdata('log_id').'/'.$redirectData['care_type'];                
             }                
             else
