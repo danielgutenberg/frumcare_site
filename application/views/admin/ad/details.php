@@ -8,7 +8,7 @@
                         <div class="form-group">
                                <label class="control-label">Name:</label>
                                 <div class="ad-manager-full-input"><?php 
-                                if (isset($detail[0]['organization_name'])) {
+                                if (isset($detail[0]['organization_name']) && $detail[0]['organization_name'] != '') {
                                     echo $detail[0]['organization_name'];
                                 } else {
                                     echo $detail[0]['name'];
