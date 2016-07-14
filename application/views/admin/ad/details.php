@@ -7,7 +7,13 @@
                     <form role="form" id="ad_add_edit_form" method="post" action="<?php echo base_url('admin/ad/detail/'.segment(4))?>" enctype="multipart/form-data">
                         <div class="form-group">
                                <label class="control-label">Name:</label>
-                                <div class="ad-manager-full-input"><?php echo $detail[0]['name'];?></div>
+                                <div class="ad-manager-full-input"><?php 
+                                if (isset($detail[0]['organization_name'])) {
+                                    echo $detail[0]['organization_name'];
+                                } else {
+                                    echo $detail[0]['name'];
+                                }?>
+                                </div>
                             </div>
                            <div class="form-group">
                                 <label class="control-label">Email:</label>
