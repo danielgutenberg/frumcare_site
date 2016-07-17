@@ -451,14 +451,40 @@ class Ad extends CI_Controller
         redirect('ad/success','refresh');
 
     }
-
+    
     public function sendSearchAlert($details, $type)
     {
-        $alerts = $this->user_model->getSearchAlerts($details['lat'], $details['lng'], $type);
+        $sentUsers = [];
+        $institutionTypes = [
+            25 => 'Caregiving institution',
+            26 => 'Caregiving institution',
+            27 => 'Caregiving institution',
+            28 => 'Cleaning company'
+        ];
+        $details = $this->ad_model->getProfile($id);
+        $type = $details['care_type'];
+        if ($type > 24) {
+            $alerts = $this->user_model->getWorkersSearchAlerts($details['lat'], $details['lng'], $type);
+            $workerAds = true;
+        } else {
+            $alerts = $this->user_model->getSearchAlerts($details['lat'], $details['lng'], $type);
+            $workerAds = false;
+        }
+
         foreach ($alerts as $alert) {
+            if (in_array($alert['user_id'], $sentUsers)) {
+                continue;
+            }
             if ($alert['distance'] < $alert['dist']) {
                 continue;
             }
+            // if ($workerAds == true) {
+            //     $location = explode(',', $alert['caregivingLocation']);
+            //     if (!in_array($institutionTypes[$type], $location)) {
+            //         continue;
+            //     }
+            // }
+            array_push($sentUsers, $alert['user_id']);
             
             $id = $alert['user_id'];
             $user = $this->user_model->getUserName($id);
