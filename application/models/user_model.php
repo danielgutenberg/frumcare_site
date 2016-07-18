@@ -318,7 +318,8 @@ class User_model extends CI_Model
             return false;
     }
 
-    public function getSearchAlerts($latitude, $longitude, $type){
+    public function getSearchAlerts($latitude, $longitude, $type)
+    {
         if (!$latitude) {
             $latitude = 40;
         }
@@ -326,6 +327,40 @@ class User_model extends CI_Model
             $longitude = -74;
         }
         $sql    = "select *, (((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `long` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS dist from tbl_searchhistory where createAlert = 1 and care_type = $type";
+        $query  = $this->db->query($sql);
+        $res    = $query->result_array();
+        if($res)
+            return $res;
+        else
+            return false;
+    }
+    
+    public function getWorkersSearchAlerts($latitude, $longitude, $type)
+    {
+        $adTypes = [
+            25 => 1,
+            26 => 5,
+            27 => 6,
+            28 => 8
+        ];
+        
+        $historyTypes = [
+            25 => 17,
+            26 => 20,
+            27 => 22,
+            28 => 24
+        ];
+        
+        $history = $historyTypes[$type];
+        $ad = $adTypes[$type];
+        
+        if (!$latitude) {
+            $latitude = 40;
+        }
+        if (!$longitude) {
+            $longitude = -74;
+        }
+        $sql    = "select tbl_searchhistory.*, tbl_userprofile.looking_to_work as caregivingLocation, (((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `long` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS dist from tbl_searchhistory join tbl_userprofile on tbl_userprofile.user_id = tbl_searchhistory.user_id where createAlert = 1 and tbl_searchhistory.care_type = $history and tbl_userprofile.care_type = $ad";
         $query  = $this->db->query($sql);
         $res    = $query->result_array();
         if($res)
