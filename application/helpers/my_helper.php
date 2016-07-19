@@ -72,6 +72,11 @@ function flash()
     }
 }
 
+function search_flash($message)
+{
+    echo '<div class="alert alert-info alert-dismissible" role="alert">' . $message . '</div>';
+}
+
 function user_flash()
 {
     $ci = &get_instance();
