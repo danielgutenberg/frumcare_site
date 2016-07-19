@@ -124,15 +124,10 @@ function check_email($email)
 function sendemail($params)
 {
     $config = Array(
-                          //'protocol' => 'smtp',
-                          //'smtp_host' => 'ssl://smtp.googlemail.com',
-                          //'smtp_port' => 465,
-                          //'smtp_user' => 'frumcare2015@gmail.com', //change it to yours
-                          //'smtp_pass' => 'frumcare.com', // change it to yours
-                          'mailtype' => 'html',
-                          'charset' => 'iso-8859-1',
-                          'wordwrap' => TRUE
-                        );
+      'mailtype' => 'html',
+      'charset' => 'iso-8859-1',
+      'wordwrap' => TRUE
+    );
     //Filtering @params
     $params['from_name'] = (!isset($params['from_name'])) ? '' : $params['from_name'];
     $params['replytoname'] = (!isset($params['replytoname'])) ? '' : $params['replytoname'];
@@ -142,7 +137,18 @@ function sendemail($params)
         
     } else {
         $ci->load->model('admin/emaillogs_model','emaillogs_model',true);
-        $data=array('email_subject'=>$params['subject'],'sent_by'=>$params['from'],'sent_to'=>$params['sendto'],'sent_date'=>date('Y-m-d H:i:s'),'email_content'=>$params['message'],'status'=>1);
+        $data = array(
+            'email_subject' => $params['subject'],
+            'sent_by'       => $params['from'],
+            'sent_to'       => $params['sendto'],
+            'sent_date'     => date('Y-m-d H:i:s'),
+            'email_content' => $params['message'],
+            'status'        => 1
+        );
+        if (isset($params['initiatedBy'])) {
+            $data['initiatedId']    =  $params['initiatedBy']['id'];
+            $data['initiatedEmail'] =  $params['initiatedBy']['email'];
+        }
         $ci->emaillogs_model->addEmailLog($data);
     }
     //Loading email library
