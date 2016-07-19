@@ -16,7 +16,7 @@ class Emaillogs extends CI_Controller
      {
         $data['emaillogs'] = $this->emaillogs_model->get_emaillogs();
         $data['main_content'] = "admin/emaillogs/emaillogs_view";
-        $this->load->view('admin/includes/template',$data);
+        $this->load->view('admin/includes/template', $data);
      }
      
      public function view($id)

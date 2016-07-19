@@ -1,83 +1,72 @@
 <?php 
 	if(!defined("BASEPATH"))exit('No direct script access allowed');
-	class ContactProfile extends CI_Controller{
-		public function __construct(){
+	class ContactProfile extends CI_Controller
+	{
+		
+		public function __construct()
+		{
 			parent::__construct();
 			$this->load->model('common_model');
 			$this->load->model('user_model');
 		}
 
-		public function profile($id = ''){
+		public function profile($id = '')
+		{
 			$category = $this->uri->segment(3);
 			$slug 	  = $this->uri->segment(4);
 			$careType = $this->uri->segment(5);
-			if($slug){
+			if ($slug) {
 				$user  = $this->user_model->getUserDetailsBySlug($slug, $careType);
 			}
-			if(isset($_POST['contact'])){			 
+			if (isset($_POST['contact'])) {			 
 				$name 			= $this->input->post('name',true);
 				$phonenumber 	= $this->input->post('phonenumber',true);
 				$email 			= $this->input->post('email',true);
-				$comment 		= $this->input->post('comment',true);
-
-				if(!empty($_FILES)){				    
-                    if($_FILES['userfile']['size'] > 0){
-    					$config['upload_path'] 		= 'uploads/files/';
-    					$config['allowed_types'] 	= 'gif|jpg|jpeg|png|txt|pdf|doc|docx';
-    					$config['max_size']         = '0';
-    					$config['encrypt_name']     = true;
-    
-    					$this->load->library('upload',$config);
-    					if(! $this->upload->do_upload()){
-    							$error = array('error' => $this->upload->display_errors());
-    					}else{
-    						$upload_data	= $this->upload->data();
-    						$filename		= $upload_data['file_name'];
-    					}
-    				}
-                } 
-                $filename = isset($filename)?$filename:'';				
-                        $config = Array(
-                          //'protocol' => 'smtp',
-                          //'smtp_host' => 'ssl://smtp.googlemail.com',
-                          //'smtp_port' => 465,
-                          //'smtp_user' => 'frumcare2015@gmail.com', //change it to yours
-                          //'smtp_pass' => 'frumcare.com', // change it to yours
-                          'mailtype' => 'html',
-                          'charset' => 'iso-8859-1',
-                          'wordwrap' => TRUE
-                        );
-
-					  $this->load->library('email',$config);      
-				      $this->email->set_newline("\r\n");
-                      $this->email->from('info@frumcare.com', 'FRUMCARE');
-                      $this->email->reply_to($email);
-                      $this->email->bcc('info@frumcare.com');
-				      $this->email->to($user['email']);                      
-				      $this->email->subject('Somebody Contacted you on FrumCare');
-				      if(isset($filename) && $filename!=''){
-				      	$this->email->attach($upload_data['full_path']);	
-				      }
-				      $this->email->message($this->load->view('frontend/email/conact_email',array('name'=>$name,'phonenumber'=>$phonenumber,'comment'=>$comment,'email'=>$email,'filename'=>$filename),true));				      
-                      if($this->email->send()){
-				        $this->session->set_flashdata('info','Email successfully sent');
-                        redirect($category.'/details/'.$slug . '/' . $careType,'refresh');
-                        }
-                        else{
-                            show_error($this->email->print_debugger());
-                        }
+				$comment 		= $this->input->post('comment',true);			
+                        
+				$viewData = array(
+					'name'        => $name,
+					'phonenumber' => $phonenumber,
+					'comment'     => $comment,
+					'email'       => $email,
+					'filename'    => $filename
+				);
+				
+				$msg = $this->load->view('frontend/email/conact_email', $viewData, true);				      
+                      
+                $user_id = check_user();
+		        $loggedInUser = get_user($user_id);
+                
+                $param = array(
+	                'subject'     => 'Somebody Contacted you on FrumCare',
+	                'from'        => SITE_EMAIL,
+	                'from_name'   => SITE_NAME,
+	                'replyto'     => $email,
+	                'replytoname' => $name,
+	                'sendto'      => $user['email'],
+	                'message'     => $msg,
+	                'initiatedBy' => array('id' => $loggedInUser['id'], 'email' => $loggedInUser['email']),
+	            );
+	            
+            	if (sendemail($param)) {
+			        $this->session->set_flashdata('info','Email successfully sent');
+	                redirect($category . '/details/' . $slug . '/' . $careType, 'refresh');
+                }
+                else{
+                    show_error($this->email->print_debugger());
+                }
 			}
             else{
+				
+				$data = array(
+    				'title' 		=> "Contact",
+    				'main_content' 	=> 'frontend/contact/index',
+    				'category'		=> $category,
+            		'user'          => $user,
+            		'careType'      => $careType
+    			);
 
-        			$data = array(
-        				'title' 		    => "Contact",
-        				'main_content' 	=> 'frontend/contact/index',
-        				'category'		  => $category,
-                		'user'          => $user,
-                		'careType'      => $careType
-        			);
-
-    			   $this->load->view(FRONTEND_TEMPLATE,$data);
+			   $this->load->view(FRONTEND_TEMPLATE,$data);
             }
 		}
 	}

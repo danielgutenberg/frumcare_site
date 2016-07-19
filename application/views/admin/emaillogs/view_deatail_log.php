@@ -46,6 +46,11 @@
                                             <th>Email Content</th>
                                             <td class="content"><?php echo $cat['email_content'];?></td>
                                         </tr>
+                                        
+                                        <tr>
+                                            <th>Initiated By</th>
+                                            <td><?php echo 'User Id: ' . $cat['initiatedId'] . '<br>' . 'Email: ' . $cat['initiatedEmail'];?></td>
+                                        </tr>
                                         <tr>
                                             <th>Actions</th>
                                             <td>

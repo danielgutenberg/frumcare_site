@@ -20,6 +20,7 @@
                                     <th>Sent To</th>
                                     <th>Sent Date</th>
                                     <th>Actions</th>
+                                    <th>Initiated By</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,6 +45,7 @@
                                                 <a href="<?php echo site_url('admin/emaillogs/view')."/".$cat['id'];?>" class="btn btn-info" title="View">View</a>
                                                 <a href="<?php echo site_url('admin/emaillogs/delete')."/".$cat['id'];?>" class="btn btn-danger" title="Delete" onclick="return confirm('Are you sure to delete this email?');">Delete</a>
                                             </td>
+                                            <td><?php echo 'User Id: ' . $cat['initiatedId'] . '<br>' . 'Email: ' . $cat['initiatedEmail'];?></td>
                                         </tr>
                                         <?php
                                     }
