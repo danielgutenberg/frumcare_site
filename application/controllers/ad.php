@@ -194,7 +194,7 @@ class Ad extends CI_Controller
                 $q = $this->profile_model->edit_profile_by_user_id($p, check_user());
                 $this->notifyUser();
                 $link = anchor('caregivers/all', 'here');
-                $message = 'Ad posted successfully. Your ad will be placed on the site after being approved by our team. <br> <span style="margin-left:159px">Click ' . $link . ' to search caregivers in your area<span>';
+                $message = 'Ad posted successfully. Your ad will be placed on the site after being approved by our team.';
                 $this->session->set_flashdata('success', $message);
                 redirect('user/dashboard');
             }
@@ -375,7 +375,7 @@ class Ad extends CI_Controller
             }
             if ($q) {
                 $link = anchor('jobs/all', 'here');
-                $message = 'Ad posted successfully. Your ad will be placed on the site after being approved by our team. <br><span style="margin-left:159px"> Click ' . $link . ' to search for jobs in your area<span>';
+                $message = 'Ad posted successfully. Your ad will be placed on the site after being approved by our team.';
                 $this->session->set_flashdata('info', $message);
 
                 $this->notifyUser();
@@ -461,7 +461,6 @@ class Ad extends CI_Controller
             27 => 'Caregiving institution',
             28 => 'Cleaning company'
         ];
-        $details = $this->ad_model->getProfile($id);
         $type = $details['care_type'];
         if ($type > 24) {
             $alerts = $this->user_model->getWorkersSearchAlerts($details['lat'], $details['lng'], $type);
@@ -470,7 +469,6 @@ class Ad extends CI_Controller
             $alerts = $this->user_model->getSearchAlerts($details['lat'], $details['lng'], $type);
             $workerAds = false;
         }
-
         foreach ($alerts as $alert) {
             if (in_array($alert['user_id'], $sentUsers)) {
                 continue;
@@ -650,7 +648,7 @@ class Ad extends CI_Controller
                 } else {
                     $link = anchor('caregivers/all', 'here');
                 }
-                $message = 'Ad posted successfully. Your ad will be placed on the site after being approved by our team. <br> <span style="margin-left:159px">Click ' . $link . ' to search caregivers in your area<span>';
+                $message = 'Ad posted successfully. Your ad will be placed on the site after being approved by our team.';
                 $this->session->set_flashdata('success', $message);
                 redirect('user/profile');   
             } else {
