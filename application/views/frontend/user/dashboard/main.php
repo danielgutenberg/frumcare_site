@@ -37,6 +37,8 @@
 		        if(user_flash()){
 		            echo user_flash();
 		        }
+    		        
+    		    echo search_flash($message);
 		    ?>
 
 		 <!--   <div class="profile-progressbar">-->
