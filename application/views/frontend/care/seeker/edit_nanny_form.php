@@ -33,7 +33,7 @@ if($detail){
     $bath_children = $detail[0]['bath_children'];
     $bed_children = $detail[0]['bed_children'];
     $clean = $detail[0]['clean'];
-    $date = isset($detail[0]['start_date']) ? $detail[0]['start_date'] : "0000-00-00";
+    $date = isset($detail[0]['start_date']) ? date('Y-m-d', strtotime($detail[0]['start_date'])) : "0000-00-00";
     $neighbour = $user_detail['neighbour'];
     $zip = $user_detail['zip'];
     $phone = $user_detail['contact_number'];

@@ -18,7 +18,7 @@ if($detail){
     $driver_license = $detail[0]['driver_license'];
 	$vehicle = $detail[0]['vehicle'];
     $job_description = $detail[0]['job_description'];
-    $date = isset($detail[0]['start_date']) ? $detail[0]['start_date'] : "0000-00-00";
+    $date = isset($detail[0]['start_date']) ? date('Y-m-d', strtotime($detail[0]['start_date'])) : "0000-00-00";
     $neighbour = $user_detail['neighbour'];
     $zip = $user_detail['zip'];
     $rate = $detail[0]['rate'];

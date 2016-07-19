@@ -27,7 +27,7 @@ if($detail){
 	$sick_child_care = $detail[0]['sick_child_care'];
     $references = $detail[0]['references'];
     $photo_of_child = $detail[0]['photo_of_child'];
-    $date = isset($detail[0]['start_date']) ? $detail[0]['start_date'] : "0000-00-00";
+    $date = isset($detail[0]['start_date']) ? date('Y-m-d', strtotime($detail[0]['start_date'])) : "0000-00-00";
     $neighbour = $user_detail['neighbour'];
     $zip = $user_detail['zip'];
     $phone = $user_detail['contact_number'];

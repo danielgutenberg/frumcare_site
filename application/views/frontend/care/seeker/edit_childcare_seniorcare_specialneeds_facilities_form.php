@@ -20,7 +20,7 @@ if($detail){
     $langtemp               = explode(',', $detail[0]['language']);
     $exp                    = $detail[0]['experience'];
     $religious_observance   = $detail[0]['religious_observance'];
-    $date                   = isset($detail[0]['start_date']) ? $detail[0]['start_date'] : "0000-00-00";
+    $date = isset($detail[0]['start_date']) ? date('Y-m-d', strtotime($detail[0]['start_date'])) : "0000-00-00";
     $reference_file         = $detail[0]['reference_file'];
     $rate                   = $detail[0]['rate'];
     $rate_type              = explode(',',$detail[0]['rate_type']);

@@ -21,7 +21,7 @@ if($detail){
     $rooms = $detail[0]['number_of_rooms'];
     $willing_to_work = explode(',',$detail[0]['willing_to_work']);
     //$gender_of_caregiver = explode(',',$user_detail['gender_of_caregiver']);
-    $date = isset($detail[0]['start_date']) ? $detail[0]['start_date'] : "0000-00-00";
+    $date = isset($detail[0]['start_date']) ? date('Y-m-d', strtotime($detail[0]['start_date'])) : "0000-00-00";
      $neighbour = $user_detail['neighbour'];
     $zip = $user_detail['zip'];
     $phone = $user_detail['contact_number'];
