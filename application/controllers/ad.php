@@ -188,6 +188,9 @@ class Ad extends CI_Controller
                 $p['photo_status'] = 1;
                 $p['profile_picture'] = $p['photo_of_child'];
             }
+            if (isset($p['start_date']) && $p['start_date'] != '') {
+                $p['start_date'] = date("Y-m-d", strtotime($p['start_date']));
+            }
 
             if (check_user()) {
                 $q = $this->user_model->edit_user($p, check_user());
@@ -369,6 +372,9 @@ class Ad extends CI_Controller
         if ($_POST) {
             $p = $_POST;
             $p['hasAd']  =1;
+            if (isset($p['start_date']) && $p['start_date'] != '') {
+                $p['start_date'] = date("Y-m-d", strtotime($p['start_date']));
+            }
             if (check_user()) {
                 $q = $this->user_model->edit_user($p, check_user());
                 $q = $this->profile_model->edit_profile_by_user_id($p, check_user());
@@ -603,7 +609,9 @@ class Ad extends CI_Controller
             $p['user_id'] = $user_id;
             $p['account_category'] = $account_category;
             $p['created_time'] = strtotime('now');
-            
+            if (isset($p['start_date']) && $p['start_date'] != '') {
+                $p['start_date'] = date("Y-m-d", strtotime($p['start_date']));
+            }            
             $q = $this->profile_model->save_profile($p);
             $q = $this->user_model->edit_user($p, $user_id);
             
@@ -747,7 +755,9 @@ class Ad extends CI_Controller
         if($_POST) {
             $p = $_POST;
             $id = $this->session->userdata('current_user');
-
+            if (isset($p['start_date']) && $p['start_date'] != '') {
+                $p['start_date'] = date("Y-m-d", strtotime($p['start_date']));
+            }
             $this->db->where(array('user_id'=>$id,'care_type'=>$care_type));
             $res = $this->db->get('tbl_userprofile');
             $oldProfile = $res->result_array()[0];

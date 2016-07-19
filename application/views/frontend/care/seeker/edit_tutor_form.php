@@ -24,7 +24,7 @@ if($detail){
     $rate_type = $detail[0]['rate_type'];
     $desc 	= $detail[0]['profile_description'];
     $temp = explode(',',$detail[0]['availability']);
-    $date = isset($detail[0]['start_date']) ? $detail[0]['start_date'] : "0000-00-00";
+    $date = isset($detail[0]['start_date']) ? date('Y-m-d', strtotime($detail[0]['start_date'])) : "0000-00-00";
     $lat = $user_detail['lat'];
     $lng = $user_detail['lng'];
     $city = $user_detail['city'];

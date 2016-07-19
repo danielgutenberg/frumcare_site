@@ -250,7 +250,7 @@ $(function(){
     });
      
     $("#dateTextbox").ready(function(){
-        $( "#dateTextbox" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
+        $( "#dateTextbox" ).datepicker({ dateFormat: 'mm/dd/yy' }).val();
     });
 </script>
 
