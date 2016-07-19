@@ -36,10 +36,10 @@ class User extends CI_Controller
         $ac = $this->session->userdata('account_category');
         if ($ac == 1 || ( $ac == 3 && $this->session->userdata['organization_care'] == 1)) {
             $link = anchor('jobs/all', 'here');
-            $message = '<span style="margin-left:159px"> Click ' . $link . ' to search for jobs in your area<span>';
+            $message = '<span style="margin-left:159px"> Click ' . $link . ' to search jobs in your area<span>';
         } else {
             $link = anchor('caregivers/all', 'here');
-            $message = '<span style="margin-left:159px"> Click ' . $link . ' to search for caregivers in your area<span>';
+            $message = '<span style="margin-left:159px"> Click ' . $link . ' to search caregivers in your area<span>';
         }
         $data['main_content']       = 'frontend/user/dashboard/main';
         $data['verificationdata']   = $this->user_model->getVerificationData($id);
