@@ -4,7 +4,7 @@
 $user_detail = get_user(check_user());
 //print_r($usr);
 if($detail){
-    $organiztion_name       = $user_detail['organization_name'];
+    $organization_name      = $user_detail['organization_name'];
     $contact_name           = $user_detail['name_of_owner'];
     $neighbour              =   $usr[0]['neighbour'];
     $organization_type      = $detail[0]['organization_type'];
@@ -56,7 +56,7 @@ if($detail){
             <div>
                 <label>Name of Organization</label>
                 <div class="form-field">
-                    <input type="text" name="organization_name" value="<?php echo isset($organiztion_name) ? $organiztion_name : '' ?>" class="txt">
+                    <input type="text" name="organization_name" value="<?php echo isset($organization_name) ? $organization_name : '' ?>" class="txt">
                 </div>
             </div>
             <div>

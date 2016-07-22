@@ -18,7 +18,7 @@
         $rate_type              = explode(',',$detail[0]['rate_type']);
         $job_position           = $detail[0]['job_position'];
         $care                   = $detail[0]['care_type'];
-        $organiztion_name       = $detail[0]['organiztion_name'];
+        $organization_name      = $detail[0]['organization_name'];
         $organization_type      = $detail[0]['organization_type'];
 	}
 ?>
@@ -26,7 +26,7 @@
 <div class="form-group">
 	<label class="control-label">Name of organization</label>
 	<div class="ad-manager-full-input">
-		<input type="text" name="organization_name" value="<?php echo $detail[0]['organiztion_name'];?>" class="required">
+		<input type="text" name="organization_name" value="<?php echo $detail[0]['organization_name'];?>" class="required">
 	</div>
 </div>
 <div class="form-group">

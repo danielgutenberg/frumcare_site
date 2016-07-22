@@ -18,7 +18,7 @@
 <input type="hidden" name="user_id" value="<?php echo $detail[0]['user_id']; ?>"/>
 <div class="form-group">
 	<label class="control-label">Name of organization</label>
-	 <div class="ad-manager-full-input"><input type="text" name="organization_name" value="<?php echo $detail[0]['organiztion_name'];?>" class="required"></div>
+	 <div class="ad-manager-full-input"><input type="text" name="organization_name" value="<?php echo $detail[0]['organization_name'];?>" class="required"></div>
 </div>
 <div class="form-group">
 	<label class="control-label">Contact name</label>

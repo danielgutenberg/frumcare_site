@@ -157,7 +157,6 @@ class Ad extends CI_Controller
                 'accept_insurance'      => $this->input->post('accept_insurance',true),
                 'monthly_rate'          => $this->input->post('monthly_rate',true),
                 'job_position'          => $this->input->post('job_postion',true),
-                'organiztion_name'      => $this->input->post('organization_name',true),
                 'organization_type'     => $this->input->post('organization_type',true),
                 'start_date'            => $this->input->post('start_date',true),
                 'updated_on'            => date('Y-m-d'),
