@@ -31,7 +31,7 @@
 			<a href="<?php echo base_url();?>user/notifications" <?php if($this->uri->segment(2) == 'notifications'){?> class="active" <?php }?> >My Notifications</a>
 		</li>
 		<li>
-			<a href="<?php echo base_url();?>user/reviews" <?php if($this->uri->segment(2) == 'reviews'){?> class="active" <?php }?> >My Reviews and Ratings</a>
+			<a href="<?php echo base_url();?>user/reviews" <?php if($this->uri->segment(2) == 'reviews'){?> class="active" <?php }?> >My Ratings and Reviews</a>
 		</li>
 		<li>
 			<a href="<?php echo base_url();?>user/favorites" <?php if($this->uri->segment(2) == 'favorites'){?> class="active" <?php }?> >My Favorites</a>

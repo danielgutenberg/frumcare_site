@@ -15,7 +15,7 @@
            	}
         ?>
         <div class="top-welcome">
-            <h2>My Reviews and Ratings</h2>
+            <h2>My Ratings and Reviews</h2>
             <?php
                 if($account_category == 2){ 
                     ?>
