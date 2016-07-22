@@ -38,8 +38,8 @@ user_flash();
     </div>
     <div class="details-right-caregive col-lg-8 col-md-12 col-sm-12 col-xs-12">
         <div class="profile-name-details">
-            <?php if ($recordData['organiztion_name']) { ?>
-                <span style="font-size:30px;"><?php echo ucfirst($recordData['organiztion_name']);?> </span>
+            <?php if ($recordData['organization_name']) { ?>
+                <span style="font-size:30px;"><?php echo ucfirst($recordData['organization_name']);?> </span>
             <?php } else { ?>
                 <span style="font-size:30px;"><?php echo ucfirst($recordData['name']);?> </span>
             <?php } ?>
@@ -686,7 +686,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                           <div class="favourite-profile-wrap">
                             <div class="favourite-profile">
                                 <h2><?php echo $title;?> this <?php echo $profile; ?></h2>
-                                <div class="texts">Save this <?php echo $profile; ?> to the list of favorites in your Frumcare account.</div>
+                                <div class="texts">Save this <?php echo $profile; ?> to the list of favorites in your FrumCare account.</div>
 
                                 <div class="share-profile-wrap">
                                 <a href="javascript:void(0);" class="favorite btn btn-primary" style="color:#8C8C8C;" id="<?php echo $recordData['id'];?>">Favorite this <?php echo $profile; ?></a>
