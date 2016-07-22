@@ -68,7 +68,7 @@ if($detail){
                             <option value="">Select type of organization</option>
                             <option value="Day Care Center" <?php echo isset($organization_type) && $organization_type == 'Day Care Center' ? 'selected' : '' ?>>Day Care Center</option>
                             <option value="Nursery/ Kindergarten" <?php echo isset($organization_type) && $organization_type == 'Nursery/ Kindergarten' ? 'selected' : '' ?>>Nursery / Kindergarten</option>
-                            <option value="Day Camp" <?php echo isset($organization_type) && $organization_type == 'Pre School' ? 'selected' : '' ?>>Pre School</option>
+                            <option value="Pre School" <?php echo isset($organization_type) && $organization_type == 'Pre School' ? 'selected' : '' ?>>Pre School</option>
                             <option value="Day Camp" <?php echo isset($organization_type) && $organization_type == 'Day Camp' ? 'selected' : '' ?>>Day Camp</option>
                             <option value="Afternoon Activities Center" <?php echo isset($organization_type) && $organization_type == 'Afternoon Activities Center' ? 'selected' : '' ?>>Afternoon Activities Center</option>
                             <option value="Other" <?php echo isset($organization_type) && $organization_type == 'Other' ? 'selected' : '' ?>>Other</option>
