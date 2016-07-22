@@ -71,8 +71,8 @@
                   <option value="">Select type of organization</option>
                   <option value="Day Care Center">Day Care Center</option>
                   <option value="Nursery/ Kindergarten">Nursery / Kindergarten</option>
-                  <option value="Day Camp">Pre School</option>
-                  <option value="">Day Camp</option>
+                  <option value="Pre School">Pre School</option>
+                  <option value="Day Camp">Day Camp</option>
                   <option value="Afternoon Activities Center">Afternoon Activities Center</option>
                   <option value="Other">Other</option>
                </select>
