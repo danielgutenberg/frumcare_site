@@ -44,6 +44,7 @@
 	                'replyto'     => $email,
 	                'replytoname' => $name,
 	                'sendto'      => $user['email'],
+	                'bcc'         => SITE_EMAIL,
 	                'message'     => $msg,
 	                'initiatedBy' => array('id' => $loggedInUser['id'], 'email' => $loggedInUser['email']),
 	            );
