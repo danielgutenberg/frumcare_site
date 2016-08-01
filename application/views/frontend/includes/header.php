@@ -21,6 +21,9 @@
         $this->load->model('common_model');
         $seodata = $this->common_model->getSEODATA($title);
         ?>
+        
+        <script>/*<![CDATA[*/_holyclock_id="2ba2720960c4f7f322a73415bc856a21";_holyclock_tag='<s'+'cript src\x3d"//www.holyclock.com/holyclock.js?'+Math.floor(+new Date/864E5)+'">\x3c/script>';null!==document.cookie.match(/(?:^|;)\s*_holyclock_qr=\s*\w/)&&null===window.location.hash.match(/#holyclock=qr(?=#|$)/)&&document.write(_holyclock_tag);//]]></script>
+
 
         <title><?php echo $seodata['meta_title'].' - '; ?> FrumCare</title>
 
@@ -63,6 +66,8 @@
         <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6030516600835&amp;cd[value]=0.01&amp;cd[currency]=ILS&amp;noscript=1" /></noscript>
 </head>
 <body>
+    <script>document.write(typeof _holyclock_tag=="string"?_holyclock_tag:'HolyClock \x26lt;head\x26gt; tag missing!');</script>
+
 
 <!-- Google Tag Manager -->
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NXZHPF"
