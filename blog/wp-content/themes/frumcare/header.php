@@ -42,6 +42,7 @@
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/bootstrap.css"/>
 <script type="text/javascript">stLight.options({publisher: "702e5d05-eb6f-470c-8ccc-fea29bd59c8d", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+    <script>document.write(typeof _holyclock_tag=="string"?_holyclock_tag:'HolyClock \x26lt;head\x26gt; tag missing!');</script>
 <?php wp_head(); ?>
 
 <?php 
