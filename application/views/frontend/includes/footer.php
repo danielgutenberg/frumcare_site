@@ -156,5 +156,6 @@
 
 
 </script>
+    <script>document.write(typeof _holyclock_tag=="string"?_holyclock_tag:'HolyClock \x26lt;head\x26gt; tag missing!');</script>
 </body>
 </html>
