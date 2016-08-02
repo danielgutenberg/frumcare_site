@@ -48,3 +48,16 @@
     .home_page_banner{height:500px !important}
 }
 
+@media (max-width:500px){
+    .holyclock-img{margin-left: 34% !important}
+}
+@media (min-width:501px){
+    .holyclock-img{margin-left: 40% !important}
+}
+@media (max-width:1000px){
+    .holyclock-img{margin-left: 40% !important}
+}
+@media (min-width:1001px){
+    .holyclock-img{margin-left: 45% !important}
+}
+
