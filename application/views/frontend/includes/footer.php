@@ -156,11 +156,11 @@
 
 
 </script>
-<!--<div style="display: none;">-->
-<!--    <script>document.write(typeof _holyclock_tag=="string"?_holyclock_tag:'HolyClock \x26lt;head\x26gt; tag missing!');</script>-->
-<!--</div>-->
-<div>
-    <a href="http://www.holyclock.com/" target="_blank" style="text-align: center"><img src="//www.holyclock.com/pics/language/he/ext-icon.png" width="150" height="24" border="0" alt="HolyClock.com" title="HolyClock.com" style="margin-left:45%"></a>
-</div>
+<script>document.write(typeof _holyclock_tag=="string"?_holyclock_tag:'HolyClock \x26lt;head\x26gt; tag missing!');</script>
+<script>
+    $('[title="HolyClock.com"]').ready(function() {
+        $('[title="HolyClock.com"]').addClass('holyclock-img')
+    });
+</script>
 </body>
 </html>
