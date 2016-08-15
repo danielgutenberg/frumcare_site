@@ -109,6 +109,16 @@ function check_user()
     return ($ci->session->userdata('current_user')) ? $ci->session->userdata('current_user') : false;
 }
 
+function get_user_by_email($email)
+{
+    $ci = &get_instance();
+    $q = $ci->db->get_where('tbl_user', array('email' => $email))->result_array();
+    if($q)
+        return $q[0];
+    else
+        return false;
+}
+
 function check_email($email)
 {
     $ci = &get_instance();
