@@ -253,18 +253,19 @@ class Login extends CI_Controller
     function forgot_password()
     {
         if($_POST) {
-            $email = $_POST['email'];
-            $msg = $this->load->view('frontend/email/forget_password', array('hash' => sha1($email)), true);
+            $user = get_user_by_email($_POST['email']);
+            $msg = $this->load->view('frontend/email/forget_password', array('hash' => $user['email_hash']), true);
             //echo $msg;die;
             $params = array(
                 'from' => SITE_EMAIL,
                 'from_name' => SITE_NAME,
                 'replyto' => SITE_REPLY_TO_EMAIL,
                 'replytoname' => SITE_NAME,
-                'sendto' => $email,
+                'sendto' => $user['email'],
                 'subject' => 'Password retrieve request',
                 'message' => $msg
             );
+            
             sendemail($params);
             echo '1';exit;
         } else {
