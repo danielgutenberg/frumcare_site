@@ -84,6 +84,9 @@ class Ad extends CI_Controller
     }
 
     function add_step2(){
+        if (!check_user()) {
+            redirect('login');
+        }
         $location = $this->user_model->getLocation(check_user());
         
         if ($this->uri->segment(3) == 'caregiver' && $this->uri->segment(4) == 'individual') {
