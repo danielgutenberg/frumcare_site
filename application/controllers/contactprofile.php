@@ -48,11 +48,19 @@
 	                'message'     => $msg,
 	                'initiatedBy' => array('id' => $loggedInUser['id'], 'email' => $loggedInUser['email']),
 	            );
+
 	            
-            	if (sendemail($param)) {
+            	if (sendemail($param)) {	                
+            		$data = [
+		                'sender_id' => $loggedInUser['id'],
+		                'receiver_id' => $user['user_id'],
+		                'comment' => $comment,
+		                'time' => time()
+		            ];
+		            $this->user_model->saveMessage($data);
 			        $this->session->set_flashdata('info','Email successfully sent');
 	                redirect($category . '/details/' . $slug . '/' . $careType, 'refresh');
-                }
+	            }
                 else{
                     show_error($this->email->print_debugger());
                 }
