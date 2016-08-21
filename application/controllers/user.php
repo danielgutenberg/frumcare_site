@@ -179,7 +179,7 @@ class User extends CI_Controller
     
     public function scrape_contacts_from_messages()
     {
-        $res = $this->user_model->getMessages();
+        $res = $this->user_model->getMessagesFromEmailLogs();
         foreach ($res as $message) {
             $comment = $message['email_content'];
             $commentStart = strpos($comment, 'Comment:');
