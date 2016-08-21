@@ -33,7 +33,7 @@
             foreach($record['messages'] as $rec) { ?>
             <tr>
                 <td>
-                    <?php echo $rec['time']?>
+                    <?php echo $rec['time'] . ' (EST)'?>
                 </td>
                 <td>
                     <?php echo $rec['comment'] ?>
