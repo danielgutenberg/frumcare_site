@@ -480,6 +480,27 @@ class User extends CI_Controller
         );
         $this->load->view(FRONTEND_TEMPLATE, $data);
     }
+    
+    public function contacts()
+    {
+        $this->breadcrumbs->push('My Contacts', site_url().'#');
+        $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
+        $messages = $this->user_model->getMessages();
+        $contacts = [];
+        foreach ($messages as $message) {
+            $senderId = $message['sender_id'];
+            $user = get_user($senderId);
+            $contacts[$senderId]['messages'] = $message;
+            $contacts[$senderId]['name'] = $user['name'];
+            $contacts[$senderId]['email'] = $user['email'];
+        }
+        $data = array(
+            'main_content' => 'frontend/user/dashboard/my_contacts/base',
+            'title'        => 'Contacts',
+            'record'  => $contacts
+        );
+        $this->load->view(FRONTEND_TEMPLATE, $data);
+    }
 
     public function unfavorite($id = '')
     {

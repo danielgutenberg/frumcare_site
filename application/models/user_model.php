@@ -509,9 +509,9 @@ class User_model extends CI_Model
             return false;
     }
     
-    public function getMessages()
+    public function getMessages($id = 840)
     {
-        $sql = "select * from tbl_email_logs where email_subject = 'Somebody Contacted you on FrumCare'";
+        $sql = "select * from tbl_messages;";
         $query = $this->db->query($sql);
         $res   = $query->result_array();
         if($res)
