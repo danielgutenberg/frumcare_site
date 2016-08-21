@@ -412,7 +412,11 @@ if($this->uri->segment(4)>10 && $this->uri->segment(4)<17){
             echo nl2br($recordData['profile_description']);
         }
         else{
-            echo "Description not available";
+            if(!empty($recordData['job_description'])){
+                echo nl2br($recordData['job_description']);
+            } else {
+                echo "Description not available";
+            }
         }
         ?>
     </p>
