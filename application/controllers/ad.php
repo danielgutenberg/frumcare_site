@@ -440,6 +440,7 @@ class Ad extends CI_Controller
         $id = $args[1];
         
         $hashData = json_decode(encrypt_decrypt('decrypt', $hash));
+        print_rr($hashData);
         $details = $this->user_model->getUserDetailsById($user_id,$id);
         
         if ( empty($details) || !isset($hashData->user_id) || !isset($hashData->care_type) || !($user_id == $hashData->user_id) || !($id == $hashData->care_type) ) {
