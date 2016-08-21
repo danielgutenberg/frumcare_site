@@ -37,6 +37,9 @@
 			<a href="<?php echo base_url();?>user/favorites" <?php if($this->uri->segment(2) == 'favorites'){?> class="active" <?php }?> >My Favorites</a>
 		</li>
 		<li>
+			<a href="<?php echo base_url();?>user/contacts" <?php if($this->uri->segment(2) == 'contacts'){?> class="active" <?php }?> >My Contacts</a>
+		</li>
+		<li>
 			<a href="<?php echo base_url();?>user/backgroundverification" <?php if($this->uri->segment(2) == 'backgroundverification'){?> class="active" <?php }?>>My Background Checks</a>
 		</li>
 		<!--<li>-->
