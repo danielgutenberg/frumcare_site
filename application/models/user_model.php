@@ -508,4 +508,21 @@ class User_model extends CI_Model
         else
             return false;
     }
+    
+    public function getMessages()
+    {
+        $sql = "select * from tbl_email_logs where email_subject = 'Somebody Contacted you on FrumCare'";
+        $query = $this->db->query($sql);
+        $res   = $query->result_array();
+        if($res)
+            return $res;
+        else
+            return false;
+    }
+    
+    public function saveMessage($model)
+    {
+        $q = $this->db->insert('tbl_messages', $model);
+        return $q ? $this->db->insert_id(): false;
+    }
 }
