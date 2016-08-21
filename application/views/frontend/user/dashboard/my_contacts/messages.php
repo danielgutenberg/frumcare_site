@@ -31,21 +31,21 @@
                 <th>Message Received</th>
             </tr>
             <?php
-            foreach($record['messages'] as $key => $rec) {;?>
+            foreach($record['messages'] as $rec) {;?>
             <tr>
                 <td>
                     <?php echo $rec['time'] . ' (EST)'?>
                 </td>
                 <td>
                     <?php 
-                    if ($key == 'sent') {
+                    if ($rec['type'] == 'sent') {
                         echo $rec['comment'];
                     }
                     ?>
                 </td>
                 <td>
                     <?php 
-                    if ($key == 'received') {
+                    if ($rec['type'] == 'received') {
                         echo $rec['comment'];
                     }
                     ?>

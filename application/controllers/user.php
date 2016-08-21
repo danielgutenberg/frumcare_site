@@ -505,16 +505,17 @@ class User extends CI_Controller
             $user = get_user2($otherId);
             $messageData = [
                 'comment' => preg_replace( "/\r|\n/", "", $message['comment'] ),
-                'time'    => date("F j, Y, g:i a", $message['time'])
+                'time'    => date("F j, Y, g:i a", $message['time']),
+                'type'    => $type
             ];
             if (!$id) {
-                $contacts[$otherId]['messages'][$type] = $messageData;
+                $contacts[$otherId]['messages'][] = $messageData;
                 $contacts[$otherId]['name'] = $user[0]['name'];
                 $contacts[$otherId]['email'] = $user[0]['email'];
                 $contacts[$otherId]['id'] = $user[0]['user_id'];
                 $contacts[$otherId]['url'] = 'contactprofile/profile/jobs/' . $user[0]['uri'] . '/' . $user[0]['care_type'];
             } else {
-                $contacts['messages'][$type] = $messageData;
+                $contacts['messages'][] = $messageData;
             }
         }
         $name_of_user = get_user($id)['name'];
