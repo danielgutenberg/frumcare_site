@@ -120,6 +120,16 @@
 						My Favorites
 					</a>
 			</div>
+			
+			<div class="messages profile-block">
+					<a href="<?php echo site_url();?>user/messages" class="profile-img">
+						<img src="<?php echo site_url();?>img/icon-dashboard/message.png" title="My Messages" alt="My Messages">
+					</a>
+					
+					<a href="<?php echo site_url();?>user/messages" class="profie-name">
+						My Messages
+					</a>
+			</div>
 
 			<div class="bgchecks profile-block"> 
 					<a href="<?php echo site_url();?>user/backgroundverification" class="profile-img">
