@@ -526,10 +526,13 @@ class User_model extends CI_Model
         return $q ? $this->db->insert_id(): false;
     }
     
-    public function getMessages($id = 840)
+    public function getMessages($recipientId, $senderId)
     {
-        $sql = "select * from tbl_messages;";
-        $query = $this->db->query($sql);
+        if ($id) {
+            $this->db->where(array('sender_id' => $senderId));
+        }
+        $this->db->where(array('receiver_id' => $recipientId));
+        $query = $this->db->get('tbl_messages');
         $res   = $query->result_array();
         if($res)
             return $res;

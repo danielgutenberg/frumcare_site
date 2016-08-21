@@ -491,7 +491,7 @@ class User extends CI_Controller
             $this->breadcrumbs->push('My Contacts', site_url().'#');
             $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
         }
-        $messages = $this->user_model->getMessages();
+        $messages = $this->user_model->getMessages(check_user(), $id);
         $contacts = [];
         foreach ($messages as $message) {
             $senderId = $message['sender_id'];
@@ -518,6 +518,7 @@ class User extends CI_Controller
         } else {
             $content = 'frontend/user/dashboard/my_contacts/base';
             $title = 'Contacts';
+            
         }
         $data = array(
             'main_content' => $content,
@@ -526,6 +527,14 @@ class User extends CI_Controller
         );
         
         $this->load->view(FRONTEND_TEMPLATE, $data);
+    }
+    
+    public function cmp($a, $b)
+    {
+        if (count($a['messages']) == count($b['messages'])) {
+            return 0;
+        }
+        return (count($a['messages']) < count($b['messages'])) ? -1 : 1;
     }
 
     public function unfavorite($id = '')
