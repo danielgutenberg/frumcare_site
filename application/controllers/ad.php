@@ -434,7 +434,7 @@ class Ad extends CI_Controller
     public function approveAd()
     {
         $path = $_SERVER['REQUEST_URI'];
-        $hash = $this->strposX($path, '/', 5);
+        $hash = $this->strposX($path, '/', 6);
         print_rr($hash);
         $args = func_get_args();
         $user_id = $args[0];
