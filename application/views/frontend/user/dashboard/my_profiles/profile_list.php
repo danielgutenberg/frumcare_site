@@ -147,7 +147,11 @@ $careType = [
                     <?php echo substr(trim($data['profile_description']), 0, 250)." .....";?>
                     <?php } 
                     else {
-                        echo "Description not available";
+                        if(!empty($data['job_description'])) {
+                            echo substr(trim($data['profile_description']), 0, 250)." .....";
+                        } else {
+                            echo "Description not available";
+                        }
                     } ?>
 				</div>
 			   
