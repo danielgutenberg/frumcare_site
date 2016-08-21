@@ -421,16 +421,26 @@ class Ad extends CI_Controller
         sendemail($param);
     }
     
+    public function strposX($haystack, $needle, $number){
+        if($number == '1'){
+            return strpos($haystack, $needle);
+        }elseif($number > '1'){
+            return strpos($haystack, $needle, $this->strposX($haystack, $needle, $number - 1) + strlen($needle));
+        }else{
+            
+        }
+    }
+    
     public function approveAd()
     {
+        $path = $_SERVER['REQUEST_URI'];
+        $hash = $this->strposX($path, '/', 5);
         $args = func_get_args();
         $user_id = $args[0];
         $id = $args[1];
-        $hash_args = array_filter(array_slice($args, 2));
-        $hash = implode($hash_args, '/');
         
         $hashData = json_decode(encrypt_decrypt('decrypt', $hash));
-        
+        print_rr($hashData);
         $details = $this->user_model->getUserDetailsById($user_id,$id);
         
         if ( empty($details) || !isset($hashData->user_id) || !isset($hashData->care_type) || !($user_id == $hashData->user_id) || !($id == $hashData->care_type) ) {
