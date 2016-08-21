@@ -20,7 +20,7 @@
         <?php
         if(!$record){
         ?>
-        <p>No Contacts</p>
+        <p>No Messages</p>
         <?php
         }
         else{
@@ -46,7 +46,7 @@
                 </td>
                 <td>
                     <button style="width:120px; margin-bottom:3px">
-                        <a target="_blank" href="<?php echo site_url() . 'user/contacts/' . $rec['id'] ?>">View Messages</a>
+                        <a target="_blank" href="<?php echo site_url() . 'user/messages/' . $rec['id'] ?>">View Messages</a>
                     </button>
                 </td>
                 <td>

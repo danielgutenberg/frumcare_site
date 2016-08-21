@@ -27,16 +27,28 @@
             ?>
             <tr>
                 <th>Time</th>
-                <th>Message</th>
+                <th>Message Sent</th>
+                <th>Message Received</th>
             </tr>
             <?php
-            foreach($record['messages'] as $rec) { ?>
+            foreach($record['messages'] as $key => $rec) {;?>
             <tr>
                 <td>
                     <?php echo $rec['time'] . ' (EST)'?>
                 </td>
                 <td>
-                    <?php echo $rec['comment'] ?>
+                    <?php 
+                    if ($key == 'sent') {
+                        echo $rec['comment'];
+                    }
+                    ?>
+                </td>
+                <td>
+                    <?php 
+                    if ($key == 'received') {
+                        echo $rec['comment'];
+                    }
+                    ?>
                 </td>
             </tr>
         <?php }

@@ -53,7 +53,7 @@
             	if (sendemail($param)) {	                
             		$data = [
 		                'sender_id' => $loggedInUser['id'],
-		                'receiver_id' => $user['id'],
+		                'receiver_id' => $user['user_id'],
 		                'comment' => $comment,
 		                'time' => time()
 		            ];

@@ -481,43 +481,49 @@ class User extends CI_Controller
         $this->load->view(FRONTEND_TEMPLATE, $data);
     }
     
-    public function contacts($id = null)
+    public function messages($id = null)
     {
         if ($id) {
             $this->breadcrumbs->push('Messages', site_url().'#');
-            $this->breadcrumbs->unshift('My Contacts', base_url().'user/contacts');
+            $this->breadcrumbs->unshift('My Messages', base_url().'user/messages');
             $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
         } else {
-            $this->breadcrumbs->push('My Contacts', site_url().'#');
+            $this->breadcrumbs->push('My Messages', site_url().'#');
             $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
         }
         $messages = $this->user_model->getMessages(check_user(), $id);
         $contacts = [];
         foreach ($messages as $message) {
-            $senderId = $message['sender_id'];
-            $user = get_user2($senderId);
+            $myId = check_user();
+            if ($message['sender_id'] == $myId) {
+                $type = 'sent';
+                $otherId = $message['receiver_id'];
+            } else {
+                $type = 'received';
+                $otherId = $message['sender_id'];
+            }
+            $user = get_user2($otherId);
             $messageData = [
                 'comment' => preg_replace( "/\r|\n/", "", $message['comment'] ),
                 'time'    => date("F j, Y, g:i a", $message['time'])
             ];
             if (!$id) {
-                $contacts[$senderId]['messages'][] = $messageData;
-                $contacts[$senderId]['name'] = $user[0]['name'];
-                $contacts[$senderId]['email'] = $user[0]['email'];
-                $contacts[$senderId]['id'] = $user[0]['user_id'];
-                $contacts[$senderId]['url'] = 'contactprofile/profile/jobs/' . $user[0]['uri'] . '/' . $user[0]['care_type'];
-            }
-            if ($id == $senderId) {
-                $contacts['messages'][] = $messageData;
+                $contacts[$otherId]['messages'][$type] = $messageData;
+                $contacts[$otherId]['name'] = $user[0]['name'];
+                $contacts[$otherId]['email'] = $user[0]['email'];
+                $contacts[$otherId]['id'] = $user[0]['user_id'];
+                $contacts[$otherId]['url'] = 'contactprofile/profile/jobs/' . $user[0]['uri'] . '/' . $user[0]['care_type'];
+            } else {
+                $contacts['messages'][$type] = $messageData;
             }
         }
         $name_of_user = get_user($id)['name'];
         if ($id) {
             $content = 'frontend/user/dashboard/my_contacts/messages';
-            $title = 'Messages from ' . $name_of_user;
+            $title = 'Messages with ' . $name_of_user;
         } else {
             $content = 'frontend/user/dashboard/my_contacts/base';
-            $title = 'Contacts';
+            $title = 'My Messages';
             
         }
         $data = array(

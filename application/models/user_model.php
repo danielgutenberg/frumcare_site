@@ -529,9 +529,9 @@ class User_model extends CI_Model
     public function getMessages($recipientId, $senderId)
     {
         if ($senderId) {
-            $this->db->where(array('sender_id' => $senderId));
+            $this->db->where("(receiver_id='$senderId' OR sender_id='$senderId')");
         }
-        $this->db->where(array('receiver_id' => $recipientId));
+        $this->db->where("(receiver_id='$recipientId' OR sender_id='$recipientId')");
         $query = $this->db->get('tbl_messages');
         $res   = $query->result_array();
         if($res)
