@@ -436,13 +436,13 @@ class Ad extends CI_Controller
         $path = $_SERVER['REQUEST_URI'];
         $position = $this->strposX($path, '/', 5);
         $hash = substr($path, $position + 1);
-        print_r($hash);
+        
         $args = func_get_args();
         $user_id = $args[0];
         $id = $args[1];
         
         $hashData = json_decode(encrypt_decrypt('decrypt', $hash));
-        print_rr($hashData);
+        
         $details = $this->user_model->getUserDetailsById($user_id,$id);
         
         if ( empty($details) || !isset($hashData->user_id) || !isset($hashData->care_type) || !($user_id == $hashData->user_id) || !($id == $hashData->care_type) ) {
