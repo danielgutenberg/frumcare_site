@@ -46,12 +46,12 @@
                 </td>
                 <td>
                     <button style="width:120px; margin-bottom:3px">
-                        <a target="_blank" href="<?php echo site_url() . 'user/messages/' . $rec['id'] ?>">View Messages</a>
+                        <a href="<?php echo site_url() . 'user/messages/' . $rec['id'] ?>">View Messages</a>
                     </button>
                 </td>
                 <td>
                     <button style="width:120px; margin-bottom:3px">
-                        <a target="_blank" href="<?php echo site_url() . $rec['url'] ?>">Send Message</a>
+                        <a href="<?php echo site_url() . $rec['url'] ?>">Send Message</a>
                     </button>
                 </td>
             </tr>
