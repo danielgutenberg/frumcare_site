@@ -48,8 +48,8 @@ class User extends CI_Controller
         $this->load->view(FRONTEND_TEMPLATE, $data);
     }
 
-    function edit($id_hash = ''){
-
+    function edit($id_hash = '')
+    {
         $this->breadcrumbs->push('Edit Profile', site_url().'#');
         $this->breadcrumbs->unshift('Profile', base_url().'user/profile');
 
@@ -81,7 +81,8 @@ class User extends CI_Controller
         }
     }
 
-    public function verfiyemail(){
+    public function verfiyemail()
+    {
         $email_address = $_POST['email_address'];
         $data = array(
             'email' => $email_address,
@@ -100,7 +101,8 @@ class User extends CI_Controller
         $this->email->send();
     }
 
-    public function verifyemailaddress($email=null){
+    public function verifyemailaddress($email=null)
+    {
         $email = segment(2);
         if($email!=''){
             $edit = array(
@@ -174,7 +176,29 @@ class User extends CI_Controller
     {
         $this->fileupload_lib->upload('files');
     }//CODE BY CHAND
-      
+    
+    public function scrape_contacts_from_messages()
+    {
+        $res = $this->user_model->getMessages();
+        foreach ($res as $message) {
+            $comment = $message['email_content'];
+            $commentStart = strpos($comment, 'Comment:');
+            $commentEnd = strpos($comment, 'Thank you,');
+            $characters = $commentEnd - $commentStart - 18;
+            $comment = trim(substr($comment, $commentStart + 9, $characters));
+            $receiverId = get_user_by_email($message['sent_to'])['id'];
+            $senderId = $message['initiatedId'];
+            $time = strtotime($comment['sent_date']);
+            $data = [
+                'sender_id' => $senderId,
+                'receiver_id' => $receiverId,
+                'comment' => $comment,
+                'time' => $time
+            ];
+            $this->user_model->saveMessage($data);
+        }
+        
+    }
       
     public function notifications()
     {
@@ -206,6 +230,7 @@ class User extends CI_Controller
         }
 
     }//CODE BY CHAND
+      
       
       
     public function ticket_detail_view($id)
