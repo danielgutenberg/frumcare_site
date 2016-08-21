@@ -435,6 +435,7 @@ class Ad extends CI_Controller
     {
         $path = $_SERVER['REQUEST_URI'];
         $hash = $this->strposX($path, '/', 5);
+        print_rr($hash);
         $args = func_get_args();
         $user_id = $args[0];
         $id = $args[1];
