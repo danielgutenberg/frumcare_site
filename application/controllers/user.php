@@ -179,7 +179,6 @@ class User extends CI_Controller
     
     public function scrape_contacts_from_messages()
     {
-        print_rr('One time script, not to be used again');
         $res = $this->user_model->getMessages();
         foreach ($res as $message) {
             $comment = $message['email_content'];
@@ -189,7 +188,7 @@ class User extends CI_Controller
             $comment = trim(substr($comment, $commentStart + 9, $characters));
             $receiverId = get_user_by_email($message['sent_to'])['id'];
             $senderId = $message['initiatedId'];
-            $time = strtotime($comment['sent_date']);
+            $time = strtotime($message['sent_date']);
             $data = [
                 'sender_id' => $senderId,
                 'receiver_id' => $receiverId,
@@ -481,24 +480,50 @@ class User extends CI_Controller
         $this->load->view(FRONTEND_TEMPLATE, $data);
     }
     
-    public function contacts()
+    public function contacts($id = null)
     {
-        $this->breadcrumbs->push('My Contacts', site_url().'#');
-        $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
+        if ($id) {
+            $this->breadcrumbs->push('Messages', site_url().'#');
+            $this->breadcrumbs->unshift('My Contacts', base_url().'user/contacts');
+            $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
+        } else {
+            $this->breadcrumbs->push('My Contacts', site_url().'#');
+            $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
+        }
         $messages = $this->user_model->getMessages();
         $contacts = [];
         foreach ($messages as $message) {
             $senderId = $message['sender_id'];
-            $user = get_user($senderId);
-            $contacts[$senderId]['messages'] = $message;
-            $contacts[$senderId]['name'] = $user['name'];
-            $contacts[$senderId]['email'] = $user['email'];
+            $user = get_user2($senderId);
+            $messageData = [
+                'comment' => preg_replace( "/\r|\n/", "", $message['comment'] ),
+                'time'    => date("F j, Y, g:i a", $message['time'])
+            ];
+            if (!$id) {
+                $contacts[$senderId]['messages'][] = $messageData;
+                $contacts[$senderId]['name'] = $user[0]['name'];
+                $contacts[$senderId]['email'] = $user[0]['email'];
+                $contacts[$senderId]['id'] = $user[0]['user_id'];
+                $contacts[$senderId]['url'] = 'contactprofile/profile/jobs/' . $user[0]['uri'] . '/' . $user[0]['care_type'];
+            }
+            if ($id == $senderId) {
+                $contacts['messages'][] = $messageData;
+            }
+        }
+        $name_of_user = get_user($id)['name'];
+        if ($id) {
+            $content = 'frontend/user/dashboard/my_contacts/messages';
+            $title = 'Messages from ' . $name_of_user;
+        } else {
+            $content = 'frontend/user/dashboard/my_contacts/base';
+            $title = 'Contacts';
         }
         $data = array(
-            'main_content' => 'frontend/user/dashboard/my_contacts/base',
-            'title'        => 'Contacts',
+            'main_content' => $content,
+            'title'        => $title,
             'record'  => $contacts
         );
+        
         $this->load->view(FRONTEND_TEMPLATE, $data);
     }
 
