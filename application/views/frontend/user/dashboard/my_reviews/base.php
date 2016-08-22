@@ -16,13 +16,6 @@
         ?>
         <div class="top-welcome">
             <h2>My Ratings and Reviews</h2>
-            <?php
-                if($account_category == 2){ 
-                    ?>
-                    <a class="btn btn-info" href="<?php echo $reviewlink;?>">Write a review</a>
-                    <?php
-                }
-            ?>
         </div>
         <div class="seperator"></div>
         <?php 	
