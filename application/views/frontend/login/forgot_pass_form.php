@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>Retrieve you password here</h2>
+    <h2>Retrieve your password here</h2>
     <div class="sign-in-form">
         <?php
 	        $attributes = array('id' => 'forgot-form');
@@ -40,14 +40,14 @@ $(document).ready(function(){
 							success:function(data){
 								if(data == '1'){
 									$('.loader').hide();
-									$('.success').html('A email has been sent to reset your password.Please check your email.').show();
+									$('.success').html('An email has been sent to reset your password. Please check your email.').show();
 								}
 							}
 
 						});
 					}else{
 						$('.loader').hide();
-						$('.error').html('Email Address your enter dosen\'t exists').css('color','red').show();
+						$('.error').html('Email Address your entered dosen\'t exist').css('color','red').show();
 					}
 				}
 			})
