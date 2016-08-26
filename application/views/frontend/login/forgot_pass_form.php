@@ -47,7 +47,7 @@ $(document).ready(function(){
 						});
 					}else{
 						$('.loader').hide();
-						$('.error').html('Email Address your entered dosen\'t exist').css('color','red').show();
+						$('.error').html('Email Address you entered dosen\'t exist').css('color','red').show();
 					}
 				}
 			})
