@@ -20,6 +20,6 @@
     <br>
     <br>
 
-    <?php $this->load->view('frontend/care/second_file_upload', ['file' => 'pdf']); ?>
+    <?php $this->load->view('frontend/care/vacation_upload', ['file' => 'pdf']); ?>
     </div>
 </div>
