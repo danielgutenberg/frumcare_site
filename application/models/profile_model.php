@@ -45,5 +45,12 @@ class Profile_model extends CI_Model
         $q = $this->db->update('tbl_userprofile', $model, array('user_id' => $id));
         return $q ? true : false;
     }
+    
+    function edit_profile_by_user_id_and_care_type($insert, $id, $careType)
+    {
+        $model = $this->fill_model($insert);
+        $q = $this->db->update('tbl_userprofile', $model, array('user_id' => $id, 'care_type' => $careType));
+        return $q ? true : false;
+    }
 
 }
