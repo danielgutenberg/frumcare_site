@@ -64,7 +64,7 @@ if($detail){
             $this->load->view('frontend/care/giver/fields/phone', ['phone' => $phone]); 
          ?>
         <div>
-            <label>Ages of student</label>
+            <label>Age of student</label>
             <div class="form-field">
             <input type="text" name="age" class="number" value="<?php echo isset($age) ? $age : '' ?>"/>
             </div>
