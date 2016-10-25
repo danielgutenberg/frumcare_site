@@ -27,7 +27,6 @@
             ?>
             <tr>
                 <th>Contact Name</th>
-                <th>Email</th>
                 <th># of Messages</th>
                 <th>Messages</th>
                 <th>Send a Message</th>
@@ -37,9 +36,6 @@
             <tr>
                 <td>
                     <?php echo $rec['name']?>
-                </td>
-                <td>
-                    <?php echo $rec['email'] ?>
                 </td>
                 <td>
                     <?php echo count($rec['messages']); ?>
