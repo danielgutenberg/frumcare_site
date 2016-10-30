@@ -20,6 +20,13 @@
                         <option value="4" <?php if ($page == 'contactus'){?> selected="selected" <?php }?>>Contact Us</option>
                         <option value="5" <?php if ($page == 'jobs'){?> selected="selected" <?php }?>>Jobs</option>
                         <option value="6" <?php if ($page == 'caregivers'){?> selected="selected" <?php }?>>Caregivers</option>
+                        <option value="13" <?php if ($page == 'organizations'){?> selected="selected" <?php }?>>Organizations</option>
+                        <option value="7" <?php if ($page == 'signup'){?> selected="selected" <?php }?>>Sign Up</option>
+                        <option value="8" <?php if ($page == 'tipsfamilies'){?> selected="selected" <?php }?>>Tips for Families</option>
+                        <option value="9" <?php if ($page == 'tipscaregivers'){?> selected="selected" <?php }?>>Tips for Caregivers</option>
+                        <option value="10" <?php if ($page == 'safetyguidefamilies'){?> selected="selected" <?php }?>>Safety Guide for Families</option>
+                        <option value="11" <?php if ($page == 'safetyguidecaregivers'){?> selected="selected" <?php }?>>Safety Guide for Caregivers</option>
+                        <option value="14" <?php if ($page == 'faqs'){?> selected="selected" <?php }?>>FAQs</option>
                     </select> 
                 </div>
                     <div class="table-responsive"> 
@@ -95,19 +102,19 @@
             if(pagelink == '6')
                 var locationaddress = 'caregivers';
             if(pagelink == '7')
-                var locationaddress = 'therapists';
+                var locationaddress = 'signup';
             if(pagelink == '8')
-                var locationaddress = 'cleaning-household-help';
+                var locationaddress = 'tipsfamilies';
             if(pagelink == '9')
-                var locationaddress = 'errand-runner-odd-jobs-personal-assistant-driver';   
+                var locationaddress = 'tipscaregivers';   
             if(pagelink == '10')
-                var locationaddress = 'pediatric-baby-nurse'; 
+                var locationaddress = 'safetyguidefamilies'; 
             if(pagelink == '11')
-                var locationaddress = 'day-care-center-day-camp-afternoon-activities';
+                var locationaddress = 'safetyguidecaregivers';
             if(pagelink == '13')
-                var locationaddress = 'senior-care-agency';
+                var locationaddress = 'organizations';
             if(pagelink == '14')
-                var locationaddress = 'special-needs-center';
+                var locationaddress = 'faq';
             if(pagelink == '15')
             	var locationaddress = 'cleaning-household-help-company';
             if(pagelink == '16')

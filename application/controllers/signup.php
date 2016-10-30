@@ -20,6 +20,7 @@ class Signup extends CI_Controller
         $data['at'] = isset($_GET['ac']) ? $_GET['ac']:'';
         $data['main_content'] = 'frontend/signup/signup_form';
         $data['title'] = 'Register';
+        $data['seotitle'] = 'Sign up';
         $this->load->view(FRONTEND_TEMPLATE, $data);
     }
 
