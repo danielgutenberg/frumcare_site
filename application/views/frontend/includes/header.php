@@ -19,7 +19,7 @@
 
         <?php 
         $this->load->model('common_model');
-        $seodata = $this->common_model->getSEODATA($title);
+        $seodata = $this->common_model->getSEODATA($seotitle);
         ?>
         
         <script>/*<![CDATA[*/_holyclock_id="2ba2720960c4f7f322a73415bc856a21";_holyclock_tag='<s'+'cript src\x3d"//www.holyclock.com/holyclock.js?'+Math.floor(+new Date/864E5)+'">\x3c/script>';null!==document.cookie.match(/(?:^|;)\s*_holyclock_qr=\s*\w/)&&null===window.location.hash.match(/#holyclock=qr(?=#|$)/)&&document.write(_holyclock_tag);//]]></script>
