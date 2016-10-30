@@ -15,6 +15,7 @@ class Help extends CI_Controller{
 		
 		$data['main_content'] = 'frontend/pages/help';
 		$data['title'] 		  = 'Help';
+		$data['seotitle'] 		  = 'Contact Us';
 		
 		$this->load->view(FRONTEND_TEMPLATE, $data);
 	}

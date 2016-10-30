@@ -15,131 +15,131 @@
     	}
     	
     	public function index() {
-    	    $this->load_ads('caregivers', 'Caregivers');
+    	    $this->load_ads('caregivers', 'Caregivers', 'caregivers');
     	}
     	
     	public function careseekers() {
-    	    $this->load_ads('jobs', 'Jobs', 2);
+    	    $this->load_ads('jobs', 'Jobs', 'jobs', 2);
     	}
     	
     	public function babysitter() {
-    	    $this->load_ads(1, 'Babysitters');
+    	    $this->load_ads(1, 'Babysitters', 'caregivers');
     	}
     	
     	public function nanny() {
-    	    $this->load_ads(2, 'Nanny / Au-pairs');
+    	    $this->load_ads(2, 'Nanny / Au-pairs', 'caregivers');
     	}
     	
     	public function nursery() {
-    	    $this->load_ads(3, 'Nursery / Playgroup / Drop off / Gans');
+    	    $this->load_ads(3, 'Nursery / Playgroup / Drop off / Gans', 'caregivers');
     	}
     	
     	public function tutor() {
-    	    $this->load_ads(4, 'Tutor / Private lessons');
+    	    $this->load_ads(4, 'Tutor / Private lessons', 'caregivers');
     	}
     	
     	public function senior_caregiver() {
-    	    $this->load_ads(5, 'Senior Caregivers / Companions');
+    	    $this->load_ads(5, 'Senior Caregivers / Companions', 'caregivers');
     	}
     	
     	public function special_needs_caregiver() {
-    	    $this->load_ads(6, 'Special Needs Caregivers / Companions');
+    	    $this->load_ads(6, 'Special Needs Caregivers / Companions', 'caregivers');
     	}
     	
     	public function therapist() {
-    	    $this->load_ads(7, 'Therapists');
+    	    $this->load_ads(7, 'Therapists', 'caregivers');
     	}
     	
     	public function cleaning() {
-    	    $this->load_ads(8, 'Cleaning / Household Helpers');
+    	    $this->load_ads(8, 'Cleaning / Household Helpers', 'caregivers');
     	}
     	
     	public function errand_runner() {
-    	    $this->load_ads(9, 'Errand Runner / Odd Jobs / Personal Assistant / Drivers');
+    	    $this->load_ads(9, 'Errand Runner / Odd Jobs / Personal Assistant / Drivers', 'caregivers');
     	}
     	
     	public function babynurse() {
-    	    $this->load_ads(10, 'Pediatric / Baby Nurse');
+    	    $this->load_ads(10, 'Pediatric / Baby Nurse', 'caregivers');
     	}
     	
     	public function daycarecenter() {
-    	    $this->load_ads(11, 'Day Care Center / Day Camp / Afternoon Activities');
+    	    $this->load_ads(11, 'Day Care Center / Day Camp / Afternoon Activities', 'caregivers');
     	}
     	
     	public function seniorcareagency() {
-    	    $this->load_ads(13, 'Senior Care Agencies', 3);
+    	    $this->load_ads(13, 'Senior Care Agencies', 'caregivers', 3);
     	}
     	
     	public function specialneedscenter() {
-    	    $this->load_ads(14, 'Special Needs Centers', 3);
+    	    $this->load_ads(14, 'Special Needs Centers', 'caregivers', 3);
     	}
     	
     	public function cleaninghousehold() {
-    	    $this->load_ads(15, 'Cleaning / Household Help Companies', 3);
+    	    $this->load_ads(15, 'Cleaning / Household Help Companies', 'caregivers', 3);
     	}
     	
     	public function seniorcarecenter() {
-    	    $this->load_ads(16, 'Assisted living / Senior Care Center / Nursing Homes', 3);
+    	    $this->load_ads(16, 'Assisted living / Senior Care Center / Nursing Homes', 'caregivers', 3);
     	}
     	
     	public function careseeker_babysitter()
     	{
-    	    $this->load_ads(17, 'Babysitter Jobs', 2);
+    	    $this->load_ads(17, 'Babysitter Jobs', 'jobs', 2);
     	}
     	
     	public function careseeker_nanny()
     	{
-    	    $this->load_ads(18, 'Nanny Jobs', 2);
+    	    $this->load_ads(18, 'Nanny Jobs', 'jobs', 2);
     	}
     	
     	public function careseeker_tutor()
     	{
-    	    $this->load_ads(19, 'Tutor / Private Lessons Jobs', 2);
+    	    $this->load_ads(19, 'Tutor / Private Lessons Jobs', 'jobs', 2);
     	}
     	
     	public function careseeker_seniorcaregiver()
     	{
-    	    $this->load_ads(20, 'Senior Caregiver / Companion Jobs', 2);
+    	    $this->load_ads(20, 'Senior Caregiver / Companion Jobs', 'jobs', 2);
     	}
     	
     	public function careseeker_errandrunner()
     	{
-    	    $this->load_ads(21, 'Errand Runner / Odd Jobs / Personal Assistant / Driver jobs', 2);
+    	    $this->load_ads(21, 'Errand Runner / Odd Jobs / Personal Assistant / Driver jobs', 'jobs', 2);
     	}
     	
     	public function careseeker_specialneedscaregiver()
     	{
-    	    $this->load_ads(22, 'Special Needs Caregiver / Companion Jobs', 2);
+    	    $this->load_ads(22, 'Special Needs Caregiver / Companion Jobs', 'jobs', 2);
     	}
     	
     	public function careseeker_babynurse()
     	{
-    	    $this->load_ads(23, 'Pediatric / Baby Nurse Jobs', 2);
+    	    $this->load_ads(23, 'Pediatric / Baby Nurse Jobs', 'jobs', 2);
     	}
     	
     	public function careseeker_cleaninghousehold()
     	{
-    	    $this->load_ads(24, 'Cleaning / Household Help Jobs', 2);
+    	    $this->load_ads(24, 'Cleaning / Household Help Jobs', 'jobs', 2);
     	}
     	
     	public function careseeker_childcarefacility()
     	{
-    	    $this->load_ads(25, 'Workers / Staff for Childcare Facility Jobs', 3);
+    	    $this->load_ads(25, 'Workers / Staff for Childcare Facility Jobs', 'jobs', 3);
     	}
     	
     	public function careseeker_seniorcarefacility()
     	{
-    	    $this->load_ads(26, 'Workers / Staff for Senior Care Facility Jobs', 3);
+    	    $this->load_ads(26, 'Workers / Staff for Senior Care Facility Jobs', 'jobs', 3);
     	}
     	
     	public function careseeker_specialneedsfacility()
     	{
-    	    $this->load_ads(27, 'Workers / Staff for Special Needs Facility Jobs', 3);
+    	    $this->load_ads(27, 'Workers / Staff for Special Needs Facility Jobs', 'jobs', 3);
     	}
     	
     	public function careseeker_cleaningcompany()
     	{
-    	    $this->load_ads(28, 'Workers for Cleaning Company Jobs', 3);
+    	    $this->load_ads(28, 'Workers for Cleaning Company Jobs', 'jobs', 3);
     	}
     	
     	public function organizations($care = null)
@@ -165,10 +165,10 @@
                 $care_type = 8;
             }
             
-            $this->load_ads($care_type, $title, 3, true);
+            $this->load_ads($care_type, $title, 'organizations', 3, true);
     	}
     	
-    	public function load_ads($care, $title, $account_category = 1, $organization = false) {
+    	public function load_ads($care, $title, $seotitle, $account_category = 1, $organization = false) {
     	    $item_per_page = 15;
             $option = "distance";
             $distance = "unlimited";                     
@@ -191,6 +191,7 @@
             $data = array(
       			'main_content' 	    => 'frontend/search/common_caregiver',                            
       			'title'			    => $title,
+      			'seotitle'          => $seotitle,
                 'pages'             => ceil($get_total_rows/$item_per_page),
                 'account_category'  => $account_category,
                 'care_type'         => $care,

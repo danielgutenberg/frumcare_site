@@ -327,6 +327,7 @@ class Common_Model extends CI_Model
     public function getSEODATA($page = ''){
         $page = strtolower(preg_replace('/[^a-zA-z]/','',$page));
         $sql    = "select * from tbl_generic_seo where page = '$page'";
+        // print_rr($sql);
         $query  = $this->db->query($sql);
         $res    = $query->row_array();
         if($res)

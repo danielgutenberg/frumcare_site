@@ -30,7 +30,8 @@ class Caregivers extends CI_Controller
         $this->breadcrumbs->unshift('Home', base_url());
         $data['main_content']   = 'frontend/caregivers/details';
         $data['recordData']     = $details;
-        $data['title']          = 'Caregivers Details';
+        $data['title']          = 'Caregivers';
+        $data['seotitle']       = 'caregivers';
         $data['number_reviews'] = $this->review_model->countReviewById($details['id']);
         $data['userlog']        = $this->user_model->getUserLogById($details['user_id']);
         $data['similar_types']  = $this->user_model->getSimilarPersons($details['care_type'],$details['id']);
