@@ -114,7 +114,7 @@
             if(pagelink == '13')
                 var locationaddress = 'organizations';
             if(pagelink == '14')
-                var locationaddress = 'faq';
+                var locationaddress = 'faqs';
             if(pagelink == '15')
             	var locationaddress = 'cleaning-household-help-company';
             if(pagelink == '16')
