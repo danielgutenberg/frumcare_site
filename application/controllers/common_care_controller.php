@@ -47,7 +47,7 @@
     	}
     	
     	public function therapist() {
-    	    $this->load_ads(7, 'Therapists', 'caregivers');
+    	    $this->load_ads(7, 'Therapists', 'therapists');
     	}
     	
     	public function cleaning() {
