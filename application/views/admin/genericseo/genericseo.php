@@ -20,6 +20,7 @@
                         <option value="4" <?php if ($page == 'contactus'){?> selected="selected" <?php }?>>Contact Us</option>
                         <option value="5" <?php if ($page == 'jobs'){?> selected="selected" <?php }?>>Jobs</option>
                         <option value="6" <?php if ($page == 'caregivers'){?> selected="selected" <?php }?>>Caregivers</option>
+                        <option value="15" <?php if ($page == 'therapists'){?> selected="selected" <?php }?>>Therapists</option>
                         <option value="13" <?php if ($page == 'organizations'){?> selected="selected" <?php }?>>Organizations</option>
                         <option value="7" <?php if ($page == 'signup'){?> selected="selected" <?php }?>>Sign Up</option>
                         <option value="8" <?php if ($page == 'tipsfamilies'){?> selected="selected" <?php }?>>Tips for Families</option>
@@ -116,7 +117,7 @@
             if(pagelink == '14')
                 var locationaddress = 'faqs';
             if(pagelink == '15')
-            	var locationaddress = 'cleaning-household-help-company';
+            	var locationaddress = 'therapists';
             if(pagelink == '16')
             	var locationaddress = 'assisted-living-senior-care-center-nursing-home';
              if(pagelink == '17')
