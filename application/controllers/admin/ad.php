@@ -301,6 +301,19 @@ class Ad extends CI_Controller
             redirect('admin/ad','refresh');
     }
 
+    public function sendAlert()
+    {
+        if (!is_super()) {
+            $this->session->set_flashdata('error', 'You do not have permissions to perform this action');
+            redirect('login');
+        }
+        $profile_id = $this->uri->segment(4);
+        
+        $this->sendSearchAlerts($profile_id);
+        
+        redirect('admin/ad','refresh');
+    }
+    
     public function changestatus()
     {
         if (!is_super()) {
@@ -337,7 +350,7 @@ class Ad extends CI_Controller
                 sendemail($param);
                  
                  
-                 $this->sendSearchAlerts($profile_id);
+                //  $this->sendSearchAlerts($profile_id);
              }
              
              redirect('admin/ad','refresh');
@@ -363,6 +376,7 @@ class Ad extends CI_Controller
             $alerts = $this->user_model->getSearchAlerts($details['lat'], $details['lng'], $type);
             $workerAds = false;
         }
+        
         foreach ($alerts as $alert) {
             if (in_array($alert['user_id'], $sentUsers)) {
                 continue;
