@@ -486,10 +486,14 @@ class Ad extends CI_Controller
         if ($type > 24) {
             $alerts = $this->user_model->getWorkersSearchAlerts($details['lat'], $details['lng'], $type);
             $workerAds = true;
+        } else if ($type == 3) {
+            $alerts = $this->user_model->getNurserySearchAlerts($details['lat'], $details['lng']);
+            $workerAds = false;
         } else {
             $alerts = $this->user_model->getSearchAlerts($details['lat'], $details['lng'], $type);
             $workerAds = false;
         }
+        
         foreach ($alerts as $alert) {
             if (in_array($alert['user_id'], $sentUsers)) {
                 continue;

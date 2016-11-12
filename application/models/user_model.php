@@ -335,6 +335,23 @@ class User_model extends CI_Model
             return false;
     }
     
+    public function getNurserySearchAlerts($latitude, $longitude)
+    {
+        if (!$latitude) {
+            $latitude = 40;
+        }
+        if (!$longitude) {
+            $longitude = -74;
+        }
+        $sql    = "select *, (((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `long` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS dist from tbl_searchhistory where createAlert = 1 and (care_type = 1 or care_type = 2)";
+        $query  = $this->db->query($sql);
+        $res    = $query->result_array();
+        if($res)
+            return $res;
+        else
+            return false;
+    }
+    
     public function getWorkersSearchAlerts($latitude, $longitude, $type)
     {
         $adTypes = [
