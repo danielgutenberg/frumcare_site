@@ -343,7 +343,7 @@ class User_model extends CI_Model
         if (!$longitude) {
             $longitude = -74;
         }
-        $sql    = "select *, (((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `long` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS dist from tbl_searchhistory where createAlert = 1 and (care_type = 1 or care_type = 2)";
+        $sql    = "select tbl_searchhistory.*, tbl_userprofile.care_type as USERCARETYPE, (((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `long` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS dist from tbl_searchhistory join tbl_userprofile on tbl_userprofile.user_id = tbl_searchhistory.user_id where createAlert = 1 and tbl_searchhistory.care_type = 1 and tbl_userprofile.care_type = 17";
         $query  = $this->db->query($sql);
         $res    = $query->result_array();
         if($res)

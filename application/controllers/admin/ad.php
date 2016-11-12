@@ -379,6 +379,7 @@ class Ad extends CI_Controller
             $alerts = $this->user_model->getSearchAlerts($details['lat'], $details['lng'], $type);
             $workerAds = false;
         }
+        
         foreach ($alerts as $alert) {
             if (in_array($alert['user_id'], $sentUsers)) {
                 continue;
