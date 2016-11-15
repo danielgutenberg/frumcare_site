@@ -67,7 +67,6 @@
     
             </div>
         </div>
-        </div>
         <div>
             <label>Specialize in</label>
             <div class="form-field">
