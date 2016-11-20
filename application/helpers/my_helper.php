@@ -159,6 +159,9 @@ function sendemail($params)
             $data['initiatedId']    =  $params['initiatedBy']['id'];
             $data['initiatedEmail'] =  $params['initiatedBy']['email'];
         }
+        if (isset($params['attachment'])) {
+            $data['full_path']    =  $params['attachment']['file_name'];
+        }
         $ci->emaillogs_model->addEmailLog($data);
     }
     //Loading email library
@@ -183,6 +186,10 @@ function sendemail($params)
     if(isset($params['cc'])) {
         //Set the CC address
         $mail->bcc($params['cc']);
+    }
+    
+    if(isset($params['full_path'])) {
+        $mail->attach($params['attachment']['full_path']);
     }
 
     //Set the subject line

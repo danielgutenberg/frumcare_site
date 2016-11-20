@@ -45,7 +45,7 @@
                                                 <a href="<?php echo site_url('admin/emaillogs/view')."/".$cat['id'];?>" class="btn btn-info" title="View">View</a>
                                                 <a href="<?php echo site_url('admin/emaillogs/delete')."/".$cat['id'];?>" class="btn btn-danger" title="Delete" onclick="return confirm('Are you sure to delete this email?');">Delete</a>
                                             </td>
-                                            <td><?php echo 'User Id: ' . $cat['initiatedId'] . '<br>' . 'Email: ' . $cat['initiatedEmail'];?></td>
+                                            <td><?php echo 'User Id: ' . $cat['initiatedId'] . '<br>' . 'Email: ' . $cat['initiatedEmail']; if ($cat['full_path'])  {echo '<br>' . 'Attachment: yes';} ?></td>
                                         </tr>
                                         <?php
                                     }
