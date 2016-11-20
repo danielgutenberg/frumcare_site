@@ -8,6 +8,9 @@
 			parent::__construct();
 			$this->load->model('common_model');
 			$this->load->model('user_model');
+			$config['upload_path']          = 'uploads/resumes/';
+			$config['allowed_types'] = 'gif|jpg|png|pdf|doc';
+			$this->load->library('upload', $config);
 		}
 
 		public function profile($id = '')
@@ -15,6 +18,7 @@
 			$category = $this->uri->segment(3);
 			$slug 	  = $this->uri->segment(4);
 			$careType = $this->uri->segment(5);
+			$attach = false;
 			if ($slug) {
 				$user  = $this->user_model->getUserDetailsBySlug($slug, $careType);
 			}
@@ -22,16 +26,25 @@
 				$name 			= $this->input->post('name',true);
 				$phonenumber 	= $this->input->post('phonenumber',true);
 				$email 			= $this->input->post('email',true);
-				$comment 		= $this->input->post('comment',true);			
-                        
+				$comment 		= $this->input->post('comment',true);	
+				if ($_FILES['userfile']['size'] > 0) {
+					$attach = true;
+	            	if ( ! $this->upload->do_upload('userfile')) {
+	                	$this->session->set_flashdata('info','Email successfully sent');
+	                	redirect('contactprofile/profile/' . $category . '/' . $slug . '/' . $careType, 'refresh');
+	                } else {
+		            	$data = $this->upload->data(); 
+	                }
+				}
 				$viewData = array(
 					'name'        => $name,
 					'phonenumber' => $phonenumber,
 					'comment'     => $comment,
-					'email'       => $email,
-					'filename'    => $filename
+					'email'       => $email
 				);
-				
+				if ($attach) {
+	            	$viewData['filename'] = $data['full_path'];
+	            }
 				$msg = $this->load->view('frontend/email/conact_email', $viewData, true);				      
                       
                 $user_id = check_user();
@@ -48,6 +61,10 @@
 	                'message'     => $msg,
 	                'initiatedBy' => array('id' => $loggedInUser['id'], 'email' => $loggedInUser['email']),
 	            );
+	            
+	            if ($attach) {
+	            	$param['attachment'] = $data;
+	            }
 
 	            
             	if (sendemail($param)) {	                

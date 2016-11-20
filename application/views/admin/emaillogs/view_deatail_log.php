@@ -52,6 +52,12 @@
                                             <td><?php echo 'User Id: ' . $cat['initiatedId'] . '<br>' . 'Email: ' . $cat['initiatedEmail'];?></td>
                                         </tr>
                                         <tr>
+                                            <th>Attachment</th>
+                                            <td>
+                                                <a href="<?php echo site_url();?>uploads/resumes/<?php echo $cat['full_path'];?>"><?php echo $cat['full_path'];?></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
                                             <th>Actions</th>
                                             <td>
                                                 <?php prev_next('admin/emaillogs/view',$cat['id'],'tbl_email_logs');?>
