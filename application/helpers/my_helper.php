@@ -188,7 +188,7 @@ function sendemail($params)
         $mail->bcc($params['cc']);
     }
     
-    if(isset($params['full_path'])) {
+    if(isset($params['attachment'])) {
         $mail->attach($params['attachment']['full_path']);
     }
 
