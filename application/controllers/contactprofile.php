@@ -9,7 +9,7 @@
 			$this->load->model('common_model');
 			$this->load->model('user_model');
 			$config['upload_path']          = 'uploads/resumes/';
-			$config['allowed_types'] = 'gif|jpg|png|pdf|doc';
+			$config['allowed_types'] = 'gif|jpg|png|pdf|doc|docx';
 			$this->load->library('upload', $config);
 		}
 
@@ -30,7 +30,7 @@
 				if ($_FILES['userfile']['size'] > 0) {
 					$attach = true;
 	            	if ( ! $this->upload->do_upload('userfile')) {
-	                	$this->session->set_flashdata('info','Email successfully sent');
+	                	$this->session->set_flashdata('fail', $this->upload->display_errors());
 	                	redirect('contactprofile/profile/' . $category . '/' . $slug . '/' . $careType, 'refresh');
 	                } else {
 		            	$data = $this->upload->data(); 
