@@ -513,7 +513,8 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 					$min = floor(($diff-($days*86400+$hours*3600))/60);
 					$second = $diff - ($days*86400+$hours*3600+$min*60);
 
-					if($days > 0) echo "( " .$days." days ago )";
+                    if ($days > 30) echo "( more than 30 days ago)";
+					elseif ($days > 0) echo "( " .$days." days ago )";
 					elseif($hours > 0) echo "( " .$hours." hours ago )";
 					elseif($min > 0) echo "( " .$min." minute ago )";
 					else echo "( just second ago )";
