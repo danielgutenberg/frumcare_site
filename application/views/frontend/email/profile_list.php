@@ -122,27 +122,7 @@ $careType = [
 					</a> <?php 
                 } ?>
 			    <br />
-			    <?php if($data['care_type'] != 7) { ?>
-			    <h5 style="color: #525252;font-size: 14px;margin-top: 18px;font-family: 'Lato',sans-serif;font-weight: bold;">
-			        Last Signed in: <?php 
-					$id 		= $data['user_id'];
-					$userlog 	= User_model::getUserLogById($id);
-					if(!empty($userlog)){
-						$dbDate = $userlog['login_time']; // Database date
-						$endDate = time(); 
-						$diff = $endDate - $dbDate; 
-						$days = floor($diff/86400);
-						$hours = floor(($diff-$days*86400)/(60 * 60));
-						$min = floor(($diff-($days*86400+$hours*3600))/60);
-						$second = $diff - ($days*86400+$hours*3600+$min*60);
-                        if ($days > 30) echo "( more than 30 days ago)";
-						elseif($days > 0) echo "( " .$days." days ago )";
-						elseif($hours > 0) echo "( " .$hours." hours ago )";
-						elseif($min > 0) echo "( " .$min." minute ago )";
-						else echo "( just seconds ago )";
-					} ?> 
-			    </h5>
-			    <?php } ?>
+
 				<div style="display: inline-block; margin-left: -15px; width: 225px; float: left;box-sizing:border-box;"> <?php 
                     
                     //for caregivers

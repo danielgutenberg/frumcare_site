@@ -501,26 +501,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 
 
         <div class="right-sidebar-details col-lg-3 col-md-4 col-sm-4 col-xs-12">
-   <?php if($caregiver['care_type'] != 7) { ?>
-   <p>
-    Last Signed in:
-    <?php
-					$dbDate = $userlog['login_time']; // Database date
-					$endDate = time();
-					$diff = $endDate - $dbDate;
-					$days = floor($diff/86400);
-					$hours = floor(($diff-$days*86400)/(60 * 60));
-					$min = floor(($diff-($days*86400+$hours*3600))/60);
-					$second = $diff - ($days*86400+$hours*3600+$min*60);
 
-                    if ($days > 30) echo "( more than 30 days ago)";
-					elseif ($days > 0) echo "( " .$days." days ago )";
-					elseif($hours > 0) echo "( " .$hours." hours ago )";
-					elseif($min > 0) echo "( " .$min." minute ago )";
-					else echo "( just second ago )";
-					?>
-				</p>
-				<?php } ?>
 				<?php
 				if(isset($this->session->userdata['current_user'])){
 					$id = $this->session->userdata['current_user'];
