@@ -14,14 +14,17 @@
                 <h1>Edit Ad</h1>
                 <?php flash() ?>
                 <div class="ad-manager">
-                    <form role="form" id="ad_add_edit_form" method="post" action="<?php echo base_url('admin/ad/edit/'.segment(4))?>" enctype="multipart/form-data">
+                    <?php
+                        $attributes = array('id' => 'ad_add_edit_form', 'target' => '_blank', 'enctype' => "multipart/form-data", 'role' => 'form');
+                        echo form_open('admin/ad/edit/'.segment(4), $attributes);
+                    ?>
                             <div class="form-group">
-                                                    <label class="control-label">Name</label>
-                                                    <div class="ad-manager-input">
-                                                       <?php echo $detail[0]['name'];?>
-                                                    </div>
-                                                    <a href="<?php echo site_url();?>admin/ad/detail/<?php echo $detail[0]['id'];?>" class="btn btn-default btn-primary" target="_blank">Manage Ad Details</a>
-                                                </div>
+                                <label class="control-label">Name</label>
+                                <div class="ad-manager-input">
+                                   <?php echo $detail[0]['name'];?>
+                                </div>
+                                <a href="<?php echo site_url();?>admin/ad/detail/<?php echo $detail[0]['id'];?>" class="btn btn-default btn-primary" target="_blank">Manage Ad Details</a>
+                            </div>
                     
 
                             <div class="form-group">

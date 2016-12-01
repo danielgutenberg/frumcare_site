@@ -9,8 +9,12 @@
                 </div>
                 <div class="panel-collapse">
                 <div class="panel-body">
-                    <form role="form" id="page_add_edit_form" method="post" action="<?php if($action == 'add'){echo site_url('admin/page/add_save');}else{echo site_url('admin/page/edit_save');}?>" enctype="multipart/form-data">
-                        <div class="ad-manager">
+                    <?php
+                        $form = $action == 'add' ? 'admin/page/add_save' : 'admin/page/edit_save';
+                        $attributes = array('id' => 'page_add_edit_form', 'enctype' => "multipart/form-data", 'role' => 'form');
+                        echo form_open($form, $attributes);
+                    ?>
+                       <div class="ad-manager">
                             <div class="form-group">
                                 <label class="control-label">Page Title</label>
                                 <div class="ad-manager-full-input">
