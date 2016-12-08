@@ -51,7 +51,9 @@ class Signup extends CI_Controller
                 redirect('signup');
             }
             $uri = $this->common_model->create_slug(trim($data['name']));
-            $exp = explode('_', $data['care_type']);
+            $types = $data['care_type'];
+            $firstType = $types[0];
+            $exp = explode('_', $firstType);
             $care_type = $exp[0]; 
             $account_type = $exp[1];
             
@@ -102,17 +104,6 @@ class Signup extends CI_Controller
             
             $q = $this->user_model->save_user($insert);
 
-            $userprofile_data = array(
-                'care_type'         => $care_type,
-                'account_category'  => $data['account_category'],
-                'created_on'        => date('Y-m-d'),
-                'created_time'      => strtotime('now'),
-                'user_id'           => $q,
-                'organization_care' => isset($data['organization_care'])?$data['organization_care'] :0,
-                'profile_status'    => 0
-            );
-
-            
             $cg_or_ck = array(
                 'user_id' =>$q,
                 'account_category' => $data['account_category'],
@@ -121,7 +112,24 @@ class Signup extends CI_Controller
             $this->db->insert('tbl_account_category', $cg_or_ck);
             $this->session->set_userdata('account_category', $data['account_category']);// for getting account category quickly
             $this->session->set_userdata('organization_care',isset($data['organization_care']) ? $data['organization_care'] : 0);
-            $this->db->insert('tbl_userprofile', $userprofile_data);
+            
+            foreach ($types as $type) {
+                $exp = explode('_', $type);
+                $care_type = $exp[0]; 
+                $account_type = $exp[1];
+                $userprofile_data = array(
+                    'care_type'         => $care_type,
+                    'account_category'  => $data['account_category'],
+                    'created_on'        => date('Y-m-d'),
+                    'created_time'      => strtotime('now'),
+                    'user_id'           => $q,
+                    'organization_care' => isset($data['organization_care'])?$data['organization_care'] :0,
+                    'profile_status'    => 0
+                );
+                
+                $this->db->insert('tbl_userprofile', $userprofile_data);
+            }
+            
             $email = $data['email'];
             $fname = $data['name'];
             
@@ -141,7 +149,6 @@ class Signup extends CI_Controller
             );
             $this->session->sess_expiration = '14400';
             $this->session->set_userdata($sess);
-            
         
             $this->approveAds();
 
@@ -152,8 +159,15 @@ class Signup extends CI_Controller
             $this->setUpInitialAlert($data['city'], $data['lat'], $data['lng']);
 
             if($q) {
-                redirect('signup-successful');
+                if ($data['account_category'] == 1 || ( $data['account_category'] == 3 && $this->session->userdata['organization_care'] == 1)) {
+                    $link = anchor('user/profile', '"My Profiles"');
+                } else {
+                    $link = anchor('user/profile', '"My Jobs"');
+                }
+                $this->session->set_flashdata('success', 'Click on ' . $link . ' to complete your posting.');
+                redirect('user/dashboard');
             } else {
+                print_rr($q);
                 $this->session->set_flashdata('msg', 'Your account could not be created. Please try again.');
                 redirect('signup');
             }
@@ -340,17 +354,20 @@ class Signup extends CI_Controller
         ];
         
         $user_id = check_user();
-        $profile = $this->common_model->get_where('tbl_userprofile', array('user_id' => $user_id));
-        $data = array(
-            'user_id'               => $user_id, 
-            'care_type'             => $correspondingTypes[$profile[0]['care_type']],
-            'lat'                   => $lat,
-            'long'                  => $lng,
-            'location'              => $location,
-            'distance'              => 30,
-            'createAlert'           => 1
-        );
-        $q = $this->db->insert('tbl_searchhistory',$data);
+        $profiles = $this->common_model->get_where('tbl_userprofile', array('user_id' => $user_id));
+        
+        foreach ($profiles as $profile) {
+            $data = array(
+                'user_id'               => $user_id, 
+                'care_type'             => $correspondingTypes[$profile['care_type']],
+                'lat'                   => $lat,
+                'long'                  => $lng,
+                'location'              => $location,
+                'distance'              => 30,
+                'createAlert'           => 1
+            );
+            $q = $this->db->insert('tbl_searchhistory',$data);
+        }
     }
     
     function sendRelevantAds($lat = 43, $lng = 79, $city = 'Toronto')

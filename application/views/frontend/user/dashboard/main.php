@@ -34,11 +34,13 @@
 		        Welcome <?php $nme = $user['organization_name'] ? $user['organization_name'] : $user['name']; echo ucfirst($nme);?> !
 		    </h2>
 		    <?php 
+		    
+		        
+    			echo search_flash($message);
 		        if(user_flash()){
 		            echo user_flash();
 		        }
-    		        
-    		    echo search_flash($message);
+    		    
 		    ?>
 
 		 <!--   <div class="profile-progressbar">-->
