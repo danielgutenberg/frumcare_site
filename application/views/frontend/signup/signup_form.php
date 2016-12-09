@@ -449,4 +449,9 @@ if($this->uri->segment(2)!='edit'){
     });
     
 </script>
+<style>
+.btn .caret {
+    margin-left: -95px !important;
+}
+</style>
 
