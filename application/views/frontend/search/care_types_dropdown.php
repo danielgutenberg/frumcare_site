@@ -1,6 +1,6 @@
 <?php if($this->uri->segment(1) == 'caregivers') { ?>
     <?php if($this->uri->segment(2) == 'organizations') { ?>        
-        <select id="careId" name="service" class="care_type_organizations" style="width:230px">
+        <select id="careId" name="service" class="care_type_organizations select2" style="width:250px" multiple="multiple">
             <option value="organizations">--select--</option> 
             <option value="31" <?php if(segment(3) == 'workers-staff-for-childcare-facility'){?> selected="selected" <?php }?>>Childcare facility</option>
             <option value="35" <?php if(segment(3) == 'workers-staff-for-senior-care-facility'){?> selected="selected" <?php }?> >Senior care facility</option>
@@ -9,7 +9,7 @@
         </select>     
     <?php } 
     else { ?>
-        <select id="careId" name="service" class="service care_type" style="width:230px">
+        <select id="careId" name="service" class="service care_type select2" style="width:250px" multiple="multiple">
             <option value="caregivers">--select--</option> 
             <option value="1" <?php if(segment(2) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
             <option value="2" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>
@@ -35,7 +35,7 @@
 <?php } ?>
 
 <?php if($this->uri->segment(1) == 'jobs') { ?>    
-    <select id="careId" name="service" class="service jobtype" style="width:230px">
+    <select id="careId" name="service" class="service jobtype select2" style="width:250px" multiple="multiple">
         <option value="jobs">--select--</option> 
         <option value="17" <?php if(segment(2) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
     	<option value="18" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>           
@@ -51,29 +51,40 @@
         <option value="28" <?php if(segment(2) == 'workers-for-cleaning-company'){?> selected="selected" <?php } ?>>Workers for cleaning company</option>
     </select>
 <?php } ?>
-
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.10/css/bootstrap-multiselect.css" type="text/css"/>
+<script>
+    $(document).ready(function() {
+        $('.select2').multiselect({
+            placeholder: 'Please select 1 or more care types',
+            closeOnSelect: false,
+            onDropdownHide: function(event) {
+                console.log($('.select2').val())
+            }
+        });
+        
+        
+    })
+</script>
 
 <script>
     $(document).ready(function(){
-        $('.care_type').change(function(){
-            var id = $('.care_type').val();
-            navigate(id,'caregivers');
-        });
+
         
-        $('.jobtype').change(function(){
-            var id = $('.jobtype').val();
-            navigate(id,'jobs');
-        });
+        // $('.jobtype').change(function(){
+        //     var id = $('.jobtype').val();
+        //     navigate(id,'jobs');
+        // });
         
-        $('.orgtype').change(function(){
-            var id = $('.orgtype').val();
-            navigate(id,'organizations');
-        });
+        // $('.orgtype').change(function(){
+        //     var id = $('.orgtype').val();
+        //     navigate(id,'organizations');
+        // });
         
-        $('.care_type_organizations').change(function(){
-            var id = $('.care_type_organizations').val();
-            navigate(id,'organization_job');
-        });
+        // $('.care_type_organizations').change(function(){
+        //     var id = $('.care_type_organizations').val();
+        //     navigate(id,'organization_job');
+        // });
         
         function navigate(pagelink,type){
             var lat = $('#lat').val();

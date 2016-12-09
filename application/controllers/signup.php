@@ -159,15 +159,8 @@ class Signup extends CI_Controller
             $this->setUpInitialAlert($data['city'], $data['lat'], $data['lng']);
 
             if($q) {
-                if ($data['account_category'] == 1 || ( $data['account_category'] == 3 && $this->session->userdata['organization_care'] == 1)) {
-                    $link = anchor('user/profile', '"My Profiles"');
-                } else {
-                    $link = anchor('user/profile', '"My Jobs"');
-                }
-                $this->session->set_flashdata('success', 'Click on ' . $link . ' to complete your posting.');
                 redirect('user/dashboard');
             } else {
-                print_rr($q);
                 $this->session->set_flashdata('msg', 'Your account could not be created. Please try again.');
                 redirect('signup');
             }
