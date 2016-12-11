@@ -41,7 +41,7 @@ if($this->uri->segment(2)!='edit'){
 
 <div class="container sign-up-forms">
     <div class="row">
-        <div class="col-xs-offset-4">
+        <div class="col-sm-offset-4 col-xs-offset-1">
             <?php user_flash();?>
             <?php if(segment(3) == '') { ?>
             <h2>
@@ -68,7 +68,7 @@ if($this->uri->segment(2)!='edit'){
             <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Get access to exciting new features helping you with your care needs</div>
             </div>
         </div>
-        <div class="sign-up-form col-xs-6 col-md-offset-0 col-xs-offset-4" style="horizontal-align:center; padding-left:0px">
+        <div class="sign-up-form col-xs-6 col-md-offset-0 col-sm-offset-4 col-xs-offset-1" style="horizontal-align:center; margin-left:0px">
         <?php
             $attributes = array('id' => 'sign-up', 'role' => 'form');
             echo form_open($action, $attributes);
@@ -185,7 +185,7 @@ if($this->uri->segment(2)!='edit'){
   </div>
 </div>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js"></script>
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.10/css/bootstrap-multiselect.css" type="text/css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" type="text/css"/>
 <script type="text/javascript">
     $(document).ready(function() {
         $('#care_type').multiselect({
@@ -301,7 +301,7 @@ if($this->uri->segment(2)!='edit'){
         
         if(account_category == 1) {
             var organization = $('.organization:checked').val();
-            var message = 'Type(s) of care you provide'
+            var message = 'Type of care you provide'
             $('.msg').text(message);
             if(organization == 3) {
                 $('#select_options').html(caregiver_organization_options).show();
@@ -317,7 +317,7 @@ if($this->uri->segment(2)!='edit'){
         }
         if(account_category == 2){
           var organization = $('.organization:checked').val();
-            var message = 'Type(s) of care you are seeking'
+            var message = 'Type of care you are seeking'
             $('.msg').text(message);
             if(organization == 3){
                 $('#select_options').html(find_worker_options).show();
@@ -335,12 +335,29 @@ if($this->uri->segment(2)!='edit'){
         
         $('#care_type').multiselect({
             placeholder: 'Please select 1 or more care types',
-            closeOnSelect: false
+            buttonText: function(options, select) {
+                if (options.length === 0) {
+                    return 'No option selected ...';
+                }
+                else if (options.length > 2) {
+                    return options.length + ' types selected';
+                }
+                 else {
+                     var labels = [];
+                     options.each(function() {
+                         if ($(this).attr('label') !== undefined) {
+                             labels.push($(this).attr('label').substr(0, 20));
+                         }
+                         else {
+                             labels.push($(this).html().substr(0, 20));
+                         }
+                     });
+                     return labels.join(', ') + '';
+                 }
+            }
         });
         $('.multiselect-selected-text').text(message)
-        $('.multiselect-selected-text').css('float', 'left')
-        $('.multiselect-selected-text').css('color', 'rgba(129, 129, 129, 0.66)')
-        $('[data-toggle="dropdown"]').css('background-color', 'rgba(33, 30, 30, 0.07)')
+
     }
     
     $('#sign-up').validate({
@@ -451,7 +468,20 @@ if($this->uri->segment(2)!='edit'){
 </script>
 <style>
 .btn .caret {
-    margin-left: -95px !important;
+    float: right;
+    margin-top: 10px;
+    margin-right: -8px;
 }
+.multiselect-selected-text {
+    float:left;
+    color: rgba(129, 129, 129, 0.66);
+    font-size: 16px;
+}
+[data-toggle="dropdown"] {
+    background-color: rgba(33, 30, 30, 0.07)
+}
+ .btn-group{width:330px}
+ .multiselect{width:100%}
+ .dropdown-menu{display:none;}
 </style>
 

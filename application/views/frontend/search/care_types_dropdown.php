@@ -1,7 +1,7 @@
 <?php if($this->uri->segment(1) == 'caregivers') { ?>
     <?php if($this->uri->segment(2) == 'organizations') { ?>        
         <select id="careId" name="service" class="care_type_organizations select2" style="width:250px" multiple="multiple">
-            <option value="organizations">--select--</option> 
+            <option value="organizations">All</option> 
             <option value="31" <?php if(segment(3) == 'workers-staff-for-childcare-facility'){?> selected="selected" <?php }?>>Childcare facility</option>
             <option value="35" <?php if(segment(3) == 'workers-staff-for-senior-care-facility'){?> selected="selected" <?php }?> >Senior care facility</option>
             <option value="36" <?php if(segment(3) == 'workers-staff-for-special-needs-facility'){?> selected="selected" <?php }?>>Special needs facility</option>
@@ -10,7 +10,7 @@
     <?php } 
     else { ?>
         <select id="careId" name="service" class="service care_type select2" style="width:250px" multiple="multiple">
-            <option value="caregivers">--select--</option> 
+            <option value="caregivers">All</option> 
             <option value="1" <?php if(segment(2) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
             <option value="2" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>
             <option value="10" <?php if(segment(2) == 'pediatric-baby-nurse'){?> selected="selected" <?php }?>>Pediatric / Baby Nurse</option>
@@ -36,7 +36,7 @@
 
 <?php if($this->uri->segment(1) == 'jobs') { ?>    
     <select id="careId" name="service" class="service jobtype select2" style="width:250px" multiple="multiple">
-        <option value="jobs">--select--</option> 
+        <option value="jobs">All</option> 
         <option value="17" <?php if(segment(2) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
     	<option value="18" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>           
     	<option value="23" <?php if(segment(2) == 'pediatric-baby-nurse'){?> selected="selected" <?php }?>>Pediatric / Baby Nurse</option>       
@@ -51,15 +51,31 @@
         <option value="28" <?php if(segment(2) == 'workers-for-cleaning-company'){?> selected="selected" <?php } ?>>Workers for cleaning company</option>
     </select>
 <?php } ?>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.10/css/bootstrap-multiselect.css" type="text/css"/>
 <script>
     $(document).ready(function() {
         $('.select2').multiselect({
             placeholder: 'Please select 1 or more care types',
-            closeOnSelect: false,
-            onDropdownHide: function(event) {
-                console.log($('.select2').val())
+            buttonText: function(options, select) {
+                if (options.length === 0) {
+                    return 'Select a care type';
+                }
+                else if (options.length > 1) {
+                    return options.length + ' types selected';
+                }
+                 else {
+                     var labels = [];
+                     options.each(function() {
+                         if ($(this).attr('label') !== undefined) {
+                             labels.push($(this).attr('label').substr(0, 30));
+                         }
+                         else {
+                             labels.push($(this).html().substr(0, 30));
+                         }
+                     });
+                     return labels.join(', ') + '';
+                 }
             }
         });
         
@@ -166,3 +182,13 @@
         } //end of navigate
     });			         
 </script>
+<style>
+.btn .caret {
+    float: right;
+    margin-top: 10px;
+    margin-right: -8px;
+}
+ .btn-group{width:229px}
+ .multiselect{width:100%}
+ .dropdown-menu{display:none;}
+</style>
