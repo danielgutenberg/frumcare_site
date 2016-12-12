@@ -59,7 +59,7 @@ if($this->uri->segment(2)!='edit'){
     <div class="row">
         <div class="signUpRight col-md-3 col-md-offset-1 hidden-sm hidden-xs">
             <h2 style="margin-left: -50px;">
-            Why sign up? 
+            Why Sign up? 
             </h2>
             <div class="rightText" style="border:1px solid black;">
             <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Search quality caregivers in your area</div>
@@ -68,7 +68,7 @@ if($this->uri->segment(2)!='edit'){
             <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Get access to exciting new features helping you with your care needs</div>
             </div>
         </div>
-        <div class="sign-up-form col-xs-6 col-md-offset-0 col-sm-offset-4 col-xs-offset-1" style="horizontal-align:center; margin-left:0px">
+        <div class="sign-up-form col-xs-6 col-md-offset-0 col-sm-offset-4 col-xs-offset-1" style="horizontal-align:center; padding-left:0px">
         <?php
             $attributes = array('id' => 'sign-up', 'role' => 'form');
             echo form_open($action, $attributes);
@@ -477,7 +477,7 @@ if($this->uri->segment(2)!='edit'){
     color: rgba(129, 129, 129, 0.66);
     font-size: 16px;
 }
-[data-toggle="dropdown"] {
+.btn-group [data-toggle="dropdown"] {
     background-color: rgba(33, 30, 30, 0.07)
 }
  .btn-group{width:330px}

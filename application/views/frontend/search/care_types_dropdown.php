@@ -1,7 +1,6 @@
 <?php if($this->uri->segment(1) == 'caregivers') { ?>
     <?php if($this->uri->segment(2) == 'organizations') { ?>        
         <select id="careId" name="service" class="care_type_organizations select2" style="width:250px" multiple="multiple">
-            <option value="organizations">All</option> 
             <option value="31" <?php if(segment(3) == 'workers-staff-for-childcare-facility'){?> selected="selected" <?php }?>>Childcare facility</option>
             <option value="35" <?php if(segment(3) == 'workers-staff-for-senior-care-facility'){?> selected="selected" <?php }?> >Senior care facility</option>
             <option value="36" <?php if(segment(3) == 'workers-staff-for-special-needs-facility'){?> selected="selected" <?php }?>>Special needs facility</option>
@@ -10,7 +9,6 @@
     <?php } 
     else { ?>
         <select id="careId" name="service" class="service care_type select2" style="width:250px" multiple="multiple">
-            <option value="caregivers">All</option> 
             <option value="1" <?php if(segment(2) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
             <option value="2" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>
             <option value="10" <?php if(segment(2) == 'pediatric-baby-nurse'){?> selected="selected" <?php }?>>Pediatric / Baby Nurse</option>
@@ -36,7 +34,6 @@
 
 <?php if($this->uri->segment(1) == 'jobs') { ?>    
     <select id="careId" name="service" class="service jobtype select2" style="width:250px" multiple="multiple">
-        <option value="jobs">All</option> 
         <option value="17" <?php if(segment(2) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
     	<option value="18" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>           
     	<option value="23" <?php if(segment(2) == 'pediatric-baby-nurse'){?> selected="selected" <?php }?>>Pediatric / Baby Nurse</option>       
@@ -57,6 +54,7 @@
     $(document).ready(function() {
         $('.select2').multiselect({
             placeholder: 'Please select 1 or more care types',
+            includeSelectAllOption: true,
             buttonText: function(options, select) {
                 if (options.length === 0) {
                     return 'Select a care type';
@@ -185,10 +183,19 @@
 <style>
 .btn .caret {
     float: right;
-    margin-top: 10px;
+    margin-top: 6px;
     margin-right: -8px;
 }
  .btn-group{width:229px}
  .multiselect{width:100%}
  .dropdown-menu{display:none;}
+ .btn-group [data-toggle="dropdown"] {
+    height: 26px;
+}
+.multiselect-selected-text {
+    float:left;
+    font-size: 15px;
+    margin-top: -4px;
+    margin-left: -10px !important;
+}
 </style>
