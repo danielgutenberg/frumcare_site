@@ -485,7 +485,12 @@ if($this->uri->segment(2)!='edit'){
 }
  .btn-group{width:330px}
  .multiselect{width:100%}
- .dropdown-menu{display:none;}
- .checkbox{color:black;}
+ .dropdown-menu{display:none}
+ .checkbox{
+     color:black;
+}
+ .active .checkbox {
+     color:white !important;
+ }
 </style>
 
