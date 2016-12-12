@@ -1,6 +1,6 @@
 <?php if($this->uri->segment(1) == 'caregivers') { ?>
     <?php if($this->uri->segment(2) == 'organizations') { ?>        
-        <select id="careId" name="service" class="care_type_organizations select2" style="width:250px" multiple="multiple">
+        <select id="careId" name="service" class="care_type_organizations select2" style="width:250px" multiple="multiple" data-type="organization_job">
             <option value="31" <?php if(segment(3) == 'workers-staff-for-childcare-facility'){?> selected="selected" <?php }?>>Childcare facility</option>
             <option value="35" <?php if(segment(3) == 'workers-staff-for-senior-care-facility'){?> selected="selected" <?php }?> >Senior care facility</option>
             <option value="36" <?php if(segment(3) == 'workers-staff-for-special-needs-facility'){?> selected="selected" <?php }?>>Special needs facility</option>
@@ -8,7 +8,7 @@
         </select>     
     <?php } 
     else { ?>
-        <select id="careId" name="service" class="service care_type select2" style="width:250px" multiple="multiple">
+        <select id="careId" name="service" class="service care_type select2" style="width:250px" multiple="multiple" data-type="caregivers">
             <option value="1" <?php if(segment(2) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
             <option value="2" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>
             <option value="10" <?php if(segment(2) == 'pediatric-baby-nurse'){?> selected="selected" <?php }?>>Pediatric / Baby Nurse</option>
@@ -33,7 +33,7 @@
 <?php } ?>
 
 <?php if($this->uri->segment(1) == 'jobs') { ?>    
-    <select id="careId" name="service" class="service jobtype select2" style="width:250px" multiple="multiple">
+    <select id="careId" name="service" class="service jobtype select2" style="width:250px" multiple="multiple" data-type="jobs">
         <option value="17" <?php if(segment(2) == 'babysitter'){?> selected="selected" <?php }?>>Babysitter</option>
     	<option value="18" <?php if(segment(2) == 'nanny-au-pair'){?> selected="selected" <?php }?> >Nanny / Au-pair</option>           
     	<option value="23" <?php if(segment(2) == 'pediatric-baby-nurse'){?> selected="selected" <?php }?>>Pediatric / Baby Nurse</option>       
@@ -48,7 +48,7 @@
         <option value="28" <?php if(segment(2) == 'workers-for-cleaning-company'){?> selected="selected" <?php } ?>>Workers for cleaning company</option>
     </select>
 <?php } ?>
-<i class="glyphicon glyphicon-search"></i>
+<i id="searchButton" style="display: inline-block;background-image: url(<?php echo site_url();?>/images/search.png); vertical-align: middle;position: relative;height:26px; width:26px;border: 1px solid rgba(0,0,0,0.15);border-radius: 4px;margin-left: -5px;"></i>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.10/css/bootstrap-multiselect.css" type="text/css"/>
 <script>
@@ -90,10 +90,19 @@
     $(document).ready(function(){
 
         
-        // $('.jobtype').change(function(){
-        //     var id = $('.jobtype').val();
-        //     navigate(id,'jobs');
-        // });
+        $('#searchButton').click(function(){
+            var type = $('#careId').attr('data-type');
+            var ids = $('#careId').val()
+            console.log(type)
+            console.log(ids.join(','))
+            if (ids.length == 1) {
+                navigate(ids[0], type)
+            }
+            if (ids.length > 1) {
+                multisearch(ids.join(','), type)
+            }
+            // navigate(id,type);
+        });
         
         // $('.orgtype').change(function(){
         //     var id = $('.orgtype').val();
@@ -104,6 +113,20 @@
         //     var id = $('.care_type_organizations').val();
         //     navigate(id,'organization_job');
         // });
+        
+        function multisearch(ids,type){
+            var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var place = $('#place').val();
+
+            if (type == 'caregivers') {
+                location.href = '<?php echo site_url();?>caregivers/all?location=' + place + '&lat=' + lat + '&lng=' + lng + '&ids=' + ids;
+            }
+            if (type == 'jobs')                    
+                location.href = '<?php echo site_url();?>jobs/all?location=' + place + '&lat=' + lat + '&lng=' + lng + '&ids=' + ids;
+            if(type == 'organization_job')
+                location.href = '<?php echo site_url();?>caregivers/organizations/all?location=' + place + '&lat=' + lat + '&lng=' + lng + '&ids=' + ids;
+        }
         
         function navigate(pagelink,type){
             var lat = $('#lat').val();
