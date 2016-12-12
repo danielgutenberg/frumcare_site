@@ -48,7 +48,6 @@
         <option value="28" <?php if(segment(2) == 'workers-for-cleaning-company'){?> selected="selected" <?php } ?>>Workers for cleaning company</option>
     </select>
 <?php } ?>
-<i id="searchButton" style="display: inline-block;background-image: url(<?php echo site_url();?>/images/search.png); vertical-align: middle;position: relative;height:26px; width:26px;border: 1px solid rgba(0,0,0,0.15);border-radius: 4px;margin-left: -5px;"></i>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.10/css/bootstrap-multiselect.css" type="text/css"/>
 <script>
@@ -86,128 +85,7 @@
     })
 </script>
 
-<script>
-    $(document).ready(function(){
 
-        
-        $('#searchButton').click(function(){
-            var type = $('#careId').attr('data-type');
-            var ids = $('#careId').val()
-            console.log(type)
-            console.log(ids.join(','))
-            if (ids.length == 1) {
-                navigate(ids[0], type)
-            }
-            if (ids.length > 1) {
-                multisearch(ids.join(','), type)
-            }
-            // navigate(id,type);
-        });
-        
-        // $('.orgtype').change(function(){
-        //     var id = $('.orgtype').val();
-        //     navigate(id,'organizations');
-        // });
-        
-        // $('.care_type_organizations').change(function(){
-        //     var id = $('.care_type_organizations').val();
-        //     navigate(id,'organization_job');
-        // });
-        
-        function multisearch(ids,type){
-            var lat = $('#lat').val();
-            var lng = $('#lng').val();
-            var place = $('#place').val();
-
-            if (type == 'caregivers') {
-                location.href = '<?php echo site_url();?>caregivers/all?location=' + place + '&lat=' + lat + '&lng=' + lng + '&ids=' + ids;
-            }
-            if (type == 'jobs')                    
-                location.href = '<?php echo site_url();?>jobs/all?location=' + place + '&lat=' + lat + '&lng=' + lng + '&ids=' + ids;
-            if(type == 'organization_job')
-                location.href = '<?php echo site_url();?>caregivers/organizations/all?location=' + place + '&lat=' + lat + '&lng=' + lng + '&ids=' + ids;
-        }
-        
-        function navigate(pagelink,type){
-            var lat = $('#lat').val();
-            var lng = $('#lng').val();
-            var place = $('#place').val();
-            console.log(pagelink)
-            if(pagelink == '1')
-                var locationaddress = 'babysitter';
-            if(pagelink == '2')
-                var locationaddress = 'nanny-au-pair';            
-            if(pagelink == '3')
-                var locationaddress = 'nursery-playgroup-drop-off-gan';
-            if(pagelink == '4')
-                var locationaddress = 'tutor-private-lessons';
-             if(pagelink == '5')
-                var locationaddress = 'senior-caregiver';
-            if(pagelink == '6')
-                var locationaddress = 'special-needs-caregiver';
-            if(pagelink == '7')
-                var locationaddress = 'therapists';
-            if(pagelink == '8')
-                var locationaddress = 'cleaning-household-help';
-            if(pagelink == '9')
-                var locationaddress = 'errand-runner-odd-jobs-personal-assistant-driver';   
-            if(pagelink == '10')
-                var locationaddress = 'pediatric-baby-nurse'; 
-            if(pagelink == '11')
-                var locationaddress = 'day-care-center-day-camp-afternoon-activities';
-            if(pagelink == '13')
-                var locationaddress = 'senior-care-agency';
-            if(pagelink == '14')
-                var locationaddress = 'special-needs-center';
-            if(pagelink == '15')
-            	var locationaddress = 'cleaning-household-help-company';
-            if(pagelink == '16')
-            	var locationaddress = 'assisted-living-senior-care-center-nursing-home';
-             if(pagelink == '17')
-            	var locationaddress = 'babysitter';
-             if(pagelink == '18')
-            	var locationaddress = 'nanny-au-pair';
-             if(pagelink == '19')
-            	var locationaddress = 'tutor-private-lessons';
-             if(pagelink == '20')
-            	var locationaddress = 'senior-caregiver';
-             if(pagelink == '21')
-            	var locationaddress = 'errand-runner-odd-jobs-personal-assistant-driver';
-             if(pagelink == '22')
-            	var locationaddress = 'special-needs-caregiver';
-             if(pagelink == '23')
-            	var locationaddress = 'pediatric-baby-nurse';
-             if(pagelink == '24')
-            	var locationaddress = 'cleaning-household-help';            
-             if(pagelink == '25' || pagelink == '31')
-                var locationaddress = 'workers-staff-for-childcare-facility';
-            if(pagelink == '26' || pagelink == '35')
-                var locationaddress = 'workers-staff-for-senior-care-facility';
-            if(pagelink == '27' || pagelink == '36')
-                var locationaddress = 'workers-staff-for-special-needs-facility';
-             if(pagelink == '28' || pagelink == '38')
-                var locationaddress = 'workers-for-cleaning-company';
-            
-            if(pagelink == 'caregivers')
-                var locationaddress = 'all';
-            if(pagelink == 'jobs')
-                var locationaddress = 'all';
-            if(pagelink == 'organizations')
-                var locationaddress = 'all';
-            
-            if(type == 'caregivers')    
-                if (pagelink == '31' || pagelink == '35' || pagelink == '36' || pagelink == '38') {
-                    location.href = '<?php echo site_url();?>caregivers/organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
-                } else {
-                    location.href = '<?php echo site_url();?>caregivers/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
-                }
-            if(type == 'jobs')                    
-                location.href = '<?php echo site_url();?>jobs/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
-            if(type == 'organization_job')
-                location.href = '<?php echo site_url();?>caregivers/organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
-        } //end of navigate
-    });			         
-</script>
 <style>
 .btn .caret {
     float: right;
@@ -222,8 +100,9 @@
 }
 .multiselect-selected-text {
     float:left;
-    font-size: 15px;
+    font-size: 14px;
     margin-top: -4px;
     margin-left: -10px !important;
+    color: #6a6a6a;
 }
 </style>
