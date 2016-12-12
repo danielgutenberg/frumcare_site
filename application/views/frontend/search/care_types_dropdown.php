@@ -48,6 +48,7 @@
         <option value="28" <?php if(segment(2) == 'workers-for-cleaning-company'){?> selected="selected" <?php } ?>>Workers for cleaning company</option>
     </select>
 <?php } ?>
+<i class="glyphicon glyphicon-search"></i>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.10/css/bootstrap-multiselect.css" type="text/css"/>
 <script>
@@ -55,6 +56,10 @@
         $('.select2').multiselect({
             placeholder: 'Please select 1 or more care types',
             includeSelectAllOption: true,
+            onDropdownHide: function(event, session) {
+                console.log(event)
+                console.log($('.select2').val())
+            },
             buttonText: function(options, select) {
                 if (options.length === 0) {
                     return 'Select a care type';

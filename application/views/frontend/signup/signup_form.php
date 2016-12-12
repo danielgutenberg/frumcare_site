@@ -59,7 +59,7 @@ if($this->uri->segment(2)!='edit'){
     <div class="row">
         <div class="signUpRight col-md-3 col-md-offset-1 hidden-sm hidden-xs">
             <h2 style="margin-left: -50px;">
-            Why Sign up? 
+            Why sign up? 
             </h2>
             <div class="rightText" style="border:1px solid black;">
             <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Search quality caregivers in your area</div>
