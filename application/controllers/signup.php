@@ -58,7 +58,7 @@ class Signup extends CI_Controller
             $account_type = $exp[1];
             
             if (!($care_type > 0) || !($care_type < 35) || $data['location'] == '' || $data['lat'] == '' || $data['lng'] == '') {
-                $this->session->set_flashdata('msg', 'Please enter a care type.');
+                $this->session->set_flashdata('info', 'Please enter a care type.');
                 redirect('signup');
             }
             

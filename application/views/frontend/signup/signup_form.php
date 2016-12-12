@@ -399,6 +399,9 @@ if($this->uri->segment(2)!='edit'){
                     $("#locationField").css('border-color', 'red')
                     document.getElementById("error").innerHTML="Please click on location from dropdown";
                 }
+            } else if (!$('select').val()) {
+                alert("Please select at least one care type from the list");
+                
             } else {
                 $('#sign-up').submit()
             }

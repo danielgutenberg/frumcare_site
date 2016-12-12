@@ -38,12 +38,12 @@ class User extends CI_Controller
             $link = anchor('jobs/all', 'here');
             $message = '<span style="margin-left:159px"> Click ' . $link . ' to search jobs in your area<span>';
             $profileLink = anchor('user/profile', 'here');
-            $message .= '<br><span style="margin-left:159px"> Click ' . $profileLink . ' to edit your profiles<span>';
+            $message .= '<br><span style="margin-left:159px"> Click ' . $profileLink . ' to create a profile<span>';
         } else {
             $link = anchor('caregivers/all', 'here');
             $message = '<span style="margin-left:159px"> Click ' . $link . ' to search caregivers in your area<span>';
             $profileLink = anchor('user/profile', 'here');
-            $message .= '<br><span style="margin-left:159px"> Click ' . $profileLink . ' to edit your jobs<span>';
+            $message .= '<br><span style="margin-left:159px"> Click ' . $profileLink . ' to post a job<span>';
         }
         $data['main_content']       = 'frontend/user/dashboard/main';
         $data['verificationdata']   = $this->user_model->getVerificationData($id);
