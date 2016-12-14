@@ -251,7 +251,7 @@
         var per_page = $("#per_page").val();
         var distance = $("#sort_by_miles").val();
         var sort_by = $('#sort_by_select').val();
-		var care_type = $('#careId').val() == 'null' ? $('#careId').val() : '<?php echo $careType ?>'
+		var care_type = $('#careId').val() != null ? $('#careId').val() : '<?php echo $careType ?>'
 		console.log(care_type)
 		var rate = $('.rate').val();
         var caregiverage_from = $('.caregiverage_from').val() ? $('.caregiverage_from').val() : '';
