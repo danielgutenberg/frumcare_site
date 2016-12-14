@@ -17,14 +17,20 @@
     $s1 = $this->uri->segment(1); // must be caregivers, jobs, organization
     $s2 = $this->uri->segment(2); // must be care type, job type
     $s3 = $this->uri->segment(3);
-    if($s1=='jobs' && ($s2 == 'all'|| $s2 ==''))
+    if($s1=='jobs' && ($s2 == 'all'|| $s2 =='')) {
         $left_navbar='all_jobs';
+        $careType = 'jobs';
+    }
 
-    if( $s1=='caregivers' && ($s2 == 'all'|| $s2 =='') )
+    if( $s1=='caregivers' && ($s2 == 'all'|| $s2 =='') ) {
         $left_navbar='caregivers';
+        $careType = 'caregivers';
+    }
         
-    if( $s1=='caregivers' && $s2 == 'organizations')
+    if( $s1=='caregivers' && $s2 == 'organizations') {
         $left_navbar='caregivers';
+        $careType = 'organizations';
+    }
                                 
     if($s2 == 'babysitter'){
         if($s1 == 'caregivers')
@@ -245,7 +251,8 @@
         var per_page = $("#per_page").val();
         var distance = $("#sort_by_miles").val();
         var sort_by = $('#sort_by_select').val();
-		var care_type = $('#careId').val();
+		var care_type = $('#careId').val() == 'null' ? $('#careId').val() : '<?php echo $careType ?>'
+		console.log(care_type)
 		var rate = $('.rate').val();
         var caregiverage_from = $('.caregiverage_from').val() ? $('.caregiverage_from').val() : '';
         var caregiverage_to = $('.caregiverage_to').val() ? $('.caregiverage_to').val() : '';
