@@ -126,8 +126,13 @@ class Common_care_model extends CI_Model
 		    $sql .= " and tbl_care.service_type = 2";
 		}
 		
-		if ($care_type > 0) {
-		    $sql .= "  and tbl_userprofile.care_type=$care_type";
+		if (count( explode(',', $care_type) ) > 1) {
+			$sql .= "  and tbl_userprofile.care_type in ($care_type)";
+		} else {
+		
+			if ($care_type > 0) {
+			    $sql .= "  and tbl_userprofile.care_type=$care_type";
+			}
 		}
 		
 		if(!empty($search['number_of_children']) && $search['number_of_children'] !='undefined'){				
@@ -361,9 +366,13 @@ class Common_care_model extends CI_Model
 		if ($care_type == 'jobs') {
 		    $sql .= " and tbl_care.service_type = 2";
 		}
+		if (count( explode(',', $care_type) ) > 1) {
+			$sql .= "  and tbl_userprofile.care_type in ($care_type)";
+		} else {
 		
-		if ($care_type > 0) {
-		    $sql .= "  and tbl_userprofile.care_type=$care_type";
+			if ($care_type > 0) {
+			    $sql .= "  and tbl_userprofile.care_type=$care_type";
+			}
 		}
 		
 		if(!empty($search['number_of_children']) && $search['number_of_children'] !='undefined'){				

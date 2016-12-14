@@ -195,7 +195,8 @@
                 'pages'             => ceil($get_total_rows/$item_per_page),
                 'account_category'  => $account_category,
                 'care_type'         => $care,
-                'location'          => $locationdetails              				              				              				                            
+                'location'          => $locationdetails,
+                'careId'            => explode(',', $loc['ids']),
       		);
       		$this->load->view(FRONTEND_TEMPLATE, $data);
     	}

@@ -191,7 +191,7 @@
         <option value="50">50 Miles</option>
         <option value="unlimited" selected="selected">Unlimited Miles</option>
     </select>   
-    <a id="searchButton" style="cursor:pointer" class="btn btn-primary ml10 btn-xs">GO</a>
+    <a id="searchButton" style="cursor:pointer" class="btn btn-primary ml10 btn-xs">Go</a>
 	<h3 class="total_rows hidden" style="margin-bottom: 0px">
 		<span id="total"></span>
         <?php
