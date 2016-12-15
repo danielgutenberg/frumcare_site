@@ -337,7 +337,7 @@ if($this->uri->segment(2)!='edit'){
             placeholder: 'Please select 1 or more care types',
             buttonText: function(options, select) {
                 if (options.length === 0) {
-                    return 'No option selected ...';
+                    return 'Select a care type';
                 }
                 else if (options.length > 2) {
                     return options.length + ' types selected';
@@ -356,7 +356,6 @@ if($this->uri->segment(2)!='edit'){
                  }
             }
         });
-        $('.multiselect-selected-text').text(message)
 
     }
     
