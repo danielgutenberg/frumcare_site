@@ -117,6 +117,7 @@ $route['jobs/workers-for-cleaning-company'] = 'common_care_controller/careseeker
 
 $route['jobs/details/(:any)'] = 'caregivers/details';
 
+
 $route['caregivers/organizations'] = 'common_care_controller/organizations';
 $route['caregivers/organizations/(:any)'] = 'common_care_controller/organizations/$1';
 

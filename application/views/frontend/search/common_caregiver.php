@@ -17,14 +17,20 @@
     $s1 = $this->uri->segment(1); // must be caregivers, jobs, organization
     $s2 = $this->uri->segment(2); // must be care type, job type
     $s3 = $this->uri->segment(3);
-    if($s1=='jobs' && ($s2 == 'all'|| $s2 ==''))
+    if($s1=='jobs' && ($s2 == 'all'|| $s2 =='')) {
         $left_navbar='all_jobs';
+        $careType = 'jobs';
+    }
 
-    if( $s1=='caregivers' && ($s2 == 'all'|| $s2 =='') )
+    if( $s1=='caregivers' && ($s2 == 'all'|| $s2 =='') ) {
         $left_navbar='caregivers';
+        $careType = 'caregivers';
+    }
         
-    if( $s1=='caregivers' && $s2 == 'organizations')
+    if( $s1=='caregivers' && $s2 == 'organizations') {
         $left_navbar='caregivers';
+        $careType = 'organizations';
+    }
                                 
     if($s2 == 'babysitter'){
         if($s1 == 'caregivers')
@@ -191,6 +197,7 @@
         <option value="50">50 Miles</option>
         <option value="unlimited" selected="selected">Unlimited Miles</option>
     </select>   
+    <a id="searchButton" style="cursor:pointer" class="btn btn-primary ml10 btn-xs">Go</a>
 	<h3 class="total_rows hidden" style="margin-bottom: 0px">
 		<span id="total"></span>
         <?php
@@ -244,7 +251,8 @@
         var per_page = $("#per_page").val();
         var distance = $("#sort_by_miles").val();
         var sort_by = $('#sort_by_select').val();
-		var care_type = $('#careId').val();
+		var care_type = $('#careId').val() != null ? $('#careId').val() : '<?php echo $careType ?>'
+		console.log(care_type)
 		var rate = $('.rate').val();
         var caregiverage_from = $('.caregiverage_from').val() ? $('.caregiverage_from').val() : '';
         var caregiverage_to = $('.caregiverage_to').val() ? $('.caregiverage_to').val() : '';
@@ -490,5 +498,117 @@
     		})
     	});
     }
+</script>
+
+<script>
+    $(document).ready(function(){
+
+        
+        $('#searchButton').click(function(){
+            var type = $('#careId').attr('data-type');
+            var ids = $('#careId').val()
+            console.log(type)
+            console.log(ids.join(','))
+            if (ids.length == 1) {
+                navigate(ids[0], type)
+            }
+            if (ids.length > 1) {
+                multisearch(ids.join(','), type)
+            }
+        });
+        
+        function multisearch(ids,type){
+            var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var place = $('#place').val();
+
+            if (type == 'caregivers') {
+                location.href = '<?php echo site_url();?>caregivers/all?location=' + place + '&lat=' + lat + '&lng=' + lng + '&ids=' + ids;
+            }
+            if (type == 'jobs')                    
+                location.href = '<?php echo site_url();?>jobs/all?location=' + place + '&lat=' + lat + '&lng=' + lng + '&ids=' + ids;
+            if(type == 'organization_job')
+                location.href = '<?php echo site_url();?>caregivers/organizations/all?location=' + place + '&lat=' + lat + '&lng=' + lng + '&ids=' + ids;
+        }
+        
+        function navigate(pagelink,type){
+            var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var place = $('#place').val();
+            console.log(pagelink)
+            if(pagelink == '1')
+                var locationaddress = 'babysitter';
+            if(pagelink == '2')
+                var locationaddress = 'nanny-au-pair';            
+            if(pagelink == '3')
+                var locationaddress = 'nursery-playgroup-drop-off-gan';
+            if(pagelink == '4')
+                var locationaddress = 'tutor-private-lessons';
+             if(pagelink == '5')
+                var locationaddress = 'senior-caregiver';
+            if(pagelink == '6')
+                var locationaddress = 'special-needs-caregiver';
+            if(pagelink == '7')
+                var locationaddress = 'therapists';
+            if(pagelink == '8')
+                var locationaddress = 'cleaning-household-help';
+            if(pagelink == '9')
+                var locationaddress = 'errand-runner-odd-jobs-personal-assistant-driver';   
+            if(pagelink == '10')
+                var locationaddress = 'pediatric-baby-nurse'; 
+            if(pagelink == '11')
+                var locationaddress = 'day-care-center-day-camp-afternoon-activities';
+            if(pagelink == '13')
+                var locationaddress = 'senior-care-agency';
+            if(pagelink == '14')
+                var locationaddress = 'special-needs-center';
+            if(pagelink == '15')
+            	var locationaddress = 'cleaning-household-help-company';
+            if(pagelink == '16')
+            	var locationaddress = 'assisted-living-senior-care-center-nursing-home';
+             if(pagelink == '17')
+            	var locationaddress = 'babysitter';
+             if(pagelink == '18')
+            	var locationaddress = 'nanny-au-pair';
+             if(pagelink == '19')
+            	var locationaddress = 'tutor-private-lessons';
+             if(pagelink == '20')
+            	var locationaddress = 'senior-caregiver';
+             if(pagelink == '21')
+            	var locationaddress = 'errand-runner-odd-jobs-personal-assistant-driver';
+             if(pagelink == '22')
+            	var locationaddress = 'special-needs-caregiver';
+             if(pagelink == '23')
+            	var locationaddress = 'pediatric-baby-nurse';
+             if(pagelink == '24')
+            	var locationaddress = 'cleaning-household-help';            
+             if(pagelink == '25' || pagelink == '31')
+                var locationaddress = 'workers-staff-for-childcare-facility';
+            if(pagelink == '26' || pagelink == '35')
+                var locationaddress = 'workers-staff-for-senior-care-facility';
+            if(pagelink == '27' || pagelink == '36')
+                var locationaddress = 'workers-staff-for-special-needs-facility';
+             if(pagelink == '28' || pagelink == '38')
+                var locationaddress = 'workers-for-cleaning-company';
+            
+            if(pagelink == 'caregivers')
+                var locationaddress = 'all';
+            if(pagelink == 'jobs')
+                var locationaddress = 'all';
+            if(pagelink == 'organizations')
+                var locationaddress = 'all';
+            
+            if(type == 'caregivers')    
+                if (pagelink == '31' || pagelink == '35' || pagelink == '36' || pagelink == '38') {
+                    location.href = '<?php echo site_url();?>caregivers/organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
+                } else {
+                    location.href = '<?php echo site_url();?>caregivers/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
+                }
+            if(type == 'jobs')                    
+                location.href = '<?php echo site_url();?>jobs/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
+            if(type == 'organization_job')
+                location.href = '<?php echo site_url();?>caregivers/organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
+        } //end of navigate
+    });			         
 </script>
 

@@ -41,7 +41,7 @@ if($this->uri->segment(2)!='edit'){
 
 <div class="container sign-up-forms">
     <div class="row">
-        <div class="col-xs-offset-4">
+        <div class="col-sm-offset-4 col-xs-offset-1">
             <?php user_flash();?>
             <?php if(segment(3) == '') { ?>
             <h2>
@@ -68,7 +68,7 @@ if($this->uri->segment(2)!='edit'){
             <div><span style="color:yellowgreen; font-weight:bold">&check;</span> Get access to exciting new features helping you with your care needs</div>
             </div>
         </div>
-        <div class="sign-up-form col-xs-6 col-md-offset-0 col-xs-offset-4" style="horizontal-align:center; padding-left:0px">
+        <div class="sign-up-form col-xs-6 col-md-offset-0 col-sm-offset-4 col-xs-offset-1" style="horizontal-align:center; padding-left:0px">
         <?php
             $attributes = array('id' => 'sign-up', 'role' => 'form');
             echo form_open($action, $attributes);
@@ -89,8 +89,8 @@ if($this->uri->segment(2)!='edit'){
                 </div>
                 <div class="care-type col-xs-12" style="padding-left:0px">Care Type: 
                     <div id="select_options">
-                        <select id="care_type" class="required" name="care_type" style="width:330px">
-                            <option value="" class="msg">Type of care you are seeking</option>
+                        <select id="care_type[]" class="required" name="care_type" style="width:330px" multiple="multiple">
+                            
                             <option value="17_1">Babysitter</option>
                             <option value="18_1">Nanny / Au-pair</option>
                             <option value="23_1">Pediatric / Baby Nurse</option>
@@ -184,8 +184,15 @@ if($this->uri->segment(2)!='edit'){
     </div>
   </div>
 </div>
-
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" type="text/css"/>
 <script type="text/javascript">
+    $(document).ready(function() {
+        $('#care_type').multiselect({
+            placeholder: 'Please select 1 or more care types',
+            closeOnSelect: false
+        });
+     })
     function initialize() {
         var acc_category = $('input[name=account_category]:checked').val();
         if (acc_category == 1) {
@@ -287,14 +294,15 @@ if($this->uri->segment(2)!='edit'){
     }
 
     function getAccountCat(account_category,service_by){
-        var parent_options = '<select id="care_type" class="required" name="care_type"><option value="" class="msg">Type of care you are seeking</option><option value="17_1">Babysitter</option><option value="18_1">Nanny / Au-pair</option><option value="23_1">Pediatric / Baby Nurse</option><option value="19_1">Tutor / private lessons</option><option value="20_1">Senior caregiver / companion</option><option value="22_1">Special needs caregiver / companion</option><option value="24_1">Cleaning / household help</option><option value="21_1">Errand runner / odd jobs / personal assistant / driver</option></select>'
-        var caregiver_options = '<select id="care_type" class="required" name="care_type"><option value="" class="msg">Type of care you provide</option><option value="1_1">Babysitter</option><option value="2_1">Nanny / Au-pair</option><option value="10_1">Pediatric / Baby Nurse</option><option value="3_1">Nursery / Playgroup / Drop off / Gan</option><option value="4_1">Tutor / Private lessons</option><option value="5_1">Senior Caregiver / Companion</option><option value="6_1">Special needs caregiver / companion</option><option value="7_1">Therapist</option><option value="8_1">Cleaning / household help</option><option value="9_1">Errand runner / odd jobs / personal assistant / driver</option></select>'
-        var caregiver_organization_options = '<select id="care_type" class="required" name="care_type"><option value="" class="msg">Type of care you provide</option><option value="10_2">Day Care Center / Day Camp / Afternoon Activities</option><option value="13_2">Senior Care Agency</option><option value="16_2">Assisted living / Senior Care Center / Nursing Home</option><option value="14_2">Special needs center</option><option value="15_2">Cleaning / household help company</option></select>'
-        var find_worker_options = '<select id="care_type" class="required" name="care_type"><option value="" class="msg">Type of care you are seeking</option><option value="25_2">Workers / staff for childcare facility</option><option value="26_2">Workers / staff for senior care facility</option><option value="27_2">Workers / staff for special needs facility</option><option value="28_2">Workers for cleaning company</option></select>'
+        var parent_options = '<select id="care_type" class="required" name="care_type[]" multiple="multiple"><option value="17_1">Babysitter</option><option value="18_1">Nanny / Au-pair</option><option value="23_1">Pediatric / Baby Nurse</option><option value="19_1">Tutor / private lessons</option><option value="20_1">Senior caregiver / companion</option><option value="22_1">Special needs caregiver / companion</option><option value="24_1">Cleaning / household help</option><option value="21_1">Errand runner / odd jobs / personal assistant / driver</option></select>'
+        var caregiver_options = '<select id="care_type" class="required" name="care_type[]" multiple="multiple"><option value="1_1">Babysitter</option><option value="2_1">Nanny / Au-pair</option><option value="10_1">Pediatric / Baby Nurse</option><option value="3_1">Nursery / Playgroup / Drop off / Gan</option><option value="4_1">Tutor / Private lessons</option><option value="5_1">Senior Caregiver / Companion</option><option value="6_1">Special needs caregiver / companion</option><option value="7_1">Therapist</option><option value="8_1">Cleaning / household help</option><option value="9_1">Errand runner / odd jobs / personal assistant / driver</option></select>'
+        var caregiver_organization_options = '<select id="care_type" class="required" name="care_type[]" multiple="multiple"><option value="10_2">Day Care Center / Day Camp / Afternoon Activities</option><option value="13_2">Senior Care Agency</option><option value="16_2">Assisted living / Senior Care Center / Nursing Home</option><option value="14_2">Special needs center</option><option value="15_2">Cleaning / household help company</option></select>'
+        var find_worker_options = '<select id="care_type" class="required" name="care_type[]" multiple="multiple"><option value="25_2">Workers / staff for childcare facility</option><option value="26_2">Workers / staff for senior care facility</option><option value="27_2">Workers / staff for special needs facility</option><option value="28_2">Workers for cleaning company</option></select>'
         
         if(account_category == 1) {
             var organization = $('.organization:checked').val();
-            $('.msg').text('Type of care you provide');
+            var message = 'Type of care you provide'
+            $('.msg').text(message);
             if(organization == 3) {
                 $('#select_options').html(caregiver_organization_options).show();
                 $('.parent').text('Organization Info');
@@ -309,7 +317,8 @@ if($this->uri->segment(2)!='edit'){
         }
         if(account_category == 2){
           var organization = $('.organization:checked').val();
-            $('.msg').text('Type of care you are seeking');
+            var message = 'Type of care you are seeking'
+            $('.msg').text(message);
             if(organization == 3){
                 $('#select_options').html(find_worker_options).show();
                 $('.parent').text('Job Details');
@@ -322,7 +331,33 @@ if($this->uri->segment(2)!='edit'){
                 $('.started').text('Start Getting Calls');    
             }
                         
-      }
+        }
+        
+        $('#care_type').multiselect({
+            placeholder: 'Please select 1 or more care types',
+            buttonText: function(options, select) {
+                if (options.length === 0) {
+                    return 'No option selected ...';
+                }
+                else if (options.length > 2) {
+                    return options.length + ' types selected';
+                }
+                 else {
+                     var labels = [];
+                     options.each(function() {
+                         if ($(this).attr('label') !== undefined) {
+                             labels.push($(this).attr('label').substr(0, 20));
+                         }
+                         else {
+                             labels.push($(this).html().substr(0, 20));
+                         }
+                     });
+                     return labels.join(', ') + '';
+                 }
+            }
+        });
+        $('.multiselect-selected-text').text(message)
+
     }
     
     $('#sign-up').validate({
@@ -364,6 +399,9 @@ if($this->uri->segment(2)!='edit'){
                     $("#locationField").css('border-color', 'red')
                     document.getElementById("error").innerHTML="Please click on location from dropdown";
                 }
+            } else if (!$('select').val()) {
+                alert("Please select at least one care type from the list");
+                
             } else {
                 $('#sign-up').submit()
             }
@@ -431,4 +469,28 @@ if($this->uri->segment(2)!='edit'){
     });
     
 </script>
+<style>
+.btn .caret {
+    float: right;
+    margin-top: 10px;
+    margin-right: -8px;
+}
+.multiselect-selected-text {
+    float:left;
+    color: rgba(129, 129, 129, 0.66);
+    font-size: 16px;
+}
+.btn-group [data-toggle="dropdown"] {
+    background-color: rgba(33, 30, 30, 0.07)
+}
+ .btn-group{width:330px}
+ .multiselect{width:100%}
+ .dropdown-menu{display:none}
+ .checkbox{
+     color:black;
+}
+ .active .checkbox {
+     color:white !important;
+ }
+</style>
 
