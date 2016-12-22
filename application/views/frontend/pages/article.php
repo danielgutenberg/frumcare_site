@@ -1,6 +1,6 @@
 <div class="container">
     
-    <h2 style="text-align:center"> <?php echo $title;?> </h2>
+    <h2 style="text-align:center"> <?php if (isset($content_data['title'])) {echo $content_data['title']; } else { echo $title;}?> </h2>
     <?php echo $this->breadcrumbs->show();?>
     <div class="left-sidebar-resource">
         <ul class="sidebarmenu">
