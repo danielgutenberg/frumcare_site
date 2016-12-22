@@ -164,8 +164,7 @@ class page extends CI_Controller
                                 "isPublished"=>$post['isPublished'],
                                 "seo_meta_title"=>$post['meta_title'],
                                 "seo_meta_keywords"=>$post['meta_keywords'],
-                                "seo_meta_description"=>$post['meta_desc'],
-                                "slug"                => $this->slug($post['page_name'])  
+                                "seo_meta_description"=>$post['meta_desc']
                                  );
                 
         
