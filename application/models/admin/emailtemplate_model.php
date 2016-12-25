@@ -4,6 +4,7 @@ class Emailtemplate_model extends CI_Model
     public function get_emailtemplate()
     {
         $this->db->order_by('id','desc');
+        $this->db->where('isActive',1);
         $emails = $this->db->get('tbl_email_templates');
         if($emails->num_rows()>0)
         {
