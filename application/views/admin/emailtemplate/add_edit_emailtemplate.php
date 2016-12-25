@@ -14,7 +14,7 @@
                         <div class="form-group">
                                 <label class="control-label">Template Name <?php if($action == 'edit') echo '(Cannot be edited)';?> :</label>
                                 <div class="ad-manager-full-input">
-                                    <input <?php if($action == 'edit'){echo 'readonly="readonly"';}?> type="text" class="form-control required" name="title" value="<?php if($action == 'edit'){echo $detail[0]['title'];}?>"/>
+                                    <input <?php if($action == 'edit'){echo 'readonly="readonly"';}?> type="text" class="form-control required" name="title" value="<?php if($action == 'edit'){echo $detail[0]['subject'];}?>"/>
                                 </div>
                             </div>
                             <div class="form-group">

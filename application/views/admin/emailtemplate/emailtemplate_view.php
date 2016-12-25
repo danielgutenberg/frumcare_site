@@ -32,7 +32,7 @@
                                     {
                                         ?>
                                         <tr>
-                                            <td><?php echo $cat['title'];?></td>
+                                            <td><?php echo $cat['subject'];?></td>
                                             <td>
                                                 <a href="<?php echo site_url('admin/emailtemplate/edit')."/".$cat['id'];?>" class="btn btn-info" title="Edit">Edit</a>
                                                 <a href="<?php echo site_url('admin/emailtemplate/createclone')."/".$cat['id'];?>" class="btn btn-info" title="Clone">Clone</a>
