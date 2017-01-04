@@ -418,7 +418,7 @@ if($this->uri->segment(2)!='edit'){
 </script>
 <script>
     $("#cityField").ready(function(){
-        var cityAutocomplete = new google.maps.places.Autocomplete($("#autocomplete1")[0], {types: ['(cities)']});
+        var cityAutocomplete = new google.maps.places.Autocomplete($("#autocomplete1")[0], {types: ['(regions)']});
         google.maps.event.addListener(cityAutocomplete, 'place_changed', function() {
             $("#locationName").val($("#autocomplete1").val());
             $("#cityName").val('');
