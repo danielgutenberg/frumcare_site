@@ -430,9 +430,11 @@ if($this->uri->segment(2)!='edit'){
             var lng = place.geometry.location.lng();
             var i = 0;
             var len = place.address_components.length;
+            var chosenCity = false;
             while (i < len) {
                 var ac = place.address_components[i];
-                if (ac.types.indexOf('locality') >= 0 || ac.types.indexOf('sublocality') >=0 ) {
+                if ((ac.types.indexOf('locality') >= 0 || ac.types.indexOf('sublocality') >=0 ) && !chosenCity) {
+                    chosenCity = true
                     $("#cityName").val(ac.long_name);
                 }
                 if (ac.types.indexOf('administrative_area_level_1') >= 0) {
