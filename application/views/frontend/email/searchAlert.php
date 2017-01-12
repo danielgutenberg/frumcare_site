@@ -15,7 +15,7 @@
     <a href="<?php echo site_url() . $navigate . '/' . $care_name . '?location=' . $location['place'] . '&lat=' . $location['lat'] . '&lng=' . $location['lng'];?>">Click here</a> to see more <?php echo $ad; ?>
 </div>
 <div style="text-align:center;font-family:Arial, Helvetica, sans-serif; font-size:18px; margin-bottom:5px;">
-    <a href="<?php echo site_url() . 'user/searches' ?>">Click here </a>to edit your search criteria
+    <a href="<?php echo site_url() . 'user/searches' ?>">Click here </a>to edit your alert criteria
 </div>
 
 Thanks,
