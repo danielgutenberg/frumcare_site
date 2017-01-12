@@ -702,6 +702,11 @@ class Ad extends CI_Controller
         $res = $this->user_model->current_user($care_id);
         $usr = get_user($id);
         $data['detail'] = $res;
+        if (isset($data['detail'][0]['start_date']) && $data['detail'][0]['start_date'] != '0000-00-00') {
+            $myDateTime = \DateTime::createFromFormat('Y-m-d', $data['detail'][0]['start_date']);
+            $newDateString = $myDateTime->format('m/d/Y');
+            $data['detail'][0]['start_date'] = $newDateString;
+        }
         $data['usr']=$usr;
         if($care_type == 1 && $id == $uid){
             $data['main_content'] = ('frontend/care/giver/edit_babysitter_form');
