@@ -25,7 +25,7 @@ if($detail){
     $cook		= $detail[0]['cook'];
 	$basic_housework = $detail[0]['basic_housework'];
     $personal_hygiene = $detail[0]['personal_hygiene'];
-    $date = isset($detail[0]['start_date']) ? date('Y-m-d', strtotime($detail[0]['start_date'])) : "0000-00-00";
+    $date = isset($detail[0]['start_date']) ? \DateTime::createFromFormat('Y-m-d', $data['detail'][0]['start_date'])->format('m/d/Y') : "0000-00-00";
     $neighbour = $user_detail['neighbour'];
     $zip = $user_detail['zip'];
     $phone = $user_detail['contact_number'];

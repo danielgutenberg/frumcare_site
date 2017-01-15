@@ -17,7 +17,7 @@ if($detail){
     $langtemp = explode(',', $detail[0]['language']);
     $exp = $detail[0]['experience'];
     $smoker = explode(',', $detail[0]['smoker']);
-    $date = isset($detail[0]['start_date']) ? date('Y-m-d', strtotime($detail[0]['start_date'])) : "0000-00-00";
+    $date = isset($detail[0]['start_date']) ? \DateTime::createFromFormat('Y-m-d', $data['detail'][0]['start_date'])->format('m/d/Y') : "0000-00-00";
      $rate = $detail[0]['rate'];
      $contact_name = $detail[0]['contact_name'];
     $rate_type = explode(',',$detail[0]['rate_type']);
