@@ -37,7 +37,7 @@ class Welcome extends CI_Controller {
 	    $users = $this->user_model->getAllUsers();
 	    $ac = $this->activecampaign;
 	    foreach ($users as $user) {
-	        if ($user->id > 390 && strpos( $user->name , 'test' ) == -1 && strpos( $user->email , 'test' ) ) {
+	        if ($user->id > 390 && strpos( $user->name , 'test' ) == false && strpos( $user->email , 'test' ) == false ) {
     	        $tags = [];
     	        $serviceTags = [];
     	        $userProfiles = $this->user_model->get_all_profile($user->id);
@@ -71,7 +71,6 @@ class Welcome extends CI_Controller {
                 		"field[%LOCATION%]" => $user->location,
                 		"field[%COUNTRY%]" => $user->country
                  	);
-        
         	        $account = $ac->api("contact/sync", $contact);
     	        }
 	        }
