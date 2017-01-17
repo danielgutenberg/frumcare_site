@@ -24,8 +24,15 @@ if($detail){
     $rate_type = $detail[0]['rate_type'];
     $desc 	= $detail[0]['profile_description'];
     $temp = explode(',',$detail[0]['availability']);
-    $date = isset($detail[0]['start_date']) ? \DateTime::createFromFormat('Y-m-d', $data['detail'][0]['start_date'])->format('m/d/Y'): "0000-00-00";
-    $lat = $user_detail['lat'];
+    if (isset($detail[0]['start_date'])) {
+        if ( date_create_from_format( 'Y-m-d', $detail[0]['start_date'] ) ) {
+            $date = date_create_from_format('Y-m-d', $detail[0]['start_date'])->format('m/d/Y');
+        } else {
+            $date = $detail[0]['start_date'];
+        }
+    } else {
+        $date = '00-00-0000';
+    }$lat = $user_detail['lat'];
     $lng = $user_detail['lng'];
     $city = $user_detail['city'];
     $state = $user_detail['state'];
@@ -98,7 +105,7 @@ if($detail){
             <label>When you need lessons</label>
             <div class="form-field">
                 <div class="checkbox"><input type="checkbox" value="Asap" name="availability[]" <?php if(in_array("Asap",$temp)){?> checked="checked"<?php }?>> Asap</div>
-                <div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]" <?php if(in_array("Start Date",$temp)){?> checked="checked"<?php }?>> Start Date<input type="text" name="start_date" <?php if($date!='0000-00-00'){ echo 'value='.$date;}?> id="textbox1"/></div>
+            <div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]" <?php if($date!='00-00-0000'){?> checked="checked"<?php }?>>Start Date <input type="text" name="start_date" <?php if($date!='00-00-0000'){ echo 'value="'.$date.'"';}?> id="dateTextbox"/></div>
                 <div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]" <?php if(in_array("Occassionally",$temp)){?> checked="checked"<?php }?>>Occassionally</div>
                 <div class="checkbox"><input type="checkbox" value="Regularly" name="availability[]" <?php if(in_array("Regularly",$temp)){?> checked="checked"<?php }?>>Regularly</div>                
                 <div class="checkbox"><input type="checkbox" value="Morning" name="availability[]" <?php if(in_array("Morning",$temp)){?> checked="checked"<?php }?>> Morning</div>

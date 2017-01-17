@@ -27,8 +27,15 @@ if($detail){
     $basic_housework = $detail[0]['basic_housework'];
    // $gender_of_caregiver = explode(',', $detail[0]['gender_of_caregiver']);
     $gender_of_caregiver = $detail[0]['gender_of_caregiver'];
-    $date = isset($detail[0]['start_date']) ? \DateTime::createFromFormat('Y-m-d', $data['detail'][0]['start_date'])->format('m/d/Y') : "0000-00-00";
-    $neighbour = $user_detail['neighbour'];
+    if (isset($detail[0]['start_date'])) {
+        if ( date_create_from_format( 'Y-m-d', $detail[0]['start_date'] ) ) {
+            $date = date_create_from_format('Y-m-d', $detail[0]['start_date'])->format('m/d/Y');
+        } else {
+            $date = $detail[0]['start_date'];
+        }
+    } else {
+        $date = '00-00-0000';
+    }$neighbour = $user_detail['neighbour'];
     $zip = $user_detail['zip'];
     $phone = $user_detail['contact_number'];
     $caregiverage_from = $detail[0]['caregiverage_from'];
@@ -113,7 +120,7 @@ if($detail){
                     <div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]" <?php if(in_array("Occassionally",$time)){?> checked="checked"<?php }?>> <span>Occassionally</span></div>
                     <div class="checkbox"><input type="checkbox" value="Regularly" name="availability[]" <?php if(in_array("Regularly",$time)){?> checked="checked"<?php }?>> <span>Regularly</span></div>
                     <div class="checkbox"><input type="checkbox" value="Asap" name="availability[]" <?php if(in_array("Asap",$time)){?> checked="checked"<?php }?>>Asap</div>
-                    <div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]" <?php if(in_array("Start Date",$time)){?> checked="checked"<?php }?>>Start Date <input type="text" name="start_date" <?php if($date!='0000-00-00'){ echo 'value='.$date;}?> id="textbox1"/></div>
+            <div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]" <?php if($date!='00-00-0000'){?> checked="checked"<?php }?>>Start Date <input type="text" name="start_date" <?php if($date!='00-00-0000'){ echo 'value="'.$date.'"';}?> id="dateTextbox"/></div>
                 	<div class="checkbox"><input type="checkbox" value="Morning" name="availability[]" <?php if(in_array("Morning",$time)){?> checked="checked"<?php }?>> <span>Morning</span></div>
 					<div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]" <?php if(in_array("Afternoon",$time)){?> checked="checked"<?php }?>> <span>Afternoon</span></div>
 					<div class="checkbox"><input type="checkbox" value="Evening" name="availability[]" <?php if(in_array("Evening",$time)){?> checked="checked"<?php }?>> <span>Evening</span></div>
