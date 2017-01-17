@@ -22,10 +22,60 @@ class Welcome extends CI_Controller {
 		$this->load->model('testimonial_model');
 		$this->load->model('common_model');
         $this->load->model('blog_model');
+        
         $data['main_content'] 	= 'frontend/pages/home';
         $data['title'] 			= 'Home';
         $data['testimonial'] 	= $this->testimonial_model->getTestiomialsForHome();
         $this->load->view(FRONTEND_TEMPLATE, $data);
+	}
+	
+	function sync()
+	{
+	    set_time_limit(0);
+	    $this->load->model('user_model');
+        $this->load->library('activeCampaign');
+	    $users = $this->user_model->getAllUsers();
+	    $ac = $this->activecampaign;
+	    foreach ($users as $user) {
+	        if ($user->id > 390 && strpos( $user->name , 'test' ) == -1 && strpos( $user->email , 'test' ) ) {
+    	        $tags = [];
+    	        $serviceTags = [];
+    	        $userProfiles = $this->user_model->get_all_profile($user->id);
+    	        if (count($userProfiles) > 0) {
+        	        foreach ($userProfiles as $userProfile) {
+        	            if ($userProfile->care_type < 11) {
+        	                $tags[] = $ac->tags[1];
+        	            } else if ($userProfile->care_type < 17) {
+        	                $tags[] = $ac->tags[2];
+        	            } else if ($userProfile->care_type < 25) {
+        	                $tags[] = $ac->tags[3];
+        	            } else {
+        	                $tags[] = $ac->tags[4];
+        	            }
+        	            $serviceTags[] = $userProfile->service_name;
+        	        }
+        	        
+        	        if ($this->user_model->getNewsletterSubscription($user->email)) {
+        	            $serviceTags[] = '[CT] Newsletter';
+        	        }
+        	        
+        	        $name = explode(' ', $user->name);
+        	        $contact = array(
+                		"email"      => $user->email,
+                		"first_name" => array_shift($name),
+                		"last_name"  => implode(' ', $name),
+                		"p[1]"       => 1,
+                		"status[1]"  => 1,
+                		"tags"       => implode(',', array_merge($tags, $serviceTags)),     
+                		"phone"     => $user->contact_number,
+                		"field[%LOCATION%]" => $user->location,
+                		"field[%COUNTRY%]" => $user->country
+                 	);
+        
+        	        $account = $ac->api("contact/sync", $contact);
+    	        }
+	        }
+	    }
 	}
 
     function add_care_type()
