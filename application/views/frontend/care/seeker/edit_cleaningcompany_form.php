@@ -17,8 +17,16 @@ if($detail){
     $langtemp = explode(',', $detail[0]['language']);
     $exp = $detail[0]['experience'];
     $smoker = explode(',', $detail[0]['smoker']);
-    $date = isset($detail[0]['start_date']) ? \DateTime::createFromFormat('Y-m-d', $data['detail'][0]['start_date'])->format('m/d/Y') : "0000-00-00";
-     $rate = $detail[0]['rate'];
+    if (isset($detail[0]['start_date'])) {
+        if ( date_create_from_format( 'Y-m-d', $detail[0]['start_date'] ) ) {
+            $date = date_create_from_format('Y-m-d', $detail[0]['start_date'])->format('m/d/Y');
+        } else {
+            $date = $detail[0]['start_date'];
+        }
+    } else {
+        $date = '00-00-0000';
+    }
+    $rate = $detail[0]['rate'];
      $contact_name = $detail[0]['contact_name'];
     $rate_type = explode(',',$detail[0]['rate_type']);
     $job_position = $detail[0]['job_position'];
@@ -88,7 +96,7 @@ if($detail){
                     <div class="checkbox"><input type="checkbox" value="Part Time" name="availability[]" <?php if(in_array("Part Time",$trainingtemp)){?> checked="checked"<?php }?>> Part Time</div>
                     <div class="checkbox"><input type="checkbox" value="Substitute" name="availability[]" <?php if(in_array("Substitute",$trainingtemp)){?> checked="checked"<?php }?>> Substitute</div>
                     <div class="checkbox"><input type="checkbox" value="Asap" name="availability[]" <?php if(in_array("Asap",$trainingtemp)){?> checked="checked"<?php }?>> Asap</div>
-                    <div class="checkbox"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]" <?php if(in_array("Start Date",$trainingtemp)){?> checked="checked"<?php }?>>Start Date<input type="text" name="start_date" <?php if($date!='0000-00-00'){ echo 'value='.$date;}?> id="dateTextbox"/></div>                    
+            <div class="checkbox full"><input type="checkbox" id="ckbox1" value="Start Date" name="availability[]" <?php if($date!='00-00-0000'){?> checked="checked"<?php }?>>Start Date <input type="text" name="start_date" <?php if($date!='00-00-0000'){ echo 'value="'.$date.'"';}?> id="dateTextbox"/></div>
                 </div>
             </div>
 <div>
