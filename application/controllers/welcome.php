@@ -31,6 +31,7 @@ class Welcome extends CI_Controller {
 	
 	function sync()
 	{
+	    print_rr('function removed');
 	    set_time_limit(0);
 	    $this->load->model('user_model');
         $this->load->library('activeCampaign');
@@ -64,8 +65,8 @@ class Welcome extends CI_Controller {
                 		"email"      => $user->email,
                 		"first_name" => array_shift($name),
                 		"last_name"  => implode(' ', $name),
-                		"p[1]"       => 1,
-                		"status[1]"  => 1,
+                		"p[6]"       => 6,
+                		"status[6]"  => 1,
                 		"tags"       => implode(',', array_merge($tags, $serviceTags)),     
                 		"phone"     => $user->contact_number,
                 		"field[%LOCATION%]" => $user->location,
