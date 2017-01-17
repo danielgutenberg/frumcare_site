@@ -271,6 +271,17 @@ class User_model extends CI_Model
         else
             return false;
     }//CODE BY CHAND
+    
+    function getNewsletterSubscription($email)
+    {
+        $sql        = "select * from tbl_newlettersubscription where email = '$email' limit 1";
+        $query      = $this->db->query($sql);
+        $res        = $query->row_array();
+        if($res)
+            return $res;
+        else
+            return false;
+    }
 
     function ticket_data_view($limit,$start)
     {
@@ -418,13 +429,23 @@ class User_model extends CI_Model
             return false;
     }
     
-    public function get_all_profile(){
+    public function get_all_profile($userId = null){
         $this->db->join('tbl_user', 'tbl_user.id = tbl_userprofile.user_id', 'left');
         $this->db->join('tbl_care','tbl_userprofile.care_type = tbl_care.id','left');
-        $this->db->where('user_id',$this->session->userdata('current_user'));
+        if ($userId) {
+            $this->db->where('user_id',$userId);
+        } else {
+            $this->db->where('user_id',$this->session->userdata('current_user'));
+        }
         $this->db->order_by("tbl_userprofile.id", "desc");
         $this->db->select('tbl_userprofile.*, tbl_care.*, tbl_user.city, tbl_user.state, tbl_user.country, tbl_user.name, tbl_user.organization_name, tbl_user.uri, tbl_user.profile_picture, tbl_user.profile_picture_status');
         $query = $this->db->get('tbl_userprofile');
+        return $query->result();
+    }
+    
+    public function getAllUsers()
+    {
+        $query = $this->db->get('tbl_user');
         return $query->result();
     }
 
