@@ -186,6 +186,7 @@
 		<input type="hidden" id="lat" value="<?php echo $location['lat']?>">
 		<input type="hidden" id="place" value="<?php echo $location['place']?>">
 		<input type="hidden" id="pagenum" value="">
+		<b class="locationCaret caret"></b>
 	</t>        
     within            
     <select name="sort_by_miles" id="sort_by_miles">        
