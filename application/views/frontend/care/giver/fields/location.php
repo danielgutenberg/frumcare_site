@@ -8,6 +8,7 @@
         <input type="hidden" id="countryName" name="country" value="<?php echo isset($location['country'])?$location['country']:''?>"/>
         <input type="hidden" id="locationName" name="location" value="<?php echo isset($location['location'])?$location['location']:''?>"/>
         <input type="text" class="required" placeholder="Please enter a street address" id="autocomplete" value="<?php echo isset($location['location'])? $location['location']:''; ?>"/>
+        <b class="profileLocationCaret caret"></b>
     </div> 
      <span style="color:red;" id="error"> </span>
      <p>Can't find your address? <a class="noAddress" style="cursor:pointer">Click here</a></p>
@@ -81,3 +82,10 @@
     });
     
 </script>
+<style>
+.profileLocationCaret {
+    margin-top: -28px;
+    margin-left: 479px;
+    position: absolute;
+}
+</style>

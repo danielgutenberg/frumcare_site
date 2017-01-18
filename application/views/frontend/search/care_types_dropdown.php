@@ -92,6 +92,11 @@
     margin-top: 6px;
     margin-right: -8px;
 }
+.locationCaret {
+    margin-top: 1px;
+    margin-right: 7px;
+    margin-left: -17px;
+}
  .btn-group{width:229px}
  .multiselect{width:100%}
  .dropdown-menu{display:none;}
