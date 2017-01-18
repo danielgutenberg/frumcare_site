@@ -40,7 +40,9 @@
                 <option <?php if ($record['care_type'] == 27) echo 'selected' ?> value="27">Workers / Staff for Special Needs Facility</option>
                 <option <?php if ($record['care_type'] == 28) echo 'selected' ?> value="28">Workers for Cleaning Company</option>
             </select>
+            <?php if ($record['care_type'] > 10 && $record['care_type'] < 25) { echo 'job'; } ?>
         </div>
+        
 <?php if ($record['care_type'] != null) { ?>
         <div id="locationField">Location
             <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
@@ -51,6 +53,16 @@
             <input type="text" name="location" class="locationName required" placeholder="Please enter a street address" value="<?php echo $record['location'] ?>" style="margin-left:30px; width:300px" id="autocomplete" required/>
         </div> 
         <span style="color:red;" id="error"> </span>
+         <div class="noAddressDiv">
+             	    <p>Can't find your address? <a class="noAddress" style="cursor:pointer">Click here</a>
+             	    </p>
+             	    </div>
+	           <div class="care-type col-xs-12" id="cityField" style="display:none; padding-left:0px">Location:
+                    <span class="locationName required">
+                        <input style="width:300px; margin-left:24px; margin-bottom:8px; height: 26px" type="text" class="required" placeholder="Please enter a city and state/country" id="autocomplete1" value="<?php echo isset($address)? $address:''; ?>" required/>
+                    </span>
+                    <span style="color:red;" id="error1"> </span>
+                </div> 
         <div style="margin-top: 10px; margin-bottom:5px;">within            
             <select style="margin-left:48px" name="sort_by_miles" id="sort_by_miles">        
                 <option <?php if ($record['distance'] == 1) echo 'selected' ?>  value="1">1 Miles</option>
@@ -263,3 +275,69 @@
     })
 </script>
 <?php } ?>
+
+<script>
+    $(function(){
+    
+        $('.noAddress').on('click',function(e){
+            alert("Please start typing your city name and click on it from the dropdown");
+            $('#cityField').css('display','block');
+            $('#locationField').css('display','none');
+            $('.noAddressDiv').css('display', 'none')
+        });
+    })
+</script>
+<script>
+    $("#cityField").ready(function(){
+        var cityAutocomplete = new google.maps.places.Autocomplete($("#autocomplete1")[0], {types: ['(regions)']});
+        google.maps.event.addListener(cityAutocomplete, 'place_changed', function() {
+            $("#locationName").val($("#autocomplete1").val());
+            $("#cityName").val('');
+            $("#stateName").val('');
+            $("#countryName").val('');
+            var place = cityAutocomplete.getPlace();
+            $('.locationName').val(place.formatted_address)
+            var lat = place.geometry.location.lat();
+            var lng = place.geometry.location.lng();
+            var i = 0;
+            var len = place.address_components.length;
+            var chosenCity = false;
+            while (i < len) {
+                var ac = place.address_components[i];
+                if ((ac.types.indexOf('locality') >= 0 || ac.types.indexOf('sublocality') >=0 ) && !chosenCity) {
+                    chosenCity = true
+                    $("#cityName").val(ac.long_name);
+                }
+                if (ac.types.indexOf('administrative_area_level_1') >= 0) {
+                    $("#stateName").val(ac.short_name);
+                }
+                if (ac.types.indexOf('country') >= 0) {
+                    $("#countryName").val(ac.long_name);
+                }
+                i++;
+            }
+            $("#lat").val(lat);
+            $("#lng").val(lng);
+            document.getElementById("error").innerHTML="";
+        });
+        
+        $("#cityField").keypress(function(event){
+            if ((event.charCode >= 47 && event.charCode <= 57) || // 0-9
+                (event.charCode >= 65 && event.charCode <= 90) || // A-Z
+                (event.charCode >= 97 && event.charCode <= 122)||
+                (event.charCode == 32 || event.charCode == 92)){
+                    return true
+                } 
+            else {
+                alert("Please use only english letters in the location search");
+                event.preventDefault()
+            }
+        });
+        
+        $('#cityField').on('click', function(){
+            $('#autocomplete').val('')
+            $('#lat').val('')
+        });
+    });
+    
+</script>
