@@ -55,10 +55,6 @@
         $('.select2').multiselect({
             placeholder: 'Please select 1 or more care types',
             includeSelectAllOption: true,
-            onDropdownHide: function(event, session) {
-                console.log(event)
-                console.log($('.select2').val())
-            },
             buttonText: function(options, select) {
                 if (options.length === 0) {
                     return 'Select a care type';
@@ -80,6 +76,13 @@
                  }
             }
         });
+        $('.btn-group').ready(function() {
+            $('.locationText').on('click', function(e) {
+                e.stopPropagation()
+                $('.multiselect').trigger('click.bs.dropdown')
+            })
+        })
+        
         
         
     })
