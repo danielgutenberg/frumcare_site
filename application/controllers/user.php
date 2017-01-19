@@ -428,12 +428,20 @@ class User extends CI_Controller
     
             $current_user = $this->session->userdata['current_user'];
             $record['care_type'] = $care_type;
+            
+            $ac = $this->session->userdata('account_category');
+            if ($ac == 1 || ( $ac == 3 && $this->session->userdata['organization_care'] == 1)) {
+                $type = 'job';
+            } else {
+                $type = 'ad';
+            }
     
             $data = array(
                 'title'         => 'Search History',
                 'main_content'  => 'frontend/user/dashboard/my_search_alerts/create',
-                'user'          =>  $current_user,
-                'record'        =>  $record
+                'user'          => $current_user,
+                'record'        => $record,
+                'type'          => $type
             );
     
             $this->load->view(FRONTEND_TEMPLATE,$data);
@@ -446,10 +454,17 @@ class User extends CI_Controller
     
             $current_user = $this->session->userdata['current_user'];
             $record = $this->user_model->getAlert($current_user, $id);
+            $ac = $this->session->userdata('account_category');
+            if ($ac == 1 || ( $ac == 3 && $this->session->userdata['organization_care'] == 1)) {
+                $type = 'job';
+            } else {
+                $type = 'ad';
+            }
             $data = array(
                 'title'         => 'Search History',
                 'main_content'  => 'frontend/user/dashboard/my_search_alerts/edit',
-                'record'        =>  $record
+                'record'        => $record,
+                'type'          => $type
             );
     
             $this->load->view(FRONTEND_TEMPLATE,$data);
