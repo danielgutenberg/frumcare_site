@@ -176,12 +176,12 @@
 
     <div class="searchloader mainsearch" style="display:none"></div>
     <?php if ($care_type < 10 && $account_category == 3) {?>
-    Find Workers for your <?php $this->load->view('frontend/search/care_types_dropdown');?>  <br>
+    <span class="locationText" style="cursor:pointer">Find Workers for your</span> <?php $this->load->view('frontend/search/care_types_dropdown');?></br>
     <?php } else {?>
-    Find a <?php $this->load->view('frontend/search/care_types_dropdown'); if($s1 == 'jobs') {echo 'Job';}?>  <br>
+    <span class="locationText" style="cursor:pointer">Find a</span> <?php $this->load->view('frontend/search/care_types_dropdown'); if($s1 == 'jobs') {echo 'Job';}?> </br>
     <?php } ?>
-    Near <t id="locationSearch">
-		<input type="text" name="location" class="required" value="<?php echo $location['place'] ?>" placeholder="Please enter a street address" id="autocomplete" style="width: 229px;margin-left: 9px;"/>
+    <t id="locationSearch" style="cursor:pointer">Near
+		<input type="text" name="location" class="required" value="<?php echo $location['place'] ?>" placeholder="Please enter a street address" id="autocomplete" style="width: 229px;margin-left: 9px;cursor:pointer"/>
 		<input type="hidden" id="lng" value="<?php echo $location['lng']?>">
 		<input type="hidden" id="lat" value="<?php echo $location['lat']?>">
 		<input type="hidden" id="place" value="<?php echo $location['place']?>">
@@ -189,7 +189,7 @@
 		<b class="locationCaret caret"></b>
 	</t>
     within            
-    <select name="sort_by_miles" id="sort_by_miles">        
+    <select name="sort_by_miles" id="sort_by_miles" style="cursor:pointer">        
         <option value="1">1 Miles</option>
         <option value="2">2 Miles</option>
         <option value="5">5 Miles</option>
@@ -253,7 +253,6 @@
         var distance = $("#sort_by_miles").val();
         var sort_by = $('#sort_by_select').val();
 		var care_type = $('#careId').val() != null ? $('#careId').val() : '<?php echo $careType ?>'
-		console.log(care_type)
 		var rate = $('.rate').val();
         var caregiverage_from = $('.caregiverage_from').val() ? $('.caregiverage_from').val() : '';
         var caregiverage_to = $('.caregiverage_to').val() ? $('.caregiverage_to').val() : '';
