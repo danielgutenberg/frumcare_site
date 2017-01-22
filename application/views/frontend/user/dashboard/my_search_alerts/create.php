@@ -56,7 +56,7 @@
         </div> 
         <span style="color:red;" id="error"> </span>
          <div class="noAddressDiv">
-             	    <p style="margin-left:126px; margin-top:7px">Can't find your address? <a class="noAddress" style="cursor:pointer">Click here</a>
+             	    <p style="margin-left:91px; margin-top:7px">Can't find your address? <a class="noAddress" style="cursor:pointer">Click here</a>
              	    </p>
              	    </div>
 	           <div class="care-type col-xs-12" id="cityField" style="display:none; padding-left:0px">Location:
