@@ -800,6 +800,7 @@ class User extends CI_Controller
         if ( count( $res->result_array() ) == 1) {
             $this->db->where('id', $id);
             $this->db->update('tbl_user', array('profile_picture_status' => 1));   
+            update_crm(get_user($id));
         }
         
         redirect('user/photo_approved','refresh');

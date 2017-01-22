@@ -409,3 +409,51 @@ function print_rr($data){
     exit;
 }
 
+function update_crm($user)
+{
+    $ci = &get_instance();
+    $ci->load->library('activeCampaign');
+    $ci->load->model('user_model');
+    $tags = [];
+    $serviceTags = [];
+    $userProfiles = $ci->user_model->get_all_profile($user->id);
+    if (count($userProfiles) > 0) {
+        foreach ($userProfiles as $userProfile) {
+            if ($userProfile->profile_status == 1) {
+                $tags[] = 'Profile Approved';
+            }
+            if ($userProfile->care_type < 11) {
+                $tags[] = $ac->tags[1];
+            } else if ($userProfile->care_type < 17) {
+                $tags[] = $ac->tags[2];
+            } else if ($userProfile->care_type < 25) {
+                $tags[] = $ac->tags[3];
+            } else {
+                $tags[] = $ac->tags[4];
+            }
+            $serviceTags[] = $userProfile->service_name;
+        }
+        
+        if ($ci->user_model->getNewsletterSubscription($user->email)) {
+            $serviceTags[] = '[CT] Newsletter';
+        }
+        
+     	if ($user->profile_picture_status == 1) {
+     	    $tags[] = 'Photo Approved';
+     	}
+        $name = explode(' ', $user->name);
+        $contact = array(
+    		"email"      => $user->email,
+    		"first_name" => array_shift($name),
+    		"last_name"  => implode(' ', $name),
+    		"p[6]"       => 6,
+    		"status[6]"  => 1,
+    		"tags"       => implode(',', array_merge($tags, $serviceTags)),     
+    		"phone"     => $user->contact_number,
+    		"field[%LOCATION%]" => $user->location,
+    		"field[%COUNTRY%]" => $user->country
+     	);
+        $account = $ci->activecampaign->api("contact/sync", $contact);
+    }
+}
+

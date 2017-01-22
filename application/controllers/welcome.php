@@ -31,7 +31,6 @@ class Welcome extends CI_Controller {
 	
 	function sync()
 	{
-	    print_rr('function removed');
 	    set_time_limit(0);
 	    $this->load->model('user_model');
         $this->load->library('activeCampaign');
@@ -39,41 +38,7 @@ class Welcome extends CI_Controller {
 	    $ac = $this->activecampaign;
 	    foreach ($users as $user) {
 	        if ($user->id > 390 && strpos( $user->name , 'test' ) == false && strpos( $user->email , 'test' ) == false ) {
-    	        $tags = [];
-    	        $serviceTags = [];
-    	        $userProfiles = $this->user_model->get_all_profile($user->id);
-    	        if (count($userProfiles) > 0) {
-        	        foreach ($userProfiles as $userProfile) {
-        	            if ($userProfile->care_type < 11) {
-        	                $tags[] = $ac->tags[1];
-        	            } else if ($userProfile->care_type < 17) {
-        	                $tags[] = $ac->tags[2];
-        	            } else if ($userProfile->care_type < 25) {
-        	                $tags[] = $ac->tags[3];
-        	            } else {
-        	                $tags[] = $ac->tags[4];
-        	            }
-        	            $serviceTags[] = $userProfile->service_name;
-        	        }
-        	        
-        	        if ($this->user_model->getNewsletterSubscription($user->email)) {
-        	            $serviceTags[] = '[CT] Newsletter';
-        	        }
-        	        
-        	        $name = explode(' ', $user->name);
-        	        $contact = array(
-                		"email"      => $user->email,
-                		"first_name" => array_shift($name),
-                		"last_name"  => implode(' ', $name),
-                		"p[6]"       => 6,
-                		"status[6]"  => 1,
-                		"tags"       => implode(',', array_merge($tags, $serviceTags)),     
-                		"phone"     => $user->contact_number,
-                		"field[%LOCATION%]" => $user->location,
-                		"field[%COUNTRY%]" => $user->country
-                 	);
-        	        $account = $ac->api("contact/sync", $contact);
-    	        }
+    	        update_crm($user);
 	        }
 	    }
 	}

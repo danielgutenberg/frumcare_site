@@ -383,6 +383,7 @@ class Ad extends CI_Controller
                 $q = $this->profile_model->edit_profile_by_user_id($p, check_user());
             }
             if ($q) {
+                update_crm(get_user(check_user()));
                 $link = anchor('jobs/all', 'here');
                 $message = 'Ad posted successfully. Your ad will be placed on the site after being approved by our team.';
                 $this->session->set_flashdata('info', $message);
@@ -451,7 +452,7 @@ class Ad extends CI_Controller
         }
         $this->db->where(array('user_id' => $user_id, 'care_type' => $id));
         $this->db->update('tbl_userprofile', array('profile_status'=>1));
-
+        update_crm(get_user($user_id));
         $user = get_user($user_id);
         $sendto = $user['email'];
         $msg = $this->load->view('emails/adApproved', array('name' => $details['name']), true);
@@ -656,7 +657,7 @@ class Ad extends CI_Controller
                 sendemail($param); 
                 
                 $sendto = get_user($user_id)['email'];
-                
+                update_crm(get_user($user_id));
                 $msg = $this->load->view('emails/adApproved', array('name' => $details['name']), true);
                 $param = array(
                     'subject'     => 'Ad Placed Successfully',
