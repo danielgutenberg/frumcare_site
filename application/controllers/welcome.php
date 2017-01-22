@@ -33,13 +33,11 @@ class Welcome extends CI_Controller {
 	{
 	    set_time_limit(0);
 	    $this->load->model('user_model');
-        $this->load->library('activeCampaign');
 	    $users = $this->user_model->getAllUsers();
-	    $ac = $this->activecampaign;
 	    $contacts = [];
 	    foreach ($users as $user) {
 	        if ($user->id > 390 && strpos( $user->name , 'test' ) == false && strpos( $user->email , 'test' ) == false ) {
-    	        $contacts[] = update_crm($user);
+    	        update_crm($user);
 	        }
 	    }
 	}
