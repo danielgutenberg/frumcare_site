@@ -455,13 +455,6 @@ function update_crm($user)
      	);
      	
         return $ci->activecampaign->api("contact/sync", $contact);
-
-        if ($user->email == 'danieltest@test.com') {
-                echo "<pre>";
-                print_r($account);
-                echo "</pre>";
-                exit;
-        }
     }
 }
 
