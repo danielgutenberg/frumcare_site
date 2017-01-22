@@ -129,7 +129,7 @@ class Signup extends CI_Controller
                 
                 $this->db->insert('tbl_userprofile', $userprofile_data);
             }
-            
+            update_crm(get_user(check_user()));
             $email = $data['email'];
             $fname = $data['name'];
             
