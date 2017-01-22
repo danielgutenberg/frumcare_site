@@ -335,7 +335,7 @@ class Ad extends CI_Controller
                 $userProfile = get_userprofile($profile_id);
                 $details = $this->user_model->getUserDetailsById($userProfile['user_id'], $userProfile['care_type']);
                 $user = get_user($userProfile['user_id']);
-                print_rr(update_crm($user));
+                update_crm($user);
                 $sendto = $user['email'];
                 $msg = $this->load->view('emails/adApproved', array('name' => $details['name']), true);
                 $param = array(
