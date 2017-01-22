@@ -454,7 +454,7 @@ function update_crm($user)
     		"field[%COUNTRY%]" => $user->country
      	);
      	
-        $account = $ci->activecampaign->api("contact/sync", $contact);
+        return $ci->activecampaign->api("contact/sync", $contact);
 
         if ($user->email == 'danieltest@test.com') {
                 echo "<pre>";
