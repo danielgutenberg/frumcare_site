@@ -453,7 +453,7 @@ function update_crm($user)
     		"field[%LOCATION%]" => $user->location,
     		"field[%COUNTRY%]" => $user->country
      	);
-     	return $contact;
+     	
         $account = $ci->activecampaign->api("contact/sync", $contact);
     }
 }
