@@ -348,7 +348,7 @@ class Ad extends CI_Controller
                     'message'     => $msg
                 );
                 
-                sendemail($param);
+                // sendemail($param);
                  
                  
                 //  $this->sendSearchAlerts($profile_id);
