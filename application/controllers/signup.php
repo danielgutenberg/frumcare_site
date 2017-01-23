@@ -129,7 +129,6 @@ class Signup extends CI_Controller
                 
                 $this->db->insert('tbl_userprofile', $userprofile_data);
             }
-            update_crm(get_user(check_user()));
             $email = $data['email'];
             $fname = $data['name'];
             
@@ -148,8 +147,8 @@ class Signup extends CI_Controller
                 'log_id' => $log_id
             );
             $this->session->sess_expiration = '14400';
-            $this->session->set_userdata($sess);
-        
+            $this->session->set_userdata($sess);  
+            
             $this->approveAds();
 
             // send email confirmation to user
@@ -159,6 +158,7 @@ class Signup extends CI_Controller
             $this->setUpInitialAlert($data['city'], $data['lat'], $data['lng']);
 
             if($q) {
+                update_crm(get_user(check_user()));
                 redirect('user/dashboard');
             } else {
                 $this->session->set_flashdata('msg', 'Your account could not be created. Please try again.');

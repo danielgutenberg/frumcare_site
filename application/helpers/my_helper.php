@@ -416,7 +416,8 @@ function update_crm($user)
     $ci->load->model('user_model');
     $tags = [];
     $serviceTags = [];
-    $userProfiles = $ci->user_model->get_all_profile($user->id);
+    $ac = $ci->activecampaign;
+    $userProfiles = $ci->user_model->get_all_profile($user['id']);
     if (count($userProfiles) > 0) {
         foreach ($userProfiles as $userProfile) {
             if ($userProfile->profile_status == 1) {
@@ -441,20 +442,20 @@ function update_crm($user)
      	if ($user->profile_picture_status == 1 && $user->profile_picture != '') {
      	    $tags[] = 'Photo Approved';
      	}
-        $name = explode(' ', $user->name);
+        $name = explode(' ', $user['name']);
         $contact = array(
-    		"email"      => $user->email,
+    		"email"      => $user['email'],
     		"first_name" => array_shift($name),
     		"last_name"  => implode(' ', $name),
     		"p[6]"       => 6,
     		"status[6]"  => 1,
     		"tags"       => implode(',', array_merge($tags, $serviceTags)),     
-    		"phone"     => $user->contact_number,
-    		"field[%LOCATION%]" => $user->location,
-    		"field[%COUNTRY%]" => $user->country
+    		"phone"     => $user['contact_number'],
+    		"field[%LOCATION%]" => $user['location'],
+    		"field[%COUNTRY%]" => $user['country']
      	);
      	
-        return $ci->activecampaign->api("contact/sync", $contact);
+        return $ac->api("contact/sync", $contact);
     }
 }
 
