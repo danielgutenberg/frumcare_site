@@ -435,11 +435,7 @@ function update_crm($user)
             $serviceTags[] = $userProfile->service_name;
         }
         
-        if ($ci->user_model->getNewsletterSubscription($user->email)) {
-            $serviceTags[] = '[CT] Newsletter';
-        }
-        
-     	if ($user->profile_picture_status == 1 && $user->profile_picture != '') {
+     	if ($user['profile_picture_status'] == 1 && $user['profile_picture'] != '') {
      	    $tags[] = 'Photo Approved';
      	}
         $name = explode(' ', $user['name']);
