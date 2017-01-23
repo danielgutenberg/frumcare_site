@@ -33,21 +33,21 @@ class Welcome extends CI_Controller {
 	{
 	    print_rr('function not available');
 	    set_time_limit(0);
-	    $this->load->model('user_model');
-	    $users = $this->user_model->getAllUsers();
+	    $this->load->model('admin/subscriptions_model');
+	    $users = $this->subscriptions_model->getSubscriptions();
 	    $this->load->library('activeCampaign');
 	    $contacts = [];
 	    foreach ($users as $user) {
-	        if ($user->id > 390 && strpos( $user->name , 'test' ) == false && strpos( $user->email , 'test' ) == false ) {
-    	       // update_crm($user);
-    	        if ($user->profile_picture_status == 1 && $user->profile_picture != '') {
-                    $contact = array(
-                		"email"      => $user->email,
-                		"tags"       => "Photo Approved"
-                 	);
-                    $res = $this->activecampaign->api("contact/tag_add", $contact);
-    	        }
-	        }
+	        $name = explode(' ', $user['name']);
+	        $contact = array(
+        		"email"      => $user['email'],
+        		"first_name" => array_shift($name),
+        		"last_name"  => implode(' ', $name),
+        		"p[6]"       => 6,
+        		"status[6]"  => 1,
+        		"tags"       => '[CT] Newsletter'
+         	);
+         	$this->activecampaign->api("contact/sync", $contact);
 	    }
 	}
 
@@ -65,7 +65,21 @@ class Welcome extends CI_Controller {
     
     function subscribe(){        
         $res = $this->common_model->subscribe();
+        
         if($res){
+            $sub_name = $_GET['sub_name'];
+            $sub_email = $_GET['sub_email'];
+            $this->load->library('activeCampaign');
+            $name = explode(' ', $sub_name);
+            $contact = array(
+        		"email"      => $sub_email,
+        		"first_name" => array_shift($name),
+        		"last_name"  => implode(' ', $name),
+        		"p[6]"       => 6,
+        		"status[6]"  => 1,
+        		"tags"       => '[CT] Newsletter'
+         	);
+         	$this->activecampaign->api("contact/sync", $contact);
             echo "1";
         }else{
             echo "0";
