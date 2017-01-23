@@ -31,13 +31,22 @@ class Welcome extends CI_Controller {
 	
 	function sync()
 	{
+	    print_rr('function not available');
 	    set_time_limit(0);
 	    $this->load->model('user_model');
 	    $users = $this->user_model->getAllUsers();
+	    $this->load->library('activeCampaign');
 	    $contacts = [];
 	    foreach ($users as $user) {
 	        if ($user->id > 390 && strpos( $user->name , 'test' ) == false && strpos( $user->email , 'test' ) == false ) {
-    	        update_crm($user);
+    	       // update_crm($user);
+    	        if ($user->profile_picture_status == 1 && $user->profile_picture != '') {
+                    $contact = array(
+                		"email"      => $user->email,
+                		"tags"       => "Photo Approved"
+                 	);
+                    $res = $this->activecampaign->api("contact/tag_add", $contact);
+    	        }
 	        }
 	    }
 	}
