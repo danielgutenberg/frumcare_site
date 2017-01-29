@@ -380,7 +380,6 @@ class Ad extends CI_Controller
             $alerts = $this->user_model->getSearchAlerts($details['lat'], $details['lng'], $type);
             $workerAds = false;
         }
-        
         foreach ($alerts as $alert) {
             if (in_array($alert['user_id'], $sentUsers)) {
                 continue;
@@ -388,12 +387,21 @@ class Ad extends CI_Controller
             if ($alert['distance'] < $alert['dist']) {
                 continue;
             }
-            // if ($workerAds == true) {
-            //     $location = explode(',', $alert['caregivingLocation']);
-            //     if (!in_array($institutionTypes[$type], $location)) {
-            //         continue;
-            //     }
-            // }
+            $types = [5, 6, 20, 22];
+            $corr = [
+                5 => 20,
+                6 => 22,
+                20 => 5,
+                22 => 6
+            ];
+            if (in_array($details['care_type'], $types)) {
+                $profile = $this->user_model->getUserDetailsById($alert['user_id'], $corr[$details['care_type']]);
+                if (!empty($profile) > 0) {
+                    if ($profile['gender_of_caregiver'] > 0 && $profile['gender_of_caregiver'] != $details['gender_of_caregiver']) {
+                        continue;
+                    }
+                }
+            }
             array_push($sentUsers, $alert['user_id']);
             
             $id = $alert['user_id'];
@@ -423,7 +431,6 @@ class Ad extends CI_Controller
                 'sendto'      => $email,
                 'message'     => $msg
             );
-            
             sendemail($param);
 
         }

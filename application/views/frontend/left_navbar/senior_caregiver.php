@@ -33,7 +33,7 @@
 
 		 	<?php $willing = explode(',',$data['willing_to_work']); ?>
 		 	<div>
-		 		<label>Able to work with</label>
+		 		<label>Conditions able to work with</label>
 		 		<div class="checkbox"><input type="checkbox" class="willing_to_work" name="willing_to_work" value="Alz./ dementia" <?php if(in_array("Alz./ dementia",$willing)){?> checked="checked" <?php } ?>>Alz. / dementia</div>
 		 		<div class="checkbox"><input type="checkbox" class="willing_to_work" name="willing_to_work" value="Sight Loss" <?php if(in_array("Sight Loss",$willing)){?> checked="checked" <?php } ?>>Sight Loss</div>
 		 		<div class="checkbox"><input type="checkbox" class="willing_to_work" name="willing_to_work" value="Hearing Loss" <?php if(in_array("Hearing Loss",$willing)){?> checked="checked" <?php } ?>>Hearing Loss</div>
