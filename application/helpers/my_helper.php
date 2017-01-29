@@ -402,9 +402,12 @@ function getCare($care_type,$service_by)
     $q = $ci->db->get_where('tbl_care', array('service_type' => $care_type,'service_by'=>$service_by))->result_array();
     return $q;
 }
-function print_rr($data){
+function print_rr(...$data){
+    
     echo "<pre>";
+    foreach (func_get_args() as $data) {
     print_r($data);
+    }
     echo "</pre>";
     exit;
 }

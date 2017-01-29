@@ -68,12 +68,22 @@ if($currency == 'ILS') {
                     <td>N/A</td>
                 </tr>
             <?php
-          }
-    if(!empty($willing_to_work)){
+          }?>
+                                          <tr>
+            <td>Gender able to work with</td>
+            <td>
+                <?php  
+                if($gender_of_caregiver == 1) echo "Male";
+                elseif($gender_of_caregiver == 2) echo "Female";
+                else echo "Any";
+                ?>
+            </td>
+        </tr>
+    <?php if(!empty($willing_to_work)){
         $tempwillingtowork = explode(',',$willing_to_work);
         ?>
         <tr>
-           <td >Able to work with</td>
+           <td >Conditions able to work with</td>
            <td >
             <div class="details-info"><?php if(in_array('Autism', $tempwillingtowork)){echo $tick; }else{echo $cross; }?> <span>Autism</span></div>
             <div class="details-info"><?php if(in_array('Down Syndrome', $tempwillingtowork)){echo $tick; }else{echo $cross; }?> <span>Down Syndrome</span></div>                    
@@ -85,12 +95,13 @@ if($currency == 'ILS') {
     else{
             ?>
                 <tr>
-                    <td >Able to work with to work </td>
+                    <td >Conditions able to work with to work </td>
                     <td>N/A</td>
                 </tr>
             <?php
-          }
-    if(!empty($rate)){?>
+          }?>
+
+    <?php if(!empty($rate)){?>
     <tr>
     	<td >Rate</td>
     	<td >

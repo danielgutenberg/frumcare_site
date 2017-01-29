@@ -38,6 +38,7 @@
     $bed_children = $detail[0]['bed_children'];
     $extra_field = explode(',',$detail[0]['extra_field']);
     $currency = $detail[0]['currency'];
+    $gender_of_caregiver = $detail[0]['gender_of_caregiver'];
 ?>
 
 <div class="container">
@@ -82,8 +83,16 @@
                     <div class="checkbox"><input type="checkbox" value="Other" name="training[]" <?php if(in_array('Other', $training)){?> checked="checked" <?php } ?>> <span>Other</span></div>                                                    
                 </div>
             </div>
+                        <div>
+                <label>Gender able to work with</label>
+                <div class="form-field">
+                    <div class="radio"><input type="radio" value="1" name="gender_of_caregiver" <?php echo isset($gender_of_caregiver) && $gender_of_caregiver == '1' ? 'checked' : '' ?>> Male</div>
+                    <div class="radio"><input type="radio" value="2" name="gender_of_caregiver" <?php echo isset($gender_of_caregiver) && $gender_of_caregiver == '2' ? 'checked' : '' ?>> Female</div>
+                    <div class="radio"><input type="radio" value="3" name="gender_of_caregiver" <?php echo isset($gender_of_caregiver) && $gender_of_caregiver == '3' ? 'checked' : '' ?>> Any</div>
+                </div>
+            </div>
             <div>
-                <label>Able to work with</label>
+                <label>Conditions able to work with</label>
                 <div class="form-field">                    
                     <div class="checkbox"><input type="checkbox" value="Alz./ Dementia" name="willing_to_work[]" <?php if(in_array('Alz./ Dementia', $willingtowork)){?> checked="checked"<?php }?>> <span>Alz./ Dementia</span></div>
                     <div class="checkbox"><input type="checkbox" value="Sight loss" name="willing_to_work[]" <?php if(in_array('Sight loss', $willingtowork)){?> checked="checked"<?php }?>> <span>Sight loss</span></div>                                        
