@@ -387,20 +387,8 @@ class Ad extends CI_Controller
             if ($alert['distance'] < $alert['dist']) {
                 continue;
             }
-            $types = [5, 6, 20, 22];
-            $corr = [
-                5 => 20,
-                6 => 22,
-                20 => 5,
-                22 => 6
-            ];
-            if (in_array($details['care_type'], $types)) {
-                $profile = $this->user_model->getUserDetailsById($alert['user_id'], $corr[$details['care_type']]);
-                if (!empty($profile) > 0) {
-                    if ($profile['gender_of_caregiver'] > 0 && $profile['gender_of_caregiver'] != $details['gender_of_caregiver']) {
-                        continue;
-                    }
-                }
+            if ($alert['gender_of_caregiver'] != $details['gender_of_caregiver']) {
+                continue;
             }
             array_push($sentUsers, $alert['user_id']);
             

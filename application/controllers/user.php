@@ -384,7 +384,7 @@ class User extends CI_Controller
             $profile = $this->common_model->get_where('tbl_userprofile', array('user_id' => $user_id));
             return array(
                 'user_id'               => $user_id, 
-                'gender_of_caregiver'   => $this->input->post('gender',true),
+                'gender_of_caregiver'   => $this->input->post('gender_of_caregiver',true),
                 'gender'                => $this->input->post('gender_of_careseeker',true),
                 'start_date'            => $this->input->post('start_date',true),
                 'smoker'                => $this->input->post('smoker',true),

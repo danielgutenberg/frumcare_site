@@ -502,21 +502,8 @@ class Ad extends CI_Controller
             if ($alert['distance'] < $alert['dist']) {
                 continue;
             }
-            
-            $types = [5, 6, 20, 22];
-            $corr = [
-                5 => 20,
-                6 => 22,
-                20 => 5,
-                22 => 6
-            ];
-            if (in_array($details['care_type'], $types)) {
-                $profile = $this->user_model->getUserDetailsById($alert['user_id'], $corr[$details['care_type']]);
-                if (!empty($profile) > 0) {
-                    if ($profile['gender_of_caregiver'] > 0 && $profile['gender_of_caregiver'] != $details['gender_of_caregiver']) {
-                        continue;
-                    }
-                }
+            if ($alert['gender_of_caregiver'] != $details['gender_of_caregiver']) {
+                continue;
             }
             array_push($sentUsers, $alert['user_id']);
             
@@ -636,6 +623,7 @@ class Ad extends CI_Controller
         $profile_check = $this->user_model->existing_profile_check($account_category, $p['care_type']);
         if($profile_check) {              
             $user_id = check_user();
+            $user = get_user($user_id);
             $p['user_id'] = $user_id;
             $p['account_category'] = $account_category;
             $p['created_time'] = strtotime('now');
@@ -646,6 +634,20 @@ class Ad extends CI_Controller
             $q = $this->user_model->edit_user($p, $user_id);
             
             if($q) {
+                $data = array(
+                    'user_id'               => $user_id, 
+                    'care_type'             => $this->correspondingTypes[$p['care_type']],
+                    'lat'                   => $user['lat'],
+                    'long'                  => $user['lng'],
+                    'location'              => $user['location'],
+                    'distance'              => 30,
+                    'createAlert'           => 1
+                );
+                if (isset($p['gender_of_caregiver'])) {
+                    $data['gender_of_caregiver'] = $p['gender_of_caregiver'];
+                }
+                $q = $this->db->insert('tbl_searchhistory',$data);
+                
                 $emails = $this->common_model->getAdminEmails();
                 
                 $details = $this->user_model->getUserDetailsById($user_id, $p['care_type']);
@@ -666,19 +668,8 @@ class Ad extends CI_Controller
                 );
                 sendemail($param); 
                 
-                $sendto = get_user($user_id)['email'];
-                update_crm(get_user($user_id));
-                $msg = $this->load->view('emails/adApproved', array('name' => $details['name']), true);
-                $param = array(
-                    'subject'     => 'Ad Placed Successfully',
-                    'from'        => SITE_EMAIL,
-                    'from_name'   => SITE_NAME,
-                    'replyto'     => SITE_EMAIL,
-                    'replytoname' => SITE_NAME,
-                    'sendto'      => $sendto,
-                    'message'     => $msg
-                );
-                sendemail($param);
+                $sendto = $user['email'];
+                update_crm($user);
                 
                 $profile = $this->job_or_profile();
                 if ($profile == 'job') {
@@ -789,11 +780,11 @@ class Ad extends CI_Controller
         $email = 0;
         if($_POST) {
             $p = $_POST;
-            $id = $this->session->userdata('current_user');
+            $user_id = check_user();
             if (isset($p['start_date']) && $p['start_date'] != '') {
                 $p['start_date'] = date("Y-m-d", strtotime($p['start_date']));
             }
-            $this->db->where(array('user_id'=>$id,'care_type'=>$care_type));
+            $this->db->where(array('user_id' => $user_id,'care_type'=>$care_type));
             $res = $this->db->get('tbl_userprofile');
             $oldProfile = $res->result_array()[0];
             $profileStatus = $oldProfile['profile_status'];
@@ -811,19 +802,30 @@ class Ad extends CI_Controller
             $p['profile_status'] = $profileStatus;
             $p['hasAd'] = 1;
 
-            if(check_user()) {
-                $this->user_model->edit_user($p, check_user());
-                $q = $this->profile_model->edit_profile_by_user_id_and_care_type($p, check_user(), $care_type);
+            if($user_id) {
+                $this->user_model->edit_user($p, $user_id);
+                $q = $this->profile_model->edit_profile_by_user_id_and_care_type($p, $user_id, $care_type);
+                $types = [5, 6, 20, 22];
+                $corr = [
+                    5 => 20,
+                    6 => 22,
+                    20 => 5,
+                    22 => 6
+                ];
+                if (in_array($care_type, $types) && isset($p['gender_of_caregiver'])) {
+                    $this->db->where(array('user_id' => $user_id, 'care_type' => $corr[$care_type]));
+                    $this->db->update('tbl_searchhistory', ['gender_of_caregiver' => $p['gender_of_caregiver']]);
+                }
             }
             if ($email == 1) {
                 $emails = $this->common_model->getAdminEmails();
                 
-                $details      = $this->user_model->getUserDetailsById(check_user(),$care_type);
+                $details = $this->user_model->getUserDetailsById($user_id, $care_type);
                 $details['profile_id'] = $q;
                 
                 $data['recordData']     = $details;
                 
-                $hashInfo = ['user_id' => check_user(), 'care_type' => $care_type];
+                $hashInfo = ['user_id' => $user_id, 'care_type' => $care_type];
                 $data['hash'] = encrypt_decrypt('encrypt', json_encode($hashInfo));
                 
                 $msg = $this->load->view('frontend/email/profileapproval', $data, true);
