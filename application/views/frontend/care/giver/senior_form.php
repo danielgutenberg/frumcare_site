@@ -62,15 +62,7 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 						<div class="checkbox"><input type="checkbox" value="Other" name="training[]"> <span>Other</span></div>						
 					</div>
 				</div>
-							<div>
-				<label>Gender able to work with</label>
-				<div class="form-field">
-					<div class="radio"><input type="radio" value="1" name="gender_of_caregiver"> Male</div>
-					<div class="radio"><input type="radio" value="2" name="gender_of_caregiver"> Female</div>
-                    <div class="radio"><input type="radio" value="3" name="gender_of_caregiver" checked> Any</div>
-				</div>
-			</div>
-
+				
 				<div>
 					<label>Conditions able to work with</label>
 					<div class="form-field">
@@ -81,6 +73,15 @@ if(($this->uri->segment(2) != 'new_profile')){?>
 						<div class="checkbox"><input type="checkbox" value="Able To Tend To Personal Hygiene of Senior" name="willing_to_work[]"><span>Able To Tend To Personal Hygiene of Senior</span></div>	
 					</div>
 				</div>
+				<div>
+					<label>Gender able to work with</label>
+					<div class="form-field">
+						<div class="radio"><input type="radio" value="1" name="gender_of_caregiver"> Male</div>
+						<div class="radio"><input type="radio" value="2" name="gender_of_caregiver"> Female</div>
+	                    <div class="radio"><input type="radio" value="3" name="gender_of_caregiver" checked> Any</div>
+					</div>
+				</div>
+
 				<div>
 					<label>Availability</label>
 					<div class="form-field">

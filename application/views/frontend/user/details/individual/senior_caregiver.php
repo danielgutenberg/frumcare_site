@@ -73,17 +73,7 @@ if($currency == 'ILS') {
                 </tr>
             <?php
           }?>
-                                <tr>
-            <td>Gender able to work with</td>
-            <td>
-                <?php  
-                if($gender_of_caregiver == 1) echo "Male";
-                elseif($gender_of_caregiver == 2) echo "Female";
-                else echo "Any";
-                ?>
-            </td>
-        </tr>
-    <?php if(!empty($willing_to_work)){
+            <?php if(!empty($willing_to_work)){
       $tempwillingtowork = explode(',',$willing_to_work);
       ?>
       <tr>
@@ -105,6 +95,19 @@ if($currency == 'ILS') {
                 </tr>
             <?php
           } ?>
+        
+        
+        <tr>
+            <td>Gender able to work with</td>
+            <td>
+                <?php  
+                if($gender_of_caregiver == 1) echo "Male";
+                elseif($gender_of_caregiver == 2) echo "Female";
+                else echo "Any";
+                ?>
+            </td>
+        </tr>
+
 
     <?php if(!empty($rate)){?>
     <tr>
