@@ -47,12 +47,12 @@
         
 <?php if ($record['care_type'] != null) { ?>
         <div id="locationField">Location
-            <input type="hidden" id="lat" name="lat" value="<?php echo isset($lat)?$lat:''?>"/>
-            <input type="hidden" id="lng" name="lng" value="<?php echo isset($lng)?$lng:''?>"/>
-            <input type="hidden" id="cityName" name="city" value="<?php echo isset($city)?$city:''?>"/>
-            <input type="hidden" id="stateName" name="state" value="<?php echo isset($state)?$state:''?>"/>
-            <input type="hidden" id="countryName" name="country" value="<?php echo isset($country)?$country:''?>"/>
-            <input type="text" name="location" class="locationName required" placeholder="Please enter a street address" value="<?php echo $record['location'] ?>" style="margin-left:30px; width:300px" id="autocomplete" required/>
+            <input type="hidden" id="lat" name="lat" value="<?php echo isset($userObject['lat'])?$userObject['lat']:''?>"/>
+            <input type="hidden" id="lng" name="lng" value="<?php echo isset($userObject['lng'])?$userObject['lng']:''?>"/>
+            <input type="hidden" id="cityName" name="city" value="<?php echo isset($userObject['city'])?$userObject['city']:''?>"/>
+            <input type="hidden" id="stateName" name="state" value="<?php echo isset($userObject['state'])?$userObject['state']:''?>"/>
+            <input type="hidden" id="countryName" name="country" value="<?php echo isset($userObject['country'])?$userObject['country']:''?>"/>
+            <input type="text" name="location" class="locationName required" placeholder="Please enter a street address" value="<?php echo $userObject['location'] ?>" style="margin-left:30px; width:300px" id="autocomplete" required/>
         </div> 
         <span style="color:red;" id="error"> </span>
          <div class="noAddressDiv">
@@ -337,6 +337,7 @@
         });
         
         $('#cityField').on('click', function(){
+            console.log('got here')
             $('#autocomplete').val('')
             $('#lat').val('')
         });

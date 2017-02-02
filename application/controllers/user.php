@@ -428,20 +428,20 @@ class User extends CI_Controller
     
             $current_user = $this->session->userdata['current_user'];
             $record['care_type'] = $care_type;
-            
+            $userObject = get_user($current_user);
             $ac = $this->session->userdata('account_category');
             if ($ac == 1 || ( $ac == 3 && $this->session->userdata['organization_care'] == 1)) {
                 $type = 'job';
             } else {
                 $type = 'ad';
             }
-    
             $data = array(
                 'title'         => 'Search History',
                 'main_content'  => 'frontend/user/dashboard/my_search_alerts/create',
                 'user'          => $current_user,
                 'record'        => $record,
-                'type'          => $type
+                'type'          => $type,
+                'userObject'    => $userObject
             );
     
             $this->load->view(FRONTEND_TEMPLATE,$data);
