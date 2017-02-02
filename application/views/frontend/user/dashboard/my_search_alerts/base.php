@@ -46,7 +46,7 @@
             foreach($record as $rec)
             {
             $job = '';
-            $jobs = [10, 13, 14, 17,18, 19, 20, 21];
+            $jobs = [22, 23,24, 14, 17,18, 19, 20, 21];
             if (in_array($rec['care_type'], $jobs)) {
                 $job = ' Job';
             }
