@@ -31,24 +31,24 @@ class Welcome extends CI_Controller {
 	
 	function sync()
 	{
-        $this->load->model('user_model');
-        $corr = [
-            5 => 20,
-            6 => 22,
-            20 => 5,
-            22 => 6
-        ];
-	    $sql = "select * from tbl_searchhistory where care_type in (5,6,20,22)";
-        $query = $this->db->query($sql);
-        $alerts = $query->result_array();
-        foreach ($alerts as $a) {
-            $profile = $this->user_model->getUserDetailsById($a['user_id'], $corr[$a['care_type']]);
-            if (!empty($profile) && count($profile) > 1) {
-                $this->db->where(array('id' => $a['id']));
-                $this->db->update('tbl_searchhistory', ['gender_of_caregiver' => $profile['gender_of_caregiver']]);
-            }
-        }
-        print_rr($res);
+    //     $this->load->model('user_model');
+    //     $corr = [
+    //         5 => 20,
+    //         6 => 22,
+    //         20 => 5,
+    //         22 => 6
+    //     ];
+	   // $sql = "select * from tbl_searchhistory where care_type in (5,6,20,22)";
+    //     $query = $this->db->query($sql);
+    //     $alerts = $query->result_array();
+    //     foreach ($alerts as $a) {
+    //         $profile = $this->user_model->getUserDetailsById($a['user_id'], $corr[$a['care_type']]);
+    //         if (!empty($profile) && count($profile) > 1) {
+    //             $this->db->where(array('id' => $a['id']));
+    //             $this->db->update('tbl_searchhistory', ['gender_of_caregiver' => $profile['gender_of_caregiver']]);
+    //         }
+    //     }
+    //     print_rr($res);
 	    print_rr('function not available');
 	    set_time_limit(0);
 	    $this->load->model('admin/subscriptions_model');
