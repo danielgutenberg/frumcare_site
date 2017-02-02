@@ -502,7 +502,7 @@ class Ad extends CI_Controller
             if ($alert['distance'] < $alert['dist']) {
                 continue;
             }
-            if ($alert['gender_of_caregiver'] != $details['gender_of_caregiver']) {
+            if ($alert['gender_of_caregiver'] > 0 && $alert['gender_of_caregiver'] != $details['gender_of_caregiver']) {
                 continue;
             }
             array_push($sentUsers, $alert['user_id']);
