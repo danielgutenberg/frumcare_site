@@ -45,39 +45,45 @@ class Help extends CI_Controller{
     }
 
 	public function send_message(){
-		if(isset($_POST['submit_now'])){
-		$admin_email = $this->common_model->getAdminEmails();
-		$redirect = $this->input->post('current_url', true);
-		
-		$email_config = array(        
-                    'mailtype'  => 'html',
-                    'starttls'  => true,
-                    'newline'   => "\r\n",
-                    'prority'	=> 1
-                    // 'protocol' => 'sendmail',
-                    // 'charset'=> 'iso-8859-1', 
-                ); 
-
-		$emaildata = array();
-			$emaildata['name']    = $this->input->post('name');
-			$emaildata['email']   = $this->input->post('email');
+		if(isset($_POST['submit_now'])) {
+			$admin_email = $this->common_model->getAdminEmails();
+			$redirect = $this->input->post('current_url', true);
+			$name = $this->input->post('name');
+			$email = $this->input->post('email');
+			$emaildata = array();
+			$emaildata['name']    = $name;
+			$emaildata['email']   = $email;
 			$emaildata['message'] = $this->input->post('message'); 
 
-			$this->load->library('email', $email_config);
+			$msg = $this->load->view('emails/contactus', $emaildata, true);
 			
-			$this->email->from('noreply@frumcare.com', 'FRUMCARE');
-			$this->email->to('info@frumcare.com, danielguten@gmail.com');
-			
-			$this->email->subject('Help Needed');
-			$this->email->message($this->load->view('emails/contactus', $emaildata, true));
-
-			$this->email->send();
-			//redirect('help','refresh');
-			 if($redirect){
-                		redirect($redirect, 'refresh');
-			}else{
-                		redirect('help','refresh');    
-            		}
+			$param = array(
+                'subject'     => 'Help Needed',
+                'from'        => SITE_EMAIL,
+                'from_name'   => SITE_NAME,
+                'sendto'      => 'info@frumcare.com',
+                'message'     => $msg,
+                'bcc'         => ['danielguten@gmail.com' => 'Daniel Gutenberg']
+            );
+            sendemail($param); 
+            
+            $this->load->library('activeCampaign');
+            $name = explode(' ', $name);
+            $contact = array(
+        		"email"      => $email,
+        		"first_name" => array_shift($name),
+        		"last_name"  => implode(' ', $name),
+        		"p[6]"       => 6,
+        		"status[6]"  => 1,
+        		"tags"       => '[CT] Contact Help'
+         	);
+         	$this->activecampaign->api("contact/sync", $contact);
+            
+            if ($redirect) {
+            	redirect($redirect, 'refresh');
+            } else {
+				redirect('help','refresh');  
+            }
 		}
 	}
     function send_this_message(){        
