@@ -164,11 +164,12 @@
                     var msg = $('textarea').val();
                     if( name != '' && email != '' && msg !='') {
                         $(".searchloader").fadeIn('fast');
-                        $.post('<?php echo site_url()?>help/send_this_message',
+                        $.post('<?php echo site_url()?>help/send_message',
                             {
                                 'name'    : name,
                                 'email'   : email,
-                                'message' : msg
+                                'message' : msg,
+                                'submit_now' : true
                             },
                             function(e){
                                 $(".searchloader").fadeOut('fast');
