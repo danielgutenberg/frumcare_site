@@ -123,9 +123,6 @@ if($detail){
             </div>
         </div>
         <?php $this->load->view('frontend/care/seeker/fields/wage', ['rate' => $rate, 'currency' => $currency]); ?>       
-
-        <h2>Additional Requirements</h2>
-        
         <div class="clear"></div>
         <div>
             <label>Tell us about your needs</label>
@@ -133,6 +130,7 @@ if($detail){
             <textarea name="profile_description" class="txt"><?php echo isset($desc) ? $desc : '' ?></textarea>
             </div>
         </div>
+        <h2>Additional Requirements</h2>
         <div>
             <label>Languages necessary</label>
             <div class="form-field">
