@@ -113,7 +113,20 @@
 </footer>
 </div>
 <!--#site-wrapper-->
-
+<script type="text/java_script">
+        var trackcmp_email = '';
+        var trackcmp = document.createElement("script");
+        trackcmp.async = true;
+        trackcmp.type = 'text/java_script';
+        trackcmp.src = '//trackcmp.net/visit?actid=251791359&e='+encodeURIComponent(trackcmp_email)+'&r='+encodeURIComponent(document.referrer)+'&u='+encodeURIComponent(window.location.href);
+        var trackcmp_s = document.getElementsByTagName("script");
+        if (trackcmp_s.length) {
+                trackcmp_s[0].parentNode.appendChild(trackcmp);
+        } else {
+                var trackcmp_h = document.getElementsByTagName("head");
+                trackcmp_h.length && trackcmp_h[0].appendChild(trackcmp);
+        }
+</script>
 <script type="text/javascript">
     $(function(){
         $("#subscribe").click(function(){
