@@ -103,6 +103,54 @@ class Welcome extends CI_Controller {
             echo "0";
         }
     }
+    
+    function delete()
+    {
+        $this->load->model('user_model');
+        $this->load->library('activeCampaign');
+        $tags = [];
+        $serviceTags = [];
+        $ac = $this->activecampaign;
+        $userId = check_user();
+        $user = get_user($userId);
+        $userProfiles = $this->user_model->get_all_profile($userId);
+        if (count($userProfiles) > 0) {
+            foreach ($userProfiles as $userProfile) {
+                if ($userProfile->profile_status == 1) {
+                    $tags[] = 'Profile Approved';
+                }
+                if ($userProfile->care_type < 11) {
+                    $tags[] = $ac->tags[1];
+                } else if ($userProfile->care_type < 17) {
+                    $tags[] = $ac->tags[2];
+                } else if ($userProfile->care_type < 25) {
+                    $tags[] = $ac->tags[3];
+                } else {
+                    $tags[] = $ac->tags[4];
+                }
+                $serviceTags[] = $userProfile->service_name;
+            }
+            
+         	if ($user['profile_picture_status'] == 1 && $user['profile_picture'] != '') {
+         	    $tags[] = 'Photo Approved';
+         	}
+            $name = explode(' ', $user['name']);
+            $contact = array(
+        		"email"      => $user['email'],
+        		"tags"       => array_merge($tags, $serviceTags),
+         	);
+            $ac->api("contact/tag_remove", $contact);
+            
+            $contact = array(
+        		"email"      => $user['email'],
+        		"tags"       => 'Account Deleted',
+        		urlencode('field[%ACCOUNT_DELETED%,0]') => date('m/d/Y')
+         	);
+         	$ac->api("contact/sync", $contact);
+         	
+         	$this->user_model->deleteAccount($userId);
+        }
+    }
 
     function success(){
 
