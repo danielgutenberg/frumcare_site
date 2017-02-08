@@ -150,7 +150,7 @@ class Welcome extends CI_Controller {
          	
          	$this->user_model->deleteAccount($userId);
          	
-         	echo $user['email'];
+         	return $user['email'];
         }
     }
 
