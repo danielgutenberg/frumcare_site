@@ -39,6 +39,7 @@
 */
 
 $route['default_controller'] = "welcome";
+$route['account/delete'] = "welcome/delete";
 $route['sync'] = "welcome/sync";
 $route['404_override'] = '';
 $route['advice-and-tips/families'] = 'cms/tipsandtoolsfamilies';

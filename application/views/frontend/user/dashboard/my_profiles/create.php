@@ -125,60 +125,10 @@ $(document).ready(function(){
             url:"<?php echo site_url();?>user/get_this_care",
             data:{f1:x,f2:y},            
             success:function(msg){                
-                $("#care_type").html(msg);  
-                $('#all_cares option[value=' + id + ']').attr('selected', 'selected')
+                $("#care_type").html(msg); 
             }
         });
     }
 });
-</script>        
-<script>
-    $(function(){
-        $('#care_type').on('change',function(){
-            location.href = '<?php echo site_url();?>ad/new_profile/' + $("#all_cares").val()
-        });            
-        var account_category = $('.acc_cat').val();
-        var account_id = $('.acc_cat').attr('id');
-
-        $('.acc_cat').change(function(){
-            getAccountCat($(this).val(),$(this).attr('id'));
-        });
-
-
-        $('.organization').click(function(){
-            $('.organizational_care').css('display','block');
-        });
-
-        $('.acc_cat').click(function(){
-            $('.organizational_care').css('display','none');
-            $('.org_caretype').removeAttr("checked");
-        });
-
-        $('.org_caretype').click(function(){
-            getAccountCat($(this).val(),$(this).attr('id'));
-        });
-
-
-    });
-
-    function getAccountCat(account_category,service_by){
-        $.ajax({
-            type:"post",
-            url:"<?php echo site_url();?>ad/getCareType",
-            data:"care_type="+account_category+"&service_by="+service_by,
-            dataType:"json",
-            success:function(done){
-                if(done){
-                    $('#select_options').html(done).show();
-                }
-                if(account_category == 1){
-                    $('.msg').text('Type of care you provide');
-                }
-                if(account_category == 2){
-                    $('.msg').text('Type of care you are seeking');
-                }
-            }
-        });
-    }
-</script>
+</script>   
 

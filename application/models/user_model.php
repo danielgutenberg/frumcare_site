@@ -481,7 +481,15 @@ class User_model extends CI_Model
             return TRUE;
         }
     }
-    public function delete_this_profile($user_id,$care_type){
+    
+    public function deleteAccount($id)
+    {
+        $this->db->where('id',$id);
+        $this->db->delete('tbl_user');
+    }
+    
+    public function delete_this_profile($user_id,$care_type)
+    {
         $this->db->where('user_id',$user_id);
         $this->db->where('care_type',$care_type);
         $this->db->update('tbl_userprofile', array('profile_status' => 2));

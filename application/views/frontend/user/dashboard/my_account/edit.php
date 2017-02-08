@@ -51,6 +51,8 @@ if(segment(3) != '') {
         <input id="hiddenEmail" type="hidden" name="email" value="<?php echo (isset($email)) ? $email : '' ?>"/>
         <a id="submitForm" type="submit" value="Click Here" style="cursor:pointer;">Click here</a> to resend verification email.
     </form>
+    
+    <span class="sign-up-btn deleteAccount"><input id="submit-btn" type="submit" class="btn btn-danger" value="Delete Account"/></span>
 </div>
      
 
@@ -84,37 +86,44 @@ if(segment(3) != '') {
                     }
                 });
         });
-
-            var account_category = $('.acc_cat').val();
-            getAccountCat(account_category);
-
-        $('.acc_cat').change(function(){
-            getAccountCat($(this).val());
-        });
-
-         $('.contact').mask('999-999-9999');
-
+        $('.contact').mask('999-999-9999');
     });
-
-
-     function getAccountCat(account_category){
-        $.ajax({
-                type:"post",
-                url:"<?php echo site_url();?>ad/getCareType",
-                data:"care_type="+account_category,
-                dataType:"json",
-                success:function(done){
-                   if(done){
-                    $('#select_options').html(done).show();
-                   }
-                   if(account_category == 1){
-                        $('.msg').text('Type of care you provide');
-                   }
-                   if(account_category == 2){
-                        $('.msg').text('Type of care you are seeking');
-                   }
-                }
+</script>
+<script>
+    $(document).ready(function() {
+    
+    var $myDialog2 = $('<div></div>')
+        .html('Are you sure you would like to delete your account?  This action cannot be undone')
+        .dialog({
+        autoOpen: false,
+        title: 'Delete Account',
+        buttons: {
+          "YES": function () {
+            $(this).dialog("close");
+            $.ajax({
+    	    	type:"get",
+    	    	url:"<?php echo site_url();?>account/delete",
+    	    	success:function(done){
+       				//console.log(done);
+                    alert('Account deleted');
+                    setTimeout(function () {
+                        window.location = '<?php echo site_url()?>';
+                    }, 5000);
+                    
+    	    	}
+    	    });
+          },
+          "NO": function () {
+            $(this).dialog("close");
+            return false;
+          }
+        }
+      });
+      
+    	$('.deleteAccount').click(function(e){
+    		e.preventDefault();
+    		return $myDialog2.dialog('open');
         });
-    }
 
+ });
 </script>
