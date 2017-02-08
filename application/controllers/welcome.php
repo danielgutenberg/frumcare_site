@@ -149,6 +149,8 @@ class Welcome extends CI_Controller {
          	$ac->api("contact/sync", $contact);
          	
          	$this->user_model->deleteAccount($userId);
+         	
+         	echo $user['email'];
         }
     }
 

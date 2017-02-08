@@ -15,6 +15,7 @@ if(segment(3) != '') {
 </div><!--dashboard-left-->
 
 <div class="dashboard-right float-right">
+    <div class="searchloader mainsearch" style="display:none"></div>
     <div class="top-welcome">
             <h2>Edit Personal Details</h2>
     </div>
@@ -52,7 +53,7 @@ if(segment(3) != '') {
         <a id="submitForm" type="submit" value="Click Here" style="cursor:pointer;">Click here</a> to resend verification email.
     </form>
     
-    <span class="sign-up-btn deleteAccount"><input id="submit-btn" type="submit" class="btn btn-danger" value="Delete Account"/></span>
+    <span class="sign-up-btn deleteAccount" style="width:44%; padding-left:14%;"><input id="submit-btn" type="submit" class="btn btn-danger" value="Delete Account"/></span>
 </div>
      
 
@@ -90,6 +91,22 @@ if(segment(3) != '') {
     });
 </script>
 <script>
+    function PulseAnimation()
+    {
+    	$('.mainsearch').animate({
+    		opacity: 0.3,
+    	}, 500, function() {
+    		$('.mainsearch').animate({
+    			opacity: 1
+    		}, 500, function() {
+    			if(window.continue_pulse) {
+    				PulseAnimation();
+    			}
+    		})
+    	});
+    }
+</script>
+<script>
     $(document).ready(function() {
     
     var $myDialog2 = $('<div></div>')
@@ -100,15 +117,14 @@ if(segment(3) != '') {
         buttons: {
           "YES": function () {
             $(this).dialog("close");
+            $(".searchloader").fadeIn("fast");
+            window.continue_pulse = true;
+            PulseAnimation()
             $.ajax({
     	    	type:"get",
     	    	url:"<?php echo site_url();?>account/delete",
-    	    	success:function(done){
-       				//console.log(done);
-                    alert('Account deleted');
-                    setTimeout(function () {
-                        window.location = '<?php echo site_url()?>';
-                    }, 5000);
+    	    	success:function(data){
+                    window.location = 'https://frumcare.activehosted.com/f/3?email=' + data;
                     
     	    	}
     	    });
