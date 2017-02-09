@@ -124,7 +124,7 @@ if(segment(3) != '') {
     	    	type:"get",
     	    	url:"<?php echo site_url();?>account/delete",
     	    	success:function(data){
-                    window.location = 'https://frumcare.activehosted.com/f/3?email=' + data;
+                    window.location = 'https://frumcare.activehosted.com/f/2?email=' + data;
                     
     	    	}
     	    });
