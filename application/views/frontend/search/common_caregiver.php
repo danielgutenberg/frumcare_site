@@ -194,9 +194,9 @@
         <option value="2">2 Miles</option>
         <option value="5">5 Miles</option>
         <option value="10">10 Miles</option>
-        <option value="25">25 Miles</option>
+        <option value="30" selected="selected">30 Miles</option>
         <option value="50">50 Miles</option>
-        <option value="unlimited" selected="selected">Unlimited Miles</option>
+        <option value="unlimited">Unlimited Miles</option>
     </select>   
     <a id="searchButton" style="cursor:pointer" class="btn btn-primary ml10 btn-xs">Go</a>
 	<h3 class="total_rows hidden" style="margin-bottom: 0px">
@@ -222,10 +222,15 @@
     <?php } ?>
 
 	<div class="select-relevance" style="margin-top:14px">
-            <select name="sort_by_select" id="sort_by_select">
-                <option value="distance">Sort by distance</option>
-                <option value="tbl_userprofile.id">Sort by latest</option>
-            </select>
+            <!--<select name="sort_by_select" id="sort_by_select">-->
+            <!--    <option value="distance">Sort by distance</option>-->
+            <!--    <option value="tbl_userprofile.id">Sort by latest</option>-->
+            <!--</select>-->
+            <div style="display: -webkit-inline-box;padding-right: 30px;">
+              <input type="radio" name="sort_by_select" value="tbl_userprofile.id" checked> Sort by latest<br>
+              <input type="radio" name="sort_by_select" value="distance"> Sort by distance
+            </div>
+            
 
 		<span>Results per Page</span>
 			<span class="fifteens">
@@ -251,7 +256,7 @@
         PulseAnimation()
         var per_page = $("#per_page").val();
         var distance = $("#sort_by_miles").val();
-        var sort_by = $('#sort_by_select').val();
+        var sort_by = $('input[name="sort_by_select"]:checked').val();
 		var care_type = $('#careId').val() != null ? $('#careId').val() : '<?php echo $careType ?>'
 		var rate = $('.rate').val();
         var caregiverage_from = $('.caregiverage_from').val() ? $('.caregiverage_from').val() : '';
@@ -352,7 +357,7 @@
             filterCaregivers();
 		});        
         
-        $('.rate,.accept_insurance,.number_of_children,.year_experience,.age_group,#textbox1,.sub_care,#per_page,#sort_by_miles,#sort_by_select').change(function(){
+        $('.rate,.accept_insurance,.number_of_children,.year_experience,.age_group,#textbox1,.sub_care,#per_page,#sort_by_miles,input[name="sort_by_select"]').change(function(){
 			$('#pagenum').val(1);
             filterCaregivers();
 		});
