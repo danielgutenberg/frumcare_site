@@ -1,6 +1,6 @@
 <script>
     $("#locationSearch").ready(function(){        
-        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], { types: ['(regions)'] });
+        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], { types: ['geocode'] });
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
                 var place = autocomplete.getPlace();                    
                 var lat = place.geometry.location.lat();
@@ -506,7 +506,7 @@
         
         $('#searchButton').click(function(){
             var type = $('#careId').attr('data-type');
-            var ids = $('#careId').val()
+            var ids = $('#careId').val() != null ? $('#careId').val() : ['<?php echo $careType ?>']
             console.log(type)
             console.log(ids.join(','))
             if (ids.length == 1) {
