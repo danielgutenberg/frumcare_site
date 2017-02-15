@@ -221,13 +221,16 @@
     <?php } ?>
 
 	<div class="select-relevance row" style="margin-top:14px;width: 70%;">
-        <div class="col-xs-12 col-sm-6" style="margin-bottom:5px">
+        <div class="col-xs-8" style="margin-bottom:5px">
             <div style="display: -webkit-inline-box;">
                 <input type="radio" name="sort_by_select" value="tbl_userprofile.id" checked> Sort by latest
                 <input  style="margin-left:5px" type="radio" name="sort_by_select" value="distance"> Sort by distance
             </div>
         </div>
-        <div class="col-xs-12 col-sm-6" style="margin-top: -4px;">
+        
+	</div>
+    <div class="navigations"></div>
+    	<div style="margin-top: 10px;float: right;" style="margin-top: -4px;">
             <div>
     		    <span>Results per page</span>
     			<span class="fifteens">
@@ -240,13 +243,12 @@
     			</span>
     		</div>
 		</div>
-	</div>
-    <div class="navigations"></div>
 	<div class="clearfix margin-bot"></div>
 	<div id="list_container" class="">
 	</div>
 	<div class="navigations"></div>
 	</div>
+
 </div> 
 <script>
     function filterCaregivers() {
