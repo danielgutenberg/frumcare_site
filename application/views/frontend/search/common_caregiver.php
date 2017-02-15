@@ -2,14 +2,12 @@
     $("#locationSearch").ready(function(){        
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], { types: ['geocode'] });
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                var place = autocomplete.getPlace();  
-                console.log(place)
+                var place = autocomplete.getPlace(); 
                 var lat = place.geometry.location.lat();
                 var lng = place.geometry.location.lng();                                
                 $("#lat").val(lat);
                 $("#lng").val(lng);
                 $("#place").val(place.formatted_address);
-                filterCaregivers();
             });                              
     });
 </script>
@@ -222,18 +220,15 @@
         <div class="want-top"><p>Want Employers to Contact you?<a href='<?php echo site_url()."signup?ac=$ac"?>' class="btn btn-primary ml10 btn-xs">Create a Profile for free</a></p></div>
     <?php } ?>
 
-	<div class="select-relevance" style="margin-top:14px">
-            <!--<select name="sort_by_select" id="sort_by_select">-->
-            <!--    <option value="distance">Sort by distance</option>-->
-            <!--    <option value="tbl_userprofile.id">Sort by latest</option>-->
-            <!--</select>-->
-            <div style="display: -webkit-inline-box;padding-right: 30px;">
-              <input type="radio" name="sort_by_select" value="tbl_userprofile.id" checked> Sort by latest<br>
-              <input type="radio" name="sort_by_select" value="distance"> Sort by distance
+	<div class="select-relevance row" style="margin-top:14px;width: 70%;">
+        <div class="col-xs-12 col-sm-6" style="margin-bottom:5px">
+            <div style="display: -webkit-inline-box;">
+                <input type="radio" name="sort_by_select" value="tbl_userprofile.id" checked> Sort by latest
+                <input type="radio" name="sort_by_select" value="distance"> Sort by distance
             </div>
-            
-
-		<span>Results per Page</span>
+        </div>
+        <div class="col-xs-12 col-sm-6" style="margin-top: -4px;">
+		    <span>Results per Page</span>
 			<span class="fifteens">
                 <select id="per_page">
 					<option value="15">15</option>
@@ -242,6 +237,7 @@
 					<option value="100">100</option>
 				</select>
 			</span>
+		</div>
 	</div>
     <div class="navigations"></div>
 	<div class="clearfix margin-bot"></div>
@@ -358,7 +354,7 @@
             filterCaregivers();
 		});        
         
-        $('.rate,.accept_insurance,.number_of_children,.year_experience,.age_group,#textbox1,.sub_care,#per_page,#sort_by_miles,input[name="sort_by_select"]').change(function(){
+        $('.rate,.accept_insurance,.number_of_children,.year_experience,.age_group,#textbox1,.sub_care,#per_page,input[name="sort_by_select"]').change(function(){
 			$('#pagenum').val(1);
             filterCaregivers();
 		});
@@ -367,13 +363,6 @@
             $('#pagenum').val(1);
             filterCaregivers();
 		});
-		
-		$('input[name="location"]').on('blur', function() {
-		    var lat = $('#lat').val();
-		    if (!lat) {
-		        console.log('message')
-		    }
-		})
         
         //for pagination
         $(document).on('click','.paginate_click',function (e) {
@@ -455,7 +444,6 @@
         	    	url:"<?php echo site_url();?>common_care_controller/savesearch",
         	    	data:"lat="+lat+"&lng="+lng+"&location="+location+"&distance="+distance+"&care_type="+care_type+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&languages="+lang+"&observance="+observance+"&age_group="+age_group+"&gender="+gender+"&care_type="+care_type+"&willing="+willing+"&smoker="+smoker,
         	    	success:function(done){
-           				//console.log(done);
                         alert('Search saved to search alerts section in your dashboard');
         	    	}
         	    });
@@ -518,108 +506,8 @@
 
         
         $('#searchButton').click(function(){
-            var type = $('#careId').attr('data-type');
-            var ids = $('#careId').val() != null ? $('#careId').val() : ['<?php echo $careType ?>']
-            if (ids.length == 1) {
-                navigate(ids[0], type)
-            }
-            if (ids.length > 1) {
-                multisearch(ids.join(','), type)
-            }
+            filterCaregivers()
         });
-        
-        function multisearch(ids,type){
-            var lat = $('#lat').val();
-            var lng = $('#lng').val();
-            var place = $('#place').val();
-
-            if (type == 'caregivers') {
-                location.href = '<?php echo site_url();?>caregivers/all?location=' + place + '&lat=' + lat + '&lng=' + lng + '&ids=' + ids;
-            }
-            if (type == 'jobs')                    
-                location.href = '<?php echo site_url();?>jobs/all?location=' + place + '&lat=' + lat + '&lng=' + lng + '&ids=' + ids;
-            if(type == 'organization_job')
-                location.href = '<?php echo site_url();?>caregivers/organizations/all?location=' + place + '&lat=' + lat + '&lng=' + lng + '&ids=' + ids;
-        }
-        
-        function navigate(pagelink,type){
-            var lat = $('#lat').val();
-            var lng = $('#lng').val();
-            var place = $('#place').val();
-            console.log(pagelink)
-            if(pagelink == '1')
-                var locationaddress = 'babysitter';
-            if(pagelink == '2')
-                var locationaddress = 'nanny-au-pair';            
-            if(pagelink == '3')
-                var locationaddress = 'nursery-playgroup-drop-off-gan';
-            if(pagelink == '4')
-                var locationaddress = 'tutor-private-lessons';
-             if(pagelink == '5')
-                var locationaddress = 'senior-caregiver';
-            if(pagelink == '6')
-                var locationaddress = 'special-needs-caregiver';
-            if(pagelink == '7')
-                var locationaddress = 'therapists';
-            if(pagelink == '8')
-                var locationaddress = 'cleaning-household-help';
-            if(pagelink == '9')
-                var locationaddress = 'errand-runner-odd-jobs-personal-assistant-driver';   
-            if(pagelink == '10')
-                var locationaddress = 'pediatric-baby-nurse'; 
-            if(pagelink == '11')
-                var locationaddress = 'day-care-center-day-camp-afternoon-activities';
-            if(pagelink == '13')
-                var locationaddress = 'senior-care-agency';
-            if(pagelink == '14')
-                var locationaddress = 'special-needs-center';
-            if(pagelink == '15')
-            	var locationaddress = 'cleaning-household-help-company';
-            if(pagelink == '16')
-            	var locationaddress = 'assisted-living-senior-care-center-nursing-home';
-             if(pagelink == '17')
-            	var locationaddress = 'babysitter';
-             if(pagelink == '18')
-            	var locationaddress = 'nanny-au-pair';
-             if(pagelink == '19')
-            	var locationaddress = 'tutor-private-lessons';
-             if(pagelink == '20')
-            	var locationaddress = 'senior-caregiver';
-             if(pagelink == '21')
-            	var locationaddress = 'errand-runner-odd-jobs-personal-assistant-driver';
-             if(pagelink == '22')
-            	var locationaddress = 'special-needs-caregiver';
-             if(pagelink == '23')
-            	var locationaddress = 'pediatric-baby-nurse';
-             if(pagelink == '24')
-            	var locationaddress = 'cleaning-household-help';            
-             if(pagelink == '25' || pagelink == '31')
-                var locationaddress = 'workers-staff-for-childcare-facility';
-            if(pagelink == '26' || pagelink == '35')
-                var locationaddress = 'workers-staff-for-senior-care-facility';
-            if(pagelink == '27' || pagelink == '36')
-                var locationaddress = 'workers-staff-for-special-needs-facility';
-             if(pagelink == '28' || pagelink == '38')
-                var locationaddress = 'workers-for-cleaning-company';
-            
-            if(pagelink == 'caregivers')
-                var locationaddress = 'all';
-            if(pagelink == 'jobs')
-                var locationaddress = 'all';
-            if(pagelink == 'organizations')
-                var locationaddress = 'all';
-            
-            if(type == 'caregivers')    
-                if (pagelink == '31' || pagelink == '35' || pagelink == '36' || pagelink == '38') {
-                    location.href = '<?php echo site_url();?>caregivers/organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
-                } else {
-                    location.href = '<?php echo site_url();?>caregivers/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
-                }
-            if(type == 'jobs')                    
-                location.href = '<?php echo site_url();?>jobs/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
-            if(type == 'organization_job')
-                location.href = '<?php echo site_url();?>caregivers/organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
-        } //end of navigate
     });			         
 </script>
 
