@@ -228,7 +228,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-6" style="margin-top: -4px;">
-            <div style="display: -webkit-inline-box;">
+            <div>
     		    <span>Results per page</span>
     			<span class="fifteens">
                     <select id="per_page">
