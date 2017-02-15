@@ -1,8 +1,9 @@
 <script>
     $("#locationSearch").ready(function(){        
-        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], { types: ['(regions)'] });
+        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], { types: ['geocode'] });
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                var place = autocomplete.getPlace();                    
+                var place = autocomplete.getPlace();  
+                console.log(place)
                 var lat = place.geometry.location.lat();
                 var lng = place.geometry.location.lng();                                
                 $("#lat").val(lat);
@@ -366,6 +367,13 @@
             $('#pagenum').val(1);
             filterCaregivers();
 		});
+		
+		$('input[name="location"]').on('blur', function() {
+		    var lat = $('#lat').val();
+		    if (!lat) {
+		        console.log('message')
+		    }
+		})
         
         //for pagination
         $(document).on('click','.paginate_click',function (e) {
@@ -511,9 +519,8 @@
         
         $('#searchButton').click(function(){
             var type = $('#careId').attr('data-type');
-            var ids = $('#careId').val()
-            console.log(type)
-            console.log(ids.join(','))
+            var ids = $('#careId').val() != null ? $('#careId').val() : ['<?php echo $careType ?>']
+            
             if (ids.length == 1) {
                 navigate(ids[0], type)
             }
