@@ -189,13 +189,13 @@
 	</t>
     within            
     <select name="sort_by_miles" id="sort_by_miles" style="cursor:pointer">        
-        <option value="1">1 Miles</option>
-        <option value="2">2 Miles</option>
-        <option value="5">5 Miles</option>
-        <option value="10">10 Miles</option>
-        <option value="30" selected="selected">30 Miles</option>
-        <option value="50">50 Miles</option>
-        <option value="unlimited">Unlimited Miles</option>
+        <option value="1" <?php if ($distance == 1) {echo 'selected="selected"';} ?>>1 Miles</option>
+        <option value="2" <?php if ($distance == 2) {echo 'selected="selected"';} ?>>2 Miles</option>
+        <option value="5" <?php if ($distance == 5) {echo 'selected="selected"';} ?>>5 Miles</option>
+        <option value="10" <?php if ($distance == 10) {echo 'selected="selected"';} ?>>10 Miles</option>
+        <option value="30" <?php if ($distance == 30) {echo 'selected="selected"';} ?>>30 Miles</option>
+        <option value="50" <?php if ($distance == 50) {echo 'selected="selected"';} ?>>50 Miles</option>
+        <option value="unlimited" <?php if ($distance == 'unlimited') {echo 'selected="selected"';} ?>>Unlimited Miles</option>
     </select>   
     <a id="searchButton" style="cursor:pointer" class="btn btn-primary ml10 btn-xs">Go</a>
 	<h3 class="total_rows hidden" style="margin-bottom: 0px">
@@ -224,19 +224,21 @@
         <div class="col-xs-12 col-sm-6" style="margin-bottom:5px">
             <div style="display: -webkit-inline-box;">
                 <input type="radio" name="sort_by_select" value="tbl_userprofile.id" checked> Sort by latest
-                <input type="radio" name="sort_by_select" value="distance"> Sort by distance
+                <input  style="margin-left:5px" type="radio" name="sort_by_select" value="distance"> Sort by distance
             </div>
         </div>
         <div class="col-xs-12 col-sm-6" style="margin-top: -4px;">
-		    <span>Results per Page</span>
-			<span class="fifteens">
-                <select id="per_page">
-					<option value="15">15</option>
-					<option value="25">25</option>
-					<option value="50">50</option>
-					<option value="100">100</option>
-				</select>
-			</span>
+            <div style="display: -webkit-inline-box;">
+    		    <span>Results per Page</span>
+    			<span class="fifteens">
+                    <select id="per_page">
+    					<option value="15">15</option>
+    					<option value="25">25</option>
+    					<option value="50">50</option>
+    					<option value="100">100</option>
+    				</select>
+    			</span>
+    		</div>
 		</div>
 	</div>
     <div class="navigations"></div>
@@ -519,19 +521,21 @@
             var lat = $('#lat').val();
             var lng = $('#lng').val();
             var place = $('#place').val();
+            var distance = $("#sort_by_miles").val();
             if (type == 'caregivers') {
-                location.href = '<?php echo site_url();?>caregivers/all?location=' + place + '&lat=' + lat + '&lng=' + lng + '&ids=' + ids;
+                location.href = '<?php echo site_url();?>caregivers/all?location=' + place + '&lat=' + lat + '&lng=' + lng + '&ids=' + ids +'&distance=' + distance;
             }
             if (type == 'jobs')                    
-                location.href = '<?php echo site_url();?>jobs/all?location=' + place + '&lat=' + lat + '&lng=' + lng + '&ids=' + ids;
+                location.href = '<?php echo site_url();?>jobs/all?location=' + place + '&lat=' + lat + '&lng=' + lng + '&ids=' + ids +'&distance=' + distance;
             if(type == 'organization_job')
-                location.href = '<?php echo site_url();?>caregivers/organizations/all?location=' + place + '&lat=' + lat + '&lng=' + lng + '&ids=' + ids;
+                location.href = '<?php echo site_url();?>caregivers/organizations/all?location=' + place + '&lat=' + lat + '&lng=' + lng + '&ids=' + ids +'&distance=' + distance;
         }
         
         function navigate(pagelink,type){
             var lat = $('#lat').val();
             var lng = $('#lng').val();
             var place = $('#place').val();
+            var distance = $("#sort_by_miles").val();
             console.log(pagelink)
             if(pagelink == '1')
                 var locationaddress = 'babysitter';
@@ -597,14 +601,14 @@
             
             if(type == 'caregivers')    
                 if (pagelink == '31' || pagelink == '35' || pagelink == '36' || pagelink == '38') {
-                    location.href = '<?php echo site_url();?>caregivers/organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
+                    location.href = '<?php echo site_url();?>caregivers/organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng +'&distance=' + distance;
                 } else {
-                    location.href = '<?php echo site_url();?>caregivers/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
+                    location.href = '<?php echo site_url();?>caregivers/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng +'&distance=' + distance;
                 }
             if(type == 'jobs')                    
-                location.href = '<?php echo site_url();?>jobs/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
+                location.href = '<?php echo site_url();?>jobs/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng +'&distance=' + distance;
             if(type == 'organization_job')
-                location.href = '<?php echo site_url();?>caregivers/organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng;
+                location.href = '<?php echo site_url();?>caregivers/organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng +'&distance=' + distance;
         } //end of navigate
     });			         
 </script>
