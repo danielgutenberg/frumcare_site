@@ -520,12 +520,6 @@
         $('#searchButton').click(function(){
             var type = $('#careId').attr('data-type');
             var ids = $('#careId').val() != null ? $('#careId').val() : ['<?php echo $careType ?>']
-<<<<<<< HEAD
-            
-=======
-            console.log(type)
-            console.log(ids.join(','))
->>>>>>> 1426254ff254b52210bd323ce4ec99d0ce1e25ef
             if (ids.length == 1) {
                 navigate(ids[0], type)
             }
