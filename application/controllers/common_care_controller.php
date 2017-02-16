@@ -175,16 +175,22 @@
             $this->breadcrumbs->push($title, site_url().'#');
             $this->breadcrumbs->unshift('Home', base_url());
                                             
-            $loc = $_GET;
-            if (isset($loc['location']) && isset($loc['lat']) && isset($loc['lng'])) {
-                $location = $loc['location'];
-                $latitude = $loc['lat'];
-                $longitude = $loc['lng'];
+            $query = $_GET;
+            if (isset($query['location']) && isset($query['lat']) && isset($query['lng'])) {
+                $location = $query['location'];
+                $latitude = $query['lat'];
+                $longitude = $query['lng'];
             } else {                               
                 $results = $this->common_model->get_location();
                 $latitude = $results['latitude'];
                 $longitude = $results['longitude'];
                 $location = $results['location'];
+            }
+            
+            if (isset($query['distance'])) {
+                $distance = $query['distance'];
+            } else {
+                $distance = 30;
             }
             $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
             
@@ -196,7 +202,8 @@
                 'account_category'  => $account_category,
                 'care_type'         => $care,
                 'location'          => $locationdetails,
-                'careId'            => explode(',', $loc['ids']),
+                'careId'            => explode(',', $query['ids']),
+                'distance'          => $distance
       		);
       		$this->load->view(FRONTEND_TEMPLATE, $data);
     	}
