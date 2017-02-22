@@ -58,6 +58,24 @@ class Imageupload_lib {
                     die('Unsupported File!'); //output error and exit
             }
             
+            $exif = exif_read_data($_FILES['0']['tmp_name']);
+            
+            if(!empty($exif['Orientation'])) {
+                switch($exif['Orientation']) {
+                    case 8:
+                        $CreatedImage = imagerotate($CreatedImage,90,0);
+                        break;
+                    case 3:
+                        $CreatedImage = imagerotate($CreatedImage,180,0);
+                        break;
+                    case 6:
+                        $CreatedImage = imagerotate($CreatedImage,-90,0);
+                        break;
+                }
+            }
+            
+            
+            
             //PHP getimagesize() function returns height/width from image file stored in PHP tmp folder.
             //Get first two values from image, width and height. 
             //list assign svalues to $CurWidth,$CurHeight
