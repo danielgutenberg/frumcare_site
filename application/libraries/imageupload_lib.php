@@ -57,8 +57,6 @@ class Imageupload_lib {
                 default:
                     die('Unsupported File!'); //output error and exit
             }
-            
-            print_rr(function_exists('exif_read_data'));
             $exif = exif_read_data($_FILES['0']['tmp_name']);
             if(!empty($exif['Orientation'])) {
                 switch($exif['Orientation']) {
