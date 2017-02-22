@@ -59,7 +59,7 @@ class Imageupload_lib {
             }
             
             $exif = exif_read_data($_FILES['0']['tmp_name']);
-            
+            print_rr(function_exists('exif_read_data'));
             if(!empty($exif['Orientation'])) {
                 switch($exif['Orientation']) {
                     case 8:
