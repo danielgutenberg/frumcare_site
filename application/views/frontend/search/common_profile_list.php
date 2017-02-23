@@ -103,9 +103,39 @@ $careType = [
                 <?php if ($data['account_category'] == 3) {?>
                 <span class="name">
 					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo ucwords($data['organization_name']);?></a>
+				                        <?php if(isset($data['driver_license']) && $data['driver_license'] == 1){ ?>
+                            <img src="<?php echo site_url()?>img/car-badge.png" title="Has a vehicle"/>
+                        <?php } ?>
+                        
+                        <?php /*if($data['email_status'] && $data['email_status'] == 1){ ?>
+                            <img src="<?php echo site_url()?>img/verified-badge.png" title="Email Verified Badge"/>
+                        <?php } */?>
+                        
+                        <?php if(in_array(strtolower('First Aid'), array_map('strtolower',$training_arr))){ ?>
+                            <img src="<?php echo site_url()?>img/first-aid-badge.png" title="Has first aid training"/>
+                        <?php } ?>
+                        
+                        <?php if(in_array(strtolower('CPR'), array_map('strtolower',$training_arr))){ ?>
+                            <img src="<?php echo site_url()?>img/health-badge.png" title="Has CPR training"/>
+                        <?php } ?>
 				</span>	<?php } else { ?>
 				<span class="name">
 					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo ucwords($data['name']);?></a>
+				                        <?php if(isset($data['driver_license']) && $data['driver_license'] == 1){ ?>
+                            <img src="<?php echo site_url()?>img/car-badge.png" title="Has a vehicle"/>
+                        <?php } ?>
+                        
+                        <?php /*if($data['email_status'] && $data['email_status'] == 1){ ?>
+                            <img src="<?php echo site_url()?>img/verified-badge.png" title="Email Verified Badge"/>
+                        <?php } */?>
+                        
+                        <?php if(in_array(strtolower('First Aid'), array_map('strtolower',$training_arr))){ ?>
+                            <img src="<?php echo site_url()?>img/first-aid-badge.png" title="Has first aid training"/>
+                        <?php } ?>
+                        
+                        <?php if(in_array(strtolower('CPR'), array_map('strtolower',$training_arr))){ ?>
+                            <img src="<?php echo site_url()?>img/health-badge.png" title="Has CPR training"/>
+                        <?php } ?>
 				</span>
 				<?php } ?>
                 <br>
@@ -137,44 +167,25 @@ $careType = [
                 if($data['care_type'] <10 ) {
                     $training_arr = explode(',',$data['training']); ?>
                     <div class="category-img">                            
-                        <?php if(isset($data['driver_license']) && $data['driver_license'] == 1){ ?>
-                            <img src="<?php echo site_url()?>img/car-badge.png" title="Has a vehicle"/>
-                        <?php } ?>
-                        
-                        <?php /*if($data['email_status'] && $data['email_status'] == 1){ ?>
-                            <img src="<?php echo site_url()?>img/verified-badge.png" title="Email Verified Badge"/>
-                        <?php } */?>
-                        
-                        <?php if(in_array(strtolower('First Aid'), array_map('strtolower',$training_arr))){ ?>
-                            <img src="<?php echo site_url()?>img/first-aid-badge.png" title="Has first aid training"/>
-                        <?php } ?>
-                        
-                        <?php if(in_array(strtolower('CPR'), array_map('strtolower',$training_arr))){ ?>
-                            <img src="<?php echo site_url()?>img/health-badge.png" title="Has CPR training"/>
-                        <?php } ?>
+
                     </div> <?php 
                 } ?>                        
 				<div class="line"></div>
 				
 				<div class="profiles-description">
 					<?php if(!empty($data['profile_description'])) { ?>
-                    <?php echo substr(trim($data['profile_description']), 0, 250)." .....";?>
+                    <?php echo substr(trim($data['profile_description']), 0, 270)?>
+                    <?php if (strlen(trim($data['profile_description'])) > 270) echo ' .....'; ?>
                     <?php } 
                     else {
                         if(!empty($data['job_description'])) {
-                            echo substr(trim($data['job_description']), 0, 250)." .....";
+                            echo substr(trim($data['job_description']), 0, 270);
+                             if (strlen(trim($data['profile_description'])) > 270) echo ' .....';
                         } else {
                             echo "Description not available";
                         }
                     } ?>
-				</div> <?php 
-                if($data['profile_description']!=''){?>							                           
-                    <a href="<?php echo site_url().$navigate; ?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>" style="color:#98C85A">
-						More
-					</a> <?php 
-                } ?>
-			    <br />
-			    
+				</div>
 			    			    <?php if($data['care_type'] != 7) { ?>
  			    <h5>Last Signed in: <?php 
  					$id 		= $data['user_id'];
@@ -324,8 +335,8 @@ $careType = [
                     <?php } ?>
                     
 				</div>
-                <div style="clear:both"></div>
-				 	<a href="<?php echo site_url().$navigate; ?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" >See Full Profile</a>
+				<div style="clear:both"></div>
+				 <a href="<?php echo site_url().$navigate; ?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="margin-top: 5px;">See Full Profile</a>
 			</div>
 		</div>
 		<div class="clearfix"></div>
