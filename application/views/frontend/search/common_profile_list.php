@@ -99,6 +99,11 @@ $careType = [
     	        	?>
     	        </div>
 	        </div>
+	        <?php
+	                        //for caregivers
+                if($data['care_type'] <10 ) {
+                    $training_arr = explode(',',$data['training']); ?>
+            <?php }?>
         	<div class="profile-list-details col-md-9 col-sm-9 col-xs-12">
                 <?php if ($data['account_category'] == 3) {?>
                 <span class="name">
@@ -162,14 +167,7 @@ $careType = [
                 if($data['care_type'] > 16){
                     echo $type .' needed - '.$loca;                                                               
                 } 
-                
-                //for caregivers
-                if($data['care_type'] <10 ) {
-                    $training_arr = explode(',',$data['training']); ?>
-                    <div class="category-img">                            
-
-                    </div> <?php 
-                } ?>                        
+               ?>                        
 				<div class="line"></div>
 				
 				<div class="profiles-description">
