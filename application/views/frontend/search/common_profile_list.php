@@ -174,13 +174,13 @@ $careType = [
 				
 				<div class="profiles-description">
 					<?php if(!empty($data['profile_description'])) { ?>
-                    <?php echo substr(trim($data['profile_description']), 0, 270)?>
-                    <?php if (strlen(trim($data['profile_description'])) > 270) echo ' .....'; ?>
+                    <?php echo substr(trim($data['profile_description']), 0, 263)?>
+                    <?php if (strlen(trim($data['profile_description'])) > 263) echo ' .....'; ?>
                     <?php } 
                     else {
                         if(!empty($data['job_description'])) {
-                            echo substr(trim($data['job_description']), 0, 270);
-                             if (strlen(trim($data['profile_description'])) > 270) echo ' .....';
+                            echo substr(trim($data['job_description']), 0, 263);
+                             if (strlen(trim($data['profile_description'])) > 263) echo ' .....';
                         } else {
                             echo "Description not available";
                         }
