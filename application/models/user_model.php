@@ -65,6 +65,15 @@ class User_model extends CI_Model
         else return false;
     }
     
+    public function getDuplicateEmail($email, $id)
+    {
+        $sql = "select * from tbl_user where email = '$email' and id != $id";
+        $query = $this->db->query($sql);
+        $res = $query->row_array();
+        if($res) return $res;
+        else return false;
+    }
+    
     public function getUserDetails($id)
     {
         $sql = "SELECT * FROM tbl_user where id = '$id'";
