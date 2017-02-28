@@ -60,7 +60,12 @@ class User extends CI_Controller
         if($_POST) {
             $data = $_POST;
             $uri = $this->common_model->create_slug(trim($data['name']));
-
+            
+            $res = $this->user_model->getDuplicateEmail($data['email'], check_user());
+            if ($res) {
+                $this->session->set_flashdata('fail', 'An account already exists with that email address.');
+                return redirect('user/edit/'.$id_hash);
+            }
             $edit = array(
                 'email'             => $data['email'],
                 'email_hash'        => sha1($data['email']),
@@ -69,17 +74,12 @@ class User extends CI_Controller
                 'uri'               => $uri
             );
 
-            try {
-                $q = $this->common_model->update('tbl_user', $edit, array('SHA1(id)' => $id_hash));
-                if($q) {
-                    $this->session->set_flashdata('info', 'Your account updated successfully.');
-                    redirect('user/dashboard');
-                } else {
-                    $this->session->set_flashdata('info', 'Your account could not be changed. Please try again.');
-                    redirect('user/edit/'.$id_hash);
-                }
-            } catch (\Exception $e) {
-                $this->session->set_flashdata('info', 'That email is already in use in the system. Please try again.');
+            $q = $this->common_model->update('tbl_user', $edit, array('SHA1(id)' => $id_hash));
+            if($q) {
+                $this->session->set_flashdata('info', 'Your account updated successfully.');
+                redirect('user/dashboard');
+            } else {
+                $this->session->set_flashdata('info', 'Your account could not be changed. Please try again.');
                 redirect('user/edit/'.$id_hash);
             }
         } else {

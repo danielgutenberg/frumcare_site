@@ -18,6 +18,12 @@ if(segment(3) != '') {
     <div class="searchloader mainsearch" style="display:none"></div>
     <div class="top-welcome">
             <h2>Edit Personal Details</h2>
+            <?php 
+		        if(user_flash()){
+		            echo user_flash();
+		        }
+    		    
+		    ?>
     </div>
 <div class="sign-up-form centeralign">
             <?php
