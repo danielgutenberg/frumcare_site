@@ -69,8 +69,8 @@ class User extends CI_Controller
                 'uri'               => $uri
             );
 
-            $q = $this->common_model->update('tbl_user', $edit, array('SHA1(id)' => $id_hash));
             try {
+                $q = $this->common_model->update('tbl_user', $edit, array('SHA1(id)' => $id_hash));
                 if($q) {
                     $this->session->set_flashdata('info', 'Your account updated successfully.');
                     redirect('user/dashboard');
