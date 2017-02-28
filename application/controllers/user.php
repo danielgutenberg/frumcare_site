@@ -70,11 +70,16 @@ class User extends CI_Controller
             );
 
             $q = $this->common_model->update('tbl_user', $edit, array('SHA1(id)' => $id_hash));
-            if($q) {
-                $this->session->set_flashdata('info', 'Your account updated successfully.');
-                redirect('user/dashboard');
-            } else {
-                $this->session->set_flashdata('info', 'Your account could not be changed. Please try again.');
+            try {
+                if($q) {
+                    $this->session->set_flashdata('info', 'Your account updated successfully.');
+                    redirect('user/dashboard');
+                } else {
+                    $this->session->set_flashdata('info', 'Your account could not be changed. Please try again.');
+                    redirect('user/edit/'.$id_hash);
+                }
+            } catch (\Exception $e) {
+                $this->session->set_flashdata('info', 'That email is already in use in the system. Please try again.');
                 redirect('user/edit/'.$id_hash);
             }
         } else {
@@ -697,7 +702,7 @@ class User extends CI_Controller
         }
       }
 
-      public function paymenthistory(){
+      public function paymenthistory() {
         $id = check_user();
         $this->breadcrumbs->push('Payment History', site_url().'#');
         $this->breadcrumbs->unshift('My Account', base_url().'user/dashboard');
