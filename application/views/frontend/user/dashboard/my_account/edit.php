@@ -53,7 +53,10 @@ if(segment(3) != '') {
         
     
     </form>
-    <form id="verification" action="<?php echo site_url();?>signup/resend-verification" method = "post">
+            <?php
+                $attributes = array('id' => 'verification', 'role' => 'form');
+                echo form_open(site_url() . 'signup/resend-verification', $attributes);
+            ?>
         <input id="hiddenName" type="hidden" name="name" value="<?php $nme = $organzation_name ? $organization_name : $name;  echo (isset($nme)) ? $nme : '' ?>"/>
         <input id="hiddenEmail" type="hidden" name="email" value="<?php echo (isset($email)) ? $email : '' ?>"/>
         <a id="submitForm" type="submit" value="Click Here" style="cursor:pointer;">Click here</a> to resend verification email.
