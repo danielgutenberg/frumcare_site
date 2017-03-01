@@ -36,9 +36,9 @@ class Signup extends CI_Controller
         );
         $this->db->where('id', check_user());
         $this->db->update('tbl_user', array('email' => $email, 'name' => $name, 'organization_name' => $name));
-        
         $this->send_confirmation($email,$name);
-        redirect('signup-successful');
+        $this->session->set_flashdata('success', 'A verification email has been sent to ' . $email);
+        redirect('user/dashboard');
     }
 
     function save_user($id = '')
