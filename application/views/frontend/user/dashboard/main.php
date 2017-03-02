@@ -96,22 +96,22 @@
 					</a>
 			</div>
 
-			<div class="notifications profile-block">
-				<a href="<?php echo site_url();?>user/notifications" class="profile-img">
-					<img src="<?php echo site_url();?>img/icon-dashboard/notification.png" title="My Notifications" alt="My Notifications">
-				</a>
+			<!--<div class="notifications profile-block">-->
+			<!--	<a href="<?php echo site_url();?>user/notifications" class="profile-img">-->
+			<!--		<img src="<?php echo site_url();?>img/icon-dashboard/notification.png" title="My Notifications" alt="My Notifications">-->
+			<!--	</a>-->
 				
-				<a href="<?php echo site_url();?>user/notifications" class="profie-name">
-					My Notifications
-				</a>
-			</div>
+			<!--	<a href="<?php echo site_url();?>user/notifications" class="profie-name">-->
+			<!--		My Notifications-->
+			<!--	</a>-->
+			<!--</div>-->
 
 			<div class="reviews profile-block">
 				<a href="<?php echo site_url();?>user/reviews" class="profile-img">
-					<img src="<?php echo site_url();?>img/icon-dashboard/review.png" title="My Reviews and Ratings" alt="My Reviews and Ratings">
+					<img src="<?php echo site_url();?>img/icon-dashboard/review.png" title="My Reviews and Ratings" alt="My Ratings and Reviews">
 				</a>
 				
-				<a href="<?php echo site_url();?>user/reviews" class="profie-name">My Reviews and Ratings</a>
+				<a href="<?php echo site_url();?>user/reviews" class="profie-name">My Ratings and Reviews</a>
 			</div>
 			<div class="favorites profile-block">
 					<a href="<?php echo site_url();?>user/favorites" class="profile-img">
