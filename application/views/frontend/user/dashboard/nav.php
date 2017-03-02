@@ -27,9 +27,7 @@
 		<li>
 			<a href="<?php echo base_url();?>user/searches" <?php if($this->uri->segment(2) == 'searches'){?> class="active" <?php }?> >My Search Alerts</a>
 		</li>
-		<li>
-			<a href="<?php echo base_url();?>user/notifications" <?php if($this->uri->segment(2) == 'notifications'){?> class="active" <?php }?> >My Notifications</a>
-		</li>
+
 		<li>
 			<a href="<?php echo base_url();?>user/reviews" <?php if($this->uri->segment(2) == 'reviews'){?> class="active" <?php }?> >My Ratings and Reviews</a>
 		</li>
