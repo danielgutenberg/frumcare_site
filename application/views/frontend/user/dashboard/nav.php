@@ -29,7 +29,7 @@
 		</li>
 
 		<li>
-			<a href="<?php echo base_url();?>user/reviews" <?php if($this->uri->segment(2) == 'reviews'){?> class="active" <?php }?> >My Ratings and Reviews</a>
+			<a href="<?php echo base_url();?>user/reviews" <?php if($this->uri->segment(2) == 'reviews'){?> class="active" <?php }?> >My Reviews</a>
 		</li>
 		<li>
 			<a href="<?php echo base_url();?>user/favorites" <?php if($this->uri->segment(2) == 'favorites'){?> class="active" <?php }?> >My Favorites</a>

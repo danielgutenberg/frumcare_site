@@ -108,10 +108,10 @@
 
 			<div class="reviews profile-block">
 				<a href="<?php echo site_url();?>user/reviews" class="profile-img">
-					<img src="<?php echo site_url();?>img/icon-dashboard/review.png" title="My Reviews and Ratings" alt="My Ratings and Reviews">
+					<img src="<?php echo site_url();?>img/icon-dashboard/review.png" title="My Reviews" alt="My Reviews">
 				</a>
 				
-				<a href="<?php echo site_url();?>user/reviews" class="profie-name">My Ratings and Reviews</a>
+				<a href="<?php echo site_url();?>user/reviews" class="profie-name">My Reviews</a>
 			</div>
 			<div class="favorites profile-block">
 					<a href="<?php echo site_url();?>user/favorites" class="profile-img">

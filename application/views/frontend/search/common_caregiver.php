@@ -344,6 +344,27 @@
                 if (json.location) {
                 	$('#locationaddress').text(json.location)
                 }
+                $('#half').raty({
+                     path       : '<?php echo site_url();?>img/',
+                     starHalf   : 'star-half.png',
+                     starOff    : 'star-off.png',
+                     starOn     : 'star-on.png',
+                     half  : true,
+                });
+            
+                $('.rating-score').each(function() {
+                     $(this).raty({
+                      path : '<?php echo site_url();?>img/',
+                      starHalf   : 'star-half.png',
+                      starOff    : 'star-off.png',
+                      starOn     : 'star-on.png',
+                      score	   : $(this).attr('id'),
+                      readOnly : true,
+                      half  : true,
+                      space : false
+                  });
+                });
+   
 			}
 		});
 	}
@@ -614,4 +635,9 @@
         } //end of navigate
     });			         
 </script>
+
+<link rel="stylesheet" href="<?php echo base_url();?>css/jquery.raty.css">
+<script src="<?php echo base_url();?>js/jquery.raty.js"></script>
+<!--<script src="<?php echo base_url();?>js/labs.js" type="text/javascript"></script>-->
+
 

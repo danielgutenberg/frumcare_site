@@ -141,8 +141,15 @@ $careType = [
                         <?php if(in_array(strtolower('CPR'), array_map('strtolower',$training_arr))){ ?>
                             <img src="<?php echo site_url()?>img/health-badge.png" title="Has CPR training"/>
                         <?php } ?>
+                        
+                        				<?php $reviews = $data['number_reviews']; ?>
+                   <div class="details-right-caregive" style="width:200px">
+                    <div class="rating-score" id="<?php echo ($data['total_review']/($reviews>0?$reviews:1));?>"></div>
+                    <span style="font-size:14px;font-weight: 400;vertical-align: text-bottom;">(<?php echo number_format($reviews);?> reviews)</span>
+                    </div>
 				</span>
 				<?php } ?>
+
                 <br>
                 <?php
                 $type = $careType[$data['care_type']];
@@ -167,7 +174,12 @@ $careType = [
                 if($data['care_type'] > 16){
                     echo $type .' needed - '.$loca;                                                               
                 } 
-               ?>                        
+               ?>   
+               
+    
+                    
+               
+               
 				<div class="line"></div>
 				
 				<div class="profiles-description">
@@ -345,3 +357,5 @@ $careType = [
 		echo 'No results found';
 	}
 ?>
+
+
