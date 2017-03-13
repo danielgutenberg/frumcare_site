@@ -105,7 +105,7 @@
       		 echo '<p>You have no reviews</p><br>';
       		    
       		}
-      		    if($account_category != 1) {
+      		    if($account_category == 1) {
       		echo form_open('user/requestreview') ?>
       		    <p>Invite an employer to write a review</p>
       		    <input name="name" type="text" placeholder="Name">
