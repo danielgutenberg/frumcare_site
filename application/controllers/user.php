@@ -311,10 +311,10 @@ class User extends CI_Controller
         $params = array(
             'from' => SITE_EMAIL,
             'from_name' => SITE_NAME,
-            'replyto' => SITE_REPLY_TO_EMAIL,
+            'replyto' => SITE_EMAIL,
             'replytoname' => SITE_NAME,
             'sendto' => $email,
-            'subject' => 'Please Write a Review',
+            'subject' => "You've been invited to write a review",
             'message' => $msg
         );
         sendemail($params);

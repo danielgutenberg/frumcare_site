@@ -143,9 +143,10 @@ $careType = [
                         <?php } ?>
                         
                         				<?php $reviews = $data['number_reviews']; ?>
-                   <div class="details-right-caregive" style="width:200px">
+                   <br>
+                   <div style="width:200px">
                     <div class="rating-score" id="<?php echo ($data['total_review']/($reviews>0?$reviews:1));?>"></div>
-                    <span style="font-size:14px;font-weight: 400;vertical-align: text-bottom;">(<?php echo number_format($reviews);?> reviews)</span>
+                    <span style="font-size:14px;font-weight: 400;vertical-align: middle;">(<?php echo number_format($reviews);?> reviews)</span>
                     </div>
 				</span>
 				<?php } ?>
