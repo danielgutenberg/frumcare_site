@@ -27,7 +27,7 @@ if($detail){
 	$sick_child_care = $detail[0]['sick_child_care'];
     $references = $detail[0]['references'];
     $photo_of_child = $detail[0]['photo_of_child'];
-    if (isset($detail[0]['start_date'])) {
+    if (isset($detail[0]['start_date']) && $detail[0]['start_date'] != '0000-00-00') {
         if ( date_create_from_format( 'Y-m-d', $detail[0]['start_date'] ) ) {
             $date = date_create_from_format('Y-m-d', $detail[0]['start_date'])->format('m/d/Y');
         } else {

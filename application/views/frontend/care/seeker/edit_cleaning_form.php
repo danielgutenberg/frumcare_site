@@ -21,7 +21,7 @@ if($detail){
     $rooms = $detail[0]['number_of_rooms'];
     $willing_to_work = explode(',',$detail[0]['willing_to_work']);
     //$gender_of_caregiver = explode(',',$user_detail['gender_of_caregiver']);
-    if (isset($detail[0]['start_date'])) {
+    if (isset($detail[0]['start_date']) && $detail[0]['start_date'] != '0000-00-00') {
         if ( date_create_from_format( 'Y-m-d', $detail[0]['start_date'] ) ) {
             $date = date_create_from_format('Y-m-d', $detail[0]['start_date'])->format('m/d/Y');
         } else {

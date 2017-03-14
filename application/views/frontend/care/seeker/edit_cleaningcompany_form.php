@@ -17,7 +17,7 @@ if($detail){
     $langtemp = explode(',', $detail[0]['language']);
     $exp = $detail[0]['experience'];
     $smoker = explode(',', $detail[0]['smoker']);
-    if (isset($detail[0]['start_date'])) {
+    if (isset($detail[0]['start_date']) && $detail[0]['start_date'] != '0000-00-00') {
         if ( date_create_from_format( 'Y-m-d', $detail[0]['start_date'] ) ) {
             $date = date_create_from_format('Y-m-d', $detail[0]['start_date'])->format('m/d/Y');
         } else {

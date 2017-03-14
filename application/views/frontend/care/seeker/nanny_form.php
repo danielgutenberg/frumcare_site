@@ -85,8 +85,7 @@ $user_detail = get_user(check_user());
         		<div class="checkbox"><input type="checkbox" value="Occassionally" name="availability[]">Occassionally</div>
                 <div class="checkbox"><input type="checkbox" value="Regularly" name="availability[]">Regularly</div>    
         		<div class="checkbox"><input type="checkbox" value="Asap" name="availability[]"/> Asap</div>
-        		<div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date
-        		<input  type="text" name="start_date" id="textbox1"/></div>
+        		<div class="checkbox full"><input type="checkbox" value="Start Date" name="availability[]" id="ckbox1"/>Start Date <input  type="text" name="start_date" id="dateTextbox"/></div>
                 <div class="checkbox"><input type="checkbox" value="Morning" name="availability[]"> Morning</div>
                 <div class="checkbox"><input type="checkbox" value="Afternoon" name="availability[]">Afternoon</div>
         		<div class="checkbox"><input type="checkbox" value="Evening" name="availability[]"> Evening</div>
