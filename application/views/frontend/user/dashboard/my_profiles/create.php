@@ -84,6 +84,10 @@ $(document).ready(function(){
     $($('h1')[1]).css('display', 'none')
     $('#result .ad-form-container').css('margin-left', '-18px')
     
+    $('#care_type').on('change',function(){
+        location.href = '<?php echo site_url();?>ad/new_profile/' + $("#all_cares").val()
+    }); 
+    
     var ac = "<?php echo $ac?>";
     var oc = "<?php echo $oc?>";    
     if(ac != '3'){     

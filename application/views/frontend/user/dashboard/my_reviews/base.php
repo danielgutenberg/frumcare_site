@@ -15,7 +15,13 @@
            	}
         ?>
         <div class="top-welcome">
-            <h2>My Ratings and Reviews</h2>
+            <h2>My Reviews</h2>
+            <?php 
+		        if(user_flash()){
+		            echo user_flash();
+		        }
+    		    
+		    ?>
         </div>
         <div class="seperator"></div>
         <?php 	
@@ -95,9 +101,18 @@
                 <?php
                     echo $links;
             }
-      		else{
- 			    echo "You have no ratings and reviews";
+      		else{ 
+      		 echo '<p>You have no reviews</p><br>';
+      		    
       		}
+      		    if($account_category == 1) {
+      		echo form_open('user/requestreview') ?>
+      		    <p>Invite an employer to write a review</p>
+      		    <input name="name" type="text" placeholder="Name">
+      		    <input name="email" type="email" placeholder="Email Address">
+      		    <input type="submit" class="btn btn-success" value="Send Request"/>
+      		    </form>
+      		<?php }
         	?>
      </div>
 </div>

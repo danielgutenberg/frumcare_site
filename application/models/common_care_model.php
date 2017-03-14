@@ -116,7 +116,7 @@ class Common_care_model extends CI_Model
             $skills               = $search['skills'];
 		}
 		
-		$sql = "select (SELECT MAX(login_time) FROM tbl_user_logs WHERE tbl_user_logs.user_id = tbl_userprofile.user_id) AS login_time, tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* from tbl_user left outer join  tbl_userprofile on tbl_user.id = tbl_userprofile.user_id left outer join tbl_care on tbl_care.id = tbl_userprofile.care_type where tbl_user.status = 1 and tbl_userprofile.profile_status=1";			
+		$sql = "select (SELECT MAX(login_time) FROM tbl_user_logs WHERE tbl_user_logs.user_id = tbl_userprofile.user_id) AS login_time, (select count(tbl_reviews.profile_id) from tbl_reviews where tbl_reviews.profile_id = tbl_userprofile.id) as number_reviews, (select sum(tbl_reviews.review_rating) from tbl_reviews where tbl_reviews.profile_id = tbl_userprofile.id) as total_review, tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* from tbl_user left outer join  tbl_userprofile on tbl_user.id = tbl_userprofile.user_id left outer join tbl_care on tbl_care.id = tbl_userprofile.care_type where tbl_user.status = 1 and tbl_userprofile.profile_status=1";			
 
 		if ($care_type == 'caregivers') {
 		    $sql .= " and tbl_care.service_type = 1";

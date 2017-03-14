@@ -20,7 +20,7 @@ if($detail){
     $langtemp               = explode(',', $detail[0]['language']);
     $exp                    = $detail[0]['experience'];
     $religious_observance   = $detail[0]['religious_observance'];
-    if (isset($detail[0]['start_date'])) {
+    if (isset($detail[0]['start_date']) && $detail[0]['start_date'] != '0000-00-00') {
         if ( date_create_from_format( 'Y-m-d', $detail[0]['start_date'] ) ) {
             $date = date_create_from_format('Y-m-d', $detail[0]['start_date'])->format('m/d/Y');
         } else {
@@ -28,7 +28,8 @@ if($detail){
         }
     } else {
         $date = '00-00-0000';
-    }$reference_file         = $detail[0]['reference_file'];
+    }
+    $reference_file         = $detail[0]['reference_file'];
     $rate                   = $detail[0]['rate'];
     $rate_type              = explode(',',$detail[0]['rate_type']);
     $job_position           = $detail[0]['job_position'];

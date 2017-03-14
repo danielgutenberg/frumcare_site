@@ -298,6 +298,31 @@ class User extends CI_Controller
         $this->load->view(FRONTEND_TEMPLATE,$data);
 
     }
+    
+    public function requestreview()
+    {
+        $data = $_POST;
+        $email = $data['email'];
+        $name = $data['name'];
+        
+        $user = get_user2(check_user());
+        
+        $msg = $this->load->view('frontend/email/requestreview', array('name' => $name, 'email' => $email, 'user' => $user[0]), true);
+        $params = array(
+            'from' => SITE_EMAIL,
+            'from_name' => SITE_NAME,
+            'replyto' => SITE_EMAIL,
+            'replytoname' => SITE_NAME,
+            'sendto' => $email,
+            'subject' => "You've been invited to write a review",
+            'message' => $msg
+        );
+        sendemail($params);
+        
+        $this->session->set_flashdata('success', 'A request has been sent to ' . $email);
+        
+        redirect('user/reviews');
+    }
       
     public function profile()
     {
