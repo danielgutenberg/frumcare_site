@@ -141,13 +141,15 @@ $careType = [
                         <?php if(in_array(strtolower('CPR'), array_map('strtolower',$training_arr))){ ?>
                             <img src="<?php echo site_url()?>img/health-badge.png" title="Has CPR training"/>
                         <?php } ?>
-                        
-                        				<?php $reviews = $data['number_reviews']; ?>
+                        <?php if($data['care_type'] < 17){
+                        	$reviews = $data['number_reviews']; ?>
                    <br>
                    <div style="width:200px">
                     <div class="rating-score" id="<?php echo ($data['total_review']/($reviews>0?$reviews:1));?>"></div>
                     <span style="font-size:14px;font-weight: 400;vertical-align: middle;">(<?php echo number_format($reviews);?> reviews)</span>
+                    
                     </div>
+                    <?php } ?>
 				</span>
 				<?php } ?>
 

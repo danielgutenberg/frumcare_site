@@ -61,6 +61,7 @@ class Help extends CI_Controller{
                 'subject'     => 'Help Needed',
                 'from'        => SITE_EMAIL,
                 'from_name'   => SITE_NAME,
+                'replyto'     => $email,
                 'sendto'      => 'info@frumcare.com',
                 'message'     => $msg,
                 'bcc'         => ['danielguten@gmail.com' => 'Daniel Gutenberg']
