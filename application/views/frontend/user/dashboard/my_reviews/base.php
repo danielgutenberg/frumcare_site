@@ -107,11 +107,11 @@
       		}
       		    if($account_category == 1) {
       		echo form_open('user/requestreview') ?>
-      		    <!--<p>Invite an employer to write a review</p>-->
-      		    <!--<input name="name" type="text" placeholder="Name">-->
-      		    <!--<input name="email" type="email" placeholder="Email Address">-->
-      		    <!--<input type="submit" class="btn btn-success" value="Send Request"/>-->
-      		    <!--</form>-->
+      		    <p>Invite an employer to write a review</p>
+      		    <input name="name" type="text" placeholder="Name">
+      		    <input name="email" type="email" placeholder="Email Address">
+      		    <input type="submit" class="btn btn-success" value="Send Request"/>
+      		    </form>
       		<?php }
         	?>
      </div>
