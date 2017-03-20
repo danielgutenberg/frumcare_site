@@ -114,6 +114,7 @@
       		    </form>
       		<?php }
         	?>
+        	<div class="sharethis-inline-share-buttons" data-url="<?php echo site_url('jobs/details/' . get_user2(check_user())['uri'] . '/' . get_user2(check_user())['care_type'])?>" data-title="Please review this profile"></div>
      </div>
 </div>
 

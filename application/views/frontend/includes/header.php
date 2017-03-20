@@ -64,6 +64,7 @@
             window._fbq.push(['track', '6030516600835', {'value':'0.01','currency':'ILS'}]);
         </script>
         <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6030516600835&amp;cd[value]=0.01&amp;cd[currency]=ILS&amp;noscript=1" /></noscript>
+        <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=58cf9555115dd2001125f310&product=custom-share-buttons"></script>
 </head>
 <body>
 
