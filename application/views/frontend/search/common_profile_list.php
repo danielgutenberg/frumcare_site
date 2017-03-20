@@ -143,10 +143,10 @@ $careType = [
                         <?php } ?>
                         <?php if($data['care_type'] < 17){
                         	$reviews = $data['number_reviews']; ?>
-                   <br>
-                   <div style="width:200px">
-                    <div class="rating-score" id="<?php echo ($data['total_review']/($reviews>0?$reviews:1));?>"></div>
-                    <span style="font-size:14px;font-weight: 400;vertical-align: middle;">(<?php echo number_format($reviews);?> reviews)</span>
+                   <!--<br>-->
+                   <!--<div style="width:200px">-->
+                   <!-- <div class="rating-score" id="<?php echo ($data['total_review']/($reviews>0?$reviews:1));?>"></div>-->
+                   <!-- <span style="font-size:14px;font-weight: 400;vertical-align: middle;">(<?php echo number_format($reviews);?> reviews)</span>-->
                     
                     </div>
                     <?php } ?>
