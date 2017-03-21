@@ -105,16 +105,12 @@
       		 echo '<p>You have no reviews</p><br>';
       		    
       		}
-      		    if($account_category == 1) {
-      		echo form_open('user/requestreview') ?>
-      		    <!--<p>Invite an employer to write a review</p>-->
-      		    <!--<input name="name" type="text" placeholder="Name">-->
-      		    <!--<input name="email" type="email" placeholder="Email Address">-->
-      		    <!--<input type="submit" class="btn btn-success" value="Send Request"/>-->
-      		    </form>
+      		    if($account_category == 1) { ?>
+      		    <p>Invite employers to write a review</p>
+      		<div class="sharethis-inline-share-buttons" data-url="<?php echo site_url('jobs/details/' . get_user2(check_user())['uri'] . '/' . get_user2(check_user())['care_type'])?>" data-title="Please review this profile"></div>
       		<?php }
         	?>
-        	<div class="sharethis-inline-share-buttons" data-url="<?php echo site_url('jobs/details/' . get_user2(check_user())['uri'] . '/' . get_user2(check_user())['care_type'])?>" data-title="Please review this profile"></div>
+        	
      </div>
 </div>
 
