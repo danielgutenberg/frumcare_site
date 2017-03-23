@@ -13,6 +13,12 @@ class Caregivers extends CI_Controller
         $this->load->model('common_care_model');
         $this->ipaddress = $_SERVER['REMOTE_ADDR'];
     }
+    
+    public function review($slug,$care_type)
+    {
+        $this->session->set_flashdata('review', true);
+        return redirect('jobs/details/' . $slug . '/' . $care_type);
+    }
 
     public function details($slug,$care_type){
         $slug = urldecode($this->uri->segment(3));
@@ -35,7 +41,7 @@ class Caregivers extends CI_Controller
         $data['number_reviews'] = $this->review_model->countReviewById($details['id']);
         $data['userlog']        = $this->user_model->getUserLogById($details['user_id']);
         $data['similar_types']  = $this->user_model->getSimilarPersons($details['care_type'],$details['id']);
-        $data['care_id']        = $details['id']; 
+        $data['care_id']        = $details['id'];
         
         $this->load->view(FRONTEND_TEMPLATE,$data);
     }

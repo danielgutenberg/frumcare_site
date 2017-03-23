@@ -755,6 +755,36 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 </div>
 </div>
 </div>
+
+                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Request to Review My Profile</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="share-profile">
+    								
+                                    <h2>Request to Review this profile</h2>
+                                    <div class="share-profile-via">
+                                      <span st_url="<?php echo current_url();?>" class='st_facebook_large' displayText='Facebook'></span>
+                                      <span st_url="<?php echo current_url();?>" class='st_twitter_large' displayText='Tweet'></span>
+                                      <span st_url="<?php echo current_url();?>" class='st_sharethis_large' displayText='ShareThis'></span>
+                                      <span st_url="<?php echo current_url();?>" class='st_email_large' displayText='Email'></span>
+                                  </div>
+                              </div>
+
+                                    <div class="modal-footer">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
 </div>
 
 <link rel="stylesheet" href="<?php echo base_url();?>css/jquery.raty.css">
@@ -850,7 +880,15 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 
 <script type="text/javascript" src="<?php echo base_url();?>js/gmaps.js"></script>
 
-
+<?php 
+$ci = &get_instance();
+if ($ci->session->flashdata('review')) { ?>
+<script>
+    $(document).ready(function(){
+        $('#myModal2').modal('show');
+    })
+</script>
+<?php } ?>
 
 <!-- scroll js ends -->
 <script>

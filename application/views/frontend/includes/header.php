@@ -11,6 +11,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta property="og:title" content="Write a Review" />
+    <meta property="og:type" content="Sharing Widgets" />
+    <meta property="og:url" content="<?php echo current_url(); ?>" />
+    <meta property="og:description" content="Please write a review on my profile" />
+    <meta property="og:site_name" content="FrumCare.com" />
         <?php
             header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
             header("Cache-Control: post-check=0, pre-check=0", false);
