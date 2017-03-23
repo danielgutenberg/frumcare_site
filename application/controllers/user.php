@@ -334,7 +334,7 @@ class User extends CI_Controller
         $data['account_category'] = $this->session->userdata('account_category');
         $data['all_profile'] =$this->user_model->get_all_profile();
         $data['main_content'] = ('frontend/user/dashboard/my_profiles/base');
-
+        
         $this->load->view(FRONTEND_TEMPLATE,$data);
     }
       

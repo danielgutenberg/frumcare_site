@@ -684,7 +684,6 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                                       <span class='st_twitter_large' displayText='Tweet'></span>
                                       <span class='st_sharethis_large' displayText='ShareThis'></span>
                                       <span class='st_email_large' displayText='Email'></span>
-                                      <span><img src="<?php echo site_url();?>img/instagramsquare.png" alt="Smiley face" height="36" width="36" style="margin-bottom: 23px;"></span>
                                   </div>
                               </div>
                           </div>
@@ -761,12 +760,12 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Request to Review My Profile</h4>
+                                    <h4 class="modal-title" id="myModalLabel">Invite Employers to Write a Review</h4>
                                 </div>
                                 <div class="modal-body">
                                     <div class="share-profile">
     								
-                                    <h2>Request to Review this profile</h2>
+                                    <h2>Invite an Employer to Write a Review</h2>
                                     <div class="share-profile-via">
                                       <span st_url="<?php echo current_url();?>" class='st_facebook_large' displayText='Facebook'></span>
                                       <span st_url="<?php echo current_url();?>" class='st_twitter_large' displayText='Tweet'></span>

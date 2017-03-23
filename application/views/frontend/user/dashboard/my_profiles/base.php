@@ -62,3 +62,5 @@ $oc = $this->session->userdata('organization_care');
 	</div><!--dashboard-right-->
 </div>
 
+<link rel="stylesheet" href="<?php echo base_url();?>css/jquery.raty.css">
+<script src="<?php echo base_url();?>js/jquery.raty.js"></script>
