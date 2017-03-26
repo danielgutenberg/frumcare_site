@@ -766,6 +766,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                                     <div class="share-profile">
     								
                                     <h2>Invite an Employer to Write a Review</h2>
+                                    <h5 style="padding-left: 13px;">(Choose an option below and add a personal message)</h3>
                                     <div class="share-profile-via">
                                       <span st_url="<?php echo current_url();?>" class='st_facebook_large' displayText='Facebook'></span>
                                       <span st_url="<?php echo current_url();?>" class='st_twitter_large' displayText='Tweet'></span>
