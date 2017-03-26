@@ -336,7 +336,7 @@ $careType = [
 		</div>
 		<div class="clearfix"></div>
 		<?php if($data['care_type'] < 17) { ?>
-      		    <a href="<?php echo site_url('caregivers/review/' . get_user2(check_user())[0]['uri'] . '/' . $data['care_type'])?>" type="submit" class="btn btn-success" value="Sign In" style="min-width:150px; margin-left:-15px; padding-top:10px; padding-bottom:10px">Invite employers to write a review</a>
+      		    <a href="<?php echo site_url('caregivers/review/' . get_user2(check_user())[0]['uri'] . '/' . $data['care_type'])?>" type="submit" class="btn btn-success" value="Sign In" style="min-width:150px; margin-left:-15px; margin-top:10px; margin-bottom:10px">Invite employers to write a review</a>
       		<?php }
         	?>
         <?php 		
