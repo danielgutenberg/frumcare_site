@@ -106,7 +106,9 @@
       		    
       		}
       		    if($account_category == 1) { ?>
-      		    <a href="<?php echo site_url('caregivers/review/' . get_user2(check_user())[0]['uri'] . '/' . get_user2(check_user())[0]['care_type'])?>" type="submit" class="btn btn-success" value="Sign In" style="min-width:100px; margin-left:-15px">Invite employers to write a review</a>
+      		    <div>
+      		    <a href="<?php echo site_url('caregivers/review/' . get_user2(check_user())[0]['uri'] . '/' . get_user2(check_user())[0]['care_type'])?>" type="submit" class="btn btn-success" value="Sign In">Invite employers to write a review</a>
+      		    </div>
       		<?php }
         	?>
         	

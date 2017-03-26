@@ -335,9 +335,8 @@ class User extends CI_Controller
         $data['all_profile'] =$this->user_model->get_all_profile();
         $data['main_content'] = ('frontend/user/dashboard/my_profiles/base');
         foreach ($data['all_profile'] as &$profile) {
-            $profile = array_merge($profile,$this->review_model->countReviewById($profile['id']));
+            $profile = array_merge($profile,$this->review_model->countReviewById($profile['profileId']));
         }
-        
         $this->load->view(FRONTEND_TEMPLATE,$data);
     }
       
