@@ -51,13 +51,13 @@
 
 
 <div class="share-profile-wrap" style="padding-bottom:-10px">
-	<div class="share-profile" style="font-size:16px; padding:1px">
-		<p style ="padding:2px">Want to have more options when you need them? </p>
-		<p style ="padding:2px">	Help grow the FrumCare.com community! </p>
-		<p style ="padding:2px">More people = More options = More matches!</p>
+	<div class="share-profile" style="font-size:16px; padding:1px; background-color:#1c75ba;">
+		<p style ="padding:2px; color:white;">Want to have <i>more</i> options when you need them? </p>
+		<p style ="padding:2px; color:white;">	Help grow the FrumCare.com community! </p>
+		<p style ="padding:2px; color:white;">More people = More options = More matches!</p>
 		
 		<div style="text-align:center; padding-bottom: 10px;">
-		<?php echo anchor('user/invite',"Invite Friends",'class="btn btn-info"');?>
+		<?php echo anchor('user/invite',"Invite Friends",'class="btn btn-info" style="background-color:#8ec931 !important"');?>
 		</div>
 	</div>
 </div>
