@@ -51,7 +51,7 @@
 
 
 <div class="share-profile-wrap" style="padding-bottom:-10px">
-	<div class="share-profile" style="font-size:16px; padding:1px; background-color:#1c75ba; text-align:center">
+	<div class="share-profile" style="font-size:16px; padding:1px; background-color:#27aae0; text-align:center">
 		<p style ="padding:2px; color:white;">Want <i>more</i> options when <br> you need them? </p>
 		<p style ="padding:2px; color:white; font-size:24px; font-weight: 700;">	Help grow <br> FrumCare.com! </p>
 		<p style ="padding:2px; color:white;">More people = More <br> options = More matches</p>
