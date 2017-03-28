@@ -684,6 +684,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                                       <span class='st_twitter_large' displayText='Tweet'></span>
                                       <span class='st_sharethis_large' displayText='ShareThis'></span>
                                       <span class='st_email_large' displayText='Email'></span>
+                                      <span class='st_whatsapp_large' displayText='Whatsapp'></span>
                                   </div>
                               </div>
                           </div>
@@ -772,6 +773,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                                       <span st_url="<?php echo current_url();?>" class='st_twitter_large' displayText='Tweet'></span>
                                       <span st_url="<?php echo current_url();?>" class='st_sharethis_large' displayText='ShareThis'></span>
                                       <span st_url="<?php echo current_url();?>" class='st_email_large' displayText='Email'></span>
+                                      <span st_url="<?php echo current_url();?>" class='st_whatsapp_large' displayText='Whatsapp'></span>
                                   </div>
                               </div>
 

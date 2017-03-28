@@ -261,6 +261,7 @@
                                       <span st_url="<?php echo current_url();?>" class='st_twitter_large' displayText='Tweet'></span>
                                       <span st_url="<?php echo current_url();?>" class='st_sharethis_large' displayText='ShareThis'></span>
                                       <span st_url="<?php echo current_url();?>" class='st_email_large' displayText='Email'></span>
+                                      <span st_url="<?php echo current_url();?>" class='st_whatsapp_large' displayText='Whatsapp'></span>
                                   </div>
                               </div>
 
