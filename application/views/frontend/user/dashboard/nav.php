@@ -50,8 +50,7 @@
 </div>
 
 
-<div class="share-profile-wrap" style="padding-bottom:-10px">
-	<div class="share-profile" style="font-size:16px; padding:1px; background-color:#27aae0; text-align:center">
+<div class="share-profile-wrap" style="border:none; font-size:16px; background-color:#27aae0; text-align:center">
 		<p style ="padding:2px; color:white;">Want <i>more</i> options when <br> you need them? </p>
 		<p style ="padding:2px; color:white; font-size:24px; font-weight: 700;">	Help grow <br> FrumCare.com! </p>
 		<p style ="padding:2px; color:white;">More people = More <br> options = More matches</p>
@@ -59,5 +58,4 @@
 		<div style="text-align:center; padding-bottom: 10px;">
 		<?php echo anchor('user/invite',"Invite Friends",'class="btn btn-info" style="background-color:#8ec931 !important"');?>
 		</div>
-	</div>
 </div>
