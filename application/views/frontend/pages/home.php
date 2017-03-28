@@ -244,7 +244,33 @@
         </section>
 
         <!--end .safety-first-->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Invite Friends to Join</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="share-profile">
+    								
+                                    <h2>Invite Your Friends to Join</h2>
+                                    <h5 style="padding-left: 13px;">(Choose an option below and add a personal message)</h3>
+                                    <div class="share-profile-via">
+                                      <span st_url="<?php echo current_url();?>" class='st_facebook_large' displayText='Facebook'></span>
+                                      <span st_url="<?php echo current_url();?>" class='st_twitter_large' displayText='Tweet'></span>
+                                      <span st_url="<?php echo current_url();?>" class='st_sharethis_large' displayText='ShareThis'></span>
+                                      <span st_url="<?php echo current_url();?>" class='st_email_large' displayText='Email'></span>
+                                  </div>
+                              </div>
 
+                                    <div class="modal-footer">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
         <section class="client-say">
             <div class="container">
                 <div class="row">
@@ -376,3 +402,17 @@
                 });
              });
 </script>
+<?php 
+$ci = &get_instance();
+if ($ci->session->flashdata('review')) { ?>
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "fcfd27c1-d440-47b3-bb5e-17abb292ed1f", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+<script>
+    $(document).ready(function(){
+        $('#myModal2').modal('show');
+    })
+</script>
+<?php } ?>
+
+

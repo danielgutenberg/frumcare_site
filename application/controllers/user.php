@@ -24,6 +24,12 @@ class User extends CI_Controller
         redirect('user/dashboard','refresh');
     }
     
+    public function invite($slug,$care_type)
+    {
+        $this->session->set_flashdata('review', true);
+        return redirect('/');
+    }
+    
     function dashboard()
     {
         $id = $this->session->userdata['current_user'];

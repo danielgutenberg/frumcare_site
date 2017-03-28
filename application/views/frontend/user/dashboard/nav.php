@@ -13,7 +13,7 @@
 			        $profile1='My Job';*/
 		}
 ?>
-<div class="dashboard-nav">
+<div class="dashboard-nav" style="height: 375px;">
 	<ul>
 		<li>
 			<a href="<?php echo base_url();?>user/dashboard" <?php if($this->uri->segment(2) == 'dashboard'){?> class="active" <?php }?> >My Home</a>
@@ -47,4 +47,17 @@
 			<a href="<?php echo base_url();?>user/paymenthistory" <?php if($this->uri->segment(2) == 'paymenthistory'){?> class="active" <?php }?>>My Payment History</a>
 		</li>
 	</ul>
+</div>
+
+
+<div class="share-profile-wrap" style="padding-bottom:-10px">
+	<div class="share-profile" style="font-size:16px; padding:1px">
+		<p style ="padding:2px">Want to have more options when you need them? </p>
+		<p style ="padding:2px">	Help grow the FrumCare.com community! </p>
+		<p style ="padding:2px">More people = More options = More matches!</p>
+		
+		<div style="text-align:center; padding-bottom: 10px;">
+		<?php echo anchor('user/invite',"Invite Friends",'class="btn btn-info"');?>
+		</div>
+	</div>
 </div>
