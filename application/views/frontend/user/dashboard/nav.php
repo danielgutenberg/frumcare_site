@@ -55,7 +55,7 @@
 		<p style ="padding:2px; color:white; font-size:24px; font-weight: 700;">	Help grow <br> FrumCare.com! </p>
 		<p style ="padding:2px; color:white;">More people = More <br> options = More matches</p>
 		
-		<div style="text-align:center; padding-bottom: 10px;">
+		<div style="text-align:center; padding-bottom: 15px;">
 		<?php echo anchor('user/invite',"Invite Friends",'class="btn btn-info" style="background-color:#8ec931 !important"');?>
 		</div>
 </div>
