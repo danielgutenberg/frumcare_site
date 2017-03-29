@@ -175,10 +175,5 @@
         $('[title="HolyClock.com"]').addClass('holyclock-img')
     });
 </script>
-<!-- BEGIN ADVERTSERVE CODE -->
-<script type="text/javascript">
-    document.write('<scr'+'ipt src="http://servedby.jewishcontentnetwork.com/servlet/view/banner/javascript/zone?zid=45&pid=0&lightbox=true&autoclose=15&polite=false&resolution='+(window.innerWidth||screen.width)+'x'+(window.innerHeight||screen.height)+'&random='+Math.floor(89999999*Math.random()+10000000)+'&millis='+new Date().getTime()+'&referrer='+encodeURIComponent((window!=top&&window.location.ancestorOrigins)?window.location.ancestorOrigins[window.location.ancestorOrigins.length-1]:document.location)+'" type="text/javascript"></scr'+'ipt>');
-</script>
-<!-- END ADVERTSERVE CODE -->
 </body>
 </html>

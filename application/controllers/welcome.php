@@ -29,6 +29,12 @@ class Welcome extends CI_Controller {
         $this->load->view(FRONTEND_TEMPLATE, $data);
 	}
 	
+	public function invite($slug,$care_type)
+    {
+        $this->session->set_flashdata('review', true);
+        return redirect('/');
+    }
+	
 	function sync()
 	{
     //     $this->load->model('user_model');
