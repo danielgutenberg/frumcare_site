@@ -723,8 +723,8 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                        
                                 <tr>
                                     <td><label>Review</label></td>
-                                    <td>
-                                        <textarea name="review_description" class="required"></textarea>
+                                    <td style="padding:3px">
+                                        <textarea name="review_description" class="required" style="width: 470px;height: 114px;"></textarea>
                                     </td>
                                 </tr>
 

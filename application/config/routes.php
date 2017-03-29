@@ -57,6 +57,7 @@ $route['admin/logout'] = "admin/admin/logout";
 $route['admin/user/(:num)'] = "admin/user/index";
 $route['admin/user-dashboard/(:any)'] = 'admin/user/dashboard/$1';
 
+$route['review/approve/(:any)'] = 'review/approve/$1/$2/';
 $route['ad/approveAd/(:num)/(:num)/(:any)'] = 'ad/approveAd/$1/$2/$3/$4/$5/';
 $route['forgot-password'] = 'login/forgot_password';
 $route['changepassword'] = 'login/changepassword';
