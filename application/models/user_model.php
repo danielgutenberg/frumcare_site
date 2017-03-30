@@ -223,6 +223,7 @@ class User_model extends CI_Model
     public function get_my_review($limit,$start,$field){
         $this->db->join('tbl_user','tbl_reviews.user_profile_id = tbl_user.id','left');
         $this->db->where($field,$this->session->userdata('current_user'));
+        $this->db->where('approved',1);
         $this->db->order_by('created_date','desc');
         $query = $this->db->get('tbl_reviews');
          if($query->num_rows() > 0){

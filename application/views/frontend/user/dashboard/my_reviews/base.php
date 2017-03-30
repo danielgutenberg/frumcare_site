@@ -58,7 +58,7 @@
    					    <td style="width:100px">
       						<?php 
      							$dt = new DateTime($row['created_date']);
-     							echo $dt->format('Y-m-d');
+     							echo $dt->format('m/d/Y');
       						?>
        					</td>
        					<td>
@@ -99,7 +99,6 @@
                 ?>
                 </table>
                 <?php
-                    echo $links;
             }
       		else{ 
       		 echo '<p>You have no reviews</p><br>';
