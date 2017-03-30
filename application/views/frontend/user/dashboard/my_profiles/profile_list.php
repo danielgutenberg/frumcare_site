@@ -95,6 +95,14 @@ $careType = [
 				</span>
 				<?php } ?>
                 <br>
+                <?php if($data['care_type'] < 17){
+                    $reviews = $data['number_reviews']; ?>
+                   <div style="width:200px">
+                    <div class="rating-score" id="<?php echo ($data['total_review']/($reviews>0?$reviews:1));?>"></div>
+                    <span style="font-size:14px;font-weight: 400;vertical-align: middle;">(<?php echo number_format($reviews);?> reviews)</span>
+                    
+                    </div>
+                    <?php } ?>
                 <?php
                 $type = $careType[$data['care_type']];
                 $loca = '';
@@ -138,7 +146,11 @@ $careType = [
                         <?php if(in_array(strtolower('CPR'), array_map('strtolower',$training_arr))){ ?>
                             <img src="<?php echo site_url()?>img/health-badge.png" title="Has CPR training"/>
                         <?php } ?>
-                    </div> <?php 
+                    
+                    </div> 
+                    
+                    
+                    <?php 
                 } ?>                        
 				<div class="line"></div>
 				
@@ -323,6 +335,10 @@ $careType = [
 			</div>
 		</div>
 		<div class="clearfix"></div>
+		<?php if($data['care_type'] < 17) { ?>
+      		    <a href="<?php echo site_url('caregivers/review/' . get_user2(check_user())[0]['uri'] . '/' . $data['care_type'])?>" type="submit" class="btn btn-success" value="Sign In" style="min-width:150px; margin-left:-15px; margin-top:10px; margin-bottom:10px">Invite employers to write a review</a>
+      		<?php }
+        	?>
         <?php 		
 		} //end of foreach
 	} //end of if
@@ -330,3 +346,27 @@ $careType = [
 		echo 'Currently you have no profiles';
 	}
 ?>
+<script>
+    $(document).ready(function(){
+        $('#half').raty({
+                     path       : '<?php echo site_url();?>img/',
+                     starHalf   : 'star-half.png',
+                     starOff    : 'star-off.png',
+                     starOn     : 'star-on.png',
+                     half  : true,
+                });
+            
+                $('.rating-score').each(function() {
+                     $(this).raty({
+                      path : '<?php echo site_url();?>img/',
+                      starHalf   : 'star-half.png',
+                      starOff    : 'star-off.png',
+                      starOn     : 'star-on.png',
+                      score	   : $(this).attr('id'),
+                      readOnly : true,
+                      half  : true,
+                      space : false
+                  });
+                });
+    })
+</script>

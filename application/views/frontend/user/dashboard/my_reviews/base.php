@@ -105,15 +105,13 @@
       		 echo '<p>You have no reviews</p><br>';
       		    
       		}
-      		    if($account_category == 1) {
-      		echo form_open('user/requestreview') ?>
-      		    <!--<p>Invite an employer to write a review</p>-->
-      		    <!--<input name="name" type="text" placeholder="Name">-->
-      		    <!--<input name="email" type="email" placeholder="Email Address">-->
-      		    <!--<input type="submit" class="btn btn-success" value="Send Request"/>-->
-      		    <!--</form>-->
+      		    if($account_category == 1) { ?>
+      		    <div>
+      		    <a href="<?php echo site_url('caregivers/review/' . get_user2(check_user())[0]['uri'] . '/' . get_user2(check_user())[0]['care_type'])?>" type="submit" class="btn btn-success" value="Sign In">Invite employers to write a review</a>
+      		    </div>
       		<?php }
         	?>
+        	
      </div>
 </div>
 

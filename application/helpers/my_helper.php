@@ -306,7 +306,8 @@ function get_user2($id)
 {
     $ci = &get_instance();
     $sql = "select * from tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_user.id = $id";
-    $result = $ci->db->query($sql);        
+    $result = $ci->db->query($sql); 
+    
     return $result->result_array();
 }
 function get_userprofile($id){

@@ -9,10 +9,11 @@
         $attributes = array('id' => 'login-form');
         echo form_open('login', $attributes);
     ?>
-
-            <input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
             <input type="text" name="email" placeholder="Email" class="required email col-xs-12" style="min-width:330px"/>
             <input type="password" name="passwd" placeholder="Password" class="required col-xs-12" style="min-width:330px"/>
+            <?php if ($redirect) {?>
+                <input type="hidden" name="redirect" value="<?php echo $redirect?>" />
+                <?php } ?>
             <span class="submit-success-btn col-xs-12"><input type="submit" class="btn btn-success" value="Sign In" style="min-width:330px; margin-left:-15px"/></span>
         </form>
         <span class="forgot-passwords"><a href="<?php echo base_url('forgot-password') ?>">Forgot Password?</a></span>

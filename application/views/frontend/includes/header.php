@@ -11,6 +11,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta property="og:title" content="Write a Review" />
+    <meta property="og:type" content="Sharing Widgets" />
+    <meta property="og:url" content="<?php echo current_url(); ?>" />
+    <meta property="og:description" content="Please write a review on my profile" />
+    <meta property="og:site_name" content="FrumCare.com" />
         <?php
             header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
             header("Cache-Control: post-check=0, pre-check=0", false);
@@ -64,6 +69,7 @@
             window._fbq.push(['track', '6030516600835', {'value':'0.01','currency':'ILS'}]);
         </script>
         <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6030516600835&amp;cd[value]=0.01&amp;cd[currency]=ILS&amp;noscript=1" /></noscript>
+        <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=58cf9555115dd2001125f310&product=custom-share-buttons"></script>
 </head>
 <body>
 

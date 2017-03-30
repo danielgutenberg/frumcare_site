@@ -20,8 +20,24 @@ class User extends CI_Controller
         $this->load->model('email_template_model');
     }
 
-    function index(){
+    public function index()
+    {
         redirect('user/dashboard','refresh');
+    }
+    
+    public function request_review()
+    {
+        $slug = get_user2(check_user())[0]['uri'];
+        $care_type = get_user2(check_user())[0]['care_type'];
+        
+        $this->session->set_flashdata('review', true);
+        return redirect('jobs/details/' . $slug . '/' . $care_type);
+    }
+    
+    public function invite($slug,$care_type)
+    {
+        $this->session->set_flashdata('review', true);
+        return redirect('/');
     }
     
     function dashboard()
@@ -334,7 +350,9 @@ class User extends CI_Controller
         $data['account_category'] = $this->session->userdata('account_category');
         $data['all_profile'] =$this->user_model->get_all_profile();
         $data['main_content'] = ('frontend/user/dashboard/my_profiles/base');
-
+        foreach ($data['all_profile'] as &$profile) {
+            $profile = array_merge($profile,$this->review_model->countReviewById($profile['profileId']));
+        }
         $this->load->view(FRONTEND_TEMPLATE,$data);
     }
       
