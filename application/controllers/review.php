@@ -10,9 +10,8 @@ class Review extends CI_Controller{
 	public function approve()
 	{
 		$path = $_SERVER['REQUEST_URI'];
-        $position = $this->strposX($path, '/', 4);
+        $position = $this->strposX($path, '/', 3);
         $hash = substr($path, $position + 1);
-        print_rr($hash);
 		
 		$hashData = json_decode(encrypt_decrypt('decrypt', $hash));
 		if (!isset($hashData->id)) {
