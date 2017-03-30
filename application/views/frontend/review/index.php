@@ -10,7 +10,12 @@
             		<p><?php echo nl2br($data['description']);?></p>
             		<span class="name"><?php echo $data['name'];?></span>
             		<br />
-            		<span class="date"><?php echo $data['created_date'];?></span>
+            		<span class="date">
+            		    <?php 
+            		        $dt = new DateTime($data['created_date']);
+     						echo $dt->format('m/d/Y');
+            		    ?>
+            		    </span>
             	</div>
                 <?php
                 $reviewCount++;
