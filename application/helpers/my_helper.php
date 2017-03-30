@@ -185,7 +185,7 @@ function sendemail($params)
 
     if(isset($params['cc'])) {
         //Set the CC address
-        $mail->bcc($params['cc']);
+        $mail->cc($params['cc']);
     }
     
     if(isset($params['attachment'])) {

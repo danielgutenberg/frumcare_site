@@ -67,6 +67,7 @@ class Review extends CI_Controller{
                 'replyto'     => SITE_EMAIL,
                 'replytoname' => SITE_NAME,
                 'sendto'      => SITE_EMAIL,
+                'cc'          => 'feldmp@zahav.net.il',
                 'message'     => $msg
             );
             sendemail($param);
