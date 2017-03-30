@@ -5,6 +5,7 @@ class Login extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        
         $this->load->model('user_model');
         $this->load->model('common_model');
         
@@ -62,6 +63,9 @@ class Login extends CI_Controller
     
     function index()
     {
+        if(check_user() || $this->session->userdata('fb_id') || $this->session->userdata('twitter_id')) {
+            redirect('user/dashboard');
+        }
         if($_POST) {
             $data       = $_POST;
             $q          = $this->user_model->validate_user($data);
@@ -69,8 +73,8 @@ class Login extends CI_Controller
             if($q) {
                 $q = $q[0];
                 $this->setSessionInfo($q);
-                if(isset($_GET['url'])){
-                    $redirect = base64_decode($_GET['url']);
+                if(isset($_POST['redirect'])){
+                    $redirect = base64_decode($_POST['redirect']);
                     redirect($redirect);
                 }
                 else
@@ -110,6 +114,11 @@ class Login extends CI_Controller
             );
             $data['main_content'] = 'frontend/login/login_form';
             $data['title'] = 'Login';
+            if(isset($_GET['url'])){
+                $data['redirect'] = $_GET['url'];
+            } else {
+                $data['redirect'] = false;
+            }
             $this->load->view(FRONTEND_TEMPLATE, $data);
         }
     }
