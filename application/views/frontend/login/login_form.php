@@ -107,7 +107,7 @@
             data: data,
             dataType: 'json',
             success: function(res) {
-                location.href = res
+                location.href = '<?php if ($redirect) {echo site_url(base64_decode($redirect));} else { ?>' +  res  + '<?php } ?>'
             }
         })
     })
@@ -138,7 +138,8 @@
             data: data,
             dataType: 'json',
             success: function(res) {
-                location.href = res
+                
+                location.href = '<?php if ($redirect) {echo site_url(base64_decode($redirect));} else { ?>' +  res  + '<?php } ?>'
             }
         })
     }
