@@ -175,13 +175,5 @@
         $('[title="HolyClock.com"]').addClass('holyclock-img')
     });
 </script>
-<!-- BEGIN ADVERTSERVE CODE -->
-<div id="overlay_footer" style="display: none; text-align: center; margin-top: 16px">
-<span>This advertisement will close in <span id="overlay_countdown"></span> seconds...</span>
-</div>
-<script type="text/javascript">
-document.write('<scr'+'ipt src="http://servedby.jewishcontentnetwork.com/servlet/view/banner/javascript/zone?zid=45&pid=0&overlay=true&autoclose=15&polite=false&spacing=20&bgcolor=%23E0E0EB&resolution='+(window.innerWidth||screen.width)+'x'+(window.innerHeight||screen.height)+'&random='+Math.floor(89999999*Math.random()+10000000)+'&millis='+new Date().getTime()+'&referrer='+encodeURIComponent((window!=top&&window.location.ancestorOrigins)?window.location.ancestorOrigins[window.location.ancestorOrigins.length-1]:document.location)+'" type="text/javascript"></scr'+'ipt>');
-</script>
-<!-- END ADVERTSERVE CODE -->
 </body>
 </html>
