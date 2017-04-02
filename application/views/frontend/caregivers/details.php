@@ -680,11 +680,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                                     <div class="texts">You know someone who might be interested in this <?php echo $profile; ?> ?</div>
                                     <div class="share-profile-via">
                                       <h2>Share this <?php echo $profile; ?> via</h2>
-                                      <span class='st_facebook_large' displayText='Facebook'></span>
-                                      <span class='st_twitter_large' displayText='Tweet'></span>
-                                      <span class='st_sharethis_large' displayText='ShareThis'></span>
-                                      <span class='st_email_large' displayText='Email'></span>
-                                      <span class='st_whatsapp_large' displayText='Whatsapp'></span>
+                                      <div class="sharethis-inline-share-buttons"></div>
                                   </div>
                               </div>
                           </div>
@@ -768,13 +764,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
     								
                                     <h2>Invite an Employer to Write a Review</h2>
                                     <h5 style="padding-left: 13px;">(Choose an option below and add a personal message)</h3>
-                                    <div class="share-profile-via">
-                                      <span st_url="<?php echo current_url();?>" class='st_facebook_large' displayText='Facebook'></span>
-                                      <span st_url="<?php echo current_url();?>" class='st_twitter_large' displayText='Tweet'></span>
-                                      <span st_url="<?php echo current_url();?>" class='st_sharethis_large' displayText='ShareThis'></span>
-                                      <span st_url="<?php echo current_url();?>" class='st_email_large' displayText='Email'></span>
-                                      <span st_url="<?php echo current_url();?>" class='st_whatsapp_large' displayText='Whatsapp'></span>
-                                  </div>
+                                    <div class="sharethis-inline-share-buttons"></div>
                               </div>
 
                                     <div class="modal-footer">
