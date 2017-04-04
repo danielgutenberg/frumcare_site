@@ -74,13 +74,13 @@
                        
                                 <tbody class="rows">
                                 <tr>
-                                    <td><label>Email:</label></td>
-                                    <td style="padding:3px;padding-top: 0px;">
-                                        <input type="email" name="emails[]" class="required" multiple></input>
-                                    </td>
                                     <td><label>Name:</label></td>
                                     <td style="padding:3px;padding-top: 0px;">
                                         <input type="email" name="names[]" class="required" multiple></input>
+                                    </td>
+                                    <td><label>Email:</label></td>
+                                    <td style="padding:3px;padding-top: 0px;">
+                                        <input type="email" name="emails[]" class="required" multiple></input>
                                     </td>
                                 </tr>
                                 </tbody>
