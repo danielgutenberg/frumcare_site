@@ -29,10 +29,47 @@ class Welcome extends CI_Controller {
         $this->load->view(FRONTEND_TEMPLATE, $data);
 	}
 	
-	public function invite($slug,$care_type)
+	public function invite()
     {
-        $this->session->set_flashdata('review', true);
-        return redirect('/');
+        $postdata = $this->input->post();
+		if($postdata){
+		    $emails = [];
+		    $caregiverId = $postdata['current_user'];
+			foreach (explode(',', $postdata['emails']) as $email) {
+			    if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+			        $emails[] = $email;
+			    }
+			}
+			$response = 'Invite successfully sent to: <br>';
+			foreach ($emails as $success) {
+			    $response .= $success . ' <br>';
+			}
+			echo $response;
+		}else{
+		  echo "Some error occured";
+		}
+    }
+    
+    
+	public function invite_review()
+    {
+        $postdata = $this->input->post();
+		if($postdata){
+		    $emails = [];
+		    $caregiverId = $postdata['current_user'];
+			foreach (explode(',', $postdata['emails']) as $email) {
+			    if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+			        $emails[] = $email;
+			    }
+			}
+			$response = 'Request to review has been successfully sent to: <br>';
+			foreach ($emails as $success) {
+			    $response .= $success . ' <br>';
+			}
+			echo $response;
+		}else{
+		  echo "Some error occured";
+		}
     }
 	
 	function sync()

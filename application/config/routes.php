@@ -40,7 +40,8 @@
 
 $route['default_controller'] = "welcome";
 $route['account/delete'] = "welcome/delete";
-$route['invite'] = "welcome/invite";
+$route['invite_friends'] = "welcome/invite";
+$route['invite_review'] = "welcome/invite_review";
 $route['sync'] = "welcome/sync";
 $route['404_override'] = '';
 $route['advice-and-tips/families'] = 'cms/tipsandtoolsfamilies';

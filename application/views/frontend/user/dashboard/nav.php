@@ -13,6 +13,7 @@
 			        $profile1='My Job';*/
 		}
 ?>
+
 <div class="dashboard-nav" style="height: 375px;">
 	<ul>
 		<li>
@@ -56,6 +57,74 @@
 		<p style ="padding:2px; color:white;">More people = More <br> options = More matches</p>
 		
 		<div style="text-align:center; padding-bottom: 15px;">
-		<?php echo anchor('user/invite',"Invite Friends",'class="btn btn-info" style="background-color:#8ec931 !important"');?>
+		<?php echo anchor('',"Invite Friends",'class="btn btn-info invite" style="background-color:#8ec931 !important"');?>
 		</div>
 </div>
+
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Invite Friends to Join FrumCare.com</h4>
+                                </div>
+                                <div class="modal-body">
+                        <form class="usersinviteform">
+                            <table>
+                       
+                                <tr>
+                                    <td><label>Emails to send to</label></td>
+                                    <td style="padding:3px">
+                                        <input type="email" name="emails" class="required" multiple></input>
+                                    </td>
+                                </tr>
+
+                    
+                                <tr>
+                                    <td>
+                                        <input type="hidden" name="current_user" value="<?php echo @$this->session->userdata['current_user'];?>"/>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <div class="modal-footer">
+                              <button style="float:left" type="button" class="btn btn-primary save">Invite Friends</button>
+                          </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+<script>
+    $(document).ready(function() {
+    	$('.invite').click(function(e) {
+    		e.preventDefault()
+        	$('#myModal2').modal('show');
+    	})
+    	
+    	
+	    $('.save').on('click',function(){
+			$('form.usersreviewform').validate({
+		         rules: {
+		            emails: {
+		                required: true,
+		                email: true
+		            },
+		        }
+		    });
+		    console.log($('form.usersinviteform').serializeArray()); 
+			$.ajax( {
+				type: "POST",
+				url: '<?php echo site_url();?>invite_friends',
+				data: $('form.usersinviteform').serializeArray(),
+				success: function( msg ) {
+	    			$('#myModal2').modal('hide');
+	                $('.invite_response').html(msg);
+	                $('.invite_response').show();
+	            }
+	        });
+		});
+        
+    })
+</script>

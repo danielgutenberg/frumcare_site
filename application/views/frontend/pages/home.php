@@ -244,7 +244,7 @@
         </section>
 
         <!--end .safety-first-->
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -254,13 +254,12 @@
                                 <div class="modal-body">
                                     <div class="share-profile">
     								
-                                    <h2>Invite Your Friends to Join</h2>
-                                    <h5 style="padding-left: 13px;">(Choose an option below and add a personal message)</h3>
-                                    <div class="sharethis-inline-share-buttons"></div>
-                              </div>
-
-                                    <div class="modal-footer">
+                                        <h2>Invite Your Friends to Join</h2>
+                                        <h5 style="padding-left: 13px;">(Choose an option below and add a personal message)</h3>
+                                        <div class="sharethis-inline-share-buttons"></div>
                                     </div>
+
+                                    <div class="modal-footer"></div>
                                 </div>
 
                             </div>
@@ -401,9 +400,7 @@
 $ci = &get_instance();
 if ($ci->session->flashdata('review')) { ?>
 <script>
-    $(document).ready(function(){
-        $('#myModal2').modal('show');
-    })
+
 </script>
 <?php } ?>
 
