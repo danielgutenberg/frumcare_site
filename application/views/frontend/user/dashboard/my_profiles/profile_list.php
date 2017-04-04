@@ -363,13 +363,15 @@ $careType = [
                                     <td style="padding:3px;padding-top: 0px;">
                                         <input type="email" name="names[]" class="required" multiple></input>
                                     </td>
-                                    <td><label>Email:</label></td>
+                                    <td style="padding-left:20px"><label>Email:</label></td>
                                     <td style="padding:3px;padding-top: 0px;">
                                         <input type="email" name="emails[]" class="required" multiple></input>
                                     </td>
                                 </tr>
                                 </tbody>
-                                <tr><td class="addrow" style="cursor: pointer;font-size: 13px;color: blue;">Add New Row</td></tr>
+                               </table>
+                               <table style="margin-left:-10px; margin-top:12px">
+                                <tr><td class="addrow" style="cursor: pointer;font-size: 13px;color: blue;">Add Name</td></tr>
 
                     
                                 <tr>
@@ -377,7 +379,7 @@ $careType = [
                                         <input type="hidden" name="current_user" value="<?php echo @$this->session->userdata['current_user'];?>"/>
                                     </td>
                                 </tr>
-                            </table>
+                                </table>
 
                             <div class="modal-footer">
                               <button style="float:left" type="button" class="btn btn-primary save_review">Request Review</button>
@@ -430,7 +432,7 @@ $careType = [
 	    			$('#myModal3').modal('hide');
 	                $('.invite_response').html(msg);
 	                $('.invite_response').show();
-	                       html = '<tr><td><label>Email:</label></td><td style="padding:3px;padding-top: 0px;"><input type="email" name="emails[]" class="required" multiple></input></td><td><label>Name:</label></td><td style="padding:3px;padding-top: 0px;"><input type="email" name="names[]" class="required" multiple></input></td></tr>'
+	                html = '<tr><td><label>Name:</label></td><td style="padding:3px;padding-top: 0px;"><input type="text" name="names[]" class="required" multiple></input></td><td style="padding-left:20px"><label>Email:</label></td><td style="padding:3px;padding-top: 0px;"><input type="email" name="emails[]" class="required" multiple></input></td></tr>'
         
         			$('.rows').html(html)
 	            }
