@@ -357,12 +357,19 @@ $careType = [
                         <form class="usersreviewform">
                             <table>
                        
+                                <tbody class="rows">
                                 <tr>
-                                    <td><label>Emails to send to</label></td>
-                                    <td style="padding:3px">
-                                        <input type="email" name="emails" class="required" multiple></input>
+                                    <td><label>Email:</label></td>
+                                    <td style="padding:3px;padding-top: 0px;">
+                                        <input type="email" name="emails[]" class="required" multiple></input>
+                                    </td>
+                                    <td><label>Name:</label></td>
+                                    <td style="padding:3px;padding-top: 0px;">
+                                        <input type="email" name="names[]" class="required" multiple></input>
                                     </td>
                                 </tr>
+                                </tbody>
+                                <tr><td class="addrow" style="cursor: pointer;font-size: 13px;color: blue;">Add New Row</td></tr>
 
                     
                                 <tr>
@@ -423,9 +430,14 @@ $careType = [
 	    			$('#myModal3').modal('hide');
 	                $('.invite_response').html(msg);
 	                $('.invite_response').show();
+	                       html = '<tr><td><label>Email:</label></td><td style="padding:3px;padding-top: 0px;"><input type="email" name="emails[]" class="required" multiple></input></td><td><label>Name:</label></td><td style="padding:3px;padding-top: 0px;"><input type="email" name="names[]" class="required" multiple></input></td></tr>'
+        
+        			$('.rows').html(html)
 	            }
 	        });
 		});
+        
+
         
     })
 </script>

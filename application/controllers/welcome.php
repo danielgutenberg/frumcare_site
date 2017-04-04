@@ -35,9 +35,9 @@ class Welcome extends CI_Controller {
 		if($postdata){
 		    $emails = [];
 		    $caregiverId = $postdata['current_user'];
-			foreach (explode(',', $postdata['emails']) as $email) {
+			foreach ($postdata['emails'] as $key => $email) {
 			    if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-			        $emails[] = $email;
+			        $emails[] = $postdata['names'][$key];
 			    }
 			}
 			$response = 'Invite successfully sent to: <br>';
@@ -57,9 +57,9 @@ class Welcome extends CI_Controller {
 		if($postdata){
 		    $emails = [];
 		    $caregiverId = $postdata['current_user'];
-			foreach (explode(',', $postdata['emails']) as $email) {
+			foreach ($postdata['emails'] as $key => $email) {
 			    if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-			        $emails[] = $email;
+			        $emails[] = $postdata['names'][$key];
 			    }
 			}
 			$response = 'Request to review has been successfully sent to: <br>';
