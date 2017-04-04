@@ -335,9 +335,9 @@ $careType = [
 			</div>
 		</div>
 		<div class="clearfix"></div>
-		<?php if($data['care_type'] < 17) { ?>
-      		    <a href="<?php echo site_url('caregivers/review/' . get_user2(check_user())[0]['uri'] . '/' . $data['care_type'])?>" type="submit" class="btn btn-success" value="Sign In" style="min-width:150px; margin-left:-15px; margin-top:10px; margin-bottom:10px">Invite employers to write a review</a>
-      		<?php }
+		<?php if($data['care_type'] < 17) {
+		        echo anchor('',"Invite employers to write a review",'class="btn btn-success invite_review" style="min-width:150px; margin-left:-15px; margin-top:10px; margin-bottom:10px"');
+      	    }
         	?>
         <?php 		
 		} //end of foreach
@@ -346,6 +346,41 @@ $careType = [
 		echo 'Currently you have no profiles';
 	}
 ?>
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Invite Employers to Write a Review</h4>
+                                </div>
+                                <div class="modal-body">
+                        <form class="usersreviewform">
+                            <table>
+                       
+                                <tr>
+                                    <td><label>Emails to send to</label></td>
+                                    <td style="padding:3px">
+                                        <input type="email" name="emails" class="required" multiple></input>
+                                    </td>
+                                </tr>
+
+                    
+                                <tr>
+                                    <td>
+                                        <input type="hidden" name="current_user" value="<?php echo @$this->session->userdata['current_user'];?>"/>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <div class="modal-footer">
+                              <button style="float:left" type="button" class="btn btn-primary save_review">Request Review</button>
+                          </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        </form>
+                    </div>
 <script>
     $(document).ready(function(){
         $('#half').raty({
@@ -370,3 +405,28 @@ $careType = [
                 });
     })
 </script>
+<script>
+    $(document).ready(function() {
+    	$('.invite_review').click(function(e) {
+    		e.preventDefault()
+        	$('#myModal3').modal('show');
+    	})
+    	
+    	
+	    $('.save_review').on('click',function(){
+			
+			$.ajax( {
+				type: "POST",
+				url: '<?php echo site_url();?>invite_review',
+				data: $('form.usersreviewform').serializeArray(),
+				success: function( msg ) {
+	    			$('#myModal3').modal('hide');
+	                $('.invite_response').html(msg);
+	                $('.invite_response').show();
+	            }
+	        });
+		});
+        
+    })
+</script>
+
