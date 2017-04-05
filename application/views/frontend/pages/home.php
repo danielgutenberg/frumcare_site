@@ -1,4 +1,7 @@
 <?php home_flash();?>
+		    <div class="alert alert-success alert-dismissible invite_response" role="alert" style="display:none">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
 <main class="site-main">
     <section class="banner">
         
@@ -244,27 +247,7 @@
         </section>
 
         <!--end .safety-first-->
-                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Invite Friends to Join</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="share-profile">
-    								
-                                        <h2>Invite Your Friends to Join</h2>
-                                        <h5 style="padding-left: 13px;">(Choose an option below and add a personal message)</h3>
-                                        <div class="sharethis-inline-share-buttons"></div>
-                                    </div>
 
-                                    <div class="modal-footer"></div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
         <section class="client-say">
             <div class="container">
                 <div class="row">
@@ -332,6 +315,51 @@
                 </div>
             </section>
         </main>
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Invite Friends to Join FrumCare.com</h4>
+                                </div>
+                                <div class="modal-body">
+                        <form class="usersinviteform">
+                            <table>
+                       
+                                <tbody class="rows">
+                                <tr>
+                                    <td><label>Name:</label></td>
+                                    <td style="padding:3px;padding-top: 0px;">
+                                        <input type="email" name="names[]" class="required" multiple></input>
+                                    </td>
+                                    <td style="padding-left:20px"><label>Email:</label></td>
+                                    <td style="padding:3px;padding-top: 0px;">
+                                        <input type="email" name="emails[]" class="required" multiple></input>
+                                    </td>
+                                </tr>
+                                </tbody>
+                               </table>
+                               <table style="margin-left:-10px; margin-top:12px">
+                                <tr><td class="addrow" style="cursor: pointer;font-size: 13px;color: blue;">Add Name</td></tr>
+
+                    
+                                <tr>
+                                    <td>
+                                        <input type="hidden" name="current_user" value="<?php echo @$this->session->userdata['current_user'];?>"/>
+                                    </td>
+                                </tr>
+                                </table>
+                            
+
+                            <div class="modal-footer">
+                              <button style="float:left" type="button" class="btn btn-primary save">Invite Friends</button>
+                          </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        </form>
+                    </div>
         <script src="<?php echo site_url(); ?>js/notifIt.js" type="text/javascript"></script>
         <link href="<?php echo site_url(); ?>css/notifIt.css" type="text/css" rel="stylesheet">
         <script type="text/javascript">
@@ -398,9 +426,33 @@
 </script>
 <?php 
 $ci = &get_instance();
-if ($ci->session->flashdata('review')) { ?>
+if ($ci->session->flashdata('invite')) { ?>
 <script>
-
+$(document).ready(function() {
+    	$('#myModal2').modal('show');
+    	
+    	$('.save').on('click',function(){
+			$.ajax( {
+				type: "POST",
+				url: '<?php echo site_url();?>invite_friends',
+				data: $('form.usersinviteform').serializeArray(),
+				success: function( msg ) {
+	    			$('#myModal2').modal('hide');
+	                $('.invite_response').html(msg);
+	                $('.invite_response').show();
+	                html = '<tr><td><label>Name:</td><td style="padding:3px;padding-top: 0px;"><input type="text" name="names[]" class="required" multiple></input></td><td style="padding-left:20px"><label>Email:</label></td><td style="padding:3px;padding-top: 0px;"><input type="email" name="emails[]" class="required" multiple></input></td></tr>'
+        
+        			$('.rows').html(html)
+	            }
+	        });
+		});
+        
+        $('.addrow').on('click', function() {
+        	html = '<tr><td><label>Name:</label></td><td style="padding:3px;padding-top: 0px;"><input type="text" name="names[]" class="required" multiple></input></td><td style="padding-left:20px"><label>Email:</label></td><td style="padding:3px;padding-top: 0px;"><input type="email" name="emails[]" class="required" multiple></input></td></tr>'
+        
+        	$('.rows').append(html)
+        })
+    })
 </script>
 <?php } ?>
 

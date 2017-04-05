@@ -210,3 +210,12 @@ $(document).ready(function(){
     
     })
 </script>
+<?php 
+$ci = &get_instance();
+if ($ci->session->flashdata('review')) { ?>
+<script>
+$(document).ready(function() {
+    	$('#myModal3').modal('show');
+    })
+</script>
+<?php } ?>

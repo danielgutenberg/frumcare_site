@@ -1,6 +1,20 @@
 <script src="https://apis.google.com/js/api:client.js"></script>
 <div class="container sign-in-forms">
     <?php user_flash(); ?>
+    <?php 
+    $ci = &get_instance();
+    if ($ci->session->flashdata('invite')) { ?>
+    <div class="alert alert-success alert-dismissible invite_response" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            Please log in first to invite friends to use FrumCare.com
+            </div>
+    <?php } 
+    if ($ci->session->flashdata('review')) { ?>
+    <div class="alert alert-success alert-dismissible invite_response" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            Please log in first to request reviews for your profile
+            </div>
+    <?php } ?>
     <h2>
         Login
     </h2>

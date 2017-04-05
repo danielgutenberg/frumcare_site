@@ -29,6 +29,28 @@ class Welcome extends CI_Controller {
         $this->load->view(FRONTEND_TEMPLATE, $data);
 	}
 	
+	public function popup()
+	{
+	    if(!check_user() && !$this->session->userdata('fb_id') && !$this->session->userdata('twitter_id')) {
+	        $this->session->set_flashdata('invite', true);
+            $redirect = base64_encode(uri_string());
+            redirect('login?url='.$redirect);
+        }
+	    $this->session->set_flashdata('invite', true);
+	    return redirect('');
+	}
+	
+	public function request_review()
+    {
+        if(!check_user() && !$this->session->userdata('fb_id') && !$this->session->userdata('twitter_id')) {
+	        $this->session->set_flashdata('review', true);
+            $redirect = base64_encode(uri_string());
+            redirect('login?url='.$redirect);
+        }
+        $this->session->set_flashdata('review', true);
+        return redirect('user/reviews');
+    }
+	
 	public function invite()
     {
         $postdata = $this->input->post();

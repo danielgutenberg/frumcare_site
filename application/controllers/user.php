@@ -25,21 +25,6 @@ class User extends CI_Controller
         redirect('user/dashboard','refresh');
     }
     
-    public function request_review()
-    {
-        $slug = get_user2(check_user())[0]['uri'];
-        $care_type = get_user2(check_user())[0]['care_type'];
-        
-        $this->session->set_flashdata('review', true);
-        return redirect('jobs/details/' . $slug . '/' . $care_type);
-    }
-    
-    public function invite($slug,$care_type)
-    {
-        $this->session->set_flashdata('review', true);
-        return redirect('/');
-    }
-    
     function dashboard()
     {
         $id = $this->session->userdata['current_user'];

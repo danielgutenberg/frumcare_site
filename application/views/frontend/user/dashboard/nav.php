@@ -115,15 +115,6 @@
     	
     	
 	    $('.save').on('click',function(){
-			$('form.usersreviewform').validate({
-		         rules: {
-		            emails: {
-		                required: true,
-		                email: true
-		            },
-		        }
-		    });
-		    console.log($('form.usersinviteform').serializeArray()); 
 			$.ajax( {
 				type: "POST",
 				url: '<?php echo site_url();?>invite_friends',
