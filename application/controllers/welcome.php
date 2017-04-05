@@ -37,11 +37,13 @@ class Welcome extends CI_Controller {
 		    $caregiverId = $postdata['current_user'];
 			foreach ($postdata['emails'] as $key => $email) {
 			    if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-			        $emails[] = $postdata['names'][$key];
+			        $name = $postdata['names'][$key];
+			        $names[] = $name;
+			        invite_friend(get_user(check_user()), $email, $name);
 			    }
 			}
 			$response = 'Invite successfully sent to: <br>';
-			foreach ($emails as $success) {
+			foreach ($names as $success) {
 			    $response .= $success . ' <br>';
 			}
 			echo $response;
@@ -54,16 +56,25 @@ class Welcome extends CI_Controller {
 	public function invite_review()
     {
         $postdata = $this->input->post();
+        if (isset($postdata['url'])) {
+            $url = $postdata['url'];
+        } else {
+            $slug = get_user2(check_user())[0]['uri'];
+            $care_type = get_user2(check_user())[0]['care_type'];
+            $url = site_url('jobs/details/' . $slug . '/' . $care_type);
+        }
 		if($postdata){
 		    $emails = [];
 		    $caregiverId = $postdata['current_user'];
 			foreach ($postdata['emails'] as $key => $email) {
 			    if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-			        $emails[] = $postdata['names'][$key];
+			        $name = $postdata['names'][$key];
+			        $names[] = $name;
+			        request_to_review(get_user(check_user()), $email, $name, $url);
 			    }
 			}
 			$response = 'Request to review has been successfully sent to: <br>';
-			foreach ($emails as $success) {
+			foreach ($names as $success) {
 			    $response .= $success . ' <br>';
 			}
 			echo $response;
