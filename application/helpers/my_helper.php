@@ -459,3 +459,48 @@ function update_crm($user)
     }
 }
 
+function request_to_review($user, $email, $name, $url)
+{
+    $ci = &get_instance();
+    $ci->load->library('activeCampaign');
+    $ci->load->model('user_model');
+    $tags = [];
+    $serviceTags = [];
+    $ac = $ci->activecampaign;
+    $name = explode(' ', $name);
+    $senderName = $user['name'];
+    $contact = array(
+		"email"      => $email,
+		"first_name" => array_shift($name),
+		"last_name"  => implode(' ', $name),
+		"p[7]"       => 7,
+		"status[7]"  => 1,
+		"field[%REQUESTURL%]" => $url,
+		"field[%SENDERNAME%]" => $senderName
+ 	);
+ 	
+    return $ac->api("contact/sync", $contact);
+}
+
+function invite_friend($user, $email, $name)
+{
+    $ci = &get_instance();
+    $ci->load->library('activeCampaign');
+    $ci->load->model('user_model');
+    $tags = [];
+    $serviceTags = [];
+    $ac = $ci->activecampaign;
+    $name = explode(' ', $name);
+    $senderName = $user['name'];
+    $contact = array(
+		"email"      => $email,
+		"first_name" => array_shift($name),
+		"last_name"  => implode(' ', $name),
+		"p[8]"       => 8,
+		"status[8]"  => 1,
+		"field[%SENDERNAME%]" => $senderName
+ 	);
+ 	
+    return $ac->api("contact/sync", $contact);
+}
+

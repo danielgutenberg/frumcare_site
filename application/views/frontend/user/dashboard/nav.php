@@ -13,6 +13,7 @@
 			        $profile1='My Job';*/
 		}
 ?>
+
 <div class="dashboard-nav" style="height: 375px;">
 	<ul>
 		<li>
@@ -56,6 +57,83 @@
 		<p style ="padding:2px; color:white;">More people = More <br> options = More matches</p>
 		
 		<div style="text-align:center; padding-bottom: 15px;">
-		<?php echo anchor('user/invite',"Invite Friends",'class="btn btn-info" style="background-color:#8ec931 !important"');?>
+		<?php echo anchor('',"Invite Friends",'class="btn btn-info invite" style="background-color:#8ec931 !important"');?>
 		</div>
 </div>
+
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Invite Friends to Join FrumCare.com</h4>
+                                </div>
+                                <div class="modal-body">
+                        <form class="usersinviteform">
+                            <table>
+                       
+                                <tbody class="rows">
+                                <tr>
+                                    <td><label>Name:</label></td>
+                                    <td style="padding:3px;padding-top: 0px;">
+                                        <input type="email" name="names[]" class="required" multiple></input>
+                                    </td>
+                                    <td style="padding-left:20px"><label>Email:</label></td>
+                                    <td style="padding:3px;padding-top: 0px;">
+                                        <input type="email" name="emails[]" class="required" multiple></input>
+                                    </td>
+                                </tr>
+                                </tbody>
+                               </table>
+                               <table style="margin-left:-10px; margin-top:12px">
+                                <tr><td class="addrow" style="cursor: pointer;font-size: 13px;color: blue;">Add Name</td></tr>
+
+                    
+                                <tr>
+                                    <td>
+                                        <input type="hidden" name="current_user" value="<?php echo @$this->session->userdata['current_user'];?>"/>
+                                    </td>
+                                </tr>
+                                </table>
+                            
+
+                            <div class="modal-footer">
+                              <button style="float:left" type="button" class="btn btn-primary save">Invite Friends</button>
+                          </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+<script>
+    $(document).ready(function() {
+    	$('.invite').click(function(e) {
+    		e.preventDefault()
+        	$('#myModal2').modal('show');
+    	})
+    	
+    	
+	    $('.save').on('click',function(){
+			$.ajax( {
+				type: "POST",
+				url: '<?php echo site_url();?>invite_friends',
+				data: $('form.usersinviteform').serializeArray(),
+				success: function( msg ) {
+	    			$('#myModal2').modal('hide');
+	                $('.invite_response').html(msg);
+	                $('.invite_response').show();
+	                html = '<tr><td><label>Name:</td><td style="padding:3px;padding-top: 0px;"><input type="text" name="names[]" class="required" multiple></input></td><td style="padding-left:20px"><label>Email:</label></td><td style="padding:3px;padding-top: 0px;"><input type="email" name="emails[]" class="required" multiple></input></td></tr>'
+        
+        			$('.rows').html(html)
+	            }
+	        });
+		});
+        
+        $('.addrow').on('click', function() {
+        	html = '<tr><td><label>Name:</label></td><td style="padding:3px;padding-top: 0px;"><input type="text" name="names[]" class="required" multiple></input></td><td style="padding-left:20px"><label>Email:</label></td><td style="padding:3px;padding-top: 0px;"><input type="email" name="emails[]" class="required" multiple></input></td></tr>'
+        
+        	$('.rows').append(html)
+        })
+    })
+</script>

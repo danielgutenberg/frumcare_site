@@ -29,10 +29,80 @@ class Welcome extends CI_Controller {
         $this->load->view(FRONTEND_TEMPLATE, $data);
 	}
 	
-	public function invite($slug,$care_type)
+	public function popup()
+	{
+	    if(!check_user() && !$this->session->userdata('fb_id') && !$this->session->userdata('twitter_id')) {
+	        $this->session->set_flashdata('invite', true);
+            $redirect = base64_encode(uri_string());
+            redirect('login?url='.$redirect);
+        }
+	    $this->session->set_flashdata('invite', true);
+	    return redirect('');
+	}
+	
+	public function request_review()
     {
+        if(!check_user() && !$this->session->userdata('fb_id') && !$this->session->userdata('twitter_id')) {
+	        $this->session->set_flashdata('review', true);
+            $redirect = base64_encode(uri_string());
+            redirect('login?url='.$redirect);
+        }
         $this->session->set_flashdata('review', true);
-        return redirect('/');
+        return redirect('user/reviews');
+    }
+	
+	public function invite()
+    {
+        $postdata = $this->input->post();
+		if($postdata){
+		    $emails = [];
+		    $caregiverId = $postdata['current_user'];
+			foreach ($postdata['emails'] as $key => $email) {
+			    if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+			        $name = $postdata['names'][$key];
+			        $names[] = $name;
+			        invite_friend(get_user(check_user()), $email, $name);
+			    }
+			}
+			$response = 'Invite successfully sent to: <br>';
+			foreach ($names as $success) {
+			    $response .= $success . ' <br>';
+			}
+			echo $response;
+		}else{
+		  echo "Some error occured";
+		}
+    }
+    
+    
+	public function invite_review()
+    {
+        $postdata = $this->input->post();
+        if (isset($postdata['url'])) {
+            $url = $postdata['url'];
+        } else {
+            $slug = get_user2(check_user())[0]['uri'];
+            $care_type = get_user2(check_user())[0]['care_type'];
+            $url = site_url('jobs/details/' . $slug . '/' . $care_type);
+        }
+		if($postdata){
+		    $emails = [];
+		    $caregiverId = $postdata['current_user'];
+			foreach ($postdata['emails'] as $key => $email) {
+			    if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+			        $name = $postdata['names'][$key];
+			        $names[] = $name;
+			        request_to_review(get_user(check_user()), $email, $name, $url);
+			    }
+			}
+			$response = 'Request to review has been successfully sent to: <br>';
+			foreach ($names as $success) {
+			    $response .= $success . ' <br>';
+			}
+			echo $response;
+		}else{
+		  echo "Some error occured";
+		}
     }
 	
 	function sync()
