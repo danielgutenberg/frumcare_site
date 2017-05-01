@@ -14,7 +14,7 @@ class Review_model extends CI_Model{
 	}
 
 	public function getAllReviews($profile_id=''){
-		$sql = "select * from tbl_reviews where profile_id='$profile_id' and approved = 1 order by id, created_date desc limit 3";
+		$sql = "select * from tbl_reviews where profile_id='$profile_id' and approved = 1 order by id, created_date desc";
 		$query = $this->db->query($sql);
 		$res = $query->result_array();
 		if($res) return $res;
