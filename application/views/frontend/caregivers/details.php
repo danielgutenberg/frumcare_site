@@ -54,13 +54,14 @@ user_flash();
                     <?php
                     if($this->session->userdata('current_user')!=$care_id){ //condition for blocking own review and rating
                         if(isset($this->session->userdata['current_user']) && $recordData['care_type']<17){?>
+                        
                             <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal" id="<?php echo $this->session->userdata['current_user'];?>">Write a review</a> |
-                            <a href="<?php echo site_url();?>review/allreviews/<?php echo sha1($recordData['id']);?>">See all reviews</a>
+                            <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal3">See all reviews</a>
                         <?php } else {
                             if($recordData['care_type']<17){
                                 ?>
                                 |<a href="javascript:void(0)" id="not_login">Write a review</a>|
-                                <a href="<?php echo site_url();?>review/allreviews/<?php echo sha1($recordData['id']);?>">See all reviews</a>
+                                <a href="javascript:void(0);" data-toggle="modal2" data-target="#myModal3">See all reviews</a>
                                 <?php
                             }
                         }
@@ -699,57 +700,91 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
 
                     <!-- Modal -->
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                     <div class="modal-dialog">
-                      <div class="modal-content">
-                       <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Write a  Review</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form class="usersreviewform">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <label>Rate</label>
-                                    </td>
-                                    <td>
-                                        <div id="half" style="cursor: pointer;"></div>
-                                    </td>
-                                </tr>
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        <span aria-hidden="true">&times;</span>
+                                        <span class="sr-only">Close</span>
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">Write a  Review</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="usersreviewform">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <label>Rate</label>
+                                                </td>
+                                                <td>
+                                                    <div id="half" style="cursor: pointer;"></div>
+                                                </td>
+                                            </tr>
                        
-                                <tr>
-                                    <td><label>Review</label></td>
-                                    <td style="padding:3px">
-                                        <textarea name="review_description" class="required" style="width: 470px;height: 114px;"></textarea>
-                                    </td>
-                                </tr>
+                                            <tr>
+                                                <td><label>Review</label></td>
+                                                <td style="padding:3px">
+                                                    <textarea name="review_description" class="required" style="width: 470px;height: 114px;"></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="hidden" name="current_user" value="<?php echo @$this->session->userdata['current_user'];?>"/>
+                                                </td>
+                                                <td>
+                                                    <input type="hidden" name="new_id" value="<?php echo $recordData['user_id']?>"/>
+                                                    <input type="hidden" name="profile" value="<?php echo $recordData['id'];?>">
+                                                    <input type="hidden" name="date_time" value="<?php echo date('Y-m-d H:i:s')?>">
+                                                    <input type="hidden" name="acc_category" value="<?php echo $recordData['account_category'];?>">
+                                                    <input type="hidden" name="care_type" value="<?php echo $recordData['care_type'];?>">
+                                                </td>
+                                            </tr>
+                                        </table>
 
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary save">Save changes</button>
+                                        </div>
+                                    </form>
+                                    <div class="reviewsuccess" style="display:none;">
+                                        <p>Review has been successfully saved.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                     
-                                <tr>
-                                    <td>
-                                        <input type="hidden" name="current_user" value="<?php echo @$this->session->userdata['current_user'];?>"/>
-                                    </td>
-                                    <td>
-                                        <input type="hidden" name="new_id" value="<?php echo $recordData['user_id']?>"/>
-                                        <input type="hidden" name="profile" value="<?php echo $recordData['id'];?>">
-                                        <input type="hidden" name="date_time" value="<?php echo date('Y-m-d H:i:s')?>">
-                                        <input type="hidden" name="acc_category" value="<?php echo $recordData['account_category'];?>">
-                                        <input type="hidden" name="care_type" value="<?php echo $recordData['care_type'];?>">
-                                    </td>
-                                </tr>
-                            </table>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        <span aria-hidden="true">&times;</span>
+                                        <span class="sr-only">Close</span>
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">Reviews</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <?php foreach ($profileReviews as $pr) { ?>
+                                        <div class="rating-score" id="<?php echo $pr['review_rating'];?>"></div>
+                                        <br>
+        		                        <span class="name"><?php echo $pr['name'];?></span>
+        		                        <br>
+        		                        <span class="date"><?php 
+        		                        $dt = new DateTime($pr['created_date']);
+     						            echo $dt->format('m/d/Y');
+        		                        ?></span>
+                                        <p><?php echo $pr['description'];?></p>
+        		                        <br>
+        		                        
+                                    <?php } ?>
+                                </div>
 
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary save">Save changes</button>
-                          </div>
-                      </form>
-  <div class="reviewsuccess" style="display:none;"><p>Review has been successfully saved.</p></div>
-</div>
-
-</div>
-</div>
-</div>
+                            </div>
+                        </div>
+                    </div>
 </div>
 
                     <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

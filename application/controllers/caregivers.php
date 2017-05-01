@@ -42,6 +42,7 @@ class Caregivers extends CI_Controller
         $data['userlog']        = $this->user_model->getUserLogById($details['user_id']);
         $data['similar_types']  = $this->user_model->getSimilarPersons($details['care_type'],$details['id']);
         $data['care_id']        = $details['id'];
+        $data['profileReviews']        = $this->review_model->getAllReviews($details['id']);
         
         $this->load->view(FRONTEND_TEMPLATE,$data);
     }
