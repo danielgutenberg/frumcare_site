@@ -338,17 +338,17 @@ class Ad extends CI_Controller
                 update_crm($user);
                 $sendto = $user['email'];
                 $msg = $this->load->view('emails/adApproved', array('name' => $details['name']), true);
-                // $param = array(
-                //     'subject'     => 'Ad Approved',
-                //     'from'        => SITE_EMAIL,
-                //     'from_name'   => SITE_NAME,
-                //     'replyto'     => SITE_EMAIL,
-                //     'replytoname' => SITE_NAME,
-                //     'sendto'      => $sendto,
-                //     'message'     => $msg
-                // );
+                $param = array(
+                    'subject'     => 'Ad Approved',
+                    'from'        => SITE_EMAIL,
+                    'from_name'   => SITE_NAME,
+                    'replyto'     => SITE_EMAIL,
+                    'replytoname' => SITE_NAME,
+                    'sendto'      => $sendto,
+                    'message'     => $msg
+                );
                 
-                // sendemail($param);
+                sendemail($param);
                  
                  
                 //  $this->sendSearchAlerts($profile_id);
