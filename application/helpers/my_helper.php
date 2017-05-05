@@ -424,19 +424,19 @@ function update_crm($user)
     $userProfiles = $ci->user_model->get_all_profile($user['id']);
     if (count($userProfiles) > 0) {
         foreach ($userProfiles as $userProfile) {
-            if ($userProfile->profile_status == 1) {
+            if ($userProfile['profile_status'] == 1) {
                 $tags[] = 'Profile Approved';
             }
-            if ($userProfile->care_type < 11) {
+            if ($userProfile['care_type'] < 11) {
                 $tags[] = $ac->tags[1];
-            } else if ($userProfile->care_type < 17) {
+            } else if ($userProfile['care_type'] < 17) {
                 $tags[] = $ac->tags[2];
-            } else if ($userProfile->care_type < 25) {
+            } else if ($userProfile['care_type'] < 25) {
                 $tags[] = $ac->tags[3];
             } else {
                 $tags[] = $ac->tags[4];
             }
-            $serviceTags[] = $userProfile->service_name;
+            $serviceTags[] = $userProfile['service_name'];
         }
         
      	if ($user['profile_picture_status'] == 1 && $user['profile_picture'] != '') {
@@ -454,7 +454,6 @@ function update_crm($user)
     		"field[%LOCATION%]" => $user['location'],
     		"field[%COUNTRY%]" => $user['country']
      	);
-     	
         return $ac->api("contact/sync", $contact);
     }
 }
