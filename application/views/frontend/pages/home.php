@@ -6,7 +6,7 @@
     <section class="banner">
         
         <ul id="site-banner" class="banner-main">
-            <li class="banner-item home_page_banner" style='background-image:url(img/banner-bg.jpg);'>
+            <li class="banner-item home_page_banner" style='background-image:url(img/new-banner-bg.jpg);'>
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12">
@@ -15,30 +15,13 @@
                             </h2>
                         </div>
                     </div>
-                    <div style="float:none" class="banner-images row">
-                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-offset-2 col-sm-offset-0 col-xs-offset-2 col-med-2 hide-tiny">
-                            <a title="Child Care"><img src="img/banner%20images/woman-taking-care-of-girl1.png" alt="#"/><span>Child Care</span></a>
-                        </div>
-                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 hide-tiny">
-                            <a title="Senior Care"><img src="img/banner%20images/man-helping-elderly1.png" alt="#"/><span>Senior Care</span></a>
-                        </div>
-                        <div class="clearfix showdiv-xs"></div>
-                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 col-xs-offset-2 col-sm-offset-0 hide-tiny">    
-                            <a title="Special Needs Care"><img src="img/banner%20images/ThinkstockPhotos-4684690051.png" alt="#"/><span>Special Needs Care</span></a>
-                        </div>
-                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 hide-tiny">
-                            <a title="Cleaning & Household Help"><img src="img/banner%20images/woman-doing-house-chores1.png" alt="#"/><span class="col-xs-11" style="padding-left:2px">Cleaning & Household Help</span></a>
-                        </div>
-                    </div>
+
                     <div class="clearfix"></div>
                     
-                    <div class="row" style="margin-top:25px">
-                        <div class="home_page_buttons-lg home_page_buttons-md home_page_buttons-sm home_page_buttons-xs home_page_buttons-xxs buttons-xxxs buttons-xxxxs">
-                                <a href="<?php echo site_url('caregivers/all');?>" class="place-ad-link link-block">FIND A CAREGIVER</a>
-                        </div>
-                        <div class="home_page_buttons2 home_page_buttons-md2 home_page_buttons-sm2 home_page_buttons-xs2 home_page_buttons-xxs buttons-xxxs buttons-xxxxs">
-                                <a href="<?php echo base_url('jobs/all') ?>" class="place-ad-link link-block">FIND A JOB</a>
-                        </div>
+                    <div class="col-xs-10 col-xs-offset-1" style="height:150px; background-color:white; border-radius: 38px;">
+                        <h2>I'm looking for:</h2>
+                                <a href="<?php echo site_url('caregivers/all');?>" class="place-ad-link link-block">CAREGIVERS</a>
+                                <a href="<?php echo base_url('jobs/all') ?>" class="place-ad-link link-block">JOB OPPORTUNITIES</a>
                     </div>
         </section>
 

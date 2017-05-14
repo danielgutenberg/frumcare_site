@@ -90,44 +90,7 @@
     <div id="site-wrapper">
         <header class="header">
             <div class="top-bar clearfix">
-                <div class="container">
-                    <div class="login-links">
-                        <?php if (!$this->session->userdata('current_user') && !$this->session->userdata('fb_id') && !$this->session->userdata('twitter_id')) { ?>
-                        <a href="<?php echo base_url('signup') ?>"><i class="icon-login">&nbsp;</i>Sign up</a>
-                        <a href="<?php echo base_url('login') ?>"><i class="icon-lock">&nbsp;</i>Log in</a>
-                        <?php
-                    } else {
-                        if ($this->session->userdata('fb_id'))
-                            $logout = $this->session->userdata('fb_logout');
-                        else
-                            $logout = base_url('logout'); ?>
-                        <a href="<?php echo base_url('user/dashboard') ?>"><i class="icon-login">&nbsp;</i>My
-                            Account</a>
-                            <a href="<?php echo $logout ?>"><i class="icon-lock">&nbsp;</i>Log out</a>
-                            <?php } ?>
-                        </div>
-
-                        <div class="search">
-                        <!--<form method="get" action="<?php echo site_url();?>search">-->
-                        <!--    <div class="search-select">-->
-                        <!--    <select name="category" style="width: 100%">-->
-                        <!--        <option value="all">All</option>-->
-                        <!--        <option value="caregiver" class="selected">Caregivers</option>-->
-                        <!--        <option value="careseeker">Jobs</option>-->
-                        <!--    </select>-->
-                        <!--    </div>-->
-
-                        <!--    <div class="dropdown">-->
-                        <!--        <input type="text" name="search_for" value="" placeholder="Search" data-toggle="dropdown" required="required"/>-->
-                        <!--        <input type="hidden" value=""/>-->
-                        <!--        <button type="submit" class="submit"><i class="icon-search">&nbsp;</i></button>-->
-
-                        <!--    </div>-->
-                        <!--</form>-->
-                    </div>
-        
-        <!--end search-->
-    </div>
+                
 </div>
 <!--end top-bar-->
 
@@ -141,59 +104,26 @@
 
         <div class="navigation col-lg-8 col-md-8 col-sm-8 col-xs-12 center">
             <nav>
-                <div class="toggle-menu">Menu</div>
-                <ul class="primary-nav">
-                            <li>
-                                <div class="dropdown">
-                                  <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                                    Caregivers
-                                </a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>signup">Create a Profile</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>caregivers/all">Find a Caregiver</a></li>
-                                </ul>
-                            </div>
-                        </li>
-
-                        <li>
-                           <div class="dropdown">
-                              <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                                Jobs
-                            </a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>signup" id="2" class="postjob">Post a Job</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>jobs/all">Find a Job</a></li>
-                            </ul>
+                <div class="container">
+                    <div class="login-links">
+                        <?php if (!$this->session->userdata('current_user') && !$this->session->userdata('fb_id') && !$this->session->userdata('twitter_id')) { ?>
+                        <a href="<?php echo base_url('signup') ?>"><i class="icon-login" style="background-image: url(../frumcare/img/lock.png);">&nbsp;</i>Sign up</a>
+                        <a href="<?php echo base_url('login') ?>"><i class="icon-lock">&nbsp;</i>Log in</a>
+                        <?php
+                    } else {
+                        if ($this->session->userdata('fb_id'))
+                            $logout = $this->session->userdata('fb_logout');
+                        else
+                            $logout = base_url('logout'); ?>
+                        <a href="<?php echo base_url('user/dashboard') ?>"><i class="icon-login">&nbsp;</i>My
+                            Account</a>
+                            <a href="<?php echo $logout ?>"><i class="icon-lock">&nbsp;</i>Log out</a>
+                            <?php } ?>
                         </div>
-                    </li>
 
-                    <li>
-                       <div class="dropdown">
-                          <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                            Institutions
-                        </a>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>signup"> Advertise Your Services</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>caregivers/organizations">Find Workers for Your Organization</a></li>
-                        </ul>
+
                     </div>
-                </li>
-
-                <li>
-                   <div class="dropdown">
-                      <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                        Therapists
-                    </a>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>signup">Advertise Your Services</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>caregivers/therapists">Find a Therapist</a></li>
-                    </ul>
-                </div>
-            </li>
-
-            <li><a href="<?php echo site_url("blog")?>">Blog</a></li>
-
-        </ul>
+    </div>
     </nav>
 </div>
 <div class="clearfix"></div>
