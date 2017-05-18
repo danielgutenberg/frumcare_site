@@ -44,7 +44,7 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Varela+Round' type='text/css'>
         <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' type='text/css'>
-        <link rel="stylesheet" href="<?php echo base_url('css/compressedMain9.css') ?>">
+        <link rel="stylesheet" href="<?php echo base_url('css/compressedMain10.css') ?>">
         
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
@@ -107,8 +107,8 @@
                 <div class="container">
                     <div class="login-links">
                         <?php if (!$this->session->userdata('current_user') && !$this->session->userdata('fb_id') && !$this->session->userdata('twitter_id')) { ?>
-                        <a href="<?php echo base_url('signup') ?>"><i class="icon-login" style="background-image: url(../frumcare/img/lock.png);">&nbsp;</i>Sign up</a>
-                        <a href="<?php echo base_url('login') ?>"><i class="icon-lock">&nbsp;</i>Log in</a>
+                        <a href="<?php echo base_url('signup') ?>">Sign up</a>
+                        <a href="<?php echo base_url('login') ?>" style="height: 38px;line-height: 38px;background-color: #85bd30;padding: 0 15px;color:#24a2ce;font-weight: 700;">Log in</a>
                         <?php
                     } else {
                         if ($this->session->userdata('fb_id'))

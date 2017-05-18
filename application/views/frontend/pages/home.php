@@ -1,14 +1,20 @@
+<script src="<?php echo base_url('js/unslider-min.js') ?>"></script>
+<link rel="stylesheet" href="<?php echo base_url('js/unslider.css') ?>">
 <?php home_flash();?>
 		    <div class="alert alert-success alert-dismissible invite_response" role="alert" style="display:none">
             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             </div>
 <main class="site-main">
     <section class="banner">
-        
-        <ul id="site-banner" class="banner-main">
-            <li class="banner-item home_page_banner" style='background-image:url(img/new-banner-bg.jpg);'>
-                <div class="container">
-                    <div class="row">
+        <div class="myslider">
+            <ul id="site-banner" class="banner-main">
+    
+                <li class="banner-item home_page_banner" style='background-image:url(img/bannerImages/banner2.jpg);'></li>
+                <li class="banner-item home_page_banner" style='background-image:url(img/bannerImages/banner1.jpg);'></li>
+            </ul>
+        </div>
+                <div class="container" style="margin-top: -480px; margin-bottom: 75px">
+                    <div class="row" style="margin-bottom:100px">
                         <div class="col-xs-12">
                             <h2 class="banner-title" style="text-align:center">
                                 We Connect <br> Jewish Families with Caregivers
@@ -18,10 +24,11 @@
 
                     <div class="clearfix"></div>
                     
-                    <div class="col-xs-10 col-xs-offset-1" style="height:150px; background-color:white; border-radius: 38px;">
-                        <h2>I'm looking for:</h2>
-                                <a href="<?php echo site_url('caregivers/all');?>" class="place-ad-link link-block">CAREGIVERS</a>
-                                <a href="<?php echo base_url('jobs/all') ?>" class="place-ad-link link-block">JOB OPPORTUNITIES</a>
+                    <div class="col-xs-8 col-xs-offset-2" style="height:150px; background-color:white; border-radius: 38px;">
+                        <h2 style="text-align:center; padding-bottom:25px;">I'm looking for:</h2>
+                                <div class="col-xs-6" style="text-align:center;"><a href="<?php echo site_url('caregivers/all');?>" style="background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 5px;color: #fff;height: 30px;text-transform: uppercase;width: 160px;padding:20px">CAREGIVERS</a></div>
+                                <div class="col-xs-6"><a href="<?php echo base_url('jobs/all') ?>" style="background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 5px;color: #fff;height: 30px;text-transform: uppercase;width: 160px;padding:20px">JOB OPPORTUNITIES</a></div>
+                    </div>
                     </div>
         </section>
 
@@ -347,6 +354,17 @@
         <link href="<?php echo site_url(); ?>css/notifIt.css" type="text/css" rel="stylesheet">
         <script type="text/javascript">
             $(document).ready(function(){
+                
+                $('.myslider').unslider({
+                    autoplay: true,
+                    nav: false,
+                    arrows: false,
+                    infinite: true,
+                    delay: 6000,
+                    speed: 2000,
+                });
+                
+                
                  // dialog box
                  var $myDialog = $('<div></div>')
                  .html('Please select care type')
