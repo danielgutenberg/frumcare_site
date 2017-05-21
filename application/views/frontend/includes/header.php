@@ -94,22 +94,22 @@
 </div>
 <!--end top-bar-->
 
-<div class="header-main">
-    <div class="container">
-        <h1 class="col-lg-4 col-md-4 col-sm-4 col-xs-12 center logo">
+<div class="">
+    <div>
+        <h1 class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <a href="<?php echo base_url() ?>">
                 <img src="<?php echo base_url('img/logo.png') ?>" alt="Frumcare.com">
             </a>
         </h1>
 
-        <div class="navigation col-lg-8 col-md-8 col-sm-8 col-xs-12 center">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 marginTop" style="margin-top:37px">
             <nav>
-                <div class="container">
+                <div>
                     <div class="login-links">
-                        <?php if (!$this->session->userdata('current_user') && !$this->session->userdata('fb_id') && !$this->session->userdata('twitter_id')) { ?>
-                        <div class="primary-nav">
-                            <div class="dropdown">
-                            <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" style="text-shadow: 1px 1px 0 rgba(0,0,0,0.4);margin-right: 30px;color: #525252;display: inline-block;line-height: 30px;font-size:16px;height: 38px;line-height: 38px;color: #85bd30;padding: 0 15px;background-color:#24a2ce;font-weight: 700;">Have a Care Business?</a>
+                    <?php if (!$this->session->userdata('current_user') && !$this->session->userdata('fb_id') && !$this->session->userdata('twitter_id')) { ?>
+                        <div class="primary-nav" style="display:inline-block">
+                            <div class="dropdown disappearSmall">
+                            <a class="dropdown-toggle " id="dropdownMenu1" data-toggle="dropdown" style="text-shadow: 1px 1px 0 rgba(0,0,0,0.4);margin-right: 30px;color: #525252;display: inline-block;line-height: 30px;font-size:16px;height: 38px;line-height: 38px;color: #85bd30;padding: 0 15px;background-color:#24a2ce;font-weight: 700;">Have a Care Business?</a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>signup"> Advertise Your Services</a></li>
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>caregivers/organizations">Find Workers for Your Organization</a></li>
@@ -127,7 +127,7 @@
                         <a href="<?php echo base_url('user/dashboard') ?>"><i class="icon-login">&nbsp;</i>My
                             Account</a>
                             <a href="<?php echo $logout ?>"><i class="icon-lock">&nbsp;</i>Log out</a>
-                            <?php } ?>
+                        <?php } ?>
                         </div>
 
 
