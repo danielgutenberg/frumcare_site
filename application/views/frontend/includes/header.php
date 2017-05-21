@@ -107,6 +107,15 @@
                 <div class="container">
                     <div class="login-links">
                         <?php if (!$this->session->userdata('current_user') && !$this->session->userdata('fb_id') && !$this->session->userdata('twitter_id')) { ?>
+                        <div class="primary-nav">
+                            <div class="dropdown">
+                            <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" style="text-shadow: 1px 1px 0 rgba(0,0,0,0.4);margin-right: 30px;color: #525252;display: inline-block;line-height: 30px;font-size:16px;height: 38px;line-height: 38px;color: #85bd30;padding: 0 15px;background-color:#24a2ce;font-weight: 700;">Have a Care Business?</a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>signup"> Advertise Your Services</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>caregivers/organizations">Find Workers for Your Organization</a></li>
+                            </ul>
+                            </div>
+                        </div>
                         <a href="<?php echo base_url('signup') ?>">Sign up</a>
                         <a href="<?php echo base_url('login') ?>" style="height: 38px;line-height: 38px;background-color: #85bd30;padding: 0 15px;color:#24a2ce;font-weight: 700;">Log in</a>
                         <?php

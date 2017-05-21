@@ -9,14 +9,14 @@
         <div class="myslider">
             <ul id="site-banner" class="banner-main">
     
-                <li class="banner-item home_page_banner" style='background-image:url(img/bannerImages/banner2.jpg);'></li>
-                <li class="banner-item home_page_banner" style='background-image:url(img/bannerImages/banner1.jpg);'></li>
+                <li class="banner-item home_page_banner bigBanner1" style='background-image:url(img/bannerImages/big-banner-1.jpg);'></li>
+                <li class="banner-item home_page_banner bigBanner2" style='background-image:url(img/bannerImages/big-banner-2.jpg);'></li>
             </ul>
         </div>
-                <div class="container" style="margin-top: -480px; margin-bottom: 75px">
-                    <div class="row" style="margin-bottom:100px">
+                <div class="container textBoxLarge" style="margin-top: -515px; margin-bottom: 75px">
+                    <div class="row bannerText" style="margin-bottom:80px">
                         <div class="col-xs-12">
-                            <h2 class="banner-title" style="text-align:center">
+                            <h2 class="banner-title bannerTextLarge" style="text-align:center">
                                 We Connect <br> Jewish Families with Caregivers
                             </h2>
                         </div>
@@ -24,10 +24,12 @@
 
                     <div class="clearfix"></div>
                     
-                    <div class="col-xs-8 col-xs-offset-2" style="height:150px; background-color:white; border-radius: 38px;">
+                    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2" style="min-height:245px; background-color:white; border-radius: 8px;; box-shadow:0 3px 4px 1px rgba(0,0,0,.2); z-index:10001">
                         <h2 style="text-align:center; padding-bottom:25px;">I'm looking for:</h2>
-                                <div class="col-xs-6" style="text-align:center;"><a href="<?php echo site_url('caregivers/all');?>" style="background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 5px;color: #fff;height: 30px;text-transform: uppercase;width: 160px;padding:20px">CAREGIVERS</a></div>
-                                <div class="col-xs-6"><a href="<?php echo base_url('jobs/all') ?>" style="background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 5px;color: #fff;height: 30px;text-transform: uppercase;width: 160px;padding:20px">JOB OPPORTUNITIES</a></div>
+                        <div class="row">
+                                <div class="col-md-4 col-md-offset-2 col-xs-10 col-xs-offset-1" style="margin-bottom:8px; background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center"><a style="text-transform: uppercase;color: #fff; font-size:17px" href="<?php echo site_url('caregivers/all');?>">CAREGIVERS</a></div>
+                                <div class="col-md-4 col-md-offset-1 col-xs-10 col-xs-offset-1 tinyBanner" style="background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center"><a style="text-transform: uppercase;color: #fff; font-size:17px"href="<?php echo base_url('jobs/all') ?>">JOB OPPORTUNITIES</a></div>
+                    </div>
                     </div>
                     </div>
         </section>
@@ -362,6 +364,7 @@
                     infinite: true,
                     delay: 6000,
                     speed: 2000,
+                    fluid: true
                 });
                 
                 
