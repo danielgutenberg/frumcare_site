@@ -28,7 +28,7 @@
                         <h2 class="paddingBanner" style="text-align:center; padding-bottom:25px;">I'm looking for:</h2>
                         <div class="row">
                                 <div class="col-md-4 col-md-offset-2 col-xs-10 col-xs-offset-1 tinyBannerRight" style="margin-bottom:8px; background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center"><a style="text-transform: uppercase;color: #fff; font-size:17px" href="<?php echo site_url('caregivers/all');?>">CAREGIVERS</a></div>
-                                <div class="col-md-4 col-md-offset-0 col-xs-10 col-xs-offset-1 tinyBanner" style="background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center; margin-left:8px"><a style="text-transform: uppercase;color: #fff; font-size:17px"href="<?php echo base_url('jobs/all') ?>">JOB OPPORTUNITIES</a></div>
+                                <div class="col-md-4 col-md-offset-0 col-xs-10 col-xs-offset-1 tinyBanner" style="background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center;"><a style="text-transform: uppercase;color: #fff; font-size:17px"href="<?php echo base_url('jobs/all') ?>">JOB OPPORTUNITIES</a></div>
                     </div>
                     </div>
                     </div>
