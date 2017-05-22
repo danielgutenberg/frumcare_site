@@ -64,8 +64,9 @@
     .tinyBanner{padding: 12px !important}
 }
 @media (min-width:992px){
-    .tinyBanner{padding: 12px !important}
+    .tinyBanner{padding: 12px !important; margin-left: 8px !important}
     .paddingBanner{margin-top:52px !important}
+    .tinyBannerRight{margin-right: 8px !important}
 }
 @media (max-width:1191px){
     .tinyBanner{padding: 12px !important}

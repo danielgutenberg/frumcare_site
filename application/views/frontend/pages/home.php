@@ -16,7 +16,7 @@
                 <div class="container textBoxLarge" style="margin-top: -394px; margin-bottom: 75px">
                     <div class="row bannerText" style="margin-bottom:5px">
                         <div class="col-xs-12">
-                            <h2 class="banner-title bannerTextLarge" style="text-align:center">
+                            <h2 class="banner-title bannerTextLarge" style="text-align:center;text-transform: none;">
                                 Find and connect with the <br> best caregivers in your area
                             </h2>
                         </div>
@@ -27,8 +27,8 @@
                     <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2" style="min-height:245px; background-color:white; border-radius: 8px;; box-shadow:0 3px 4px 1px rgba(0,0,0,.2); z-index:10001">
                         <h2 class="paddingBanner" style="text-align:center; padding-bottom:25px;">I'm looking for:</h2>
                         <div class="row">
-                                <div class="col-md-4 col-md-offset-1 col-xs-10 col-xs-offset-1" style="margin-bottom:8px; background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center"><a style="text-transform: uppercase;color: #fff; font-size:17px" href="<?php echo site_url('caregivers/all');?>">CAREGIVERS</a></div>
-                                <div class="col-md-4 col-md-offset-2 col-xs-10 col-xs-offset-1 tinyBanner" style="background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center"><a style="text-transform: uppercase;color: #fff; font-size:17px"href="<?php echo base_url('jobs/all') ?>">JOB OPPORTUNITIES</a></div>
+                                <div class="col-md-4 col-md-offset-2 col-xs-10 col-xs-offset-1 tinyBannerRight" style="margin-bottom:8px; background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center"><a style="text-transform: uppercase;color: #fff; font-size:17px" href="<?php echo site_url('caregivers/all');?>">CAREGIVERS</a></div>
+                                <div class="col-md-4 col-md-offset-0 col-xs-10 col-xs-offset-1 tinyBanner" style="background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center; margin-left:8px"><a style="text-transform: uppercase;color: #fff; font-size:17px"href="<?php echo base_url('jobs/all') ?>">JOB OPPORTUNITIES</a></div>
                     </div>
                     </div>
                     </div>
