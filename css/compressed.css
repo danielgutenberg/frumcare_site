@@ -69,16 +69,17 @@
     .tinyBannerRight{margin-right: 8px !important}
     .headerContainer{width:970px !important;}
 }
-@media (max-width:1191px){
-    .tinyBanner{padding: 12px !important}
+@media (max-width:1199px){
+    .tinyBanner{padding: 8px 20px 20px 20px !important}
 }
-@media (min-width:1192px){
+@media (min-width:1200px){
     .tinyBanner{padding: 20px !important}
     .headerContainer{width:1170px !important;}
 }
 @media (max-width:991px){
     .textBoxLarge{margin-top:-290px !important}
     .bannerText{margin-bottom: 15px !important}
+    .tinyBanner{padding: 20px !important}
 }
 @media (max-width:700px){
     .bigBanner1{background-image:url(../img/bannerImages/woman-doing-house-chores.png) !important}
