@@ -44,7 +44,7 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Varela+Round' type='text/css'>
         <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' type='text/css'>
-        <link rel="stylesheet" href="<?php echo base_url('css/compressedMain.css') ?>">
+        <link rel="stylesheet" href="<?php echo base_url('css/compressed.css') ?>">
         
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
@@ -88,52 +88,35 @@
 
     <div class="page-loader-modal"></div>
     <div id="site-wrapper">
-        <header class="header">
-            <div class="top-bar clearfix">
-                
-</div>
+        <header class="header" style=" border-bottom: 1px solid #e5e5e5;">
+
 <!--end top-bar-->
 
-<div class="">
-    <div>
-        <h1 class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <a href="<?php echo base_url() ?>">
+<div>
+    <div class="headerContainer" style="margin-right: auto; margin-left: auto; height:60px">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="margin-top:8px">
+            <a href="<?php echo base_url() ?>" style="background: url(http://www.frumcare.com/dev/img/logo.png);height: 40px;width: 200px;display: inline-block;background-size: 100%;">
                 <img src="<?php echo base_url('img/logo.png') ?>" alt="Frumcare.com">
             </a>
-        </h1>
+        </div>
 
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 marginTop" style="margin-top:37px">
-            <nav>
-                <div>
-                    <div class="login-links">
-                    <?php if (!$this->session->userdata('current_user') && !$this->session->userdata('fb_id') && !$this->session->userdata('twitter_id')) { ?>
-                        <div class="primary-nav" style="display:inline-block">
-                            <div class="dropdown disappearSmall">
-                            <a class="dropdown-toggle " id="dropdownMenu1" data-toggle="dropdown" style="text-shadow: 1px 1px 0 rgba(0,0,0,0.4);margin-right: 30px;color: #525252;display: inline-block;line-height: 30px;font-size:16px;height: 38px;line-height: 38px;color: #85bd30;padding: 0 15px;background-color:#24a2ce;font-weight: 700;">Have a Care Business?</a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>signup"> Advertise Your Services</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>caregivers/organizations">Find Workers for Your Organization</a></li>
-                            </ul>
-                            </div>
-                        </div>
-                        <a href="<?php echo base_url('signup') ?>">Sign up</a>
-                        <a href="<?php echo base_url('login') ?>" style="height: 38px;line-height: 38px;background-color: #85bd30;padding: 0 15px;color:#24a2ce;font-weight: 700;">Log in</a>
-                        <?php
-                    } else {
-                        if ($this->session->userdata('fb_id'))
-                            $logout = $this->session->userdata('fb_logout');
-                        else
-                            $logout = base_url('logout'); ?>
-                        <a href="<?php echo base_url('user/dashboard') ?>"><i class="icon-login">&nbsp;</i>My
-                            Account</a>
-                            <a href="<?php echo $logout ?>"><i class="icon-lock">&nbsp;</i>Log out</a>
-                        <?php } ?>
-                        </div>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
 
-
-                    </div>
-    </div>
-    </nav>
+            <div class="pull-right login-block" style="margin-top:14px">
+            <?php if (!$this->session->userdata('current_user') && !$this->session->userdata('fb_id') && !$this->session->userdata('twitter_id')) { ?>
+                <a id="btn-nav-login" class="btn" href="<?php echo base_url('login') ?>">Log in</a>
+                <a id="btn-nav-signup" style="background: transparent;color: #525252" class="btn btn-primary" href="<?php echo base_url('signup') ?>">SIGN UP</a>
+            <?php
+            } else {
+            if ($this->session->userdata('fb_id'))
+                $logout = $this->session->userdata('fb_logout');
+            else
+                $logout = base_url('logout'); ?>
+                
+                <a id="btn-nav-login" class="btn" href="<?php echo base_url('user/dashboard') ?>">My Account</a>
+                <a id="btn-nav-signup" style="background: transparent;color: #525252" class="btn btn-primary" href="<?php echo $logout ?>">Log out</a>
+            <?php } ?>
+            </div>
 </div>
 <div class="clearfix"></div>
 </div>

@@ -67,12 +67,14 @@
     .tinyBanner{padding: 12px !important; margin-left: 8px !important}
     .paddingBanner{margin-top:52px !important}
     .tinyBannerRight{margin-right: 8px !important}
+    .headerContainer{width:970px !important;}
 }
 @media (max-width:1191px){
     .tinyBanner{padding: 12px !important}
 }
 @media (min-width:1192px){
     .tinyBanner{padding: 20px !important}
+    .headerContainer{width:1170px !important;}
 }
 @media (max-width:991px){
     .textBoxLarge{margin-top:-290px !important}
