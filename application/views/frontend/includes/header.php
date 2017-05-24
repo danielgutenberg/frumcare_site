@@ -94,13 +94,11 @@
 
 <div>
     <div class="headerContainer" style="margin-right: auto; margin-left: auto; height:60px">
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="margin-top:8px">
-            <a href="<?php echo base_url() ?>" style="background: url(http://www.frumcare.com/dev/img/logo.png);height: 40px;width: 200px;display: inline-block;background-size: 100%;">
-                <img src="<?php echo base_url('img/logo.png') ?>" alt="Frumcare.com">
-            </a>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-top:8px">
+            <a href="<?php echo base_url() ?>" style="background: url(<?php echo base_url('img/logo.png') ?>);background-repeat:no-repeat; height: 40px;width: 200px;display: inline-block;background-size: 90%;"></a>
         </div>
 
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 
             <div class="pull-right login-block" style="margin-top:14px">
             <?php if (!$this->session->userdata('current_user') && !$this->session->userdata('fb_id') && !$this->session->userdata('twitter_id')) { ?>

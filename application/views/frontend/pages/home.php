@@ -1,22 +1,23 @@
-<script src="<?php echo base_url('js/unslider-min.js') ?>"></script>
-<link rel="stylesheet" href="<?php echo base_url('js/unslider.css') ?>">
+<script src="<?php echo base_url('js/owl.carousel.min.js') ?>"></script>
+<link rel="stylesheet" href="<?php echo base_url('js/owl.carousel.min.css') ?>">
+<link rel="stylesheet" href="<?php echo base_url('js/owl.theme.default.min.css') ?>">
 <?php home_flash();?>
 		    <div class="alert alert-success alert-dismissible invite_response" role="alert" style="display:none">
             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             </div>
 <main class="site-main">
     <section class="banner">
-        <div class="myslider">
-            <ul id="site-banner" class="banner-main">
-    
-                <li class="banner-item home_page_banner bigBanner1" style='background-image:url(img/bannerImages/big-banner-1.jpg);'></li>
-                <li class="banner-item home_page_banner bigBanner2" style='background-image:url(img/bannerImages/big-banner-2.jpg);'></li>
-            </ul>
-        </div>
-                <div class="container textBoxLarge" style="margin-top: -394px; margin-bottom: 75px">
+        <ul class="owl-carousel owl-theme">
+            
+            <li class="banner-item home_page_banner bigBanner1" style='background-image:url(img/bannerImages/man-helping-elderly1.png);'></li>
+            <li class="banner-item home_page_banner bigBanner2" style='background-image:url(img/bannerImages/ThinkstockPhotos-4684690051.png);'></li>
+            <li class="banner-item home_page_banner bigBanner1" style='background-image:url(img/bannerImages/woman-doing-house-chores1.png);'></li>
+            <li class="banner-item home_page_banner bigBanner2" style='background-image:url(img/bannerImages/woman-taking-care-of-girl1.png);'></li>
+        </ul>
+                <div class="container textBoxLarge" style="margin-top: -300px; margin-bottom: 75px;">
                     <div class="row bannerText" style="margin-bottom:25px">
                         <div class="col-xs-12">
-                            <h2 class="banner-title bannerTextLarge" style="text-align:center;text-transform: none;">
+                            <h2 class="banner-title bannerTextLarge" style="text-align:center;text-transform: none; position:inherit; z-index:10002">
                                 Find the best caregivers in your area
                             </h2>
                         </div>
@@ -373,14 +374,15 @@
         <script type="text/javascript">
             $(document).ready(function(){
                 
-                $('.myslider').unslider({
-                    autoplay: true,
+                $('.owl-carousel').owlCarousel({
                     nav: false,
-                    arrows: false,
-                    infinite: true,
-                    delay: 6000,
-                    speed: 2000,
-                    fluid: true
+                    autoplay: true,
+                    items:1,
+                    animateOut: 'fadeOut',
+                    loop: true,
+				    autoplayTimeout: 4000,
+				    autoHeight: false,
+				    autoWidth: false
                 });
                 
                 

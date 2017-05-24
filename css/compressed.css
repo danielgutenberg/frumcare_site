@@ -94,4 +94,7 @@
 @media (max-width:550px){
     .bannerTextLarge{display:none !important}
 }
+@media (max-width:731px){
+    .headerSmall{display:none !important}
+}
 
