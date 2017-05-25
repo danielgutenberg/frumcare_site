@@ -13,7 +13,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <h2 class="banner-title" style="text-align:center; text-transform: none">
-                                Find the best caregivers in your area
+                                Find the perfect caregiver
                             </h2>
                         </div>
                     </div>
