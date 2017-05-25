@@ -7,19 +7,29 @@
             </div>
 <main class="site-main">
     <section class="banner">
-        <ul class="owl-carousel owl-theme">
-            
-            <li class="banner-item home_page_banner bigBanner1" style='background-image:url(img/bannerImages/man-helping-elderly1.png);'></li>
-            <li class="banner-item home_page_banner bigBanner2" style='background-image:url(img/bannerImages/ThinkstockPhotos-4684690051.png);'></li>
-            <li class="banner-item home_page_banner bigBanner1" style='background-image:url(img/bannerImages/woman-doing-house-chores1.png);'></li>
-            <li class="banner-item home_page_banner bigBanner2" style='background-image:url(img/bannerImages/woman-taking-care-of-girl1.png);'></li>
-        </ul>
-                <div class="container textBoxLarge" style="margin-top: -300px; margin-bottom: 75px;">
-                    <div class="row bannerText" style="margin-bottom:25px">
+        <ul id="site-banner" class="banner-main">
+            <li class="banner-item home_page_banner" style='background-image:url(img/banner-bg.jpg);'>
+                <div class="container">
+                    <div class="row">
                         <div class="col-xs-12">
-                            <h2 class="banner-title bannerTextLarge" style="text-align:center;text-transform: none; position:inherit; z-index:10002">
+                            <h2 class="banner-title" style="text-align:center; text-transform: none">
                                 Find the best caregivers in your area
                             </h2>
+                        </div>
+                    </div>
+                    <div style="float:none" class="banner-images row">
+                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-offset-2 col-sm-offset-0 col-xs-offset-2 col-med-2 hide-tiny">
+                            <a title="Child Care"><img src="img/bannerImages/woman-taking-care-of-girl1.png" alt="#"/><span>Child Care</span></a>
+                        </div>
+                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 hide-tiny">
+                            <a title="Senior Care"><img src="img/bannerImages/man-helping-elderly1.png" alt="#"/><span>Senior Care</span></a>
+                        </div>
+                        <div class="clearfix showdiv-xs"></div>
+                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 col-xs-offset-2 col-sm-offset-0 hide-small">    
+                            <a title="Special Needs Care"><img src="img/bannerImages/ThinkstockPhotos-4684690051.png" alt="#"/><span>Special Needs Care</span></a>
+                        </div>
+                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 hide-small">
+                            <a title="Cleaning & Household Help"><img src="img/bannerImages/woman-doing-house-chores1.png" alt="#"/><span class="col-xs-11" style="padding-left:2px">Cleaning & Household Help</span></a>
                         </div>
                     </div>
 
