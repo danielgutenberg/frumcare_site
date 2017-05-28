@@ -1,44 +1,63 @@
+<script src="<?php echo base_url('js/owl.carousel.min.js') ?>"></script>
+<link rel="stylesheet" href="<?php echo base_url('js/owl.carousel.min.css') ?>">
+<link rel="stylesheet" href="<?php echo base_url('js/owl.theme.default.min.css') ?>">
 <?php home_flash();?>
 		    <div class="alert alert-success alert-dismissible invite_response" role="alert" style="display:none">
             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             </div>
 <main class="site-main">
     <section class="banner">
-        
         <ul id="site-banner" class="banner-main">
             <li class="banner-item home_page_banner" style='background-image:url(img/banner-bg.jpg);'>
                 <div class="container">
-                    <div class="row">
+                    <div class="row" style="margin-bottom:20px">
                         <div class="col-xs-12">
-                            <h2 class="banner-title" style="text-align:center">
-                                We Connect <br> Jewish Families with Caregivers
+                            <h2 class="banner-title" style="text-align:center; padding-top:25px; font-size:48px">
+                                Find the perfect caregiver
                             </h2>
                         </div>
                     </div>
-                    <div style="float:none" class="banner-images row">
+                    <div style="float:none; margin-bottom:50px" class="banner-images row">
                         <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-offset-2 col-sm-offset-0 col-xs-offset-2 col-med-2 hide-tiny">
-                            <a title="Child Care"><img src="img/banner%20images/woman-taking-care-of-girl1.png" alt="#"/><span>Child Care</span></a>
+                            <a title="Child Care"><img src="img/banners/woman-taking-care-of-girl1.png" alt="#"/><span>Child Care</span></a>
                         </div>
                         <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 hide-tiny">
-                            <a title="Senior Care"><img src="img/banner%20images/man-helping-elderly1.png" alt="#"/><span>Senior Care</span></a>
+                            <a title="Senior Care"><img src="img/banners/man-helping-elderly1.png" alt="#"/><span>Senior Care</span></a>
                         </div>
                         <div class="clearfix showdiv-xs"></div>
                         <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 col-xs-offset-2 col-sm-offset-0 hide-tiny">    
-                            <a title="Special Needs Care"><img src="img/banner%20images/ThinkstockPhotos-4684690051.png" alt="#"/><span>Special Needs Care</span></a>
+                            <a title="Special Needs Care"><img src="img/banners/ThinkstockPhotos-4684690051.png" alt="#"/><span>Special Needs Care</span></a>
                         </div>
                         <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 hide-tiny">
-                            <a title="Cleaning & Household Help"><img src="img/banner%20images/woman-doing-house-chores1.png" alt="#"/><span class="col-xs-11" style="padding-left:2px">Cleaning & Household Help</span></a>
+                            <a title="Cleaning & Household Help"><img src="img/banners/woman-doing-house-chores1.png" alt="#"/><span class="col-xs-11" style="padding-left:2px">Cleaning & Household Help</span></a>
                         </div>
                     </div>
+
                     <div class="clearfix"></div>
                     
-                    <div class="row" style="margin-top:25px">
-                        <div class="home_page_buttons-lg home_page_buttons-md home_page_buttons-sm home_page_buttons-xs home_page_buttons-xxs buttons-xxxs buttons-xxxxs">
-                                <a href="<?php echo site_url('caregivers/all');?>" class="place-ad-link link-block">FIND A CAREGIVER</a>
+                    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2" style="min-height:245px; background-color:white; border-radius: 8px;; box-shadow:0 3px 4px 1px rgba(0,0,0,.2); z-index:10001">
+                        <h2 class="paddingBanner" style="text-align:center; padding-bottom:5px;">I'm looking for:</h2>
+                        <div class="row">
+                                <div class="col-md-4 col-md-offset-2 col-xs-10 col-xs-offset-1 tinyBannerRight" style="margin-bottom:8px; background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center"><a style="text-transform: uppercase;color: #fff; font-size:17px" href="<?php echo site_url('caregivers/all');?>">CAREGIVERS</a></div>
+                                <div class="col-md-4 col-md-offset-0 col-xs-10 col-xs-offset-1 tinyBanner" style="background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center;"><a style="text-transform: uppercase;color: #fff; font-size:17px"href="<?php echo base_url('jobs/all') ?>">JOB OPPORTUNITIES</a></div>
                         </div>
-                        <div class="home_page_buttons2 home_page_buttons-md2 home_page_buttons-sm2 home_page_buttons-xs2 home_page_buttons-xxs buttons-xxxs buttons-xxxxs">
-                                <a href="<?php echo base_url('jobs/all') ?>" class="place-ad-link link-block">FIND A JOB</a>
-                        </div>
+                        <div style="text-align:center; padding-top:5px;width: 200px;margin-right: auto;margin-left: auto;">
+                            
+                            <div class="dropdown">
+                                Do you have a 
+                          <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                            Care Business?
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation" style="cursor:pointer"><a role="menuitem" tabindex="-1" href="<?php echo base_url('signup') ?>"> Advertise Your Services</a></li>
+                            <li role="presentation" style="cursor:pointer"><a role="menuitem" tabindex="-1" href="<?php echo base_url('caregivers/organizations') ?>">Find Workers for Your Organization</a></li>
+                        </ul>
+                    </div>
+                            
+                            
+                            
+                            </div>
+                    </div>
                     </div>
         </section>
 
@@ -364,6 +383,19 @@
         <link href="<?php echo site_url(); ?>css/notifIt.css" type="text/css" rel="stylesheet">
         <script type="text/javascript">
             $(document).ready(function(){
+                
+                $('.owl-carousel').owlCarousel({
+                    nav: false,
+                    autoplay: true,
+                    items:1,
+                    animateOut: 'fadeOut',
+                    loop: true,
+				    autoplayTimeout: 4000,
+				    autoHeight: false,
+				    autoWidth: false
+                });
+                
+                
                  // dialog box
                  var $myDialog = $('<div></div>')
                  .html('Please select care type')
