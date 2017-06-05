@@ -640,6 +640,12 @@
 <script src="<?php echo base_url();?>js/jquery.raty.js"></script>
 <!--<script src="<?php echo base_url();?>js/labs.js" type="text/javascript"></script>-->
 <script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=b995b62a-2c1a-4adc-94b4-639eb2be9af6"></script>
+<style>
+#amzn-native-ad-0 {
+    margin-left: auto;
+    margin-right:auto;
+}
+</style>
 
 
 
