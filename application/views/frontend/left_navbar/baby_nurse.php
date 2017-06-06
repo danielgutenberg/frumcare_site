@@ -1,4 +1,4 @@
-<?php echo $this->breadcrumbs->show(); ?>			
+		
             <h3>                
                 <?php
                 if(segment(1) == 'caregivers' && segment(3) == 'workers-staff-for-childcare-facility' ) {
@@ -39,8 +39,4 @@
 		 	$this->load->view('frontend/left_navbar/fields/save_search');
 		 	?>
 
-
-	 		
-</form>
-</div>
 

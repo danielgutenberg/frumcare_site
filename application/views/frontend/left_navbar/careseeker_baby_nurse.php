@@ -1,4 +1,4 @@
-<?php echo $this->breadcrumbs->show();?>
+
 			<h3>
                 <?php 
                     if(segment(1) == 'jobs' && (segment(2) == 'all' || segment(2) == '') )
@@ -17,5 +17,3 @@
 			<?php $this->load->view('frontend/left_navbar/fields/wage', array('data', $data)); ?>
 			<?php $this->load->view('frontend/left_navbar/fields/save_search');?>
 
-			</form>
-		  </div>

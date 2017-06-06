@@ -1,4 +1,4 @@
-<?php echo $this->breadcrumbs->show(); ?>			
+			
             <h3>                
                 <?php
                 if(segment(1) == 'caregivers' && segment(2) == 'workers-staff-for-childcare-facility' ) {
@@ -146,6 +146,4 @@
 				 	</div>
 				 	</div>
 
-			</form>
-		</div>
 

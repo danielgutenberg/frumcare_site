@@ -163,7 +163,7 @@
     }
     if(isset($left_navbar)){
 
-        $this->load->view('frontend/left_navbar/' . $left_navbar, array('care_type' => $care_type));
+        $this->load->view('frontend/left_navbar/base', array('care_type' => $care_type, 'left_navbar' => $left_navbar));
 
     }
     else{
@@ -639,11 +639,17 @@
 <link rel="stylesheet" href="<?php echo base_url();?>css/jquery.raty.css">
 <script src="<?php echo base_url();?>js/jquery.raty.js"></script>
 <!--<script src="<?php echo base_url();?>js/labs.js" type="text/javascript"></script>-->
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=b995b62a-2c1a-4adc-94b4-639eb2be9af6"></script>
+
 <style>
 #amzn-native-ad-0 {
     margin-left: auto;
     margin-right:auto;
+}
+.amzn-native-product-asin-container {
+    height: 264px !important;
+}
+.amzn-native-products-list {
+    width: 150px !important;
 }
 </style>
 

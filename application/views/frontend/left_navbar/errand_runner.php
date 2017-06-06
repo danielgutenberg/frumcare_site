@@ -1,4 +1,4 @@
-<?php echo $this->breadcrumbs->show();?>
+
 			<h3>
 					<?php echo 'Errand runner / odd jobs / personal assistant / driver'; ?>
 			</h3>  			
@@ -42,5 +42,3 @@
 		 	$this->load->view('frontend/left_navbar/fields/save_search');
 		 	?>
 
-			</form>
-		</div>

@@ -1,4 +1,4 @@
-<?php echo $this->breadcrumbs->show();?>
+
 			<h3><?php echo "Day Care Center / Day Camp / Afternoon Activities";?></h3>  			
 	  		<div class="left-search-panel col-lg-3 col-md-3 col-sm-3 col-xs-12">
 	 	<h4>Advanced Search</h4>
@@ -34,5 +34,3 @@
 	 		<?php $this->load->view('frontend/left_navbar/fields/languages'); ?> 		
             <?php $this->load->view('frontend/left_navbar/fields/save_search'); ?>
 
-			</form>
-		</div>

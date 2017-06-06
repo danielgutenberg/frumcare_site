@@ -1,4 +1,4 @@
-<?php echo $this->breadcrumbs->show(); ?>
+
 			<h3>					
 			     <h3><?php echo $this->uri->segment(1) == 'caregivers' && $this->uri->segment(3) == 'workers-staff-for-senior-care-facility' ? 'Workers / Staff for senior care facility' : 'Senior Caregiver';?></h3>					
 			</h3>  			
@@ -89,6 +89,4 @@
 
 	 		<?php $this->load->view('frontend/left_navbar/fields/save_search'); ?>
 
-			</form>
-		</div>
 

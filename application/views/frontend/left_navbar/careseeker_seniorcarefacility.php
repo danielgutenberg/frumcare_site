@@ -1,4 +1,4 @@
-<?php echo $this->breadcrumbs->show();?>
+
 			<h3><?php echo "Workers/Staff for Senior Care Facility"?></h3>  			
 	  		<div class="left-search-panel col-lg-3 col-md-3 col-sm-3 col-xs-12">
 	 	<h4>Advanced Search</h4>
@@ -31,5 +31,3 @@
             </div>
 	 		<?php $this->load->view('frontend/left_navbar/fields/save_search'); ?>
 
-			</form>
-		  </div>
