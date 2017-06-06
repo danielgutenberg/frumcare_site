@@ -643,15 +643,9 @@
 <!--<script src="<?php echo base_url();?>js/labs.js" type="text/javascript"></script>-->
 
 <style>
-#amzn-native-ad-0_1 {
+#amzn_assoc_ad_div_adunit0_1 {
     margin-left: auto;
     margin-right:auto;
-}
-#amzn-native-ad-0_1 .amzn-native-product-asin-container {
-    height: 264px !important;
-}
-#amzn-native-ad-0_1 .amzn-native-products-list {
-    width: 150px !important;
 }
 </style>
 
