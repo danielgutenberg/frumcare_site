@@ -11,7 +11,7 @@
             });                              
     });
 </script>
-<div class="container">
+<div class="container" style="height:3000px">
 <?php
     $s1 = $this->uri->segment(1); // must be caregivers, jobs, organization
     $s2 = $this->uri->segment(2); // must be care type, job type
