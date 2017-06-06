@@ -643,14 +643,14 @@
 <!--<script src="<?php echo base_url();?>js/labs.js" type="text/javascript"></script>-->
 
 <style>
-#amzn-native-ad-0 {
+#amzn-native-ad-0_1 {
     margin-left: auto;
     margin-right:auto;
 }
-.amzn-native-product-asin-container {
+#amzn-native-ad-0_1 .amzn-native-product-asin-container {
     height: 264px !important;
 }
-.amzn-native-products-list {
+#amzn-native-ad-0_1 .amzn-native-products-list {
     width: 150px !important;
 }
 </style>
