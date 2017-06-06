@@ -643,7 +643,7 @@
 <!--<script src="<?php echo base_url();?>js/labs.js" type="text/javascript"></script>-->
 
 <style>
-#amzn_assoc_ad_div_adunit0_1 {
+#amzn-native-ad-1 {
     margin-left: auto;
     margin-right:auto;
 }
