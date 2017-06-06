@@ -647,6 +647,9 @@
     margin-left: auto;
     margin-right:auto;
 }
+.left-search-panel {
+    min-height:4000px !important;
+}
 </style>
 
 
