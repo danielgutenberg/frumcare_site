@@ -347,7 +347,10 @@
                     margin-bottom:30px;
                 ">How it works</h2>
 
-                <ol class="how-it-works-display" style="height:600px !important">
+                <ol class="how-it-works-display" style="
+                    height:600px !important;
+                    background-image: url(img/homepage-icons/how-it-works-bg.png);
+                ">
                     
                 </ol>
                 <a href="http://www.google.com" style="position:absolute; top:100px; left: 100px; width:25px; height:25px"></a>
