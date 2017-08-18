@@ -1,6 +1,19 @@
 <script src="<?php echo base_url('js/owl.carousel.min.js') ?>"></script>
 <link rel="stylesheet" href="<?php echo base_url('js/owl.carousel.min.css') ?>">
 <link rel="stylesheet" href="<?php echo base_url('js/owl.theme.default.min.css') ?>">
+<script>
+    $("#locationSearch").ready(function(){        
+        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], { types: ['(regions)'] });
+            google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                var place = autocomplete.getPlace(); 
+                var lat = place.geometry.location.lat();
+                var lng = place.geometry.location.lng();                                
+                $("#lat").val(lat);
+                $("#lng").val(lng);
+                $("#place").val(place.formatted_address);
+            });                              
+    });
+</script>
 <?php home_flash();?>
 		    <div class="alert alert-success alert-dismissible invite_response" role="alert" style="display:none">
             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -8,125 +21,339 @@
 <main class="site-main">
     <section class="banner">
         <ul id="site-banner" class="banner-main">
-            <li class="banner-item home_page_banner" style='background-image:url(img/banner-bg.jpg);'>
-                <div class="container">
-                    <div class="row" style="margin-bottom:20px">
-                        <div class="col-xs-12">
-                            <h2 class="banner-title" style="text-align:center; padding-top:25px; font-size:48px">
-                                Find the perfect caregiver
-                            </h2>
+            <li class="banner-item" style='background-image:url(img/background_empty.jpg); position:relative; height:600px;background-size: auto; 150%; background-position: 60% 30%'>
+                <div style="
+                    height:30px;
+                    margin-left:42%;
+                    margin-top:100px;
+                    font-family: BellMT;
+                    color: rgba(255,255,255,0.7);
+                    font-size: 30px;
+                    font-weight: 400;
+                    line-height: 30px;
+                    text-shadow: 0px 0px 10px #000000;
+                ">
+                    "Sure I'll help your dad remember <br> &nbsp;to say the right blessings"
+                </div>
+                <div style="
+                    background:rgba(255,255,255,0.7);
+                    margin-left:auto;
+                    margin-right:auto;
+                    text-align:center;
+                    max-width:550px;
+                    margin-top:170px
+                ">
+                    <h2 class="paddingBanner" style="padding-top:15px;text-align:center; padding-bottom:5px;">I'm looking for:</h2>
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-2 col-xs-10 col-xs-offset-1 tinyBannerRight" style="margin-bottom:8px; background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center"><a style="text-transform: uppercase;color: #fff; font-size:17px" href="<?php echo base_url('caregivers/all') ?>">CAREGIVERS</a></div>
+                        <div class="col-md-4 col-md-offset-0 col-xs-10 col-xs-offset-1 tinyBannerRight" style="background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center;"><a style="text-transform: uppercase;color: #fff; font-size:17px" href="<?php echo base_url('jobs/all') ?>">JOBS</a></div>
+                    </div>
+                    <div style="text-align:center; padding-top:5px;width: 200px;margin-right: auto;margin-left: auto;">
+                        <div class="dropdown">Do you have a 
+                            <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                                Care Business?
+                            </a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                <li role="presentation" style="cursor:pointer"><a role="menuitem" tabindex="-1" href="http://www.frumcare.com/dev/signup"> Advertise Your Services</a></li>
+                                <li role="presentation" style="cursor:pointer"><a role="menuitem" tabindex="-1" href="http://www.frumcare.com/dev/caregivers/organizations">Find Workers for Your Organization</a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div style="float:none; margin-bottom:50px" class="banner-images row">
-                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-offset-2 col-sm-offset-0 col-xs-offset-2 col-med-2 hide-tiny">
-                            <a title="Child Care"><img src="img/banners/woman-taking-care-of-girl1.png" alt="#"/><span>Child Care</span></a>
+                </div>
+            </li>
+        </ul>
+    </section>
+        <div style="background-color:#1c75bb; height:60px; display:table; width:100%">
+            <p style="font-family: Rufina;color:  #88cbff;font-size: 36px;font-weight: 400;line-height: 40.078px;text-align: center;transform: scaleX(1.0017);display:table-cell;vertical-align:middle">
+                Helping frum families find experienced, knowledgeable caregivers
+             </p>
+        </div>
+        <div style="background-color:#444444; height:90px; display:table; width:100%">
+            <div style="max-width:1100px; margin-left:auto; margin-right: auto">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-3">
+                        <div class="col-xs-4 col-sm-3" style="margin-top:27px">
+                            <img style="max-width:none" src="<?php echo base_url('img/homepage-icons/youth_icon.png') ?>">
                         </div>
-                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 hide-tiny">
-                            <a title="Senior Care"><img src="img/banners/man-helping-elderly1.png" alt="#"/><span>Senior Care</span></a>
-                        </div>
-                        <div class="clearfix showdiv-xs"></div>
-                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 col-xs-offset-2 col-sm-offset-0 hide-tiny">    
-                            <a title="Special Needs Care"><img src="img/banners/ThinkstockPhotos-4684690051.png" alt="#"/><span>Special Needs Care</span></a>
-                        </div>
-                        <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 hide-tiny">
-                            <a title="Cleaning & Household Help"><img src="img/banners/woman-doing-house-chores1.png" alt="#"/><span class="col-xs-11" style="padding-left:2px">Cleaning & Household Help</span></a>
+                        <div class="col-xs-8 col-sm-9"  style="margin-top:20px; padding-left:25px">
+                            <p style="color:#ffffff;font-size: 21px;line-height: 30px;text-align: left;">Child Care</p>
+                            <a href="">
+                            <p style="color:#ffffff;font-size: 15px;line-height: 30px;text-align: left;margin-top:-10px">Search&nbsp;></p>
+                            </a>
                         </div>
                     </div>
-
-                    <div class="clearfix"></div>
-                    
-                    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2" style="min-height:245px; background-color:white; border-radius: 8px;; box-shadow:0 3px 4px 1px rgba(0,0,0,.2); z-index:10001">
-                        <h2 class="paddingBanner" style="text-align:center; padding-bottom:5px;">I'm looking for:</h2>
-                        <div class="row">
-                                <div class="col-md-4 col-md-offset-2 col-xs-10 col-xs-offset-1 tinyBannerRight" style="margin-bottom:8px; background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center"><a style="text-transform: uppercase;color: #fff; font-size:17px" href="<?php echo site_url('caregivers/all');?>">CAREGIVERS</a></div>
-                                <div class="col-md-4 col-md-offset-0 col-xs-10 col-xs-offset-1 tinyBanner" style="background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center;"><a style="text-transform: uppercase;color: #fff; font-size:17px"href="<?php echo base_url('jobs/all') ?>">JOB OPPORTUNITIES</a></div>
+                    <div class="col-xs-6 col-sm-3">
+                        <div class="col-xs-4 col-sm-3" style="margin-top:27px">
+                            <img style="max-width:none" src="<?php echo base_url('img/homepage-icons/senior_icon.png') ?>">
                         </div>
-                        <div style="text-align:center; padding-top:5px;width: 200px;margin-right: auto;margin-left: auto;">
-                            
-                            <div class="dropdown">
-                                Do you have a 
-                          <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                            Care Business?
-                        </a>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                            <li role="presentation" style="cursor:pointer"><a role="menuitem" tabindex="-1" href="<?php echo base_url('signup') ?>"> Advertise Your Services</a></li>
-                            <li role="presentation" style="cursor:pointer"><a role="menuitem" tabindex="-1" href="<?php echo base_url('caregivers/organizations') ?>">Find Workers for Your Organization</a></li>
-                        </ul>
+                        <div class="col-xs-8 col-sm-9"  style="margin-top:20px; padding-left:25px">
+                            <p style="color:#ffffff;font-size: 21px;line-height: 30px;text-align: left;">Senior Care</p>
+                            <a href="">
+                            <p style="color:#ffffff;font-size: 15px;line-height: 30px;text-align: left;margin-top:-10px">Explore Options&nbsp;></p>
+                            </a>
+                        </div>
                     </div>
-                            
-                            
-                            
+                    <div class="col-xs-6 col-sm-3">
+                        <div class="col-xs-4 col-sm-3" style="margin-top:27px">
+                            <img style="max-width:none" src="<?php echo base_url('img/homepage-icons/special-icon.png') ?>">
+                        </div>
+                        <div class="col-xs-8 col-sm-9"  style="margin-top:20px; padding-left:25px">
+                            <p style="color:#ffffff;font-size: 21px;line-height: 30px;text-align: left;">Special Needs Care</p>
+                            <a href="">
+                            <p style="color:#ffffff;font-size: 15px;line-height: 30px;text-align: left;margin-top:-10px">Find our more&nbsp;></p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <div class="col-xs-4 col-sm-3" style="margin-top:27px">
+                            <img style="max-width:none" src="<?php echo base_url('img/homepage-icons/household-icon.png') ?>">
+                        </div>
+                        <div class="col-xs-8 col-sm-9"  style="margin-top:20px; padding-left:25px">
+                            <p style="color:#ffffff;font-size: 21px;line-height: 30px;text-align: left;">Household Care</p>
+                            <a href="">
+                            <p style="color:#ffffff;font-size: 15px;line-height: 30px;text-align: left;margin-top:-10px">Go&nbsp;></p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+            <!--<div style="" class="row">-->
+            <!--    <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-offset-2 col-sm-offset-0 col-xs-offset-2 col-med-2">-->
+            <!--        <a title="Child Care"><img src="img/banners/woman-taking-care-of-girl1.png" alt="#"/><span>Child Care</span></a>-->
+            <!--    </div>-->
+            <!--    <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 hide-tiny">-->
+            <!--        <a title="Senior Care"><img src="img/banners/man-helping-elderly1.png" alt="#"/><span>Senior Care</span></a>-->
+            <!--    </div>-->
+            <!--    <div class="clearfix showdiv-xs"></div>-->
+            <!--    <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 col-xs-offset-2 col-sm-offset-0 hide-tiny">    -->
+            <!--        <a title="Special Needs Care"><img src="img/banners/ThinkstockPhotos-4684690051.png" alt="#"/><span>Special Needs Care</span></a>-->
+            <!--    </div>-->
+            <!--    <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 hide-tiny">-->
+            <!--        <a title="Cleaning & Household Help"><img src="img/banners/woman-doing-house-chores1.png" alt="#"/><span class="col-xs-11" style="padding-left:2px">Cleaning & Household Help</span></a>-->
+            <!--    </div>-->
+            <!--</div>-->
+        <section class="how-it-works" style="background-color:#e5e5e5">
+            <div style="text-align:center;max-width:1200px; margin-left:auto; margin-right: auto">
+                <h2 style="
+                    font-family: Rufina;
+                    color:  #1d1c1b;
+                    font-size: 36px;/* Approximation due to font substitution */
+                    font-weight: 400;
+                    line-height: 30px;
+                    margin-bottom:30px;
+                ">The best caregivers for a frum family</h2>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="col-xs-12 col-sm-6" style="
+                            background-image:url(img/homepage-icons/child-best.png);
+                            background-repeat:no-repeat;
+                            height: 280px;
+                            padding-right: 0px;
+                            padding-left: 0px;
+                            position:relative;
+                        ">
+                            <div style="
+                                background-color:  rgba(54, 54, 54, 0.72);
+                                width: 100%;
+                                height: 56px;
+                                position: absolute;
+                                top: 68%;
+                                padding-top: 10px;
+                                color:  #ffffff;
+                                font-size: 27px;/* Approximation due to font substitution */
+                                font-weight: 700;
+                                line-height: 30px;/* Approximation due to font substitution */
+                                text-align: center;
+                                max-width:277px;
+                            ">
+                                Child Care
                             </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6" style="
+                            background-image:url(img/homepage-icons/white_box_right.png);
+                            background-repeat:no-repeat;
+                            height: 280px;
+                            margin-left:-30px;
+                        ">
+                            <div style="
+                                padding: 50px 20px 20px 20px;
+                            ">
+                            Need a child picked up from school? Explore in-home or out-of-home. Part-time and full-time care options.
+                            </div>
+                            <a href="<?php echo base_url('caregivers/babysitter') ?>" style="
+                                color:  #1c75bb;
+                                font-size: 16px;/* Approximation due to font substitution */
+                                font-weight: 400;
+                                line-height: 24px;/* Approximation due to font substitution */
+                                text-decoration: underline;
+                                text-align: center;
+                            ">Get Started Now</a>
+                        </div>
                     </div>
+                    <div class="col-xs-6">
+                        <div class="col-xs-12 col-sm-6" style="
+                            background-image:url(img/homepage-icons/special-best.png);
+                            background-repeat:no-repeat;
+                            height: 280px;
+                            padding-right: 0px;
+                            padding-left: 0px;
+                            position:relative;
+                        ">
+                            <div style="
+                                background-color:  rgba(54, 54, 54, 0.72);
+                                width: 100%;
+                                height: 56px;
+                                position: absolute;
+                                top: 68%;
+                                padding-top: 10px;
+                                color:  #ffffff;
+                                font-size: 27px;/* Approximation due to font substitution */
+                                font-weight: 700;
+                                line-height: 30px;/* Approximation due to font substitution */
+                                text-align: center;
+                                max-width:277px;
+                            ">
+                                Special Needs Care
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6" style="
+                            background-image:url(img/homepage-icons/white_box_right.png);
+                            background-repeat:no-repeat;
+                            height: 280px;
+                            margin-left:-30px;
+                        ">
+                            <div style="
+                                padding: 50px 20px 20px 20px;
+                            ">
+                            Find someone with a medical background, or experienced with physical or mental disabilities
+                            </div>
+                            <a href="<?php echo base_url('caregivers/special-needs-caregiver') ?>" style="
+                                color:  #1c75bb;
+                                font-size: 16px;/* Approximation due to font substitution */
+                                font-weight: 400;
+                                line-height: 24px;/* Approximation due to font substitution */
+                                text-decoration: underline;
+                                text-align: center;
+                            ">Get Started Now</a>
+                        </div>
                     </div>
-        </section>
-
-        <section class="how-it-works">
-            <div class="container">
-                <h2 class="title">How it works <span><a href="<?php echo site_url();?>howitworks">Learn More</a></span></h2>
-
-                <ol class="how-it-works-display">
-                    <li class="item lookingfor">
-                        <h3 class="sub-title">I am looking for</h3>
-                        <a>
-                            <i class="icon-caregiver"></i><br/>
-                            Caregiver
-                        </a>
-                        <a>
-                            <i class="icon-find-job"></i><br/>
-                            Find a Job
-                        </a>
-                        <a>
-                            <i class="icon-employees"></i><br/>
-                            Employees
-                        </a>
-                    </li>
-                    <li class="item create-listing">
-                        <h3 class="sub-title">Create a Listing</h3>
-                        <a>
-                            <i class="icon-profile"></i><br/>
-                            Create a Profile
-                        </a>
-                        <a>
-                            <i class="icon-job"></i><br/>
-                            Post a Job
-                        </a>
-
-                        <!-- <ol class="createlisting">
-                            <li><a href="<?php //echo site_url();?>signup">Create a Profile</a></li>
-                            <li><a href="<?php //echo site_url();?>ad">Post a Job</a></li>
-                        </ol> -->
-                    </li>
-                    <li class="item item-search">
-                        <h3 class="sub-title">Search</h3>
-                        <a><i class="icon-search-circle"></i><br/>
-                            Search Caregivers
-                        </a>
-                        <a><i class="icon-search-circle-jobs"></i><br/>
-                            Search Jobs
-                        </a>
-
-                        <!-- <p>
-                            Ut at metus auctor, fermentum justo ut, egestas neque. Nunc in ultrices leo, et pharetra dolor.
-                            Donec
-                        </p> -->
-                    </li>
-                    <li class="item item-hire">
-                        <h3 class="sub-title">Hire</h3>
-                        <a>
-                            <i class="icon-employees"></i><br/>
-                            Hire
-                        </a>
-                        <a><i class="icon-hire"></i><br/>
-                            Get Hired
-                        </a>
-
-                        <!-- <p>Ut at metus auctor, fermentum justo ut, egestas neque. Nunc in ultrices leo, et pharetra dolor.
-                        Donec</p> -->
-                    </li>
-                </ol>
+                    <div class="col-xs-6">
+                        <div class="col-xs-12 col-sm-6" style="
+                            background-image:url(img/homepage-icons/senior-best.png);
+                            background-repeat:no-repeat;
+                            height: 280px;
+                            padding-right: 0px;
+                            padding-left: 0px;
+                            position:relative;
+                        ">
+                            <div style="
+                                background-color:  rgba(54, 54, 54, 0.72);
+                                width: 100%;
+                                height: 56px;
+                                position: absolute;
+                                top: 68%;
+                                padding-top: 10px;
+                                color:  #ffffff;
+                                font-size: 27px;/* Approximation due to font substitution */
+                                font-weight: 700;
+                                line-height: 30px;/* Approximation due to font substitution */
+                                text-align: center;
+                                max-width:277px;
+                            ">
+                                Senior Care
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6" style="
+                            background-image:url(img/homepage-icons/white_box_right.png);
+                            background-repeat:no-repeat;
+                            height: 280px;
+                            margin-left:-30px;
+                        ">
+                            <div style="
+                                padding: 50px 20px 20px 20px;
+                            ">
+                            Get help with personal care like dressing, bathing or feeding or even just some companionship care to chat, learn or do a crossword puzzle.
+                            </div>
+                            <a href="<?php echo base_url('caregivers/senior-caregiver') ?>" style="
+                                color:  #1c75bb;
+                                font-size: 16px;/* Approximation due to font substitution */
+                                font-weight: 400;
+                                line-height: 24px;/* Approximation due to font substitution */
+                                text-decoration: underline;
+                                text-align: center;
+                            ">Get Started Now</a>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="col-xs-12 col-sm-6" style="
+                            background-image:url(img/homepage-icons/household-best.png);
+                            background-repeat:no-repeat;
+                            height: 280px;
+                            padding-right: 0px;
+                            padding-left: 0px;
+                            position:relative;
+                        ">
+                            <div style="
+                                background-color:  rgba(54, 54, 54, 0.72);
+                                width: 100%;
+                                height: 56px;
+                                position: absolute;
+                                top: 68%;
+                                padding-top: 10px;
+                                color:  #ffffff;
+                                font-size: 27px;/* Approximation due to font substitution */
+                                font-weight: 700;
+                                line-height: 30px;/* Approximation due to font substitution */
+                                text-align: center;
+                                max-width:277px;
+                            ">
+                                Household Care
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6" style="
+                            background-image:url(img/homepage-icons/white_box_right.png);
+                            background-repeat:no-repeat;
+                            height: 280px;
+                            margin-left:-30px;
+                        ">
+                            <div style="
+                                padding: 50px 20px 20px 20px;
+                            ">
+                            Ready to skip the Kosher and Shabbat training? Hire a Housekeeper or event helper with previous experience in a frum household (and great references!).
+                            </div>
+                            <a href="<?php echo base_url('caregivers/cleaning-household-help') ?>" style="
+                                color:  #1c75bb;
+                                font-size: 16px;/* Approximation due to font substitution */
+                                font-weight: 400;
+                                line-height: 24px;/* Approximation due to font substitution */
+                                text-decoration: underline;
+                                text-align: center;
+                            ">Get Started Now</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
+        <section class="how-it-works" style="background-color:#f7f7ef">
+            <div class="container" style="text-align:center">
+                <h2 style="
+                    font-family: Rufina;
+                    color:  #1d1c1b;
+                    font-size: 36px;/* Approximation due to font substitution */
+                    font-weight: 400;
+                    line-height: 30px;
+                    margin-bottom:30px;
+                ">How it works</h2>
+
+                <ol class="how-it-works-display" style="height:600px !important">
+                    
+                </ol>
+                <a href="http://www.google.com" style="position:absolute; top:100px; left: 100px; width:25px; height:25px"></a>
+            </div>
+        </section>
+        
         <!--end .how-it-works-->
 
         <section class="safety-first">
