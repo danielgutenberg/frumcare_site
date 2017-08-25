@@ -23,7 +23,7 @@
                     "Sure I'll help your dad remember <br> &nbsp;to say the right blessings"
                 </div>
                 <div style="
-                    background:rgba(255,255,255,0.7);
+                    background:rgba(255,255,255,1);
                     margin-left:auto;
                     margin-right:auto;
                     max-width:550px;
