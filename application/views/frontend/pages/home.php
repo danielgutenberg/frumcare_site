@@ -23,7 +23,7 @@
                     "Sure I'll help your dad remember <br> &nbsp;to say the right blessings"
                 </div>
                 <div style="
-                    background:rgba(255,255,255,1);
+                    background:rgba(255,255,255,0.7);
                     margin-left:auto;
                     margin-right:auto;
                     max-width:550px;
@@ -49,12 +49,12 @@
                     <div class="row">
                         <div class="col-xs-8 col-sm-12">
                             <div class="col-xs-12 col-sm-6">
-                                <input type="radio" id="f-option" name="selector" style="float:left; margin-left: 10px; margin-top:7px;" value="caregivers" checked="checked">
+                                <input type="radio" id="f-option" name="selector" style="float:left; margin-left: 10px; margin-top:6px;" value="caregivers" checked="checked">
                                 <label for="f-option" style="color:black; font-size:20px; padding-left:15px">Caregiver</label>
                             </div>
                             
                             <div class="col-xs-12 col-sm-6">
-                                <input type="radio" id="f-option" name="selector" style="float:left; margin-left: 10px; margin-top:7px;" value="jobs">
+                                <input type="radio" id="f-option" name="selector" style="float:left; margin-left: 10px; margin-top:6px;" value="jobs">
                                 <label for="f-option" style="color:black; font-size:20px; padding-left:15px">Job Opportunity</label>
                             </div>
                         </div>
