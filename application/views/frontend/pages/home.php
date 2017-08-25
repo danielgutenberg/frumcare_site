@@ -1,19 +1,6 @@
 <script src="<?php echo base_url('js/owl.carousel.min.js') ?>"></script>
 <link rel="stylesheet" href="<?php echo base_url('js/owl.carousel.min.css') ?>">
 <link rel="stylesheet" href="<?php echo base_url('js/owl.theme.default.min.css') ?>">
-<script>
-    $("#locationSearch").ready(function(){        
-        var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], { types: ['(regions)'] });
-            google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                var place = autocomplete.getPlace(); 
-                var lat = place.geometry.location.lat();
-                var lng = place.geometry.location.lng();                                
-                $("#lat").val(lat);
-                $("#lng").val(lng);
-                $("#place").val(place.formatted_address);
-            });                              
-    });
-</script>
 <?php home_flash();?>
 		    <div class="alert alert-success alert-dismissible invite_response" role="alert" style="display:none">
             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -27,7 +14,7 @@
                     margin-left:42%;
                     margin-top:100px;
                     font-family: BellMT;
-                    color: rgba(255,255,255,0.7);
+                    color: white;
                     font-size: 30px;
                     font-weight: 400;
                     line-height: 30px;
@@ -36,28 +23,59 @@
                     "Sure I'll help your dad remember <br> &nbsp;to say the right blessings"
                 </div>
                 <div style="
-                    background:rgba(255,255,255,0.7);
+                    background:rgba(255,255,255,1);
                     margin-left:auto;
                     margin-right:auto;
-                    text-align:center;
                     max-width:550px;
-                    margin-top:170px
+                    margin-top:170px;
+                    height: 170px;
                 ">
-                    <h2 class="paddingBanner" style="padding-top:15px;text-align:center; padding-bottom:5px;">I'm looking for:</h2>
+                    <h2 class="paddingBanner" style="padding-top:15px;text-align:left; padding-bottom:5px; padding-left:20px; color:black; font-size:20px">I'm looking for a:</h2>
+                    <!--<div class="row">-->
+                    <!--    <div class="col-md-4 col-md-offset-2 col-xs-10 col-xs-offset-1 tinyBannerRight" style="margin-bottom:8px; background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center"><a style="text-transform: uppercase;color: #fff; font-size:17px" href="<?php echo base_url('caregivers/all') ?>">CAREGIVERS</a></div>-->
+                    <!--    <div class="col-md-4 col-md-offset-0 col-xs-10 col-xs-offset-1 tinyBannerRight" style="background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center;"><a style="text-transform: uppercase;color: #fff; font-size:17px" href="<?php echo base_url('jobs/all') ?>">JOBS</a></div>-->
+                    <!--</div>-->
+                    <!--<div style="text-align:center; padding-top:5px;width: 200px;margin-right: auto;margin-left: auto;">-->
+                    <!--    <div class="dropdown">Do you have a -->
+                    <!--        <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">-->
+                    <!--            Care Business?-->
+                    <!--        </a>-->
+                    <!--        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">-->
+                    <!--            <li role="presentation" style="cursor:pointer"><a role="menuitem" tabindex="-1" href="http://www.frumcare.com/dev/signup"> Advertise Your Services</a></li>-->
+                    <!--            <li role="presentation" style="cursor:pointer"><a role="menuitem" tabindex="-1" href="http://www.frumcare.com/dev/caregivers/organizations">Find Workers for Your Organization</a></li>-->
+                    <!--        </ul>-->
+                    <!--    </div>-->
+                    <!--</div>-->
                     <div class="row">
-                        <div class="col-md-4 col-md-offset-2 col-xs-10 col-xs-offset-1 tinyBannerRight" style="margin-bottom:8px; background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center"><a style="text-transform: uppercase;color: #fff; font-size:17px" href="<?php echo base_url('caregivers/all') ?>">CAREGIVERS</a></div>
-                        <div class="col-md-4 col-md-offset-0 col-xs-10 col-xs-offset-1 tinyBannerRight" style="background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center;"><a style="text-transform: uppercase;color: #fff; font-size:17px" href="<?php echo base_url('jobs/all') ?>">JOBS</a></div>
-                    </div>
-                    <div style="text-align:center; padding-top:5px;width: 200px;margin-right: auto;margin-left: auto;">
-                        <div class="dropdown">Do you have a 
-                            <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                                Care Business?
-                            </a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                <li role="presentation" style="cursor:pointer"><a role="menuitem" tabindex="-1" href="http://www.frumcare.com/dev/signup"> Advertise Your Services</a></li>
-                                <li role="presentation" style="cursor:pointer"><a role="menuitem" tabindex="-1" href="http://www.frumcare.com/dev/caregivers/organizations">Find Workers for Your Organization</a></li>
-                            </ul>
+                        <div class="col-xs-8 col-sm-12">
+                            <div class="col-xs-12 col-sm-6">
+                                <input type="radio" id="f-option" name="selector" style="float:left; margin-left: 10px; margin-top:7px;" value="caregivers" checked="checked">
+                                <label for="f-option" style="color:black; font-size:20px; padding-left:15px">Caregiver</label>
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6">
+                                <input type="radio" id="f-option" name="selector" style="float:left; margin-left: 10px; margin-top:7px;" value="jobs">
+                                <label for="f-option" style="color:black; font-size:20px; padding-left:15px">Job Opportunity</label>
+                            </div>
                         </div>
+                        <div class="col-xs-4 col-sm-12" style="padding-top:10px">
+                            <div class="searchButton" style="
+                                background-color:  #8ec931;
+                                width: 145px;
+                                height: 52px;
+                                float:right;
+                                margin-right: 35px;
+                                padding-top: 17px;
+                                color: white;
+                                text-align:center;
+                                font-weight:700;
+                                font-size:16px;
+                                cursor:pointer;
+                            ">SEARCH NOW</div>
+                        </div>
+                    </div>
+                    <div class="col-xs" style="float:right; padding-right: 35px; padding-top:10px">
+                        
                     </div>
                 </div>
             </li>
@@ -613,19 +631,10 @@
         <link href="<?php echo site_url(); ?>css/notifIt.css" type="text/css" rel="stylesheet">
         <script type="text/javascript">
             $(document).ready(function(){
-                
-                $('.owl-carousel').owlCarousel({
-                    nav: false,
-                    autoplay: true,
-                    items:1,
-                    animateOut: 'fadeOut',
-                    loop: true,
-				    autoplayTimeout: 4000,
-				    autoHeight: false,
-				    autoWidth: false
-                });
-                
-                
+                $('.searchButton').on('click', function() {
+        		   var selected_category = $("input[type='radio']:checked").val();
+        		   window.location= '<?php echo site_url();?>' + selected_category + '/all';
+        		});
                  // dialog box
                  var $myDialog = $('<div></div>')
                  .html('Please select care type')
@@ -691,6 +700,7 @@ $ci = &get_instance();
 if ($ci->session->flashdata('invite')) { ?>
 <script>
 $(document).ready(function() {
+        
     	$('#myModal2').modal('show');
     	
     	$('.save').on('click',function(){
@@ -708,6 +718,8 @@ $(document).ready(function() {
 	            }
 	        });
 		});
+		
+		
         
         $('.addrow').on('click', function() {
         	html = '<tr><td><label>Name:</label></td><td style="padding:3px;padding-top: 0px;"><input type="text" name="names[]" class="required" multiple></input></td><td style="padding-left:20px"><label>Email:</label></td><td style="padding:3px;padding-top: 0px;"><input type="email" name="emails[]" class="required" multiple></input></td></tr>'

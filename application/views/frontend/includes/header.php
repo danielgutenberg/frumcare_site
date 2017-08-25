@@ -92,7 +92,7 @@
 
 <!--end top-bar-->
 
-<div style="background-color:  #e5e5e5;">
+<div style="background-color: white;">
     <div class="headerContainer" style="margin-right: auto; margin-left: auto; height:60px; ">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-top:8px">
             <a href="<?php echo base_url() ?>" style="background: url(<?php echo base_url('img/logo.png') ?>);background-repeat:no-repeat; height: 40px;width: 200px;display: inline-block;background-size: 90%;"></a>
