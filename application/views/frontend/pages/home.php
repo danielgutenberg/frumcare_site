@@ -23,7 +23,7 @@
                     "Sure I'll help your dad remember <br> &nbsp;to say the right blessings"
                 </div>
                 <div style="
-                    background:rgba(255,255,255,1);
+                    background:rgba(255,255,255,0.7);
                     margin-left:auto;
                     margin-right:auto;
                     max-width:550px;
@@ -31,52 +31,50 @@
                     height: 170px;
                 ">
                     <h2 class="paddingBanner" style="padding-top:15px;text-align:left; padding-bottom:5px; padding-left:20px; color:black; font-size:20px">I'm looking for a:</h2>
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-2 col-xs-10 col-xs-offset-1 tinyBannerRight" style="margin-bottom:8px; background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center"><a style="text-transform: uppercase;color: #fff; font-size:17px" href="<?php echo base_url('caregivers/all') ?>">CAREGIVERS</a></div>
+                        <div class="col-md-4 col-md-offset-0 col-xs-10 col-xs-offset-1 tinyBannerRight" style="background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center;"><a style="text-transform: uppercase;color: #fff; font-size:17px" href="<?php echo base_url('jobs/all') ?>">JOBS</a></div>
+                    </div>
+                    <div style="text-align:center; padding-top:5px;width: 200px;margin-right: auto;margin-left: auto;">
+                        <div class="dropdown">Do you have a 
+                            <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                                Care Business?
+                            </a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                <li role="presentation" style="cursor:pointer"><a role="menuitem" tabindex="-1" href="http://www.frumcare.com/dev/signup"> Advertise Your Services</a></li>
+                                <li role="presentation" style="cursor:pointer"><a role="menuitem" tabindex="-1" href="http://www.frumcare.com/dev/caregivers/organizations">Find Workers for Your Organization</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--<h2 class="paddingBanner" style="padding-top:15px;text-align:left; padding-bottom:5px; padding-left:20px; color:black; font-size:20px">I'm looking for a:</h2>-->
                     <!--<div class="row">-->
-                    <!--    <div class="col-md-4 col-md-offset-2 col-xs-10 col-xs-offset-1 tinyBannerRight" style="margin-bottom:8px; background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center"><a style="text-transform: uppercase;color: #fff; font-size:17px" href="<?php echo base_url('caregivers/all') ?>">CAREGIVERS</a></div>-->
-                    <!--    <div class="col-md-4 col-md-offset-0 col-xs-10 col-xs-offset-1 tinyBannerRight" style="background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center;"><a style="text-transform: uppercase;color: #fff; font-size:17px" href="<?php echo base_url('jobs/all') ?>">JOBS</a></div>-->
-                    <!--</div>-->
-                    <!--<div style="text-align:center; padding-top:5px;width: 200px;margin-right: auto;margin-left: auto;">-->
-                    <!--    <div class="dropdown">Do you have a -->
-                    <!--        <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">-->
-                    <!--            Care Business?-->
-                    <!--        </a>-->
-                    <!--        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">-->
-                    <!--            <li role="presentation" style="cursor:pointer"><a role="menuitem" tabindex="-1" href="http://www.frumcare.com/dev/signup"> Advertise Your Services</a></li>-->
-                    <!--            <li role="presentation" style="cursor:pointer"><a role="menuitem" tabindex="-1" href="http://www.frumcare.com/dev/caregivers/organizations">Find Workers for Your Organization</a></li>-->
-                    <!--        </ul>-->
+                    <!--    <div class="col-xs-8 col-sm-12">-->
+                    <!--        <div class="col-xs-12 col-sm-6">-->
+                    <!--            <input type="radio" id="f-option" name="selector" style="float:left; margin-left: 10px; margin-top:6px;" value="caregivers" checked="checked">-->
+                    <!--            <label for="f-option" style="color:black; font-size:20px; padding-left:15px">Caregiver</label>-->
+                    <!--        </div>-->
+                            
+                    <!--        <div class="col-xs-12 col-sm-6">-->
+                    <!--            <input type="radio" id="f-option" name="selector" style="float:left; margin-left: 10px; margin-top:6px;" value="jobs">-->
+                    <!--            <label for="f-option" style="color:black; font-size:20px; padding-left:15px">Job Opportunity</label>-->
+                    <!--        </div>-->
+                    <!--    </div>-->
+                    <!--    <div class="col-xs-4 col-sm-12" style="padding-top:10px">-->
+                    <!--        <div class="searchButton" style="-->
+                    <!--            background-color:  #8ec931;-->
+                    <!--            width: 145px;-->
+                    <!--            height: 52px;-->
+                    <!--            float:right;-->
+                    <!--            margin-right: 35px;-->
+                    <!--            padding-top: 17px;-->
+                    <!--            color: white;-->
+                    <!--            text-align:center;-->
+                    <!--            font-weight:700;-->
+                    <!--            font-size:16px;-->
+                    <!--            cursor:pointer;-->
+                    <!--        ">SEARCH NOW</div>-->
                     <!--    </div>-->
                     <!--</div>-->
-                    <div class="row">
-                        <div class="col-xs-8 col-sm-12">
-                            <div class="col-xs-12 col-sm-6">
-                                <input type="radio" id="f-option" name="selector" style="float:left; margin-left: 10px; margin-top:6px;" value="caregivers" checked="checked">
-                                <label for="f-option" style="color:black; font-size:20px; padding-left:15px">Caregiver</label>
-                            </div>
-                            
-                            <div class="col-xs-12 col-sm-6">
-                                <input type="radio" id="f-option" name="selector" style="float:left; margin-left: 10px; margin-top:6px;" value="jobs">
-                                <label for="f-option" style="color:black; font-size:20px; padding-left:15px">Job Opportunity</label>
-                            </div>
-                        </div>
-                        <div class="col-xs-4 col-sm-12" style="padding-top:10px">
-                            <div class="searchButton" style="
-                                background-color:  #8ec931;
-                                width: 145px;
-                                height: 52px;
-                                float:right;
-                                margin-right: 35px;
-                                padding-top: 17px;
-                                color: white;
-                                text-align:center;
-                                font-weight:700;
-                                font-size:16px;
-                                cursor:pointer;
-                            ">SEARCH NOW</div>
-                        </div>
-                    </div>
-                    <div class="col-xs" style="float:right; padding-right: 35px; padding-top:10px">
-                        
-                    </div>
                 </div>
             </li>
         </ul>

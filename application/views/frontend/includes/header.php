@@ -92,18 +92,18 @@
 
 <!--end top-bar-->
 
-<div style="background-color: white;">
-    <div class="headerContainer" style="margin-right: auto; margin-left: auto; height:60px; ">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-top:8px">
-            <a href="<?php echo base_url() ?>" style="background: url(<?php echo base_url('img/logo.png') ?>);background-repeat:no-repeat; height: 40px;width: 200px;display: inline-block;background-size: 90%;"></a>
+<div style="background-color: #e5e5e5;">
+    <div class="headerContainer" style="margin-right: auto; margin-left: auto; height:77px; ">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-top:13px">
+            <a href="<?php echo base_url() ?>" style="background: url(<?php echo base_url('img/logo.png') ?>);background-repeat:no-repeat; height: 60px;width: 249px;display: inline-block;background-size: 90%;"></a>
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 
-            <div class="pull-right login-block" style="margin-top:14px">
+            <div class="pull-right login-block" style="margin-top:25px">
             <?php if (!$this->session->userdata('current_user') && !$this->session->userdata('fb_id') && !$this->session->userdata('twitter_id')) { ?>
-                <a id="btn-nav-login" class="btn" href="<?php echo base_url('login') ?>">Log in</a>
-                <a id="btn-nav-signup" style="background: transparent;color: #525252" class="btn btn-primary" href="<?php echo base_url('signup') ?>">SIGN UP</a>
+                <a id="btn-nav-login" style="color: #525252; font-size: 16px" class="btn" href="<?php echo base_url('login') ?>">Log in</a>
+                <a id="btn-nav-signup" style="background: transparent; font-size: 16px; color:#357ebd;" class="btn btn-primary" href="<?php echo base_url('signup') ?>">SIGN UP</a>
             <?php
             } else {
             if ($this->session->userdata('fb_id'))
