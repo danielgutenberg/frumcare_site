@@ -28,14 +28,13 @@
                     margin-right:auto;
                     max-width:550px;
                     margin-top:170px;
-                    height: 170px;
                 ">
                     <h2 class="paddingBanner" style="padding-top:15px;text-align:left; padding-bottom:5px; padding-left:20px; color:black; font-size:20px">I'm looking for a:</h2>
                     <div class="row">
-                        <div class="col-md-4 col-md-offset-2 col-xs-10 col-xs-offset-1 tinyBannerRight" style="margin-bottom:8px; background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center"><a style="text-transform: uppercase;color: #fff; font-size:17px" href="<?php echo base_url('caregivers/all') ?>">CAREGIVERS</a></div>
-                        <div class="col-md-4 col-md-offset-0 col-xs-10 col-xs-offset-1 tinyBannerRight" style="background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center;"><a style="text-transform: uppercase;color: #fff; font-size:17px" href="<?php echo base_url('jobs/all') ?>">JOBS</a></div>
+                        <div class="col-md-5 col-md-offset-1 col-xs-10 col-xs-offset-1 tinyBannerRight" style="margin-bottom:8px; background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center"><a style="text-transform: uppercase;color: #fff; font-size:17px" href="<?php echo base_url('caregivers/all') ?>">CAREGIVER</a></div>
+                        <div class="col-md-5 col-md-offset-0 col-xs-10 col-xs-offset-1 tinyBannerRight" style="background: none repeat scroll 0 0 #85bd30;border: medium none;border-radius: 13px;height: 60px;padding:20px;text-align:center;"><a style="text-transform: uppercase;color: #fff; font-size:17px" href="<?php echo base_url('jobs/all') ?>">JOB OPPORTUNITY</a></div>
                     </div>
-                    <div style="text-align:center; padding-top:5px;width: 200px;margin-right: auto;margin-left: auto;">
+                    <div style="text-align:center; padding-top:5px;width: 200px;margin-right: auto;margin-left: auto; padding-bottom:20px">
                         <div class="dropdown">Do you have a 
                             <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
                                 Care Business?
