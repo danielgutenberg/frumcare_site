@@ -746,7 +746,7 @@
         			url: '<?php echo site_url();?>common_care_controller/featured',
         			success: function( result ) {
             			$.each(JSON.parse(result), function(index, profile) {
-            			    url = '<?php echo site_url();?>images/profile-picture/thumb/' + profile.profile_picture 
+            			    url = '<?php echo site_url();?>images/profile-picture/' + profile.profile_picture 
             			    $('#featured-' + index + '-image').css(
             			        'background-image', 'url('+ url +')'
             			    )
