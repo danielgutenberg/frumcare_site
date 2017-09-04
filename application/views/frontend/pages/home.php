@@ -130,22 +130,6 @@
                 </div>
             </div>
         </div>
-        
-            <!--<div style="" class="row">-->
-            <!--    <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-offset-2 col-sm-offset-0 col-xs-offset-2 col-med-2">-->
-            <!--        <a title="Child Care"><img src="img/banners/woman-taking-care-of-girl1.png" alt="#"/><span>Child Care</span></a>-->
-            <!--    </div>-->
-            <!--    <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 hide-tiny">-->
-            <!--        <a title="Senior Care"><img src="img/banners/man-helping-elderly1.png" alt="#"/><span>Senior Care</span></a>-->
-            <!--    </div>-->
-            <!--    <div class="clearfix showdiv-xs"></div>-->
-            <!--    <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 col-xs-offset-2 col-sm-offset-0 hide-tiny">    -->
-            <!--        <a title="Special Needs Care"><img src="img/banners/ThinkstockPhotos-4684690051.png" alt="#"/><span>Special Needs Care</span></a>-->
-            <!--    </div>-->
-            <!--    <div style="margin-bottom:5px" class="col-xs-4 col-sm-3 col-med-2 hide-tiny">-->
-            <!--        <a title="Cleaning & Household Help"><img src="img/banners/woman-doing-house-chores1.png" alt="#"/><span class="col-xs-11" style="padding-left:2px">Cleaning & Household Help</span></a>-->
-            <!--    </div>-->
-            <!--</div>-->
         <section class="how-it-works" style="background-color:#e5e5e5">
             <div style="text-align:center;max-width:1200px; margin-left:auto; margin-right: auto">
                 <h2 style="
@@ -388,6 +372,7 @@
                             padding-left: 0px;
                             position:relative;
                             margin-top: 10px;
+                            background-size: 300px 225px;
                         ">
                             <div id="featured-0-name" style="
                                 background-color:  rgba(54, 54, 54, 0.72);
@@ -416,6 +401,7 @@
                             padding-left: 0px;
                             position:relative;
                             margin-top: 10px;
+                            background-size: 300px 225px;
                         ">
                             <div id="featured-1-name"style="
                                 background-color:  rgba(54, 54, 54, 0.72);
@@ -444,6 +430,7 @@
                             padding-left: 0px;
                             position:relative;
                             margin-top: 10px;
+                            background-size: 300px 225px;
                         ">
                             <div id="featured-2-name" style="
                                 background-color:  rgba(54, 54, 54, 0.72);
@@ -472,6 +459,7 @@
                             padding-left: 0px;
                             position:relative;
                             margin-top: 10px;
+                            background-size: 300px 225px;
                         ">
                             <div id="featured-3-name" style="
                                 background-color:  rgba(54, 54, 54, 0.72);
