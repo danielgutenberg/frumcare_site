@@ -746,10 +746,9 @@
         			url: '<?php echo site_url();?>common_care_controller/featured',
         			success: function( result ) {
             			$.each(JSON.parse(result), function(index, profile) {
-            			    console.log(profile.profile_picture)
-            			    console.log(index)
+            			    url = '<?php echo site_url();?>images/profile-picture/thumb/' + profile.profile_picture 
             			    $('#featured-' + index + '-image').css(
-            			        'background-image', 'url(http://www.demosis-danielguten.c9.io/frumcare/images/profile-picture/thumb/' + profile.profile_picture +')'
+            			        'background-image', 'url('+ url +')'
             			    )
             			    $('#featured-' + index + '-name').html(
             			        '<span>' + profile.name + '</span><br><span>' + profile.city + ',' + profile.state + '</span>'
