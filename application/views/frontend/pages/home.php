@@ -380,7 +380,7 @@
                 ">Featured Care Providers</h2>
                 <div class="row">
                     <div class="col-xs-8 col-xs-offset-2 col-sm-offset-0 col-sm-6 col-md-3">
-                        <div id="featured-1" style="
+                        <div id="featured-0-image" style="
                             background-image:url(img/homepage-icons/household-best.png);
                             background-repeat:no-repeat;
                             height: 200px;
@@ -389,7 +389,7 @@
                             position:relative;
                             margin-top: 10px;
                         ">
-                            <div style="
+                            <div id="featured-0-name" style="
                                 background-color:  rgba(54, 54, 54, 0.72);
                                 width: 100%;
                                 height: 50px;
@@ -397,9 +397,9 @@
                                 top: 75%;
                                 padding-top: 10px;
                                 color:  #ffffff;
-                                font-size: 18px;/* Approximation due to font substitution */
+                                font-size: 14px;/* Approximation due to font substitution */
                                 font-weight: 700;
-                                line-height: 20px;/* Approximation due to font substitution */
+                                line-height: 16px;/* Approximation due to font substitution */
                                 text-align: center;
                                 max-width:292px;
                                 margin: 0 auto;
@@ -408,7 +408,7 @@
                         </div>
                     </div>
                     <div class="col-xs-8 col-xs-offset-2 col-sm-offset-0 col-sm-6 col-md-3">
-                        <div style="
+                        <div id="featured-1-image" style="
                             background-image:url(img/homepage-icons/household-best.png);
                             background-repeat:no-repeat;
                             height: 200px;
@@ -417,7 +417,7 @@
                             position:relative;
                             margin-top: 10px;
                         ">
-                            <div style="
+                            <div id="featured-1-name"style="
                                 background-color:  rgba(54, 54, 54, 0.72);
                                 width: 100%;
                                 height: 50px;
@@ -425,19 +425,18 @@
                                 top: 75%;
                                 padding-top: 10px;
                                 color:  #ffffff;
-                                font-size: 18px;/* Approximation due to font substitution */
+                                font-size: 14px;/* Approximation due to font substitution */
                                 font-weight: 700;
-                                line-height: 20px;/* Approximation due to font substitution */
+                                line-height: 16px;/* Approximation due to font substitution */
                                 text-align: center;
                                 max-width:292px;
                                 margin: 0 auto;
                             ">
-                                Household Care
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-8 col-xs-offset-2 col-sm-offset-0 col-sm-6 col-md-3">
-                        <div style="
+                        <div id="featured-2-image" style="
                             background-image:url(img/homepage-icons/household-best.png);
                             background-repeat:no-repeat;
                             height: 200px;
@@ -446,7 +445,7 @@
                             position:relative;
                             margin-top: 10px;
                         ">
-                            <div style="
+                            <div id="featured-2-name" style="
                                 background-color:  rgba(54, 54, 54, 0.72);
                                 width: 100%;
                                 height: 50px;
@@ -454,19 +453,18 @@
                                 top: 75%;
                                 padding-top: 10px;
                                 color:  #ffffff;
-                                font-size: 18px;/* Approximation due to font substitution */
+                                font-size: 14px;/* Approximation due to font substitution */
                                 font-weight: 700;
-                                line-height: 20px;/* Approximation due to font substitution */
+                                line-height: 16px;/* Approximation due to font substitution */
                                 text-align: center;
                                 max-width:292px;
                                 margin: 0 auto;
                             ">
-                                Household Care
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-8 col-xs-offset-2 col-sm-offset-0 col-sm-6 col-md-3">
-                        <div style="
+                        <div id="featured-3-image" style="
                             background-image:url(img/homepage-icons/household-best.png);
                             background-repeat:no-repeat;
                             height: 200px;
@@ -475,7 +473,7 @@
                             position:relative;
                             margin-top: 10px;
                         ">
-                            <div style="
+                            <div id="featured-3-name" style="
                                 background-color:  rgba(54, 54, 54, 0.72);
                                 width: 100%;
                                 height: 50px;
@@ -483,14 +481,13 @@
                                 top: 75%;
                                 padding-top: 10px;
                                 color:  #ffffff;
-                                font-size: 18px;/* Approximation due to font substitution */
+                                font-size: 14px;/* Approximation due to font substitution */
                                 font-weight: 700;
-                                line-height: 20px;/* Approximation due to font substitution */
+                                line-height: 16px;/* Approximation due to font substitution */
                                 text-align: center;
                                 max-width:292px;
                                 margin: 0 auto;
                             ">
-                                Household Care
                             </div>
                         </div>
                     </div>
@@ -751,6 +748,12 @@
             			$.each(JSON.parse(result), function(index, profile) {
             			    console.log(profile.profile_picture)
             			    console.log(index)
+            			    $('#featured-' + index + '-image').css(
+            			        'background-image', 'url(http://www.demosis-danielguten.c9.io/frumcare/images/profile-picture/thumb/' + profile.profile_picture +')'
+            			    )
+            			    $('#featured-' + index + '-name').html(
+            			        '<span>' + profile.name + '</span><br><span>' + profile.city + ',' + profile.state + '</span>'
+            			    )
             			})
                     }
                 });

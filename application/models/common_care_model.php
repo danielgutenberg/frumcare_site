@@ -94,22 +94,18 @@ class Common_care_model extends CI_Model
     {
     	$sql = "
     		select 
-				(SELECT MAX(login_time) FROM tbl_user_logs WHERE tbl_user_logs.user_id = tbl_userprofile.user_id) AS login_time,
+				(SELECT MAX(login_time) FROM tbl_user_logs WHERE tbl_user_logs.user_id = tbl_user.id) AS login_time,
 				tbl_user.profile_picture,
 				tbl_user.name,
 				tbl_user.state,
 				tbl_user.city
 			from 
 				tbl_user 
-				left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id 
-				left outer join tbl_care on tbl_care.id = tbl_userprofile.care_type 
 			where 
 				tbl_user.status = 1 
-				and tbl_userprofile.profile_status=1 
 				and tbl_user.profile_picture is not NULL 
 				and tbl_user.profile_picture != '' 
 				and tbl_user.profile_picture_status = 1 
-				and tbl_care.service_type = 1
 			order 
 				by login_time desc
 			limit 4
