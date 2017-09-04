@@ -735,11 +735,17 @@
         			success: function( result ) {
             			$.each(JSON.parse(result), function(index, profile) {
             			    url = '<?php echo site_url();?>images/profile-picture/' + profile.profile_picture 
+            			    console.log(profile)
+            			    if (profile.country == 'Israel') {
+            			        var loc = profile.city + ', Israel'
+            			    } else {
+            			        var loc = profile.city + ', ' + profile.state
+            			    }
             			    $('#featured-' + index + '-image').css(
             			        'background-image', 'url('+ url +')'
             			    )
             			    $('#featured-' + index + '-name').html(
-            			        '<span>' + profile.name + '</span><br><span>' + profile.city + ',' + profile.state + '</span>'
+            			        '<span>' + profile.name + '</span><br><span>' + loc + '</span>'
             			    )
             			})
                     }

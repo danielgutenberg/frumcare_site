@@ -98,6 +98,7 @@ class Common_care_model extends CI_Model
 				tbl_user.profile_picture,
 				tbl_user.name,
 				tbl_user.state,
+				tbl_user.country,
 				tbl_user.city
 			from 
 				tbl_user 
