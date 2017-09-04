@@ -1,6 +1,3 @@
-<script src="<?php echo base_url('js/owl.carousel.min.js') ?>"></script>
-<link rel="stylesheet" href="<?php echo base_url('js/owl.carousel.min.css') ?>">
-<link rel="stylesheet" href="<?php echo base_url('js/owl.theme.default.min.css') ?>">
 <?php home_flash();?>
 		    <div class="alert alert-success alert-dismissible invite_response" role="alert" style="display:none">
             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -371,6 +368,153 @@
                 <a href="http://www.google.com" style="position:absolute; top:100px; left: 100px; width:25px; height:25px"></a>
             </div>
         </section>
+        <section class="how-it-works" style="background-image: url(img/homepage-icons/background_featured.png);">
+            <div class="container" style="text-align:center">
+                <h2 style="
+                    font-family: Rufina;
+                    color:  white;
+                    font-size: 36px;/* Approximation due to font substitution */
+                    font-weight: 400;
+                    line-height: 30px;
+                    margin-bottom:30px;
+                ">Featured Care Providers</h2>
+                <div class="row">
+                    <div class="col-xs-8 col-xs-offset-2 col-sm-offset-0 col-sm-6 col-md-3">
+                        <div id="featured-1" style="
+                            background-image:url(img/homepage-icons/household-best.png);
+                            background-repeat:no-repeat;
+                            height: 200px;
+                            padding-right: 0px;
+                            padding-left: 0px;
+                            position:relative;
+                            margin-top: 10px;
+                        ">
+                            <div style="
+                                background-color:  rgba(54, 54, 54, 0.72);
+                                width: 100%;
+                                height: 50px;
+                                position: absolute;
+                                top: 75%;
+                                padding-top: 10px;
+                                color:  #ffffff;
+                                font-size: 18px;/* Approximation due to font substitution */
+                                font-weight: 700;
+                                line-height: 20px;/* Approximation due to font substitution */
+                                text-align: center;
+                                max-width:292px;
+                                margin: 0 auto;
+                            ">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-8 col-xs-offset-2 col-sm-offset-0 col-sm-6 col-md-3">
+                        <div style="
+                            background-image:url(img/homepage-icons/household-best.png);
+                            background-repeat:no-repeat;
+                            height: 200px;
+                            padding-right: 0px;
+                            padding-left: 0px;
+                            position:relative;
+                            margin-top: 10px;
+                        ">
+                            <div style="
+                                background-color:  rgba(54, 54, 54, 0.72);
+                                width: 100%;
+                                height: 50px;
+                                position: absolute;
+                                top: 75%;
+                                padding-top: 10px;
+                                color:  #ffffff;
+                                font-size: 18px;/* Approximation due to font substitution */
+                                font-weight: 700;
+                                line-height: 20px;/* Approximation due to font substitution */
+                                text-align: center;
+                                max-width:292px;
+                                margin: 0 auto;
+                            ">
+                                Household Care
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-8 col-xs-offset-2 col-sm-offset-0 col-sm-6 col-md-3">
+                        <div style="
+                            background-image:url(img/homepage-icons/household-best.png);
+                            background-repeat:no-repeat;
+                            height: 200px;
+                            padding-right: 0px;
+                            padding-left: 0px;
+                            position:relative;
+                            margin-top: 10px;
+                        ">
+                            <div style="
+                                background-color:  rgba(54, 54, 54, 0.72);
+                                width: 100%;
+                                height: 50px;
+                                position: absolute;
+                                top: 75%;
+                                padding-top: 10px;
+                                color:  #ffffff;
+                                font-size: 18px;/* Approximation due to font substitution */
+                                font-weight: 700;
+                                line-height: 20px;/* Approximation due to font substitution */
+                                text-align: center;
+                                max-width:292px;
+                                margin: 0 auto;
+                            ">
+                                Household Care
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-8 col-xs-offset-2 col-sm-offset-0 col-sm-6 col-md-3">
+                        <div style="
+                            background-image:url(img/homepage-icons/household-best.png);
+                            background-repeat:no-repeat;
+                            height: 200px;
+                            padding-right: 0px;
+                            padding-left: 0px;
+                            position:relative;
+                            margin-top: 10px;
+                        ">
+                            <div style="
+                                background-color:  rgba(54, 54, 54, 0.72);
+                                width: 100%;
+                                height: 50px;
+                                position: absolute;
+                                top: 75%;
+                                padding-top: 10px;
+                                color:  #ffffff;
+                                font-size: 18px;/* Approximation due to font substitution */
+                                font-weight: 700;
+                                line-height: 20px;/* Approximation due to font substitution */
+                                text-align: center;
+                                max-width:292px;
+                                margin: 0 auto;
+                            ">
+                                Household Care
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="
+                    background-image: url(img/homepage-icons/featured_button.png);
+                    height: 113px;
+                    width: 282px;
+                    margin: 0 auto;
+                    position: relative;
+                    margin-top: 50px;
+                ">
+                    <a href="<?php echo base_url('caregivers') ?>" style="
+                        position:absolute; top:30px;
+                            top: 42px;
+                            left: 32px;
+                            width: 220px;
+                            height: 53px;">
+                    </a>
+                </div>
+                
+            </div>
+        </section>
         
         <!--end .how-it-works-->
 
@@ -387,26 +531,11 @@
                         <?php
                         $this->load->model('blog_model');
                         $safetyposts = $this->blog_model->getSafetyFirstPosts(22);
-                        //if(is_array($safetyposts)){
-                            //foreach($safetyposts as $key => $safety):
 
                                 ?>
 
                             <div class="col-half">
                                 <article>
-                                    <?php /*
-                                        if($key == 0){
-                                            echo '<i class="icon-crowd"></i>';
-                                        }
-                                        if($key == 1){
-                                            echo '<i class="icon-coins"></i>';
-                                        }
-                                    ?>
-                                    <?php /*
-                                    <h3 class="sub-title">
-                                        <a href="<?php echo $safety['guid'];?>" style="color:#fff;"><?php echo $safety['post_title'];?></a>
-                                     </h3>
-                                     */ ?>
                                      <div class="content">
                                         <h3>For Families:</h3>
                                         <p>
@@ -418,19 +547,6 @@
                             </div>
                             <div class="col-half">
                                 <article>
-                                    <?php /*
-                                        if($key == 0){
-                                            echo '<i class="icon-crowd"></i>';
-                                        }
-                                        if($key == 1){
-                                            echo '<i class="icon-coins"></i>';
-                                        }
-                                    ?>
-                                    <?php /*
-                                    <h3 class="sub-title">
-                                        <a href="<?php echo $safety['guid'];?>" style="color:#fff;"><?php echo $safety['post_title'];?></a>
-                                     </h3>
-                                     */ ?>
                                      <div class="content">
                                         <h3>For Caregivers:</h3>
                                         <p>
@@ -626,6 +742,21 @@
                     </div>
         <script src="<?php echo site_url(); ?>js/notifIt.js" type="text/javascript"></script>
         <link href="<?php echo site_url(); ?>css/notifIt.css" type="text/css" rel="stylesheet">
+        <script>
+            $(document).ready(function() {
+                $.ajax( {
+        			type: "GET",
+        			url: '<?php echo site_url();?>common_care_controller/featured',
+        			success: function( result ) {
+            			$.each(JSON.parse(result), function(index, profile) {
+            			    console.log(profile.profile_picture)
+            			    console.log(index)
+            			})
+                    }
+                });
+            })
+        </script>
+        
         <script type="text/javascript">
             $(document).ready(function(){
                 $('.searchButton').on('click', function() {
@@ -716,9 +847,7 @@ $(document).ready(function() {
 	        });
 		});
 		
-		
-        
-        $('.addrow').on('click', function() {
+		$('.addrow').on('click', function() {
         	html = '<tr><td><label>Name:</label></td><td style="padding:3px;padding-top: 0px;"><input type="text" name="names[]" class="required" multiple></input></td><td style="padding-left:20px"><label>Email:</label></td><td style="padding:3px;padding-top: 0px;"><input type="email" name="emails[]" class="required" multiple></input></td></tr>'
         
         	$('.rows').append(html)

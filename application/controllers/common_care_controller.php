@@ -208,6 +208,11 @@
       		$this->load->view(FRONTEND_TEMPLATE, $data);
     	}
     
+        public function featured()
+        {
+            $result = $this->common_care_model->featured();
+            echo json_encode($result);
+        }
         
         public function search()
         {
