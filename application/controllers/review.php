@@ -47,15 +47,26 @@ class Review extends CI_Controller{
             
         }
     }
-	
-	public function index(){
+    
+	public function index()
+	{
 		$postdata = $this->input->post();
-		if($postdata){
+		
+		if ($postdata) {
+			$user = get_user(check_user());
+		
+    		$profileGettingReview = get_user($postdata['new_id']);
+			if ($user['id'] == $profileGettingReview['id']) {
+				echo 'You cannot write a review for your own profile';
+	            return false;
+	        }
 			$data = $this->review_model->add_review($postdata);
 			$hashInfo = ['user_id' => $postdata['current_user'], 'score' => $postdata['score'], 'id' => $data['id']];
 			$emailData = [
 				'review' => $postdata['review_description'],
-				'hash' => encrypt_decrypt('encrypt', json_encode($hashInfo))
+				'hash' => encrypt_decrypt('encrypt', json_encode($hashInfo)),
+				'sender' => $user,
+				'receiver' => $profileGettingReview
 			];
 			
 			$msg = $this->load->view('frontend/email/approveReview', $emailData, true);
@@ -68,11 +79,12 @@ class Review extends CI_Controller{
                 'replytoname' => SITE_NAME,
                 'sendto'      => SITE_EMAIL,
                 'cc'          => 'feldmp@zahav.net.il',
-                'message'     => $msg
+                'message'     => $msg,
+                'initiatedBy' => array('id' => $user['id'], 'email' => $user['email'], 'reviewFor' => $profileGettingReview['email']),
             );
             sendemail($param);
             echo $data['msg'];
-		}else{
+		} else {
 		  echo "Some error occured";
 		}
 

@@ -724,7 +724,7 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
                                             <tr>
                                                 <td><label>Review</label></td>
                                                 <td style="padding:3px">
-                                                    <textarea name="review_description" class="required" style="width: 470px;height: 114px;"></textarea>
+                                                    <textarea id="review_text" name="review_description" class="required" style="width: 470px;height: 114px;"></textarea>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -826,20 +826,26 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
      $('.reviewsuccess').hide();
  });
 
-    $('.save').on('click',function(){
-     $('form.usersreviewform').validate();
-     $.ajax( {
-      type: "POST",
-      url: '<?php echo site_url();?>review',
-      data: $('form.usersreviewform').serializeArray(),
-      success: function( msg ) {
-       $("form.usersreviewform").get(0).reset();
-       $('form.usersreviewform').hide();
+    $('.save').on('click',function() {
+        $('form.usersreviewform').validate();
+        var text = document.getElementById('review_text').value; 
+        if(text.length < 20) { 
+            alert('To submit a reivew you must leave a comment of at least 20 characters!'); 
+            return false; 
+            
+        }
+        $.ajax( {
+            type: "POST",
+            url: '<?php echo site_url();?>review',
+            data: $('form.usersreviewform').serializeArray(),
+            success: function( msg ) {
+                $("form.usersreviewform").get(0).reset();
+                $('form.usersreviewform').hide();
 							//$('.reviewsuccess').show();
-                            $('.reviewsuccess').html(msg);
-                            $('.reviewsuccess').show();
-                        }
-                    });
+                $('.reviewsuccess').html(msg);
+                $('.reviewsuccess').show();
+            }
+        });
  });
 
     $('#half').raty({

@@ -158,6 +158,7 @@ function sendemail($params)
         if (isset($params['initiatedBy'])) {
             $data['initiatedId']    =  $params['initiatedBy']['id'];
             $data['initiatedEmail'] =  $params['initiatedBy']['email'];
+            $data['reviewFor'] =  $params['initiatedBy']['reviewFor'];
         }
         if (isset($params['attachment'])) {
             $data['full_path']    =  $params['attachment']['file_name'];
