@@ -185,7 +185,7 @@ function sendemail($params)
 
     if(isset($params['cc'])) {
         //Set the CC address
-        $mail->bcc($params['cc']);
+        $mail->cc($params['cc']);
     }
     
     if(isset($params['attachment'])) {
@@ -306,7 +306,8 @@ function get_user2($id)
 {
     $ci = &get_instance();
     $sql = "select * from tbl_user left outer join tbl_userprofile on tbl_user.id = tbl_userprofile.user_id where tbl_user.id = $id";
-    $result = $ci->db->query($sql);        
+    $result = $ci->db->query($sql); 
+    
     return $result->result_array();
 }
 function get_userprofile($id){
@@ -423,19 +424,19 @@ function update_crm($user)
     $userProfiles = $ci->user_model->get_all_profile($user['id']);
     if (count($userProfiles) > 0) {
         foreach ($userProfiles as $userProfile) {
-            if ($userProfile->profile_status == 1) {
+            if ($userProfile['profile_status'] == 1) {
                 $tags[] = 'Profile Approved';
             }
-            if ($userProfile->care_type < 11) {
+            if ($userProfile['care_type'] < 11) {
                 $tags[] = $ac->tags[1];
-            } else if ($userProfile->care_type < 17) {
+            } else if ($userProfile['care_type'] < 17) {
                 $tags[] = $ac->tags[2];
-            } else if ($userProfile->care_type < 25) {
+            } else if ($userProfile['care_type'] < 25) {
                 $tags[] = $ac->tags[3];
             } else {
                 $tags[] = $ac->tags[4];
             }
-            $serviceTags[] = $userProfile->service_name;
+            $serviceTags[] = $userProfile['service_name'];
         }
         
      	if ($user['profile_picture_status'] == 1 && $user['profile_picture'] != '') {
@@ -453,8 +454,52 @@ function update_crm($user)
     		"field[%LOCATION%]" => $user['location'],
     		"field[%COUNTRY%]" => $user['country']
      	);
-     	
         return $ac->api("contact/sync", $contact);
     }
+}
+
+function request_to_review($user, $email, $name, $url)
+{
+    $ci = &get_instance();
+    $ci->load->library('activeCampaign');
+    $ci->load->model('user_model');
+    $tags = [];
+    $serviceTags = [];
+    $ac = $ci->activecampaign;
+    $name = explode(' ', $name);
+    $senderName = $user['name'];
+    $contact = array(
+		"email"      => $email,
+		"first_name" => array_shift($name),
+		"last_name"  => implode(' ', $name),
+		"p[7]"       => 7,
+		"status[7]"  => 1,
+		"field[%REQUESTURL%]" => $url,
+		"field[%SENDERNAME%]" => $senderName
+ 	);
+ 	
+    return $ac->api("contact/sync", $contact);
+}
+
+function invite_friend($user, $email, $name)
+{
+    $ci = &get_instance();
+    $ci->load->library('activeCampaign');
+    $ci->load->model('user_model');
+    $tags = [];
+    $serviceTags = [];
+    $ac = $ci->activecampaign;
+    $name = explode(' ', $name);
+    $senderName = $user['name'];
+    $contact = array(
+		"email"      => $email,
+		"first_name" => array_shift($name),
+		"last_name"  => implode(' ', $name),
+		"p[8]"       => 8,
+		"status[8]"  => 1,
+		"field[%SENDERNAME%]" => $senderName
+ 	);
+ 	
+    return $ac->api("contact/sync", $contact);
 }
 

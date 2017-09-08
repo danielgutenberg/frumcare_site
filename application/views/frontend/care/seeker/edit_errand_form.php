@@ -153,11 +153,12 @@ if($detail){
         </div>
     </div>
 
+    <h2>Abilities and Skills Necessary</h2>
     <div class="checkbox">
-        <input type="checkbox" value="1" name="driver_license" <?php echo isset($driver_license) && $driver_license == 1 ? 'checked' : ''?>> <label>Drivers license</label>
+        <input type="checkbox" value="1" name="driver_license" <?php echo isset($driver_license) && $driver_license == 1 ? 'checked' : ''?>> Drivers license
     </div>
     <div class="checkbox">
-        <input type="checkbox" value="1" name="vehicle" <?php echo isset($vehicle) && $vehicle == 1 ? 'checked' : ''?>> <label>Vehicle</label>
+        <input type="checkbox" value="1" name="vehicle" <?php echo isset($vehicle) && $vehicle == 1 ? 'checked' : ''?>> Vehicle
     </div>
     
     <div>

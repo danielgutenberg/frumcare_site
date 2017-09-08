@@ -215,19 +215,19 @@ if($detail){
             <h2>Abilities and Skills Necessary</h2>
             <div class="checkbox-wrap">
                 <div>
-                    <input type="checkbox" value="1" name="driver_license" <?php echo isset($driver_license) && $driver_license == 1 ? 'checked' : ''?>> <label>Drivers license</label>
+                    <input type="checkbox" value="1" name="driver_license" <?php echo isset($driver_license) && $driver_license == 1 ? 'checked' : ''?>> Drivers license
                 </div>
                 <div>
-                    <input type="checkbox" value="1" name="vehicle" <?php echo isset($vehicle) && $vehicle == 1 ? 'checked':''?>> <label>Vehicle</label>
+                    <input type="checkbox" value="1" name="vehicle" <?php echo isset($vehicle) && $vehicle == 1 ? 'checked':''?>> Vehicle
                 </div>
                 <div>
-                    <input type="checkbox" value="1" name="cook" <?php echo isset($cook) && $cook == 1 ? 'checked' : ''?>> <label>Must be able to cook and prepare food / serve meals</label>
+                    <input type="checkbox" value="1" name="cook" <?php echo isset($cook) && $cook == 1 ? 'checked' : ''?>> Must be able to cook and prepare food / serve meals
                 </div>
                 <div>
-                    <input type="checkbox" value="1" name="basic_housework" <?php echo isset($basic_housework) && $basic_housework == 1 ? 'checked' : ''?>> <label>Must be able to do light housework / cleaning</label>
+                    <input type="checkbox" value="1" name="basic_housework" <?php echo isset($basic_housework) && $basic_housework == 1 ? 'checked' : ''?>> Must be able to do light housework / cleaning
                 </div>
                 <div>
-                    <input type="checkbox" value="1" name="personal_hygiene" <?php echo isset($personal_hygiene) && $personal_hygiene == 1 ? 'checked' : ''?>> <label>Must be able to deal with personal hygiene of senior</label>
+                    <input type="checkbox" value="1" name="personal_hygiene" <?php echo isset($personal_hygiene) && $personal_hygiene == 1 ? 'checked' : ''?>> Must be able to deal with personal hygiene of senior
                 </div>
 
                 <div>

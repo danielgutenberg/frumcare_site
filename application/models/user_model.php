@@ -223,6 +223,7 @@ class User_model extends CI_Model
     public function get_my_review($limit,$start,$field){
         $this->db->join('tbl_user','tbl_reviews.user_profile_id = tbl_user.id','left');
         $this->db->where($field,$this->session->userdata('current_user'));
+        $this->db->where('approved',1);
         $this->db->order_by('created_date','desc');
         $query = $this->db->get('tbl_reviews');
          if($query->num_rows() > 0){
@@ -442,14 +443,14 @@ class User_model extends CI_Model
         $this->db->join('tbl_user', 'tbl_user.id = tbl_userprofile.user_id', 'left');
         $this->db->join('tbl_care','tbl_userprofile.care_type = tbl_care.id','left');
         if ($userId) {
-            $this->db->where('user_id',$userId);
+            $this->db->where('tbl_userprofile.user_id',$userId);
         } else {
-            $this->db->where('user_id',$this->session->userdata('current_user'));
+            $this->db->where('tbl_userprofile.user_id',$this->session->userdata('current_user'));
         }
         $this->db->order_by("tbl_userprofile.id", "desc");
-        $this->db->select('tbl_userprofile.*, tbl_care.*, tbl_user.city, tbl_user.state, tbl_user.country, tbl_user.name, tbl_user.organization_name, tbl_user.uri, tbl_user.profile_picture, tbl_user.profile_picture_status');
+        $this->db->select('tbl_userprofile.*, tbl_userprofile.id as profileId, tbl_care.*, tbl_user.city, tbl_user.state, tbl_user.country, tbl_user.name, tbl_user.organization_name, tbl_user.uri, tbl_user.profile_picture, tbl_user.profile_picture_status');
         $query = $this->db->get('tbl_userprofile');
-        return $query->result();
+        return $query->result_array();
     }
     
     public function getAllUsers()

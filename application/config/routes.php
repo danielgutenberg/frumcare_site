@@ -40,6 +40,10 @@
 
 $route['default_controller'] = "welcome";
 $route['account/delete'] = "welcome/delete";
+$route['invite_friends'] = "welcome/invite";
+$route['invite_review'] = "welcome/invite_review";
+$route['request_review'] = "welcome/request_review";
+$route['invite'] = "welcome/popup";
 $route['sync'] = "welcome/sync";
 $route['404_override'] = '';
 $route['advice-and-tips/families'] = 'cms/tipsandtoolsfamilies';
@@ -57,6 +61,7 @@ $route['admin/logout'] = "admin/admin/logout";
 $route['admin/user/(:num)'] = "admin/user/index";
 $route['admin/user-dashboard/(:any)'] = 'admin/user/dashboard/$1';
 
+$route['review/approve/(:any)'] = 'review/approve/$1/$2/';
 $route['ad/approveAd/(:num)/(:num)/(:any)'] = 'ad/approveAd/$1/$2/$3/$4/$5/';
 $route['forgot-password'] = 'login/forgot_password';
 $route['changepassword'] = 'login/changepassword';
@@ -117,7 +122,7 @@ $route['jobs/workers-staff-for-senior-care-facility'] = 'common_care_controller/
 $route['jobs/workers-staff-for-special-needs-facility'] = 'common_care_controller/careseeker_specialneedsfacility';
 $route['jobs/workers-for-cleaning-company'] = 'common_care_controller/careseeker_cleaningcompany';
 
-$route['jobs/details/(:any)'] = 'caregivers/details';
+$route['jobs/details/(:any)'] = 'caregivers/details/';
 
 
 $route['caregivers/organizations'] = 'common_care_controller/organizations';

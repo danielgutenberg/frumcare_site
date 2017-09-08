@@ -1,6 +1,20 @@
 <script src="https://apis.google.com/js/api:client.js"></script>
 <div class="container sign-in-forms">
     <?php user_flash(); ?>
+    <?php 
+    $ci = &get_instance();
+    if ($ci->session->flashdata('invite')) { ?>
+    <div class="alert alert-success alert-dismissible invite_response" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            Please log in first to invite friends to use FrumCare.com
+            </div>
+    <?php } 
+    if ($ci->session->flashdata('review')) { ?>
+    <div class="alert alert-success alert-dismissible invite_response" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            Please log in first to request reviews for your profile
+            </div>
+    <?php } ?>
     <h2>
         Login
     </h2>
@@ -9,10 +23,11 @@
         $attributes = array('id' => 'login-form');
         echo form_open('login', $attributes);
     ?>
-
-            <input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
             <input type="text" name="email" placeholder="Email" class="required email col-xs-12" style="min-width:330px"/>
             <input type="password" name="passwd" placeholder="Password" class="required col-xs-12" style="min-width:330px"/>
+            <?php if ($redirect) {?>
+                <input type="hidden" name="redirect" value="<?php echo $redirect?>" />
+                <?php } ?>
             <span class="submit-success-btn col-xs-12"><input type="submit" class="btn btn-success" value="Sign In" style="min-width:330px; margin-left:-15px"/></span>
         </form>
         <span class="forgot-passwords"><a href="<?php echo base_url('forgot-password') ?>">Forgot Password?</a></span>
@@ -106,7 +121,7 @@
             data: data,
             dataType: 'json',
             success: function(res) {
-                location.href = res
+                location.href = '<?php if ($redirect) {echo site_url(base64_decode($redirect));} else { ?>' +  res  + '<?php } ?>'
             }
         })
     })
@@ -137,7 +152,8 @@
             data: data,
             dataType: 'json',
             success: function(res) {
-                location.href = res
+                
+                location.href = '<?php if ($redirect) {echo site_url(base64_decode($redirect));} else { ?>' +  res  + '<?php } ?>'
             }
         })
     }

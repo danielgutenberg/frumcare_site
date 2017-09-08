@@ -11,6 +11,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta property="og:title" content="Write a Review" />
+    <meta property="og:type" content="Sharing Widgets" />
+    <meta property="og:url" content="<?php echo current_url(); ?>" />
+    <meta property="og:description" content="Please write a review on my profile" />
+    <meta property="og:site_name" content="FrumCare.com" />
         <?php
             header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
             header("Cache-Control: post-check=0, pre-check=0", false);
@@ -35,16 +40,16 @@
         <link rel="shortcut icon" href="<?php echo site_url("img/favicon.ico")?>" type="image/x-icon">
         <link rel="icon" href="<?php echo site_url("img/favicon.ico")?>" type="image/x-icon">
         
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' type='text/css'>
+        <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' type='text/css'>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Varela+Round' type='text/css'>
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' type='text/css'>
-        <link rel="stylesheet" href="<?php echo base_url('css/compressedMain9.css') ?>">
+        <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Varela+Round' type='text/css'>
+        <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' type='text/css'>
+        <link rel="stylesheet" href="<?php echo base_url('css/compressed.css') ?>">
         
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
         
         <script src="<?php echo base_url('js/vendor/alljs.min.js') ?>"></script>
 
@@ -64,6 +69,7 @@
             window._fbq.push(['track', '6030516600835', {'value':'0.01','currency':'ILS'}]);
         </script>
         <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6030516600835&amp;cd[value]=0.01&amp;cd[currency]=ILS&amp;noscript=1" /></noscript>
+        <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=58cf9555115dd2001125f310&product=custom-share-buttons"></script>
 </head>
 <body>
 
@@ -82,113 +88,33 @@
 
     <div class="page-loader-modal"></div>
     <div id="site-wrapper">
-        <header class="header">
-            <div class="top-bar clearfix">
-                <div class="container">
-                    <div class="login-links">
-                        <?php if (!$this->session->userdata('current_user') && !$this->session->userdata('fb_id') && !$this->session->userdata('twitter_id')) { ?>
-                        <a href="<?php echo base_url('signup') ?>"><i class="icon-login">&nbsp;</i>Sign up</a>
-                        <a href="<?php echo base_url('login') ?>"><i class="icon-lock">&nbsp;</i>Log in</a>
-                        <?php
-                    } else {
-                        if ($this->session->userdata('fb_id'))
-                            $logout = $this->session->userdata('fb_logout');
-                        else
-                            $logout = base_url('logout'); ?>
-                        <a href="<?php echo base_url('user/dashboard') ?>"><i class="icon-login">&nbsp;</i>My
-                            Account</a>
-                            <a href="<?php echo $logout ?>"><i class="icon-lock">&nbsp;</i>Log out</a>
-                            <?php } ?>
-                        </div>
+        <header class="header" style=" border-bottom: 1px solid #e5e5e5;">
 
-                        <div class="search">
-                        <!--<form method="get" action="<?php echo site_url();?>search">-->
-                        <!--    <div class="search-select">-->
-                        <!--    <select name="category" style="width: 100%">-->
-                        <!--        <option value="all">All</option>-->
-                        <!--        <option value="caregiver" class="selected">Caregivers</option>-->
-                        <!--        <option value="careseeker">Jobs</option>-->
-                        <!--    </select>-->
-                        <!--    </div>-->
-
-                        <!--    <div class="dropdown">-->
-                        <!--        <input type="text" name="search_for" value="" placeholder="Search" data-toggle="dropdown" required="required"/>-->
-                        <!--        <input type="hidden" value=""/>-->
-                        <!--        <button type="submit" class="submit"><i class="icon-search">&nbsp;</i></button>-->
-
-                        <!--    </div>-->
-                        <!--</form>-->
-                    </div>
-        
-        <!--end search-->
-    </div>
-</div>
 <!--end top-bar-->
 
-<div class="header-main">
-    <div class="container">
-        <h1 class="col-lg-4 col-md-4 col-sm-4 col-xs-12 center logo">
-            <a href="<?php echo base_url() ?>">
-                <img src="<?php echo base_url('img/logo.png') ?>" alt="Frumcare.com">
-            </a>
-        </h1>
+<div>
+    <div class="headerContainer" style="margin-right: auto; margin-left: auto; height:60px">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-top:8px">
+            <a href="<?php echo base_url() ?>" style="background: url(<?php echo base_url('img/logo.png') ?>);background-repeat:no-repeat; height: 40px;width: 200px;display: inline-block;background-size: 90%;"></a>
+        </div>
 
-        <div class="navigation col-lg-8 col-md-8 col-sm-8 col-xs-12 center">
-            <nav>
-                <div class="toggle-menu">Menu</div>
-                <ul class="primary-nav">
-                            <li>
-                                <div class="dropdown">
-                                  <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                                    Caregivers
-                                </a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>signup">Create a Profile</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>caregivers/all">Find a Caregiver</a></li>
-                                </ul>
-                            </div>
-                        </li>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 
-                        <li>
-                           <div class="dropdown">
-                              <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                                Jobs
-                            </a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>signup" id="2" class="postjob">Post a Job</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>jobs/all">Find a Job</a></li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li>
-                       <div class="dropdown">
-                          <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                            Institutions
-                        </a>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>signup"> Advertise Your Services</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>caregivers/organizations">Find Workers for Your Organization</a></li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li>
-                   <div class="dropdown">
-                      <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                        Therapists
-                    </a>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>signup">Advertise Your Services</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo site_url();?>caregivers/therapists">Find a Therapist</a></li>
-                    </ul>
-                </div>
-            </li>
-
-            <li><a href="<?php echo site_url("blog")?>">Blog</a></li>
-
-        </ul>
-    </nav>
+            <div class="pull-right login-block" style="margin-top:14px">
+            <?php if (!$this->session->userdata('current_user') && !$this->session->userdata('fb_id') && !$this->session->userdata('twitter_id')) { ?>
+                <a id="btn-nav-login" class="btn" href="<?php echo base_url('login') ?>">Log in</a>
+                <a id="btn-nav-signup" style="background: transparent;color: #525252" class="btn btn-primary" href="<?php echo base_url('signup') ?>">SIGN UP</a>
+            <?php
+            } else {
+            if ($this->session->userdata('fb_id'))
+                $logout = $this->session->userdata('fb_logout');
+            else
+                $logout = base_url('logout'); ?>
+                
+                <a id="btn-nav-login" class="btn" href="<?php echo base_url('user/dashboard') ?>">My Account</a>
+                <a id="btn-nav-signup" style="background: transparent;color: #525252" class="btn btn-primary" href="<?php echo $logout ?>">Log out</a>
+            <?php } ?>
+            </div>
 </div>
 <div class="clearfix"></div>
 </div>
@@ -228,7 +154,7 @@ $(function(){
     });
 });
 </script>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=places&language=en-AU"></script>
+<script type="text/javascript" src="//maps.google.com/maps/api/js?libraries=places&language=en-AU"></script>
 
 <script>
     $(document).ready(function(){

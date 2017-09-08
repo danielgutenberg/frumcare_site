@@ -95,6 +95,14 @@ $careType = [
 				</span>
 				<?php } ?>
                 <br>
+                <?php if($data['care_type'] < 17){
+                    $reviews = $data['number_reviews']; ?>
+                   <div style="width:200px">
+                    <div class="rating-score" id="<?php echo ($data['total_review']/($reviews>0?$reviews:1));?>"></div>
+                    <span style="font-size:14px;font-weight: 400;vertical-align: middle;">(<?php echo number_format($reviews);?> reviews)</span>
+                    
+                    </div>
+                    <?php } ?>
                 <?php
                 $type = $careType[$data['care_type']];
                 $loca = '';
@@ -138,7 +146,11 @@ $careType = [
                         <?php if(in_array(strtolower('CPR'), array_map('strtolower',$training_arr))){ ?>
                             <img src="<?php echo site_url()?>img/health-badge.png" title="Has CPR training"/>
                         <?php } ?>
-                    </div> <?php 
+                    
+                    </div> 
+                    
+                    
+                    <?php 
                 } ?>                        
 				<div class="line"></div>
 				
@@ -323,6 +335,10 @@ $careType = [
 			</div>
 		</div>
 		<div class="clearfix"></div>
+		<?php if($data['care_type'] < 17) {
+		        echo anchor('',"Invite employers to write a review",'class="btn btn-success invite_review" style="min-width:150px; margin-left:-15px; margin-top:10px; margin-bottom:10px"');
+      	    }
+        	?>
         <?php 		
 		} //end of foreach
 	} //end of if
@@ -330,3 +346,101 @@ $careType = [
 		echo 'Currently you have no profiles';
 	}
 ?>
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Invite Employers to Write a Review</h4>
+                                </div>
+                                <div class="modal-body">
+                        <form class="usersreviewform">
+                            <table>
+                       
+                                <tbody class="rows">
+                                <tr>
+                                    <td><label>Name:</label></td>
+                                    <td style="padding:3px;padding-top: 0px;">
+                                        <input type="email" name="names[]" class="required" multiple></input>
+                                    </td>
+                                    <td style="padding-left:20px"><label>Email:</label></td>
+                                    <td style="padding:3px;padding-top: 0px;">
+                                        <input type="email" name="emails[]" class="required" multiple></input>
+                                    </td>
+                                </tr>
+                                </tbody>
+                               </table>
+                               <table style="margin-left:-10px; margin-top:12px">
+                                <tr><td class="addrow" style="cursor: pointer;font-size: 13px;color: blue;">Add Name</td></tr>
+
+                    
+                                <tr>
+                                    <td>
+                                        <input type="hidden" name="current_user" value="<?php echo @$this->session->userdata['current_user'];?>"/>
+                                    </td>
+                                </tr>
+                                </table>
+
+                            <div class="modal-footer">
+                              <button style="float:left" type="button" class="btn btn-primary save_review">Request Review</button>
+                          </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+<script>
+    $(document).ready(function(){
+        $('#half').raty({
+                     path       : '<?php echo site_url();?>img/',
+                     starHalf   : 'star-half.png',
+                     starOff    : 'star-off.png',
+                     starOn     : 'star-on.png',
+                     half  : true,
+                });
+            
+                $('.rating-score').each(function() {
+                     $(this).raty({
+                      path : '<?php echo site_url();?>img/',
+                      starHalf   : 'star-half.png',
+                      starOff    : 'star-off.png',
+                      starOn     : 'star-on.png',
+                      score	   : $(this).attr('id'),
+                      readOnly : true,
+                      half  : true,
+                      space : false
+                  });
+                });
+    })
+</script>
+<script>
+    $(document).ready(function() {
+    	$('.invite_review').click(function(e) {
+    		e.preventDefault()
+        	$('#myModal3').modal('show');
+    	})
+    	
+    	
+	    $('.save_review').on('click',function(){
+			
+			$.ajax( {
+				type: "POST",
+				url: '<?php echo site_url();?>invite_review',
+				data: $('form.usersreviewform').serializeArray(),
+				success: function( msg ) {
+	    			$('#myModal3').modal('hide');
+	                $('.invite_response').html(msg);
+	                $('.invite_response').show();
+	                html = '<tr><td><label>Name:</label></td><td style="padding:3px;padding-top: 0px;"><input type="text" name="names[]" class="required" multiple></input></td><td style="padding-left:20px"><label>Email:</label></td><td style="padding:3px;padding-top: 0px;"><input type="email" name="emails[]" class="required" multiple></input></td></tr>'
+        
+        			$('.rows').html(html)
+	            }
+	        });
+		});
+        
+
+        
+    })
+</script>
+

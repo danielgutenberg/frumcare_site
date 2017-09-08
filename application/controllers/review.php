@@ -47,7 +47,7 @@ class Review extends CI_Controller{
             
         }
     }
-	
+    
 	public function index()
 	{
 		$postdata = $this->input->post();
@@ -59,7 +59,7 @@ class Review extends CI_Controller{
 			if ($user['id'] == $profileGettingReview['id']) {
 				echo 'You cannot write a review for your own profile';
 	            return false;
-			}
+	        }
 			$data = $this->review_model->add_review($postdata);
 			$hashInfo = ['user_id' => $postdata['current_user'], 'score' => $postdata['score'], 'id' => $data['id']];
 			$emailData = [

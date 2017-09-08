@@ -223,36 +223,36 @@ if($detail){
         <h2>Abilities and Skills Necessary</h2>
         <div class="checkbox-wrap">
         <div>
-            <input type="checkbox" value="1" name="driver_license" <?php echo isset($driver_license) && $driver_license == 1 ? 'checked' : ''?>> <label>Drivers license</label>
+            <input type="checkbox" value="1" name="driver_license" <?php echo isset($driver_license) && $driver_license == 1 ? 'checked' : ''?>> Drivers license
         </div>
         <div>
-            <input type="checkbox" value="1" name="vehicle" <?php echo isset($vehicle) && $vehicle == 1 ? 'checked' : ''?>> <label>Vehicle</label>
+            <input type="checkbox" value="1" name="vehicle" <?php echo isset($vehicle) && $vehicle == 1 ? 'checked' : ''?>> Vehicle
         </div>
         <div>
-            <input type="checkbox" value="1" name="pick_up_child" <?php echo isset($pick_up_child) && $pick_up_child == 1 ? 'checked' : ''?>> <label>Must be able to pick up kids from school</label>
+            <input type="checkbox" value="1" name="pick_up_child" <?php echo isset($pick_up_child) && $pick_up_child == 1 ? 'checked' : ''?>> Must be able to pick up kids from school
         </div>
         <div>
-            <input type="checkbox" value="1" name="cook" <?php echo isset($cook) && $cook == 1 ? 'checked' : ''?>> <label>Must be able to cook</label>
+            <input type="checkbox" value="1" name="cook" <?php echo isset($cook) && $cook == 1 ? 'checked' : ''?>> Must be able to cook
         </div>
         <div>
-            <input type="checkbox" value="1" name="basic_housework" <?php echo isset($basic_housework) && $basic_housework == 1 ? 'checked' : ''?>> <label>Must be able to do housework / cleaning</label>
+            <input type="checkbox" value="1" name="basic_housework" <?php echo isset($basic_housework) && $basic_housework == 1 ? 'checked' : ''?>> Must be able to do housework / cleaning
         </div>
         <div>
-            <input type="checkbox" value="1" name="homework_help" <?php echo isset($homework_help) && $homework_help == 1 ? 'checked' : ''?>> <label>Must be able to help with homework</label>
+            <input type="checkbox" value="1" name="homework_help" <?php echo isset($homework_help) && $homework_help == 1 ? 'checked' : ''?>> Must be able to help with homework
         </div>
         <div>
-            <input type="checkbox" value="1" name="sick_child_care" <?php echo isset($sick_child_care) && $sick_child_care == 1 ? 'checked' : ''?>> <label>Must be able to care for sick child</label>
+            <input type="checkbox" value="1" name="sick_child_care" <?php echo isset($sick_child_care) && $sick_child_care == 1 ? 'checked' : ''?>> Must be able to care for sick child
         </div>
 
         <div>
-            <input type="checkbox" value="1" name="bath_children" <?php echo isset($bath_children) && $bath_children == 1 ? 'checked' : ''?>> <label>Must be able to bathe children</label>
+            <input type="checkbox" value="1" name="bath_children" <?php echo isset($bath_children) && $bath_children == 1 ? 'checked' : ''?>> Must be able to bathe children
         </div>
         <div>
-            <input type="checkbox" value="1" name="bed_children" <?php echo isset($bed_children) && $bed_children == 1 ? 'checked' : ''?>> <label>Must be able to put children to bed</label>
+            <input type="checkbox" value="1" name="bed_children" <?php echo isset($bed_children) && $bed_children == 1 ? 'checked' : ''?>> Must be able to put children to bed
         </div>
 
          <div>
-            <input type="checkbox" value="1" name="references" <?php echo isset($references) && $references == 1 ? 'checked' : ''?>> <label>Must have references</label>
+            <input type="checkbox" value="1" name="references" <?php echo isset($references) && $references == 1 ? 'checked' : ''?>> Must have references
         </div>
 
         </div>
