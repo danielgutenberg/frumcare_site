@@ -5,6 +5,7 @@ class Emaillogs_model extends CI_Model
     public function get_emaillogs()
     {
         $this->db->order_by('id','desc');
+        $this->db->limit(1000);
         $emails = $this->db->get('tbl_email_logs');
         if ($emails->num_rows() > 0) {
             return $emails->result_array();
