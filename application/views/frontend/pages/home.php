@@ -488,6 +488,7 @@
                     margin: 0 auto;
                     position: relative;
                     margin-top: 50px;
+                    margin-bottom: 160px;
                 ">
                     <a href="<?php echo base_url('caregivers') ?>" style="
                         position:absolute; top:30px;
@@ -503,153 +504,232 @@
         
         <!--end .how-it-works-->
 
-        <section class="safety-first">
-            <div class="container">
-
-                <h2 class="title">We put safety first</h2>
-
-
-                <div class="row">
-                    <div class="col-half border-right">
-
-                        <h2><a href="safety-guide/families" style="color:white">Safety Guide</a></h2>
-                        <?php
-                        $this->load->model('blog_model');
-                        $safetyposts = $this->blog_model->getSafetyFirstPosts(22);
-
-                                ?>
-
-                            <div class="col-half">
-                                <article>
-                                     <div class="content">
-                                        <h3>For Families:</h3>
-                                        <p>
-                                            <?php echo substr($safetyposts[1]['post_excerpt'],0,180);?>
-                                            <a href="blog/hiring-in-home-help">Read More</a>
-                                        </p>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="col-half">
-                                <article>
-                                     <div class="content">
-                                        <h3>For Caregivers:</h3>
-                                        <p>
-                                            <?php echo substr($safetyposts[0]['post_excerpt'],0,180);?>
-                                            <a href="blog/in-home-care-for-the-elderly-and-ill">Read More</a>
-                                        </p>
-                                    </div>
-                                </article>
-                            </div>
-                         <?php
-                         //endforeach;
-                     //}
-                     ?>
-
-                 </div>
-                 <?php
-                 $adviceandtools = $this->blog_model->getAdvicePosts(21);
-
-                 ?>
-                 <div class="col-half padleft">
-                    <h2><a href="advice-and-tips/families" style="color:white">Advice and Tips</a></h2>
-                    <?php
-                    //if(is_array($adviceandtools)){
-                        //foreach($adviceandtools as $key => $advice):
-                            ?>
-                        <div class="col-half">
-                            <article>
-                                 <?php /*
-                                            if($key == 0){
-                                                echo  '<i class="icon-comment"></i>';
-                                            }else{
-                                                echo '<i class="icon-doc"></i>';
-                                            }
-                                        ?>
-                                    <h3 class="sub-title">
-                                        <a href="<?php echo $safety['guid'];?>" style="color:#fff;"><?php echo $advice['post_title'];?></a>
-                                    </h3>
-                                    */ ?>
-                                    <div class="content">
-                                        <h3>For Families:</h3>
-                                        <p>
-                                            <?php echo substr($adviceandtools[0]['post_excerpt'],0,180);?>
-                                            <a href="blog/finding-and-preparing-for-a-new-babysitter">Read More</a>
-                                        </p>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="col-half">
-                            <article>
-                                 <?php /*
-                                            if($key == 0){
-                                                echo  '<i class="icon-comment"></i>';
-                                            }else{
-                                                echo '<i class="icon-doc"></i>';
-                                            }
-                                        ?>
-                                    <h3 class="sub-title">
-                                        <a href="<?php echo $safety['guid'];?>" style="color:#fff;"><?php echo $advice['post_title'];?></a>
-                                    </h3>
-                                    */ ?>
-                                    <div class="content">
-                                        <h3>For Caregivers:</h3>
-                                        <p>
-                                            <?php echo substr($adviceandtools[1]['post_excerpt'],0,180);?>
-                                            <a href="blog/how-to-prevent-caregiver-burnout">Read More</a>
-                                        </p>
-                                    </div>
-                                </article>
-                            </div>
-                            <?php
-                            //endforeach;
-                        //}
-                        ?>
+        <section style="background-color:#f3f3f3; display: flex;
+  justify-content: center;
+  align-items: center; ">
+            <div class="row" style="margin-top: -125px;">
+                <div class="col-xs-12 col-sm-6" style="
+                    height: 410px;
+                    min-width: 399px;
+                    max-width:500px;
+                    background-color: #ffffff
+                ">
+                    <p style="
+                        font-family: Rufina;
+                        color:  #1d1c1b;
+                        font-size: 24px;/* Approximation due to font substitution */
+                        font-weight: 400;
+                        line-height: 30px;/* Approximation due to font substitution */
+                        text-align: center;
+                        margin-top: 30px;
+                    ">
+                     We want to hear from you!   
+                    </p>
+                    <p style="
+                        font-family: OpenSans;
+                        color:  #727272;
+                        font-size: 14px;/* Approximation due to font substitution */
+                        font-weight: 400;
+                        line-height: 30px;/* Approximation due to font substitution */
+                        text-align: center;
+                    ">
+                        Email us at info@frumcare.com or drop us a quick message.
+                    </p>
+                    <span><input style="margin-bottom:15px; width: 100%" type="text" id="messageEmail" placeholder="Email Address" ></span>
+                    <textarea id="messageText" style="width:100%; height: 180px; margin-bottom: 15px" placeholder="Type your message here..."></textarea>
+                    
+                    <div id="sendMessage" style="
+                        background-color:  #1c75bb;
+                        width: 169px;
+                        height: 40px;
+                        padding-top: 6px;
+                        margin: 0 auto;
+                        color:  #ffffff;
+                        font-size: 14px;/* Approximation due to font substitution */
+                        font-weight: 400;
+                        line-height: 30px;/* Approximation due to font substitution */
+                        text-align: center;
+                        cursor: pointer;
+                    ">
+                        SEND MESSAGE
                     </div>
+                    
+                </div>
+                <div class="col-xs-12 col-sm-6" style="
+                    height: 410px;
+                    min-width: 399px;
+                    max-width:500px;
+                    background-color: #f2ede7
+                ">
+                    <div style="
+                        background-image: url(img/homepage-icons/left_quotation.png);
+                        height: 31px;
+                        width: 40px;
+                        margin: 0 auto;
+                        position: absolute;
+                        margin-top: 50px;
+                        margin-bottom: 160px;
+                        bottom: -130px;
+                        left: 25px;
+                    ">
+                    </div>
+                    <div style="
+                        background-image: url(img/homepage-icons/right_quotation.png);
+                        height: 31px;
+                        width: 41px;
+                        margin: 0 auto;
+                        position: absolute;
+                        margin-top: 50px;
+                        margin-bottom: 160px;
+                        top: -20px;
+                        right: 38px;
+                    ">
+                    </div>
+                    <p style="
+                        font-family: Rufina;
+                        color:  #494949;
+                        font-size: 24px;/* Approximation due to font substitution */
+                        font-weight: 400;
+                        line-height: 30px;/* Approximation due to font substitution */
+                        text-align: center;
+                        margin-top: 30px;
+                    ">
+                     What people are saying   
+                    </p>
+                    <p style="
+                        font-family: OpenSans;
+                        color:  #727272;
+                        font-size: 18px;/* Approximation due to font substitution */
+                        font-weight: 400;
+                        line-height: 30px;/* Approximation due to font substitution */
+                        text-align: center;
+                        margin-bottom: 120px;
+                    ">
+                        I've been searching for an outlet like this forever! Finally a quality care site which fits the needs of our community.
+                    </p>
+                    <p style="
+                        font-family: OpenSans;
+                        color:  #727272;
+                        font-size: 18px;/* Approximation due to font substitution */
+                        font-weight: 400;
+                        line-height: 30px;/* Approximation due to font substitution */
+                        text-align: center;
+                        margin-bottom: 120px;
+                    ">
+                        Heidi S. <br> New York City
+                    </p>
                 </div>
             </div>
+            <!--<div class="container">-->
+            <!--    <h2 class="title">We put safety first</h2>-->
+
+
+            <!--    <div class="row">-->
+            <!--        <div class="col-half border-right">-->
+
+            <!--            <h2><a href="safety-guide/families" style="color:white">Safety Guide</a></h2>-->
+            <!--            <?php-->
+            <!--            $this->load->model('blog_model');-->
+            <!--            $safetyposts = $this->blog_model->getSafetyFirstPosts(22);-->
+
+            <!--                    ?>-->
+
+            <!--                <div class="col-half">-->
+            <!--                    <article>-->
+            <!--                         <div class="content">-->
+            <!--                            <h3>For Families:</h3>-->
+            <!--                            <p>-->
+            <!--                                <?php echo substr($safetyposts[1]['post_excerpt'],0,180);?>-->
+            <!--                                <a href="blog/hiring-in-home-help">Read More</a>-->
+            <!--                            </p>-->
+            <!--                        </div>-->
+            <!--                    </article>-->
+            <!--                </div>-->
+            <!--                <div class="col-half">-->
+            <!--                    <article>-->
+            <!--                         <div class="content">-->
+            <!--                            <h3>For Caregivers:</h3>-->
+            <!--                            <p>-->
+            <!--                                <?php echo substr($safetyposts[0]['post_excerpt'],0,180);?>-->
+            <!--                                <a href="blog/in-home-care-for-the-elderly-and-ill">Read More</a>-->
+            <!--                            </p>-->
+            <!--                        </div>-->
+            <!--                    </article>-->
+            <!--                </div>-->
+            <!--             </div>-->
+            <!--     <?php-->
+            <!--     $adviceandtools = $this->blog_model->getAdvicePosts(21);-->
+
+            <!--     ?>-->
+            <!--     <div class="col-half padleft">-->
+            <!--        <h2><a href="advice-and-tips/families" style="color:white">Advice and Tips</a></h2>-->
+            <!--            <div class="col-half">-->
+            <!--                <article>-->
+            <!--                        <div class="content">-->
+            <!--                            <h3>For Families:</h3>-->
+            <!--                            <p>-->
+            <!--                                <?php echo substr($adviceandtools[0]['post_excerpt'],0,180);?>-->
+            <!--                                <a href="blog/finding-and-preparing-for-a-new-babysitter">Read More</a>-->
+            <!--                            </p>-->
+            <!--                        </div>-->
+            <!--                    </article>-->
+            <!--                </div>-->
+            <!--                <div class="col-half">-->
+            <!--                <article>-->
+            <!--                        <div class="content">-->
+            <!--                            <h3>For Caregivers:</h3>-->
+            <!--                            <p>-->
+            <!--                                <?php echo substr($adviceandtools[1]['post_excerpt'],0,180);?>-->
+            <!--                                <a href="blog/how-to-prevent-caregiver-burnout">Read More</a>-->
+            <!--                            </p>-->
+            <!--                        </div>-->
+            <!--                    </article>-->
+            <!--                </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--</div>-->
             <!--end .container-->
         </section>
 
         <!--end .safety-first-->
 
-        <section class="client-say">
-            <div class="container">
-                <div class="row">
+        <!--<section class="client-say">-->
+        <!--    <div class="container">-->
+        <!--        <div class="row">-->
                 
-                <h2 class="testimonials_title" style="text-transform: capitalize; font-size:40px">What people are saying about us</h2>
+        <!--        <h2 class="testimonials_title" style="text-transform: capitalize; font-size:40px">What people are saying about us</h2>-->
 
-             <div class="col-md-6 col-sm-6 col-xs-12" style="border-right:1px solid #ccc;">
+        <!--     <div class="col-md-6 col-sm-6 col-xs-12" style="border-right:1px solid #ccc;">-->
 
-                 <article>
-                        <p class="testimonial">
-                            “<?php
-                            $desc = nl2br(strip_tags($testimonial[0]->testimonial_description));
-                            echo strip_tags($desc);
-                            ?>”
-                            <br />
-                            <span class="author"><?php echo $testimonial[0]->testimonial_by;?></span>
-                        </p>
-                    </article>
+        <!--         <article>-->
+        <!--                <p class="testimonial">-->
+        <!--                    “<?php-->
+        <!--                    $desc = nl2br(strip_tags($testimonial[0]->testimonial_description));-->
+        <!--                    echo strip_tags($desc);-->
+        <!--                    ?>”-->
+        <!--                    <br />-->
+        <!--                    <span class="author"><?php echo $testimonial[0]->testimonial_by;?></span>-->
+        <!--                </p>-->
+        <!--            </article>-->
 
-             </div>
-             <div class="col-md-6 col-sm-6 col-xs-12">
+        <!--     </div>-->
+        <!--     <div class="col-md-6 col-sm-6 col-xs-12">-->
 
-                 <article>
-                        <p class="testimonial">
-                            “<?php
+        <!--         <article>-->
+        <!--                <p class="testimonial">-->
+        <!--                    “<?php-->
 
-                            $desc = nl2br(strip_tags($testimonial[1]->testimonial_description));
-                            echo strip_tags($desc);
-                            ?>”
-                            <br />
-                            <span class="author"><?php echo $testimonial[1]->testimonial_by;?></span>
-                        </p>
-                    </article>
+        <!--                    $desc = nl2br(strip_tags($testimonial[1]->testimonial_description));-->
+        <!--                    echo strip_tags($desc);-->
+        <!--                    ?>”-->
+        <!--                    <br />-->
+        <!--                    <span class="author"><?php echo $testimonial[1]->testimonial_by;?></span>-->
+        <!--                </p>-->
+        <!--            </article>-->
 
-             </div>
-                </div>
-                <h2 class="title" style="font-size: 40px;">Like our site? Questions? Comments? We're Listening!</h2>
+        <!--     </div>-->
+        <!--        </div>-->
+        <!--        <h2 class="title" style="font-size: 40px;">Like our site? Questions? Comments? We're Listening!</h2>-->
 
 
                 <?php /*<div class="toll-info-chat">
@@ -659,26 +739,26 @@
                     <br/>
                     <span class="chats-wrap">Chat</span>
                 </div> */?>
-                <div class="contact-form-help" style="">
-                  <span>Contact Form </span>
+        <!--        <div class="contact-form-help" style="">-->
+        <!--          <span>Contact Form </span>-->
 
-                  <form action="<?php echo site_url();?>help/send_message" method="post" name="contact" id="contact-form">
-                     <div><span class="contact-form-name"><input type="text" name="name" placeholder="Name" ></span>
+        <!--          <form action="<?php echo site_url();?>help/send_message" method="post" name="contact" id="contact-form">-->
+        <!--             <div><span class="contact-form-name"><input type="text" name="name" placeholder="Name" ></span>-->
 
-                         <span class="contact-form-email"><input type="text" name="email" placeholder="Email" ></span>
-                     </div>			<span class="contact-form-message"><textarea name="message" placeholder="Write a message"></textarea></span>
-                     <div class="clearfix"></div>
-                     <span class="contact-submit-btn"><input type="submit" name="submit_now" value="Submit Now" id="submit_now" /></span>
-                 </form>
+        <!--                 <span class="contact-form-email"><input type="text" name="email" placeholder="Email" ></span>-->
+        <!--             </div>			<span class="contact-form-message"><textarea name="message" placeholder="Write a message"></textarea></span>-->
+        <!--             <div class="clearfix"></div>-->
+        <!--             <span class="contact-submit-btn"><input type="submit" name="submit_now" value="Submit Now" id="submit_now" /></span>-->
+        <!--         </form>-->
 
-             </div>
+        <!--     </div>-->
 
              
 
 
-                </div>
-                </div>
-            </section>
+        <!--        </div>-->
+        <!--        </div>-->
+        <!--    </section>-->
         </main>
         <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -784,15 +864,17 @@
                             window.location= '<?php echo site_url();?>signup?ac='+selected_category;
                         }
                     });
-                    $("#submit_now").click(function(e){
-                    var name = $('input[name=name]').val();
-                    var email = $('input[name=email]').val();
+                    
+                    $("#sendMessage").click(function(e){
+                    var email = $('#messageEmail').val();
                     var msg = $('textarea').val();
-                    if( name != '' && email != '' && msg !='') {
+                    console.log(email)
+                    console.log(msg)
+                    if( email != '' && msg !='') {
                         $(".searchloader").fadeIn('fast');
                         $.post('<?php echo site_url()?>help/send_message',
                             {
-                                'name'    : name,
+                                'name'    : 'From homepage' ,
                                 'email'   : email,
                                 'message' : msg,
                                 'submit_now': true
