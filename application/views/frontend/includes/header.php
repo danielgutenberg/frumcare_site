@@ -44,7 +44,7 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Varela+Round' type='text/css'>
         <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' type='text/css'>
-        <link rel="stylesheet" href="<?php echo base_url('css/compressed.css') ?>">
+        <link rel="stylesheet" href="<?php echo base_url('css/compressed-new.css') ?>">
         
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
