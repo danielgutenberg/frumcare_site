@@ -535,7 +535,7 @@
                     ">
                         Email us at info@frumcare.com or drop us a quick message.
                     </p>
-                    <span><input style="margin-bottom:15px; width: 100%" type="text" id="messageEmail" placeholder="Email Address" ></span>
+                    <span><input style="margin-bottom:15px; width: 100%" type="text" id="messageEmail" placeholder="Your Email Address" ></span>
                     <textarea id="messageText" style="width:100%; height: 180px; margin-bottom: 15px" placeholder="Type your message here..."></textarea>
                     
                     <div id="sendMessage" style="
