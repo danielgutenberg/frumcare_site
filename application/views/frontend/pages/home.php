@@ -683,7 +683,7 @@
                                 text-align: center;
                                 margin-bottom: 120px;
                             ">
-                                I love your website, I am able to post my multiple profiles <br> with the different care types I provide. Thank you <br> for this oppurtunity.
+                                I love your website, I am able to post multiple profiles <br> with the different care types I provide. Thank you <br> for this opportunity.
                             </p>
                             <p style="
                                 font-family: OpenSans;
