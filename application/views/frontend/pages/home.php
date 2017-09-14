@@ -2,6 +2,21 @@
 		    <div class="alert alert-success alert-dismissible invite_response" role="alert" style="display:none">
             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             </div>
+            <!-- Add the slick-theme.css if you want default styling -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick.css"/>
+<!-- Add the slick-theme.css if you want default styling -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick-theme.css"/>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick.min.js"></script>
+<style>
+    .slick-dots li button:before {
+        font-size: 16px !important;
+        color: #1c75bb !important;
+        opacity: 1 !important;
+    }
+    .slick-dots li.slick-active button:before {
+        color: black !important;
+    }
+</style>
 <main class="site-main">
     <section class="banner">
         <ul id="site-banner" class="banner-main">
@@ -585,6 +600,7 @@
                         right: 38px;
                     ">
                     </div>
+                    
                     <p style="
                         font-family: Rufina;
                         color:  #494949;
@@ -596,28 +612,79 @@
                     ">
                      What people are saying   
                     </p>
-                    <p style="
-                        font-family: OpenSans;
-                        color:  #727272;
-                        font-size: 18px;/* Approximation due to font substitution */
-                        font-weight: 400;
-                        line-height: 30px;/* Approximation due to font substitution */
-                        text-align: center;
-                        margin-bottom: 120px;
-                    ">
-                        I've been searching for an outlet like this forever! Finally a quality care site which fits the needs of our community.
-                    </p>
-                    <p style="
-                        font-family: OpenSans;
-                        color:  #727272;
-                        font-size: 18px;/* Approximation due to font substitution */
-                        font-weight: 400;
-                        line-height: 30px;/* Approximation due to font substitution */
-                        text-align: center;
-                        margin-bottom: 120px;
-                    ">
-                        Heidi S. <br> New York City
-                    </p>
+                    <div class="slickDiv" style="max-height: 250px">
+                        <div>
+                            <p style="
+                                font-family: OpenSans;
+                                color:  #727272;
+                                font-size: 18px;/* Approximation due to font substitution */
+                                font-weight: 400;
+                                line-height: 30px;/* Approximation due to font substitution */
+                                text-align: center;
+                                margin-bottom: 120px;
+                            ">
+                                I've been searching for an outlet like this forever! Finally a quality care site which fits the needs of our community.
+                            </p>
+                            <p style="
+                                font-family: OpenSans;
+                                color:  #727272;
+                                font-size: 18px;/* Approximation due to font substitution */
+                                font-weight: 400;
+                                line-height: 30px;/* Approximation due to font substitution */
+                                text-align: center;
+                                margin-bottom: 120px;
+                            ">
+                                Heidi S. <br> New York City
+                            </p>
+                        </div>
+                        <div>
+                            <p style="
+                                font-family: OpenSans;
+                                color:  #727272;
+                                font-size: 18px;/* Approximation due to font substitution */
+                                font-weight: 400;
+                                line-height: 30px;/* Approximation due to font substitution */
+                                text-align: center;
+                                margin-bottom: 120px;
+                            ">
+                                I've been searching for an outlet like this forever! Finally a quality care site which fits the needs of our community.
+                            </p>
+                            <p style="
+                                font-family: OpenSans;
+                                color:  #727272;
+                                font-size: 18px;/* Approximation due to font substitution */
+                                font-weight: 400;
+                                line-height: 30px;/* Approximation due to font substitution */
+                                text-align: center;
+                                margin-bottom: 120px;
+                            ">
+                                Daniel G. <br> Jerusalem
+                            </p>
+                        </div>
+                        <div>
+                            <p style="
+                                font-family: OpenSans;
+                                color:  #727272;
+                                font-size: 18px;/* Approximation due to font substitution */
+                                font-weight: 400;
+                                line-height: 30px;/* Approximation due to font substitution */
+                                text-align: center;
+                                margin-bottom: 120px;
+                            ">
+                                I've been searching for an outlet like this forever! Finally a quality care site which fits the needs of our community.
+                            </p>
+                            <p style="
+                                font-family: OpenSans;
+                                color:  #727272;
+                                font-size: 18px;/* Approximation due to font substitution */
+                                font-weight: 400;
+                                line-height: 30px;/* Approximation due to font substitution */
+                                text-align: center;
+                                margin-bottom: 120px;
+                            ">
+                                Third C. <br> Toronto, Canada
+                            </p>
+                        </div>
                 </div>
             </div>
         </section>
@@ -702,6 +769,16 @@
         		   var selected_category = $("input[type='radio']:checked").val();
         		   window.location= '<?php echo site_url();?>' + selected_category + '/all';
         		});
+        		
+
+                $('.slickDiv').slick({
+                    autoplay: true,
+                    autoplaySpeed: 3000,
+                    dots: true,
+                    pauseOnDotsHover: false,
+                    swipe: false
+                });
+
                  // dialog box
                  var $myDialog = $('<div></div>')
                  .html('Please select care type')
