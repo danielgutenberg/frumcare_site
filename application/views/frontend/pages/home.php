@@ -600,6 +600,18 @@
                         right: 38px;
                     ">
                     </div>
+                    <div style="
+                        background-image: url(img/homepage-icons/line.png);
+                        height: 3px;
+                        width: 23px;
+                        margin: 0 auto;
+                        position: absolute;
+                        margin-top: 50px;
+                        margin-bottom: 160px;
+                        top: 135px;
+                        right: 215px;
+                    ">
+                    </div>
                     
                     <p style="
                         font-family: Rufina;
@@ -612,7 +624,7 @@
                     ">
                      What people are saying   
                     </p>
-                    <div class="slickDiv" style="max-height: 250px">
+                    <div class="slickDiv" style="max-height: 270px">
                         <div>
                             <p style="
                                 font-family: OpenSans;
@@ -623,7 +635,7 @@
                                 text-align: center;
                                 margin-bottom: 120px;
                             ">
-                                I've been searching for an outlet like this forever! Finally a quality care site which fits the needs of our community.
+                                I've been searching for an outlet like this forever! Finally <br> a quality care site which fits the needs of <br> our community.
                             </p>
                             <p style="
                                 font-family: OpenSans;
@@ -634,7 +646,7 @@
                                 text-align: center;
                                 margin-bottom: 120px;
                             ">
-                                Heidi S. <br> New York City
+                                Heidi S. <br> Brooklyn, NY
                             </p>
                         </div>
                         <div>
@@ -647,7 +659,7 @@
                                 text-align: center;
                                 margin-bottom: 120px;
                             ">
-                                I've been searching for an outlet like this forever! Finally a quality care site which fits the needs of our community.
+                                This is an amazing idea, I have forwarded it to two <br> friends already :) Hatzlacha !!
                             </p>
                             <p style="
                                 font-family: OpenSans;
@@ -658,7 +670,7 @@
                                 text-align: center;
                                 margin-bottom: 120px;
                             ">
-                                Daniel G. <br> Jerusalem
+                                Chana N. <br> Jerusalem, Israel
                             </p>
                         </div>
                         <div>
@@ -671,7 +683,7 @@
                                 text-align: center;
                                 margin-bottom: 120px;
                             ">
-                                I've been searching for an outlet like this forever! Finally a quality care site which fits the needs of our community.
+                                I love your website, I am able to post my multiple profiles <br> with the different care types I provide. Thank you <br> for this oppurtunity.
                             </p>
                             <p style="
                                 font-family: OpenSans;
@@ -682,7 +694,7 @@
                                 text-align: center;
                                 margin-bottom: 120px;
                             ">
-                                Third C. <br> Toronto, Canada
+                                Laury D. <br> Brooklyn, NY
                             </p>
                         </div>
                 </div>
