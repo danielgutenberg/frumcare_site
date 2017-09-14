@@ -785,7 +785,7 @@
 
                 $('.slickDiv').slick({
                     autoplay: true,
-                    autoplaySpeed: 3000,
+                    autoplaySpeed: 6000,
                     dots: true,
                     pauseOnDotsHover: false,
                     swipe: false

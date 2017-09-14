@@ -1,5 +1,9 @@
-
-<footer class="footer" style="margin-top:0px;">
+<style>
+    .footer a {
+        color: #747474 !important;
+    }
+</style>
+<footer class="footer" style="margin-top:0px; background-color:#f3f3f3; color:black; background-image:none">
     <div class="container">
         <div class="row navigation-row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
