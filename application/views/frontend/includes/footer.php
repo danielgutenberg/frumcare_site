@@ -34,19 +34,6 @@
                     </nav>
                 </div>
             </div>
-            <!--<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">-->
-            <!--    <div class="footer-navigation">-->
-            <!--        <nav>-->
-            <!--            <p class="nav-title">Learn More</p>-->
-            <!--            <ul>-->
-            <!--                <li><a href="<?php echo site_url();?>howitworks">How it works</a></li>-->
-            <!--                <li><a href="<?php echo site_url();?>safety-guide/families">Safety Guide</a></li>-->
-            <!--                <li><a href="<?php echo site_url();?>advice-and-tips/families">Advice and Tips</a></li>-->
-            <!--                <li><a href="<?php echo site_url();?>faq">FAQs</a></li>-->
-            <!--            </ul>-->
-            <!--        </nav>-->
-            <!--    </div>-->
-            <!--</div>-->
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                 <div class="footer-navigation contactus">
                     <nav>
@@ -63,60 +50,17 @@
                 </div>
             </div>
         </div>
-
-        <div class="colophon">
-            <div class="row footer-links">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-
-                    Copyright&copy; frumcare.com All rights reserved
-                        </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-
-                    <a style="" href="<?php echo site_url();?>terms-of-use">Terms of Use</a> |
-                    <a href="<?php echo site_url();?>privacy-policy">Privacy Policy</a>
-                </div>
-
-                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 social-links">
-
-                        <span class="title">Follow us on</span>
-                        <a href="https://www.facebook.com/pages/FrumCarecom/1442798632665058" target="_blank" class="facebook flip-link-container"><span class="flip-link"><span class="front"><i
-                                        class="icon-facebook-white"></i></span><span class="back"><i
-                                        class="icon-facebook-color"></i></span></span></a>
-                        <a href="https://twitter.com/FrumCare" target="_blank" class="twitter flip-link-container"><span class="flip-link"><span class="front"><i
-                                        class="icon-twitter-white"></i></span><span class="back"><i
-                                        class="icon-twitter-color"></i></span></span></a>
-                        <a href="#" class="linkedin flip-link-container"><span class="flip-link"><span class="front"><i
-                                        class="icon-linkedin-white"></i></span><span class="back"><i
-                                        class="icon-linkedin-color"></i></span></span></a>
-                        <a href="https://plus.google.com/u/0/b/113342746822002772215/113342746822002772215/about" target="_blank" class="gplus flip-link-container">
-                            <span class="flip-link">
-                                <span class="front">
-                                    <i class="icon-googleplus-white"></i>
-                                </span>
-                                <span class="back">
-                                    <i class="icon-googleplus-color"></i>
-                                </span>
-                            </span>
-                        </a>
-
-
-                        <a href="https://www.instagram.com" target="_blank" class="flip-link-container">
-                            <span class="flip-link">
-                                <span class="front">
-                                    <img src="<?php echo site_url();?>img/instagramblue.png" alt="Smiley face" height="34" width="34">
-                                </span>
-                                <span class="back">
-                                    <img src="<?php echo site_url();?>img/instagram.png" alt="Smiley face" height="34" width="34">
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!--end colophon-->
     </div>
 </footer>
+<div class="row">
+            <div style="background-image: url(img/homepage-icons/footer.png); height: 45px;" class="col-xs-9 col-sm-3 col-md-offset-2 col-sm-offset-1 col-xs-offset-3">
+    
+            </div>
+            <div style="margin-top:24px; background-repeat: no-repeat; background-image: url(img/homepage-icons/copyright.png); height: 45px;" class="col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-3 col-xs-10 col-sm-6 col-md-5 col-lg-4">
+    
+            </div>
+        </div>
 </div>
 <!--#site-wrapper-->
 <script type="text/java_script">
