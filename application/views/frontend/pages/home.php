@@ -158,7 +158,7 @@
                 <div class="row">
                     <div class="col-xs-6">
                         <div class="col-xs-12 col-sm-6" style="
-                            background-image:url(img/homepage-icons/child-best.png);
+                            background-image:url(img/homepage-icons/child-best-new.png);
                             background-repeat:no-repeat;
                             height: 280px;
                             padding-right: 0px;
@@ -205,7 +205,7 @@
                     </div>
                     <div class="col-xs-6">
                         <div class="col-xs-12 col-sm-6" style="
-                            background-image:url(img/homepage-icons/special-best.png);
+                            background-image:url(img/homepage-icons/special-best-new.png);
                             background-repeat:no-repeat;
                             height: 280px;
                             padding-right: 0px;
@@ -252,7 +252,7 @@
                     </div>
                     <div class="col-xs-6">
                         <div class="col-xs-12 col-sm-6" style="
-                            background-image:url(img/homepage-icons/senior-best.png);
+                            background-image:url(img/homepage-icons/senior-best-new.png);
                             background-repeat:no-repeat;
                             height: 280px;
                             padding-right: 0px;
@@ -299,7 +299,7 @@
                     </div>
                     <div class="col-xs-6">
                         <div class="col-xs-12 col-sm-6" style="
-                            background-image:url(img/homepage-icons/household-best.png);
+                            background-image:url(img/homepage-icons/household-best-new.png);
                             background-repeat:no-repeat;
                             height: 280px;
                             padding-right: 0px;
