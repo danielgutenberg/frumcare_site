@@ -44,7 +44,7 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Varela+Round' type='text/css'>
         <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' type='text/css'>
-        <link rel="stylesheet" href="<?php echo base_url('css/compressed-new.css') ?>">
+        <link rel="stylesheet" href="<?php echo base_url('css/allcss.css') ?>">
         
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
@@ -98,7 +98,7 @@
             <a href="<?php echo base_url() ?>" style="background: url(<?php echo base_url('img/logo.png') ?>);background-repeat:no-repeat; height: 60px;width: 249px;display: inline-block;background-size: 90%;"></a>
         </div>
         <div class="hidden-sm hidden-xs col-md-7">
-            <div class="pull-right login-block" style="margin-top:33px; margin-right:-80px;">
+            <div class="pull-right login-block" style="margin-top:33px; margin-right:-30px;">
                 <a style="color: #525252; font-size: 15px;" href="<?php echo base_url('caregivers') ?>">Caregivers&nbsp&nbsp|&nbsp&nbsp</a>
                 <a style="color: #525252; font-size: 15px" href="<?php echo base_url('jobs') ?>">Jobs&nbsp&nbsp|&nbsp&nbsp</a>
                 <element class="dropdown">
