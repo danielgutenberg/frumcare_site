@@ -97,15 +97,19 @@
         <div class="col-xs-2" style="padding-top:13px">
             <a href="<?php echo base_url() ?>" style="background: url(<?php echo base_url('img/logo.png') ?>);background-repeat:no-repeat; height: 60px;width: 249px;display: inline-block;background-size: 90%;"></a>
         </div>
-
-        <div class="col-xs-10">
-
-            <div class="pull-right login-block" style="margin-top:25px">
-                <a style="color: #525252; font-size: 15px; padding-top: 5px" href="<?php echo base_url('caregivers') ?>">Caregivers&nbsp&nbsp|&nbsp&nbsp</a>
+        <div class="hidden-sm hidden-xs col-md-7">
+            <div class="pull-right login-block" style="margin-top:34px">
+                <a style="color: #525252; font-size: 15px;" href="<?php echo base_url('caregivers') ?>">Caregivers&nbsp&nbsp|&nbsp&nbsp</a>
                 <a style="color: #525252; font-size: 15px" href="<?php echo base_url('jobs') ?>">Jobs&nbsp&nbsp|&nbsp&nbsp</a>
                 <a style="color: #525252; font-size: 15px" href="<?php echo base_url('caregivers/organizations') ?>">Institutions&nbsp&nbsp|&nbsp&nbsp</a>
                 <a style="color: #525252; font-size: 15px" href="<?php echo base_url('caregivers/therapists') ?>">Therapists&nbsp&nbsp|&nbsp&nbsp</a>
                 <a style="color: #525252; font-size: 15px; padding-right:10px" href="//www.frumcare.com/store">Shop</a>
+            </div>
+        </div>
+        <div class="col-xs-10 col-md-3">
+
+            <div class="pull-right login-block" style="margin-top:25px">
+                
             <?php if (!$this->session->userdata('current_user') && !$this->session->userdata('fb_id') && !$this->session->userdata('twitter_id')) { ?>
                 <a id="btn-nav-login" style="color: #525252; font-size: 16px" class="btn" href="<?php echo base_url('login') ?>">Log in</a>
                 <a id="btn-nav-signup" style="background: transparent; font-size: 16px; color:#357ebd;" class="btn btn-primary" href="<?php echo base_url('signup') ?>">SIGN UP</a>
