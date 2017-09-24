@@ -98,12 +98,18 @@
             <a href="<?php echo base_url() ?>" style="background: url(<?php echo base_url('img/logo.png') ?>);background-repeat:no-repeat; height: 60px;width: 249px;display: inline-block;background-size: 90%;"></a>
         </div>
         <div class="hidden-sm hidden-xs col-md-7">
-            <div class="pull-right login-block" style="margin-top:33px; margin-right: -100px;">
+            <div class="pull-right login-block" style="margin-top:33px; margin-right:-80px;">
                 <a style="color: #525252; font-size: 15px;" href="<?php echo base_url('caregivers') ?>">Caregivers&nbsp&nbsp|&nbsp&nbsp</a>
                 <a style="color: #525252; font-size: 15px" href="<?php echo base_url('jobs') ?>">Jobs&nbsp&nbsp|&nbsp&nbsp</a>
-                <a style="color: #525252; font-size: 15px" href="<?php echo base_url('caregivers/organizations') ?>">Institutions&nbsp&nbsp|&nbsp&nbsp</a>
+                <element class="dropdown">
+                <a  class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" style="color: #525252; font-size: 15px" href="<?php echo base_url('caregivers/organizations') ?>">Institutions&nbsp&nbsp|&nbsp&nbsp</a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation" style="cursor:pointer"><a role="menuitem" tabindex="-1" href="<?php echo base_url('signup') ?>"> Advertise Your Services</a></li>
+                    <li role="presentation" style="cursor:pointer"><a role="menuitem" tabindex="-1" href="<?php echo base_url('caregivers/organizations') ?>">Find Workers for Your Organization</a></li>
+                </ul>
+                </element>
                 <a style="color: #525252; font-size: 15px" href="<?php echo base_url('caregivers/therapists') ?>">Therapists&nbsp&nbsp|&nbsp&nbsp</a>
-                <a style="color: #525252; font-size: 15px; padding-right:10px" href="https//www.frumcare.com/store">Shop</a>
+                <a style="color: #525252; font-size: 15px; padding-right:10px" href="https://www.frumcare.com/store">Shop</a>
             </div>
         </div>
         <div class="col-xs-10 col-md-3">
