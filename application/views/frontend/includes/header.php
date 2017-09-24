@@ -103,7 +103,7 @@
                 <a style="color: #525252; font-size: 15px" href="<?php echo base_url('jobs') ?>">Jobs&nbsp&nbsp|&nbsp&nbsp</a>
                 <a style="color: #525252; font-size: 15px" href="<?php echo base_url('caregivers/organizations') ?>">Institutions&nbsp&nbsp|&nbsp&nbsp</a>
                 <a style="color: #525252; font-size: 15px" href="<?php echo base_url('caregivers/therapists') ?>">Therapists&nbsp&nbsp|&nbsp&nbsp</a>
-                <a style="color: #525252; font-size: 15px; padding-right:10px" href="//www.frumcare.com/store">Shop</a>
+                <a style="color: #525252; font-size: 15px; padding-right:10px" href="https//www.frumcare.com/store">Shop</a>
             </div>
         </div>
         <div class="col-xs-10 col-md-3">
