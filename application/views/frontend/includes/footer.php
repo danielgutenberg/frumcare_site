@@ -14,8 +14,8 @@
                             <li><a href="<?php echo site_url();?>about-us">About Us</a></li>
                             <li><a href="<?php echo site_url();?>help">Contact Us</a></li>
                             <!--<li><a href="<?php echo site_url();?>blog">Blog</a></li>-->
-                            <li><a href="<?php echo site_url();?>terms-of-use">Terms of Use</a></li>
-                            <li><a href="<?php echo site_url();?>privacy-policy">Privacy Policy</a></li>
+                            <!--<li><a href="<?php echo site_url();?>terms-of-use">Terms of Use</a></li>-->
+                            <!--<li><a href="<?php echo site_url();?>privacy-policy">Privacy Policy</a></li>-->
                             <li><a href="<?php echo site_url();?>faq">Support / FAQ</a></li>
 
                         </ul>
@@ -30,6 +30,7 @@
                             <li><a href="<?php echo site_url();?>caregivers/all">A Caregiver</a></li>
                             <li><a href="<?php echo site_url();?>jobs/all">A Job Opportunity</a></li>
                             <li><a href="<?php echo site_url();?>caregivers/organizations">Business / Organization Services</a></li>
+                            <li><a href="https://www.frumcare.com/store">Shop Care Products</a></li>
                         </ul>
                     </nav>
                 </div>
