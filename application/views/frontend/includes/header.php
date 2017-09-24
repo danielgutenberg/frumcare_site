@@ -98,7 +98,7 @@
             <a href="<?php echo base_url() ?>" style="background: url(<?php echo base_url('img/logo.png') ?>);background-repeat:no-repeat; height: 60px;width: 249px;display: inline-block;background-size: 90%;"></a>
         </div>
         <div class="hidden-sm hidden-xs col-md-7">
-            <div class="pull-right login-block" style="margin-top:34px">
+            <div class="pull-right login-block" style="margin-top:33px; margin-right: -100px;">
                 <a style="color: #525252; font-size: 15px;" href="<?php echo base_url('caregivers') ?>">Caregivers&nbsp&nbsp|&nbsp&nbsp</a>
                 <a style="color: #525252; font-size: 15px" href="<?php echo base_url('jobs') ?>">Jobs&nbsp&nbsp|&nbsp&nbsp</a>
                 <a style="color: #525252; font-size: 15px" href="<?php echo base_url('caregivers/organizations') ?>">Institutions&nbsp&nbsp|&nbsp&nbsp</a>
