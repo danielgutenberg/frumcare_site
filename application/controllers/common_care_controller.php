@@ -144,7 +144,7 @@
     	
     	public function organizations($care = null)
     	{
-    	    $title = 'Workers / Staff';
+    	    $title = 'Care Institutions';
             $care_type = 'organizations'; 
     	    if( $care == 'workers-staff-for-childcare-facility' ) {
                 $title = "Workers / Staff for Childcare Facilities";
@@ -166,6 +166,14 @@
             }
             
             $this->load_ads($care_type, $title, 'organizations', 3, true);
+    	}
+    	
+    	public function organizationWorkers($care = null)
+    	{
+    	    $title = 'Workers / Staff';
+            $care_type = 'organizations'; 
+
+            $this->load_ads($care_type, $title, 'organizations', 2, true);
     	}
     	
     	public function load_ads($care, $title, $seotitle, $account_category = 1, $organization = false) {
@@ -236,7 +244,14 @@
     		}
     		$data = $this->input->get(NULL, true);
     		if ($this->input->get('care_type') > 30 || $this->input->get('care_type') == 'organizations') {
-    		    $data['care_type'] = $this->input->get('care_type') - 30;
+    		    if ($this->input->get('care_type') > 30) { 
+    		        $data['care_type'] = $this->input->get('care_type') - 30;
+    		    } else {
+    		        $data['care_type'] = '11,13,16,14,15';
+    		    }
+    		    $totalresult = $this->common_care_model->get_count($data,$latitude,$longitude, false);
+    		    $result = $this->common_care_model->filter($data,$latitude,$longitude, false, $limit, $offset);
+    		} else if ($this->input->get('care_type') == 'organization-workers') {
     		    $totalresult = $this->common_care_model->get_count($data,$latitude,$longitude, true);
     		    $result = $this->common_care_model->filter($data,$latitude,$longitude, true, $limit, $offset);
     		} else {

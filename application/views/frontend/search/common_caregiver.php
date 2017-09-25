@@ -142,6 +142,11 @@
     if( $s1=='caregivers' && $s2 == 'organizations' && $s3 == 'all') {
         $left_navbar='organizations';
     }
+    
+    if( $s1=='caregivers' && $s2 == 'organization-workers') {
+        $left_navbar='organizations';
+        $careType = 'organization-workers';
+    }
 
     if($s2 == 'workers-staff-for-senior-care-facility'){
         if($s1 == 'caregivers')

@@ -104,8 +104,8 @@
                 <element class="dropdown">
                 <a  class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" style="color: #525252; font-size: 15px" href="<?php echo base_url('caregivers/organizations') ?>">Institutions&nbsp&nbsp|&nbsp&nbsp</a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation" style="cursor:pointer"><a role="menuitem" tabindex="-1" href="<?php echo base_url('signup') ?>"> Advertise Your Services</a></li>
-                    <li role="presentation" style="cursor:pointer"><a role="menuitem" tabindex="-1" href="<?php echo base_url('caregivers/organizations') ?>">Find Workers for Your Organization</a></li>
+                    <li role="presentation" style="cursor:pointer"><a role="menuitem" tabindex="-1" href="<?php echo base_url('caregivers/organizations') ?>"> Find Care Institutions</a></li>
+                    <li role="presentation" style="cursor:pointer"><a role="menuitem" tabindex="-1" href="<?php echo base_url('caregivers/organization-workers') ?>">Find Workers</a></li>
                 </ul>
                 </element>
                 <a style="color: #525252; font-size: 15px" href="<?php echo base_url('caregivers/therapists') ?>">Therapists&nbsp&nbsp|&nbsp&nbsp</a>
