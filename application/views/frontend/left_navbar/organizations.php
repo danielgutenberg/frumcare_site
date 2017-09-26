@@ -1,17 +1,17 @@
 			
             <h3>                
                 <?php
-                if(segment(1) == 'caregivers' && segment(2) == 'workers-staff-for-childcare-facility' ) {
+                if(segment(1) == 'caregivers' && segment(3) == 'workers-staff-for-childcare-facility' ) {
                     echo "Workers / Staff for childcare facility";
                 }
                 elseif(segment(1) == 'caregivers' && (segment(2) == 'all' || segment(2) == '' ) ) {
                     echo "Caregivers";
                 }
                 else if(segment(1) == 'caregivers' && segment(2) == 'organizations'){
-                	echo 'Caregiver Institutions';
+                	echo 'Care Institutions';
                 } 
                 elseif(segment(1) == 'caregivers' && segment(2) == 'organizations' && (segment(3) == 'all' || segment(3) == '')  ) {
-                    echo "Caregiver Institutions";
+                    echo "Care Institutions";
                 }
                 elseif(segment(1) == 'caregivers' && segment(2) == 'organization-workers' && (segment(3) == 'all' || segment(3) == '')  ) {
                     echo "Workers / Staff";

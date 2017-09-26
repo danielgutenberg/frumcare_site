@@ -147,7 +147,23 @@
         $left_navbar='organizations';
         $careType = 'organization-workers';
     }
-
+    
+    if( $s1=='caregivers' && $s2 == 'organization-workers' && $s3 = 'workers-staff-for-childcare-facility') {
+        $left_navbar='organization_childcare';
+    }
+    
+    if( $s1=='caregivers' && $s2 == 'organization-workers' && $s3 = 'workers-for-cleaning-company') {
+        $left_navbar='organization_cleaning';
+    }
+    
+    if( $s1=='caregivers' && $s2 == 'organization-workers' && $s3 = 'workers-staff-for-senior-care-facility') {
+        $left_navbar='organization_senior_caregiver';
+    }
+    
+    if( $s1=='caregivers' && $s2 == 'organization-workers' && $s3 = 'workers-staff-for-special-needs-facility') {
+        $left_navbar='organization_special_needs_caregiver';
+    }
+    
     if($s2 == 'workers-staff-for-senior-care-facility'){
         if($s1 == 'caregivers')
             $left_navbar='senior_caregiver';
@@ -166,6 +182,7 @@
         elseif($s1 == 'jobs')
             $left_navbar='careseeker_cleaningcompany';
     }
+    
     if(isset($left_navbar)){
 
         $this->load->view('frontend/left_navbar/base', array('care_type' => $care_type, 'left_navbar' => $left_navbar));
@@ -179,7 +196,7 @@
     <br />
 
     <div class="searchloader mainsearch" style="display:none"></div>
-    <?php if ($care_type < 10 && $account_category == 3) {?>
+    <?php if($this->uri->segment(2) == 'organization-workers') {?>
     <span class="locationText" style="cursor:pointer">Find Workers for your</span> <?php $this->load->view('frontend/search/care_types_dropdown');?></br>
     <?php } else {?>
     <span class="locationText" style="cursor:pointer">Find a</span> <?php $this->load->view('frontend/search/care_types_dropdown'); if($s1 == 'jobs') {echo 'Job';}?> </br>
@@ -566,7 +583,6 @@
             var lng = $('#lng').val();
             var place = $('#place').val();
             var distance = $("#sort_by_miles").val();
-            console.log(pagelink)
             if(pagelink == '1')
                 var locationaddress = 'babysitter';
             if(pagelink == '2')
@@ -627,18 +643,19 @@
             if(pagelink == 'jobs')
                 var locationaddress = 'all';
             if(pagelink == 'organizations')
-                var locationaddress = 'all';
-            
+                var locationaddress = '';
             if(type == 'caregivers')    
-                if (pagelink == '31' || pagelink == '35' || pagelink == '36' || pagelink == '38') {
-                    location.href = '<?php echo site_url();?>caregivers/organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng +'&distance=' + distance;
+                if (pagelink == '3' || pagelink == '11' || pagelink == '13' || pagelink == '14' || pagelink == '15' || pagelink == 'organizations') {
+                    url = '<?php echo site_url();?>caregivers/organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng +'&distance=' + distance;
                 } else {
-                    location.href = '<?php echo site_url();?>caregivers/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng +'&distance=' + distance;
+                    url = '<?php echo site_url();?>caregivers/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng +'&distance=' + distance;
                 }
             if(type == 'jobs')                    
-                location.href = '<?php echo site_url();?>jobs/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng +'&distance=' + distance;
+                url = '<?php echo site_url();?>jobs/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng +'&distance=' + distance;
             if(type == 'organization_job')
-                location.href = '<?php echo site_url();?>caregivers/organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng +'&distance=' + distance;
+                url= '<?php echo site_url();?>caregivers/organization-workers/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng +'&distance=' + distance;
+                
+            location.href = url
         } //end of navigate
     });			         
 </script>

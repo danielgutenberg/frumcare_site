@@ -146,7 +146,38 @@
     	{
     	    $title = 'Care Institutions';
             $care_type = 'organizations'; 
-    	    if( $care == 'workers-staff-for-childcare-facility' ) {
+    	    if( $care == 'day-care-center-day-camp-afternoon-activities' ) {
+                $title = "Day Care Centers";
+                $care_type = 11;
+            }
+            elseif( $care == 'nursery-playgroup-drop-off-gan') {
+                $title = "Nursery / Playgroups";
+                $care_type = 3;
+            }
+            
+            elseif( $care == 'senior-care-agency') {
+                $title = "Senior Care Agencies";
+                $care_type = 13;
+            }
+            
+            elseif( $care == 'special-needs-center') {
+                $title = "Special Needs Centers";
+                $care_type = 14;
+            }
+            
+            elseif( $care == 'cleaning-household-help-company') {
+                $title = "Cleaning Companies";
+                $care_type = 15;
+            }
+            
+            $this->load_ads($care_type, $title, 'organizations', 3, true);
+    	}
+    	
+    	public function organizationWorkers($care = null)
+    	{
+    	    $title = 'Workers / Staff';
+            $care_type = 'organizations'; 
+            if( $care == 'workers-staff-for-childcare-facility' ) {
                 $title = "Workers / Staff for Childcare Facilities";
                 $care_type = 1;
             }
@@ -164,14 +195,6 @@
                 $title = "Workers for Cleaning Companies";
                 $care_type = 8;
             }
-            
-            $this->load_ads($care_type, $title, 'organizations', 3, true);
-    	}
-    	
-    	public function organizationWorkers($care = null)
-    	{
-    	    $title = 'Workers / Staff';
-            $care_type = 'organizations'; 
 
             $this->load_ads($care_type, $title, 'organizations', 2, true);
     	}

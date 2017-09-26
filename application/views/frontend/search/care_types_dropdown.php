@@ -1,5 +1,5 @@
 <?php if($this->uri->segment(1) == 'caregivers') { ?>
-    <?php if($this->uri->segment(2) == 'organizations') { ?>        
+    <?php if($this->uri->segment(2) == 'organization-workers') { ?>        
         <select id="careId" name="service" class="care_type_organizations select2" style="width:250px" multiple="multiple" data-type="organization_job">
             <option value="31" <?php if(segment(3) == 'workers-staff-for-childcare-facility' || in_array(31, $careId)){?> selected="selected" <?php }?>>Childcare facility</option>
             <option value="35" <?php if(segment(3) == 'workers-staff-for-senior-care-facility' || in_array(35, $careId)){?> selected="selected" <?php }?> >Senior care facility</option>
@@ -7,7 +7,15 @@
             <option value="38" <?php if(segment(3) == 'workers-for-cleaning-company' || in_array(38, $careId)){?> selected="selected" <?php }?>>Cleaning company</option>
         </select>     
     <?php } 
-    else { ?>
+    else if ($this->uri->segment(2) == 'organizations') { ?>
+        <select id="careId" name="service" class="care_type_organizations select2" style="width:250px" multiple="multiple" data-type="caregivers">
+            <option value="3" <?php if(segment(3) == 'nursery-playgroup-drop-off-gan' || in_array(3, $careId)){?> selected="selected" <?php }?>>Nursery / Playgroup / Drop off / Gan</option>
+            <option value="11" <?php if(segment(3) == 'day-care-center-day-camp-afternoon-activities' || in_array(11, $careId)){?> selected="selected" <?php }?>>Day Care Center / Day Camp / Afternoon Activities</option>
+            <option value="13" <?php if(segment(3) == 'senior-care-agency' || in_array(13, $careId)){?> selected="selected" <?php }?>>Senior Care Agency</option>                    
+            <option value="14" <?php if(segment(3) == 'special-needs-center' || in_array(14, $careId)){?> selected="selected" <?php }?>>Special needs center</option>  
+            <option value="15" <?php if(segment(3) == 'cleaning-household-help-company' || in_array(15, $careId)){?> selected="selected" <?php }?>>Cleaning / household help company</option>
+        </select> 
+    <?php } else { ?>
         <select id="careId" name="service" class="service care_type select2" style="width:250px" multiple="multiple" data-type="caregivers">
             <option value="1" <?php if(segment(2) == 'babysitter' || in_array(1, $careId)){?> selected="selected" <?php }?>>Babysitter</option>
             <option value="2" <?php if(segment(2) == 'nanny-au-pair' || in_array(2, $careId)){?> selected="selected" <?php }?> >Nanny / Au-pair</option>

@@ -8,10 +8,10 @@
                     echo "Caregivers";
                 }
                 else if(segment(1) == 'caregivers' && segment(2) == 'organizations'){
-                	echo 'Workers / Staff';
+                	echo 'Care Institutions';
                 } 
                 elseif(segment(1) == 'caregivers' && segment(2) == 'organizations' && (segment(3) == 'all' || segment(3) == '')  ) {
-                    echo "Caregiver Organizations";
+                    echo "Care Institutions";
                 }
                
                 else {
