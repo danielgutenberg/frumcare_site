@@ -141,7 +141,30 @@ setTimeout(function(){
 </script>
 <?php } ?>
 </head>
-<div class="row">
+<body <?php body_class(); ?>>
+<?php if(imwb_zonpress_get_option('pageloader') == 'Y') { ?>
+<div class="se-pre-con"></div>
+<?php } ?>
+<?php if(is_single() && (imwb_zonpress_get_option('commenttype') == '1' || imwb_zonpress_get_option('commenttype') == '2')) { ?>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+<?php } ?>
+
+<?php if(imwb_zonpress_get_option('headerstyles') == '1') { ?>
+<div class="containers">
+<?php } ?>
+<header class="site-header" role="banner"> 
+<?php if(imwb_zonpress_get_option('headerstyles') == '0') { ?>
+<div class="containers">
+<?php } ?>  
+    <div class="row">
         <div class="col-xs-12 col-md-2 pull-left"> 	 
             <hgroup> 
                 <h1 class="site-title"><a href="<?php bloginfo( 'url' );?>"><img src="/img/logo.png"></a></h1>
@@ -178,31 +201,6 @@ setTimeout(function(){
                 </ul>
             </nav>         
         </div>
-        </div>
-<body <?php body_class(); ?>>
-<?php if(imwb_zonpress_get_option('pageloader') == 'Y') { ?>
-<div class="se-pre-con"></div>
-<?php } ?>
-<?php if(is_single() && (imwb_zonpress_get_option('commenttype') == '1' || imwb_zonpress_get_option('commenttype') == '2')) { ?>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>
-<?php } ?>
-
-<?php if(imwb_zonpress_get_option('headerstyles') == '1') { ?>
-<div class="containers">
-<?php } ?>
-<header class="site-header" role="banner"> 
-<?php if(imwb_zonpress_get_option('headerstyles') == '0') { ?>
-<div class="containers">
-<?php } ?>  
-    
 
 <?php if(imwb_zonpress_get_option('headerstyles') == '0') { ?>
 </div> 
