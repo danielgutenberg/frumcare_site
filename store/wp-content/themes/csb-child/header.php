@@ -165,6 +165,11 @@ setTimeout(function(){
 <div class="containers">
 <?php } ?>  
   <div class="row">
+<div class="col-xs-12 col-md-2 pull-left"> 	 
+  <hgroup> 
+ <h1 class="site-title"><a href="<?php bloginfo( 'url' );?>"><img src="/img/logo.png"></a></h1>
+  </hgroup>
+  </div>
   <div class="col-md-2 pull-right">
 <div class="well cart">
 <ul class="list-unstyled">
@@ -194,11 +199,7 @@ setTimeout(function(){
       </ul>
       </nav>         
 </div>
-   <div class="col-md-2 pull-left"> 	 
-  <hgroup> 
- <h1 class="site-title"><a href="<?php bloginfo( 'url' );?>"><img src="/img/logo.png"></a></h1>
-  </hgroup>
-  </div>
+
 <?php if(imwb_zonpress_get_option('headerstyles') == '0') { ?>
 </div> 
 <?php } ?> 
