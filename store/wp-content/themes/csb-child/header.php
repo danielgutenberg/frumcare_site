@@ -170,18 +170,13 @@ setTimeout(function(){
  <h1 class="site-title"><a href="<?php bloginfo( 'url' );?>"><img src="/img/logo.png"></a></h1>
   </hgroup>
   </div>
-  <div class="col-md-2 pull-right">
-<div class="well cart">
-<ul class="list-unstyled">
-<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <i style="font-size:16px;" class="fa fa-shopping-cart">
-          </i> <span id="div_total_min_cart_item">0</span> - Items<span class="caret"></span></a>
-          <ul class="dropdown-menu dropdown-cart" role="menu" id="div_mini_cart_html">
-          </ul>
-        </li>
-      </ul>  
-</div>
-</div>
+<!--  <div class="col-md-2 pull-right">-->
+<!--<div class="well cart">-->
+<!--<ul class="list-unstyled">-->
+
+<!--      </ul>  -->
+<!--</div>-->
+<!--</div>-->
   <div class="col-md-6 pull-right">
   <nav id="site-navigation">
       <ul>
@@ -189,6 +184,12 @@ setTimeout(function(){
    global $current_user, $user_identity;
    wp_get_current_user();    
 ?> 
+    <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <i style="font-size:16px;" class="fa fa-shopping-cart">
+          </i> <span id="div_total_min_cart_item">0</span> - Items<span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-cart" role="menu" id="div_mini_cart_html">
+          </ul>
+    </li>
    <li><a href="<?php bloginfo( 'url' );?>?action=wishlist" ><span class="badge trans"><i class="fa fa-heart"></i> <?php echo imwb_zonpress_get_option('wishlisttext');?></span></a></li> 
    <li><a href="<?php bloginfo( 'url' );?>?action=profile"><span class="badge trans"><i class="fa fa-user"></i> <?php _e("My Profile", "imwb_zonpress");?></span></a></li>
    <li class="last"><a href="<?php echo wp_logout_url('index.php');?>"><span class="badge trans"><i class="fa fa-lock"></i> <?php _e("Sign Out", "imwb_zonpress");?></span></a></li>
