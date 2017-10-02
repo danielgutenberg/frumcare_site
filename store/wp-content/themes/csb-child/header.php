@@ -165,7 +165,7 @@ setTimeout(function(){
 <div class="containers">
 <?php } ?>  
     <div class="row">
-        <div class="col-xs-12 col-md-2 pull-left"> 	 
+        <div class="col-md-2 pull-left"> 	 
             <hgroup> 
                 <h1 class="site-title"><a href="<?php bloginfo( 'url' );?>"><img style="height:54px; width: 225px;" src="/img/logo.png"></a></h1>
             </hgroup>
