@@ -184,8 +184,8 @@ setTimeout(function(){
                 </ul>  
             </div>
         </div>
-        <div class="col-md-6 pull-right">
-            <nav id="site-navigation">
+        <div class="col-sm-8 col-md-6 pull-right">
+            <nav id="site-navigation" style="width:280px">
                 <ul>
                 <?php if(is_user_logged_in()) { 
                    global $current_user, $user_identity;
