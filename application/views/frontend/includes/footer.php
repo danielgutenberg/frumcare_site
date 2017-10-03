@@ -1,47 +1,54 @@
-<footer class="footer">
+<style>
+    .footer a {
+        color: #747474 !important;
+    }
+</style>
+<footer class="footer" style="margin-top:0px; background-color:#f3f3f3; color:black; background-image:none">
     <div class="container">
         <div class="row navigation-row">
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                 <div class="footer-navigation">
                     <nav>
-                        <p class="nav-title">Navigation</p>
+                        <p class="nav-title">Frumcare.com</p>
                         <ul>
                             <li><a href="<?php echo site_url();?>about-us">About Us</a></li>
                             <li><a href="<?php echo site_url();?>help">Contact Us</a></li>
-                            <li><a href="<?php echo site_url();?>blog">Blog</a></li>
+                            <!--<li><a href="<?php echo site_url();?>blog">Blog</a></li>-->
                             <!--<li><a href="<?php echo site_url();?>terms-of-use">Terms of Use</a></li>-->
                             <!--<li><a href="<?php echo site_url();?>privacy-policy">Privacy Policy</a></li>-->
+                            <li><a href="<?php echo site_url();?>faq">Support / FAQ</a></li>
 
                         </ul>
                     </nav>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                 <div class="footer-navigation">
                     <nav>
-                        <p class="nav-title">I am looking for</p>
+                        <p class="nav-title">Looking for</p>
                         <ul>
-                            <li><a href="<?php echo site_url();?>caregivers/all">Find a Caregiver</a></li>
-                            <li><a href="<?php echo site_url();?>jobs/all">Find a Job</a></li>
-                            <li><a href="<?php echo site_url();?>caregivers/organizations">Find Workers</a></li>
+                            <li><a href="<?php echo site_url();?>caregivers/all">A Caregiver</a></li>
+                            <li><a href="<?php echo site_url();?>jobs/all">A Job Opportunity</a></li>
+                            <li><a href="<?php echo site_url();?>caregivers/organizations">Business / Organization Services</a></li>
+                            <li><a href="https://www.frumcare.com/store">Shop Care Products</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div class="footer-navigation">
-                    <nav>
-                        <p class="nav-title">Learn More</p>
-                        <ul>
-                            <li><a href="<?php echo site_url();?>howitworks">How it works</a></li>
-                            <li><a href="<?php echo site_url();?>safety-guide/families">Safety Guide</a></li>
-                            <li><a href="<?php echo site_url();?>advice-and-tips/families">Advice and Tips</a></li>
-                            <li><a href="<?php echo site_url();?>faq">FAQs</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <!--<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">-->
+            <!--    <div class="footer-navigation">-->
+            <!--        <nav>-->
+            <!--            <p class="nav-title">Learn More</p>-->
+            <!--            <ul>-->
+            <!--                <li><a href="<?php echo site_url();?>howitworks">How it works</a></li>-->
+            <!--                <li><a href="<?php echo site_url();?>safety-guide/families">Safety Guide</a></li>-->
+            <!--                <li><a href="<?php echo site_url();?>advice-and-tips/families">Advice and Tips</a></li>-->
+            <!--                <li><a href="<?php echo site_url();?>faq">FAQs</a></li>-->
+            <!--            </ul>-->
+            <!--        </nav>-->
+            <!--    </div>-->
+            <!--</div>-->
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                 <div class="footer-navigation contactus">
                     <nav>
                         <p class="nav-title">Newsletter Signup</p>

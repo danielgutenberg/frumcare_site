@@ -1,24 +1,26 @@
-<?php echo $this->breadcrumbs->show(); ?>			
+			
             <h3>                
                 <?php
-                if(segment(1) == 'caregivers' && segment(2) == 'workers-staff-for-childcare-facility' ) {
+                if(segment(1) == 'caregivers' && segment(3) == 'workers-staff-for-childcare-facility' ) {
                     echo "Workers / Staff for childcare facility";
                 }
                 elseif(segment(1) == 'caregivers' && (segment(2) == 'all' || segment(2) == '' ) ) {
                     echo "Caregivers";
                 }
                 else if(segment(1) == 'caregivers' && segment(2) == 'organizations'){
-                	echo 'Workers / Staff';
+                	echo 'Care Institutions';
                 } 
                 elseif(segment(1) == 'caregivers' && segment(2) == 'organizations' && (segment(3) == 'all' || segment(3) == '')  ) {
-                    echo "Caregiver Organizations";
+                    echo "Care Institutions";
+                }
+                elseif(segment(1) == 'caregivers' && segment(2) == 'organization-workers' && (segment(3) == 'all' || segment(3) == '')  ) {
+                    echo "Workers / Staff";
                 }
                
                 else {
                     echo "Babysitter";
                 } ?>
             </h3>  			
-	  		<div class="left-search-panel col-lg-3 col-md-3 col-sm-3 col-xs-12">
 	 	<h4>Advanced Search</h4>
 	 	<form method="post" id="left-nav" action="">
 	 		<?php 
@@ -146,6 +148,4 @@
 				 	</div>
 				 	</div>
 
-			</form>
-		</div>
 

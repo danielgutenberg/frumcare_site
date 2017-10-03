@@ -90,6 +90,36 @@ class Common_care_model extends CI_Model
          }    
     }
     
+    function featured()
+    {
+    	$sql = "
+    		select 
+				(SELECT MAX(login_time) FROM tbl_user_logs WHERE tbl_user_logs.user_id = tbl_user.id) AS login_time,
+				tbl_user.profile_picture,
+				tbl_user.name,
+				tbl_user.state,
+				tbl_user.country,
+				tbl_user.city
+			from 
+				tbl_user 
+			where 
+				tbl_user.status = 1 
+				and tbl_user.profile_picture is not NULL 
+				and tbl_user.profile_picture != '' 
+				and tbl_user.profile_picture_status = 1 
+			order 
+				by login_time desc
+			limit 4
+    	";
+    	
+    	$query 	= $this->db->query($sql);
+		$res 	= $query->result_array();
+		if($res)
+			return $res;
+		else
+			return [];
+    }
+    
     function filter($search,$latitude,$longitude, $organization, $limit, $offset)
     {
         if(is_array($search)){

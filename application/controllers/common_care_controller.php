@@ -144,9 +144,40 @@
     	
     	public function organizations($care = null)
     	{
+    	    $title = 'Care Institutions';
+            $care_type = 'organizations'; 
+    	    if( $care == 'day-care-center-day-camp-afternoon-activities' ) {
+                $title = "Day Care Centers";
+                $care_type = 11;
+            }
+            elseif( $care == 'nursery-playgroup-drop-off-gan') {
+                $title = "Nursery / Playgroups";
+                $care_type = 3;
+            }
+            
+            elseif( $care == 'senior-care-agency') {
+                $title = "Senior Care Agencies";
+                $care_type = 13;
+            }
+            
+            elseif( $care == 'special-needs-center') {
+                $title = "Special Needs Centers";
+                $care_type = 14;
+            }
+            
+            elseif( $care == 'cleaning-household-help-company') {
+                $title = "Cleaning Companies";
+                $care_type = 15;
+            }
+            
+            $this->load_ads($care_type, $title, 'organizations', 3, true);
+    	}
+    	
+    	public function organizationWorkers($care = null)
+    	{
     	    $title = 'Workers / Staff';
             $care_type = 'organizations'; 
-    	    if( $care == 'workers-staff-for-childcare-facility' ) {
+            if( $care == 'workers-staff-for-childcare-facility' ) {
                 $title = "Workers / Staff for Childcare Facilities";
                 $care_type = 1;
             }
@@ -164,8 +195,8 @@
                 $title = "Workers for Cleaning Companies";
                 $care_type = 8;
             }
-            
-            $this->load_ads($care_type, $title, 'organizations', 3, true);
+
+            $this->load_ads($care_type, $title, 'organizations', 2, true);
     	}
     	
     	public function load_ads($care, $title, $seotitle, $account_category = 1, $organization = false) {
@@ -208,6 +239,11 @@
       		$this->load->view(FRONTEND_TEMPLATE, $data);
     	}
     
+        public function featured()
+        {
+            $result = $this->common_care_model->featured();
+            echo json_encode($result);
+        }
         
         public function search()
         {
@@ -231,7 +267,14 @@
     		}
     		$data = $this->input->get(NULL, true);
     		if ($this->input->get('care_type') > 30 || $this->input->get('care_type') == 'organizations') {
-    		    $data['care_type'] = $this->input->get('care_type') - 30;
+    		    if ($this->input->get('care_type') > 30) { 
+    		        $data['care_type'] = $this->input->get('care_type') - 30;
+    		    } else {
+    		        $data['care_type'] = '11,13,16,14,15';
+    		    }
+    		    $totalresult = $this->common_care_model->get_count($data,$latitude,$longitude, false);
+    		    $result = $this->common_care_model->filter($data,$latitude,$longitude, false, $limit, $offset);
+    		} else if ($this->input->get('care_type') == 'organization-workers') {
     		    $totalresult = $this->common_care_model->get_count($data,$latitude,$longitude, true);
     		    $result = $this->common_care_model->filter($data,$latitude,$longitude, true, $limit, $offset);
     		} else {
