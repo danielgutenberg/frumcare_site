@@ -167,7 +167,7 @@ setTimeout(function(){
     <div class="row">
         <div class="col-md-2 pull-left"> 	 
             <hgroup> 
-                <h1 class="site-title"><a href="<?php bloginfo( 'url' );?>"><img style="height:120px; width: 225px;" src="/img/logo-for-store.png"></a></h1>
+                <h1 class="site-title"><a href="<?php bloginfo( 'url' );?>"><img style="height:120px; width: 225px;" src="/img/newest-logo.png"></a></h1>
             </hgroup>
         </div>
         <div class="col-md-2 pull-right">
