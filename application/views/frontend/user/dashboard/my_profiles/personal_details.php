@@ -174,9 +174,9 @@
                     
                     <div class="first-names">
                         <label>Smoker</label>
-                        <div class="radio-half"><input type="radio" name="smoker" value="1" <?php if($user_data['smoke'] == 1){?> checked <?php } ?> > Yes</div>
-                        <div class="radio-half"><input type="radio" name="smoker" value="2" <?php if($user_data['smoke'] == 2){?> checked <?php } ?> > No</div>
-                        <div class="radio-half"><input type="radio" name="smoker" value="3" <?php if($user_data['smoke'] == 3){?> checked <?php } ?> > Yes, but not at work</div>
+                        <div class="radio-half"><input type="radio" name="smoke" value="1" <?php if($user_data['smoke'] == 1){?> checked <?php } ?> > Yes</div>
+                        <div class="radio-half"><input type="radio" name="smoke" value="2" <?php if($user_data['smoke'] == 2){?> checked <?php } ?> > No</div>
+                        <div class="radio-half"><input type="radio" name="smoke" value="3" <?php if($user_data['smoke'] == 3){?> checked <?php } ?> > Yes, but not at work</div>
                     </div>
                     <?php } ?>
                     <div class="small-seperator"></div>
@@ -201,7 +201,7 @@
                     <div class="small-seperator"></div>
                     <div class="first-names">
                         <label>Level of Education</label>
-                            <select name="education">
+                            <select name="education_level">
                                 <option value="">--Select Level of Education--</option>
                                 <option value="Elementary" <?php if($education_level == 'Elementary'){?> selected="selected" <?php }?> >Elementary</option>
                                 <option value="High School" <?php if($education_level == 'High School'){?> selected="selected" <?php }?>>High school</option>
@@ -212,7 +212,7 @@
                     <div class="small-seperator"></div>
                     <div class="first-names fullwidth">
                             <label>Educational institutions attended</label>
-                            <input type="text" name="educational_instution" value="<?php echo $educational_institution;?> ">
+                            <input type="text" name="educational_institution" value="<?php echo $educational_institution;?> ">
                     </div>  
                     <div class="small-seperator"></div>
                     
