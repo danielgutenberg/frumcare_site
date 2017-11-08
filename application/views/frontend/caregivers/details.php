@@ -55,14 +55,17 @@ user_flash();
                     if($this->session->userdata('current_user')!=$care_id){ //condition for blocking own review and rating
                         if(isset($this->session->userdata['current_user']) && $recordData['care_type']<17){?>
                         
-                            <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal" id="<?php echo $this->session->userdata['current_user'];?>">Write a review</a> |
-                            <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal3">See all reviews</a>
-                        <?php } else {
+                            <a href="#myModal" data-toggle="modal" data-target="#myModal" id="<?php echo $this->session->userdata['current_user'];?>">Write a review</a>
+                            <?php if ($reviews > 0) { ?>
+                             | <a href="#myModal3" data-toggle="modal" data-target="#myModal3">See all reviews</a>
+                        <?php }} else {
                             if($recordData['care_type']<17){
                                 ?>
-                                |<a href="javascript:void(0)" id="not_login">Write a review</a>|
-                                <a href="javascript:void(0);" data-toggle="modal2" data-target="#myModal3">See all reviews</a>
+                                <a href="javascript:void(0)" id="not_login">Write a review</a>
+                                <?php if ($reviews > 0) { ?>
+                                |<a href="#myModal3" data-toggle="modal" data-target="#myModal3">See all reviews</a>
                                 <?php
+                                }
                             }
                         }
                     }?>
@@ -657,15 +660,6 @@ if($recordData['care_type'] < 25 && $recordData['care_type'] > 16 ){ ?>
         <div id="map"></div>
 
     </div>
-							<?php /*
-							<div class="education-major-wrap">
-								<div class="education-major">
-									<h2>Education</h2>
-									<div class="education-level"><span>Education Level:</span><?php if($recordData['education_level'] !=""){ echo ucwords($recordData['education_level']); }?></div>
-									<div class="texts"><?php if($recordData['educational_institution'] !=""){ echo ucwords($recordData['educational_institution']); }?></div>
-									<div class="education-levels"><span>Major:</span><?php echo $recordData['subjects'];?></div>
-								</div>
-							</div> */?>
 							<div class="share-profile-wrap">
 								<div class="share-profile">
 									<?php
