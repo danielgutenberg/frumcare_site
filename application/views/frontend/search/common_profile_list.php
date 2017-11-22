@@ -1,3 +1,9 @@
+<style>
+    .profileBox {
+        background: white;
+        margin-top:25px;
+    }
+</style>
 <?php
 $careType = [
  '1' => 'Babysitter',
@@ -43,7 +49,7 @@ $careType = [
                     $loca .= ', ' . $data['country'];
                 }
             $navigate = $data['care_type']>16?'jobs':'caregivers'; ?> 	
-            <div class="profile-list clearfix usual row">
+            <div class="profile-list clearfix usual profileBox">
             <div class="profile-img-wrap col-md-3 col-sm-3 col-xs-12"> <?php
                 if($data['facility_pic']!="" && file_exists('images/profile-picture/'.$data['facility_pic'])) {?>
                     <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
@@ -72,12 +78,13 @@ $careType = [
                             </div>
                         </a><?php 
                 }}} ?>
-    	        <!--<div class="basic-background"><?php 
-                    if($data['agree_bg_check']  == 1) 
-    		        	echo "<a href='#'>Basic Background Check</a>";
-  		        	else echo ''; ?>
-    	        </div>
-    	        <span class="img-of-profile"></span><br />-->
+                <?php if($data['care_type'] < 17){
+                        	$reviews = $data['number_reviews']; ?>
+    	        <div style="width:200px">
+                    <div class="rating-score" id="<?php echo ($data['total_review']/($reviews>0?$reviews:1));?>"></div>
+                    <span style="font-size:14px;font-weight: 400;vertical-align: middle;">(<?php echo number_format($reviews);?> reviews)</span>
+                    <button class="btn btn-primary btn-sm" style="width: 80%;margin-top: 10px;">Contact Now</button>
+                </div>
     	        <div class="pin-location"> <?php 
                     if($data['location']) { ?>
                         <img src="<?php echo site_url();?>img/pin.png">
@@ -140,16 +147,9 @@ $careType = [
                         
                         <?php if(in_array(strtolower('CPR'), array_map('strtolower',$training_arr))){ ?>
                             <img src="<?php echo site_url()?>img/health-badge.png" title="Has CPR training"/>
-                        <?php } ?>
-                        <?php if($data['care_type'] < 17){
-                        	$reviews = $data['number_reviews']; ?>
-                   <br>
-                   <div style="width:200px">
-                    <div class="rating-score" id="<?php echo ($data['total_review']/($reviews>0?$reviews:1));?>"></div>
-                    <span style="font-size:14px;font-weight: 400;vertical-align: middle;">(<?php echo number_format($reviews);?> reviews)</span>
-                    
-                    </div>
-                    <?php } ?>
+                        <?php }
+                        } 
+                        ?>
 				</span>
 				<?php } ?>
 

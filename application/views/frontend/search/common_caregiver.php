@@ -1,3 +1,4 @@
+<script src="https://use.fontawesome.com/87c0f31b81.js"></script>
 <script>
     $("#locationSearch").ready(function(){        
         var autocomplete = new google.maps.places.Autocomplete($("#autocomplete")[0], { types: ['geocode'] });
@@ -11,7 +12,59 @@
             });                              
     });
 </script>
+<style>
+    #site-wrapper {
+        background: lightgrey;
+    }
+    .caregivers-contact-you {
+        font-family: Rufina;
+        color: #1d1c1b;
+        font-size: 36px;
+        font-weight: 400;
+        line-height: 30px;
+        text-align: center;
+        margin-bottom:40px;
+    }
+    .right-caregivers {
+        margin-top: 0px;
+    }
+    .white {
+        background: white;
+    }
+    .navigatorBox {
+        min-height: 160px;
+    }
+    .paddingBottom {
+        padding-bottom: 5px;
+    }
+    .paddingTop {
+        padding-top: 20px;
+    }
+    .inactive {
+        color: grey;
+        cursor:default;
+    }
+    @media (min-width: 992px) {
+        .decreasePadding {
+            padding-right: 2px;
+            padding-left: 2px;
+        }
+    }
+    @media (min-width: 1400px) {
+        .container {
+            width: 1290px;
+        }
+    }
+</style>
 <div class="container">
+    <?php echo $this->breadcrumbs->show(); ?>
+    <?php if($s1 == 'caregivers'){
+        $ac = $account_category==3?3:2; ?>
+        <div class="caregivers-contact-you"><p>Want Caregivers to Contact you?<a href='<?php echo site_url()."signup?ac=$ac"?>' class="btn btn-primary ml10 btn-xs">Post a Job for free</a></p></div>
+    <?php } else {
+            $ac = $account_category==3?3:1; ?>
+        <div class="caregivers-contact-you"><p>Want Employers to Contact you?<a href='<?php echo site_url()."signup?ac=$ac"?>' class="btn btn-primary ml10 btn-xs">Create a Profile for free</a></p></div>
+    <?php } ?>
 <?php
     $s1 = $this->uri->segment(1); // must be caregivers, jobs, organization
     $s2 = $this->uri->segment(2); // must be care type, job type
@@ -192,79 +245,90 @@
         die('The page you are trying to access doesnt exist anymore');
     }
 ?>
-<div class="right-caregivers col-lg-9 col-md-9 col-sm-9 col-xs-12">
-    <br />
+<div class="right-caregivers col-lg-9 col-md-9 col-sm-9 col-xs-12" style="padding-left:30px;">
 
     <div class="searchloader mainsearch" style="display:none"></div>
-    <?php if($this->uri->segment(2) == 'organization-workers') {?>
-    <span class="locationText" style="cursor:pointer">Find Workers for your</span> <?php $this->load->view('frontend/search/care_types_dropdown');?></br>
-    <?php } else {?>
-    <span class="locationText" style="cursor:pointer">Find a</span> <?php $this->load->view('frontend/search/care_types_dropdown'); if($s1 == 'jobs') {echo 'Job';}?> </br>
-    <?php } ?>
-    <t id="locationSearch" style="cursor:pointer">Near
-		<input type="text" name="location" class="required" value="<?php echo $location['place'] ?>" placeholder="Please enter a street address" id="autocomplete" style="width: 229px;margin-left: 9px;cursor:pointer"/>
-		<input type="hidden" id="lng" value="<?php echo $location['lng']?>">
-		<input type="hidden" id="lat" value="<?php echo $location['lat']?>">
-		<input type="hidden" id="place" value="<?php echo $location['place']?>">
-		<input type="hidden" id="pagenum" value="">
-		<b class="locationCaret caret"></b>
-	</t>
-    within            
-    <select name="sort_by_miles" id="sort_by_miles" style="cursor:pointer">        
-        <option value="1" <?php if ($distance == 1) {echo 'selected="selected"';} ?>>1 Miles</option>
-        <option value="2" <?php if ($distance == 2) {echo 'selected="selected"';} ?>>2 Miles</option>
-        <option value="5" <?php if ($distance == 5) {echo 'selected="selected"';} ?>>5 Miles</option>
-        <option value="10" <?php if ($distance == 10) {echo 'selected="selected"';} ?>>10 Miles</option>
-        <option value="30" <?php if ($distance == 30) {echo 'selected="selected"';} ?>>30 Miles</option>
-        <option value="50" <?php if ($distance == 50) {echo 'selected="selected"';} ?>>50 Miles</option>
-        <option value="unlimited" <?php if ($distance == 'unlimited') {echo 'selected="selected"';} ?>>Unlimited Miles</option>
-    </select>   
-    <a id="searchButton" style="cursor:pointer" class="btn btn-primary ml10 btn-xs">Go</a>
-	<h3 class="total_rows hidden" style="margin-bottom: 0px">
-		<span id="total"></span>
-        <?php
-          if( $total_rows > 1 && substr($title,-1) == 'y' ){
-            $ntitle = substr($title,0,-1);
-            echo $ntitle.'ies near';
-          }
-          elseif( substr($title,-1) == 's' ) echo $title.' near ';
-          elseif( $total_rows > 1 ) echo $title.'s near ';
-          else echo $title.' near ';
-        ?>
-        <span id="locationaddress"><?php echo $location['place'];?></span>
-	</h3>
-    
-	<?php if($s1 == 'caregivers'){
-        $ac = $account_category==3?3:2; ?>
-        <div class="want-top"><p>Want Caregivers to Contact you?<a href='<?php echo site_url()."signup?ac=$ac"?>' class="btn btn-primary ml10 btn-xs">Post a Job for free</a></p></div>
-    <?php } else {
-            $ac = $account_category==3?3:1; ?>
-        <div class="want-top"><p>Want Employers to Contact you?<a href='<?php echo site_url()."signup?ac=$ac"?>' class="btn btn-primary ml10 btn-xs">Create a Profile for free</a></p></div>
-    <?php } ?>
-
-	<div class="select-relevance row" style="margin-top:14px;width: 70%;">
-        <div class="col-xs-8" style="margin-bottom:5px">
-            <div style="display: -webkit-inline-box;">
-                <input type="radio" name="sort_by_select" value="tbl_userprofile.id" checked> Sort by latest
-                <input  style="margin-left:5px" type="radio" name="sort_by_select" value="distance"> Sort by distance
+    <div class="col-xs-12 white paddingTop navigatorBox">
+        <div class="row paddingBottom">
+            <div class="col-md-3 col-sm-6 col-xs-6 paddingBottom">
+                <?php if($this->uri->segment(2) == 'organization-workers') {?>
+                <label class="locationText" style="cursor:pointer">Find Workers for your</label> <?php $this->load->view('frontend/search/care_types_dropdown');?></br>
+                <?php } else {?>
+                <label class="locationText" style="cursor:pointer">Find a</label> <?php $this->load->view('frontend/search/care_types_dropdown'); if($s1 == 'jobs') {echo 'Job';}?> </br>
+                <?php } ?>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-6 paddingBottom">
+                <label class="locationText">Near</label>
+                <t id="locationSearch" style="cursor:pointer">
+            		<input type="text" name="location" class="required" value="<?php echo $location['place'] ?>" placeholder="Please enter a street address" id="autocomplete" style="width: 95%;cursor:pointer"/>
+            		<input type="hidden" id="lng" value="<?php echo $location['lng']?>">
+            		<input type="hidden" id="lat" value="<?php echo $location['lat']?>">
+            		<input type="hidden" id="place" value="<?php echo $location['place']?>">
+            		<input type="hidden" id="pagenum" value="">
+            		<b class="locationCaret caret"></b>
+            	</t>
+        	</div>
+        	<div class="col-md-2 col-xs-6 paddingBottom decreasePadding">
+                <label class="locationText">Within</label>          
+                <select name="sort_by_miles" id="sort_by_miles" style="cursor:pointer; width:95%">        
+                    <option value="1" <?php if ($distance == 1) {echo 'selected="selected"';} ?>>1 Miles</option>
+                    <option value="2" <?php if ($distance == 2) {echo 'selected="selected"';} ?>>2 Miles</option>
+                    <option value="5" <?php if ($distance == 5) {echo 'selected="selected"';} ?>>5 Miles</option>
+                    <option value="10" <?php if ($distance == 10) {echo 'selected="selected"';} ?>>10 Miles</option>
+                    <option value="30" <?php if ($distance == 30) {echo 'selected="selected"';} ?>>30 Miles</option>
+                    <option value="50" <?php if ($distance == 50) {echo 'selected="selected"';} ?>>50 Miles</option>
+                    <option value="unlimited" <?php if ($distance == 'unlimited') {echo 'selected="selected"';} ?>>Unlimited Miles</option>
+                </select>  
+            </div>
+            <div class="col-md-3 col-xs-6 paddingBottom">
+                <label class="locationText" style="height:37px;"></label>  
+                <a id="searchButton" style="cursor:pointer; padding: 5px 20px;font-size: 13px;" class="btn btn-primary btn-sm"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;GO HERE</a>
             </div>
         </div>
-        
+        <div class="row paddingTop">
+            <div class="col-xs-6 col-md-4 paddingBottom" style="padding-top:4px">
+                <div class="total_rows hidden" style="margin-bottom: 0px">
+            		<span id="total"></span>
+                    <?php
+                      if( $total_rows > 1 && substr($title,-1) == 'y' ){
+                        $ntitle = substr($title,0,-1);
+                        echo $ntitle.'ies near';
+                      }
+                      elseif( substr($title,-1) == 's' ) echo $title.' near ';
+                      elseif( $total_rows > 1 ) echo $title.'s near ';
+                      else echo $title.' near ';
+                    ?>
+                    <span id="locationaddress"><?php echo $location['place'];?></span>
+            	</div>
+            </div>
+            <div class="col-xs-6 col-md-2 paddingBottom" style="padding-left:2px; padding-right: 2px;">
+                <select name="sort_by_select" id="sort_by_select" style="cursor:pointer; width:100%; max-width: 130px;">        
+                    <option value="tbl_userprofile.id">Sort by latest</option>
+                    <option value="distance">Sort by distance</option>
+                </select> 
+            </div>
+            <div class="col-xs-6 col-lg-4 paddingBottom" style="padding-top:4px">
+                <div class="navigations" style="float:none"></div>
+            </div>
+            <div class="col-lg-2 col-xs-6 paddingBottom" style="padding-top:4px">
+                <a href="#" class="show_all" id="next">Show All</a>
+            </div>
+        </div>
 	</div>
-    <div class="navigations"></div>
-    	<div style="margin-top: 10px;float: right;" style="margin-top: -4px;">
-            <div>
-    		    <span>Results per page</span>
-    			<span class="fifteens">
-                    <select id="per_page">
-    					<option value="15">15</option>
-    					<option value="25">25</option>
-    					<option value="50">50</option>
-    					<option value="100">100</option>
-    				</select>
-    			</span>
-    		</div>
+	<div style="margin-top: 10px;float: right; display:none" style="margin-top: -4px;">
+        <div>
+		    <span>Results per page</span>
+			<span class="fifteens">
+                <select id="per_page">
+					<option value="15">15</option>
+					<option value="25">25</option>
+					<option value="50">50</option>
+					<option value="100">100</option>
+					<option value="10000">10000</option>
+				</select>
+			</span>
 		</div>
+	</div>
 	<div class="clearfix margin-bot"></div>
 	<div id="list_container" class="">
 	</div>
@@ -281,7 +345,7 @@
         PulseAnimation()
         var per_page = $("#per_page").val();
         var distance = $("#sort_by_miles").val();
-        var sort_by = $('input[name="sort_by_select"]:checked').val();
+        var sort_by = $('#sort_by_select').val();
 		var care_type = $('#careId').val() != null ? $('#careId').val() : '<?php echo $careType ?>'
 		var rate = $('.rate').val();
         var caregiverage_from = $('.caregiverage_from').val() ? $('.caregiverage_from').val() : '';
@@ -401,9 +465,9 @@
         $('.neighbour,.caregiverage_from,.caregiverage_to').blur(function(){
             $('#pagenum').val(1);
             filterCaregivers();
-		});        
-        
-        $('.rate,.accept_insurance,.number_of_children,.year_experience,.age_group,#textbox1,.sub_care,#per_page,input[name="sort_by_select"]').change(function(){
+		});
+		
+        $('.rate,.accept_insurance,.number_of_children,.year_experience,.age_group,#textbox1,.sub_care,#per_page,select[name="sort_by_select"]').change(function(){
 			$('#pagenum').val(1);
             filterCaregivers();
 		});
@@ -414,7 +478,16 @@
 		});
         
         //for pagination
+        $(document).on('click', '.show_all', function(e) {
+            $("#per_page").val(10000)
+            $('#pagenum').val(1)
+    		filterCaregivers()
+        });
+        
         $(document).on('click','.paginate_click',function (e) {
+            if ($(this).attr("id") == 'inactive') {
+                return false;
+            }
             $(".searchloader").fadeIn("fast");
             if ($(this).attr("id") == 'previous') {
                 var page_num = parseInt($('.paginate_click.active').attr('id').split('-')[0]) - 1

@@ -1,6 +1,6 @@
 <?php if($this->uri->segment(1) == 'caregivers') { ?>
     <?php if($this->uri->segment(2) == 'organization-workers') { ?>        
-        <select id="careId" name="service" class="care_type_organizations select2" style="width:250px" multiple="multiple" data-type="organization_job">
+        <select id="careId" name="service" class="care_type_organizations select2" style="width:95%" multiple="multiple" data-type="organization_job">
             <option value="31" <?php if(segment(3) == 'workers-staff-for-childcare-facility' || in_array(31, $careId)){?> selected="selected" <?php }?>>Childcare facility</option>
             <option value="35" <?php if(segment(3) == 'workers-staff-for-senior-care-facility' || in_array(35, $careId)){?> selected="selected" <?php }?> >Senior care facility</option>
             <option value="36" <?php if(segment(3) == 'workers-staff-for-special-needs-facility' || in_array(36, $careId)){?> selected="selected" <?php }?>>Special needs facility</option>
@@ -8,7 +8,7 @@
         </select>     
     <?php } 
     else if ($this->uri->segment(2) == 'organizations') { ?>
-        <select id="careId" name="service" class="care_type_organizations select2" style="width:250px" multiple="multiple" data-type="caregivers">
+        <select id="careId" name="service" class="care_type_organizations select2" style="width:95%" multiple="multiple" data-type="caregivers">
             <option value="3" <?php if(segment(3) == 'nursery-playgroup-drop-off-gan' || in_array(3, $careId)){?> selected="selected" <?php }?>>Nursery / Playgroup / Drop off / Gan</option>
             <option value="11" <?php if(segment(3) == 'day-care-center-day-camp-afternoon-activities' || in_array(11, $careId)){?> selected="selected" <?php }?>>Day Care Center / Day Camp / Afternoon Activities</option>
             <option value="13" <?php if(segment(3) == 'senior-care-agency' || in_array(13, $careId)){?> selected="selected" <?php }?>>Senior Care Agency</option>                    
@@ -16,7 +16,7 @@
             <option value="15" <?php if(segment(3) == 'cleaning-household-help-company' || in_array(15, $careId)){?> selected="selected" <?php }?>>Cleaning / household help company</option>
         </select> 
     <?php } else { ?>
-        <select id="careId" name="service" class="service care_type select2" style="width:250px" multiple="multiple" data-type="caregivers">
+        <select id="careId" name="service" class="service care_type select2" style="width:95%" multiple="multiple" data-type="caregivers">
             <option value="1" <?php if(segment(2) == 'babysitter' || in_array(1, $careId)){?> selected="selected" <?php }?>>Babysitter</option>
             <option value="2" <?php if(segment(2) == 'nanny-au-pair' || in_array(2, $careId)){?> selected="selected" <?php }?> >Nanny / Au-pair</option>
             <option value="10" <?php if(segment(2) == 'pediatric-baby-nurse' || in_array(10, $careId)){?> selected="selected" <?php }?>>Pediatric / Baby Nurse</option>
@@ -41,7 +41,7 @@
 <?php } ?>
 
 <?php if($this->uri->segment(1) == 'jobs') { ?>    
-    <select id="careId" name="service" class="service jobtype select2" style="width:250px" multiple="multiple" data-type="jobs">
+    <select id="careId" name="service" class="service jobtype select2" style="width:95%" multiple="multiple" data-type="jobs">
         <option value="17" <?php if(segment(2) == 'babysitter' || in_array(17, $careId)){?> selected="selected" <?php }?>>Babysitter</option>
     	<option value="18" <?php if(segment(2) == 'nanny-au-pair' || in_array(18, $careId)){?> selected="selected" <?php }?> >Nanny / Au-pair</option>           
     	<option value="23" <?php if(segment(2) == 'pediatric-baby-nurse' || in_array(23, $careId)){?> selected="selected" <?php }?>>Pediatric / Baby Nurse</option>       
@@ -108,7 +108,7 @@
     margin-right: 7px;
     margin-left: -17px;
 }
- .btn-group{width:229px}
+ .btn-group{width:95%}
  .multiselect{width:100%}
  .dropdown-menu{display:none;}
  .btn-group [data-toggle="dropdown"] {

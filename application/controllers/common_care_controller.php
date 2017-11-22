@@ -202,7 +202,7 @@
     	public function load_ads($care, $title, $seotitle, $account_category = 1, $organization = false) {
     	    $item_per_page = 15;
             $option = "distance";
-            $distance = "unlimited";                     
+            $distance = 50;                     
             $this->breadcrumbs->push($title, site_url().'#');
             $this->breadcrumbs->unshift('Home', base_url());
                                             
@@ -221,7 +221,7 @@
             if (isset($query['distance'])) {
                 $distance = $query['distance'];
             } else {
-                $distance = 30;
+                $distance = 50;
             }
             $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
             
@@ -306,20 +306,25 @@
             
             if($pages > 1){	
                 if ($page > 1) {
-            	    $pagination .= '<a href="#" class="paginate_click in-active" id="previous">previous</a>';
+            	    $pagination .= '<a href="#" class="paginate_click" id="previous"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp;Previous Page</a>';
+                } else {
+                    $pagination .= '<a href="#" class="paginate_click inactive" id="inactive"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp;Previous Page</a>';
                 }
-            	for($i = $first; $i<=$pages && $i <= $first + 4; $i++)
-            	{
-            		
-            		if($i==$page){
-                        $pagination .= ' <a href="#" class="paginate_click active" id="'.$i.'-page" >'.$i.'</a> ';
+                $pagination .= '&nbsp;&nbsp;|&nbsp;&nbsp;';
+                for($i = $first; $i<=$pages && $i <= $first + 4; $i++)
+               {
+                       
+                       if($i==$page){
+                        $pagination .= ' <a href="#" style="display:none" class="paginate_click active" id="'.$i.'-page" >'.$i.'</a> ';
                     }else{
-                        $pagination .= ' <a href="#" class="paginate_click in-active" id="'.$i.'-page">'.$i.'</a> ';   
-                    }
+                        $pagination .= ' <a href="#" style="display:none" class="paginate_click in-active" id="'.$i.'-page">'.$i.'</a> ';   
+                }
                     
-            	}
+               }
             	if ($page < $pages) {
-                    $pagination .= '<a href="#" class="paginate_click in-active" id="next">next</a></div>';
+                    $pagination .= '<a href="#" class="paginate_click" id="next">Next Page&nbsp;<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>';
+            	} else {
+            	    $pagination .= '<a href="#" class="paginate_click inactive" id="inactive">Next Page&nbsp;<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>';
             	}
             }
             
