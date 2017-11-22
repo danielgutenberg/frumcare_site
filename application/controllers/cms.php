@@ -118,7 +118,8 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}
 		
-		public function backgroundcheck(){
+		public function backgroundcheck()
+		{
 			$this->breadcrumbs->push('Background Check', '/background-check');
 			$this->breadcrumbs->unshift('Home', base_url());
 			
@@ -126,6 +127,11 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			$data['content_data'] = $this->cms_model->getPageDetailBySlug('background-check');
 			$data['title'] 		  = 'Background Check';
 			$this->load->view(FRONTEND_TEMPLATE,$data);
+		}
+		
+		public function archive()
+		{
+			print_rr('got here');
 		}
 		
 		
