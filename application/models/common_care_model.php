@@ -120,6 +120,29 @@ class Common_care_model extends CI_Model
 			return [];
     }
     
+    function getLastLogin($time)
+    {
+    	$sql = "
+    		select 
+				(SELECT MAX(login_time) FROM tbl_user_logs WHERE tbl_user_logs.user_id = tbl_user.id) AS login_time,
+				tbl_user.id,
+				tbl_user.name
+			from 
+				tbl_user 
+			where 
+				tbl_user.archive = 0
+			order 
+				by login_time desc
+    	";
+    	
+    	$query 	= $this->db->query($sql);
+		$res 	= $query->result_array();
+		if($res)
+			return $res;
+		else
+			return [];
+    }
+    
     function filter($search,$latitude,$longitude, $organization, $limit, $offset)
     {
         if(is_array($search)){

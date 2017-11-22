@@ -5,6 +5,7 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			parent:: __construct();
 			$this->load->model('cms_model');
 			$this->load->library('breadcrumbs');
+			$this->load->model('common_care_model');
 		}
 
 		public function aboutus(){
@@ -129,9 +130,14 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}
 		
-		public function archive()
+		public function archiveusers()
 		{
-			print_rr('got here');
+			$time = time();
+			$eigthyThreeDaysAgo = $time - (60 * 60 * 24 * 83);
+			$users = $this->common_care_model->getLastLogin($eigthyThreeDaysAgo);
+			foreach ($users as $user) {
+				print_rr($user);
+			}
 		}
 		
 		
