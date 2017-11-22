@@ -6,6 +6,7 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			$this->load->model('cms_model');
 			$this->load->library('breadcrumbs');
 			$this->load->model('common_care_model');
+			$this->load->model('user_model');
 		}
 
 		public function aboutus(){
@@ -134,9 +135,14 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 		{
 			$time = time();
 			$eigthyThreeDaysAgo = $time - (60 * 60 * 24 * 83);
+			$eightyEightDaysAgo = $time - (60 * 60 * 24 * 88);
+			$eightyNineDaysAgo = $time - (60 * 60 * 24 * 89);
+			$ninetyDaysAgo = $time - (60 * 60 * 24 * 90);
 			$users = $this->common_care_model->getLastLogin($eigthyThreeDaysAgo);
 			foreach ($users as $user) {
-				print_rr($user);
+				if ($user['login_time'] < $ninetyDaysAgo) {
+					$this->user_model->edit_user(['archive' => 1], $user['id']);
+				}
 			}
 		}
 		

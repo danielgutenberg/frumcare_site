@@ -509,6 +509,9 @@ class Ad extends CI_Controller
             
             $id = $alert['user_id'];
             $user = $this->user_model->getUserName($id);
+            if ($user['archive']) {
+                continue;
+            }
             $email = $user['email'];
             
             $name = explode(' ', $user['name'])[0];
