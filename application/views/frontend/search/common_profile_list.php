@@ -54,27 +54,27 @@ $careType = [
                 if($data['facility_pic']!="" && file_exists('images/profile-picture/'.$data['facility_pic'])) {?>
                     <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
     		            <div id="profile_image">
-    		            	<img src="<?php echo site_url("images/profile-picture/{$data['facility_pic']}")?>">
+    		            	<img style="border:0px" src="<?php echo site_url("images/profile-picture/{$data['facility_pic']}")?>">
     		            </div>
     	            </a><?php } else {
                     if($data['profile_picture']!="" && $data['profile_picture_status'] == 1 && file_exists('images/profile-picture/'.$data['profile_picture'])) {?>
                         <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
         		            <div id="profile_image">
-        		            	<img src="<?php echo site_url("images/profile-picture/{$data['profile_picture']}")?>">
+        		            	<img style="border:0px" src="<?php echo site_url("images/profile-picture/{$data['profile_picture']}")?>">
         		            </div>
         	            </a><?php }
                     else {  
                         if($data['photo_of_child']!= 0 && file_exists('images/profile-picture/'.$data['photo_of_child'])) {?>
                             <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
             		            <div id="profile_image">
-            		            	<img src="<?php echo site_url("images/profile-picture/{$data['photo_of_child']}")?>">
+            		            	<img style="border:0px" src="<?php echo site_url("images/profile-picture/{$data['photo_of_child']}")?>">
             		            </div>
             	            </a><?php } else { ?>
                     
                     
                         <a href="<?php echo site_url().$navigate;?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>">
     			            <div id="profile_image">
-    			            	<img src="<?php echo site_url("images/no-image.jpg")?>">
+    			            	<img style="border:0px" src="<?php echo site_url("images/no-image.jpg")?>">
                             </div>
                         </a><?php 
                 }}} ?>
@@ -83,7 +83,7 @@ $careType = [
     	        <div style="width:200px">
                     <div class="rating-score" id="<?php echo ($data['total_review']/($reviews>0?$reviews:1));?>"></div>
                     <span style="font-size:14px;font-weight: 400;vertical-align: middle;">(<?php echo number_format($reviews);?> reviews)</span>
-                    <button class="btn btn-primary btn-sm" style="width: 80%;margin-top: 10px;">Contact Now</button>
+                    <button class="btn btn-primary btn-sm" style="width: 80%;margin-top: 10px; font-size:16px;">Contact Now</button>
                 </div>
     	        <div class="pin-location"> <?php 
                     if($data['location']) { ?>
