@@ -10,6 +10,6 @@
         Thank you
     </p>
     <a href="<?php echo site_url("/")?>">
-        <img src="<?php echo site_url("img/logo.png")?>">
+        <img src="<?php echo site_url("img/email-signature.png")?>">
     </a>
 </div>
