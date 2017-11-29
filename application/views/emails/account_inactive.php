@@ -9,5 +9,7 @@
     <p>
         Thank you
     </p>
-    <img src="<?php echo site_url("img/logo.png")?>">
+    <a href="<?php echo site_url("/")?>">
+        <img src="<?php echo site_url("img/logo.png")?>">
+    </a>
 </div>
