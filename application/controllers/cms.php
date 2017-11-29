@@ -203,7 +203,7 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 	        $this->load->library('activeCampaign');
         	$ac = $this->activecampaign;
 	        $contact = array(
-        		"email"      => $email,
+        		"email"      => $user['email'],
         		"tags"       => ['Archived'],
          	);
             $ac->api("contact/tag_add", $contact);
