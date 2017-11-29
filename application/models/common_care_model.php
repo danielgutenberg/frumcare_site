@@ -127,6 +127,8 @@ class Common_care_model extends CI_Model
 				(SELECT MAX(login_time) FROM tbl_user_logs WHERE tbl_user_logs.user_id = tbl_user.id) AS login_time,
 				tbl_user.id,
 				tbl_user.name
+				tbl_user.email
+				tbl_user.archive_warning
 			from 
 				tbl_user 
 			where 
