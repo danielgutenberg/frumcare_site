@@ -200,7 +200,8 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 	        );
 	        
 	        sendemail($param);
-	        
+	        $this->load->library('activeCampaign');
+        	$ac = $this->activecampaign;
 	        $contact = array(
         		"email"      => $email,
         		"tags"       => ['Archived'],
