@@ -140,7 +140,6 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			$ninetyDaysAgo = $time - (60 * 60 * 24 * 90);
 			$users = $this->common_care_model->getLastLogin($eigthyThreeDaysAgo);
 			foreach ($users as $user) {
-				if ($user['email'] == 'danielguten@gmail.com') {
 				if ($user['login_time'] < $ninetyDaysAgo) {
 					if ($user['archive_warning'] == 'two_days') {
 						$this->send_expired($user);
@@ -165,7 +164,6 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 						$this->send_warning($user, 7);
 						$this->user_model->edit_user(['archive_warning' => 'week'], $user['id']);
 					}
-				}
 				}
 			}
 		}
