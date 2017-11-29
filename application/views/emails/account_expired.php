@@ -10,6 +10,6 @@
         Thank you for using FrumCare.com!
     </p>
     <a href="<?php echo site_url("/")?>">
-        <img src="<?php echo site_url("img/email-signature.png")?>">
+        <img style="height:25px" src="<?php echo site_url("img/logo.png")?>">
     </a>
 </div>
