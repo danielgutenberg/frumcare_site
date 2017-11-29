@@ -6,6 +6,7 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			$this->load->model('cms_model');
 			$this->load->library('breadcrumbs');
 			$this->load->model('common_care_model');
+			$this->load->library('fileupload_lib');
 			$this->load->model('user_model');
 		}
 
@@ -200,7 +201,8 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 	        );
 	        
 	        sendemail($param);
-	        
+	        $this->load->library('activeCampaign');
+        	$ac = $this->activecampaign;
 	        $contact = array(
         		"email"      => $email,
         		"tags"       => ['Archived'],
