@@ -1,8 +1,10 @@
 <?php $observance = explode(',',$data['observance']); ?>
-<div>
-    <label>Level of observance</label>
-    <div class="checkbox first"><input type="checkbox" value="Yeshivish/Chasidish" name="observance[]" class="hidefamiliar observance" <?php if(in_array('Yeshivish/Chasidish',$observance)){?> checked="checked" <?php } ?>>Yeshivish / Chasidish</div>
-    <div class="checkbox"><input type="checkbox" value="Orthodox/Modern orthodox" name="observance[]" class="hidefamiliar observance" <?php if(in_array('Orthodox/Modern orthodox',$observance)){?> checked="checked" <?php } ?>>Orthodox / Modern orthodox</div>
-    <div class="checkbox"><input type="checkbox" value="Familiar With Jewish Tradition" name="observance[]" class="show observance" <?php if(in_array('Familiar With Jewish Tradition',$observance)){?> checked="checked" <?php } ?>>Familiar with Jewish Tradition</div>
-    <div class="checkbox"><input type="checkbox" value="Any" name="observance[]" class="hidefamiliar observance" <?php if(in_array('Any',$observance)){?> checked="checked" <?php } ?>>Any</div>
-</div>
+<div style="font-size:12px">
+ 	<label style="font-size:13px; font-weight:600; margin-bottom:6px;">Level of observance</label>
+ 	<select name="age_of_caregiver" style="width:80%">
+ 	    <option value="Any" <?php if (in_array('Any',$observance)) echo 'selected' ?>> Any </option>
+         <option value="Yeshivish/Chasidish" <?php if (in_array('Yeshivish/Chasidish',$observance)) echo 'selected' ?>> Yeshivaish / Chasidish</option>
+         <option value="Orthodox/Modern orthodox" <?php if (in_array('Orthodox/Modern orthodox',$observance)) echo 'selected' ?>> Orthodox / Modern Orthodox</option>
+         <option value="Familiar With Jewish Tradition" <?php if (in_array('Familiar With Jewish Tradition',$observance)) echo 'selected' ?>> Familiar with Jewish Tradition</option>
+     </select>
+ </div>
