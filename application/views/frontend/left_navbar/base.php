@@ -12,10 +12,14 @@
         </div>
 	    <h4 style="padding: 10px;background: #6a6a6a;color: #cecaca;">Advanced Filters</h4>
 	    <div id="left-nav" style="padding:20px 12px 20px 15px">
-	    <?php
-	        $this->load->view('frontend/left_navbar/' . $left_navbar, array('care_type' => $care_type));
-	        $this->load->view('frontend/left_navbar/fields/save_search');
-	    ?>
+	    	<div class="advanced" style="display:none">
+			    <?php
+			        $this->load->view('frontend/left_navbar/' . $left_navbar, array('care_type' => $care_type));
+			    ?>
+			</div>
+			<?php
+				$this->load->view('frontend/left_navbar/fields/save_search');
+			?>
 	    </div>
     </div>
 </div>
