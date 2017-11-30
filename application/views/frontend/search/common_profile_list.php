@@ -80,7 +80,7 @@ $careType = [
                 }}} ?>
                 <?php if($data['care_type'] < 17){
                         	$reviews = $data['number_reviews']; ?>
-    	        <div style="width:200px">
+    	            <div style="width:200px">
                     <div class="rating-score" id="<?php echo ($data['total_review']/($reviews>0?$reviews:1));?>"></div>
                     <span style="font-size:14px;font-weight: 400;vertical-align: middle;">(<?php echo number_format($reviews);?> reviews)</span>
                     <button class="btn btn-primary btn-sm" style="width: 80%;margin-top: 10px; font-size:16px;">Contact Now</button>
@@ -105,55 +105,27 @@ $careType = [
 
     	        	?>
     	        </div>
-	        </div>
+	        
 	        <?php
 	                        //for caregivers
                 if($data['care_type'] <10 ) {
                     $training_arr = explode(',',$data['training']); ?>
+                    
+				<?php } ?>
             <?php }?>
+            </div>
         	<div class="profile-list-details col-md-9 col-sm-9 col-xs-12">
                 <?php if ($data['account_category'] == 3) {?>
                 <span class="name">
 					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo ucwords($data['organization_name']);?></a>
-				                        <?php if(isset($data['driver_license']) && $data['driver_license'] == 1){ ?>
-                            <img src="<?php echo site_url()?>img/car-badge.png" title="Has a vehicle"/>
-                        <?php } ?>
-                        
-                        <?php /*if($data['email_status'] && $data['email_status'] == 1){ ?>
-                            <img src="<?php echo site_url()?>img/verified-badge.png" title="Email Verified Badge"/>
-                        <?php } */?>
-                        
-                        <?php if(in_array(strtolower('First Aid'), array_map('strtolower',$training_arr))){ ?>
-                            <img src="<?php echo site_url()?>img/first-aid-badge.png" title="Has first aid training"/>
-                        <?php } ?>
-                        
-                        <?php if(in_array(strtolower('CPR'), array_map('strtolower',$training_arr))){ ?>
-                            <img src="<?php echo site_url()?>img/health-badge.png" title="Has CPR training"/>
-                        <?php } ?>
-				</span>	<?php } else { ?>
+                </span>	<?php } else { ?>
 				<span class="name">
 					<a href="<?php echo site_url();?>jobs/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>"><?php echo ucwords($data['name']);?></a>
-				                        <?php if(isset($data['driver_license']) && $data['driver_license'] == 1){ ?>
-                            <img src="<?php echo site_url()?>img/car-badge.png" title="Has a vehicle"/>
-                        <?php } ?>
-                        
-                        <?php /*if($data['email_status'] && $data['email_status'] == 1){ ?>
-                            <img src="<?php echo site_url()?>img/verified-badge.png" title="Email Verified Badge"/>
-                        <?php } */?>
-                        
-                        <?php if(in_array(strtolower('First Aid'), array_map('strtolower',$training_arr))){ ?>
-                            <img src="<?php echo site_url()?>img/first-aid-badge.png" title="Has first aid training"/>
-                        <?php } ?>
-                        
-                        <?php if(in_array(strtolower('CPR'), array_map('strtolower',$training_arr))){ ?>
-                            <img src="<?php echo site_url()?>img/health-badge.png" title="Has CPR training"/>
-                        <?php }
-                        } 
-                        ?>
-				</span>
-				<?php } ?>
+	    		</span>
+	    		<?php } ?>
 
                 <br>
+                <div>
                 <?php
                 $type = $careType[$data['care_type']];
                 $loca = '';
@@ -177,7 +149,105 @@ $careType = [
                 if($data['care_type'] > 16){
                     echo $type .' needed - '.$loca;                                                               
                 } 
-               ?>   
+               ?>  
+               </div>
+               <div class="profile_snippets"> <?php 
+                    
+                    //for caregivers
+                    if($data['care_type'] <10 ) { ?>
+                        <?php if($data['care_type'] != 7) { ?>
+                            <?php if(isset($data['age']) && is_numeric($data['age'])){?>
+                                							
+    								<?php echo $data['age'];?> years old |							
+    							
+                            <?php  } ?>                        
+                            
+                            <?php if($data['experience']){?>
+    														
+    								<?php if ($data['experience'] == 6) {echo '5+';} else {echo $data['experience'];}?> years of experience	|						
+    							
+                            <?php  } ?>
+                        <?php  } 
+                        else { 
+                            if($data['type_of_therapy']) { ?>
+                              
+                                <?php echo $data['type_of_therapy'] . '|'; ?>
+                              
+                            <?php }
+                            if($data['certification']) { ?>
+                                <?php echo $data['certification'] . '|'; ?>
+                            <?php }
+                            
+                         } ?>
+
+                    
+                    <?php  }
+                    
+                    //for job posters
+                    if($data['care_type'] >16 && $data['care_type'] <25 ) { ?>
+                        <?php  $availablility_arr = explode(',',$data['availability']); ?>
+                        <?php if($data['rate']){?>							
+								<?php 
+								if($data['currency'] == 'ILS') {
+								    echo "&#8362;"; 
+								} else {
+								    echo '$';
+								}
+								echo str_replace("t","-",$data['rate']);
+								?>
+                                <?php echo $data['rate_type']==1?" per hour |":" per hour |"; ?>				
+                        <?php  } ?>
+                    <?php  } ?>
+
+					<?php 
+                    
+                    //for caregivers
+                    if($data['care_type'] <10 ) { ?>
+                    
+                    <?php if($data['care_type'] == 7 && $data['experience']) { ?>
+                                <?php if ($data['experience'] == 6) {echo '5+';} else {echo $data['experience'];}?> years in practice |
+                    
+                            <?php } ?> 
+                    
+                    <?php if(segment(2)!== 'therapists'){ ?>
+                        
+                        
+                        <?php if($data['rate']){?>
+							    <?php 
+								if($data['currency'] == 'ILS') {
+								    $r = "&#8362;"; 
+								} else {
+								    $r = '$';
+								}
+								$r .= str_replace("t","-",$data['rate']);
+								?>							
+								<?php echo $data['care_type']==3 ? $data['rate'] : $r ?>
+                                <?php echo $data['care_type']==3 ? "" : " per hour |"; ?>				
+                        <?php  
+                            }
+                           } 
+                        ?>
+                        
+                    
+                        
+                        <?php  $availablility_arr = explode(',',$data['availability']); ?>
+                                             					 	        
+                    <?php } ?>
+                    
+				</div>
+				
+				<div>
+				    	<?php if(isset($data['driver_license']) && $data['driver_license'] == 1){ ?>
+                            <img src="<?php echo site_url()?>img/car-badge.png" title="Has a vehicle"/>
+                        <?php } ?>
+                        <?php if(in_array(strtolower('First Aid'), array_map('strtolower',$training_arr))){ ?>
+                            <img src="<?php echo site_url()?>img/first-aid-badge.png" title="Has first aid training"/>
+                        <?php } ?>
+                        
+                        <?php if(in_array(strtolower('CPR'), array_map('strtolower',$training_arr))){ ?>
+                            <img src="<?php echo site_url()?>img/health-badge.png" title="Has CPR training"/>
+                        <?php } ?>
+				</div>
                
     
                     
@@ -209,145 +279,15 @@ $careType = [
  					$hours = floor(($diff-$days*86400)/(60 * 60));
  					$min = floor(($diff-($days*86400+$hours*3600))/60);
  					$second = $diff - ($days*86400+$hours*3600+$min*60);
-                     if ($days > 30) echo "( more than 30 days ago)";
- 					elseif ($days > 0) echo "( " .$days." days ago )";
- 					elseif ($hours > 0) echo "( " .$hours." hours ago )";
- 					elseif ($min > 0) echo "( " .$min." minute ago )";
- 					else echo "( just seconds ago )";
+    //                  if ($days > 30) echo "( more than 30 days ago)";
+ 			// 		elseif ($days > 0) echo "( " .$days." days ago )";
+ 			// 		elseif ($hours > 0) echo "( " .$hours." hours ago )";
+ 			// 		elseif ($min > 0) echo "( " .$min." minute ago )";
+ 			// 		else echo "( just seconds ago )";
  				?> 
  			    </h5>
  			    <?php } ?>
 
-				<div class="profile-activities"> <?php 
-                    
-                    //for caregivers
-                    if($data['care_type'] <10 ) { ?>
-                        <?php if($data['care_type'] != 7) { ?>
-                            <?php if(isset($data['age']) && is_numeric($data['age'])){?>
-                                <li>							
-    								<?php echo $data['age'];?> years old							
-    							</li>
-                            <?php  } ?>                        
-                            
-                            <?php if($data['experience']){?>
-    							<li>							
-    								<?php if ($data['experience'] == 6) {echo '5+';} else {echo $data['experience'];}?> years of experience							
-    							</li>
-                            <?php  } ?>
-                        <?php  } 
-                        else { 
-                            if($data['type_of_therapy']) { ?>
-                              <li>
-                                <?php echo $data['type_of_therapy']; ?>
-                              </li>
-                            <?php }
-                            if($data['certification']) { ?>
-                              <li>
-                                <?php echo $data['certification']; ?>
-                              </li>
-                            <?php }
-                            
-                         } ?>
-
-                    
-                    <?php  } ?>
-
-                    </div><div class="profile-activities">
-                                        
-                    <?php 
-                    
-                    //for job posters
-                    if($data['care_type'] >16 && $data['care_type'] <25 ) { ?>
-                        <?php  $availablility_arr = explode(',',$data['availability']); ?>
-                        <?php if(in_array(strtolower('Asap'),array_map('strtolower',$availablility_arr))){?>
-                            <li>							
-								Job start date: ASAP							
-							</li>
-                        <?php  }
-                        elseif(isset($data['start_date']) && $data['start_date'] !='0000-00-00'){ ?>    
-                            <li>
-                               <?php $start_date_arr = explode('-',$data['start_date'])?>
-                               Job start date: <?php echo $start_date_arr[1].'/'.$start_date_arr[2].'/'.$start_date_arr[0]; ?>
-                            </li>
-                        <?php  } ?>
-                        <?php if($data['rate']){?>
-							<li>							
-								<?php 
-								if($data['currency'] == 'ILS') {
-								    echo "&#8362;"; 
-								} else {
-								    echo '$';
-								}
-								echo str_replace("t","-",$data['rate']);
-								?>
-                                <?php echo $data['rate_type']==1?" per hour":" per hour"; ?>						
-							</li>
-                        <?php  } ?>
-                    <?php  } ?>
-
-					<?php 
-                    
-                    //for caregivers
-                    if($data['care_type'] <10 ) { ?>
-                    
-                    <?php if($data['care_type'] == 7 && $data['experience']) { ?>
-                              <li>
-                                <?php if ($data['experience'] == 6) {echo '5+';} else {echo $data['experience'];}?> years in practice
-                              </li>
-                            <?php } ?> 
-                    
-                    <?php if(segment(2)!== 'therapists'){ ?>
-                        
-                        
-                        <?php if($data['rate']){?>
-							<li>
-							    <?php 
-								if($data['currency'] == 'ILS') {
-								    $r = "&#8362;"; 
-								} else {
-								    $r = '$';
-								}
-								$r .= str_replace("t","-",$data['rate']);
-								?>							
-								<?php echo $data['care_type']==3 ? $data['rate'] : $r ?>
-                                <?php echo $data['care_type']==3 ? "" : " per hour"; ?>						
-							</li>
-                        <?php  
-                            }
-                           } 
-                        ?>
-                        
-                        
-                        <?php
-                            if(segment(2)!== 'therapists'){ 
-                                if($data['experience']) { 
-                        ?>
-                              <!--<li>-->
-                                <?php 
-                                    // echo $data['experience'].' years in practice'; 
-                                    ?>
-                              <!--</li>-->
-                        <?php
-                             }
-                         } 
-                        ?> 
-                        
-                        <?php  $availablility_arr = explode(',',$data['availability']); ?>
-                        <?php if(in_array('Immediate',$availablility_arr)){?>
-                            <li>							
-								Available Immediately							
-							</li>
-                        <?php  }
-                        elseif(isset($data['start_date']) && $data['start_date'] !='0000-00-00'){ ?>    
-                            <li>
-                               <?php $start_date_arr = explode('-',$data['start_date'])?>
-                               Available <?php echo $start_date_arr[1].'/'.$start_date_arr[2].'/'.$start_date_arr[0]; ?> 
-                            </li>
-                        <?php  } ?>                             
-                                             					 	        
-                    <?php } ?>
-                    
-				</div>
 				<div style="clear:both"></div>
 				 <a href="<?php echo site_url().$navigate; ?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="margin-top: 5px;">See Full Profile</a>
 			</div>

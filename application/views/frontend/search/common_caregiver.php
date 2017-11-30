@@ -348,17 +348,20 @@
         var sort_by = $('#sort_by_select').val();
 		var care_type = $('#careId').val() != null ? $('#careId').val() : '<?php echo $careType ?>'
 		var rate = $('.rate').val();
-        var caregiverage_from = $('.caregiverage_from').val() ? $('.caregiverage_from').val() : '';
-        var caregiverage_to = $('.caregiverage_to').val() ? $('.caregiverage_to').val() : '';
-        var gender_of_caregiver = $('.gender_of_caregiver').is(':checked')?$('input[name=gender_of_caregiver]:checked').val():'';
+		var caregiverage_from = '';
+		var caregiverage_to = '';
+		if ($('#age_of_caregiver').val()) {
+		    var ages = $('#age_of_caregiver').val().split('_')
+		    caregiverage_from = ages[0];
+		    caregiverage_to = ages[1];
+		}
+        var gender_of_caregiver = $("#gender_of_caregiver").val();
         var gender_of_careseeker = $('.gender_of_careseeker').is(':checked')?$('input[name=gender_of_careseeker]:checked').val():'';
         var lang = $('.lang:checked').map(function(_, el) {
 	        return $(el).val();
 	    }).get();
         var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
-	    var observance = $('.observance:checked').map(function(_, el) {
-	        return $(el).val();
-	    }).get();
+	    var observance = $('#observance').val();
 
 	    var carelocations = $('.carelocation:checked').map(function(_, el) {
 	        return $(el).val();
@@ -452,8 +455,8 @@
                       space : false
                   });
                 });
-   
-			}
+                $('.profile_snippets').each(function(e, f) {var text = f.innerText.substring(0, f.innerText.length - 1); f.innerText = text;})
+	       }
 		});
 	}
 	
@@ -467,12 +470,12 @@
             filterCaregivers();
 		});
 		
-        $('.rate,.accept_insurance,.number_of_children,.year_experience,.age_group,#textbox1,.sub_care,#per_page,select[name="sort_by_select"]').change(function(){
+        $('#age_of_caregiver, #observance,select[name="gender"],select[name="gender_of_caregiver"],.rate,.accept_insurance,.number_of_children,.year_experience,.age_group,#textbox1,.sub_care,#per_page,select[name="sort_by_select"]').change(function(){
 			$('#pagenum').val(1);
             filterCaregivers();
 		});
               
-		$('.subject,.skills,.extra_field,.gender,.gender_of_caregiver,.gender_of_careseeker,.smoker,.lang,.observance,.homework_help,.on_short_notice,.sick_child_care,.morenum,.basic_housework,.vehicle,.looking_to_work,.year_experience,.training,.availability,.driver_license,.pick_up_child,.cook,.carelocation').click(function(){
+		$('.subject,.skills,.extra_field,.gender,.gender_of_caregiver,.gender_of_careseeker,.smoker,.lang,.homework_help,.on_short_notice,.sick_child_care,.morenum,.basic_housework,.vehicle,.looking_to_work,.year_experience,.training,.availability,.driver_license,.pick_up_child,.cook,.carelocation').click(function(){
             $('#pagenum').val(1);
             filterCaregivers();
 		});
