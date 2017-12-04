@@ -40,6 +40,16 @@ class Login extends CI_Controller
             'login_ip' => $_SERVER['REMOTE_ADDR'],
             'logout_time' => time(),
         );
+        if ($user['archive']) {
+            $this->user_model->edit_user(['archive' => 0], $user['id']);
+            $this->load->library('activeCampaign');
+        	$ac = $this->activecampaign;
+	        $contact = array(
+        		"email"      => $user['email'],
+        		"tags"       => ['Archived'],
+         	);
+            $ac->api("contact/tag_remove", $contact);
+        }
 
         $log_id = $this->common_model->insert('tbl_user_logs', $log, true);
         $log_id = sha1($log_id);

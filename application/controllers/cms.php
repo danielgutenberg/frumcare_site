@@ -5,6 +5,8 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			parent:: __construct();
 			$this->load->model('cms_model');
 			$this->load->library('breadcrumbs');
+			$this->load->model('common_care_model');
+			$this->load->model('user_model');
 		}
 
 		public function aboutus(){
@@ -118,7 +120,8 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}
 		
-		public function backgroundcheck(){
+		public function backgroundcheck()
+		{
 			$this->breadcrumbs->push('Background Check', '/background-check');
 			$this->breadcrumbs->unshift('Home', base_url());
 			
@@ -128,5 +131,79 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}
 		
+		public function archiveuser()
+		{
+			$time = time();
+			$eigthyThreeDaysAgo = $time - (60 * 60 * 24 * 83);
+			$eightyEightDaysAgo = $time - (60 * 60 * 24 * 88);
+			$eightyNineDaysAgo = $time - (60 * 60 * 24 * 89);
+			$ninetyDaysAgo = $time - (60 * 60 * 24 * 90);
+			$users = $this->common_care_model->getLastLogin($eigthyThreeDaysAgo);
+			foreach ($users as $user) {
+				if ($user['login_time'] < $ninetyDaysAgo) {
+					if ($user['archive_warning'] == 'two_days') {
+						$this->send_expired($user);
+						$this->user_model->edit_user(['archive' => 1], $user['id']);
+					} else if ($user['archive_warning'] == 'week') {
+						$this->send_warning($user, 2);
+						$this->user_model->edit_user(['archive_warning' => 'two_days'], $user['id']);
+					} else if (!$user['archive_warning']) {
+						$this->send_warning($user, 7);
+						$this->user_model->edit_user(['archive_warning' => 'week'], $user['id']);
+					}
+				} else if ($user['login_time'] < $eightyEightDaysAgo) {
+					if ($user['archive_warning'] == 'week') {
+						$this->send_warning($user, 2);
+						$this->user_model->edit_user(['archive_warning' => 'two_days'], $user['id']);
+					} else if (!$user['archive_warning']) {
+						$this->send_warning($user, 7);
+						$this->user_model->edit_user(['archive_warning' => 'week'], $user['id']);
+					}
+				} else if ($user['login_time'] < $eigthyThreeDaysAgo) {
+					if (!$user['archive_warning']) {
+						$this->send_warning($user, 7);
+						$this->user_model->edit_user(['archive_warning' => 'week'], $user['id']);
+					}
+				}
+			}
+		}
 		
+		private function send_warning($user, $days)
+		{
+	        $msg = $this->load->view('emails/account_inactive', array('name' => $user['name'], 'days' => $days), true);
+	        $param = array(
+	            'subject'     => 'Account Inactive',
+	            'from'        => SITE_EMAIL,
+	            'from_name'   => SITE_NAME,
+	            'replyto'     => SITE_EMAIL,
+	            'replytoname' => SITE_NAME,
+	            'sendto'      => $user['email'],
+	            'message'     => $msg
+	        );
+	        
+	        sendemail($param);
+		}
+		
+		private function send_expired($user)
+		{
+	        $msg = $this->load->view('emails/account_expired', array('name' => $user['name']), true);
+	        $param = array(
+	            'subject'     => 'Account Expired',
+	            'from'        => SITE_EMAIL,
+	            'from_name'   => SITE_NAME,
+	            'replyto'     => SITE_EMAIL,
+	            'replytoname' => SITE_NAME,
+	            'sendto'      => $user['email'],
+	            'message'     => $msg
+	        );
+	        
+	        sendemail($param);
+	        $this->load->library('activeCampaign');
+        	$ac = $this->activecampaign;
+	        $contact = array(
+        		"email"      => $user['email'],
+        		"tags"       => ['Archived'],
+         	);
+            $ac->api("contact/tag_add", $contact);
+		}
 	}
