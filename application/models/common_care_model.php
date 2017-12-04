@@ -148,6 +148,8 @@ class Common_care_model extends CI_Model
     
     function filter($search,$latitude,$longitude, $organization, $limit, $offset)
     {
+        $latitude = round($latitude, 3);
+        $longitude = round($longitude, 3);
         if(is_array($search)){
 			$care_type  		  = $search['care_type'];
 			$neighbour 			  = $search['neighbour'];
@@ -389,6 +391,8 @@ class Common_care_model extends CI_Model
     
     function get_count($search,$latitude,$longitude, $organization)
     {
+        $latitude = round($latitude, 3);
+        $longitude = round($longitude, 3);
         if(is_array($search)){
 			$care_type  		  = $search['care_type'];
 			$neighbour 			  = $search['neighbour'];
