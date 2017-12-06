@@ -133,6 +133,7 @@ class Common_care_model extends CI_Model
 				tbl_user 
 			where 
 				tbl_user.archive = 0
+				and NOT EXISTS (SELECT * FROM tbl_user_logs WHERE tbl_user_logs.user_id = tbl_user.id AND (login_time = logout_time OR logout_time = 0))
 				and (SELECT MAX(login_time) FROM tbl_user_logs WHERE tbl_user_logs.user_id = tbl_user.id) < $time
 			order 
 				by login_time desc
