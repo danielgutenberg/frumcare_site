@@ -139,7 +139,6 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			$eightyNineDaysAgo = $time - (60 * 60 * 24 * 89);
 			$ninetyDaysAgo = $time - (60 * 60 * 24 * 90);
 			$users = $this->common_care_model->getLastLogin($eigthyThreeDaysAgo);
-			print_rr($users);
 			foreach ($users as $user) {
 				if ($user['login_time'] < $ninetyDaysAgo) {
 					if ($user['archive_warning'] == 'two_days') {
