@@ -254,7 +254,7 @@
             }
     	    $offset = 0;
     	    if ($page > 1) {
-    	        $offset = ($page - 1) * 15;
+    	        $offset = ($page - 1) * $limit;
     	    }
             $latitude = $this->input->get('lat',true);
             $longitude = $this->input->get('lng',true);
