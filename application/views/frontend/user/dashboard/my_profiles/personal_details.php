@@ -117,7 +117,7 @@
                     <div class="small-seperator"></div>
                     <div class="first-names">
                         <label>Phone</label>
-                        <input type="text" name="contact_number" id="conatct" placeholder="Contact Number" class="required" value="<?php echo (isset($phone[1])) ? $phone[1] : $user_data['contact_number'] ?>"/>
+                        <input type="text" name="contact_number" id="contact_number" placeholder="Contact Number" class="required" value="<?php echo (isset($phone[1])) ? $phone[1] : $user_data['contact_number'] ?>"/>
                     </div>
                     <div class="small-seperator"></div>
 

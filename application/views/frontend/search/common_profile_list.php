@@ -238,14 +238,14 @@ $careType = [
 				
 				<div>
 				    	<?php if(isset($data['driver_license']) && $data['driver_license'] == 1){ ?>
-                            <img src="<?php echo site_url()?>img/car-badge.png" title="Has a vehicle"/>
+                                <img src="<?php echo site_url()?>images/car.png" title="Has a vehicle"/>
                         <?php } ?>
                         <?php if(in_array(strtolower('First Aid'), array_map('strtolower',$training_arr))){ ?>
-                            <img src="<?php echo site_url()?>img/first-aid-badge.png" title="Has first aid training"/>
+                            <img src="<?php echo site_url()?>images/first-aid.png" title="Has first aid training"/>
                         <?php } ?>
                         
                         <?php if(in_array(strtolower('CPR'), array_map('strtolower',$training_arr))){ ?>
-                            <img src="<?php echo site_url()?>img/health-badge.png" title="Has CPR training"/>
+                                <img src="<?php echo site_url()?>images/references.png" title="Has CPR training"/>
                         <?php } ?>
 				</div>
                

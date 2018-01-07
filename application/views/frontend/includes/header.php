@@ -203,7 +203,7 @@ $(function(){
 
 <script>
     $(document).ready(function(){
-        $('#contact_number').mask('999-999-9999');
+        $('#contact_number').mask('999-999-999?9');
     });
 </script>
 <script>
