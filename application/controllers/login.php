@@ -259,12 +259,13 @@ class Login extends CI_Controller
 
     function logout()
     {
-        $log_id = $this->session->userdata('log_id');
-        $this->common_model->update('tbl_user_logs', array('logout_time' => time()), array('SHA1(id)' => $log_id));
+       
+        // $log_id = $this->session->userdata('log_id');
+        // $this->common_model->update('tbl_user_logs', array('logout_time' => time()), array('SHA1(id)' => $log_id));
         $this->session->unset_userdata('current_user');
-        $this->session->unset_userdata('care');
-        $this->session->unset_userdata('log_id');
-        $this->session->unset_userdata('account_category');
+        // $this->session->unset_userdata('care');
+        // $this->session->unset_userdata('log_id');
+        // $this->session->unset_userdata('account_category');
         redirect('/');
     }
 
