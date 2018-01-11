@@ -49,7 +49,7 @@
         
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.13/jquery.mask.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
         
         <script src="<?php echo base_url('js/vendor/alljs.min.js') ?>"></script>
@@ -203,7 +203,31 @@ $(function(){
 
 <script>
     $(document).ready(function(){
-        $('#contact_number').mask('999-999-999?9');
+        
+        var options =  {
+            onChange: function(cep, e, field, options) {
+                var prefix2 = cep.substring(0, 2);
+                var prefix3 = cep.substring(0, 3);
+                var masks = ['(000) 000-0000', '(00) 000-0000'];
+                if( prefix2 == '(0' && prefix3 != '(05' && prefix3 != '(07') {
+                    mask = masks[1];
+                } else {
+                    mask = masks[0]
+                }
+                $('.contact_number').mask(mask, options);
+                $('#contact_number').mask(mask, options);
+            }
+        };
+        if ($("#contact_number").val().length == 10) {
+            $('#contact_number').mask('(000) 000-0000', options);
+        } else {
+            $('#contact_number').mask('(00) 000-0000', options);
+        }
+        if ($(".contact_number").val().length == 10) {
+            $('.contact_number').mask('(000) 000-0000', options);
+        } else {
+            $('.contact_number').mask('(00) 000-0000', options);
+        }
     });
 </script>
 <script>
