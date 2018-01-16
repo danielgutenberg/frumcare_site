@@ -218,12 +218,12 @@ $(function(){
                 $('#contact_number').mask(mask, options);
             }
         };
-        if ($("#contact_number").val() && $("#contact_number").val().length == 10) {
+        if ($("#contact_number").val() && $("#contact_number").val().length == 14) {
             $('#contact_number').mask('(000) 000-0000', options);
         } else {
             $('#contact_number').mask('(00) 000-0000', options);
         }
-        if ($(".contact_number").val() && $(".contact_number").val().length == 10) {
+        if ($(".contact_number").val() && $(".contact_number").val().length == 14) {
             $('.contact_number').mask('(000) 000-0000', options);
         } else {
             $('.contact_number').mask('(00) 000-0000', options);
