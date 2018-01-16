@@ -847,6 +847,7 @@ class Ad extends CI_Controller
             }
             $profile = $this->job_or_profile();
             if($q){
+                update_crm(get_user(check_user()));
                 if ($email == 1) {
                     $this->session->set_flashdata('info', "$profile Updated successfully. Your ad will be returned to the site shortly after being approved by our team.");
                 } else {
