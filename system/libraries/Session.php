@@ -302,7 +302,7 @@ class CI_Session {
 
 		// Run the update query
 		$this->CI->db->where('session_id', $this->userdata['session_id']);
-		$this->CI->db->update($this->sess_table_name, array('last_activity' => $this->userdata['last_activity'], 'user_data' => $custom_userdata));
+		$this->CI->db->update($this->sess_table_name, array('user_id' => $this->userdata['current_user'], 'last_activity' => $this->userdata['last_activity'], 'user_data' => $custom_userdata));
 
 		// Write the cookie.  Notice that we manually pass the cookie data array to the
 		// _set_cookie() function. Normally that function will store $this->userdata, but
@@ -328,7 +328,6 @@ class CI_Session {
 
 		// To make the session ID even more secure we'll combine it with the user's IP
 		$sessid .= $this->CI->input->ip_address();
-
 		$this->userdata = array(
 							'session_id'	=> md5(uniqid($sessid, TRUE)),
 							'ip_address'	=> $this->CI->input->ip_address(),
@@ -386,7 +385,7 @@ class CI_Session {
 		// _set_cookie() will handle this for us if we aren't using database sessions
 		// by pushing all userdata to the cookie.
 		$cookie_data = NULL;
-
+		
 		// Update the session ID and last_activity field in the DB if needed
 		if ($this->sess_use_database === TRUE)
 		{
