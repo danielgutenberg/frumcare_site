@@ -72,7 +72,7 @@
                                     $archiveStatus = 'Archived';
                                 } else {
                                     if ($ud['profile_status'] == 1) {
-                                       $archiveStatus = 'Archived'; 
+                                       $archiveStatus = 'Approved'; 
                                     } else {
                                         $archiveStatus = 'Pending'; 
                                     }
