@@ -47,13 +47,15 @@
                                     </td>
                                     <td><?php echo $ud['email'];?></td>
                                     <td><?php echo 'No Package selected';?></td>
-                                    <td><?php  if($ud['status'] == 1) echo 'Active'; else if($ud['status'] == 0) echo 'Inactive'; else echo 'Deleted';?></td>
+                                    <td><?php  if($ud['archive'] == 1) echo 'Archived'; else if($ud['status'] == 1) echo 'Active'; else if($ud['status'] == 0) echo 'Inactive'; else echo 'Deleted';?></td>
                                     <?php
-                                    if($ud['status'] == 1){
-                                        $status = "inactivate";
+                                    
+                                        if($ud['status'] == 1){
+                                            $status = "inactivate";
                                         }else{
                                             $status = "activate";
                                         }
+                                    
                                     ?>
                                     <td>
                                         <!-- <a class="btn btn-info" href="<?php echo base_url('admin/user/edit/'.$ud['id']) ?>">Edit</i></a> -->
