@@ -364,7 +364,8 @@
                 ">
                     
                 </ol>
-                <a href="http://www.google.com" style="position:absolute; top:100px; left: 100px; width:25px; height:25px"></a>
+                <a href="<?php echo base_url('caregivers/all') ?>" style="position:absolute; top:1px; left: 1px; width:50%; height:100%"></a>
+                <a href="<?php echo base_url('jobs/all') ?>" style="position:absolute; top:1px; right: 1px; width:50%; height:100%"></a>
             </div>
         </section>
         <section class="how-it-works" style="background-image: url(img/homepage-icons/background_featured.png);">
@@ -379,6 +380,7 @@
                 ">Featured Care Providers</h2>
                 <div class="row">
                     <div class="col-xs-8 col-xs-offset-2 col-sm-offset-0 col-sm-6 col-md-3">
+                        <a href="<?php echo base_url('caregivers/all') ?>">
                         <div id="featured-0-image" style="
                             background-image:url(img/homepage-icons/household-best.png);
                             background-repeat:no-repeat;
@@ -406,8 +408,10 @@
                             ">
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div class="col-xs-8 col-xs-offset-2 col-sm-offset-0 col-sm-6 col-md-3">
+                        <a href="<?php echo base_url('caregivers/all') ?>">
                         <div id="featured-1-image" style="
                             background-image:url(img/homepage-icons/household-best.png);
                             background-repeat:no-repeat;
@@ -435,8 +439,10 @@
                             ">
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div class="col-xs-8 col-xs-offset-2 col-sm-offset-0 col-sm-6 col-md-3">
+                        <a href="<?php echo base_url('caregivers/all') ?>">
                         <div id="featured-2-image" style="
                             background-image:url(img/homepage-icons/household-best.png);
                             background-repeat:no-repeat;
@@ -464,8 +470,10 @@
                             ">
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div class="col-xs-8 col-xs-offset-2 col-sm-offset-0 col-sm-6 col-md-3">
+                        <a href="<?php echo base_url('caregivers/all') ?>">
                         <div id="featured-3-image" style="
                             background-image:url(img/homepage-icons/household-best.png);
                             background-repeat:no-repeat;
@@ -493,6 +501,7 @@
                             ">
                             </div>
                         </div>
+                        </a>
                     </div>
                 </div>
                 
