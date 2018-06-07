@@ -53,7 +53,14 @@
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
         
         <script src="<?php echo base_url('js/vendor/alljs.min.js') ?>"></script>
-
+        <script async src="//pagead2.googlesyndication.com/
+        pagead/js/adsbygoogle.js"></script>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-5485946530885713",
+        enable_page_level_ads: true
+        });
+        </script>
         <!-- Facebook Conversion Code for Caregiver leads -->
         <script>(function() {
                 var _fbq = window._fbq || (window._fbq = []);
