@@ -131,7 +131,7 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			$this->load->view(FRONTEND_TEMPLATE,$data);
 		}
 		
-		public function archiveuser()
+		public function archiveusers()
 		{
 			$time = time();
 			$eigthyThreeDaysAgo = $time - (60 * 60 * 24 * 83);
@@ -139,33 +139,42 @@ if(! defined('BASEPATH'))exit('NO direct script access allowed');
 			$eightyNineDaysAgo = $time - (60 * 60 * 24 * 89);
 			$ninetyDaysAgo = $time - (60 * 60 * 24 * 90);
 			$users = $this->common_care_model->getLastLogin($eigthyThreeDaysAgo);
+			$userMessages = [];
 			foreach ($users as $user) {
 				if ($user['login_time'] < $ninetyDaysAgo) {
 					if ($user['archive_warning'] == 'two_days') {
 						$this->send_expired($user);
 						$this->user_model->edit_user(['archive' => 1], $user['id']);
+						$userMessages[$user['email']] = 'archive';
 					} else if ($user['archive_warning'] == 'week') {
 						$this->send_warning($user, 2);
 						$this->user_model->edit_user(['archive_warning' => 'two_days'], $user['id']);
+						$userMessages[$user['email']] = 'two_days';
 					} else if (!$user['archive_warning']) {
 						$this->send_warning($user, 7);
 						$this->user_model->edit_user(['archive_warning' => 'week'], $user['id']);
+						$userMessages[$user['email']] = 'week';
 					}
 				} else if ($user['login_time'] < $eightyEightDaysAgo) {
 					if ($user['archive_warning'] == 'week') {
 						$this->send_warning($user, 2);
 						$this->user_model->edit_user(['archive_warning' => 'two_days'], $user['id']);
+						$userMessages[$user['email']] = 'two_days';
 					} else if (!$user['archive_warning']) {
 						$this->send_warning($user, 7);
 						$this->user_model->edit_user(['archive_warning' => 'week'], $user['id']);
+						$userMessages[$user['email']] = 'week';
 					}
 				} else if ($user['login_time'] < $eigthyThreeDaysAgo) {
 					if (!$user['archive_warning']) {
 						$this->send_warning($user, 7);
 						$this->user_model->edit_user(['archive_warning' => 'week'], $user['id']);
+						$userMessages[$user['email']] = 'week';
 					}
 				}
 			}
+			
+			return $userMessages;
 		}
 		
 		private function send_warning($user, $days)

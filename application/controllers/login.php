@@ -38,7 +38,6 @@ class Login extends CI_Controller
             'login_browser' => $user_data['name'].' '.$user_data['version'],
             'login_os' => $user_data['platform'],
             'login_ip' => $_SERVER['REMOTE_ADDR'],
-            'logout_time' => time(),
         );
         if ($user['archive']) {
             $this->user_model->edit_user(['archive' => 0], $user['id']);
@@ -260,12 +259,13 @@ class Login extends CI_Controller
 
     function logout()
     {
-        $log_id = $this->session->userdata('log_id');
-        $this->common_model->update('tbl_user_logs', array('logout_time' => time()), array('SHA1(id)' => $log_id));
+       
+        // $log_id = $this->session->userdata('log_id');
+        // $this->common_model->update('tbl_user_logs', array('logout_time' => time()), array('SHA1(id)' => $log_id));
         $this->session->unset_userdata('current_user');
-        $this->session->unset_userdata('care');
-        $this->session->unset_userdata('log_id');
-        $this->session->unset_userdata('account_category');
+        // $this->session->unset_userdata('care');
+        // $this->session->unset_userdata('log_id');
+        // $this->session->unset_userdata('account_category');
         redirect('/');
     }
 

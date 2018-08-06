@@ -124,7 +124,7 @@ class Common_care_model extends CI_Model
     {
     	$sql = "
     		select 
-				(SELECT MAX(login_time) FROM tbl_user_logs WHERE tbl_user_logs.user_id = tbl_user.id) AS login_time,
+				(SELECT MAX(last_activity) FROM ci_sessions WHERE ci_sessions.user_id = tbl_user.id) AS login_time,
 				tbl_user.id,
 				tbl_user.name,
 				tbl_user.email,
@@ -133,7 +133,8 @@ class Common_care_model extends CI_Model
 				tbl_user 
 			where 
 				tbl_user.archive = 0
-				and (SELECT MAX(login_time) FROM tbl_user_logs WHERE tbl_user_logs.user_id = tbl_user.id) < $time
+				and EXISTS (SELECT * FROM ci_sessions WHERE ci_sessions.user_id = tbl_user.id)
+				and (SELECT MAX(last_activity) FROM ci_sessions WHERE ci_sessions.user_id = tbl_user.id) < $time
 			order 
 				by login_time desc
     	";

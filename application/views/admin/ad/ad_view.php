@@ -67,7 +67,18 @@
                             <td><?php echo $ud['location'];?></td>
                             <td><?php echo $ud['contact_number'];?></td>
                             <td><?php echo date('M j, Y H:i',$ud['created_time']);?></td>
-                            <td><?php echo $ud['profile_status'] == 1 ? 'Approved':'Pending';?></td>
+                            <?php
+                                if ($ud['archive'] == 1) {
+                                    $archiveStatus = 'Archived';
+                                } else {
+                                    if ($ud['profile_status'] == 1) {
+                                       $archiveStatus = 'Approved'; 
+                                    } else {
+                                        $archiveStatus = 'Pending'; 
+                                    }
+                                }
+                            ?>
+                            <td><?php echo $archiveStatus;?></td>
                             <td>
                                 <a class="btn btn-info" href="<?php echo base_url('admin/ad/detail/'.$ud['userProfileId']);?>">Edit</a>
                             
