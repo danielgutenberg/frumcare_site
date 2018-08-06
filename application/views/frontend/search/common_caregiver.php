@@ -58,6 +58,11 @@
 </style>
 <div class="container">
     <?php echo $this->breadcrumbs->show(); ?>
+    <?php 
+    $s1 = $this->uri->segment(1); // must be caregivers, jobs, organization
+    $s2 = $this->uri->segment(2); // must be care type, job type
+    $s3 = $this->uri->segment(3);
+    ?>
     <?php if($s1 == 'caregivers'){
         $ac = $account_category==3?3:2; ?>
         <div class="caregivers-contact-you"><p>Want Caregivers to Contact you?<a href='<?php echo site_url()."signup?ac=$ac"?>' class="btn btn-primary ml10 btn-xs">Post a Job for free</a></p></div>
@@ -66,9 +71,6 @@
         <div class="caregivers-contact-you"><p>Want Employers to Contact you?<a href='<?php echo site_url()."signup?ac=$ac"?>' class="btn btn-primary ml10 btn-xs">Create a Profile for free</a></p></div>
     <?php } ?>
 <?php
-    $s1 = $this->uri->segment(1); // must be caregivers, jobs, organization
-    $s2 = $this->uri->segment(2); // must be care type, job type
-    $s3 = $this->uri->segment(3);
     if($s1=='jobs' && ($s2 == 'all'|| $s2 =='')) {
         $left_navbar='all_jobs';
         $careType = 'jobs';

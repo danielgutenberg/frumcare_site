@@ -1,6 +1,6 @@
 <?php $availability = explode(',',$data['availability']); ?>
 <div style="font-size:12px">
- 	<label style="font-size:13px; font-weight:600; margin-bottom:6px;">I need a care Provider</label>
+ 	<label style="font-size:13px; font-weight:600; margin-bottom:6px;">Availability</label>
  	<div class="row">
  	    <div class="col-xs-5">
  	        <input style="margin-right: 5px; margin-bottom:9px" name ="when_care" type="radio" class="availability" value="Immediate" <?php if(in_array("Immediate",$availability)){?> checked="checked" <?php } ?>>Immediately

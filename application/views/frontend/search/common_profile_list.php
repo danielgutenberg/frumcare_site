@@ -83,7 +83,6 @@ $careType = [
     	            <div style="width:200px">
                     <div class="rating-score" id="<?php echo ($data['total_review']/($reviews>0?$reviews:1));?>"></div>
                     <span style="font-size:14px;font-weight: 400;vertical-align: middle;">(<?php echo number_format($reviews);?> reviews)</span>
-                    <button class="btn btn-primary btn-sm" style="width: 80%;margin-top: 10px; font-size:16px;">Contact Now</button>
                 </div>
     	        <div class="pin-location"> <?php 
                     if($data['location']) { ?>
@@ -290,6 +289,8 @@ $careType = [
 
 				<div style="clear:both"></div>
 				 <a href="<?php echo site_url().$navigate; ?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="margin-top: 5px;">See Full Profile</a>
+				 <br>
+				 <button class="btn-primary btn-sm" style="width: 80%;margin-top: 10px; font-size:16px;margin-left: -8px;width: 162px;">Contact Now</button>
 			</div>
 		</div>
 		<div class="clearfix"></div>
