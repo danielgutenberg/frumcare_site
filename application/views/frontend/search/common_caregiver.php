@@ -19,11 +19,13 @@
     .caregivers-contact-you {
         font-family: Rufina;
         color: #1d1c1b;
-        font-size: 36px;
+        font-size: 24px;
         font-weight: 400;
-        line-height: 30px;
+        line-height: 26px;
         text-align: center;
         margin-bottom:40px;
+        margin-top: -50px;
+        margin-left: 200px;
     }
     .right-caregivers {
         margin-top: 0px;
