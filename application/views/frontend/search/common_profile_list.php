@@ -278,11 +278,11 @@ $careType = [
  					$hours = floor(($diff-$days*86400)/(60 * 60));
  					$min = floor(($diff-($days*86400+$hours*3600))/60);
  					$second = $diff - ($days*86400+$hours*3600+$min*60);
-    //                  if ($days > 30) echo "( more than 30 days ago)";
- 			// 		elseif ($days > 0) echo "( " .$days." days ago )";
- 			// 		elseif ($hours > 0) echo "( " .$hours." hours ago )";
- 			// 		elseif ($min > 0) echo "( " .$min." minute ago )";
- 			// 		else echo "( just seconds ago )";
+                     if ($days > 30) echo "( more than 30 days ago)";
+ 					elseif ($days > 0) echo "( " .$days." days ago )";
+ 					elseif ($hours > 0) echo "( " .$hours." hours ago )";
+ 					elseif ($min > 0) echo "( " .$min." minute ago )";
+ 					else echo "( just seconds ago )";
  				?> 
  			    </h5>
  			    <?php } ?>
@@ -290,7 +290,22 @@ $careType = [
 				<div style="clear:both"></div>
 				 <a href="<?php echo site_url().$navigate; ?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="margin-top: 5px;">See Full Profile</a>
 				 <br>
+				 <?php 
+				    $type = Caretype_model::getCareTypeById($data['care_type']);
+                    $referAccountType = 2;
+                    if($data['care_type'] > 16) {
+                        $referAccountType = 1;
+                    }
+                    $userId = check_user();
+                    if ($userId != '') {
+                        $contactLink = site_url() . "contactprofile/profile/" . $navigate . "/" . $data['uri'] . "/" . $data['care_type'];
+                    }else{
+                        $contactLink = site_url() . "signup?ac=" . $referAccountType . "?url=" . base64_encode(uri_string());
+                    } 
+                  ?>
+                  <a href="<?php echo $contactLink; ?>">
 				 <button class="btn-primary btn-sm" style="width: 80%;margin-top: 10px; font-size:16px;margin-left: -8px;width: 162px;">Contact Now</button>
+				 </a>
 			</div>
 		</div>
 		<div class="clearfix"></div>

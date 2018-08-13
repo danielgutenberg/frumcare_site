@@ -284,7 +284,7 @@
             </div>
             <div class="col-md-3 col-xs-6 paddingBottom">
                 <label class="locationText" style="height:37px;"></label>  
-                <a id="searchButton" style="cursor:pointer; padding: 5px 20px;font-size: 13px;" class="btn btn-primary btn-sm"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;GO HERE</a>
+                <a id="searchButton" style="cursor:pointer; padding: 5px 20px;font-size: 13px;" class="btn btn-primary btn-sm"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;GO</a>
             </div>
         </div>
         <div class="row paddingTop">
