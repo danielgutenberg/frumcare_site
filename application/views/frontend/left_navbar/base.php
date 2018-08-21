@@ -17,6 +17,7 @@
             }
 	 	?>
         </div>
+        <h4 style="padding: 10px;background: #6a6a6a;color: #cecaca; height:47px;"></h4>
             <script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=b995b62a-2c1a-4adc-94b4-639eb2be9af6"></script>
 
     </div>

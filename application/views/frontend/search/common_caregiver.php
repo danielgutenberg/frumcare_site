@@ -295,7 +295,7 @@
         </div>
         <div class="row paddingTop">
             <div class="col-xs-6 col-md-4 paddingBottom" style="padding-top:4px">
-                <div class="total_rows hidden" style="margin-bottom: 0px">
+                <div class="total_rows hidden" style="margin-bottom: 0px; font-size: 24px; margin-top:-10px;">
             		<span id="total"></span>
                     <?php
                       if( $total_rows > 1 && substr($title,-1) == 'y' ){

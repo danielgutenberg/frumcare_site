@@ -1,5 +1,5 @@
 <div class="select-services">
-    <label>Wage</label>
+    <label style="font-size:13px; font-weight:600; margin-bottom:6px;">Wage</label>
         <select name="rate" class="rate">
             <option value="">Select wage</option>
             <option value="5-10" <?php if ($data['rate'] == '5-10') echo 'selected' ?>>5-10 / Hr</option>

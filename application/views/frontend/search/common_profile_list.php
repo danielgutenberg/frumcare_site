@@ -187,16 +187,13 @@ $careType = [
                     //for job posters
                     if($data['care_type'] >16 && $data['care_type'] <25 ) { ?>
                         <?php  $availablility_arr = explode(',',$data['availability']);?>
-                        <?php if(in_array(strtolower('Asap'),array_map('strtolower',$availablility_arr))){?>
-                            <li>							
-								Job start date: ASAP							
-							</li>
-                        <?php  }
-                        elseif(isset($data['start_date']) && $data['start_date'] !='0000-00-00'){ ?>    
-                            <li>
-                               <?php $start_date_arr = explode('-',$data['start_date'])?>
-                               Job start date: <?php echo $start_date_arr[1].'/'.$start_date_arr[2].'/'.$start_date_arr[0]; ?>
-                            </li>
+                        <?php if(in_array('asap',array_map('strtolower',$availablility_arr))){?>							
+							Job start date: ASAP |
+                        <?php }
+                         else if(isset($data['start_date']) && $data['start_date'] != '0000-00-00'){  
+                               $start_date_arr = explode('-',$data['start_date'])
+                        ?>
+                               Job start date: <?php echo $start_date_arr[1].'/'.$start_date_arr[2].'/'.$start_date_arr[0]; ?> |
                         <?php  } ?>
                         <?php if($data['rate']){?>							
 								<?php 
