@@ -57,6 +57,10 @@
             width: 1290px;
         }
     }
+    .amzn-native-container {
+        margin-left: auto;
+        margin-right: auto;
+    }
 </style>
 <div class="container">
     <?php echo $this->breadcrumbs->show(); ?>
