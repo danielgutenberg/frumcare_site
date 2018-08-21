@@ -32,10 +32,10 @@
             <option value="8" <?php if(segment(2) == 'cleaning-household-help' || in_array(8, $careId)){?> selected="selected" <?php }?>>Cleaning / household help</option>
             <option value="15" <?php if(segment(2) == 'cleaning-household-help-company' || in_array(15, $careId)){?> selected="selected" <?php }?>>Cleaning / household help company</option>
             <option value="9" <?php if(segment(2) == 'errand-runner-odd-jobs-personal-assistant-driver' || in_array(9, $careId)){?> selected="selected" <?php }?>>Errand runner / odd jobs / personal assistant / driver</option>                    																													
-            <option value="31" <?php if(segment(2) == 'workers-staff-for-childcare-facility' || in_array(31, $careId)){?> selected="selected" <?php }?>>Workers / Staff for childcare facility</option>
-            <option value="35" <?php if(segment(2) == 'workers-staff-for-senior-care-facility' || in_array(35, $careId)){?> selected="selected" <?php }?> >Workers / Staff for senior care facility</option>
-            <option value="36" <?php if(segment(2) == 'workers-staff-for-special-needs-facility' || in_array(36, $careId)){?> selected="selected" <?php }?>>Workers / Staff for special needs facility</option>
-            <option value="38" <?php if(segment(2) == 'workers-for-cleaning-company' || in_array(38, $careId)){?> selected="selected" <?php }?>>Workers for cleaning company</option>
+            <option value="31" <?php if(segment(3) == 'workers-staff-for-childcare-facility' || in_array(31, $careId)){?> selected="selected" <?php }?>>Workers / Staff for childcare facility</option>
+            <option value="35" <?php if(segment(3) == 'workers-staff-for-senior-care-facility' || in_array(35, $careId)){?> selected="selected" <?php }?> >Workers / Staff for senior care facility</option>
+            <option value="36" <?php if(segment(3) == 'workers-staff-for-special-needs-facility' || in_array(36, $careId)){?> selected="selected" <?php }?>>Workers / Staff for special needs facility</option>
+            <option value="38" <?php if(segment(3) == 'workers-for-cleaning-company' || in_array(38, $careId)){?> selected="selected" <?php }?>>Workers for cleaning company</option>
         </select>
     <?php } ?>
 <?php } ?>

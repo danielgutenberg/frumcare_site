@@ -140,13 +140,15 @@ $careType = [
                 //for caregivers 
                 //if($data['care_type'] < 10){ 
                 if($data['care_type'] < 17){
-                    echo $type .' - '.$loca;                                
+                    echo $type .' - '.$loca;
+                    $buttonText = 'See Full Profile';
                 } 
                 
                 //for job posters
                 //if($data['care_type'] < 25 && $data['care_type'] > 16){ 
                 if($data['care_type'] > 16){
-                    echo $type .' needed - '.$loca;                                                               
+                    echo $type .' needed - '.$loca;
+                    $buttonText = 'See Full Job Details';
                 } 
                ?>  
                </div>
@@ -184,7 +186,7 @@ $careType = [
                     
                     //for job posters
                     if($data['care_type'] >16 && $data['care_type'] <25 ) { ?>
-                        <?php  $availablility_arr = explode(',',$data['availability']); ?>
+                        <?php  $availablility_arr = explode(',',$data['availability']);?>
                         <?php if($data['rate']){?>							
 								<?php 
 								if($data['currency'] == 'ILS') {
@@ -229,8 +231,8 @@ $careType = [
                         
                     
                         
-                        <?php  $availablility_arr = explode(',',$data['availability']); ?>
-                                             					 	        
+                        <?php  $availablility_arr = explode(',',$data['availability']);  ?>
+                                          					 	        
                     <?php } ?>
                     
 				</div>
@@ -288,7 +290,7 @@ $careType = [
  			    <?php } ?>
 
 				<div style="clear:both"></div>
-				 <a href="<?php echo site_url().$navigate; ?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="margin-top: 5px;">See Full Profile</a>
+				 <a href="<?php echo site_url().$navigate; ?>/details/<?php echo $data['uri'];?>/<?php echo $data['care_type'];?>" class="btn btn-primary" style="margin-top: 5px;"><?php echo $buttonText; ?></a>
 				 <br>
 				 <?php 
 				    $type = Caretype_model::getCareTypeById($data['care_type']);

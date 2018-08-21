@@ -159,6 +159,7 @@ class Common_care_model extends CI_Model
 			$gender_of_caregiver  = $search['gender_of_caregiver'];
 			$gender_of_careseeker = $search['gender_of_careseeker'];
 			$language 			  = $search['language'];
+			$jobLanguage 		  = $search['job_language'];			
 			$observance 		  = $search['observance'];
 			$min_exp 			  = $search['min_exp'];
 			$availability		  = $search['availability'];
@@ -242,8 +243,20 @@ class Common_care_model extends CI_Model
               	}
               	$sql .= ")";
 			}
-
 		}
+		
+		if($jobLanguage!=''){
+			$languages = explode(',',$jobLanguage);
+			if(is_array($languages)){
+				$first = array_shift($languages);
+            	$sql .= " and (FIND_IN_SET('$first' ,tbl_userprofile.language)";
+            	foreach($languages as $data){
+            		$sql .= " or FIND_IN_SET('$data',tbl_userprofile.language)";
+              	}
+              	$sql .= ")";
+			}
+		}
+		
 		if(!empty($search['subject']) && $search['subject'] !='undefined'){				
                  $subject = explode(',',$search['subject']);
                   if(is_array($subject)){
@@ -402,6 +415,7 @@ class Common_care_model extends CI_Model
 			$gender_of_caregiver  = $search['gender_of_caregiver'];
 			$gender_of_careseeker = $search['gender_of_careseeker'];
 			$language 			  = $search['language'];
+			$jobLanguage 		  = $search['job_language'];			
 			$observance 		  = $search['observance'];
 			$min_exp 			  = $search['min_exp'];
 			$availability		  = $search['availability'];
@@ -486,6 +500,17 @@ class Common_care_model extends CI_Model
 			}
 
 		}
+		if($jobLanguage!=''){
+			$languages = explode(',',$jobLanguage);
+			if(is_array($languages)){
+				$first = array_shift($languages);
+            	$sql .= " and (FIND_IN_SET('$first' ,tbl_userprofile.language)";
+            	foreach($languages as $data){
+            		$sql .= " or FIND_IN_SET('$data',tbl_userprofile.language)";
+              	}
+              	$sql .= ")";
+			}
+		}		
 		if(!empty($search['subject']) && $search['subject'] !='undefined'){				
                  $subject = explode(',',$search['subject']);
                   if(is_array($subject)){

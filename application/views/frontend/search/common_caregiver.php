@@ -246,7 +246,7 @@
     
     if(isset($left_navbar)){
 
-        $this->load->view('frontend/left_navbar/base', array('care_type' => $care_type, 'left_navbar' => $left_navbar));
+        $this->load->view('frontend/left_navbar/base', array('care_type' => $care_type, 'left_navbar' => $left_navbar, 's1' => $s1));
 
     }
     else{
@@ -363,28 +363,19 @@
 		    caregiverage_from = ages[0];
 		    caregiverage_to = ages[1];
 		}
-        var gender_of_caregiver = $("#gender_of_caregiver").val();
+        var gender_of_caregiver = $("#gender_of_caregiver").val() ? $("#gender_of_caregiver").val() : '';
         var gender_of_careseeker = $('.gender_of_careseeker').is(':checked')?$('input[name=gender_of_careseeker]:checked').val():'';
         var lang = $('.lang:checked').map(function(_, el) {
 	        return $(el).val();
 	    }).get();
-        var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
-	    var observance = $('#observance').val();
+	    var jobLang = $('.job_lang:checked').map(function(_, el) {
+	        return $(el).val();
+	    }).get();
+	    var observance = $('#observance').val() ? $('#observance').val() : '';
 
 	    var carelocations = $('.carelocation:checked').map(function(_, el) {
 	        return $(el).val();
 	    }).get();
-
-	    var trainings = $('.training:checked').map(function(_, el) {
-	        return $(el).val();
-	    }).get();
-	    var skills = $('.skills:checked').map(function(_, el) {
-	        return $(el).val();
-	    }).get();
-	    var able_to_work = $('.able_to_work:checked').map(function(_, el) {
-	        return $(el).val();
-	    }).get();
-        var smoker = $('.smoker').is(':checked') ? $('input[name=smoker]:checked').val():'';
 	    var min_exp = $('.year_experience').val() ? $('.year_experience').val() : '';
 	    var availability = $('.availability:checked').map(function(_, el) {
 	        return $(el).val();
@@ -402,21 +393,6 @@
         var year_experience = $('.year_experience:checked').map(function(_, el) {
 	        return $(el).val();
 	    }).get();
-	    var subject = $('.subject:checked').map(function(_, el) {
-            return $(el).val();
-        }).get();
-	    var pick_up_child = $('.pick_up_child').is(':checked') ? $('.pick_up_child').val() : '';
-        var cook = $('.cook').is(':checked') ? $('.cook').val():'';
-        var basic_housework = $('.basic_housework').is(':checked') ? $('.basic_housework').val() :'';
-        var homework_help = $('.homework_help').is(':checked') ? $('.homework_help').val() :'';
-        var bed_children = $('.bed_children').is(':checked') ? $('.bed_children').val() :'';
-        var bath_children = $('.bath_children').is(':checked') ? $('.bath_children').val() :'';
-        var accept_insurance = $('.accept_insurance').is(':checked')?$('input[name=accepts_insurance]:checked').val():'';
-	    var cook = $('.cook').is(':checked') ? $('.cook').val():'';
-        var basic_housework = $('.basic_housework').is(':checked') ? $('.basic_housework').val() :'';
-        var homework_help = $('.homework_help').is(':checked') ? $('.homework_help').val() :'';
-        var driver_license = $('.driver_license').is(':checked')?$('.driver_license').val():'';
-	    var vehicle = $('.vehicle').is(':checked') ? $('.vehicle').val(): '';
 	    var available = $('.available_on_short_notice').is(':checked')?$('.available_on_short_notice').val():'';
         var start_date = $("#textbox1").val()?$("#textbox1").val():'';
         var extra_field = $('.extra_field:checked').map(function(_, el) {
@@ -429,7 +405,7 @@
 		$.ajax({
 			type:"get",
 			url:"<?php echo site_url();?>common_care_controller/search",
-			data:"care_type="+care_type+"&subject="+subject+"&rate="+rate+"&skills="+skills+"&per_page="+per_page+"&distance="+distance+"&sort_by="+sort_by+"&pagenum="+pagenum+"&bath_children="+bath_children+"&bed_children="+bed_children+"&pick_up_child="+pick_up_child+"&cook="+cook+"&basic_housework="+basic_housework+"&homework_help="+homework_help+"&lat="+lat+"&lng="+lng+"&location="+location+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender_of_careseeker="+gender_of_careseeker+"&gender_of_caregiver="+gender_of_caregiver+"&language="+lang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&carelocation="+carelocations+"&trainings="+trainings+"&able_to_work="+able_to_work+"&driver_license="+driver_license+"&vehicle="+vehicle+"&available="+available+"&start_date="+start_date+"&smoker="+smoker+"&extra_field="+extra_field+"&accept_insurance="+accept_insurance,
+			data:"care_type="+care_type+"&rate="+rate+"&per_page="+per_page+"&distance="+distance+"&sort_by="+sort_by+"&pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender_of_careseeker="+gender_of_careseeker+"&gender_of_caregiver="+gender_of_caregiver+"&language="+lang+"&job_language="+jobLang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&carelocation="+carelocations+"&available="+available+"&start_date="+start_date,
 			success:function(done){
 			    window.continue_pulse = false
 				$(".searchloader").fadeOut("fast");
@@ -483,7 +459,7 @@
             filterCaregivers();
 		});
               
-		$('.subject,.skills,.extra_field,.gender,.gender_of_caregiver,.gender_of_careseeker,.smoker,.lang,.homework_help,.on_short_notice,.sick_child_care,.morenum,.basic_housework,.vehicle,.looking_to_work,.year_experience,.training,.availability,.driver_license,.pick_up_child,.cook,.carelocation').click(function(){
+		$('.subject,.skills,.extra_field,.gender,.gender_of_caregiver,.gender_of_careseeker,.smoker,.lang,.job_lang,.homework_help,.on_short_notice,.sick_child_care,.morenum,.basic_housework,.vehicle,.looking_to_work,.year_experience,.training,.availability,.driver_license,.pick_up_child,.cook,.carelocation').click(function(){
             $('#pagenum').val(1);
             filterCaregivers();
 		});
@@ -731,8 +707,10 @@
             if(type == 'caregivers')    
                 if (pagelink == '3' || pagelink == '11' || pagelink == '13' || pagelink == '14' || pagelink == '15' || pagelink == 'organizations') {
                     url = '<?php echo site_url();?>caregivers/organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng +'&distance=' + distance;
+                } else if (pagelink == '25' || pagelink == '26' || pagelink == '27' || pagelink == '28' || pagelink == '35' || pagelink == '36' || pagelink == '31' || pagelink == '38') { 
+                    url = '<?php echo site_url();?>caregivers/organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng +'&distance=' + distance;
                 } else {
-                    url = '<?php echo site_url();?>caregivers/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng +'&distance=' + distance;
+                    url = '<?php echo site_url();?>caregivers/organization-workers/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng +'&distance=' + distance;
                 }
             if(type == 'jobs')                    
                 url = '<?php echo site_url();?>jobs/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng +'&distance=' + distance;
