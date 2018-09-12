@@ -311,21 +311,20 @@
                     $pagination .= '<a href="#" class="paginate_click inactive" id="inactive"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp;Previous Page</a>';
                 }
                 $pagination .= '&nbsp;&nbsp;|&nbsp;&nbsp;';
-                for($i = $first; $i<=$pages && $i <= $first + 4; $i++)
-               {
-                       
-                       if($i==$page){
-                        $pagination .= ' <a href="#" style="display:none" class="paginate_click active" id="'.$i.'-page" >'.$i.'</a> ';
-                    }else{
-                        $pagination .= ' <a href="#" style="display:none" class="paginate_click in-active" id="'.$i.'-page">'.$i.'</a> ';   
-                }
-                    
-               }
+
             	if ($page < $pages) {
                     $pagination .= '<a href="#" class="paginate_click" id="next">Next Page&nbsp;<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>';
             	} else {
             	    $pagination .= '<a href="#" class="paginate_click inactive" id="inactive">Next Page&nbsp;<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>';
             	}
+                $pagination .= '<br>';
+                for($i = $first; $i<=$pages && $i <= $first + 4; $i++) {
+                    if ($i==$page) {
+                        $pagination .= ' <a href="#" class="paginate_click active" id="'.$i.'-page" >'.$i.'</a> ';
+                    } else {
+                        $pagination .= ' <a href="#" class="paginate_click in-active" id="'.$i.'-page">'.$i.'</a> ';   
+                    }
+                }
             }
             
             return $pagination;
