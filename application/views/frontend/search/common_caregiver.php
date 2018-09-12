@@ -318,25 +318,24 @@
             <div class="col-xs-6 col-lg-4 paddingBottom" style="padding-top:4px">
                 <div class="navigations" style="float:none"></div>
             </div>
-            <div class="col-lg-2 col-xs-6 paddingBottom" style="padding-top:4px">
-                <a href="#" class="show_all" id="next">Show All</a>
-            </div>
+            <!--<div class="col-lg-2 col-xs-6 paddingBottom" style="padding-top:4px">-->
+            <!--    <a href="#" class="show_all" id="next">Show All</a>-->
+            <!--</div>-->
+            <div style="margin-top: 10px;float: right;" style="margin-top: -4px;" class="col-lg-2 col-xs-6 paddingBottom">
+                <div>
+        		    <span>Results per page</span>
+        			<span class="fifteens">
+                        <select id="per_page">
+        					<option value="15">15</option>
+        					<option value="25">25</option>
+        					<option value="50">50</option>
+        				</select>
+        			</span>
+        		</div>
+    	    </div>
         </div>
 	</div>
-	<div style="margin-top: 10px;float: right; display:none" style="margin-top: -4px;">
-        <div>
-		    <span>Results per page</span>
-			<span class="fifteens">
-                <select id="per_page">
-					<option value="15">15</option>
-					<option value="25">25</option>
-					<option value="50">50</option>
-					<option value="100">100</option>
-					<option value="10000">10000</option>
-				</select>
-			</span>
-		</div>
-	</div>
+
 	<div class="clearfix margin-bot"></div>
 	<div id="list_container" class="">
 	</div>
