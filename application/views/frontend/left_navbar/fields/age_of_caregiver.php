@@ -1,5 +1,5 @@
 <div style="font-size:12px">
- 	<label style="font-size:13px; font-weight:600; margin-bottom:6px;">Care Provider Age</label>
+ 	<label style="font-size:13px; font-weight:600; margin-bottom:6px;">Age</label>
  	<select name="age_of_caregiver" style="width:80%" id="age_of_caregiver">
  	    <option value="" <?php if ($data['age_of_caregiver'] == 0) echo 'selected' ?>> Any </option>
          <option value="1_18" <?php if ($data['age_of_caregiver'] == '1_18') echo 'selected' ?>> 0 - 18</option>

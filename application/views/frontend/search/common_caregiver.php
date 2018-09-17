@@ -294,7 +294,7 @@
             </div>
         </div>
         <div class="row paddingTop">
-            <div class="col-xs-6 col-md-4 paddingBottom" style="padding-top:4px">
+            <div class="col-xs-6 col-md-3 paddingBottom" style="padding-top:4px">
                 <div class="total_rows hidden" style="margin-bottom: 0px; font-size: 24px; margin-top:-10px;">
             		<span id="total"></span>
                     <?php
@@ -315,13 +315,10 @@
                     <option value="distance">Sort by distance</option>
                 </select> 
             </div>
-            <div class="col-xs-6 col-lg-4 paddingBottom" style="padding-top:4px">
+            <div class="col-xs-6 col-md-4 paddingBottom" style="padding-top:4px">
                 <div class="navigations" style="float:none"></div>
             </div>
-            <!--<div class="col-lg-2 col-xs-6 paddingBottom" style="padding-top:4px">-->
-            <!--    <a href="#" class="show_all" id="next">Show All</a>-->
-            <!--</div>-->
-            <div style="margin-top: 10px;float: right;" style="margin-top: -4px;" class="col-lg-2 col-xs-6 paddingBottom">
+            <div style="margin-top: 1px;float: right;" style="margin-top: -4px;" class="col-md-3 col-xs-6 paddingBottom">
                 <div>
         		    <span>Results per page</span>
         			<span class="fifteens">
