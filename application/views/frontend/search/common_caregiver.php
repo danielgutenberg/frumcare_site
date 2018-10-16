@@ -706,7 +706,7 @@
                 } else if (pagelink == '25' || pagelink == '26' || pagelink == '27' || pagelink == '28' || pagelink == '35' || pagelink == '36' || pagelink == '31' || pagelink == '38') { 
                     url = '<?php echo site_url();?>caregivers/organizations/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng +'&distance=' + distance;
                 } else {
-                    url = '<?php echo site_url();?>caregivers/organization-workers/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng +'&distance=' + distance;
+                    url = '<?php echo site_url();?>caregivers/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng +'&distance=' + distance;
                 }
             if(type == 'jobs')                    
                 url = '<?php echo site_url();?>jobs/'+locationaddress + '?location=' + place + '&lat=' + lat + '&lng=' + lng +'&distance=' + distance;
