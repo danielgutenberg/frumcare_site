@@ -202,7 +202,7 @@
     	public function load_ads($care, $title, $seotitle, $account_category = 1, $organization = false) {
     	    $item_per_page = 15;
             $option = "distance";
-            $distance = 50;                     
+            $distance = 30;                     
             $this->breadcrumbs->push($title, site_url().'#');
             $this->breadcrumbs->unshift('Home', base_url());
                                             
@@ -221,7 +221,7 @@
             if (isset($query['distance'])) {
                 $distance = $query['distance'];
             } else {
-                $distance = 50;
+                $distance = 30;
             }
             $locationdetails = ['lat' => $latitude, 'lng' => $longitude, 'place' => $location];
             
