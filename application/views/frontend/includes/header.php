@@ -29,7 +29,7 @@
         ?>
         
         <script>/*<![CDATA[*/_holyclock_id="2ba2720960c4f7f322a73415bc856a21";_holyclock_tag='<s'+'cript src\x3d"//www.holyclock.com/holyclock.js?'+Math.floor(+new Date/864E5)+'">\x3c/script>';null!==document.cookie.match(/(?:^|;)\s*_holyclock_qr=\s*\w/)&&null===window.location.hash.match(/#holyclock=qr(?=#|$)/)&&document.write(_holyclock_tag);//]]></script>
-
+        <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
 
         <title><?php echo $seodata['meta_title'];?></title>
 
