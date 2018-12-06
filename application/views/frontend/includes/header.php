@@ -176,8 +176,9 @@ $(function(){
     });
 });
 </script>
-<script type="text/javascript" src="//maps.google.com/maps/api/js?libraries=places&language=en-AU"></script>
-
+<!--<script type="text/javascript" src="//maps.google.com/maps/api/js?libraries=places&language=en-AU"></script>-->
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-5W0-yxMfUhqOY3KJwOX6lbPpQ4LkfGU" type="text/javascript"></script>-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-5W0-yxMfUhqOY3KJwOX6lbPpQ4LkfGU&libraries=places"></script>
 <script>
     $(document).ready(function(){
         $('#careseekerButton').click(function(event) {
