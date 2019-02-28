@@ -174,6 +174,7 @@ class Common_care_model extends CI_Model
             $distance             = $search['distance'];
             $sort_by              = $search['sort_by'];
             $skills               = $search['skills'];
+            $references           = $search['references'];
 		}
 		
 		$sql = "select (SELECT MAX(login_time) FROM tbl_user_logs WHERE tbl_user_logs.user_id = tbl_userprofile.user_id) AS login_time, (select count(tbl_reviews.profile_id) from tbl_reviews where tbl_reviews.profile_id = tbl_userprofile.id) as number_reviews, (select sum(tbl_reviews.review_rating) from tbl_reviews where tbl_reviews.profile_id = tbl_userprofile.id) as total_review, tbl_user.*,(((acos(sin(($latitude * pi() /180 )) * sin((`lat` * pi( ) /180 ) ) + cos( ( $latitude * pi( ) /180 ) ) * cos( (`lat` * pi( ) /180 )) * cos( (( $longitude - `lng` ) * pi( ) /180 )))) *180 / pi( )) *60 * 1.1515) AS distance, tbl_userprofile.* from tbl_user left outer join  tbl_userprofile on tbl_user.id = tbl_userprofile.user_id left outer join tbl_care on tbl_care.id = tbl_userprofile.care_type where tbl_user.status = 1 and tbl_userprofile.profile_status=1 and tbl_user.archive=0";			
@@ -185,7 +186,9 @@ class Common_care_model extends CI_Model
 		if ($care_type == 'jobs') {
 		    $sql .= " and tbl_care.service_type = 2";
 		}
-		
+		if($search['references'] == 1) {
+        	$sql .= " and tbl_userprofile.references > 0";
+		}
 		if (count( explode(',', $care_type) ) > 1) {
 			$sql .= "  and tbl_userprofile.care_type in ($care_type)";
 		} else {
@@ -288,7 +291,6 @@ class Common_care_model extends CI_Model
             	}
             }
         }
-        
         if($search['pick_up_child'])
 			$sql .= " and tbl_userprofile.pick_up_child=".$search['pick_up_child'];
 		if($search['cook'])
@@ -430,6 +432,7 @@ class Common_care_model extends CI_Model
             $distance             = $search['distance'];
             $sort_by              = $search['sort_by'];
             $skills               = $search['skills'];
+            $references           = $search['references'];
 		}
 		
 		$sql = "select count(*) from tbl_user left outer join  tbl_userprofile on tbl_user.id = tbl_userprofile.user_id left outer join tbl_care on tbl_care.id = tbl_userprofile.care_type where tbl_user.status = 1 and tbl_userprofile.profile_status=1 and tbl_user.archive=0";			
@@ -440,6 +443,9 @@ class Common_care_model extends CI_Model
 		
 		if ($care_type == 'jobs') {
 		    $sql .= " and tbl_care.service_type = 2";
+		}
+		if ($search['references'] == 1) {
+        	$sql .= " and tbl_userprofile.references>0";
 		}
 		if (count( explode(',', $care_type) ) > 1) {
 			$sql .= "  and tbl_userprofile.care_type in ($care_type)";
@@ -542,7 +548,6 @@ class Common_care_model extends CI_Model
             	}
             }
         }
-        
         if($search['pick_up_child'])
 			$sql .= " and tbl_userprofile.pick_up_child=".$search['pick_up_child'];
 		if($search['cook'])

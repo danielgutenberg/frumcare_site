@@ -14,6 +14,7 @@
             	$this->load->view('frontend/left_navbar/fields/observance_of_caregiver', array('data' => $data));
             	$this->load->view('frontend/left_navbar/fields/languages', array('data' => $data));
                 $this->load->view('frontend/left_navbar/fields/when_you_need_care', array('data' => $data));
+                $this->load->view('frontend/left_navbar/fields/references', array('data' => $data));
             }
 	 	?>
         </div>

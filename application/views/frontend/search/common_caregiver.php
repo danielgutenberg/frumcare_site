@@ -390,6 +390,7 @@
 	        return $(el).val();
 	    }).get();
 	    var available = $('.available_on_short_notice').is(':checked')?$('.available_on_short_notice').val():'';
+	    var references = $('.references').is(':checked')?1:0;
         var start_date = $("#textbox1").val()?$("#textbox1").val():'';
         var extra_field = $('.extra_field:checked').map(function(_, el) {
 	        return $(el).val();
@@ -401,7 +402,7 @@
 		$.ajax({
 			type:"get",
 			url:"<?php echo site_url();?>common_care_controller/search",
-			data:"care_type="+care_type+"&rate="+rate+"&per_page="+per_page+"&distance="+distance+"&sort_by="+sort_by+"&pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender_of_careseeker="+gender_of_careseeker+"&gender_of_caregiver="+gender_of_caregiver+"&language="+lang+"&job_language="+jobLang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&carelocation="+carelocations+"&available="+available+"&start_date="+start_date,
+			data:"care_type="+care_type+"&rate="+rate+"&per_page="+per_page+"&distance="+distance+"&sort_by="+sort_by+"&pagenum="+pagenum+"&lat="+lat+"&lng="+lng+"&location="+location+"&caregiverage_from="+caregiverage_from+"&caregiverage_to="+caregiverage_to+"&gender_of_careseeker="+gender_of_careseeker+"&gender_of_caregiver="+gender_of_caregiver+"&language="+lang+"&job_language="+jobLang+"&observance="+observance+"&min_exp="+min_exp+"&availability="+availability+"&number_of_children="+number_of_children+"&morenum="+morenum+"&age_group="+age_group+"&looking_to_work="+looking_to_work+"&year_experience="+year_experience+"&references="+references+"&carelocation="+carelocations+"&available="+available+"&start_date="+start_date,
 			success:function(done){
 			    window.continue_pulse = false
 				$(".searchloader").fadeOut("fast");
@@ -455,7 +456,7 @@
             filterCaregivers();
 		});
               
-		$('.subject,.skills,.extra_field,.gender,.gender_of_caregiver,.gender_of_careseeker,.smoker,.lang,.job_lang,.homework_help,.on_short_notice,.sick_child_care,.morenum,.basic_housework,.vehicle,.looking_to_work,.year_experience,.training,.availability,.driver_license,.pick_up_child,.cook,.carelocation').click(function(){
+		$('.subject,.skills,.extra_field,.gender,.gender_of_caregiver,.gender_of_careseeker,.smoker,.lang,.job_lang,.homework_help,.on_short_notice,.sick_child_care,.morenum,.basic_housework,.vehicle,.looking_to_work,.year_experience,.training,.availability,.driver_license,.pick_up_child,.cook,.carelocation,.references').click(function(){
             $('#pagenum').val(1);
             filterCaregivers();
 		});
