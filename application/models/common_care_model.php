@@ -394,6 +394,9 @@ class Common_care_model extends CI_Model
         if($sort_by == 'distance') {
         	$sql.= " order by distance asc";
         }
+        if($sort_by == 'rating') {
+        	$sql.= " order by total_review desc";
+        }
         
         $sql.=" limit $limit";
         $sql.=" offset $offset";

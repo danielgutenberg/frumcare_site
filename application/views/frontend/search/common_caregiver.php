@@ -313,6 +313,7 @@
                 <select name="sort_by_select" id="sort_by_select" style="cursor:pointer; width:100%; max-width: 130px;">        
                     <option value="tbl_userprofile.id">Sort by latest</option>
                     <option value="distance">Sort by distance</option>
+                    <option value="rating">Sort by rating</option>
                 </select> 
             </div>
             <div class="col-xs-6 col-md-4 paddingBottom" style="padding-top:4px">
